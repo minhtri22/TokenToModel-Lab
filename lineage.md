@@ -216,3 +216,16 @@
 - Chặn khoa học vẫn giữ: H02 chưa có F1/F2 đủ quyền; H04 checker/golden binary chưa triển khai; H05 runtime guard/job + disk quota chưa thử và tên ngân sách RSS cũ phải được phê duyệt kế nhiệm. Vì vậy `D1_SCIENTIFIC_PREREG_LOCK=HOLD`, `I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`.
 - Không tạo worktree P01, không tải corpus, không huấn luyện tokenizer/GPT, không hợp nhất PR #4, không dọn P00.
 - Bước tiếp theo: `TTM_P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_GATE_DECISION_DESIGN_ONLY` — ra quyết định riêng về phạm vi nguồn và điều kiện trình cổng I0, không cấp quyền tự động.
+
+## L0018 — 2026-11-05 — Quyết định phạm vi F0 và tiền cấp quyền I0A chưa được phép
+
+- Loại: quyết định quản trị thiết kế, thẩm định điều kiện tiền cấp quyền (DESIGN_ONLY_SOURCE_SCOPE_AND_PREAUTH_ADJUDICATION); **không** phải kết quả thực nghiệm hoặc chạy bộ kiểm tra.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` PR #4 vẫn ở trạng thái nháp; đối chứng GitHub `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ nguyên toàn bộ L0000–L0017.
+- Phạm vi nguồn được chọn cho bước thiết kế: `F0_ONLY_DESIGN_AND_ORACLE_REVIEW`; F1/F2 chưa có `source_id` với giấy phép/PII/SHA được duyệt nên `HOLD_NO_APPROVED_SOURCE`. Không biến F0 thành TRAIN/TEST thực nghiệm.
+- Chấp thuận làm chuẩn hợp đồng kế nhiệm **ở mức thiết kế**: `max_job_commit_bytes=4294967296` (4 GiB tổng committed memory của Windows Job Object). Tên `max_peak_rss_bytes` trong H05 lịch sử giữ nguyên nhưng không được dùng thay Job Commit khi triển khai. `max_wall_seconds=1800` đo wall-clock, quota 2 GiB tệp phải qua broker/ACL riêng.
+- H04 C01–C10 đã `10/10 PASS_DESIGN` từ L0017, **không** có checker, guard hoặc QA động đã chạy.
+- Đã phân rõ các cổng D1 tài liệu, I0A triển khai tĩnh F0, QA0 chạy kỹ thuật F0/guard, E0 corpus thật. Không tạo vòng tròn yêu cầu checker đã chạy trước khi được phép viết checker; mỗi cổng có quyết định riêng.
+- Thẩm định I0A-01..09: `3 PASS_DESIGN_ONLY`, `5 HOLD_EVIDENCE`, `1 NOT_GRANTED`; tổng hợp `I0A_PREAUTH_ADMISSION=HOLD`, `I0A_IMPLEMENTATION_PERMIT=NOT_GRANTED`, D1 khoa học vẫn chưa được khóa.
+- Hồ sơ: `docs/p01/P01_D1_SOURCE_SCOPE_AND_MEMORY_METRIC_DECISION_20261105.md`, `docs/p01/P01_D1_I0_PREAUTH_GATE_CONTRACT_20261105.md`, `docs/p01/P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_ADJUDICATION_20261105.md`.
+- Không tạo worktree P01, không tải nguồn F1/F2, không lập trình checker/guard, không chạy thử/huấn luyện BPE/GPT, không hợp nhất PR #4 hoặc dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_I0A_F0_STATIC_IMPLEMENTATION_PREAUTH_EVIDENCE_AND_DESIGN_ADJUDICATION`, chỉ tiền kiểm read-only, allowlist, golden byte, ngân sách và quyết định độc lập; **chưa tự động cấp quyền**.
