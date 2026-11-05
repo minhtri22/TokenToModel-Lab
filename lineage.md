@@ -169,3 +169,15 @@
 - Kết luận: `P01_D1_READONLY_PREAUTH=COMPLETED_WITH_HOLD`; `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
 - Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4, không dọn worktree P00.
 - Bước tiếp theo: đo RAM/D: chỉ đọc trên Windows và chứng minh quyền nguồn hoặc quyết định F0-only; sau đó tiền thẩm định checker độc lập.
+
+## L0014 — 2026-11-05 — Thẩm định số đo RAM/đĩa P01 chỉ đọc; phạm vi nguồn F0-only
+
+- Loại: tiền kiểm tài nguyên và quyết định phạm vi thiết kế (RESOURCE_PREAUTH_READONLY / SOURCE_SCOPE_DECISION), **không** phải kết quả khoa học.
+- Console Windows người dùng cung cấp: `2026-11-05T11:01:18.0864528Z`, máy `DESKTOP-4PSD0G2`, local `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. SHA-256 chương trình đã ghim: `e48e6a101e640a483f727786e50032f04e1b39bdbc6c6b97b75d9c437c606606`.
+- RAM khả dụng `10.959 GiB >= 8 GiB`; D: còn trống `34.869 GiB >=16 GiB`; D: sau dự phòng `32.807 GiB >=12 GiB`. Ba điều kiện tài nguyên ứng viên đạt tại thời điểm đo, **không chứng minh** bộ giới hạn runtime hoặc thời gian.
+- Bản chép console có ghi rõ nguồn người dùng, không phải receipt ký số của Windows: `artifacts/qa/p01/TTM_P01_D1_RESOURCE_READONLY_USER_CONSOLE_20261105T110118Z.txt`.
+- H02 chưa có nguồn F1/F2 được xác minh giấy phép/PII/SHA, vì vậy `P01_SOURCE_SCOPE=F0_ONLY_DESIGN_AND_ORACLE_REVIEW` và không thu nhận corpus.
+- H04 có hợp đồng QA độc lập C01–C10 ở mức thiết kế; checker chưa được viết, chưa có QA động.
+- Hồ sơ: `docs/p01/P01_D1_WINDOWS_RESOURCE_SNAPSHOT_ADJUDICATION_20261105.md`, `docs/p01/P01_D1_H04_INDEPENDENT_CHECKER_DESIGN_GATE_20261105.md`.
+- Quyết định: `H05_RESOURCE_SNAPSHOT=PASS_CANDIDATE`; `H05_RESOURCE_GUARD_QA=HOLD`; `H02_SOURCE_RIGHTS=HOLD`; `P01_D1_PREREG_LOCK=NOT_GRANTED`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4 và không dọn P00.
