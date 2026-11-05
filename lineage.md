@@ -142,3 +142,18 @@
 - Quyết định: `P01_LOCAL_BASELINE_SYNC=PASS`; `P01_D0_METHOD_REVIEW=PASS_SCOPED_DESIGN`; `P01_D1_PREREG_LOCK=HOLD_H01_H05`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
 - Không huấn luyện tokenizer/GPT, không tải dữ liệu, không tạo worktree P01, không dọn P00 hoặc thay mã nguồn P00.
 - Bước tiếp theo: xử lý rõ 5 thiếu hụt H01–H05 trong một hồ sơ kế nhiệm chỉ chứa thiết kế, sau đó thẩm định độc lập D1 và ra quyết định riêng, không mở thực thi tự động.
+
+## L0012 — 2026-11-05 — Hoàn thiện đặc tả D1 H01–H05, khóa khoa học vẫn HOLD
+
+- Loại: thiết kế phương pháp, đối chiếu QA tài liệu (RESEARCH_DESIGN_REVIEW_ONLY), **không phải kết quả thực nghiệm hoặc huấn luyện**.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` tiếp tục từ nguồn P00 `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; yêu cầu hợp nhất PR #4 giữ dạng nháp, chưa hợp nhất.
+- H01: đã đặc tả BPE byte tất định, quy tắc phá hòa bằng ID số nguyên, ghép không chồng lấn, định dạng `merges.ttmbpe` nhị phân có thứ tự, bộ từ vựng 2048 là ứng viên chính; chưa chạy.
+- H02: đã đặc tả danh mục chứng minh quyền sử dụng, **chưa có nguồn corpus thật được duyệt**; tiếp tục HOLD.
+- H03: đã đề xuất khóa đối chiếu NFC riêng, ngưỡng gần trùng theo Levenshtein/Jaccard, nhóm liên thông, seed chia tập `20261105`, tối thiểu 30 nhóm và 0 giao cắt, **chưa đánh giá trên corpus thật**.
+- H04: đã định nghĩa F00–F11 bằng byte hex + SHA-256 và oracle âm tính; kiểm tra độc lập ở môi trường chuẩn bị **12/12 SHA-256 khớp**, 3/3 chuỗi UTF-8 lỗi bị từ chối bởi thư viện chuẩn. Chưa có bộ kiểm tra P01 thực thi trên Windows.
+- H05: ngân sách ứng viên 64 MiB nguồn, tối đa 2000 tài liệu, RAM đỉnh 4 GiB, RAM trống tối thiểu 8 GiB, D: trống tối thiểu 16 GiB, 1800 giây; chưa đo tài nguyên hiện tại, chưa kiểm tra guard hoặc cấp quyền.
+- Bộ kiểm tra tĩnh 18/18 tiêu chí nhất quán D1 đạt; lần kiểm tra từ khóa đầu tiên đạt 17/18 do dò khác cách diễn đạt “tối thiểu 30 nhóm”, đã chỉnh điều kiện dò. **Không được suy diễn 18/18 là chất lượng tokenizer**.
+- Hồ sơ `docs/p01/P01_D1_H01_DETERMINISTIC_BPE_SPEC.md`, `docs/p01/P01_D1_H03_DEDUP_SPLIT_SPEC.md`, `docs/p01/P01_D1_H02_H05_SOURCE_RESOURCE_GATE.md`, `docs/p01/P01_D1_H04_FIXTURES_AND_INDEPENDENT_QA_SPEC.md`, `docs/p01/P01_D1_METHOD_REVIEW_AND_LOCK_GATE_20261105.md`.
+- Quyết định: `P01_D1_DOCUMENT_GAP_CLOSURE=PASS_SCOPED`, `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD_SOURCE_QA_RESOURCE`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tải dữ liệu, không học BPE, không huấn luyện GPT, không tạo worktree P01, không dọn worktree P00, không mở TEST hoặc tiêu thụ seed khoa học.
+- Bước tiếp theo: cung cấp bằng chứng quyền dữ liệu hoặc giới hạn rõ P01 chỉ thử dữ liệu F0; chuẩn bị bộ QA độc lập/nguồn lực ở cổng riêng, sau đó quyết định có khóa D1 hay không.
