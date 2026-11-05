@@ -59,7 +59,7 @@ Bộ golden bytes và test vector đã được ghi trong H04/I0A. I0A-S chỉ c
 
 **Bắt buộc ngay trước permit:**
 1. Chủ sở hữu đưa **quyết định riêng bằng lời rõ ràng** với chế độ A hoặc B, exact branch SHA, danh mục tệp, quyền Git/đường dẫn ghi, số lần và thời hạn. Lượt này **không** phải permit.
-2. Đọc lại GitHub main/PR HEAD, trạng thái Draft, không merge, các file ứng viên có va chạm hay không, workflow triggers và danh mục nguồn. Với B còn cần Windows online, origin/main, P00 sạch, P01 path chưa tồn tại/reparse, D: root và dự báo RAM/D tại thời điểm cấp.
+2. Đọc lại GitHub main/PR HEAD, trạng thái Draft, không merge, các file ứng viên có va chạm hay không, workflow triggers và danh mục nguồn. Với B còn cần Windows online, origin/main, P00 sạch, P01 path chưa tồn tại/reparse, local root và dự báo RAM/D tại thời điểm cấp.
 3. Permit chỉ cho phép **authoring + review diff + SHA** theo danh mục; không import/run các file mới, không CI chạy tự động hoặc dùng công cụ gây side effects không định nghĩa.
 4. Các file được tạo phải không ghi dữ liệu ngoài allowlist, không có động tác lúc import hoặc file scope ngoài root; tiêu chuẩn này được đánh giá **tĩnh**, không cần chạy worker.
 5. Tách code writer và independent reviewer; cả hai đối chiếu SHA/contract; báo cáo trung thực `SOURCE_ONLY_NO_RUNTIME` và không tự mở QA0.
