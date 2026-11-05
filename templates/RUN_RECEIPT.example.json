@@ -1,0 +1,23 @@
+{
+  "run_id": "PXX_YYYYMMDDTHHMMSSZ_unique",
+  "phase": "PXX",
+  "kind": "QA|TRAIN|EVAL|BENCH",
+  "status": "PASS|FAIL|INCONCLUSIVE",
+  "git_sha": "40_or_64_char_commit_hash",
+  "branch": "feature/pXX-name",
+  "config_path": "configs/phase0_reference.json",
+  "config_sha256": "sha256_of_config_file",
+  "dataset_id": "toy_fixture_or_versioned_dataset",
+  "dataset_sha256": "not_applicable_for_toy_fixture",
+  "seed": 123,
+  "environment": {
+    "python": "3.x",
+    "torch": "x.y",
+    "device": "cpu|xpu|cuda",
+    "os": "Windows 11"
+  },
+  "workload_id": "fixed_workload_identifier",
+  "metrics": {"loss": 0.0, "latency_ms": 0.0},
+  "qa_evidence": "artifacts/qa/receipt.json",
+  "notes": "Example only. Never submit invented metrics."
+}
