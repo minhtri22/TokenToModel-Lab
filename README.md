@@ -10,7 +10,7 @@
 - Mã tham chiếu P00 đã đạt kiểm thử chức năng trên CPU: 13/13 bài kiểm thử cục bộ Windows và 6/6 bài kiểm thử bổ sung độc lập.
 - Đây là **mốc đối chứng kỹ thuật (Engineering Baseline)**, chưa phải mô hình đã được huấn luyện hoặc nhân PagedAttention GPU tối ưu.
 - Cấu hình `configs/phase0_reference.json` vẫn có trạng thái `PROPOSED_NOT_FROZEN`, không phải khóa thực nghiệm khoa học.
-- Tại lần kiểm tra sau hợp nhất ngày 05/11/2026, local `main` vẫn ở commit khởi tạo; chưa được xác minh đồng bộ hay trạng thái sạch của cây Git. Xem `docs/qa/P00_POST_MERGE_AUDIT_20261105.md`.
+- Sau kiểm toán ban đầu, local `main` đã được đồng bộ tiến nhanh (Fast-forward) tới commit P00 `8df22f5f29e645b2becff936daccbd32ac780661`. Xem biên bản thẩm định mới `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Tài liệu PR #2 vẫn phải qua cổng kiểm định và hợp nhất riêng.
 
 ## Cấu trúc tài liệu
 
