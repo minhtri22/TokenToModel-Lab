@@ -181,3 +181,14 @@
 - Hồ sơ: `docs/p01/P01_D1_WINDOWS_RESOURCE_SNAPSHOT_ADJUDICATION_20261105.md`, `docs/p01/P01_D1_H04_INDEPENDENT_CHECKER_DESIGN_GATE_20261105.md`.
 - Quyết định: `H05_RESOURCE_SNAPSHOT=PASS_CANDIDATE`; `H05_RESOURCE_GUARD_QA=HOLD`; `H02_SOURCE_RIGHTS=HOLD`; `P01_D1_PREREG_LOCK=NOT_GRANTED`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
 - Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4 và không dọn P00.
+
+## L0015 — 2026-11-05 — Thẩm định hợp đồng checker độc lập C01–C10, I0 vẫn HOLD
+
+- Loại: đánh giá phương pháp ở mức tài liệu (DESIGN_CONTRACT_ADJUDICATION_ONLY); không phải kết quả QA động, kiểm tra bên thứ ba hay thực nghiệm.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` PR #4 tiếp tục là bản nháp; nguồn thẩm định ban đầu ở HEAD `29a486fce0944bd2b726322ea3a6b1abb64f9c5e`, mốc GitHub main `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Các hợp đồng `C01` (toàn miền byte B0) và `C02` (12 mẫu F0 có oracle byte) đạt **PASS_DESIGN**; `C03–C10` là **HOLD_DESIGN**, chưa đủ bằng chứng/oracle từ chối hoặc cơ chế kiểm định độc lập. `FAIL_DESIGN=0`; tất cả `NOT_EXECUTED`.
+- Các khoảng trống chặn I0: `G04-01` ma trận API/lỗi; `G04-02` oracle BPE nhiều vòng/merges sai; `G04-03` trùng/gần trùng sát ngưỡng; `G04-04` tái lập/snapshot TRAIN và chặn TEST; `G04-05` nguồn/PII; `G04-06` cơ chế giới hạn RAM/đĩa/thời gian; `G04-07` manifest và biên bản bất biến; `G04-08` thẩm định lại.
+- Báo cáo: `docs/p01/P01_D1_H04_C01_C10_CONTRACT_ADJUDICATION_20261105.md`.
+- Quyết định: `P01_D1_H04_CONTRACT_ADJUDICATION=HOLD_WITH_SCOPED_PASS`, `P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`, `P01_I0_IMPLEMENTATION=NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải corpus, không chạy tokenizer/BPE/GPT, không hợp nhất PR #4 và không dọn dẹp P00.
+- Bước kế tiếp: sửa hợp đồng checker ở mức thiết kế G04-01..07 và xét G04-08 ở quyết định độc lập trước bất kỳ permit I0.
