@@ -1,0 +1,31 @@
+{
+    "scientific_training":  "NOT_PERFORMED",
+    "run_id":  "TTM_P00_WINDOWS_LOCAL_QA_20261105T043050Z",
+    "repository":  "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "model_sha256":  "821e60a6c97536bf3a251602b31dcc6b55f1c81836cffa5223ec2f063ae578ea",
+    "independent_qa":  "NOT_PERFORMED",
+    "schema":  "ttm.p00.windows_local_qa.v1",
+    "merge_authorized":  false,
+    "branch":  "feature/p00-source-docs-diagrams-20261105",
+    "config_sha256":  "ffcd83863fb9c2a8959fbaaa52ccdb7bf2977d68ea6aa869880015dc0daebcbd",
+    "tests":  [
+                  {
+                      "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                      "name":  "reference",
+                      "stderr_sha256":  "3d6f382ab551b48e7a4deaf641d5cd685a41234b90005427ea91b55ebff1a25a",
+                      "exit_code":  0
+                  },
+                  {
+                      "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                      "name":  "records",
+                      "stderr_sha256":  "a81542438e05b38c317fd5f64c5684d6be5a8433f799c8c19fa1b4b9dfbaaa6d",
+                      "exit_code":  0
+                  }
+              ],
+    "main_baseline":  "f2ed098b033431924a3cbabdc9af89d7bbd7b378",
+    "utc":  "2026-11-05T04:33:20.8330323Z",
+    "workspace":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "source_commit":  "382da2c52d0fb4efe1cd9de5c92e68de79a52a20",
+    "python":  "C:\\Users\\minht\\miniforge3\\python.exe",
+    "local_tests_pass":  true
+}
