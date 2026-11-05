@@ -25,7 +25,7 @@ Nguồn tham khảo:
 ## 3. Chương trình kiểm toán bổ sung (chỉ đọc)
 
 **Tên:** `TTM_P01_I0A_PATH_ACL_READONLY.ps1`  
-**SHA-256 trên đúng file chuẩn bị:** `fd8adfc9677730cbd523c21ca98360fef000f03d49612688c957973a7f47f26b`.  
+**SHA-256 trên đúng file chuẩn bị:** `6c21da3ae5da1786c3ac524c6fbb5af2dc6714e6ceec42b77d9ad7ab74a56742`.  
 **Chạy:** sau khi xác minh SHA-256 nếu có file, hoặc dán toàn bộ mã đúng nguyên văn vào phiên PowerShell 5.1. **Chưa thực thi trên Windows**.
 
 Hàm đọc Git chỉ gọi `rev-parse`, `remote get-url`, `status --porcelain`, `worktree list --porcelain`. Các phép Windows chỉ là `Get-Item`/`Get-Acl`/`Test-Path`. Không gọi `Set-Acl`, `icacls /grant`, `git clean`, `worktree add/remove`, `Remove-Item`, lệnh mạng hoặc tạo file.
