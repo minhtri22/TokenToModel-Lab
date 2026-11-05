@@ -1,17 +1,17 @@
-# Kiểm tra mức sẵn sàng thương mại (Commercial Readiness)
+# Đánh giá điều kiện thương mại hóa (Commercial Readiness)
 
-Không mặc định một mô hình tự huấn luyện là có thể khai thác thương mại.
+Một mô hình tự viết và vượt kiểm thử kỹ thuật **không mặc nhiên** đủ chất lượng, đủ quyền sử dụng hoặc đủ an toàn để kinh doanh.
 
-| Hạng mục | Bằng chứng tối thiểu | Trạng thái ban đầu |
+| Hạng mục | Bằng chứng cần có | Trạng thái sau P00 |
 |---|---|---|
-| License mã nguồn/phụ thuộc | SBOM, license audit | NOT_ASSESSED |
-| Quyền sử dụng dữ liệu | Provenance, license, consent khi cần | NOT_ASSESSED |
-| Quyền phát hành trọng số | Nguồn weights, dependency restrictions | NOT_ASSESSED |
-| Chất lượng theo use case | Held-out benchmark + acceptance | NOT_ASSESSED |
-| Bảo mật hệ thống | Authentication, rate limiting, prompt risks, audit | NOT_ASSESSED |
-| Quyền riêng tư | PII workflow, retention, deletion | NOT_ASSESSED |
-| Hiệu năng và chi phí | TTFT, TPOT, concurrency, total cost | NOT_ASSESSED |
-| Khả năng bảo trì | Reproducible build, rollback, monitoring | NOT_ASSESSED |
-| Tuân thủ thị trường mục tiêu | Rà soát luật/tiêu chuẩn hiện hành theo sản phẩm | NOT_ASSESSED |
+| Giấy phép mã nguồn (Source License) | Danh mục thành phần phần mềm (SBOM), rà soát giấy phép | Chưa đánh giá |
+| Quyền sử dụng dữ liệu (Data Rights) | Nguồn dữ liệu, giấy phép, chấp thuận khi cần | Chưa đánh giá |
+| Quyền phát hành trọng số (Weight License) | Nguồn trọng số, ràng buộc phụ thuộc và phân phối | Chưa đánh giá |
+| Chất lượng theo mục đích (Use-case Quality) | Đối chứng trên tập dữ liệu giữ riêng (Held-out Benchmark), tiêu chí chấp nhận | Chưa đánh giá |
+| Bảo mật hệ thống (Security) | Xác thực (Authentication), giới hạn tốc độ (Rate Limiting), kiểm tra rủi ro câu lệnh (Prompt Risks) | Chưa đánh giá |
+| Quyền riêng tư (Privacy) | Quy trình xử lý thông tin cá nhân (PII), lưu giữ và xóa dữ liệu | Chưa đánh giá |
+| Hiệu năng và chi phí (Performance/Cost) | Thời gian token đầu (TTFT), mỗi token tiếp theo (TPOT), nhiều yêu cầu đồng thời, chi phí | Chưa đánh giá |
+| Vận hành (Operations) | Khả năng tái dựng (Reproducible Build), quay lui (Rollback), giám sát (Monitoring) | Chưa đánh giá |
+| Tuân thủ thị trường (Compliance) | Rà soát quy định phù hợp sản phẩm và khu vực triển khai | Chưa đánh giá |
 
-Mục đích của bảng này là xác định khoảng trống cần giải quyết, không tạo chứng nhận thương mại.
+P00 chỉ đã kiểm định **tính đúng chức năng tham chiếu CPU**. Không đánh dấu mục nào trong bảng là đạt nhờ kết quả 19/19 bài QA. Bảng này là danh mục điều kiện cần khảo sát ở các giai đoạn sau, không phải chứng nhận thương mại.
