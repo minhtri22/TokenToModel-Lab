@@ -78,3 +78,23 @@ Nguồn tham khảo: https://www.rfc-editor.org/rfc/rfc8785.
 5. Không được dùng golden snapshot chứa nhãn nguồn không hợp pháp để bypass cổng giấy phép; không có quyền đọc TEST hoặc huấn luyện.
 
 **Quyết định:** `GOLDEN_MERGES_BYTES=SPECIFIED`; `GOLDEN_SNAPSHOT_BYTES=SPECIFIED_NON_ADMISSIBLE`; `GOLDEN_JCS_BYTES=SPECIFIED_NON_RECEIPT`; `GOLDEN_RUNTIME_QA=NOT_EXECUTED`; `I0A_PERMIT=NOT_GRANTED`.
+
+## 5. Golden manifest đủ bộ khóa trong schema — negative admission, không có lượt chạy
+
+Ví dụ JCS 109 byte ở mục 3 chỉ kiểm tra serialization tối thiểu. Để tránh **PASS giả do schema thiếu trường**, thêm ví dụ có đủ các khóa bắt buộc từ hợp đồng G04-07. Những giá trị `null` (checker, tokenizer, thời điểm chạy, exit code) và `operation_id=DESIGN_ONLY_NO_RUN` cố tình xác định **không có lượt chạy**; việc gán `PASS` hay tiếp nhận như receipt thực thi phải bị từ chối.
+
+**UTF-8/JCS chính xác 774 byte, không BOM/newline:**
+
+```json
+{"checker_source_sha256":null,"config_sha256":"6ed0342615243efc6a190e69881592f25f80b9cac388b2f17e1cdc549355b433","exit_code":null,"files":[],"final_status":"INCONCLUSIVE","fixture_spec_sha256":null,"git_commit_sha":"92facee15d7c0d46b0e84ddf5b6d8b2073e078f7","merges_file_sha256":"11c72190c6f3b757d260c426c357a4de8ff36313495f2299da81638386289e8d","operation_id":"DESIGN_ONLY_NO_RUN","resource_summary":{"max_job_commit_bytes":4294967296,"peak_job_commit_bytes":null,"wall_elapsed_ms":null},"run_end_utc":null,"run_start_utc":null,"schema":"TTM_P01_EVIDENCE_V1","source_manifest_sha256":"3fd48e766c989656426013ee5e8e453afbf14548daa750c386673de02058a33d","tokenizer_source_sha256":null,"train_snapshot_sha256":"026744455f6a71b178702ce077737ff9c416b3cc716b5711f6b8ef6d0779697d"}
+```
+
+**SHA-256:** `d09396eb72ff318e9820d76bb999acae01cfeb9547ae80187d0e33d970119beb`.
+
+Đây là **golden định dạng và bài thử từ chối**, không phải một manifest hợp lệ để cấp quyền:
+- Không có source F1/F2 được duyệt; trường source SHA tham chiếu marker **F0 giả lập không có quyền học**.
+- Không có `checker_source_sha256`, `tokenizer_source_sha256`, `fixture_spec_sha256`, thời gian hoặc file thực.
+- Tất cả mã SHA được tham chiếu là **giá trị giả lập từ thiết kế**, không phải xác nhận tệp đã materialize.
+- Checker phải phân biệt **cú pháp JCS hợp lệ** với **chứng cứ nghiên cứu đủ điều kiện**. Nếu chỉ vì parse JSON và hash trùng mà kết luận `PASS`, đó là **FAIL về kiểm soát bằng chứng**.
+
+**Bài âm tính:** đảo một byte trong một SHA, xóa trường bắt buộc, gán `final_status=PASS` mà giữ các `null`, chèn `operation_id` trùng, hoặc dùng `resource_summary` chưa có kết quả đo thật. Mọi trường hợp phải bị từ chối theo chính sách receipt thực thi; không tự sửa dữ liệu để khớp mẫu.
