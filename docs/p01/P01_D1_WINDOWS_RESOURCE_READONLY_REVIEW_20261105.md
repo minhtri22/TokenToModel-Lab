@@ -64,3 +64,17 @@ Các ngưỡng này là **ứng viên thiết kế**, chưa được kiểm đ�
 `P01_WORKTREE_CREATION_AUTHORIZED=false`  
 `P01_DATA_DOWNLOAD_AUTHORIZED=false`  
 `P01_TRAINING_AUTHORIZED=false`
+
+## 6. Phụ lục sau số đo Windows — Ngưỡng ứng viên đạt, cổng thực thi vẫn HOLD
+
+Đo tại `2026-11-05T11:01:18.0864528Z` qua chương trình PowerShell 5.1 chỉ đọc do người dùng chạy:
+
+- RAM khả dụng `10.959 GiB`, ngưỡng ứng viên `>=8 GiB`: đạt, dư `2.959 GiB`.
+- D: còn trống `34.869 GiB`, ngưỡng ứng viên `>=16 GiB`: đạt, dư `18.869 GiB`.
+- D: sau dự phòng đề xuất `32.807 GiB`, ngưỡng ứng viên `>=12 GiB`: đạt, dư `20.807 GiB`.
+- `LOCAL_MAIN=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; `WORKTREES_WITHIN_ROOT=2`; chương trình báo không thực hiện thay đổi hệ thống tệp.
+- Chứng cứ gốc là console người dùng cung cấp, được lưu dưới tên `artifacts/qa/p01/TTM_P01_D1_RESOURCE_READONLY_USER_CONSOLE_20261105T110118Z.txt`; **không phải biên bản do máy ký số**.
+
+Các mục 1–5 ở trên là **ảnh chụp trạng thái trước khi có console**, không nên sửa lại hoặc hiểu là kết quả hiện tại. Diễn giải và kết luận cập nhật nằm trong `docs/p01/P01_D1_WINDOWS_RESOURCE_SNAPSHOT_ADJUDICATION_20261105.md`.
+
+**Quyết định cập nhật:** `H05_RAM_DISK_CANDIDATE_SNAPSHOT=PASS`; `H05_RESOURCE_GUARD_DYNAMIC_QA=HOLD`; `P01_D1_LOCK=NOT_GRANTED`.
