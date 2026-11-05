@@ -7,6 +7,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from collections import Counter
 import struct
+from runtime.p01.source_scope_guard import require_f0_literal_bytes
 
 MAGIC = b"TTM_BPE_V1\x00"
 
@@ -88,6 +89,10 @@ def learn_merges_f0_qa0_only(
         raise BPEContractError("INVALID_TARGET_VOCAB")
     if not isinstance(docs, list) or not all(isinstance(x, bytes) for x in docs):
         raise BPEContractError("INVALID_DOCS")
+    # The caller's admission string is NOT a security capability.
+    # Reject every non-pinned byte payload, even when it supplies that string.
+    for document in docs:
+        require_f0_literal_bytes(document)
     corpus = [list(document) for document in docs]
     merges: list[Merge] = []
     while len(merges) + 256 < target_vocab_size:
