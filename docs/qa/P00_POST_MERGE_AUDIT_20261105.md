@@ -86,3 +86,15 @@ Không dọn worktree, không tự sửa lịch sử, không tạo task RemoteMC
 - Chỉ xem xét đồng bộ tiến nhanh (Fast-forward) sau khi điều kiện an toàn đạt; không dùng reset/force/clean.
 - Kiểm tra nhánh tài liệu chỉ đổi tài liệu và bổ sung entry lineage mới; QA văn bản tiếng Việt.
 - Không mở P01 cho đến khi đóng các cổng còn treo.
+
+## 7. Phụ lục sau kiểm toán: local P00 đã đồng bộ (05/11/2026)
+
+Bảng ở mục 1 và kết luận `P00_LOCAL_BASELINE_SYNC=HOLD` là **ảnh chụp trạng thái tại thời điểm kiểm toán ban đầu**. Sau đó, script đã khóa thực hiện tiến nhanh chính xác (Exact-pin Fast-forward) thành công:
+
+- Biên bản: `TTM_P00_MAIN_FAST_FORWARD_20261105T075432222Z.json`.
+- SHA-256 biên bản: `f452b99c531bb8bdba26249b4ef07172044c582471ab87c48285954490fbb4ab`.
+- Local `main` và `origin/main`: `8df22f5f29e645b2becff936daccbd32ac780661`, khớp GitHub `main` lúc kiểm tra.
+- Worktree P00 không thay đổi commit; 11 tệp được bảo vệ theo biên bản, không thực hiện dọn dẹp.
+- Kết luận mới: `TTM_P00_LOCAL_FAST_FORWARD_RESULT_ADJUDICATION=PASS`.
+
+Xem `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md` để biết phương pháp thẩm định. Điều này **không** cấp quyền mở P01 hoặc mặc nhiên chấp thuận hợp nhất nhánh tài liệu PR #2.
