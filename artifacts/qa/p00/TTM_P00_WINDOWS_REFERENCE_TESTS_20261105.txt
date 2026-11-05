@@ -1,0 +1,10 @@
+test_all_decode_positions_match_dense (test_reference.GPTPagedTests.test_all_decode_positions_match_dense) ... ok
+test_causality (test_reference.GPTPagedTests.test_causality) ... ok
+test_interleaved_requests (test_reference.GPTPagedTests.test_interleaved_requests) ... ok
+test_oom_and_reuse (test_reference.GPTPagedTests.test_oom_and_reuse) ... ok
+test_trainable_loss_backward (test_reference.GPTPagedTests.test_trainable_loss_backward) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 57.362s
+
+OK
