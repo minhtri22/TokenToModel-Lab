@@ -34,13 +34,13 @@ function Assert-PathSafety([string]$path) {
     }
     return $full
 }
-function Git([string[]]$gitArgs) {
-    $output = @(& git -C $Root @gitArgs)
+function Invoke-TtmGit([string[]]$GitArgs) {
+    $output = @(& $script:GitExe -C $Root @GitArgs)
     if ($LASTEXITCODE -ne 0) { throw "TTM_GIT_FAILED($LASTEXITCODE): $($gitArgs -join ' ') $($output -join ' ')" }
     return $output
 }
-function GitWorktree([string[]]$gitArgs) {
-    $output = @(& git -C $Worktree @gitArgs)
+function Invoke-TtmGitWorktree([string[]]$GitArgs) {
+    $output = @(& $script:GitExe -C $Worktree @GitArgs)
     if ($LASTEXITCODE -ne 0) { throw "TTM_GIT_WORKTREE_FAILED($LASTEXITCODE): $($gitArgs -join ' ') $($output -join ' ')" }
     return $output
 }
@@ -49,7 +49,9 @@ try {
     $null = Assert-PathSafety $Root
     $null = Assert-PathSafety $WorktreesRoot
     $null = Assert-PathSafety $Worktree
-    if (-not (Get-Command git -ErrorAction SilentlyContinue)) { throw 'TTM_GIT_UNAVAILABLE' }
+    $gitCommand = Get-Command -Name 'git.exe' -CommandType Application -ErrorAction SilentlyContinue
+    if (-not $gitCommand) { throw 'TTM_GIT_UNAVAILABLE' }
+    $script:GitExe = $gitCommand.Source
     if (-not (Test-Path -LiteralPath $PythonExe -PathType Leaf)) { throw "TTM_PYTHON_UNAVAILABLE: $PythonExe" }
 
     foreach ($key in @('TEMP','TMP','TMPDIR','PIP_CACHE_DIR','PYTHONPYCACHEPREFIX',
@@ -72,10 +74,10 @@ try {
     $env:TRITON_CACHE_DIR = $Cache
 
     # Read-only remote identity check before any local Git changes.
-    $mainRef = @(& git ls-remote --heads $Remote 'refs/heads/main')
+    $mainRef = @(& $script:GitExe ls-remote --heads $Remote 'refs/heads/main')
     if ($LASTEXITCODE -ne 0 -or $mainRef.Count -ne 1 -or
         (($mainRef[0] -split '\s+')[0] -ine $BaselineMain)) { throw 'TTM_REMOTE_MAIN_PIN_MISMATCH' }
-    $featureRef = @(& git ls-remote --heads $Remote ("refs/heads/" + $Branch))
+    $featureRef = @(& $script:GitExe ls-remote --heads $Remote ("refs/heads/" + $Branch))
     if ($LASTEXITCODE -ne 0 -or $featureRef.Count -ne 1) { throw 'TTM_REMOTE_P00_BRANCH_MISSING' }
 
     $gitPath = Join-Path $Root '.git'
@@ -88,31 +90,31 @@ try {
             if ($p.Name -notin $allowed) { throw "TTM_UNKNOWN_ROOT_ENTRY: $($p.Name)" }
             $null = Assert-PathSafety $p.FullName
         }
-        $null = Git @('init','-b','main')
-        $null = Git @('remote','add','origin',$Remote)
+        $null = Invoke-TtmGit -GitArgs @('init','-b','main')
+        $null = Invoke-TtmGit -GitArgs @('remote','add','origin',$Remote)
         Write-Host 'TTM_LOCAL_GIT_INITIALIZED=YES'
     }
-    $top = ((Git @('rev-parse','--show-toplevel')) | Select-Object -Last 1).Trim().Replace('/', '\')
+    $top = ((Invoke-TtmGit -GitArgs @('rev-parse','--show-toplevel')) | Select-Object -Last 1).Trim().Replace('/', '\')
     if ($top.TrimEnd('\') -ine $Root.TrimEnd('\')) { throw "TTM_GIT_TOPLEVEL_MISMATCH: $top" }
-    $origin = ((Git @('remote','get-url','origin')) | Select-Object -Last 1).Trim()
+    $origin = ((Invoke-TtmGit -GitArgs @('remote','get-url','origin')) | Select-Object -Last 1).Trim()
     if ($origin -cne $Remote) { throw "TTM_GIT_ORIGIN_MISMATCH: $origin" }
-    $null = Git @('fetch','--no-tags','origin','main',$Branch)
-    $mainRemote = ((Git @('rev-parse','origin/main')) | Select-Object -Last 1).Trim()
+    $null = Invoke-TtmGit -GitArgs @('fetch','--no-tags','origin','main',$Branch)
+    $mainRemote = ((Invoke-TtmGit -GitArgs @('rev-parse','origin/main')) | Select-Object -Last 1).Trim()
     if ($mainRemote -ine $BaselineMain) { throw 'TTM_FETCHED_MAIN_PIN_MISMATCH' }
-    $null = Git @('switch','main')
-    $mainLocal = ((Git @('rev-parse','HEAD')) | Select-Object -Last 1).Trim()
+    $null = Invoke-TtmGit -GitArgs @('switch','main')
+    $mainLocal = ((Invoke-TtmGit -GitArgs @('rev-parse','HEAD')) | Select-Object -Last 1).Trim()
     if ($mainLocal -ine $BaselineMain) { throw 'TTM_LOCAL_MAIN_NOT_AT_BOOTSTRAP_PIN' }
-    $dirty = @(Git @('status','--porcelain','--untracked-files=no'))
+    $dirty = @(Invoke-TtmGit -GitArgs @('status','--porcelain','--untracked-files=no'))
     if ($dirty.Count -ne 0) { throw 'TTM_LOCAL_MAIN_TRACKED_CHANGES_PRESENT' }
-    $featureHead = ((Git @('rev-parse',("origin/" + $Branch))) | Select-Object -Last 1).Trim()
-    & git -C $Root merge-base --is-ancestor $RequiredSourceAncestor $featureHead
+    $featureHead = ((Invoke-TtmGit -GitArgs @('rev-parse',("origin/" + $Branch))) | Select-Object -Last 1).Trim()
+    & $script:GitExe -C $Root merge-base --is-ancestor $RequiredSourceAncestor $featureHead
     if ($LASTEXITCODE -ne 0) { throw 'TTM_FEATURE_SOURCE_ANCESTOR_MISMATCH' }
     if (Test-Path -LiteralPath $Worktree) { throw "TTM_WORKTREE_ALREADY_EXISTS: $Worktree" }
     [IO.Directory]::CreateDirectory($WorktreesRoot) | Out-Null
     $null = Assert-PathSafety $WorktreesRoot
-    $null = Git @('worktree','add','-b',$Branch,$Worktree,("origin/" + $Branch))
+    $null = Invoke-TtmGit -GitArgs @('worktree','add','-b',$Branch,$Worktree,("origin/" + $Branch))
     $null = Assert-PathSafety $Worktree
-    $actualHead = ((GitWorktree @('rev-parse','HEAD')) | Select-Object -Last 1).Trim()
+    $actualHead = ((Invoke-TtmGitWorktree -GitArgs @('rev-parse','HEAD')) | Select-Object -Last 1).Trim()
     if ($actualHead -ine $featureHead) { throw 'TTM_WORKTREE_HEAD_MISMATCH' }
     Write-Host "TTM_P00_SOURCE_HEAD=$actualHead"
 
