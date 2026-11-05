@@ -114,3 +114,18 @@
 - Quyết định: `P00_PR2_LOCAL_SYNC=PASS`; `P00_ENGINEERING_BASELINE_FINALIZED=PASS_SCOPED_CPU_CORRECTNESS`.
 - Giới hạn: cấu hình P00 vẫn `PROPOSED_NOT_FROZEN`; chưa có bằng chứng chất lượng ngôn ngữ đã huấn luyện, GPU hoặc tăng tốc PagedAttention. `P01_ADMISSION=NOT_AUTHORIZED` cho đến cổng quyết định riêng.
 - Không sửa bất kỳ mục L0000–L0008 nào; không xóa worktree, không dọn tệp trên Windows.
+
+## L0010 — 2026-11-05 — Thiết kế và tiền đăng ký P01, chưa thực thi
+
+- Loại: thiết kế nghiên cứu và quản trị (RESEARCH_DESIGN_ONLY / PREREG_DRAFT).
+- Nhánh tài liệu: `design/p01-tokenizer-data-prereg-20261105`, gốc GitHub `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Mục tiêu: hợp đồng bộ tách token (Tokenizer) và dữ liệu (Data Pipeline), đường byte B0 256 mã để đối chứng P00, ứng viên BPE B1 tách biệt; không thay Embedding P00 hoặc mã đã được QA.
+- Tài liệu: `docs/p01/P01_DESIGN_PREREGISTRATION.md`, `docs/p01/P01_DATA_AND_SPLIT_PLAN.md`, `docs/p01/P01_METRICS_AND_QA_GATES.md`, `docs/p01/P01_WINDOWS_WORKSPACE_PREFLIGHT.md`.
+- Cổng kỹ thuật: 100% hoàn nguyên byte/Unicode, 0 mã ngoài miền, 0 giao cắt nhóm dữ liệu giữa TRAIN/VALIDATION/TEST, 0 nguồn chưa đủ quyền, tái lập SHA-256; tỷ lệ token/byte chỉ là số đo, không tuyên bố cải thiện khi chưa có corpus.
+- Tình trạng dữ liệu: `NOT_SELECTED`; ngưỡng gần trùng, seed, ngân sách RAM/đĩa và kích thước vocab BPE chưa được khóa. `PREREGISTRATION_LOCK=NOT_ISSUED`.
+- Kiểm tra tĩnh: 16/16 tiêu chí nội dung đạt; 16/16 điều kiện kiểm tra tĩnh chương trình PowerShell đạt. Ghi lại lần kiểm tra từ khóa đầu tiên 15/16 do tiêu chí dò tiếng Anh không khớp chú thích tiếng Việt, không phải FAIL khoa học.
+- Bằng chứng: `docs/p01/P01_D0_STATIC_QA_20261105.md`.
+- Local `main` ở `c66e27a5d1e68958d42c825fd40f8a273994e0a0` khi đọc metadata qua RemoteMCP, còn GitHub `main` ở `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; chưa có kết quả `git status` và chưa thực hiện đồng bộ Windows ở bước này.
+- Không tải dữ liệu, không chạy huấn luyện tokenizer/GPT, không tạo worktree P01, không xóa hoặc dọn worktree P00, không tiêu thụ seed khoa học.
+- Quyết định: `P01_D0_DESIGN_ONLY`, `P01_D0_STATIC_QA_PASS`, `P01_INDEPENDENT_METHOD_REVIEW_PENDING`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Bước tiếp theo: tiền kiểm và đồng bộ Git local đúng commit nếu điều kiện an toàn đạt; sau đó thẩm định độc lập hồ sơ D0 trước mọi khóa hoặc triển khai.
