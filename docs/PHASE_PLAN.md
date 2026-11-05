@@ -20,4 +20,4 @@ Mỗi giai đoạn (Phase) có thể gồm nhiều nhánh nhỏ, nhưng **mỗi 
 
 **Các cổng phụ thuộc:** P05 phải đo với đường không cache, P06 phải đo với P05, P07 với P06, P08 với P07 trên điều kiện ngang bằng. P09/P10 so sánh chất lượng trên dữ liệu kiểm định giữ riêng (Held-out Dataset), không dựa duy nhất vào độ giảm mất mát huấn luyện.
 
-**Tình trạng hiện tại:** P00 đã có mốc hợp nhất GitHub, nhưng local `main` chưa đồng bộ tại thời điểm kiểm tra sau hợp nhất. Chưa được mở P01 cho đến khi có kiểm toán local và quyết định riêng. Cấu hình P00 được sử dụng làm đối chứng kỹ thuật theo hash, không phải khóa thí nghiệm khoa học.
+**Tình trạng sau đồng bộ:** P00 có mốc GitHub đã hợp nhất và local `main` đã đồng bộ tới đúng commit P00, theo biên bản `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Công việc rà soát tài liệu PR #2 là quyết định riêng; chưa mở P01 cho đến khi kiểm toán sau hợp nhất tài liệu và cổng P01 được chấp thuận. Cấu hình P00 làm đối chứng kỹ thuật theo mã băm (hash), không phải khóa thí nghiệm khoa học.
