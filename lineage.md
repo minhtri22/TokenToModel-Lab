@@ -229,3 +229,17 @@
 - Hồ sơ: `docs/p01/P01_D1_SOURCE_SCOPE_AND_MEMORY_METRIC_DECISION_20261105.md`, `docs/p01/P01_D1_I0_PREAUTH_GATE_CONTRACT_20261105.md`, `docs/p01/P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_ADJUDICATION_20261105.md`.
 - Không tạo worktree P01, không tải nguồn F1/F2, không lập trình checker/guard, không chạy thử/huấn luyện BPE/GPT, không hợp nhất PR #4 hoặc dọn P00.
 - Bước tiếp theo: `TTM_P01_D1_I0A_F0_STATIC_IMPLEMENTATION_PREAUTH_EVIDENCE_AND_DESIGN_ADJUDICATION`, chỉ tiền kiểm read-only, allowlist, golden byte, ngân sách và quyết định độc lập; **chưa tự động cấp quyền**.
+
+## L0019 — 2026-11-05 — Tiền thẩm định I0A F0 với mẫu byte chuẩn, chưa cấp quyền
+
+- Loại: thẩm định hồ sơ thiết kế, tiền kiểm Git/Windows chỉ đọc (I0A_F0_DESIGN_PREAUTH_EVIDENCE_REVIEW); **không phải** kết quả khoa học, QA động, huấn luyện hay phát hành permit.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105`, PR #4 vẫn nháp; GitHub `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ toàn bộ các mục L0000–L0018.
+- Đã đọc trực tiếp trên Windows `main`, `origin/main`, origin URL, nhánh P00 `382da2c52d0fb4efe1cd9de5c92e68de79a52a20`, metadata worktree P00; signed node heartbeat cho biết máy ONLINE, 0 active node jobs. **Chưa có `git status`, reparse/ACL va chạm hoặc số RAM/D: mới từ Windows.**
+- Đã quy định worktree P01 ứng viên **chưa tạo** `worktrees/p01-f0-static-i0a-20261105` và **10 tệp ứng viên** cho fixture/checker/guard/manifest trong workplace. Bất kỳ sửa/xóa/dọn P00 hoặc đường dẫn ngoài dự án đều không được phép.
+- Đã tính và đọc ngược từ GitHub các golden byte ở mức đặc tả: merges 47 byte SHA `11c72190c6f3b757d260c426c357a4de8ff36313495f2299da81638386289e8d`; snapshot F0 giả lập 199 byte SHA `026744455f6a71b178702ce077737ff9c416b3cc716b5711f6b8ef6d0779697d`; JCS tối thiểu 109 byte SHA `492204b007b172f734a38bf0d80db357a57efff90e319f2dbaf3b63f9135e826` và JCS full-shape không hợp lệ như receipt 774 byte SHA `d09396eb72ff318e9820d76bb999acae01cfeb9547ae80187d0e33d970119beb`. **16/16 bất biến byte/định dạng được rà soát độc lập; không chạy P01.**
+- Golden snapshot được cố ý gắn `F0-SPEC-NOT-APPROVED`; golden manifest `DESIGN_ONLY_NO_RUN` không được xem là nguồn `ALLOW` hoặc receipt thật.
+- PowerShell tiền kiểm Windows chỉ đọc đã chuẩn bị trong môi trường đánh giá, SHA-256 `deb82ad16380dfd53c7def559cb9a7ec392321a84d6bc2cb79ee0ac2123e0012`; **chưa chạy trên Windows**.
+- I0A-01/02/07: `HOLD_EVIDENCE`; I0A-03/04/05/06/08: `PASS_DESIGN_ONLY`; I0A-09: `NOT_GRANTED`. Tổng `5 PASS_DESIGN_ONLY + 3 HOLD_EVIDENCE + 1 NOT_GRANTED`; không cộng thành bằng chứng runtime.
+- Hồ sơ: `docs/p01/P01_D1_I0A_GOLDEN_BYTES_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_FILESYSTEM_AND_SOURCE_ALLOWLIST_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_WINDOWS_GIT_RESOURCE_READONLY_EVIDENCE_20261105.md`, `docs/p01/P01_D1_I0A_F0_PREAUTH_EVIDENCE_AND_ADJUDICATION_20261105.md`.
+- Quyết định: `I0A_PREAUTH_EVIDENCE_REVIEW=COMPLETED_WITH_HOLD`, `I0A_STATIC_IMPLEMENTATION_PERMIT=NOT_GRANTED`, `QA0/E0=NOT_GRANTED`, D1 khoa học vẫn HOLD. Không tạo worktree P01, không viết/chạy checker/guard, không tải corpus hoặc huấn luyện, không merge PR #4 hoặc dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_I0A_WINDOWS_READONLY_PREFLIGHT_RESULT_ADJUDICATION` — chỉ nhận console từ chương trình đã ghim, đối chiếu I0A-01/02/07 và trình quyết định I0A độc lập nếu đủ bằng chứng.
