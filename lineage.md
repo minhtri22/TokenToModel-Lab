@@ -205,3 +205,14 @@
 - Quyết định: `TTM_P01_D1_G04_08_DESIGN_REVIEW=COMPLETED_WITH_HOLD`; `TTM_P01_I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`; `TTM_P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`.
 - Giữ PR #4 ở trạng thái nháp, không tạo worktree P01, không tải corpus, không huấn luyện, không sửa P00 hoặc dọn dẹp.
 - Bước kế tiếp: `TTM_P01_D1_G04_03_06_REMAINING_DESIGN_HOLD_CLOSURE`.
+## L0017 — 2026-11-05 — Đóng hai khoảng trống thiết kế C07/C09, khoa học D1 và I0 vẫn HOLD
+
+- Loại: thẩm định lại hợp đồng thiết kế (DESIGN_ONLY_ORACLE_AND_RESOURCE_CONTRACT_REVIEW); không phải QA động, thí nghiệm BPE hoặc đánh giá bên thứ ba.
+- Nguồn: PR #4 nhánh `design/p01-tokenizer-data-prereg-20261105`; GitHub main đối chứng `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ nguyên L0000–L0016.
+- C07: đã bổ sung văn bản nguồn ASCII/Unicode, byte hex và SHA-256; có oracle tập 5-gram chính xác dưới/bằng/trên ngưỡng 0.85: `33/41`, `34/40`, `35/39`; ca tỷ lệ độ dài `40/50` nhận, `40/51` từ chối dù J=1; oracle bắc cầu A≈B, B≈C, A không≈C; thêm kiểm tra mã điểm Unicode khác byte UTF-8. Các phép số học được đối chiếu theo hai cách tách khỏi mã P01.
+- C09: chọn cứng `JOB_OBJECT_LIMIT_JOB_MEMORY` cho **job-wide committed bytes** tại `4294967296`, không đánh đồng với RSS; worker `CREATE_SUSPENDED` rồi `AssignProcessToJobObject` trước resume, cấm breakaway, fail-closed nếu nested job/child nằm ngoài job; wall-clock 1800s độc lập CPU time; giới hạn ghi đĩa cần broker và hạn chế quyền riêng. Các ca âm tính W01–W12 mới được thiết kế, chưa chạy.
+- Đặc tả nguồn: `docs/p01/P01_D1_C07_G04_03_EXACT_5GRAM_ORACLE_DESIGN_20261105.md` và `docs/p01/P01_D1_C09_G04_06_WINDOWS_JOB_OBJECT_GUARD_DESIGN_20261105.md`.
+- Báo cáo thẩm định: `docs/p01/P01_D1_C07_C09_INDEPENDENT_DESIGN_ADJUDICATION_20261105.md`. Kết luận: `C07=PASS_DESIGN`, `C09=PASS_DESIGN`; H04 C01–C10 **10/10 PASS_DESIGN**, không còn HOLD ở phạm vi hợp đồng; **0 bài kiểm thử P01 được chạy**.
+- Chặn khoa học vẫn giữ: H02 chưa có F1/F2 đủ quyền; H04 checker/golden binary chưa triển khai; H05 runtime guard/job + disk quota chưa thử và tên ngân sách RSS cũ phải được phê duyệt kế nhiệm. Vì vậy `D1_SCIENTIFIC_PREREG_LOCK=HOLD`, `I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`.
+- Không tạo worktree P01, không tải corpus, không huấn luyện tokenizer/GPT, không hợp nhất PR #4, không dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_GATE_DECISION_DESIGN_ONLY` — ra quyết định riêng về phạm vi nguồn và điều kiện trình cổng I0, không cấp quyền tự động.
