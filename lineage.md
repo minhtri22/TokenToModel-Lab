@@ -192,3 +192,16 @@
 - Quyết định: `P01_D1_H04_CONTRACT_ADJUDICATION=HOLD_WITH_SCOPED_PASS`, `P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`, `P01_I0_IMPLEMENTATION=NOT_AUTHORIZED`.
 - Không tạo worktree P01, không tải corpus, không chạy tokenizer/BPE/GPT, không hợp nhất PR #4 và không dọn dẹp P00.
 - Bước kế tiếp: sửa hợp đồng checker ở mức thiết kế G04-01..07 và xét G04-08 ở quyết định độc lập trước bất kỳ permit I0.
+## L0016 — 2026-11-05 — Sửa oracle H04 G04-01..07 và thẩm định G04-08, còn hai HOLD
+
+- Loại: kiểm toán và sửa hợp đồng thiết kế (DESIGN_ONLY_ORACLE_REPAIR_AND_METHOD_REVIEW); **không** có chạy checker/tokenizer hay thực nghiệm.
+- Nhánh: `design/p01-tokenizer-data-prereg-20261105` PR #4, đối chứng GitHub main `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Trước sửa tại L0015: C01–C02 `PASS_DESIGN`, C03–C10 `HOLD_DESIGN`. Giữ nguyên L0015 để bảo toàn lịch sử.
+- Đã bổ sung các bảng A01–A10 (lỗi API, miền ID, UTF-8), M01–M04 (BPE nhiều vòng, giới hạn ranh giới, parse merges), K01–K08 (trùng/gần trùng, giao cắt, chia tập), snapshot TRAIN, ma trận quyền nguồn, hợp đồng giới hạn toàn cây tiến trình và bằng chứng bất biến.
+- Phát hiện lỗi oracle khi viết G04-03 lần đầu: với |A|=18 và |B|=19, khi số giao đổi từ 17 xuống 16 thì union phải đổi từ 20 lên 21. Đã sửa trong đặc tả trước G04-08. Đây là lỗi tài liệu thiết kế, không phải lỗi bài chạy khoa học.
+- Thẩm định chéo G04-08: G04-01/02/04/05/07 `PASS_DESIGN`, G04-03/06 `HOLD_DESIGN`. C01–C06/C08/C10 `PASS_DESIGN`, C07/C09 `HOLD_DESIGN`, `FAIL_DESIGN=0`; tất cả C01–C10 `NOT_EXECUTED`.
+- Điều kiện còn thiếu: mẫu văn bản byte sinh đúng Jaccard 5-gram sát ngưỡng; chọn chính xác bộ đếm memory, cơ chế gắn Job Object và oracle dừng an toàn trên Windows. Cần golden manifest trước I0.
+- Hồ sơ nguồn: `docs/p01/P01_D1_G04_01_03_ORACLE_REPAIR_DESIGN_20261105.md`, `docs/p01/P01_D1_G04_04_07_FAIL_CLOSED_REPAIR_DESIGN_20261105.md`, `docs/p01/P01_D1_G04_08_INDEPENDENT_CONTRACT_READBACK_20261105.md`.
+- Quyết định: `TTM_P01_D1_G04_08_DESIGN_REVIEW=COMPLETED_WITH_HOLD`; `TTM_P01_I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`; `TTM_P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`.
+- Giữ PR #4 ở trạng thái nháp, không tạo worktree P01, không tải corpus, không huấn luyện, không sửa P00 hoặc dọn dẹp.
+- Bước kế tiếp: `TTM_P01_D1_G04_03_06_REMAINING_DESIGN_HOLD_CLOSURE`.
