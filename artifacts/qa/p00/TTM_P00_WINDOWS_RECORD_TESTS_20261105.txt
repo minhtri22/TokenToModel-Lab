@@ -1,0 +1,13 @@
+test_comparability (test_records.RecordTests.test_comparability) ... ok
+test_immutable_run (test_records.RecordTests.test_immutable_run) ... ok
+test_reject_bad_hash (test_records.RecordTests.test_reject_bad_hash) ... ok
+test_git_argument_array_is_bound_by_name (test_windows_bootstrap_static.P00PowerShellStaticTests.test_git_argument_array_is_bound_by_name) ... ok
+test_git_executable_is_resolved_explicitly (test_windows_bootstrap_static.P00PowerShellStaticTests.test_git_executable_is_resolved_explicitly) ... ok
+test_no_git_function_shadows_git_executable (test_windows_bootstrap_static.P00PowerShellStaticTests.test_no_git_function_shadows_git_executable) ... ok
+test_qa_remains_non_authorizing (test_windows_bootstrap_static.P00PowerShellStaticTests.test_qa_remains_non_authorizing) ... ok
+test_workspace_boundary_and_non_destructive_actions (test_windows_bootstrap_static.P00PowerShellStaticTests.test_workspace_boundary_and_non_destructive_actions) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.093s
+
+OK

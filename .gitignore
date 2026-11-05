@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.bin
+raw_logs/
+raw_data/
+checkpoints/
+*.tmp
+.DS_Store
+
+# Project-scoped local worktrees and runtime data
+.remotemcp/
+worktrees/
+_import/
+_tmp/
+tmp/
+cache/
+datasets/
+runs/
+evidence/
+*.log

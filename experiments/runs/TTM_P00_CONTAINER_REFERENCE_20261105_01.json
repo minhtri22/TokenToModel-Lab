@@ -1,0 +1,31 @@
+{
+  "schema": "ttm.p00.reference_smoke_receipt.v1",
+  "run_id": "TTM_P00_CONTAINER_REFERENCE_20261105_01",
+  "executed_at_utc": "2026-11-05T03:27:37+00:00",
+  "environment": "ChatGPT container; Linux x86_64; CPU-only; NOT user Windows workstation",
+  "python": "3.13.5",
+  "pytorch": "2.10.0+cpu",
+  "source_branch": "feature/p00-source-docs-diagrams-20261105",
+  "source_commit": "2a8565c1fb669e1a46b07fd9ca18e16f4b438110",
+  "config_sha256": "ffcd83863fb9c2a8959fbaaa52ccdb7bf2977d68ea6aa869880015dc0daebcbd",
+  "reference_model_git_blob": "fccd8d9f923b75dad04dccf51caa0a696eefb118",
+  "test_suites": [
+    {
+      "name": "reference/phase0/test_reference.py",
+      "tests": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "tests/test_records.py",
+      "tests": 3,
+      "passed": 3,
+      "failed": 0
+    }
+  ],
+  "result": "REFERENCE_CPU_SMOKE_PASS_8_OF_8",
+  "scientific_training": "NOT_PERFORMED",
+  "independent_windows_qa": "PENDING",
+  "main_merge_authorized": false,
+  "log_sha256": "9153c668115f251704ec61f6e8c90b6a4c0f13aa8c5acf678870a84ab66c4555"
+}

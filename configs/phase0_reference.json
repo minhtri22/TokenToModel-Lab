@@ -1,0 +1,14 @@
+{
+  "config_id": "P00_reference_proposal_v1",
+  "status": "PROPOSED_NOT_FROZEN",
+  "purpose": "CPU correctness smoke, not scientific training",
+  "n_layer": 2,
+  "n_head": 4,
+  "n_embd": 64,
+  "max_seq_len": 64,
+  "vocab_size": 256,
+  "block_size": 4,
+  "seed": 123,
+  "device": "cpu",
+  "precision": "fp32"
+}

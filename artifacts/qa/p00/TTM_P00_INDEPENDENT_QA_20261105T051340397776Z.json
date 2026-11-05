@@ -1,0 +1,56 @@
+{
+  "schema": "ttm.p00.independent_qa.v1",
+  "run_id": "TTM_P00_INDEPENDENT_QA_20261105T051340397776Z",
+  "utc": "2026-11-05T05:13:40.397776+00:00",
+  "repository": "https://github.com/minhtri22/TokenToModel-Lab.git",
+  "workspace": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+  "source_commit": "382da2c52d0fb4efe1cd9de5c92e68de79a52a20",
+  "main_baseline": "f2ed098b033431924a3cbabdc9af89d7bbd7b378",
+  "prior_local_qa": {
+    "source_commit": "382da2c52d0fb4efe1cd9de5c92e68de79a52a20",
+    "receipt_sha256": "6f30d4450199d471acd5e5a9c7b8264bc8fdc653bdc3b76ba5bfa8afa47034ee",
+    "model_sha256": "821e60a6c97536bf3a251602b31dcc6b55f1c81836cffa5223ec2f063ae578ea",
+    "config_sha256": "ffcd83863fb9c2a8959fbaaa52ccdb7bf2977d68ea6aa869880015dc0daebcbd",
+    "verified_prior_tests": 13
+  },
+  "qa_scope": "INDEPENDENT_ZERO_SCIENCE_CPU_TESTS",
+  "qa_tests": [
+    {
+      "name": "independent_numerical_parity",
+      "status": "PASS"
+    },
+    {
+      "name": "independent_future_isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "independent_request_isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "independent_zero_on_release",
+      "status": "PASS"
+    },
+    {
+      "name": "independent_oom_state_integrity",
+      "status": "PASS"
+    },
+    {
+      "name": "independent_next_token_gradient",
+      "status": "PASS"
+    }
+  ],
+  "metrics": {
+    "torch": "2.12.0+cpu",
+    "paged_dense_max_abs_diff": 2.384185791015625e-07,
+    "causal_prefix_max_abs_diff": 0.0,
+    "next_token_smoke_loss": 5.489449977874756
+  },
+  "qa_result": "PASS",
+  "python": "C:\\Users\\minht\\miniforge3\\python.exe",
+  "python_version": "3.13.12",
+  "os": "Windows-11-10.0.26300-SP0",
+  "merge_authorized": false,
+  "scientific_training": "NOT_PERFORMED",
+  "notes": "Separate fixtures from developer unit tests; formal adjudication pending."
+}
