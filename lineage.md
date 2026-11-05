@@ -129,3 +129,16 @@
 - Không tải dữ liệu, không chạy huấn luyện tokenizer/GPT, không tạo worktree P01, không xóa hoặc dọn worktree P00, không tiêu thụ seed khoa học.
 - Quyết định: `P01_D0_DESIGN_ONLY`, `P01_D0_STATIC_QA_PASS`, `P01_INDEPENDENT_METHOD_REVIEW_PENDING`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
 - Bước tiếp theo: tiền kiểm và đồng bộ Git local đúng commit nếu điều kiện an toàn đạt; sau đó thẩm định độc lập hồ sơ D0 trước mọi khóa hoặc triển khai.
+
+## L0011 — 2026-11-05 — Đồng bộ Windows P01 đạt, thẩm định thiết kế D0 có điều kiện
+
+- Loại: kiểm toán cơ sở kỹ thuật (ENGINEERING_BASELINE_SYNC) và thẩm định phương pháp thiết kế (DESIGN_METHOD_REVIEW); **không phải** kết quả khoa học.
+- Biên bản Windows `TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json`; SHA-256 `ee69f32a993d011b35173074a5ea221bdffc3feb70c780b532f045e9beb58b7f`.
+- Đã đọc lại bản gốc từ Windows qua RemoteMCP và tải nguyên văn lên `artifacts/qa/p01/TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json`.
+- Local `main`, `origin/main` và GitHub `main` tại thời điểm đối chiếu cùng commit `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; worktree P00 giữ `382da2c52d0fb4efe1cd9de5c92e68de79a52a20`.
+- 15/15 tệp được bảo vệ đã được kiểm tra SHA-256 trực tiếp và khớp biên bản; `cleanup=NONE`, `training=NOT_PERFORMED`, `p01_authorized=false`.
+- Thẩm định D0 theo nội dung khác với kiểm tra từ khóa: **10/10 điều kiện tính nhất quán của thiết kế** đạt về mặt đặc tả. **5/5 điều kiện để khóa D1 vẫn chưa được đáp ứng**: thuật toán BPE, nguồn/giấy phép dữ liệu, phát hiện gần trùng và chia tập, F0/QA độc lập, ngân sách thực thi.
+- Hồ sơ: `docs/p01/P01_D0_INDEPENDENT_METHOD_REVIEW_20261105.md`; tiền kiểm Windows có phụ lục kết quả cập nhật `docs/p01/P01_WINDOWS_WORKSPACE_PREFLIGHT.md`.
+- Quyết định: `P01_LOCAL_BASELINE_SYNC=PASS`; `P01_D0_METHOD_REVIEW=PASS_SCOPED_DESIGN`; `P01_D1_PREREG_LOCK=HOLD_H01_H05`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không huấn luyện tokenizer/GPT, không tải dữ liệu, không tạo worktree P01, không dọn P00 hoặc thay mã nguồn P00.
+- Bước tiếp theo: xử lý rõ 5 thiếu hụt H01–H05 trong một hồ sơ kế nhiệm chỉ chứa thiết kế, sau đó thẩm định độc lập D1 và ra quyết định riêng, không mở thực thi tự động.
