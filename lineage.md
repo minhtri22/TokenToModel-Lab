@@ -157,3 +157,15 @@
 - Quyết định: `P01_D1_DOCUMENT_GAP_CLOSURE=PASS_SCOPED`, `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD_SOURCE_QA_RESOURCE`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
 - Không tải dữ liệu, không học BPE, không huấn luyện GPT, không tạo worktree P01, không dọn worktree P00, không mở TEST hoặc tiêu thụ seed khoa học.
 - Bước tiếp theo: cung cấp bằng chứng quyền dữ liệu hoặc giới hạn rõ P01 chỉ thử dữ liệu F0; chuẩn bị bộ QA độc lập/nguồn lực ở cổng riêng, sau đó quyết định có khóa D1 hay không.
+## L0013 — 2026-11-05 — Tiền thẩm định H02/H04/H05 chỉ đọc, khóa D1 vẫn HOLD
+
+- Loại: rà soát quyền dữ liệu, tài nguyên và oracle (DESIGN_GOVERNANCE_READONLY), không phải thực nghiệm hay huấn luyện P01.
+- Nhánh: `design/p01-tokenizer-data-prereg-20261105`; mốc main tại thời điểm thẩm định: `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- H02: chưa có nguồn F1/F2 nào với `admission_decision=ALLOW` và SHA-256 nguồn. Wikimedia mới là ứng viên xem điều khoản, không chọn hay tải corpus; `H02=HOLD_NO_VERIFIED_SOURCE`.
+- H05: máy Windows `machine-1` trực tuyến, nhịp báo node có chữ ký, active node jobs = 0; không có số đo RAM khả dụng hoặc D: trống, bộ giới hạn tài nguyên chưa QA; `H05=HOLD_RESOURCE_METRICS_AND_GUARD`.
+- H04: tái tính SHA-256 cho 12 mẫu byte F00–F11, 12/12 khớp; F02/F03 có cùng NFC nhưng khác byte; F06–F08 bị UTF-8 strict từ chối 3/3. Chỉ kiểm tra oracle, chưa có checker P01 chạy trên Windows.
+- Chương trình chỉ đọc `TTM_P01_D1_RESOURCE_READONLY_PREFLIGHT.ps1`, SHA-256 `e48e6a101e640a483f727786e50032f04e1b39bdbc6c6b97b75d9c437c606606` đã chuẩn bị; chưa được chạy trên Windows.
+- Báo cáo: `docs/p01/P01_D1_SOURCE_RIGHTS_READONLY_REVIEW_20261105.md`, `docs/p01/P01_D1_WINDOWS_RESOURCE_READONLY_REVIEW_20261105.md`, `docs/p01/P01_D1_INDEPENDENT_QA_READONLY_PREAUTH_20261105.md`, `docs/p01/P01_D1_READONLY_PREAUTH_ADJUDICATION_20261105.md`.
+- Kết luận: `P01_D1_READONLY_PREAUTH=COMPLETED_WITH_HOLD`; `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4, không dọn worktree P00.
+- Bước tiếp theo: đo RAM/D: chỉ đọc trên Windows và chứng minh quyền nguồn hoặc quyết định F0-only; sau đó tiền thẩm định checker độc lập.
