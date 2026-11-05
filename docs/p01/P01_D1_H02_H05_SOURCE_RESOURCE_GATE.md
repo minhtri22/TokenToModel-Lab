@@ -67,3 +67,15 @@ Sau khi được duyệt và khi có worktree P01 hợp lệ trong workspace d�
 - Không đủ 30 nhóm sau gom trùng ⇒ `INSUFFICIENT_GROUPS`, không tạo TEST hợp lệ.
 
 **Quyết định:** `H02_POLICY_SPEC_DEFINED_BUT_ADMISSION_PENDING`; `H05_PROSPECTIVE_LIMITS_DEFINED_BUT_NOT_MEASURED`; `P01_D1_LOCK=HOLD`; `P01_DATA_DOWNLOAD=FORBIDDEN`; `P01_BPE_TRAINING=FORBIDDEN`.
+
+## 5. Phụ lục H05 — Phân biệt Job Commit và RSS (đề xuất kế nhiệm, chưa khóa)
+
+Tại D1, cổng C09 đã xác định một **đề xuất sửa hợp đồng đo bộ nhớ**: dùng `max_job_commit_bytes=4294967296` (Job-wide Committed Memory) được hệ điều hành Windows cưỡng chế qua `JOB_OBJECT_LIMIT_JOB_MEMORY`. Đây **không đồng nghĩa** với trường lịch sử `max_peak_rss_bytes=4294967296` ở mục 2. Không coi hai tên trường tương đương.
+
+- Giữ mục 2 như **giá trị ứng viên ban đầu**, không sửa hồi tố để biến kết quả Windows đã đo thành một cổng runtime PASS.
+- Đề xuất chuẩn C09 cho I0 sẽ là `max_job_commit_bytes`; các số `peak_working_set_bytes`, `available_physical_ram_bytes` chỉ là số đo giám sát khác.
+- Giới hạn 1.800 giây là thời gian thực trôi qua (Wall-clock), không dùng `JOB_OBJECT_LIMIT_JOB_TIME` (CPU user time) làm thay thế.
+- Giới hạn file 2 GiB yêu cầu cổng riêng về quyền ghi, bộ điều khiển ghi và kiểm thử bypass; Job Object memory limit không tự bảo vệ đĩa.
+- Phải có **quyết định chuẩn hóa trường config trước I0**, kiểm định source code/QA Windows và receipt phù hợp. Chưa có quyết định cấp quyền thay đổi cấu hình hoặc thực thi trong bước này.
+
+Xem `docs/p01/P01_D1_C09_G04_06_WINDOWS_JOB_OBJECT_GUARD_DESIGN_20261105.md`. `H05_RUNTIME_GUARD_QA=HOLD`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
