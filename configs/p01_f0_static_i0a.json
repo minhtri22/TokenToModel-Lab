@@ -1,0 +1,14 @@
+{
+  "schema": "TTM_P01_I0A_S_V1_SOURCE_ONLY",
+  "source_scope": "F0_ONLY_DESIGN_NO_CORPUS",
+  "max_job_commit_bytes": 4294967296,
+  "wall_clock_seconds": 1800,
+  "max_source_bytes": 67108864,
+  "max_temp_and_evidence_bytes": 2147483648,
+  "max_documents": 2000,
+  "execute_new_code": false,
+  "qa0_permit": false,
+  "e0_permit": false,
+  "synthetic_admission_marker": "QA0_F0_SYNTHETIC_ONLY",
+  "source_authoring_status": "SOURCE_ONLY_NOT_RUNTIME_QA"
+}

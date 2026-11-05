@@ -1,0 +1,29 @@
+{
+  "schema": "TTM_P01_F0_BYTES_V1_DESIGN",
+  "not_runtime_fixture": true,
+  "source": "F0_ONLY_DESIGN_NOT_APPROVED_FOR_TRAINING",
+  "merges_m01": {
+    "hex": "54544d5f4250455f563100020100000201000002000000610000006200000000010000000100000001000001010000",
+    "byte_length": 47,
+    "sha256": "11c72190c6f3b757d260c426c357a4de8ff36313495f2299da81638386289e8d"
+  },
+  "manifest_jcs_min": {
+    "json": "{\"files\":[],\"final_status\":\"INCONCLUSIVE\",\"operation_id\":\"DESIGN_ONLY_NO_RUN\",\"schema\":\"TTM_P01_EVIDENCE_V1\"}",
+    "byte_length": 109,
+    "sha256": "492204b007b172f734a38bf0d80db357a57efff90e319f2dbaf3b63f9135e826"
+  },
+  "f0_names": [
+    "F00",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11"
+  ]
+}
