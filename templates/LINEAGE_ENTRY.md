@@ -1,12 +1,14 @@
-## L<NNNN> — <UTC_DATE> — <phase>/<change-id>
+## L<NNNN> — <NGÀY_GIỜ_UTC> — <GIAI_ĐOẠN>/<MÃ_THAY_ĐỔI>
 
-- Loại: ENGINEERING / QA / TRAINING / EXPERIMENT / RELEASE / CORRECTION
-- Trạng thái: PROPOSED / QA_PASS / QA_FAIL / EXPERIMENT_PASS / EXPERIMENT_FAIL / INCONCLUSIVE
-- Branch / source commit / main baseline commit:
+- Loại: kỹ thuật (ENGINEERING) / kiểm thử (QA) / huấn luyện (TRAINING) / thí nghiệm (EXPERIMENT) / phát hành (RELEASE) / đính chính (CORRECTION).
+- Trạng thái: đề xuất (PROPOSED) / QA đạt (QA_PASS) / QA không đạt (QA_FAIL) / thí nghiệm đạt (EXPERIMENT_PASS) / không đạt (EXPERIMENT_FAIL) / chưa kết luận (INCONCLUSIVE).
+- Nhánh Git / commit nguồn / commit mốc đối chứng (Baseline):
 - Mục tiêu / giả thuyết / thay đổi:
-- Config IDs, SHA256, dataset ID / seed:
-- Run IDs và receipts:
-- Báo cáo so sánh:
-- QA receipt và reviewer:
-- Kết quả và giới hạn:
-- Quyết định / bước tiếp theo:
+- Mã cấu hình, SHA-256, dữ liệu, seed:
+- Mã lượt chạy (Run ID) và biên bản (Receipt):
+- Báo cáo so sánh và ý nghĩa phép đo:
+- Biên bản QA độc lập và người/quy trình xác minh:
+- Kết quả, giới hạn khẳng định, điều chưa được chứng minh:
+- Quyết định và bước thực hiện tiếp theo:
+
+> Chỉ ghi bổ sung (Append-only). Không chỉnh sửa entry cũ; mọi đính chính phải là entry mới.
