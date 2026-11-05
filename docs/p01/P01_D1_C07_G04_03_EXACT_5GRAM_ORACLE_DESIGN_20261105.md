@@ -93,3 +93,16 @@ Các giá trị dưới đây là **byte hex nguồn**, cần băm trực tiếp
 Prefix để tính group SHA là **17 byte** hex `54544d2d5030312d47524f55502d563100`, tức `TTM-P01-GROUP-V1` nối byte NUL `00`. Đây là cách diễn giải chuẩn, loại bỏ mọi mơ hồ khi hiển thị ký tự `\\0` trong Markdown. SHA nhóm kỳ vọng vẫn là `81299a537c69ee8268b6ce1d021dc5ff558245820bc9293a5286d849273a432a`.
 
 **Bằng chứng kiểm tra thiết kế:** đã đối chiếu cả tập 5-gram qua hai cách tính độc lập (phép tính nguồn cục bộ và cách tính JavaScript tách riêng), không gọi mã dự án, không thực thi P01 hay tạo tệp trong workspace Windows.
+
+## 7. Phản chứng Unicode: đếm mã điểm, không đếm byte
+
+Để bộ kiểm tra không thể PASS chỉ nhờ các fixture ASCII, bổ sung hai chuỗi UTF-8 có ký tự nhiều byte:
+
+| ID | Chuỗi nguồn | Mã điểm Unicode | Số byte UTF-8 | Hex cấu tạo (cụ thể, không phải chuỗi ASCII hex) | SHA-256 raw bytes |
+|---|---|---:|---:|---|---|
+| `U40` | `ắ` lặp đúng 40 lần | 40 | 120 | `e1baaf` lặp 40 lần | `8560920cf3a4626faab21068674dd2545e8299d385ef17a29d6a55c286606f0b` |
+| `U40_LAST_E` | `ắ` lặp 39 lần rồi `é` | 40 | 119 | `e1baaf` lặp 39 lần, nối `c3a9` | `b2b71f3216b4f3adac94d3050149e6d3e5995e4fd171d079c5e8a9c0dd465a0c` |
+
+**Oracle trên mã điểm Unicode:** `G(U40) = {"ắắắắắ"}` có đúng **1** phần tử. `G(U40_LAST_E) = {"ắắắắắ", "ắắắắé"}` có đúng **2** phần tử; giao bằng 1, hợp bằng 2, Jaccard `1/2=0,5` ⇒ `NOT_DUPLICATE`. Cả hai dài 40 mã điểm và phải đi vào **nhánh Jaccard**, không phải nhánh Levenshtein hoặc kiểm tra số byte 120/119.
+
+**Phản chứng PASS giả:** nếu cắt **5 byte** thay vì 5 mã điểm, `U40` sinh **3** 5-byte grams khác nhau do mẫu UTF-8 3 byte lặp; `U40_LAST_E` sinh **5**. Checker phải đối chiếu tập 5-gram theo ký tự Unicode; không chỉ kiểm tra kết quả Jaccard đã in. Không được chuẩn hóa lại raw byte đầu vào để che sự khác biệt NFC/NFD của các fixture F02/F03.
