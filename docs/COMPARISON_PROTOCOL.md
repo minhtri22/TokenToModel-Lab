@@ -35,13 +35,13 @@ Chưa dùng trường nào phải ghi `not_applicable` hoặc giải thích rõ,
 
 ## Kết quả P00 — giải thích trước khi mở pha mới
 
-| Phép đo | P00 trên Windows | Diễn giải chính xác |
-|---|---:|---|
-| Sai lệch logits tối đa (Maximum Absolute Logit Difference) | `2.384185791015625e-07` | Đường thường và đường KV phân trang gần tương đương; ngưỡng kiểm thử `2e-5` |
-| Sai lệch tiền tố nhân quả (Causal Prefix Difference) | `0.0` | Không phát hiện rò rỉ token tương lai ở fixture; ngưỡng `1e-6` |
-| Mất mát mẫu next-token (Gradient Smoke Loss) | `5.489449977874756` | Chỉ xác nhận tính được loss/gradient; **không** là kết quả huấn luyện mô hình |
-| Kiểm thử Windows cục bộ (Local QA) | 13/13 PASS | Kiểm thử chức năng và quản trị |
-| Kiểm thử bổ sung độc lập (Independent QA) | 6/6 PASS | Kiểm tra bằng fixture khác, không phải thẩm định thương mại |
+| Phép đo | Giá trị thực tế | Ngưỡng đạt | Diễn giải chính xác |
+|---|---:|---|---|
+| Sai lệch logits tối đa (Maximum Absolute Logit Difference) | `2.384185791015625e-07` | Không vượt `2e-5` | Đường thường và đường KV phân trang gần tương đương trong bộ dữ liệu thử |
+| Sai lệch tiền tố nhân quả (Causal Prefix Difference) | `0.0` | Không vượt `1e-6` | Không phát hiện rò rỉ token tương lai ở trường hợp thử |
+| Mất mát mẫu dự đoán token tiếp theo (Gradient Smoke Loss) | `5.489449977874756` | Giá trị hữu hạn, gradient hữu hạn và khác 0 | Chỉ xác nhận có thể tính loss/gradient; **không** là kết quả huấn luyện mô hình |
+| Kiểm thử cục bộ Windows (Local QA) | 13/13 PASS | Cả 13 bài đạt | Kiểm thử chức năng và quản trị |
+| Kiểm thử bổ sung độc lập (Independent QA) | 6/6 PASS | Cả 6 bài đạt | Kiểm tra bằng bộ dữ liệu thử khác, không phải thẩm định thương mại |
 
 P00 là mốc đầu tiên, **không có phiên bản tiền nhiệm** để tính tỷ lệ cải thiện. Chưa đo hiệu năng nhân GPU, thông lượng, phân mảnh hoặc chất lượng ngôn ngữ.
 
