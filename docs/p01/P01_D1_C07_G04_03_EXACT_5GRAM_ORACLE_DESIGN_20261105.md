@@ -75,3 +75,21 @@ Nếu checker chỉ tin `group_id` do hệ thống đang kiểm thử phát ra m
 - Dấu hiệu PASS giả: bỏ điều kiện chiều dài; chuyển nhầm sang nhánh Levenshtein dù cả hai chuỗi dài ≥40; so từ đa tập thay vì tập; tính n-gram từ bytes thay vì mã điểm Unicode; quên nối nhóm theo bắc cầu.
 
 **Kết luận phạm vi:** `C07_EXACT_5GRAM_ORACLE=SPECIFIED_AND_ARITHMETICALLY_RECOMPUTED`. Chưa có `C07_DYNAMIC_QA`, chưa có `TEST`, chưa có dữ liệu corpus và chưa cấp `I0`.
+
+## 6. Byte hex đầy đủ và prefix định danh nhóm
+
+Các giá trị dưới đây là **byte hex nguồn**, cần băm trực tiếp, không băm chuỗi ASCII của biểu diễn hex:
+
+| ID | Byte hex chính xác |
+|---|---|
+| `A40` | `6162636465666768696a6b6c6d6e6f707172737475767778797a4142434445464748494a4b4c4d4e` |
+| `J_OVER42` | `3062636465666768696a6b6c6d6e6f707172737475767778797a4142434445464748494a4b4c4d4e3738` |
+| `J_EQUAL42` | `3031636465666768696a6b6c6d6e6f707172737475767778797a4142434445464748494a4b4c4d4e3738` |
+| `J_UNDER42` | `3031326465666768696a6b6c6d6e6f707172737475767778797a4142434445464748494a4b4c4d4e3738` |
+| `LEN40` | `61626364656162636465616263646561626364656162636465616263646561626364656162636465` |
+| `LEN50` | `6162636465616263646561626364656162636465616263646561626364656162636465616263646561626364656162636465` |
+| `LEN51` | `616263646561626364656162636465616263646561626364656162636465616263646561626364656162636465616263646561` |
+
+Prefix để tính group SHA là **17 byte** hex `54544d2d5030312d47524f55502d563100`, tức `TTM-P01-GROUP-V1` nối byte NUL `00`. Đây là cách diễn giải chuẩn, loại bỏ mọi mơ hồ khi hiển thị ký tự `\\0` trong Markdown. SHA nhóm kỳ vọng vẫn là `81299a537c69ee8268b6ce1d021dc5ff558245820bc9293a5286d849273a432a`.
+
+**Bằng chứng kiểm tra thiết kế:** đã đối chiếu cả tập 5-gram qua hai cách tính độc lập (phép tính nguồn cục bộ và cách tính JavaScript tách riêng), không gọi mã dự án, không thực thi P01 hay tạo tệp trong workspace Windows.
