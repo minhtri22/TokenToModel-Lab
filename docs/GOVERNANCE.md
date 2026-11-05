@@ -49,5 +49,5 @@ Mọi tài liệu mới và tài liệu hướng dẫn có thể chỉnh sửa d
 
 - PR #1 đã hợp nhất trên GitHub tại `8df22f5f29e645b2becff936daccbd32ac780661`.
 - Mã P00 được kiểm định chức năng trên CPU; không khẳng định GPU, huấn luyện hoàn chỉnh hoặc tăng tốc.
-- Local `main` còn ở commit khởi tạo khi kiểm tra sau hợp nhất; đồng bộ local và kiểm tra cây Git là cổng tiếp theo.
+- Local `main` ban đầu còn ở commit khởi tạo, nhưng đã đồng bộ tiến nhanh (Fast-forward) đúng P00 vào ngày 05/11/2026; xem `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Mọi đợt đồng bộ tiếp theo vẫn phải kiểm tra Git độc lập.
 - Xem biên bản `docs/qa/P00_POST_MERGE_AUDIT_20261105.md` trước khi mở P01.
