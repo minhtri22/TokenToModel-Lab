@@ -25,6 +25,6 @@
 ## Trạng thái sau hợp nhất P00
 
 - Commit hợp nhất trên GitHub: `8df22f5f29e645b2becff936daccbd32ac780661`.
-- Khi kiểm tra sau hợp nhất ngày 05/11/2026, tham chiếu local `main` và `origin/main` còn ở `f2ed098b033431924a3cbabdc9af89d7bbd7b378`. Không tự kết luận local đã đồng bộ.
+- Khi kiểm tra lần đầu ngày 05/11/2026, local `main` và `origin/main` còn ở `f2ed098b033431924a3cbabdc9af89d7bbd7b378`. Sau đó đã đồng bộ tiến nhanh chính xác tới `8df22f5f29e645b2becff936daccbd32ac780661`; xem `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Không suy diễn local đã cập nhật các PR khác.
 - Worktree P00 được giữ nguyên, không xóa/dọn; đồng bộ local và kiểm tra trạng thái sạch là cổng riêng.
 - Xem `docs/qa/P00_POST_MERGE_AUDIT_20261105.md` để biết kết luận và phần còn thiếu.
