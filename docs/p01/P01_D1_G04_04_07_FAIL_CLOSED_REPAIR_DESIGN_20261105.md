@@ -60,3 +60,28 @@
 `G04_06_DESIGN=SPECIFIED_RUNTIME_GUARD_QA_HOLD`  
 `G04_07_DESIGN=SPECIFIED_EVIDENCE_FORMAT_FINAL_LOCK_PENDING`  
 `P01_D1_LOCK=NOT_GRANTED`; `P01_I0_PERMIT=NOT_GRANTED`; `P01_DATA_DOWNLOAD=FORBIDDEN`; `P00_CLEANUP=FORBIDDEN`.
+
+## Phụ lục A — Khung byte snapshot và định dạng manifest cho G04-04/G04-07
+
+Phụ lục này làm rõ một số phép băm trước I0; **không** cấp quyền tạo snapshot, vì chưa có nguồn F1/F2 được duyệt.
+
+### A1. Định dạng dữ liệu học BPE đề xuất
+
+Snapshot TRAIN là dòng byte nhị phân không nén, không có dấu thời gian hoặc đường dẫn tuyệt đối trong nội dung băm:
+- Prefix: đúng byte UTF-8 của chuỗi ASCII `TTM_P01_TRAIN_V1\n`.
+- Tiếp theo `source_manifest_sha256` (32 byte) và `config_sha256` (32 byte) đã được chốt từ hai manifest độc lập.
+- `record_count`: số nguyên không dấu 32-bit, little-endian; phải trong `1..2000`.
+- Mỗi record trong thứ tự tăng theo **byte UTF-8 của `document_id`**. `document_id` phải duy nhất, không chấp nhận hòa, không phụ thuộc thứ tự filesystem:
+  `u32le(document_id_utf8_length)`, `document_id_utf8_bytes`; `u32le(source_id_utf8_length)`, `source_id_utf8_bytes`; `raw_sha256[32]`; `group_id[32]`; `u64le(raw_length)`; `raw_payload[raw_length]`.
+- `raw_sha256` phải bằng SHA-256 của đúng `raw_payload`. Mọi bản ghi ngầm mang `split=TRAIN`; dữ liệu VALIDATION/TEST **không xuất hiện** trong file. Từ chối đuôi thừa, tài liệu sai `group_id`, ID rỗng hoặc trùng, byte payload tổng quá 64 MiB hoặc file vượt hạn mức.
+- `TRAIN_snapshot_sha256 = SHA256` của toàn bộ file snapshot này. File chứa corpus chỉ nằm trong workspace được duyệt, **tuyệt đối không đẩy GitHub**. Đây là đề xuất định dạng trước triển khai, cần pin đúng SHA của tài liệu này trước I0.
+
+### A2. Định dạng bằng chứng dự kiến
+
+- `evidence_manifest.json`: mã UTF-8 theo quy tắc chuẩn hóa JSON (JSON Canonicalization Scheme — JCS, RFC 8785); có bảng khóa định nghĩa ở mục G04-07. Không đưa số thực/dữ liệu `NaN` vào manifest; dùng số nguyên byte, mili giây/UTC để tránh sai khác floating-point.
+- Mã băm mỗi tệp được biểu diễn bằng đúng 64 ký tự hex chữ thường và được kiểm tra lại từ byte thực. Mảng `files` sắp tăng theo byte UTF-8 của đường dẫn tương đối; đường dẫn không có `..` hoặc ký tự điều khiển. Không chấp nhận tên trùng và đường dẫn tham chiếu ra ngoài workspace.
+- `final_status` chỉ trong `PASS`, `FAIL`, `INCONCLUSIVE`, `RESOURCE_LIMIT_STOP`, `SOURCE_RIGHTS_HOLD`. Khi thiếu artifact bắt buộc hoặc checker không có quyền đọc lại ⇒ `INCONCLUSIVE`, **không** tự thay bằng `PASS`.
+- Việc đóng dấu `operation_id` là duy nhất theo sổ hoạt động và quyền thực thi; checker không được phát sinh ID mới để ghi đè biên bản cũ. Tên file và luật collision phải được kiểm định âm tính trước I0.
+- Định dạng này chưa có một triển khai hoặc cặp manifest mẫu đã đóng dấu (Golden Byte Example); vì vậy chỉ `SPECIFIED_PENDING_GOLDEN_BYTES`, không có `EVIDENCE_CHECKER_QA_PASS`.
+
+**Cấm tự xem định dạng đang được đề xuất là cấu trúc đã chuẩn hóa khoa học.** Nếu một trình triển khai không thực hiện được chính xác, phải lập quyết định kế nhiệm trước khi chạy, không âm thầm thay luật ghi/băm.
