@@ -50,3 +50,14 @@ Hàm đọc Git chỉ gọi `rev-parse`, `remote get-url`, `status --porcelain`,
 **Trạng thái lúc soạn:** `PA-01/02=PASS_PRIOR_SCOPED`, `PA-03..05=HOLD_NO_NEW_ACL_CONSOLE`, `PA-06=KNOWN_LIMITATION`, `PA-07=NO_MUTATION_OBSERVED`, `PA-08=NOT_GRANTED`.
 
 **Bước tiếp theo:** thẩm định kết quả ACL do Windows trả về trước khi xem xét phát hành permit I0A với exact HEAD/allowlist; chưa có quyền tạo worktree P01, viết mã, chạy QA, huấn luyện, hợp nhất PR #4 hoặc dọn P00.
+
+## Sửa lỗi công cụ tiền kiểm — 05/11/2026 (chưa chạy lại)
+
+Bản `TTM_P01_I0A_PATH_ACL_READONLY.ps1` với SHA-256 `6c21da3ae5da1786c3ac524c6fbb5af2dc6714e6ceec42b77d9ad7ab74a56742` gặp lỗi `GIT_READ_FAILED:` khi người dùng dán trực tiếp vào PowerShell. **Nguyên nhân trong mã nguồn**: hàm `Read-Git([string]$dir,[string[]]$args)` dùng tên `$args` trùng biến tự động PowerShell, có thể làm mất vector đối số Git; thông báo lỗi in rỗng. Không có bằng chứng cho thấy repository sai, Git bẩn hoặc ACL không hợp lệ.
+
+Bản sửa **V2** đổi tên tham số và biến splat thành `$gitArgs` mà **không đổi các phép kiểm tra hay thêm thao tác ghi**:
+- Tên: `TTM_P01_I0A_PATH_ACL_READONLY_FIXED_V2.ps1`.
+- SHA-256 chuẩn V2: `be13fd964938c37becffcc548a3de7a442f25776f88991988e5c2d9aae9a5d0a`.
+- Bản V1 không được dùng cho lần tiền kiểm tiếp; đây là bản sửa công cụ, **không phải kết quả khoa học**.
+- V2 chưa được thực thi trên máy Windows đích, không có console ACL đã được thẩm định; `I0A-02=HOLD`, `I0A_PERMIT=NOT_GRANTED`, `QA0/E0=NOT_GRANTED`.
+- Không tự động tạo worktree P01, tải nguồn, huấn luyện, hợp nhất PR #4 hoặc dọn P00.
