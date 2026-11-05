@@ -57,3 +57,19 @@ Chưa đo mới dung lượng trống ổ D: hay RAM khả dụng cho BPE/corpus
 **Trạng thái:** `LOCAL_MAIN_HEAD_STALE_AS_OBSERVED`; `LOCAL_FAST_FORWARD_NOT_EXECUTED`; `P01_WORKTREE_NOT_CREATED`; `P01_DATA_NOT_DOWNLOADED`; `P01_TRAINING_NOT_EXECUTED`.
 
 **Bước tiếp theo:** chạy script đã khóa, xác minh biên bản qua đường dẫn gốc, sau đó thẩm định độc lập thiết kế/tiền đăng ký trước khi xem xét quyền triển khai P01. Việc đồng bộ `main` mới không tự cấp quyền dùng dữ liệu hay huấn luyện.
+
+## 5. Phụ lục sau lần chạy — Đồng bộ Windows đã đạt
+
+Các thông tin `LOCAL_MAIN_HEAD_STALE_AS_OBSERVED` và `LOCAL_FAST_FORWARD_NOT_EXECUTED` trong các mục trước phản ánh **thời điểm tiền kiểm ban đầu**, không phải trạng thái hiện hành.
+
+- Biên bản đã chạy: `D:\WORK\RESEARCH\TokenToModel-Lab\evidence\p00\TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json`.
+- SHA-256 của biên bản gốc: `ee69f32a993d011b35173074a5ea221bdffc3feb70c780b532f045e9beb58b7f`.
+- Đã xác minh trực tiếp local `main`, `origin/main`, GitHub `main` cùng commit `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Kiểm tra SHA-256 từng tệp được bảo vệ: **15/15 PASS** trên máy Windows, không chỉ dựa vào nội dung báo cáo.
+- Worktree P00 vẫn ở `382da2c52d0fb4efe1cd9de5c92e68de79a52a20`. Không dọn dẹp.
+- Bản lưu biên bản gốc trên nhánh thiết kế: `artifacts/qa/p01/TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json` — đọc lại cùng nội dung byte sau khi đẩy GitHub.
+- Báo cáo thẩm định: `docs/p01/P01_D0_INDEPENDENT_METHOD_REVIEW_20261105.md`.
+
+**Quyết định cập nhật:** `P01_LOCAL_BASELINE_SYNC=PASS`, `P01_D0_DESIGN_REVIEW=PASS_SCOPED`, `P01_D1_SCIENTIFIC_LOCK=HOLD`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+
+Trạng thái đồng bộ nêu trên chỉ đúng tại thời điểm kiểm tra. Sau khi nhánh tài liệu được hợp nhất nếu có, local `main` sẽ cần được xác minh lại trước một thao tác Git mới; không tự kéo/đẩy dữ liệu hoặc sửa mã.
