@@ -88,3 +88,19 @@ Không hợp nhất nhánh triển khai vào `main` khi thiếu kiểm thử đ�
 `P01_IMPLEMENTATION_AUTHORIZED=false`, `P01_DATA_DOWNLOAD_AUTHORIZED=false`, `P01_TOKENIZER_TRAINING_AUTHORIZED=false`, `P01_MODEL_TRAINING_AUTHORIZED=false`, `P01_WORKTREE_CREATION_AUTHORIZED=false`, `P00_CLEANUP_AUTHORIZED=false`.
 
 **Quyết định:** `P01_PREREG_DRAFT_DESIGN_ONLY`. Chưa có dữ liệu thật, không có phép đo P01 và không có quyết định QA khoa học. Xem chi tiết nguồn dữ liệu ở `P01_DATA_AND_SPLIT_PLAN.md`, thước đo ở `P01_METRICS_AND_QA_GATES.md`, điều kiện Windows ở `P01_WINDOWS_WORKSPACE_PREFLIGHT.md`.
+
+## 8. Phụ lục D1 ngày 05/11/2026 — Đã hoàn thiện đặc tả, chưa khóa khoa học
+
+Các giá trị BPE, phát hiện gần trùng, dữ liệu và nguồn lực nêu ở các mục trên là **đề xuất D0 ban đầu**. D1 đã bổ sung các hợp đồng chi tiết nhưng không thay đổi lịch sử hay kết quả P00:
+
+| Thiếu hụt | Đặc tả kế nhiệm D1 | Tình trạng |
+|---|---|---|
+| H01 — BPE tất định | `P01_D1_H01_DETERMINISTIC_BPE_SPEC.md` | Thuật toán, phá hòa và định dạng byte đã xác định; chưa chạy |
+| H02 — Quyền dữ liệu | `P01_D1_H02_H05_SOURCE_RESOURCE_GATE.md` | Chính sách rõ; **chưa có nguồn được duyệt** |
+| H03 — Chống trùng/gần trùng, chia tập | `P01_D1_H03_DEDUP_SPLIT_SPEC.md` | Ngưỡng và split seed đề xuất rõ; chưa thẩm định trên corpus |
+| H04 — Fixture và QA | `P01_D1_H04_FIXTURES_AND_INDEPENDENT_QA_SPEC.md` | Byte/hex/SHA và oracle đã ghi, chưa có checker chạy |
+| H05 — Tài nguyên | `P01_D1_H02_H05_SOURCE_RESOURCE_GATE.md` | Giới hạn ứng viên đã ghi; **chưa đo tài nguyên hoặc phát permit** |
+
+Thẩm định phương pháp: `P01_D1_METHOD_REVIEW_AND_LOCK_GATE_20261105.md`. Kết luận: `PASS_SCOPED_DOCUMENT_ONLY`, còn `D1_SCIENTIFIC_PREREG_LOCK=HOLD` vì thiếu nguồn hợp pháp, QA runtime và kiểm tra tài nguyên thực tế.
+
+**Không** thay đổi quyền hiện có: không triển khai mã, không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không dọn P00 hoặc hợp nhất PR #4.
