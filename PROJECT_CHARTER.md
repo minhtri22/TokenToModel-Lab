@@ -1,16 +1,25 @@
 # Điều lệ dự án (Project Charter)
 
-- **Tên chính thức:** TokenToModel Lab (TTM) — From Token to Model.
-- **Sản phẩm cuối:** mô hình ngôn ngữ decoder-only có huấn luyện end-to-end, trình phục vụ suy luận, hệ đo và tài liệu có thể tái lập.
-- **Nghiên cứu:** cơ chế attention, quản lý KV, sai số số học, hiệu suất, mở rộng và các biến thể.
-- **Giáo dục:** sổ tay kỹ thuật, thí nghiệm và dàn ý chuyển hóa thành sách.
-- **Thương mại:** là mục tiêu dài hạn có điều kiện; không đồng nhất việc tự viết mô hình với quyền sử dụng dữ liệu/weights hoặc mức độ an toàn để thương mại.
+## Danh tính và mục tiêu
 
-## Quy tắc quyết định
+- Tên: **TokenToModel Lab (TTM)** — từ token đến mô hình.
+- Mã nguồn: `https://github.com/minhtri22/TokenToModel-Lab`.
+- Phạm vi kỹ thuật: xây Transformer chỉ có bộ giải mã (Decoder-only Transformer), huấn luyện từ đầu đến cuối (End-to-end Training), đánh giá, tối ưu suy luận và quản lý bộ nhớ phân trang.
+- Phạm vi nghiên cứu: cơ chế chú ý (Attention), sai số số học, quản trị bộ nhớ KV (KV Cache), hiệu năng, quy mô mô hình và các biến thể kiến trúc.
+- Phạm vi giáo dục: tài liệu tiếng Việt, bài thực hành có bằng chứng và biên soạn sách.
+- Thương mại hóa là mục tiêu dài hạn có điều kiện: phải kiểm tra nguồn dữ liệu, quyền dùng mã/trọng số, an toàn, hiệu năng, chất lượng và vận hành; không suy ra từ một bản demo.
 
-1. Đặc tả và đối chứng trước phát triển; mọi thay đổi làm biến đổi kết quả phải có lý do và cấu hình được ghim.
-2. Tất cả nhánh triển khai xuất phát từ main HEAD mới nhất; nhánh độc lập, không ghi đè kết quả cũ.
-3. QA PASS mới merge; trạng thái thực nghiệm được tuyên bố riêng (VALIDATED/INCONCLUSIVE/FAIL).
-4. Mỗi kết luận dẫn đến run ID, cấu hình, seed, bộ dữ liệu, commit SHA, môi trường, log và hash bằng chứng.
-5. Mọi kết quả PASS, FAIL, NO_RESULT đều được bảo lưu. `lineage.md` append-only, không xóa hay sửa mốc cũ; đính chính bằng entry mới.
-6. Chỉ huấn luyện thật khi dữ liệu, giấy phép, tài nguyên và phép thử đã được xác định rõ; không gán tên "GPT thương mại" cho thử nghiệm toy.
+## Nguyên tắc quản trị
+
+1. Mỗi phát triển hoặc sửa đổi phải có nhánh riêng từ commit `main` được xác minh; không ghi đè kết quả cũ.
+2. Mỗi cấu hình và lần chạy có mã định danh, commit, nguồn dữ liệu, hạt giống ngẫu nhiên (seed), môi trường, mã SHA-256 và biên bản thử nghiệm.
+3. Cần xác lập giả thuyết, tiêu chí và đối chứng (Baseline) trước khi coi một phép đo là cải thiện.
+4. Giữ cả PASS, FAIL và kết quả chưa kết luận (Inconclusive). Sổ `lineage.md` chỉ ghi bổ sung (append-only).
+5. Kiểm thử chức năng (QA PASS), kết quả khoa học và mức sẵn sàng thương mại là ba quyết định khác nhau.
+6. Chỉ hợp nhất (merge) nhánh vào `main` sau kiểm thử độc lập trong phạm vi đã công bố và quyết định chấp thuận.
+7. Mọi Git worktree và thao tác dọn dẹp phải nằm trong `D:\WORK\RESEARCH\TokenToModel-Lab`; không xóa hay tác động thư mục của dự án khác.
+8. Tài liệu do dự án viết dùng tiếng Việt; thuật ngữ chuyên ngành tiếng Anh đặt trong ngoặc sau phần tiếng Việt. Giữ nguyên tên mã, đường dẫn, lệnh, chỉ số và nguyên văn của bằng chứng đã khóa.
+
+## Mốc đầu tiên
+
+P00 đã đạt kiểm thử mô hình CPU và được hợp nhất trên GitHub qua PR #1. Đây là mốc kỹ thuật cho các giai đoạn tiếp theo, **không** chứng minh huấn luyện thành công hoặc tăng tốc PagedAttention.
