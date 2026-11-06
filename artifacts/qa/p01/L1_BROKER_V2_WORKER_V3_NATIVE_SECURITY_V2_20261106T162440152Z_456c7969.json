@@ -1,0 +1,87 @@
+{
+    "schema":  "ttm.p01.l1.broker_v2_worker_v3_native_security_one_shot.v2",
+    "run_id":  "L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_V2_20261106T162440152Z_456c7969",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "switch_receipt_commit":  "98f96dfd002fde146b0922501510b3229ad63bc9",
+    "v3_compile_receipt_commit":  "ac9e09112b087bae122da82279de7bcd4657b906",
+    "mode":  "EXECUTE_ONCE",
+    "checks":  {
+                   "ADMIN_ELEVATED":  {
+                                          "status":  "PASS",
+                                          "detail":  "Elevated Windows Administrator token"
+                                      },
+                   "PINNED_ORIGINAL":  {
+                                           "status":  "PASS",
+                                           "detail":  "No original worktree mutation"
+                                       },
+                   "SCM_SWITCH_MARKER":  {
+                                             "status":  "PASS",
+                                             "detail":  "Previously qualified exact SCM switch marker SHA256 preserved"
+                                         },
+                   "BINARY_PINS":  {
+                                       "status":  "PASS",
+                                       "detail":  "Broker V2 source/EXE and worker V3 source/DLL SHA256 verified"
+                                   },
+                   "WORKER_V3_PIPE_RIGHTS":  {
+                                                 "status":  "PASS_NO_CREATE_INSTANCE",
+                                                 "detail":  "ReadWrite=131483;CreateNewInstance=4"
+                                             },
+                   "WORKER_AND_CONFIG":  {
+                                             "status":  "PASS_PRESENCE_ONLY",
+                                             "detail":  "Pinned worker SID and config, credential/ledger present"
+                                         },
+                   "SCM_V2_STOPPED":  {
+                                          "status":  "PASS",
+                                          "detail":  "V2 exact binPath, LocalService, manual, unrestricted SID"
+                                      },
+                   "ONE_SHOT_MARKER_ABSENT":  {
+                                                  "status":  "PASS_WIN32_2",
+                                                  "detail":  "Exact marker absent; no write done"
+                                              },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Ready for receipt upload and readback"
+                                   },
+                   "DPAPI_CREDENTIAL":  {
+                                            "status":  "PASS_LOCAL_ONLY",
+                                            "detail":  "Identity verified; password never logged or uploaded"
+                                        },
+                   "ONE_SHOT_MARKER":  {
+                                           "status":  "PASS_CREATED",
+                                           "detail":  "Durable one-time marker; future attempts blocked"
+                                       },
+                   "SERVICE_START":  {
+                                         "status":  "PASS_SCM_RUNNING",
+                                         "detail":  "Service running under SCM; SID token independently checked next"
+                                     },
+                   "SERVICE_TOKEN":  {
+                                         "status":  "PASS",
+                                         "detail":  "Actual process token has LocalService user SID and service SID group"
+                                     },
+                   "PIPE_DACL_NATIVE":  {
+                                            "status":  "BLOCK",
+                                            "detail":  "BLOCK_PIPE_DACL_READ_231"
+                                        },
+                   "SERVICE_STOP":  {
+                                        "status":  "BLOCK",
+                                        "detail":  "ServiceCommandException"
+                                    }
+               },
+    "process_id":  26200,
+    "broker_exe_sha256":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+    "worker_probe_dll_sha256":  "bd08ae55ad7eca5eb29e237467166f58f7c9fd7d6dc9ef6f4de71cbb1ba33d9d",
+    "service_started":  true,
+    "service_final_state":  "UNVERIFIED",
+    "native_dacl_inspector":  {
+
+                              },
+    "worker_probe_result":  "NOT_EXECUTED",
+    "verdict":  "STOP_UNVERIFIED_MANUAL_INTERVENTION_REQUIRED",
+    "errors":  [
+                   "PIPE_DACL_WORKER_TOKEN_READBACK_FAILED"
+               ],
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "native_attempt_marker_sha256":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7",
+    "utc":  "2026-11-06T16:24:50.2202713Z"
+}
