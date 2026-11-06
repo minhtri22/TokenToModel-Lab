@@ -1,0 +1,29 @@
+{
+  "schema": "ttm.p01.l1.marker_mismatch_forensic_source_final.v1",
+  "date": "2026-11-06",
+  "original_HEAD": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "immutable_stop_receipt_commit": "8a3666c655edba86bef2a841a31246fe19e0e870",
+  "malformed_pin_failure_commit": "441bec040d9d186bc2088d0747efe04d71a62f74",
+  "original_stop_marker_sha256": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+  "failed_source_marker_pin": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8aafa1e8a3989599143502",
+  "failed_source_pin_chars": 63,
+  "read_only_script": "qa/p01/windows/Inspect-TTM-P01-L1-SCMStopMarkerMismatch-PS51.ps1",
+  "read_only_script_git_blob": "a2251980d54b71f3815ecc7745efdb1ccce99f0b",
+  "corrected_force_candidate": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-V2-PS51.ps1",
+  "corrected_force_candidate_git_blob": "f630efdf62345f8a983ae7cf76d171bbd85646bb",
+  "source_static_checks": {
+    "checked": 22,
+    "present": 22,
+    "kind": "source contract inspection only"
+  },
+  "forensic_action": "Read-only marker SHA/length/first differing offset and timestamps, exact original receipt content reconstruction, SCM state; new QA receipt and GitHub readback only",
+  "force_action": "NOT_EXECUTED_UNTIL_FORENSIC_RESULT",
+  "previous_terminate_attempted": false,
+  "previous_forced_termination": false,
+  "current_service_state": "RUNNING_AS_OF_LAST_USER_SNAPSHOT_NOT_LIVE_AT_FINAL",
+  "verdict": "FALSE_BLOCK_CAUSED_BY_SOURCE_PIN_FORMAT_READONLY_REATTESTATION_PENDING",
+  "W01_W12": "NOT_EXECUTED",
+  "grouped_L1_QA": "NOT_AUTHORIZED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED"
+}
