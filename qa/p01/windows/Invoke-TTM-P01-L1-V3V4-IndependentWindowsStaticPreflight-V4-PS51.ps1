@@ -195,13 +195,19 @@ print(str(attributes)+"|"+str(win32_error))
  $worker=Join-Path $srcDir 'TTMWorkerNativeProbeV4.cs'
  $env:PYTHONDONTWRITEBYTECODE='1'
  $env:PYTHONNOUSERSITE='1'
- $out=@(& $python -B $checker --broker $broker --worker $worker 2>&1)
- $pythonExit=$LASTEXITCODE
+ $qaPreference=$ErrorActionPreference
+ $ErrorActionPreference='Continue'
+ try{
+  $out=@(& $python -B $checker --broker $broker --worker $worker 2>&1)
+  $pythonExit=$LASTEXITCODE
+ }finally{$ErrorActionPreference=$qaPreference}
  $receipt.python_checker_exit=$pythonExit
  $text=($out|ForEach-Object {$_.ToString()}) -join [Environment]::NewLine
  $receipt.python_checker_stdout_sha256=HashBytes ([Text.Encoding]::UTF8.GetBytes($text))
  $checkerResult=$null
- try{$checkerResult=$text|ConvertFrom-Json}catch{ $receipt.python_checker_stderr='CHECKER_JSON_PARSE_FAILED' }
+ try{$checkerResult=$text|ConvertFrom-Json}catch{
+  $receipt.python_checker_stderr=$text.Substring(0,[Math]::Min($text.Length,4096))
+ }
  if($null -eq $checkerResult -or $pythonExit -ne 0){Halt 'INDEPENDENT_PYTHON_CHECKER_FAILED_OR_UNREADABLE'}
  $receipt.python_checker_result=[ordered]@{
   verdict=$checkerResult.verdict
