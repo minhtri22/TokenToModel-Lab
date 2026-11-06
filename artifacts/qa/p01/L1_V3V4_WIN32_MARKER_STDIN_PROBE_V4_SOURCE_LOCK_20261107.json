@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.p01.l1.v3v4_windows_marker_probe_preqa_block_successor_v4_static_lock.v1",
+  "date": "2026-11-07",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "source_commit": "782f101f001973f8c23f23b22ae2b0896232d722",
+  "failed_v3": {
+    "run": "L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V3_20261106T175133679Z_91490c75",
+    "receipt_sha256": "db4720cac9edf12d3a46d0129a0ee757d679c08eb6c071b6a952f501c0483634",
+    "github_commit": "c68e7f1871db0a68f9e3a9cd54b43e87ccbb1658",
+    "github_receipt_git_blob": "34749218591dc6e8a54da860b208fb6081d385e3",
+    "verdict": "BLOCK_WINDOWS_STATIC_QA_OR_PREFLIGHT",
+    "preflight_pass": [
+      "ADMIN",
+      "ORIGINAL_HEAD",
+      "SCM_READONLY_STOPPED_PID0",
+      "MARKER_SWITCH",
+      "MARKER_NATIVE",
+      "MARKER_SCM_STOP",
+      "MARKER_EXACT_PROCESS",
+      "WINDOWS_PYTHON",
+      "GITHUB_AUTH"
+    ],
+    "error_text": "  File \"<string>\", line 1",
+    "qa_marker_sha256": null,
+    "source_files_copied": 0,
+    "independent_python_checker_exit": null,
+    "csc_invoked": false,
+    "service_started": false,
+    "scm_changed": false
+  },
+  "classification": {
+    "block_scope": "WINDOWS_PYTHON_NATIVE_WIN32_MARKER_PROBE_BEFORE_SCIENCE_AND_STATIC_QA",
+    "cause": "Windows PowerShell 5.1 native Python -c double-quote stripping in second marker probe is strongly suspected. Traceback captured only first line; exact SyntaxError not proved.",
+    "predecessor_preserved": true,
+    "no_marker_cleanup": true,
+    "new_run_authorized_only_after_readonly_probe": true
+  },
+  "successor": {
+    "path": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-IndependentWindowsStaticPreflight-V4-PS51.ps1",
+    "git_blob": "eb1244c1b1ba49b473a91d04fe1032b052016343",
+    "source_last_update_commit": "f7bea6f85016d006dcb8dfffc452e027a267144c",
+    "new_marker": "L1_V3_V4_INDEPENDENT_STATIC_QA_V4_ATTEMPT_20261107.lock",
+    "change": "Read-only Win32 GetFileAttributesW Python source piped into Python stdin with python -B - <marker>, never passed via Python -c, and record stdout/exit/traceback to capped receipt fields.",
+    "existing_constraints": "Git blob pinned 3 source files, 4 previous marker hashes, frozen HEAD, service Stopped/PID0, user Miniforge Python x64, GitHub auth, no CSC, no SCM changes; stage and receipts only in TTM project",
+    "guards_checked": 37,
+    "guards_present": 37,
+    "python_stdin_AST": "PASS_PYTHON_SYNTAX_ONLY_SANDBOX",
+    "windows_powershell_51_parser": "NOT_EXECUTED",
+    "windows_readonly_ctypes_probe": "NOT_EXECUTED",
+    "windows_independent_python_qa": "NOT_EXECUTED",
+    "windows_csc_compile": "NOT_EXECUTED"
+  },
+  "expected_readonly_probe": "4294967295|2 from GetFileAttributesW for absent V4 QA marker, using Python via standard input; any other result blocks execution.",
+  "decision": "PREQA_INFRASTRUCTURE_BLOCK_PRESERVED_V4_SOURCE_LOCKED_WIN_TARGET_EXECUTION_PENDING",
+  "normal_stop": "NOT_REQUALIFIED",
+  "native_security": "NOT_QUALIFIED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED"
+}
