@@ -1,0 +1,35 @@
+{
+  "schema": "ttm.p01.l1.broker_v2_scm_switch_successor_static_gate.v1",
+  "utc_date": "2026-11-06",
+  "prior_readonly_receipt_run": "L1_SCM_SWITCH_EARLY_DENIED_DIAG_20261106T154855810Z_0acfaf95",
+  "prior_readonly_commit": "b1ab271d18cc310c590602d24299a6e906f04cc5",
+  "previous_switch_failure_commit": "14b51937f861f26f05d53b38f0808522e462e5d9",
+  "original_HEAD": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "src": "qa/p01/windows/Switch-TTM-P01-L1-SCM-ToBrokerV2-V2-PS51.ps1",
+  "src_sha_git_blob": "84b7af9ae236515a181111ff3c2dbfc50069aadb",
+  "static_source_conditions": {
+    "total": 19,
+    "present": 19
+  },
+  "native_marker_absence": "NOT_YET_ATTESTED",
+  "marker_probe_contract": "GetFileAttributesW: INVALID_FILE_ATTRIBUTES; LastWin32Error must equal 2 (ERROR_FILE_NOT_FOUND). Existing marker or any other error blocks. FileMode.CreateNew is independently atomic.",
+  "original_service_status": "Stopped Manual LocalService V1 at 2026-11-06T15:48:56.7968439Z, must be rechecked",
+  "script_operation": "One-shot SCM existing service binPath change only; new TTM-local marker and append-only GitHub receipt",
+  "prohibited": [
+    "Service start",
+    "Worker account modification",
+    "ACL modification",
+    "Credential/ledger content access",
+    "F0 reexecution",
+    "W01-W12",
+    "L1 grouped QA",
+    "Automatic rollback or cleanup",
+    "Reuse earlier script"
+  ],
+  "safety_note": "Static source audit only; no Windows parsing or invocation of successor script in ChatGPT runtime.",
+  "status": "IMPLEMENTED_STATIC_ONLY_PENDING_EXACT_WINDOWS_RUN",
+  "native_service_switch": "NOT_EXECUTED",
+  "native_service_start": "NOT_EXECUTED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED"
+}
