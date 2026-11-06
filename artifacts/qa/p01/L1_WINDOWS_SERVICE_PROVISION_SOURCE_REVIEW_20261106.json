@@ -1,0 +1,30 @@
+{
+  "schema": "ttm.p01.l1.windows_service_provision_static_source_review.v1",
+  "date": "2026-11-06",
+  "base_local_original": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "reviewed_ref": "a3f19ba60110ad5799f7f415f5584b0ab643ea95",
+  "source_git_blobs": {
+    "runtime/p01/windows/BrokerAttestationService.cs": "ac3d4f88974930f67549445f8e37c9809ce61516",
+    "qa/p01/windows/Invoke-TTM-P01-L1-NativeServiceProvision.ps1": "0250176d3b9e421ca07efd1bde2b7e10e856abe7",
+    "qa/p01/windows/TTMWorkerNativeProbe.cs": "7fec3d8366c274f932db144648ad6b889e986c49"
+  },
+  "static_contract_checks": {
+    "checked": 17,
+    "positive": 14,
+    "negative": 3
+  },
+  "unimplemented_or_unattested": [
+    "Provisioning script does not invoke the native LogonUser/ACL/pipe peer probe",
+    "No independent native pipe DACL/SDDL readback",
+    "W01-W12 are not implemented or executed by the provisioning script",
+    "No live Windows service installation yet; no compile/runtime validation",
+    "Broker attestation service refuses all writes; not an operational evidence-write broker"
+  ],
+  "source_review": "PASS_SOURCE_CONTRACT_PARTIAL_WITH_CRITICAL_NATIVE_GAPS",
+  "native_qualification": "NOT_EXECUTED",
+  "provision_permit": "SEPARATE_ADMIN_OPERATION_REQUIRED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA_permit": "NOT_GRANTED",
+  "original_local_HEAD_unchanged": "NO_REMOTE_MUTATION_OF_LOCAL_REPO",
+  "scientific_lineage_update": false
+}
