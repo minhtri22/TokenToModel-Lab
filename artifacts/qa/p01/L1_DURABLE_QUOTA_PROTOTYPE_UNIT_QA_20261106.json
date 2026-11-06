@@ -1,0 +1,18 @@
+{
+  "schema": "ttm.p01.l1.durable_quota_prototype_qa.v1",
+  "date": "2026-11-06",
+  "test_environment": "isolated Linux Python 3.13, non-Windows",
+  "prototype_source_sha256": "26309691429e96d2d96305030801074ccc8a59e7c94c6fe22bf4ad7bd7c989bb",
+  "prototype_test_sha256": "df3ebd99a1468d494f15952090def686d1637949ec0f333c6ac9278d010e065d",
+  "test_command": "python -B -m unittest -v test_durable_broker_quota_independent.py",
+  "tests_run": 10,
+  "passed": 10,
+  "failed": 0,
+  "included_concurrent_process_reservations": true,
+  "previous_resource_warning": "fixed connection closure before final rerun",
+  "exact_github_source_tested": false,
+  "github_native_windows_tests": "NOT_EXECUTED",
+  "security_boundary": "NOT_QUALIFIED",
+  "verdict": "PASS_PROTOTYPE_UNIT_ONLY",
+  "retained_prior_static_security_verdict": "FAIL"
+}
