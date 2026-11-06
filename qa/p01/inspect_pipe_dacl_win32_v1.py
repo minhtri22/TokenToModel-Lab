@@ -56,7 +56,7 @@ def inspect(*, pipe_name, service_sid, worker_sid):
         sddl=out.value or ""
     finally:
         local_free(ctypes.cast(out,ctypes.c_void_p))
-    aces=[a.split(";") for a in re.findall(r"\\(([^()]*)\\)",sddl)]
+    aces=[a.split(";") for a in re.findall(r"\(([^()]*)\)",sddl)]
     allow=[parts for parts in aces if len(parts)>=6 and parts[0]=="A"]
     bad=[parts[5] for parts in allow if parts[5] in FORBIDDEN]
     sidset={parts[5] for parts in allow}
