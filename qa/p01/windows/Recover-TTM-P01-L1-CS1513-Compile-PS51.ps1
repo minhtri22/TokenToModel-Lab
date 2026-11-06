@@ -13,7 +13,7 @@ $blob='d15e9b8c255777098b1baafad0a9fb6d4e95df13'
 $id='L1_CS1513_REPAIR_'+[DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ')+'_'+[Guid]::NewGuid().ToString('N').Substring(0,8)
 $receiptDir=Join-Path $repo ('worktrees\_ttm_p01_l1_qa_receipts\'+$id)
 $r=[ordered]@{schema='ttm.p01.l1.cs1513_compile_recovery.v1';run_id=$id;source_commit=$commit;original_head=$base;checks=[ordered]@{};compiler_output=@();verdict='BLOCK';W01_W12='NOT_EXECUTED';grouped_L1='NOT_AUTHORIZED';errors=@()}
-function R($name,$status,$detail) {$r.checks[$name]=@{status=$status;detail=$detail};Write-Host ('TTM_REPAIR_'+$name+'='+$status)}
+function Write-RepairCheck($name,$status,$detail) {$r.checks[$name]=@{status=$status;detail=$detail};Write-Host ('TTM_REPAIR_'+$name+'='+$status)}
 function Deny($reason){throw [InvalidOperationException]::new($reason)}
 function GR([string[]]$v){$out=@(& git.exe -C $wt @v 2>&1);if($LASTEXITCODE -ne 0){Deny 'GIT_READ_FAIL'};return ($out -join [char]10).Trim()}
 function NoReparse($p){while($p -and (Test-Path -LiteralPath $p)){$item=Get-Item -LiteralPath $p -Force;if(($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0){Deny 'REPARSE_PATH'};$q=Split-Path -Parent $p;if($q -eq $p){break};$p=$q}}
@@ -23,7 +23,7 @@ try {
  if((GR @('rev-parse','HEAD')) -cne $base){Deny 'HEAD_MISMATCH'}
  if((GR @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Deny 'BRANCH_MISMATCH'}
  if((GR @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Deny 'ORIGIN_MISMATCH'}
- R 'PINNED_LOCAL' 'PASS' 'No local Git mutations'
+ Write-RepairCheck 'PINNED_LOCAL' 'PASS' 'No local Git mutations'
  if(Get-Service -Name TTMP01Broker -ErrorAction SilentlyContinue){Deny 'SERVICE_ALREADY_EXISTS'}
  if(Get-LocalUser -Name TTMP01Worker -ErrorAction SilentlyContinue){Deny 'ACCOUNT_ALREADY_EXISTS'}
  $old=Join-Path $stage 'BrokerAttestationService.cs'
@@ -43,12 +43,12 @@ try {
  $bytes=[Convert]::FromBase64String(($src.content -replace '\s',''))
  if([Text.Encoding]::UTF8.GetString($bytes) -cne ($legacy+'}'+[char]10)){Deny 'MORE_THAN_ONE_BRACE_CHANGE'}
  [IO.File]::WriteAllBytes($fixed,$bytes)
- R 'FIX_SOURCE' 'PASS' 'Exact one closing brace only, old source retained'
+ Write-RepairCheck 'FIX_SOURCE' 'PASS' 'Exact one closing brace only, old source retained'
  $lines=@(& $csc '/nologo' '/target:exe' ('/out:'+$binary) '/reference:System.dll' '/reference:System.Core.dll' '/reference:System.ServiceProcess.dll' $fixed 2>&1)
  $code=$LASTEXITCODE
  $r.compiler_output=@($lines|ForEach-Object {"$_"})
  if($code -ne 0 -or -not(Test-Path -LiteralPath $binary)){R 'WINDOWS_CSC' 'FAIL' ('exit='+$code);Deny 'WINDOWS_COMPILE_FAILED'}
- R 'WINDOWS_CSC' 'PASS' 'Exact source built; service NOT installed or started'
+ Write-RepairCheck 'WINDOWS_CSC' 'PASS' 'Exact source built; service NOT installed or started'
  $r.binary_sha256=(Get-FileHash -LiteralPath $binary -Algorithm SHA256).Hash.ToLowerInvariant()
  $r.source_sha256=(Get-FileHash -LiteralPath $fixed -Algorithm SHA256).Hash.ToLowerInvariant()
  $r.verdict='PASS_COMPILE_ONLY'
