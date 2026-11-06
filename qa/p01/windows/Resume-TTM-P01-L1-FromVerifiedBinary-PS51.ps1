@@ -109,6 +109,7 @@ try {
  $sidMatch=[regex]::Match($sidText,'S-1-5-80-(?:[0-9]+-){4}[0-9]+')
  if(-not $sidMatch.Success){Stop-Gate 'SC_SHOWSID_FAILED'}
  $serviceSid=$sidMatch.Value
+ $report['broker_service_sid']=$serviceSid
  if(-not $Apply) {
   Add-Check 'APPLY' 'NOT_EXECUTED' 'Elevation and explicit -Apply required'
   $report.result='PREFLIGHT_PASS_ONLY'
@@ -126,6 +127,7 @@ try {
   $secure=ConvertTo-SecureString -String $plain -AsPlainText -Force
   New-LocalUser -Name $accountName -Password $secure -AccountNeverExpires -UserMayNotChangePassword -Description 'TTM P01 L1 QA-only nonadministrator worker'|Out-Null
   $workerSid=(Get-LocalUser -Name $accountName).SID.Value
+  $report['worker_sid']=$workerSid
   if(-not $workerSid.StartsWith('S-1-5-21-')){Stop-Gate 'WORKER_SID_INVALID'}
   Add-Check 'WORKER_ACCOUNT_CREATED' 'PASS_PROVISIONED' 'Dedicated nonadministrator SID'
   # Protect broker binary, secret and root by service SID; worker only read/traverse evidence.
@@ -158,6 +160,7 @@ try {
    if((Get-Service -Name $svcName).Status -ne 'Running'){Stop-Gate 'SCM_SERVICE_NOT_RUNNING'}
    $serviceStarted=$true
    Add-Check 'SERVICE_RUNNING' 'PASS_SCM_ONLY' 'Process token and pipe require separate native verification'
+   $report['service_binary_sha256']=Sha $exe
   } catch {
    Add-Check 'SERVICE_RUNNING' 'BLOCK' $_.Exception.GetType().Name
   }
