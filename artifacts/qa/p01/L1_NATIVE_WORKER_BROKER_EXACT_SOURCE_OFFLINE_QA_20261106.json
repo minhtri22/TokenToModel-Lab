@@ -1,0 +1,44 @@
+{
+  "schema": "ttm.p01.l1.worker_broker_protocol_exact_source_qa.v1",
+  "date": "2026-11-06",
+  "base_commit": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "git_branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "environment": {
+    "os": "Linux",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "durable_broker_quota_v1.py": {
+      "sha256": "352a59ab21c3f7f197fb95bd65f25f3d30f456ed93eabea044f962447ae52251",
+      "git_blob_sha": "c4bbf521cbc08e0e06da9351a2d141d41bede95c"
+    },
+    "worker_identity_acl_win32_v1.py": {
+      "sha256": "15d6ef048144036b4a998f031ed67b1d6894172aee24f2ee385b44cd6073adf3",
+      "git_blob_sha": "14f20a42fbb368977f051fe83f59ca67d351ca79"
+    },
+    "atomic_handle_writer_win32_v1.py": {
+      "sha256": "e5636f89ea0be005a373f808f2e3e59196e962d5bb6caf989f8c3e3fc1f557b5",
+      "git_blob_sha": "a23495c276764c6f28d6b1942f7a61cfd5295e3a"
+    },
+    "trusted_broker_service_v1.py": {
+      "sha256": "8f9756fb6827561b8341558e08d79e16726f011124d94ad5d75d6f9d2dd01a31",
+      "git_blob_sha": "5ab146b57a9a6b3eb954334503f1428189ee7f67"
+    },
+    "test_trusted_broker_protocol_v1.py": {
+      "sha256": "02f40d119623665886c24e6ebf7b7091d4e2825f13f59557881d7c7eaabc4557",
+      "git_blob_sha": "7c612b797d32bac9cbcdbfa1956a27757a76b202"
+    }
+  },
+  "command": "python -B -m unittest -v test_trusted_broker_protocol_v1.py",
+  "stdout": "",
+  "stderr": "test_bad_sha_rejected_before_reservation (test_trusted_broker_protocol_v1.ProtocolQA.test_bad_sha_rejected_before_reservation) ... ok\ntest_bad_size_rejected_before_reservation (test_trusted_broker_protocol_v1.ProtocolQA.test_bad_size_rejected_before_reservation) ... ok\ntest_duplicate_casefold_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_duplicate_casefold_rejected) ... ok\ntest_happy_path_marks_committed (test_trusted_broker_protocol_v1.ProtocolQA.test_happy_path_marks_committed) ... ok\ntest_held_capacity_not_refunded_on_restart (test_trusted_broker_protocol_v1.ProtocolQA.test_held_capacity_not_refunded_on_restart) ... ok\ntest_invalid_base64_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_invalid_base64_rejected) ... ok\ntest_invalid_json_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_invalid_json_rejected) ... ok\ntest_non_windows_service_always_refuses (test_trusted_broker_protocol_v1.ProtocolQA.test_non_windows_service_always_refuses) ... ok\ntest_partial_writer_failure_is_held (test_trusted_broker_protocol_v1.ProtocolQA.test_partial_writer_failure_is_held) ... ok\ntest_receipt_mismatch_is_held (test_trusted_broker_protocol_v1.ProtocolQA.test_receipt_mismatch_is_held) ... ok\ntest_replay_exact_rejected_no_second_write (test_trusted_broker_protocol_v1.ProtocolQA.test_replay_exact_rejected_no_second_write) ... ok\ntest_request_traversal_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_request_traversal_rejected) ... ok\ntest_unknown_fields_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_unknown_fields_rejected) ... ok\ntest_unknown_operation_rejected (test_trusted_broker_protocol_v1.ProtocolQA.test_unknown_operation_rejected) ... ok\ntest_windows_backend_untested_static_import_only (test_trusted_broker_protocol_v1.ProtocolQA.test_windows_backend_untested_static_import_only) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.062s\n\nOK\n",
+  "exit_code": 0,
+  "result": "PASS_EXACT_SOURCE_OFFLINE_15_OF_15",
+  "windows_native": "NOT_EXECUTED",
+  "effective_acl": "NOT_QUALIFIED",
+  "service_identity": "NOT_PROVISIONED",
+  "pipe_dacl": "NOT_QUALIFIED",
+  "native_worker_execution": "NOT_EXECUTED",
+  "native_W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA_permit": "NOT_GRANTED"
+}
