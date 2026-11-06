@@ -1,0 +1,164 @@
+{
+    "schema":  "ttm.p01.l1.v3_v4_windows_independent_python_static_preflight.v4",
+    "run_id":  "L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149",
+    "source_commit":  "782f101f001973f8c23f23b22ae2b0896232d722",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "predecessor_block_commit":  "c68e7f1871db0a68f9e3a9cd54b43e87ccbb1658",
+    "predecessor_preqa_block_commit":  "ac246d1b4c8b4bea4ffda57196a77e4b9ab0d2b8",
+    "mode":  "PYTHON_STATIC_ONLY_AND_COMPILER_PRESENCE_READONLY",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated PowerShell 5.1 on target machine"
+                             },
+                   "ORIGINAL_HEAD":  {
+                                         "status":  "PASS",
+                                         "detail":  "Frozen F0 worktree HEAD/branch/origin read-only"
+                                     },
+                   "SCM_READONLY":  {
+                                        "status":  "PASS_STOPPED_PID0",
+                                        "detail":  "No service commands issued"
+                                    },
+                   "MARKER_SWITCH":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                     },
+                   "MARKER_NATIVE":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                     },
+                   "MARKER_SCM_STOP":  {
+                                           "status":  "PASS_EXACT",
+                                           "detail":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502"
+                                       },
+                   "MARKER_EXACT_PROCESS":  {
+                                                "status":  "PASS_EXACT",
+                                                "detail":  "59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9"
+                                            },
+                   "WINDOWS_PYTHON":  {
+                                          "status":  "PASS",
+                                          "detail":  "Windows 3.13.12 x64"
+                                      },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Receipt upload and readback available"
+                                   },
+                   "NEW_MARKER_ABSENCE":  {
+                                              "status":  "PASS_WIN32_2",
+                                              "detail":  "New QA marker not present"
+                                          },
+                   "PIN_BROKER_V3":  {
+                                         "status":  "PASS_EXACT_GIT_BLOB",
+                                         "detail":  "8bbcb2bb7b9f0d69e20ebd8ac04fa6216b20c986207b4215617bac8ffb782ca4"
+                                     },
+                   "PIN_WORKER_V4":  {
+                                         "status":  "PASS_EXACT_GIT_BLOB",
+                                         "detail":  "0e81e2a2ae9914daff20956d3d85f54b98dfa921ddd1764c771b8e9bae5cef04"
+                                     },
+                   "PIN_INDEPENDENT_QA":  {
+                                              "status":  "PASS_EXACT_GIT_BLOB",
+                                              "detail":  "f75ce6ecf16fc5a3d00807dc958f4421027578f1aab7a587144c5ca2ab32642d"
+                                          },
+                   "ONE_SHOT_MARKER":  {
+                                           "status":  "PASS_CREATED",
+                                           "detail":  "Append-only; never auto delete"
+                                       },
+                   "INDEPENDENT_PYTHON_QA":  {
+                                                 "status":  "PASS_SOURCE_ONLY",
+                                                 "detail":  "Static=46/46;Negative=9/9"
+                                             },
+                   "COMPILER_PREFLIGHT":  {
+                                              "status":  "PASS_READONLY",
+                                              "detail":  "Framework64 csc available, EXE/DLL target names unused; no csc invocation"
+                                          }
+               },
+    "source_files":  [
+                         {
+                             "name":  "BROKER_V3",
+                             "git_path":  "runtime/p01/windows/BrokerAttestationServiceV3.cs",
+                             "git_blob":  "2fc1b63d6e21e7d8ac86184251974e9960572f3f",
+                             "sha256":  "8bbcb2bb7b9f0d69e20ebd8ac04fa6216b20c986207b4215617bac8ffb782ca4",
+                             "bytes":  9017,
+                             "local_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149\\exact_sources\\BrokerAttestationServiceV3.cs"
+                         },
+                         {
+                             "name":  "WORKER_V4",
+                             "git_path":  "qa/p01/windows/TTMWorkerNativeProbeV4.cs",
+                             "git_blob":  "63d5407ccb3f9e15f8dda59ee6323a0e5009d860",
+                             "sha256":  "0e81e2a2ae9914daff20956d3d85f54b98dfa921ddd1764c771b8e9bae5cef04",
+                             "bytes":  11979,
+                             "local_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149\\exact_sources\\TTMWorkerNativeProbeV4.cs"
+                         },
+                         {
+                             "name":  "INDEPENDENT_QA",
+                             "git_path":  "qa/p01/windows/Independent-QA-BrokerV3-WorkerV4-Static.py",
+                             "git_blob":  "0d42c4f7a4ac08c59022449210a323feed3a7495",
+                             "sha256":  "f75ce6ecf16fc5a3d00807dc958f4421027578f1aab7a587144c5ca2ab32642d",
+                             "bytes":  12257,
+                             "local_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149\\exact_sources\\Independent-QA-BrokerV3-WorkerV4-Static.py"
+                         }
+                     ],
+    "python_identity":  {
+                            "exe":  "C:\\Users\\minht\\miniforge3\\python.exe",
+                            "platform":  "Windows",
+                            "machine":  "DESKTOP-4PSD0G2",
+                            "version":  "3.13.12",
+                            "pointer_width":  "64"
+                        },
+    "python_checker_exit":  0,
+    "python_checker_result":  {
+                                  "verdict":  "PASS_SOURCE_ONLY_NO_WINDOWS_NATIVE",
+                                  "source":  {
+                                                 "broker_sha256":  "8bbcb2bb7b9f0d69e20ebd8ac04fa6216b20c986207b4215617bac8ffb782ca4",
+                                                 "worker_sha256":  "0e81e2a2ae9914daff20956d3d85f54b98dfa921ddd1764c771b8e9bae5cef04"
+                                             },
+                                  "static_checks_passed":  46,
+                                  "static_checks_total":  46,
+                                  "static_failures":  [
+
+                                                      ],
+                                  "negative_fixture_passed":  9,
+                                  "negative_fixture_total":  9,
+                                  "negative_fixture_failures":  [
+
+                                                                ],
+                                  "structural_notes":  {
+                                                           "broker":  "balanced_brace_paren_bracket_and_literals",
+                                                           "worker":  "balanced_brace_paren_bracket_and_literals"
+                                                       }
+                              },
+    "python_checker_stdout_sha256":  "74bca5e1984ff2f6f7eb6d43a6632180fa7bdd8c524a63eb73776b0bee2cd6a0",
+    "python_checker_stderr":  null,
+    "compiler_preflight":  {
+                               "csc_path":  "C:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+                               "sha256":  "eca02e6b15cde93009a59a3d129d5a77fb5008f2e1cf62cf573b6737c747ecc3",
+                               "file_version":  "14.8.10001.0 built by: bd501acdc000004",
+                               "target_broker_exe":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV3.exe",
+                               "target_worker_dll":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMWorkerNativeProbeV4.dll",
+                               "invocation":  "NOT_EXECUTED"
+                           },
+    "system_capacity":  {
+                            "D_free_bytes":  37212024832,
+                            "physical_free_kib":  12807836
+                        },
+    "qa_marker_sha256":  "515fc6c37370cb0080af05b87f837bff2e4f564f693cf49d7c1e5840d1f44e38",
+    "verdict":  "PASS_WINDOWS_PYTHON_STATIC_QA_AND_COMPILE_ONLY_PREFLIGHT_NO_BINARY",
+    "errors":  [
+
+               ],
+    "service_started":  false,
+    "scm_changed":  false,
+    "windows_csc_executed":  false,
+    "binary_compiled":  false,
+    "marker_cleanup":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "marker_probe":  {
+                         "method":  "PYTHON_STDIN_CTYPES_WIN32_GETFILEATTRIBUTES",
+                         "process_exit":  0,
+                         "output":  "4294967295|2"
+                     },
+    "utc":  "2026-11-06T18:07:29.9884986Z"
+}
