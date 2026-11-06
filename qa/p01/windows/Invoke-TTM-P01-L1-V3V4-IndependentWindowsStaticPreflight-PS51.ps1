@@ -137,6 +137,7 @@ public static class TtmP01StaticQAMarker {
  $err=[Runtime.InteropServices.Marshal]::GetLastWin32Error()
  if($err -ne 2){Halt ('STATIC_QA_MARKER_ABSENCE_NOT_PROVEN_WIN32_'+$err)}
  Gate 'NEW_MARKER_ABSENCE' 'PASS_WIN32_2' 'New QA marker not present'
+ New-Item -ItemType Directory -Path $evidenceDir -ErrorAction Stop|Out-Null
  New-Item -ItemType Directory -Path $srcDir -ErrorAction Stop|Out-Null
  foreach($item in $items){
   $bytes=GitHubExactBytes $item.path $item.blob
@@ -160,12 +161,13 @@ public static class TtmP01StaticQAMarker {
  $env:PYTHONDONTWRITEBYTECODE='1'
  $env:PYTHONNOUSERSITE='1'
  $out=@(& $python -B $checker --broker $broker --worker $worker 2>&1)
- $receipt.python_checker_exit=$LASTEXITCODE
- $text=($out|ForEach-Object {$_ .ToString()}) -join [Environment]::NewLine
+ $pythonExit=$LASTEXITCODE
+ $receipt.python_checker_exit=$pythonExit
+ $text=($out|ForEach-Object {$_.ToString()}) -join [Environment]::NewLine
  $receipt.python_checker_stdout_sha256=HashBytes ([Text.Encoding]::UTF8.GetBytes($text))
  $checkerResult=$null
  try{$checkerResult=$text|ConvertFrom-Json}catch{ $receipt.python_checker_stderr='CHECKER_JSON_PARSE_FAILED' }
- if($null -eq $checkerResult -or $LASTEXITCODE -ne 0){Halt 'INDEPENDENT_PYTHON_CHECKER_FAILED_OR_UNREADABLE'}
+ if($null -eq $checkerResult -or $pythonExit -ne 0){Halt 'INDEPENDENT_PYTHON_CHECKER_FAILED_OR_UNREADABLE'}
  $receipt.python_checker_result=[ordered]@{
   verdict=$checkerResult.verdict
   source=$checkerResult.source
