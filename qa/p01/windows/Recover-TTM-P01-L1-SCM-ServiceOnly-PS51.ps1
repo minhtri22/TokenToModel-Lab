@@ -59,11 +59,23 @@ try {
  $sidLines=@([IO.File]::ReadAllLines($config))
  if($sidLines.Length -ne 2 -or $sidLines[0] -cne ('service='+$expectedServiceSid) -or $sidLines[1] -cne ('worker='+$expectedWorkerSid)){Halt 'PINNED_SID_CONFIGURATION_MISMATCH'}
  Set-Gate 'EXISTING_CONFIG_AND_SECRET' 'PASS_PRESENCE_ONLY' 'Exactly pinned SID metadata; DPAPI/ledger bytes not read or changed'
- foreach($p in @((Join-Path $stage 'broker_service'),(Join-Path $stage 'evidence'))){
+ $adminGroupSid=New-Object Security.Principal.SecurityIdentifier('S-1-5-32-544')
+ $adminGroup=Get-LocalGroupMember -SID $adminGroupSid -ErrorAction Stop
+ if(@($adminGroup | Where-Object {$_.SID.Value -eq $expectedWorkerSid}).Count -gt 0){Halt 'WORKER_IS_LOCAL_ADMIN'}
+ Set-Gate 'WORKER_NONADMIN' 'PASS' 'Exact worker SID is not a direct local Administrators member'
+ foreach($p in @($stage,(Join-Path $stage 'broker_service'),(Join-Path $stage 'evidence'))){
   $acl=Get-Acl -LiteralPath $p
   if(-not $acl.AreAccessRulesProtected){Halt 'UNPROTECTED_DIRECTORY_DACL'}
   $allowed=@($acl.Access|Where-Object {$_.AccessControlType -eq [Security.AccessControl.AccessControlType]::Allow}|ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value})
   if($allowed -notcontains $expectedServiceSid){Halt 'SERVICE_SID_MISSING_IN_DACL'}
+  foreach($ace in @($acl.Access)){
+   try {$aceSid=$ace.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}
+   catch {Halt 'DACL_SID_TRANSLATION_FAILED'}
+   if($aceSid -eq $expectedWorkerSid -and $ace.AccessControlType -eq [Security.AccessControl.AccessControlType]::Allow){
+    $forbidden=[Security.AccessControl.FileSystemRights]::Write -bor [Security.AccessControl.FileSystemRights]::Modify -bor [Security.AccessControl.FileSystemRights]::FullControl
+    if(($ace.FileSystemRights -band $forbidden) -ne 0){Halt 'WORKER_HAS_WRITE_ON_STAGE_OR_EVIDENCE'}
+   }
+  }
  }
  Set-Gate 'DIRECTORY_DACL_STATIC' 'PASS_READBACK_ONLY' 'Protected DACL with service SID; worker denied-open not attested'
  if($null -ne (Get-Service -Name $svc -ErrorAction SilentlyContinue)){Halt 'SCM_SERVICE_EXISTS_NO_RECREATE'}
