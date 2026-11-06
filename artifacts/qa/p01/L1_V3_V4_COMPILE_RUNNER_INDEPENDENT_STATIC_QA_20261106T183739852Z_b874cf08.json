@@ -1,0 +1,74 @@
+{
+    "schema":  "ttm.p01.l1.v3v4.compile_runner_windows_static_qa.v1",
+    "run_id":  "L1_V3_V4_COMPILE_RUNNER_INDEPENDENT_STATIC_QA_20261106T183739852Z_b874cf08",
+    "source_commit":  "9bd43e88752448d7bdb9d5941ebef8c3ed269d4e",
+    "checks":  {
+                   "ORIGINAL":  {
+                                    "detail":  "Frozen research HEAD read-only",
+                                    "status":  "PASS"
+                                },
+                   "SOURCE_RUNNER":  {
+                                         "detail":  "a3a130a17d54598631aafd2706d0341a990ee971",
+                                         "status":  "PASS_EXACT_BLOB"
+                                     },
+                   "SOURCE_QA":  {
+                                     "detail":  "1448fcd2a697a00babf49b1bf3942388188765af",
+                                     "status":  "PASS_EXACT_BLOB"
+                                 },
+                   "PS51_PARSE":  {
+                                      "detail":  "Native PowerShell 5.1 AST parser",
+                                      "status":  "PASS_ZERO_ERRORS"
+                                  },
+                   "ONE_SHOT_MARKER":  {
+                                           "detail":  "No replay; no cleanup",
+                                           "status":  "PASS_CREATED"
+                                       },
+                   "PYTHON_STATIC_QA":  {
+                                            "detail":  "Positive=45/45;Negative=12/12",
+                                            "status":  "PASS_SOURCE_ONLY"
+                                        }
+               },
+    "source_files":  [
+                         {
+                             "name":  "RUNNER",
+                             "git_blob":  "a3a130a17d54598631aafd2706d0341a990ee971",
+                             "sha256":  "663bb33a1c473bc93d529fa25858e0e7afd370af6d8cf4901278c5a9bc4af9ca",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_COMPILE_RUNNER_INDEPENDENT_STATIC_QA_20261106T183739852Z_b874cf08\\Invoke-TTM-P01-L1-V3V4-ExactSource-CompileOnly-PS51.ps1"
+                         },
+                         {
+                             "name":  "QA",
+                             "git_blob":  "1448fcd2a697a00babf49b1bf3942388188765af",
+                             "sha256":  "1f745a3260368a203c923de7aa07cd0ab215c57831480d985da0312cfd5227d6",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_COMPILE_RUNNER_INDEPENDENT_STATIC_QA_20261106T183739852Z_b874cf08\\Independent-Audit-TTM-V3V4-CompileRunner-Static.py"
+                         }
+                     ],
+    "parse_errors":  [
+
+                     ],
+    "python_checker":  {
+                           "exit_code":  0,
+                           "verdict":  "PASS_SOURCE_ONLY_NO_NATIVE_PARSE",
+                           "positive_total":  45,
+                           "positive_pass":  45,
+                           "negative_total":  12,
+                           "negative_rejected":  12,
+                           "failed":  [
+
+                                      ],
+                           "negative_fail":  [
+
+                                             ],
+                           "runner_sha256":  "663bb33a1c473bc93d529fa25858e0e7afd370af6d8cf4901278c5a9bc4af9ca"
+                       },
+    "one_shot_marker_sha256":  "984ec8f04074c8c85370a422be2d17c6784cf79029ed14ac41f980756e7c4e0d",
+    "verdict":  "PASS_WINDOWS_PS51_PARSE_AND_INDEPENDENT_SOURCE_QA_NO_COMPILATION",
+    "errors":  [
+
+               ],
+    "csc_executed":  false,
+    "service_action":  "NONE",
+    "SCM_changed":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T18:37:42.4039848Z"
+}
