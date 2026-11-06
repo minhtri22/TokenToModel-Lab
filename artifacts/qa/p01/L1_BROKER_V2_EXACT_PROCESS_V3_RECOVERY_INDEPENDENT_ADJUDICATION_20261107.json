@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.p01.l1.v2_exact_process_recovery_independent_adjudication.v1",
+  "adjudication_date_utc": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "evidence": {
+    "run": "L1_BROKER_V2_EXACT_PROCESS_RECOVERY_V3_20261106T170736634Z_c6d1a217",
+    "github_commit": "a5a0006f6586a78b6a748fea018625c65e569c8f",
+    "github_blob": "67a92264c6dc469073bd666a432f2e1b63e2644d",
+    "attachment_sha256": "2252add34aff11fdd11889bceceedb1f3e8da47c40db8fcbd5e71cb2881ad6a5",
+    "github_readback": "PASS",
+    "file_matching_sha256": "PASS",
+    "mode": "EXPLICIT_TERMINATE_EXACT_PROCESS_ONCE",
+    "final_receipt_verdict": "PASS_EXACT_TTM_PROCESS_RECOVERED_WITH_FORCED_TERMINATION"
+  },
+  "preconditions": {
+    "SCM_initial_state": "Running",
+    "SCM_initial_pid": 26200,
+    "SCM_Manual_LocalService_binpath": "PASS",
+    "original_head_and_binary_pin": "PASS",
+    "prior_markers_SCM_switch_native_test_stop_recovery": "PASS_EXACT",
+    "forced_termination_marker_absent": "PASS_WIN32_2",
+    "exact_process_via_SCM_path_creation_and_kernel_handle": "PASS",
+    "new_marker_created": "PASS_CREATED",
+    "new_marker_sha256": "59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9"
+  },
+  "action": {
+    "exact_handle_result": "PASS_EXACT_HANDLE_EXIT_CONFIRMED",
+    "termination_attempted": true,
+    "forced_termination": true,
+    "service_final_state": "Stopped",
+    "service_final_pid": 0,
+    "service_final_win32_exit_code": 1067,
+    "service_final_start_mode": "Manual",
+    "service_final_account": "NT AUTHORITY\\LocalService",
+    "scm_config_changed": false,
+    "worker_or_ACL_changed": false,
+    "prior_markers_changed": false,
+    "no_additional_service_start": true
+  },
+  "verdicts": {
+    "infrastructure_stuck_process_recovered": "PASS_AT_RECEIPT_TIME",
+    "clean_service_stop": "FAIL_UNRESOLVED_PRIOR_ERROR_1061_AND_NON_GRACEFUL_EXIT_1067",
+    "named_pipe_DACL": "BLOCK_READ_231_NOT_ATTESTED",
+    "worker_token_negative_rights_and_peer_auth": "NOT_EXECUTED",
+    "full_windows_security": "NOT_QUALIFIED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "W01_W12": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "scientific_lineage_edit": "NOT_ALLOWED_ENGINEERING_ONLY"
+  },
+  "inferences_and_limits": [
+    "The receipt attests SCM Stopped with PID0 at the end of the 2026-11-06T17:07 UTC native run, not as a continuing live status guarantee.",
+    "Windows service exit code 1067 is consistent with abnormal/forced process termination. It must not be counted as an ordinary stop success.",
+    "Previous native failure BLOCK_PIPE_DACL_READ_231 is ERROR_PIPE_BUSY, not an established access control failure.",
+    "V2's blocking WaitForConnection and OnStop Join are suspect but root cause remains undetermined. The current V2 binary must not be restarted for another test.",
+    "Preserve all immutable evidence and one-shot markers; never repeat V2 native security or V3 force recovery."
+  ],
+  "next_narrow_work": "Prepare source-only broker shutdown cancellation successor and handle-based named pipe DACL auditor design, followed by zero-science Windows compile and independent preflight. No install/SCM change/service start without separate gate."
+}
