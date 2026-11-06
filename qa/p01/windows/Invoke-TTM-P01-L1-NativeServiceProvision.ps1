@@ -103,6 +103,12 @@ try {
   $workerSid=(Get-LocalUser -Name $user).SID.Value
   if(-not $workerSid.StartsWith('S-1-5-21-')){Block 'WORKER_SID_INVALID'}
   Record 'WORKER_ACCOUNT' 'PASS_CREATED' $workerSid
+  # DPAPI-encrypted credential for later native QA; never print or upload.
+  $credentialFile=Join-Path $bin 'worker_credential.dpapi.xml'
+  $credential=New-Object System.Management.Automation.PSCredential(($env:COMPUTERNAME+'\'+$user),$secure)
+  $credential | Export-Clixml -LiteralPath $credentialFile
+  $credential=$null
+  Record 'WORKER_CREDENTIAL_DPAPI' 'PASS_LOCAL_ONLY' 'Encrypted using current admin-user DPAPI; excluded from evidence uploads'
   $created=@(& sc.exe create $service ('binPath= "'+$exe+'"') 'start= demand' 'obj= NT AUTHORITY\LocalService' 'type= own' 2>&1)
   if($LASTEXITCODE -ne 0){Block 'SERVICE_CREATE_FAILED'}
   $typed=@(& sc.exe sidtype $service unrestricted 2>&1)
