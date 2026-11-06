@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.p01.l1.controlled_scm_stop_recovery_static_gate.v1",
+  "date": "2026-11-06",
+  "previous_live_receipt_commit": "bcbc91328045d691819faaf81fdbb5f085e8ba2f",
+  "previous_live_run": "L1_V2_STOP_UNVERIFIED_READONLY_20261106T163110268Z_e71a460b",
+  "previous_receipt_sha256": "9c8aaeff041a4c3099b9098e8b062196df0cf8fe9c0741e5a27930218abd98e7",
+  "previous_live_state": "RUNNING",
+  "previous_live_service_pid": 26200,
+  "previous_live_process_start_utc": "2026-11-06T16:24:42.113Z",
+  "previous_live_process_start_unix_ms": 1793982282113,
+  "previous_live_exe_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+  "native_one_shot_marker_sha256": "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7",
+  "switch_marker_sha256": "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1",
+  "script": "qa/p01/windows/Recover-TTM-P01-L1-ExactSCMStop-PS51.ps1",
+  "script_blob": "f7ff0ce7498641164fc3a614abe3815ec1b0264f",
+  "static_source_predicates": {
+    "checked": 31,
+    "present": 31,
+    "kind": "source contract inspection only"
+  },
+  "allowed_action": "Exactly one sc.exe stop TTMP01Broker control request after matching HEAD, SHA pins, live SCM service, PID 26200, V2 executable path, process creation date, manual start and LocalService. If currently stopped, no action. Record current state.",
+  "explicitly_prohibited": [
+    "Auto force-killing PID 26200",
+    "Stop-Process or taskkill",
+    "Restarting the broker",
+    "Clearing or replacing any prior one-shot marker",
+    "Changing SCM binPath, start mode, service account or service SID",
+    "Changing ACL, worker, credential or SQLite ledger",
+    "Rerunning native V2/V3 security test",
+    "Opening W01-W12 or grouped L1 QA",
+    "Mutating original F0 worktree or scientific lineage"
+  ],
+  "anti_replay": "New project-local one-shot recovery marker (atomic CreateNew) before SCM request; persists after PASS or FAIL. If state already Stopped/PID=0, does not create marker.",
+  "polling": "After exactly one control request, SCM status checked for at most 15 seconds; never a second stop command. STOPPED and PID=0 required for recovery claim.",
+  "evidence": "New TTM local JSON receipt and GitHub commit with SHA256 verified; no secrets.",
+  "actual_native_stop": "NOT_EXECUTED",
+  "current_service_state": "NOT_RECHECKED_SINCE_PREVIOUS_READONLY_SNAPSHOT",
+  "decision": "SOURCE_STATIC_PASS_NATIVE_RECOVERY_PENDING",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED"
+}
