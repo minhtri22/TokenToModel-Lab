@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.p01.l1.verified_binary_provision_resume_source_audit.v1",
+  "date": "2026-11-06",
+  "root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "source_path": "qa/p01/windows/Resume-TTM-P01-L1-FromVerifiedBinary-PS51.ps1",
+  "source_git_blob": "ea76e4b4e22e2d0a2a0c08ef44c918cdd3ff84da",
+  "verified_binary_sha256": "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef",
+  "verified_source_sha256": "8916fe262bf27d9176a648dd625b5fbb602f87a2cf69967fe9339def6d3561e4",
+  "independent_source_contracts": {
+    "checked": 22,
+    "present": 22,
+    "scope": "STATIC_SOURCE_REVIEW_ONLY"
+  },
+  "native_windows_provisioning": "NOT_EXECUTED",
+  "worker_account_created": "NOT_EXECUTED",
+  "broker_service_created": "NOT_EXECUTED",
+  "native_worker_write_denial": "NOT_EXECUTED",
+  "pipe_dacl_readback": "NOT_EXECUTED",
+  "native_W01_W12": "NOT_EXECUTED",
+  "grouped_L1_QA": "NOT_AUTHORIZED",
+  "preconditions": "EXACT_BINARY_COMPILE_RECEIPT_VERIFIED",
+  "caution": [
+    "Script can make global Windows local-account and SCM service changes only on explicit elevated -Apply.",
+    "Partial native failure can leave named account, service, directory ACL and ledger state; script refuses automatic reuse or cleanup.",
+    "Native service accepts only attestation request; it is not an operational HMAC-authenticated evidence writer.",
+    "Worker impersonation and one-directory denied-open do not establish job or global filesystem confinement.",
+    "A static source-contract count is not security qualification.",
+    "Only a single approved user-run attempt; do not rerun -Apply after any partial result."
+  ],
+  "classification": "IMPLEMENTATION_QA_ONLY_NOT_SCIENCE",
+  "overall_verdict": "PREPARED_FOR_MANUAL_WINDOWS_PROVISION_TEST_NOT_NATIVE_QUALIFIED"
+}
