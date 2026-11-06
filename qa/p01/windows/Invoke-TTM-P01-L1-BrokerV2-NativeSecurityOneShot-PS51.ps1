@@ -203,11 +203,19 @@ public static class TtmP01ServiceTokenRead {
   $inspectorObj=$null
   try{$inspectorObj=($inspectorOut -join [Environment]::NewLine)|ConvertFrom-Json}catch{}
   if($null -eq $inspectorObj){Gate 'PIPE_DACL_NATIVE' 'BLOCK' ('JSON_UNREADABLE_EXIT_'+$inspectorExit);Block 'PIPE_DACL_INSPECTOR_UNREADABLE'}
+  $inspectorSddlHash=$null
+  $inspectorWinError=$null
+  if($null -ne $inspectorObj.PSObject.Properties['sddl_sha256']) {
+    $inspectorSddlHash=[string]$inspectorObj.sddl_sha256
+  }
+  if($null -ne $inspectorObj.PSObject.Properties['winerror']) {
+    $inspectorWinError=$inspectorObj.winerror
+  }
   $receipt.native_dacl_inspector=[ordered]@{
     verdict=$inspectorObj.verdict
     reason=$inspectorObj.reason
-    sddl_sha256=$inspectorObj.sddl_sha256
-    winerror=$(if($null -ne $inspectorObj.winerror){$inspectorObj.winerror}else{$null})
+    sddl_sha256=$inspectorSddlHash
+    winerror=$inspectorWinError
   }
   if($inspectorExit -ne 0 -or $inspectorObj.verdict -ne 'PASS_DACL_READBACK_ONLY'){
    Gate 'PIPE_DACL_NATIVE' 'BLOCK' ([string]$inspectorObj.reason)
