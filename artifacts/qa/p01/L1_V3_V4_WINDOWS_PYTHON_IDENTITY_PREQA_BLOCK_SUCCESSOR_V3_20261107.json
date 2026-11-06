@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.p01.l1.v3v4_windows_python_identity_quote_fail_pre_qa_recovery.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "source_commit": "782f101f001973f8c23f23b22ae2b0896232d722",
+  "failed_receipt": {
+    "run_id": "L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_20261106T174448947Z_21f4595b",
+    "github_commit": "ac246d1b4c8b4bea4ffda57196a77e4b9ab0d2b8",
+    "sha256": "031a3d04c04ce2435bad2b5803cd9e7232e82c5516beaa4a8698c74567bbe0c5",
+    "verified_uploaded_sha256": "PASS_LOCAL_SHA256_MATCH",
+    "verdict": "BLOCK_WINDOWS_STATIC_QA_OR_PREFLIGHT",
+    "recorded_error": "  File \"<string>\", line 1",
+    "last_pass": [
+      "ADMIN",
+      "ORIGINAL_HEAD",
+      "SCM_READONLY_STOPPED_PID0",
+      "MARKER_SWITCH",
+      "MARKER_NATIVE",
+      "MARKER_SCM_STOP",
+      "MARKER_EXACT_PROCESS"
+    ],
+    "python_identity": {
+      "status": "BLOCK_PRE_QA",
+      "captured_complete_stderr": false
+    },
+    "source_files_copied": 0,
+    "independent_python_checker_executed": false,
+    "new_qa_marker_created": false,
+    "compiler_preflight_executed": false,
+    "windows_csc_invoked": false,
+    "service_started": false,
+    "scm_changed": false
+  },
+  "suspected_cause": {
+    "hypothesis": "Windows PowerShell 5.1 legacy native-command argument passing stripped embedded double quotes inside the Python -c code, leading to SyntaxError",
+    "confidence": "PLAUSIBLE_NOT_CONFIRMED_BECAUSE_ERROR_CAPTURE_CONTAINS_ONLY_FIRST_LINE",
+    "basis": "Original source python -c argument contained explicit double-quoted | separators; first error line from <string>. Microsoft about_Parsing documents native quote removal. Use quote-free Python source argument to eliminate this risk.",
+    "external_reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parsing?view=powershell-5.1"
+  },
+  "successor": {
+    "path": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-IndependentWindowsStaticPreflight-V3-PS51.ps1",
+    "source_commit": "bd30ced5e6a99ed37f9ceda3dcc2b287e654298c",
+    "key_fix": "Python -c uses chr(124) separator instead of inner quote characters and records full Python identity probe output on failure.",
+    "one_shot_qa_marker": "L1_V3_V4_INDEPENDENT_STATIC_QA_V3_ATTEMPT_20261107.lock",
+    "mutations_to_original_scope": "No; only new project-scoped QA evidence, exact pinned source copies, marker, GitHub evidence",
+    "source_contracts_checked": 19,
+    "source_contracts_passed": 19,
+    "source_sha_readback_pending": true,
+    "windows_parse": "NOT_EXECUTED",
+    "windows_python_static": "NOT_EXECUTED",
+    "compiler_readonly_preflight": "NOT_EXECUTED",
+    "csc_compilation": "NOT_EXECUTED"
+  },
+  "decision": "PRE_QA_INFRASTRUCTURE_BLOCK_PRESERVED_NEW_SUCCESSOR_STATIC_ONLY",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "native_security": "NOT_QUALIFIED",
+  "normal_stop": "NOT_REQUALIFIED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED"
+}
