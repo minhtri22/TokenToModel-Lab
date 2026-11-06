@@ -114,3 +114,132 @@
 - Quyết định: `P00_PR2_LOCAL_SYNC=PASS`; `P00_ENGINEERING_BASELINE_FINALIZED=PASS_SCOPED_CPU_CORRECTNESS`.
 - Giới hạn: cấu hình P00 vẫn `PROPOSED_NOT_FROZEN`; chưa có bằng chứng chất lượng ngôn ngữ đã huấn luyện, GPU hoặc tăng tốc PagedAttention. `P01_ADMISSION=NOT_AUTHORIZED` cho đến cổng quyết định riêng.
 - Không sửa bất kỳ mục L0000–L0008 nào; không xóa worktree, không dọn tệp trên Windows.
+
+## L0010 — 2026-11-05 — Thiết kế và tiền đăng ký P01, chưa thực thi
+
+- Loại: thiết kế nghiên cứu và quản trị (RESEARCH_DESIGN_ONLY / PREREG_DRAFT).
+- Nhánh tài liệu: `design/p01-tokenizer-data-prereg-20261105`, gốc GitHub `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Mục tiêu: hợp đồng bộ tách token (Tokenizer) và dữ liệu (Data Pipeline), đường byte B0 256 mã để đối chứng P00, ứng viên BPE B1 tách biệt; không thay Embedding P00 hoặc mã đã được QA.
+- Tài liệu: `docs/p01/P01_DESIGN_PREREGISTRATION.md`, `docs/p01/P01_DATA_AND_SPLIT_PLAN.md`, `docs/p01/P01_METRICS_AND_QA_GATES.md`, `docs/p01/P01_WINDOWS_WORKSPACE_PREFLIGHT.md`.
+- Cổng kỹ thuật: 100% hoàn nguyên byte/Unicode, 0 mã ngoài miền, 0 giao cắt nhóm dữ liệu giữa TRAIN/VALIDATION/TEST, 0 nguồn chưa đủ quyền, tái lập SHA-256; tỷ lệ token/byte chỉ là số đo, không tuyên bố cải thiện khi chưa có corpus.
+- Tình trạng dữ liệu: `NOT_SELECTED`; ngưỡng gần trùng, seed, ngân sách RAM/đĩa và kích thước vocab BPE chưa được khóa. `PREREGISTRATION_LOCK=NOT_ISSUED`.
+- Kiểm tra tĩnh: 16/16 tiêu chí nội dung đạt; 16/16 điều kiện kiểm tra tĩnh chương trình PowerShell đạt. Ghi lại lần kiểm tra từ khóa đầu tiên 15/16 do tiêu chí dò tiếng Anh không khớp chú thích tiếng Việt, không phải FAIL khoa học.
+- Bằng chứng: `docs/p01/P01_D0_STATIC_QA_20261105.md`.
+- Local `main` ở `c66e27a5d1e68958d42c825fd40f8a273994e0a0` khi đọc metadata qua RemoteMCP, còn GitHub `main` ở `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; chưa có kết quả `git status` và chưa thực hiện đồng bộ Windows ở bước này.
+- Không tải dữ liệu, không chạy huấn luyện tokenizer/GPT, không tạo worktree P01, không xóa hoặc dọn worktree P00, không tiêu thụ seed khoa học.
+- Quyết định: `P01_D0_DESIGN_ONLY`, `P01_D0_STATIC_QA_PASS`, `P01_INDEPENDENT_METHOD_REVIEW_PENDING`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Bước tiếp theo: tiền kiểm và đồng bộ Git local đúng commit nếu điều kiện an toàn đạt; sau đó thẩm định độc lập hồ sơ D0 trước mọi khóa hoặc triển khai.
+
+## L0011 — 2026-11-05 — Đồng bộ Windows P01 đạt, thẩm định thiết kế D0 có điều kiện
+
+- Loại: kiểm toán cơ sở kỹ thuật (ENGINEERING_BASELINE_SYNC) và thẩm định phương pháp thiết kế (DESIGN_METHOD_REVIEW); **không phải** kết quả khoa học.
+- Biên bản Windows `TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json`; SHA-256 `ee69f32a993d011b35173074a5ea221bdffc3feb70c780b532f045e9beb58b7f`.
+- Đã đọc lại bản gốc từ Windows qua RemoteMCP và tải nguyên văn lên `artifacts/qa/p01/TTM_P01_BASELINE_FAST_FORWARD_20261105T083903147Z.json`.
+- Local `main`, `origin/main` và GitHub `main` tại thời điểm đối chiếu cùng commit `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; worktree P00 giữ `382da2c52d0fb4efe1cd9de5c92e68de79a52a20`.
+- 15/15 tệp được bảo vệ đã được kiểm tra SHA-256 trực tiếp và khớp biên bản; `cleanup=NONE`, `training=NOT_PERFORMED`, `p01_authorized=false`.
+- Thẩm định D0 theo nội dung khác với kiểm tra từ khóa: **10/10 điều kiện tính nhất quán của thiết kế** đạt về mặt đặc tả. **5/5 điều kiện để khóa D1 vẫn chưa được đáp ứng**: thuật toán BPE, nguồn/giấy phép dữ liệu, phát hiện gần trùng và chia tập, F0/QA độc lập, ngân sách thực thi.
+- Hồ sơ: `docs/p01/P01_D0_INDEPENDENT_METHOD_REVIEW_20261105.md`; tiền kiểm Windows có phụ lục kết quả cập nhật `docs/p01/P01_WINDOWS_WORKSPACE_PREFLIGHT.md`.
+- Quyết định: `P01_LOCAL_BASELINE_SYNC=PASS`; `P01_D0_METHOD_REVIEW=PASS_SCOPED_DESIGN`; `P01_D1_PREREG_LOCK=HOLD_H01_H05`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không huấn luyện tokenizer/GPT, không tải dữ liệu, không tạo worktree P01, không dọn P00 hoặc thay mã nguồn P00.
+- Bước tiếp theo: xử lý rõ 5 thiếu hụt H01–H05 trong một hồ sơ kế nhiệm chỉ chứa thiết kế, sau đó thẩm định độc lập D1 và ra quyết định riêng, không mở thực thi tự động.
+
+## L0012 — 2026-11-05 — Hoàn thiện đặc tả D1 H01–H05, khóa khoa học vẫn HOLD
+
+- Loại: thiết kế phương pháp, đối chiếu QA tài liệu (RESEARCH_DESIGN_REVIEW_ONLY), **không phải kết quả thực nghiệm hoặc huấn luyện**.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` tiếp tục từ nguồn P00 `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`; yêu cầu hợp nhất PR #4 giữ dạng nháp, chưa hợp nhất.
+- H01: đã đặc tả BPE byte tất định, quy tắc phá hòa bằng ID số nguyên, ghép không chồng lấn, định dạng `merges.ttmbpe` nhị phân có thứ tự, bộ từ vựng 2048 là ứng viên chính; chưa chạy.
+- H02: đã đặc tả danh mục chứng minh quyền sử dụng, **chưa có nguồn corpus thật được duyệt**; tiếp tục HOLD.
+- H03: đã đề xuất khóa đối chiếu NFC riêng, ngưỡng gần trùng theo Levenshtein/Jaccard, nhóm liên thông, seed chia tập `20261105`, tối thiểu 30 nhóm và 0 giao cắt, **chưa đánh giá trên corpus thật**.
+- H04: đã định nghĩa F00–F11 bằng byte hex + SHA-256 và oracle âm tính; kiểm tra độc lập ở môi trường chuẩn bị **12/12 SHA-256 khớp**, 3/3 chuỗi UTF-8 lỗi bị từ chối bởi thư viện chuẩn. Chưa có bộ kiểm tra P01 thực thi trên Windows.
+- H05: ngân sách ứng viên 64 MiB nguồn, tối đa 2000 tài liệu, RAM đỉnh 4 GiB, RAM trống tối thiểu 8 GiB, D: trống tối thiểu 16 GiB, 1800 giây; chưa đo tài nguyên hiện tại, chưa kiểm tra guard hoặc cấp quyền.
+- Bộ kiểm tra tĩnh 18/18 tiêu chí nhất quán D1 đạt; lần kiểm tra từ khóa đầu tiên đạt 17/18 do dò khác cách diễn đạt “tối thiểu 30 nhóm”, đã chỉnh điều kiện dò. **Không được suy diễn 18/18 là chất lượng tokenizer**.
+- Hồ sơ `docs/p01/P01_D1_H01_DETERMINISTIC_BPE_SPEC.md`, `docs/p01/P01_D1_H03_DEDUP_SPLIT_SPEC.md`, `docs/p01/P01_D1_H02_H05_SOURCE_RESOURCE_GATE.md`, `docs/p01/P01_D1_H04_FIXTURES_AND_INDEPENDENT_QA_SPEC.md`, `docs/p01/P01_D1_METHOD_REVIEW_AND_LOCK_GATE_20261105.md`.
+- Quyết định: `P01_D1_DOCUMENT_GAP_CLOSURE=PASS_SCOPED`, `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD_SOURCE_QA_RESOURCE`, `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tải dữ liệu, không học BPE, không huấn luyện GPT, không tạo worktree P01, không dọn worktree P00, không mở TEST hoặc tiêu thụ seed khoa học.
+- Bước tiếp theo: cung cấp bằng chứng quyền dữ liệu hoặc giới hạn rõ P01 chỉ thử dữ liệu F0; chuẩn bị bộ QA độc lập/nguồn lực ở cổng riêng, sau đó quyết định có khóa D1 hay không.
+## L0013 — 2026-11-05 — Tiền thẩm định H02/H04/H05 chỉ đọc, khóa D1 vẫn HOLD
+
+- Loại: rà soát quyền dữ liệu, tài nguyên và oracle (DESIGN_GOVERNANCE_READONLY), không phải thực nghiệm hay huấn luyện P01.
+- Nhánh: `design/p01-tokenizer-data-prereg-20261105`; mốc main tại thời điểm thẩm định: `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- H02: chưa có nguồn F1/F2 nào với `admission_decision=ALLOW` và SHA-256 nguồn. Wikimedia mới là ứng viên xem điều khoản, không chọn hay tải corpus; `H02=HOLD_NO_VERIFIED_SOURCE`.
+- H05: máy Windows `machine-1` trực tuyến, nhịp báo node có chữ ký, active node jobs = 0; không có số đo RAM khả dụng hoặc D: trống, bộ giới hạn tài nguyên chưa QA; `H05=HOLD_RESOURCE_METRICS_AND_GUARD`.
+- H04: tái tính SHA-256 cho 12 mẫu byte F00–F11, 12/12 khớp; F02/F03 có cùng NFC nhưng khác byte; F06–F08 bị UTF-8 strict từ chối 3/3. Chỉ kiểm tra oracle, chưa có checker P01 chạy trên Windows.
+- Chương trình chỉ đọc `TTM_P01_D1_RESOURCE_READONLY_PREFLIGHT.ps1`, SHA-256 `e48e6a101e640a483f727786e50032f04e1b39bdbc6c6b97b75d9c437c606606` đã chuẩn bị; chưa được chạy trên Windows.
+- Báo cáo: `docs/p01/P01_D1_SOURCE_RIGHTS_READONLY_REVIEW_20261105.md`, `docs/p01/P01_D1_WINDOWS_RESOURCE_READONLY_REVIEW_20261105.md`, `docs/p01/P01_D1_INDEPENDENT_QA_READONLY_PREAUTH_20261105.md`, `docs/p01/P01_D1_READONLY_PREAUTH_ADJUDICATION_20261105.md`.
+- Kết luận: `P01_D1_READONLY_PREAUTH=COMPLETED_WITH_HOLD`; `P01_D1_SCIENTIFIC_PREREG_LOCK=HOLD`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4, không dọn worktree P00.
+- Bước tiếp theo: đo RAM/D: chỉ đọc trên Windows và chứng minh quyền nguồn hoặc quyết định F0-only; sau đó tiền thẩm định checker độc lập.
+
+## L0014 — 2026-11-05 — Thẩm định số đo RAM/đĩa P01 chỉ đọc; phạm vi nguồn F0-only
+
+- Loại: tiền kiểm tài nguyên và quyết định phạm vi thiết kế (RESOURCE_PREAUTH_READONLY / SOURCE_SCOPE_DECISION), **không** phải kết quả khoa học.
+- Console Windows người dùng cung cấp: `2026-11-05T11:01:18.0864528Z`, máy `DESKTOP-4PSD0G2`, local `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. SHA-256 chương trình đã ghim: `e48e6a101e640a483f727786e50032f04e1b39bdbc6c6b97b75d9c437c606606`.
+- RAM khả dụng `10.959 GiB >= 8 GiB`; D: còn trống `34.869 GiB >=16 GiB`; D: sau dự phòng `32.807 GiB >=12 GiB`. Ba điều kiện tài nguyên ứng viên đạt tại thời điểm đo, **không chứng minh** bộ giới hạn runtime hoặc thời gian.
+- Bản chép console có ghi rõ nguồn người dùng, không phải receipt ký số của Windows: `artifacts/qa/p01/TTM_P01_D1_RESOURCE_READONLY_USER_CONSOLE_20261105T110118Z.txt`.
+- H02 chưa có nguồn F1/F2 được xác minh giấy phép/PII/SHA, vì vậy `P01_SOURCE_SCOPE=F0_ONLY_DESIGN_AND_ORACLE_REVIEW` và không thu nhận corpus.
+- H04 có hợp đồng QA độc lập C01–C10 ở mức thiết kế; checker chưa được viết, chưa có QA động.
+- Hồ sơ: `docs/p01/P01_D1_WINDOWS_RESOURCE_SNAPSHOT_ADJUDICATION_20261105.md`, `docs/p01/P01_D1_H04_INDEPENDENT_CHECKER_DESIGN_GATE_20261105.md`.
+- Quyết định: `H05_RESOURCE_SNAPSHOT=PASS_CANDIDATE`; `H05_RESOURCE_GUARD_QA=HOLD`; `H02_SOURCE_RIGHTS=HOLD`; `P01_D1_PREREG_LOCK=NOT_GRANTED`; `P01_IMPLEMENTATION_NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải dữ liệu, không huấn luyện BPE/GPT, không hợp nhất PR #4 và không dọn P00.
+
+## L0015 — 2026-11-05 — Thẩm định hợp đồng checker độc lập C01–C10, I0 vẫn HOLD
+
+- Loại: đánh giá phương pháp ở mức tài liệu (DESIGN_CONTRACT_ADJUDICATION_ONLY); không phải kết quả QA động, kiểm tra bên thứ ba hay thực nghiệm.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` PR #4 tiếp tục là bản nháp; nguồn thẩm định ban đầu ở HEAD `29a486fce0944bd2b726322ea3a6b1abb64f9c5e`, mốc GitHub main `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Các hợp đồng `C01` (toàn miền byte B0) và `C02` (12 mẫu F0 có oracle byte) đạt **PASS_DESIGN**; `C03–C10` là **HOLD_DESIGN**, chưa đủ bằng chứng/oracle từ chối hoặc cơ chế kiểm định độc lập. `FAIL_DESIGN=0`; tất cả `NOT_EXECUTED`.
+- Các khoảng trống chặn I0: `G04-01` ma trận API/lỗi; `G04-02` oracle BPE nhiều vòng/merges sai; `G04-03` trùng/gần trùng sát ngưỡng; `G04-04` tái lập/snapshot TRAIN và chặn TEST; `G04-05` nguồn/PII; `G04-06` cơ chế giới hạn RAM/đĩa/thời gian; `G04-07` manifest và biên bản bất biến; `G04-08` thẩm định lại.
+- Báo cáo: `docs/p01/P01_D1_H04_C01_C10_CONTRACT_ADJUDICATION_20261105.md`.
+- Quyết định: `P01_D1_H04_CONTRACT_ADJUDICATION=HOLD_WITH_SCOPED_PASS`, `P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`, `P01_I0_IMPLEMENTATION=NOT_AUTHORIZED`.
+- Không tạo worktree P01, không tải corpus, không chạy tokenizer/BPE/GPT, không hợp nhất PR #4 và không dọn dẹp P00.
+- Bước kế tiếp: sửa hợp đồng checker ở mức thiết kế G04-01..07 và xét G04-08 ở quyết định độc lập trước bất kỳ permit I0.
+## L0016 — 2026-11-05 — Sửa oracle H04 G04-01..07 và thẩm định G04-08, còn hai HOLD
+
+- Loại: kiểm toán và sửa hợp đồng thiết kế (DESIGN_ONLY_ORACLE_REPAIR_AND_METHOD_REVIEW); **không** có chạy checker/tokenizer hay thực nghiệm.
+- Nhánh: `design/p01-tokenizer-data-prereg-20261105` PR #4, đối chứng GitHub main `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`.
+- Trước sửa tại L0015: C01–C02 `PASS_DESIGN`, C03–C10 `HOLD_DESIGN`. Giữ nguyên L0015 để bảo toàn lịch sử.
+- Đã bổ sung các bảng A01–A10 (lỗi API, miền ID, UTF-8), M01–M04 (BPE nhiều vòng, giới hạn ranh giới, parse merges), K01–K08 (trùng/gần trùng, giao cắt, chia tập), snapshot TRAIN, ma trận quyền nguồn, hợp đồng giới hạn toàn cây tiến trình và bằng chứng bất biến.
+- Phát hiện lỗi oracle khi viết G04-03 lần đầu: với |A|=18 và |B|=19, khi số giao đổi từ 17 xuống 16 thì union phải đổi từ 20 lên 21. Đã sửa trong đặc tả trước G04-08. Đây là lỗi tài liệu thiết kế, không phải lỗi bài chạy khoa học.
+- Thẩm định chéo G04-08: G04-01/02/04/05/07 `PASS_DESIGN`, G04-03/06 `HOLD_DESIGN`. C01–C06/C08/C10 `PASS_DESIGN`, C07/C09 `HOLD_DESIGN`, `FAIL_DESIGN=0`; tất cả C01–C10 `NOT_EXECUTED`.
+- Điều kiện còn thiếu: mẫu văn bản byte sinh đúng Jaccard 5-gram sát ngưỡng; chọn chính xác bộ đếm memory, cơ chế gắn Job Object và oracle dừng an toàn trên Windows. Cần golden manifest trước I0.
+- Hồ sơ nguồn: `docs/p01/P01_D1_G04_01_03_ORACLE_REPAIR_DESIGN_20261105.md`, `docs/p01/P01_D1_G04_04_07_FAIL_CLOSED_REPAIR_DESIGN_20261105.md`, `docs/p01/P01_D1_G04_08_INDEPENDENT_CONTRACT_READBACK_20261105.md`.
+- Quyết định: `TTM_P01_D1_G04_08_DESIGN_REVIEW=COMPLETED_WITH_HOLD`; `TTM_P01_I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`; `TTM_P01_D1_SCIENTIFIC_LOCK=NOT_GRANTED`.
+- Giữ PR #4 ở trạng thái nháp, không tạo worktree P01, không tải corpus, không huấn luyện, không sửa P00 hoặc dọn dẹp.
+- Bước kế tiếp: `TTM_P01_D1_G04_03_06_REMAINING_DESIGN_HOLD_CLOSURE`.
+## L0017 — 2026-11-05 — Đóng hai khoảng trống thiết kế C07/C09, khoa học D1 và I0 vẫn HOLD
+
+- Loại: thẩm định lại hợp đồng thiết kế (DESIGN_ONLY_ORACLE_AND_RESOURCE_CONTRACT_REVIEW); không phải QA động, thí nghiệm BPE hoặc đánh giá bên thứ ba.
+- Nguồn: PR #4 nhánh `design/p01-tokenizer-data-prereg-20261105`; GitHub main đối chứng `92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ nguyên L0000–L0016.
+- C07: đã bổ sung văn bản nguồn ASCII/Unicode, byte hex và SHA-256; có oracle tập 5-gram chính xác dưới/bằng/trên ngưỡng 0.85: `33/41`, `34/40`, `35/39`; ca tỷ lệ độ dài `40/50` nhận, `40/51` từ chối dù J=1; oracle bắc cầu A≈B, B≈C, A không≈C; thêm kiểm tra mã điểm Unicode khác byte UTF-8. Các phép số học được đối chiếu theo hai cách tách khỏi mã P01.
+- C09: chọn cứng `JOB_OBJECT_LIMIT_JOB_MEMORY` cho **job-wide committed bytes** tại `4294967296`, không đánh đồng với RSS; worker `CREATE_SUSPENDED` rồi `AssignProcessToJobObject` trước resume, cấm breakaway, fail-closed nếu nested job/child nằm ngoài job; wall-clock 1800s độc lập CPU time; giới hạn ghi đĩa cần broker và hạn chế quyền riêng. Các ca âm tính W01–W12 mới được thiết kế, chưa chạy.
+- Đặc tả nguồn: `docs/p01/P01_D1_C07_G04_03_EXACT_5GRAM_ORACLE_DESIGN_20261105.md` và `docs/p01/P01_D1_C09_G04_06_WINDOWS_JOB_OBJECT_GUARD_DESIGN_20261105.md`.
+- Báo cáo thẩm định: `docs/p01/P01_D1_C07_C09_INDEPENDENT_DESIGN_ADJUDICATION_20261105.md`. Kết luận: `C07=PASS_DESIGN`, `C09=PASS_DESIGN`; H04 C01–C10 **10/10 PASS_DESIGN**, không còn HOLD ở phạm vi hợp đồng; **0 bài kiểm thử P01 được chạy**.
+- Chặn khoa học vẫn giữ: H02 chưa có F1/F2 đủ quyền; H04 checker/golden binary chưa triển khai; H05 runtime guard/job + disk quota chưa thử và tên ngân sách RSS cũ phải được phê duyệt kế nhiệm. Vì vậy `D1_SCIENTIFIC_PREREG_LOCK=HOLD`, `I0_IMPLEMENTATION_PERMIT=NOT_GRANTED`.
+- Không tạo worktree P01, không tải corpus, không huấn luyện tokenizer/GPT, không hợp nhất PR #4, không dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_GATE_DECISION_DESIGN_ONLY` — ra quyết định riêng về phạm vi nguồn và điều kiện trình cổng I0, không cấp quyền tự động.
+
+## L0018 — 2026-11-05 — Quyết định phạm vi F0 và tiền cấp quyền I0A chưa được phép
+
+- Loại: quyết định quản trị thiết kế, thẩm định điều kiện tiền cấp quyền (DESIGN_ONLY_SOURCE_SCOPE_AND_PREAUTH_ADJUDICATION); **không** phải kết quả thực nghiệm hoặc chạy bộ kiểm tra.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105` PR #4 vẫn ở trạng thái nháp; đối chứng GitHub `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ nguyên toàn bộ L0000–L0017.
+- Phạm vi nguồn được chọn cho bước thiết kế: `F0_ONLY_DESIGN_AND_ORACLE_REVIEW`; F1/F2 chưa có `source_id` với giấy phép/PII/SHA được duyệt nên `HOLD_NO_APPROVED_SOURCE`. Không biến F0 thành TRAIN/TEST thực nghiệm.
+- Chấp thuận làm chuẩn hợp đồng kế nhiệm **ở mức thiết kế**: `max_job_commit_bytes=4294967296` (4 GiB tổng committed memory của Windows Job Object). Tên `max_peak_rss_bytes` trong H05 lịch sử giữ nguyên nhưng không được dùng thay Job Commit khi triển khai. `max_wall_seconds=1800` đo wall-clock, quota 2 GiB tệp phải qua broker/ACL riêng.
+- H04 C01–C10 đã `10/10 PASS_DESIGN` từ L0017, **không** có checker, guard hoặc QA động đã chạy.
+- Đã phân rõ các cổng D1 tài liệu, I0A triển khai tĩnh F0, QA0 chạy kỹ thuật F0/guard, E0 corpus thật. Không tạo vòng tròn yêu cầu checker đã chạy trước khi được phép viết checker; mỗi cổng có quyết định riêng.
+- Thẩm định I0A-01..09: `3 PASS_DESIGN_ONLY`, `5 HOLD_EVIDENCE`, `1 NOT_GRANTED`; tổng hợp `I0A_PREAUTH_ADMISSION=HOLD`, `I0A_IMPLEMENTATION_PERMIT=NOT_GRANTED`, D1 khoa học vẫn chưa được khóa.
+- Hồ sơ: `docs/p01/P01_D1_SOURCE_SCOPE_AND_MEMORY_METRIC_DECISION_20261105.md`, `docs/p01/P01_D1_I0_PREAUTH_GATE_CONTRACT_20261105.md`, `docs/p01/P01_D1_SOURCE_SCOPE_AND_I0_PREAUTH_ADJUDICATION_20261105.md`.
+- Không tạo worktree P01, không tải nguồn F1/F2, không lập trình checker/guard, không chạy thử/huấn luyện BPE/GPT, không hợp nhất PR #4 hoặc dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_I0A_F0_STATIC_IMPLEMENTATION_PREAUTH_EVIDENCE_AND_DESIGN_ADJUDICATION`, chỉ tiền kiểm read-only, allowlist, golden byte, ngân sách và quyết định độc lập; **chưa tự động cấp quyền**.
+
+## L0019 — 2026-11-05 — Tiền thẩm định I0A F0 với mẫu byte chuẩn, chưa cấp quyền
+
+- Loại: thẩm định hồ sơ thiết kế, tiền kiểm Git/Windows chỉ đọc (I0A_F0_DESIGN_PREAUTH_EVIDENCE_REVIEW); **không phải** kết quả khoa học, QA động, huấn luyện hay phát hành permit.
+- Nhánh `design/p01-tokenizer-data-prereg-20261105`, PR #4 vẫn nháp; GitHub `main=92facee15d7c0d46b0e84ddf5b6d8b2073e078f7`. Giữ toàn bộ các mục L0000–L0018.
+- Đã đọc trực tiếp trên Windows `main`, `origin/main`, origin URL, nhánh P00 `382da2c52d0fb4efe1cd9de5c92e68de79a52a20`, metadata worktree P00; signed node heartbeat cho biết máy ONLINE, 0 active node jobs. **Chưa có `git status`, reparse/ACL va chạm hoặc số RAM/D: mới từ Windows.**
+- Đã quy định worktree P01 ứng viên **chưa tạo** `worktrees/p01-f0-static-i0a-20261105` và **10 tệp ứng viên** cho fixture/checker/guard/manifest trong workplace. Bất kỳ sửa/xóa/dọn P00 hoặc đường dẫn ngoài dự án đều không được phép.
+- Đã tính và đọc ngược từ GitHub các golden byte ở mức đặc tả: merges 47 byte SHA `11c72190c6f3b757d260c426c357a4de8ff36313495f2299da81638386289e8d`; snapshot F0 giả lập 199 byte SHA `026744455f6a71b178702ce077737ff9c416b3cc716b5711f6b8ef6d0779697d`; JCS tối thiểu 109 byte SHA `492204b007b172f734a38bf0d80db357a57efff90e319f2dbaf3b63f9135e826` và JCS full-shape không hợp lệ như receipt 774 byte SHA `d09396eb72ff318e9820d76bb999acae01cfeb9547ae80187d0e33d970119beb`. **16/16 bất biến byte/định dạng được rà soát độc lập; không chạy P01.**
+- Golden snapshot được cố ý gắn `F0-SPEC-NOT-APPROVED`; golden manifest `DESIGN_ONLY_NO_RUN` không được xem là nguồn `ALLOW` hoặc receipt thật.
+- PowerShell tiền kiểm Windows chỉ đọc đã chuẩn bị trong môi trường đánh giá, SHA-256 `deb82ad16380dfd53c7def559cb9a7ec392321a84d6bc2cb79ee0ac2123e0012`; **chưa chạy trên Windows**.
+- I0A-01/02/07: `HOLD_EVIDENCE`; I0A-03/04/05/06/08: `PASS_DESIGN_ONLY`; I0A-09: `NOT_GRANTED`. Tổng `5 PASS_DESIGN_ONLY + 3 HOLD_EVIDENCE + 1 NOT_GRANTED`; không cộng thành bằng chứng runtime.
+- Hồ sơ: `docs/p01/P01_D1_I0A_GOLDEN_BYTES_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_FILESYSTEM_AND_SOURCE_ALLOWLIST_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_WINDOWS_GIT_RESOURCE_READONLY_EVIDENCE_20261105.md`, `docs/p01/P01_D1_I0A_F0_PREAUTH_EVIDENCE_AND_ADJUDICATION_20261105.md`.
+- Quyết định: `I0A_PREAUTH_EVIDENCE_REVIEW=COMPLETED_WITH_HOLD`, `I0A_STATIC_IMPLEMENTATION_PERMIT=NOT_GRANTED`, `QA0/E0=NOT_GRANTED`, D1 khoa học vẫn HOLD. Không tạo worktree P01, không viết/chạy checker/guard, không tải corpus hoặc huấn luyện, không merge PR #4 hoặc dọn P00.
+- Bước tiếp theo: `TTM_P01_D1_I0A_WINDOWS_READONLY_PREFLIGHT_RESULT_ADJUDICATION` — chỉ nhận console từ chương trình đã ghim, đối chiếu I0A-01/02/07 và trình quyết định I0A độc lập nếu đủ bằng chứng.
