@@ -1,0 +1,50 @@
+{
+    "schema":  "ttm.p01.l1.provision_resume.v1",
+    "run_id":  "L1_PROVISION_RESUME_20261106T151032982Z_d6e871db",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "branch":  "audit/p01-l1-native-security-critical-fix-20261106",
+    "mode":  "APPLY_ONCE",
+    "checks":  {
+                   "PINNED_ORIGINAL":  {
+                                           "status":  "PASS",
+                                           "detail":  "Read-only git identity; no checkout/commit on original"
+                                       },
+                   "EXACT_VERIFIED_BINARY":  {
+                                                 "status":  "PASS",
+                                                 "detail":  "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef"
+                                             },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Authenticated GitHub CLI"
+                                   },
+                   "ABSENT_SERVICE_AND_ACCOUNT":  {
+                                                      "status":  "PASS",
+                                                      "detail":  "No existing service, account or credential to overwrite"
+                                                  },
+                   "WORKER_ACCOUNT_CREATED":  {
+                                                  "status":  "PASS_PROVISIONED",
+                                                  "detail":  "Dedicated nonadministrator SID"
+                                              },
+                   "DIRECTORY_ACL_SET":  {
+                                             "status":  "PASS_CONFIGURED_ONLY",
+                                             "detail":  "Independent denied-open probe required"
+                                         },
+                   "DPAPI_AND_LEDGER_ACL":  {
+                                                "status":  "PASS_CONFIGURED_ONLY",
+                                                "detail":  "Secret local only; no secret in receipt or GitHub"
+                                            }
+               },
+    "result":  "BLOCK_OR_PARTIAL_FAILURE",
+    "service_stopped":  "NOT_STARTED",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "F0_rerun":  false,
+    "errors":  [
+                   "SC_CREATE_FAILED"
+               ],
+    "broker_service_sid":  "S-1-5-80-3250491234-3884958938-4011397885-464722667-3405458206",
+    "worker_sid":  "S-1-5-21-2910051730-1322758338-3406810807-1009",
+    "utc":  "2026-11-06T15:10:37.4645197Z",
+    "executable_sha256":  "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef",
+    "source_sha256":  "8916fe262bf27d9176a648dd625b5fbb602f87a2cf69967fe9339def6d3561e4"
+}
