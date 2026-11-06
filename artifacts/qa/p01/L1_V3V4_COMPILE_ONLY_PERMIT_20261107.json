@@ -1,0 +1,22 @@
+{
+    "schema":  "ttm.p01.l1.compile_only_permit.v1",
+    "permit_id":  "L1_V3V4_COMPILE_ONLY_PERMIT_20261107",
+    "decision":  "AUTHORIZED_ONCE_SUBJECT_TO_LIVE_RUNNER_GATES",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "runner_git_blob":  "a3a130a17d54598631aafd2706d0341a990ee971",
+    "runner_sha256":  "663bb33a1c473bc93d529fa25858e0e7afd370af6d8cf4901278c5a9bc4af9ca",
+    "independent_qa_commit":  "f82848927b4671fc7f32f0a818bf939f24941731",
+    "independent_qa_sha256":  "8ed3e5007b059de4e449a4e4d3a99831cf28d2c8fc1107283e492c6260bd7a4b",
+    "independent_qa_marker_sha256":  "984ec8f04074c8c85370a422be2d17c6784cf79029ed14ac41f980756e7c4e0d",
+    "compile_marker":  "L1_V3_V4_EXACT_SOURCE_COMPILE_ATTEMPT_20261107.lock",
+    "allowed_outputs":  [
+                            "TTMP01Broker.attestationV3.exe",
+                            "TTMWorkerNativeProbeV4.dll"
+                        ],
+    "scm_actions":  "FORBIDDEN",
+    "service_start":  "FORBIDDEN",
+    "science_execution":  "FORBIDDEN",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "execution_status":  "NOT_EXECUTED"
+}
