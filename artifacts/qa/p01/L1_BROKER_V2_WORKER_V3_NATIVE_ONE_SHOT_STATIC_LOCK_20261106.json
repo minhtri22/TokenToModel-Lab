@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.p01.l1.broker_v2_worker_v3_native_one_shot_source_lock.v1",
+  "date": "2026-11-06",
+  "original_locked_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "SCM_v2_switch": {
+    "verified_receipt_commit": "98f96dfd002fde146b0922501510b3229ad63bc9",
+    "verdict": "PASS_SCM_SWITCH_V2_NOT_STARTED_SECURITY_NOT_QUALIFIED",
+    "one_shot_switch_marker_sha256": "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+  },
+  "worker_V3_compile": {
+    "verified_receipt_commit": "ac9e09112b087bae122da82279de7bcd4657b906",
+    "verdict": "PASS_COMPILE_ONLY_V3_NOT_EXECUTED",
+    "source_sha256": "00964b57c60d80e4628d51cfe840f249edcc9edb16c7d44787081b74da03cfa0",
+    "dll_sha256": "bd08ae55ad7eca5eb29e237467166f58f7c9fd7d6dc9ef6f4de71cbb1ba33d9d"
+  },
+  "broker_V2": {
+    "source_sha256": "42ef0c0046d9b90ec0584211010341e7a04b93ea9541cb36ada66fdc2d830fae",
+    "exe_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+  },
+  "script_path": "qa/p01/windows/Invoke-TTM-P01-L1-BrokerV2-WorkerV3-NativeOneShot-V2-PS51.ps1",
+  "script_git_blob": "1f729ca7035939bc8fe995a27bfefae013dc88b5",
+  "static_source_contracts": {
+    "checked": 34,
+    "present": 34,
+    "kind": "STRING_AND_SOURCE_ORDER_REVIEW_ONLY"
+  },
+  "security_scope": [
+    "Read-only preflight validates elevated admin, original HEAD/branch/origin, exact compiled V2/V3 hashes, protected previous SCM switch marker, stopped manual LocalService SCM and service SID configuration.",
+    "Worker account credential is locally decrypted from existing DPAPI only after prerequisites; never logged or uploaded.",
+    "New V2 service-test marker is created exactly once using FileMode.CreateNew immediately before Start-Service; no deletion or automatic replay.",
+    "Windows SCM process token is checked for LocalService S-1-5-19 and actual derived service SID group.",
+    "Named pipe DACL retrieved with GetFileSecurityW under short-lived impersonated worker token instead of admin; inspect .NET RawSecurityDescriptor allow ACE masks and forbidden instance creation, WRITE_DAC, WRITE_OWNER.",
+    "Independent worker V3 native probe tests individual evidence-dir forbidden rights and ledger generic write denial, followed by SID-authorized named pipe AUTH_PROBE with explicit client PipeAccessRights.ReadWrite.",
+    "Service is stopped in finally if start was attempted, including BLOCK/FAIL; stop cannot be assumed if stop verification fails.",
+    "GitHub QA receipt contains redacted results and SHA-256 readback, not credential, full SDDL or other sensitive bytes."
+  ],
+  "known_limitations": [
+    "Static source inspection is not a native Windows compile/runtime check for inlined C# helpers.",
+    "This is an attestation-only service, not a secure production evidence writer; no W01-W12, job confinement or grouped QA.",
+    "If service start, worker logon, token readback, DACL or stop fails, record BLOCK/FAIL and preserve marker/state without rerun.",
+    "No SCM config, account, ACL, credential file, ledger, original worktree or F0 changes are allowed."
+  ],
+  "native_execution": "NOT_EXECUTED",
+  "native_security_qualified": false,
+  "W01_W12": "NOT_EXECUTED",
+  "grouped_L1": "NOT_AUTHORIZED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "verdict": "STATIC_SOURCE_LOCK_PASS_NOT_NATIVE_SECURITY_PASS"
+}
