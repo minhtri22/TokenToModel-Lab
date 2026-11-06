@@ -1,0 +1,66 @@
+{
+  "schema": "ttm.p01.l1.v3_v4_windows_independent_static_qa_independent_adjudication.v1",
+  "date": "2026-11-07",
+  "project": "TTM P01 L1",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "evidence": {
+    "run_id": "L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149",
+    "github_commit": "3860d08601ee77402d44926776f69208da103157",
+    "github_blob": "c5d1ae4eb6a154161638710d8c4ec2b3f82c82d1",
+    "sha256": "619bd23aee3d901418a41e638597718929baed6caeb7e5db5e5078fd96cbed3c",
+    "verdict": "PASS_WINDOWS_PYTHON_STATIC_QA_AND_COMPILE_ONLY_PREFLIGHT_NO_BINARY"
+  },
+  "runtime": {
+    "target": "DESKTOP-4PSD0G2",
+    "Python": "3.13.12_windows_x64",
+    "service_state_at_receipt": "Stopped",
+    "service_PID_at_receipt": 0,
+    "scm_changed": false,
+    "service_started": false
+  },
+  "checks": {
+    "positive": "46/46_PASS",
+    "negative": "9/9_PASS",
+    "reported_source_hashes_match": true,
+    "old_markers": "4_PASS_EXACT",
+    "qa_marker_created": true,
+    "qa_marker_sha256": "515fc6c37370cb0080af05b87f837bff2e4f564f693cf49d7c1e5840d1f44e38"
+  },
+  "source_pins": [
+    {
+      "name": "Broker V3",
+      "git_blob": "2fc1b63d6e21e7d8ac86184251974e9960572f3f",
+      "sha256": "8bbcb2bb7b9f0d69e20ebd8ac04fa6216b20c986207b4215617bac8ffb782ca4"
+    },
+    {
+      "name": "Worker V4",
+      "git_blob": "63d5407ccb3f9e15f8dda59ee6323a0e5009d860",
+      "sha256": "0e81e2a2ae9914daff20956d3d85f54b98dfa921ddd1764c771b8e9bae5cef04"
+    },
+    {
+      "name": "Independent static QA",
+      "git_blob": "0d42c4f7a4ac08c59022449210a323feed3a7495",
+      "sha256": "f75ce6ecf16fc5a3d00807dc958f4421027578f1aab7a587144c5ca2ab32642d"
+    }
+  ],
+  "compiler": {
+    "read_only_preflight": "PASS",
+    "path": "C:\\WINDOWS\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+    "sha256": "eca02e6b15cde93009a59a3d129d5a77fb5008f2e1cf62cf573b6737c747ecc3",
+    "free_D_bytes": 37212024832,
+    "free_RAM_kib": 12807836,
+    "compiled": false
+  },
+  "adjudication": {
+    "static_qa": "PASS_SOURCE_ONLY",
+    "native_compile": "NOT_EXECUTED",
+    "normal_shutdown": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED",
+    "next_permissible_scope": "Prepare independent exact-source one-shot C# compiler runner for later separate authorization. No SCM installation/configuration/start and no science job.",
+    "W01_W12": "NOT_EXECUTED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "governance": "Preserve P00, 10 frozen F0 results, original HEAD, all existing markers and immutable FAIL/PASS receipts; no lineage.md change for engineering QA."
+}
