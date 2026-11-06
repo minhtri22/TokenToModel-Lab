@@ -1,0 +1,28 @@
+{
+    "schema":  "ttm.p01.l1.service_only_recovery.v1",
+    "run_id":  "L1_SC_CREATE_SERVICE_ONLY_RECOVERY_20261106T152201194Z_75b850c6",
+    "mode":  "APPLY_ONCE",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_receipt_commit":  "a56692b0029296042279218e33924008edd2e64b",
+    "checks":  {
+
+               },
+    "sc_create_exit":  null,
+    "sc_create_output":  [
+
+                         ],
+    "sc_sidtype_exit":  null,
+    "sc_sidtype_output":  [
+
+                          ],
+    "verdict":  "BLOCK_OR_PARTIAL_SERVICE_RECOVERY",
+    "errors":  [
+                   "LOCAL_GIT_IDENTITY_FAILED"
+               ],
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "account_created":  false,
+    "ACL_modified":  false,
+    "service_started":  false,
+    "utc":  "2026-11-06T15:22:01.3043550Z"
+}
