@@ -1,0 +1,89 @@
+{
+  "schema": "ttm.p01.l1.compile_runner_source_only_independent_static_adjudication.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "audit_branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "prior_qualified_windows_QA": {
+    "commit": "3860d08601ee77402d44926776f69208da103157",
+    "sha256": "619bd23aee3d901418a41e638597718929baed6caeb7e5db5e5078fd96cbed3c",
+    "static_checks": "46/46_PASS",
+    "negative_fixtures": "9/9_PASS",
+    "native_compiler": "NOT_EXECUTED"
+  },
+  "source_files": [
+    {
+      "path": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-ExactSource-CompileOnly-PS51.ps1",
+      "git_blob": "a3a130a17d54598631aafd2706d0341a990ee971",
+      "lines": 208,
+      "default_mode": "PREFLIGHT_NO_COMPILATION"
+    },
+    {
+      "path": "qa/p01/windows/Independent-Audit-TTM-V3V4-CompileRunner-Static.py",
+      "git_blob": "1448fcd2a697a00babf49b1bf3942388188765af",
+      "lines": 149,
+      "role": "independent source contract checks and 12 negative mutations"
+    },
+    {
+      "path": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-CompileRunner-IndependentStaticQA-PS51.ps1",
+      "git_blob": "9d033eaab3374b889512dc1e1d67d9be2d5f4541",
+      "lines": 146,
+      "role": "Windows PowerShell 5.1 ParseFile plus independent Python QA, evidence GitHub SHA256 readback"
+    }
+  ],
+  "source_review": {
+    "reviewer": "independent JS static contract evaluation on exact GitHub readback",
+    "positive_conditions": 43,
+    "positive_passed": 43,
+    "negative_mutants": 12,
+    "negative_rejected": 12,
+    "runner_lexical_delimiters": "PASS_BALANCED_TEXT_ONLY",
+    "QA_launcher_lexical_delimiters": "PASS_BALANCED_TEXT_ONLY",
+    "source_pin_readback": "PASS",
+    "negative_mutants_cover": [
+      "remove explicit CompileOnce switch",
+      "change frozen original HEAD",
+      "change qualified QA SHA",
+      "bypass stopped SCM guard",
+      "lower QA negative threshold",
+      "remove atomic CreateNew marker",
+      "overwrite V2 broker output",
+      "ignore GitHub QA hash readback",
+      "ignore evidence publication failure",
+      "skip Worker V4 compilation",
+      "add service start",
+      "add marker deletion"
+    ],
+    "limit": "Textual/lexical source checks are not Windows PowerShell parsing, C# compilation or dynamic Windows service security validation."
+  },
+  "Windows_native": {
+    "PowerShell_5_1_Parser_ParseFile": "NOT_EXECUTED",
+    "independent_Python_static_checker": "COMMITTED_NOT_EXECUTED_ON_WINDOWS",
+    "compiler_executed": false,
+    "exe_created": false,
+    "dll_created": false,
+    "scm_changed": false,
+    "service_started": false,
+    "worker_account_or_acl_changed": false
+  },
+  "runner_safety": {
+    "one_shot_marker": "L1_V3_V4_EXACT_SOURCE_COMPILE_ATTEMPT_20261107.lock",
+    "compile_mode": "ONLY_EXPLICIT_CompileOnce_AFTER_SEPARATE_AUTHORIZATION",
+    "compile_order": "BROKER_V3_EXE_FIRST_THEN_WORKER_V4_DLL",
+    "evidence_storage": "TTM_PROJECT_LOCAL_AND_GITHUB_AUDIT_BRANCH",
+    "compiler_temp": "TTM_PROJECT_LOCAL_ONLY",
+    "fails_closed_on_QA_source_marker_CSC_output_or_GitHub_receipt_mismatch": true,
+    "no_cleanup_or_delete_existing_evidence": true
+  },
+  "verdict": "PASS_SOURCE_STATIC_ONLY_WINDOWS_PARSER_PENDING_NO_NATIVE_COMPILE_PERMIT",
+  "next_gate": "Run dedicated Windows parser + independent Python source QA with one-shot marker and GitHub receipt readback. Only then consider separate compile permit.",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "normal_stop": "NOT_REQUALIFIED",
+  "native_security": "NOT_QUALIFIED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED",
+  "science_lineage": "UNCHANGED",
+  "P00_F0": "UNCHANGED",
+  "P00_P12_roadmap": "UNCHANGED"
+}
