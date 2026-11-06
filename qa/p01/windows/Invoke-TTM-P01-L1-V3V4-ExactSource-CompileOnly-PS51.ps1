@@ -16,6 +16,12 @@ $qaCommit='3860d08601ee77402d44926776f69208da103157'
 $qaBlob='c5d1ae4eb6a154161638710d8c4ec2b3f82c82d1'
 $qaMarker=Join-Path $stage 'L1_V3_V4_INDEPENDENT_STATIC_QA_V4_ATTEMPT_20261107.lock'
 $qaMarkerSha='515fc6c37370cb0080af05b87f837bff2e4f564f693cf49d7c1e5840d1f44e38'
+$historicalMarkers=@(
+ @{name='SWITCH';file='L1_SCM_V2_SWITCH_ATTEMPT_20261106.lock';sha='29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1'},
+ @{name='NATIVE';file='L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_ATTEMPT_20261106.lock';sha='f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7'},
+ @{name='SCM_STOP';file='L1_BROKER_V2_SCM_STOP_RECOVERY_ATTEMPT_20261106.lock';sha='f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502'},
+ @{name='FORCED_RECOVERY';file='L1_BROKER_V2_EXACT_PROCESS_TERMINATE_ATTEMPT_20261106.lock';sha='59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9'}
+)
 $originalHead='f2e333df2f9ca24a8e483507c3cfc386ad9c76f0'
 $branch='audit/p01-l1-native-security-critical-fix-20261106'
 $sourceCommit='782f101f001973f8c23f23b22ae2b0896232d722'
@@ -68,7 +74,9 @@ function RunCompiler([string]$name,[string[]]$compilerArgs,[string]$destination)
  $oldPref=$ErrorActionPreference;$ErrorActionPreference='Continue'
  try{$lines=@(& $csc @compilerArgs 2>&1);$rc=$LASTEXITCODE}
  finally{$ErrorActionPreference=$oldPref}
- $rec.steps+=@([ordered]@{component=$name;exit_code=$rc;diagnostics=@($lines|ForEach-Object {$_.ToString()})})
+ $diagnostics=(($lines|ForEach-Object {$_.ToString()}) -join [Environment]::NewLine)
+ if($diagnostics.Length -gt 16384){$diagnostics=$diagnostics.Substring(0,16384)}
+ $rec.steps+=@([ordered]@{component=$name;exit_code=$rc;diagnostics=$diagnostics})
  if($rc -ne 0 -or -not(Test-Path -LiteralPath $destination -PathType Leaf)){
   Gate $name 'FAIL' ('csc exit '+$rc);Block ('COMPILER_FAILED_'+$name)
  }
@@ -90,6 +98,7 @@ try{
  Gate 'SCM' 'PASS_STOPPED_PID0' 'Read-only'
  Pin 'SCM_V2_EXE' $scmExe $scmSha
  Pin 'QA_MARKER' $qaMarker $qaMarkerSha
+ foreach($entry in $historicalMarkers){Pin ('HIST_'+$entry.name) (Join-Path $stage $entry.file) $entry.sha}
  Pin 'QA_RECEIPT' $qaFile $qaSha
  Pin 'CSC_BINARY' $csc $cscSha
  foreach($source in $sources){Pin $source.name $source.file $source.sha}
@@ -155,6 +164,7 @@ try{
  $rec.verdict='BLOCK_OR_COMPILE_FAILED'
  Write-Host ('TTM_CSC_BLOCK='+$_.Exception.Message)
 }finally{
+ $evidenceOk=$false
  if($CompileOnce){
   try{
    New-Item -ItemType Directory -Path $receiptDir -Force|Out-Null
@@ -180,13 +190,18 @@ try{
    finally{$sha.Dispose()}
    if($readHash -cne $receiptHash){Block 'GITHUB_SHA256_MISMATCH'}
    Write-Host ('TTM_CSC_GITHUB_COMMIT='+$saved.commit.sha)
+   $evidenceOk=$true
    Write-Host 'TTM_CSC_GITHUB_READBACK=PASS'
-  }catch{Write-Host ('TTM_CSC_GITHUB_READBACK=FAIL '+$_.Exception.Message)}
+  }catch{
+   $rec['verdict']='BLOCK_EVIDENCE_PUBLICATION_NOT_QUALIFIED'
+   Write-Host ('TTM_CSC_GITHUB_READBACK=FAIL '+$_.Exception.Message)
+  }
  }
 }
 Write-Host ('TTM_CSC_VERDICT='+$rec.verdict)
 Write-Host 'TTM_CSC_SCM_ACTION=NONE'
 Write-Host 'TTM_W01_W12=NOT_EXECUTED'
 Write-Host 'TTM_L1_GROUPED_QA=NOT_AUTHORIZED'
-if($rec.verdict -in @('PREFLIGHT_PASS_NO_COMPILATION','PASS_COMPILE_ONLY_NO_SERVICE_ACTION')){exit 0}
+if((-not $CompileOnce -and $rec.verdict -eq 'PREFLIGHT_PASS_NO_COMPILATION') -or
+   ($CompileOnce -and $evidenceOk -and $rec.verdict -eq 'PASS_COMPILE_ONLY_NO_SERVICE_ACTION')){exit 0}
 exit 3
