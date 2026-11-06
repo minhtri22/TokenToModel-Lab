@@ -40,6 +40,10 @@ public static class TTMWorkerNativeProbeV4 {
   [DllImport("kernel32.dll", SetLastError = true)]
   static extern IntPtr LocalFree(IntPtr pointer);
 
+  [DllImport("kernel32.dll", SetLastError = true)]
+  [return: MarshalAs(UnmanagedType.Bool)]
+  static extern bool CancelIoEx(SafePipeHandle handle, IntPtr overlapped);
+
   const uint FileGenericWrite = 0x40000000u;
   const uint OpenExisting = 3u;
   const uint ShareAll = 7u;
@@ -187,7 +191,7 @@ public static class TTMWorkerNativeProbeV4 {
       }
       try {
         using (NamedPipeClientStream client = new NamedPipeClientStream(
-                 ".", pipeName, PipeAccessRights.ReadWrite, PipeOptions.None,
+                 ".", pipeName, PipeAccessRights.ReadWrite, PipeOptions.Asynchronous,
                  TokenImpersonationLevel.Impersonation, HandleInheritability.None)) {
           client.Connect(4000);
           string aclResult = AuditConnectedPipe(client.SafePipeHandle,
@@ -200,10 +204,28 @@ public static class TTMWorkerNativeProbeV4 {
           client.Write(request, 0, request.Length);
           client.Flush();
           byte[] reply = new byte[128];
-          // Source-only candidate; receive completion must be bounded by the
-          // independent Windows harness before any one-shot native execution.
-          client.ReadTimeout = 4000;
-          int n = client.Read(reply, 0, reply.Length);
+          // In .NET Framework PipeStream does not guarantee ReadTimeout support.
+          // APM read is bounded by an OS-overlapped cancellation attempt.
+          IAsyncResult pending = client.BeginRead(reply, 0, reply.Length, null, null);
+          bool completed = pending.AsyncWaitHandle.WaitOne(4000);
+          if (!completed) {
+            if (!CancelIoEx(client.SafePipeHandle, IntPtr.Zero)) {
+              int cancelError = Marshal.GetLastWin32Error();
+              if (cancelError != 1168) return "BLOCK_PIPE_CANCEL_" + cancelError;
+            }
+            // Do not call EndRead while an overlapped request remains pending.
+            if (!pending.AsyncWaitHandle.WaitOne(1500))
+              return "BLOCK_PIPE_READ_CANCEL_NOT_COMPLETED";
+          }
+          int n;
+          try {
+            n = client.EndRead(pending); // once, including cancelled completion
+          } catch (IOException) {
+            return completed ? "BLOCK_PIPE_READ_IO" : "BLOCK_PIPE_REPLY_TIMEOUT";
+          } catch (ObjectDisposedException) {
+            return "BLOCK_PIPE_READ_DISPOSED";
+          }
+          if (!completed) return "BLOCK_PIPE_REPLY_TIMEOUT";
           if (Encoding.ASCII.GetString(reply, 0, n) != "AUTH_PEER_OK_NO_WRITE\n")
             return "BLOCK_PIPE_PEER_RESPONSE";
           return "PASS_WORKER_V4_HANDLE_DACL_DENIED_RIGHTS_PEER_AUTH_" +
