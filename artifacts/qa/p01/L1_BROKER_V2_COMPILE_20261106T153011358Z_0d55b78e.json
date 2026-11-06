@@ -1,0 +1,65 @@
+{
+    "schema":  "ttm.p01.l1.broker_v2_compile_gate.v1",
+    "run_id":  "L1_BROKER_V2_COMPILE_20261106T153011358Z_0d55b78e",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_refs":  {
+                        "server":  "37ec4d70f89161a7202298bbdc92117e075ea5be",
+                        "probe":  "b784f5b0c6d68cb7599e2adad6551af0e73782b1"
+                    },
+    "checks":  {
+                   "ORIGINAL_HEAD":  {
+                                         "status":  "PASS",
+                                         "detail":  "Original local worktree read-only"
+                                     },
+                   "ORIGINAL_V1_PINS":  {
+                                            "status":  "PASS",
+                                            "detail":  "No original service source or binary change"
+                                        },
+                   "INSTALLED_SERVICE_STOPPED":  {
+                                                     "status":  "PASS",
+                                                     "detail":  "SCM configuration remains pointing to V1; not modified"
+                                                 },
+                   "V2_SOURCE_PINS":  {
+                                          "status":  "PASS",
+                                          "detail":  "Exact GitHub blobs, read-before-impersonate and separate rights checks"
+                                      },
+                   "BROKER_V2_WINDOWS_CSC":  {
+                                                 "status":  "PASS",
+                                                 "detail":  "Exact V2 source compiled on Windows"
+                                             },
+                   "WORKER_PROBE_V2_WINDOWS_CSC":  {
+                                                       "status":  "PASS",
+                                                       "detail":  "Exact V2 probe source compiled on Windows"
+                                                   }
+               },
+    "compiler":  {
+                     "server":  {
+                                    "exit":  0,
+                                    "output":  [
+
+                                               ]
+                                },
+                     "probe":  {
+                                   "exit":  0,
+                                   "output":  [
+
+                                              ]
+                               }
+                 },
+    "verdict":  "PASS_COMPILE_ONLY_V2_NOT_ACTIVATED",
+    "SCM_service_changed":  false,
+    "worker_account_changed":  false,
+    "ACL_changed":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "errors":  [
+
+               ],
+    "artifact_sha256":  {
+                            "server_source":  "42ef0c0046d9b90ec0584211010341e7a04b93ea9541cb36ada66fdc2d830fae",
+                            "server_exe":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+                            "probe_source":  "d59067d6e7dc85cd2316a772b9ef9b81f641b70d892be4c42ccaa9c73236a34f",
+                            "probe_dll":  "ea44cc5fca81e7f1e692726502dea0ad97ab543bc86f2abef52a25e1ffa96eb6"
+                        },
+    "utc":  "2026-11-06T15:30:14.6016898Z"
+}
