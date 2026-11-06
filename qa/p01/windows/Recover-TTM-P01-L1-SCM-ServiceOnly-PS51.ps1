@@ -38,16 +38,16 @@ function Assert-NoReparse([string]$path) {
   $p=$parent
  }
 }
-function Read-Git([string[]]$args) {
- $lines=@(& git.exe -C $wt @args 2>&1)
+function Read-Git([string[]]$GitArguments) {
+ $lines=@(& git.exe -C $wt @GitArguments 2>&1)
  if($LASTEXITCODE -ne 0){Halt 'LOCAL_GIT_IDENTITY_FAILED'}
  return (($lines -join [Environment]::NewLine).Trim())
 }
 try {
  foreach($p in @($wt,$stage,$exe,$config,$cred,$ledger)){Assert-NoReparse $p}
- if((Read-Git @('rev-parse','HEAD')) -cne $head){Halt 'LOCAL_HEAD_CHANGED'}
- if((Read-Git @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Halt 'LOCAL_BRANCH_CHANGED'}
- if((Read-Git @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Halt 'LOCAL_ORIGIN_MISMATCH'}
+ if((Read-Git -GitArguments @('rev-parse','HEAD')) -cne $head){Halt 'LOCAL_HEAD_CHANGED'}
+ if((Read-Git -GitArguments @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Halt 'LOCAL_BRANCH_CHANGED'}
+ if((Read-Git -GitArguments @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Halt 'LOCAL_ORIGIN_MISMATCH'}
  Set-Gate 'PINNED_WORKTREE' 'PASS' 'Read-only original worktree'
  if(-not(Test-Path -LiteralPath $exe -PathType Leaf) -or (Sha256 $exe) -cne $expectedExe){Halt 'EXACT_BINARY_SHA256_MISMATCH'}
  Set-Gate 'EXACT_BINARY' 'PASS' $expectedExe
