@@ -72,7 +72,7 @@ try {
    try {$aceSid=$ace.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}
    catch {Halt 'DACL_SID_TRANSLATION_FAILED'}
    if($aceSid -eq $expectedWorkerSid -and $ace.AccessControlType -eq [Security.AccessControl.AccessControlType]::Allow){
-    $forbidden=[Security.AccessControl.FileSystemRights]::Write -bor [Security.AccessControl.FileSystemRights]::Modify -bor [Security.AccessControl.FileSystemRights]::FullControl
+    $forbidden=[Security.AccessControl.FileSystemRights]::Write -bor [Security.AccessControl.FileSystemRights]::Delete -bor [Security.AccessControl.FileSystemRights]::DeleteSubdirectoriesAndFiles -bor [Security.AccessControl.FileSystemRights]::ChangePermissions -bor [Security.AccessControl.FileSystemRights]::TakeOwnership
     if(($ace.FileSystemRights -band $forbidden) -ne 0){Halt 'WORKER_HAS_WRITE_ON_STAGE_OR_EVIDENCE'}
    }
   }
