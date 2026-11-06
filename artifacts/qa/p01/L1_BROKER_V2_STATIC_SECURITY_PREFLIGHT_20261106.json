@@ -1,0 +1,31 @@
+{
+  "schema": "ttm.p01.l1.broker_v2_static_compilation_preflight.v1",
+  "date": "2026-11-06",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "latest_verified_service_creation_receipt_commit": "95870061d084bcba4283167dc361874421b56c1a",
+  "original_v1_service_exe_sha256": "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef",
+  "original_v1_source_sha256": "8916fe262bf27d9176a648dd625b5fbb602f87a2cf69967fe9339def6d3561e4",
+  "candidate_v2_blobs": {
+    "runtime/p01/windows/BrokerAttestationServiceV2.cs": "49b2aa5e7ce36657bfd001bfffc9019988588538",
+    "qa/p01/windows/TTMWorkerNativeProbeV2.cs": "0e089a5a52c1c36f5ffa4813d30c55617ad379aa",
+    "qa/p01/windows/Compile-TTM-P01-L1-BrokerV2-PS51.ps1": "ae1432192c1815fa783221d6eb0b40e97bf10d99"
+  },
+  "static_checks": {
+    "total": 20,
+    "present": 20,
+    "scope": "SOURCE_INSPECTION_ONLY"
+  },
+  "independent_reference": "Microsoft NamedPipeServerStream.RunAsClient examples read client message before impersonation; named pipe security descriptors require native readback and effective-token verification.",
+  "security_findings": [
+    "Installed V1 EXE invokes RunAsClient before receiving the client message. This is a protocol attestation defect; don't start V1 as native security-qualified.",
+    "V1 worker probe checks combined rights only, where ACCESS_DENIED can be caused by one right; V2 independently tests individual write-capable rights and ledger GENERIC_WRITE denial.",
+    "V2 sources and compiler runner are candidates until Windows native compilation succeeds.",
+    "No Windows service binary path modification/start, worker logon test, DACL readback, W01-W12 or grouped QA has occurred in this source-preflight."
+  ],
+  "allowed_next": "One-shot Windows V2 compilation from exact GitHub source blobs into NEW file names inside existing protected TTM staging; no change to SCM binPath or service lifecycle.",
+  "status": "V2_SOURCE_IMPLEMENTED_STATIC_PREFLIGHT_PASS_NATIVE_COMPILE_NOT_EXECUTED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "W01_W12": "NOT_EXECUTED",
+  "grouped_L1": "NOT_AUTHORIZED"
+}
