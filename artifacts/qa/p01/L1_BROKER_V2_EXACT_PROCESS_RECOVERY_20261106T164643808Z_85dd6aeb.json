@@ -1,0 +1,68 @@
+{
+    "schema":  "ttm.p01.l1.exact_process_recovery_after_scm_1061.v1",
+    "run_id":  "L1_BROKER_V2_EXACT_PROCESS_RECOVERY_20261106T164643808Z_85dd6aeb",
+    "original_HEAD":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_failure_commit":  "8a3666c655edba86bef2a841a31246fe19e0e870",
+    "mode":  "EXPLICIT_TERMINATE_EXACT_PROCESS_ONCE",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated Windows administrator"
+                             },
+                   "SCM_SNAPSHOT":  {
+                                        "status":  "PASS_READONLY",
+                                        "detail":  "State=Running;PID=26200"
+                                    },
+                   "ORIGINAL_WORKTREE":  {
+                                             "status":  "PASS",
+                                             "detail":  "Pinned worktree read-only"
+                                         },
+                   "EXACT_EXE":  {
+                                     "status":  "PASS",
+                                     "detail":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+                                 },
+                   "MARKER_SCM_SWITCH":  {
+                                             "status":  "PASS_EXACT",
+                                             "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                         },
+                   "MARKER_NATIVE_TEST":  {
+                                              "status":  "PASS_EXACT",
+                                              "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                          }
+               },
+    "before":  {
+                   "state":  "Running",
+                   "service_name":  "TTMP01Broker",
+                   "process_id":  26200,
+                   "start_mode":  "Manual",
+                   "service_account":  "NT AUTHORITY\\LocalService",
+                   "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                   "win32_exit":  0
+               },
+    "after":  {
+                  "state":  "Running",
+                  "service_name":  "TTMP01Broker",
+                  "process_id":  26200,
+                  "start_mode":  "Manual",
+                  "service_account":  "NT AUTHORITY\\LocalService",
+                  "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                  "win32_exit":  0
+              },
+    "process_identity":  {
+
+                         },
+    "recovery_marker_sha256":  null,
+    "native_handle_result":  "NOT_EXECUTED",
+    "termination_attempted":  false,
+    "forced_termination":  false,
+    "SCM_configuration_changed":  false,
+    "worker_or_ACL_changed":  false,
+    "prior_markers_changed":  false,
+    "errors":  [
+                   "PRIOR_MARKER_SHA256_CHANGED_SCM_STOP_RECOVERY"
+               ],
+    "verdict":  "BLOCK_EXACT_PROCESS_RECOVERY_EXCEPTION",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T16:46:45.8038062Z"
+}
