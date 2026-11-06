@@ -17,6 +17,7 @@ $credFile=Join-Path $bin 'worker_credential.dpapi.xml'
 $ledgerFile=Join-Path $stage 'evidence\broker_ledger.sqlite3'
 $svc='TTMP01Broker'
 $worker='TTMP01Worker'
+$oneShotMarker=Join-Path $stage 'L1_SCM_V2_SWITCH_ATTEMPT_20261106.lock'
 $head='f2e333df2f9ca24a8e483507c3cfc386ad9c76f0'
 $oldSha='56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef'
 $newSha='a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a'
@@ -64,7 +65,7 @@ function NormalizeBinPath([string]$path) {
 }
 try {
  if(-not(Test-Path -LiteralPath $wt -PathType Container)){Block 'WORKTREE_ABSENT'}
- foreach($p in @($wt,$stage,$bin,$oldExe,$newExe,$newSource,$probeDll,$cfgFile,$credFile,$ledgerFile)) {NoReparse $p}
+ foreach($p in @($wt,$stage,$bin,$oldExe,$newExe,$newSource,$probeDll,$cfgFile,$credFile,$ledgerFile,$oneShotMarker)) {NoReparse $p}
  if((ReadGit -GitArguments @('rev-parse','HEAD')) -cne $head){Block 'ORIGINAL_HEAD_CHANGED'}
  if((ReadGit -GitArguments @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Block 'ORIGINAL_BRANCH_CHANGED'}
  if((ReadGit -GitArguments @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Block 'ORIGIN_CHANGED'}
@@ -117,12 +118,22 @@ try {
  if(-not(Get-Command gh.exe -ErrorAction SilentlyContinue)){Block 'GH_CLI_MISSING'}
  & gh auth status 1>$null 2>$null
  if($LASTEXITCODE -ne 0){Block 'GH_AUTH_MISSING'}
+ if(Test-Path -LiteralPath $oneShotMarker -PathType Leaf){Block 'SCM_V2_SWITCH_ALREADY_ATTEMPTED_NO_REPLAY'}
  if(-not $Apply) {
   Gate 'SCM_BINARY_SWITCH' 'NOT_EXECUTED' 'Explicit elevated -Apply is required'
   $receipt.verdict='READONLY_PREFLIGHT_PASS'
  } else {
   $admin=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
   if(-not $admin){Block 'ADMIN_REQUIRED'}
+  # Durable one-shot marker is created inside TTM, before the first SCM mutation.
+  # A partial Windows failure must never be replayed without a separate adjudication.
+  $markBytes=[Text.Encoding]::UTF8.GetBytes(('run_id='+$id+[Environment]::NewLine+
+     'old_sha256='+$oldSha+[Environment]::NewLine+'new_sha256='+$newSha+[Environment]::NewLine))
+  $markStream=[IO.File]::Open($oneShotMarker,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+  try{$markStream.Write($markBytes,0,$markBytes.Length);$markStream.Flush()}
+  finally{$markStream.Dispose()}
+  $receipt['one_shot_marker_sha256']=HashOf $oneShotMarker
+  Gate 'ONE_SHOT_MARKER' 'PASS_CREATED' 'Non-secret marker retained on success/failure; never remove automatically'
   # Only change existing service's binPath, not StartName, StartMode, SID, ACL or account.
   $argv=@('config',$svc,'binPath=',('"'+$newExe+'"'))
   $sc=@(& sc.exe @argv 2>&1)
