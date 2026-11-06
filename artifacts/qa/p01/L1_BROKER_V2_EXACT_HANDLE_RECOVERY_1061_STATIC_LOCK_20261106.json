@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.p01.l1.exact_process_recovery_1061_source_lock.v1",
+  "date": "2026-11-06",
+  "original_HEAD": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "user_receipt_run": "L1_BROKER_V2_SCM_STOP_RECOVERY_20261106T163818549Z_8b9033ff",
+  "receipt_GitHub_commit": "8a3666c655edba86bef2a841a31246fe19e0e870",
+  "receipt_sha256": "b63b152494ac059177bac6ced501db5267d61e3ae865e17c058846942467d9ea",
+  "SCM_control_error": 1061,
+  "SCM_output": "The service cannot accept control messages at this time.",
+  "SCM_final_state": "RUNNING",
+  "SCM_pid_at_last_evidence": 26200,
+  "SCM_process_creation_unix_ms": 1793982282113,
+  "SCM_V2_exe_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+  "prior_marker_SHA256": {
+    "SCM_switch": "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1",
+    "V2_worker_V3_native_test": "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7",
+    "SCM_stop_recovery": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8aafa1e8a3989599143502"
+  },
+  "source_path": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-PS51.ps1",
+  "source_git_blob": "24de8b99bf3c11250af5002d57603ebf0365713b",
+  "static_checks": {
+    "checked": 30,
+    "present": 30,
+    "kind": "offline source inspection; no Windows native execution"
+  },
+  "scope": "One exact-pinned TTM service process only, from current SCM service binding, kernel process HANDLE creation time and image identity; no generic PID kill.",
+  "two_modes": {
+    "default": "READONLY preflight and evidence, no process kill, no marker creation",
+    "explicit": "-TerminateExactTTMProcess: atomically create new marker and issue one TerminateProcess on the verified kernel HANDLE; no retries; poll SCM for Stopped + PID 0"
+  },
+  "guardrails": [
+    "Verify elevated admin; pinned original HEAD/branch/origin; V2 exe SHA-256; exact prior 3 marker SHA-256.",
+    "Verify the registered Windows service remains Manual / LocalService and points to pinned V2 EXE.",
+    "Service already Stopped + PID=0 exits with no termination or new marker.",
+    "Service otherwise must be Running, PID 26200, executable path and creation time match incident.",
+    "Open process HANDLE with PROCESS_QUERY_LIMITED_INFORMATION, PROCESS_TERMINATE, SYNCHRONIZE; on HANDLE independently verify GetProcessTimes, QueryFullProcessImageNameW and STILL_ACTIVE.",
+    "Refresh SCM identity before creating new one-shot marker. CreateNew marker inside TTM project. Invoke exactly one TerminateProcess only against same verified kernel HANDLE.",
+    "Wait for handle signaled and SCM Stopped/PID0; if any contradiction, BLOCK and retain evidence/marker; never retry automatically.",
+    "Do not change Windows SCM configuration, service SID, account, ACL, original worktree, ledger, or invoke F0/W01-W12.",
+    "Persist full PASS/BLOCK failure receipt under TTM local QA receipts directory; upload to GitHub audit branch and SHA256 verify readback."
+  ],
+  "risk": "TerminateProcess is forcible and can discard in-memory state for exactly the target TTM broker; it requires separate explicit operator invocation, not performed by this source commit.",
+  "execution": "NOT_EXECUTED",
+  "native_security": "BLOCK",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "verdict": "STATIC_SOURCE_READY_EXPLICIT_OPERATOR_CHOICE_REQUIRED"
+}
