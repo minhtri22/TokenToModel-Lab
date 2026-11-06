@@ -70,9 +70,12 @@ try {
  if((ReadGit -GitArguments @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Block 'ORIGIN_CHANGED'}
  Gate 'PINNED_ORIGINAL' 'PASS' 'Original worktree checked read-only'
  foreach($entry in @(
-  @($oldExe,$oldSha),@($newExe,$newSha),@($newSource,$sourceSha),@($probeDll,$probeSha)
+  @{Path=$oldExe;Expected=$oldSha},
+  @{Path=$newExe;Expected=$newSha},
+  @{Path=$newSource;Expected=$sourceSha},
+  @{Path=$probeDll;Expected=$probeSha}
  )) {
-  $path=[string]$entry[0];$expected=[string]$entry[1]
+  $path=[string]$entry.Path;$expected=[string]$entry.Expected
   if(-not(Test-Path -LiteralPath $path -PathType Leaf)){Block 'MISSING_PINNED_BINARY_OR_SOURCE'}
   if((HashOf $path) -cne $expected){Block 'BINARY_OR_SOURCE_SHA256_MISMATCH'}
  }
