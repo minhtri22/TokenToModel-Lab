@@ -72,8 +72,8 @@ try{
  if((GitRead -GitArguments @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Halt 'BRANCH_MISMATCH'}
  if((GitRead -GitArguments @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Halt 'ORIGIN_MISMATCH'}
  Gate 'ORIGINAL' 'PASS' 'HEAD branch origin read-only'
- $expectedText='run_id='+$oldRun+[Environment]::NewLine+'service=TTMP01Broker'+[Environment]::NewLine+
-  'process_creation_unix_ms=1793982282113'+[Environment]::NewLine
+ $expectedLines=@(('run_id='+$oldRun),'service=TTMP01Broker','process_creation_unix_ms=1793982282113','')
+ $expectedText=$expectedLines -join [Environment]::NewLine
  $expectedBytes=[Text.Encoding]::UTF8.GetBytes($expectedText)
  $derived=HashBytes $expectedBytes
  if($derived -cne $oldSha){Halt 'RECONSTRUCTED_MARKER_HASH_NOT_MATCH_ORIGINAL'}
