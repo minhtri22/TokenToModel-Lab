@@ -125,10 +125,12 @@ def evaluate(broker: str, worker: str) -> dict[str, bool]:
         "worker_identity_sid_gate": "identity.User.Value != expectedWorkerSid" in w,
         "worker_revert_token": "RevertToSelf()" in w and
             "WORKER_REVERT_TO_SELF_FAILED" in w,
-        "worker_explicit_readwrite_connect": "PipeAccessRights.ReadWrite, PipeOptions.None" in w and
+        "worker_explicit_readwrite_connect": "PipeAccessRights.ReadWrite, PipeOptions.Asynchronous" in w and
             "client.Connect(4000)" in w,
         "worker_no_create_instance": "PipeAccessRights.CreateNewInstance" in w and
             "BLOCK_CLIENT_RIGHTS_MASK" in w,
+        "worker_exact_allow_mask_check": "mask != (int)PipeAccessRights.ReadWrite" in w and
+            "mask != (int)PipeAccessRights.FullControl" in w,
         "worker_DACL_on_existing_handle": "GetSecurityInfo(client.SafePipeHandle," not in w and
             "AuditConnectedPipe(client.SafePipeHandle," in w and
             "GetSecurityInfo(handle, 1u, 4u," in w,
@@ -153,6 +155,11 @@ def evaluate(broker: str, worker: str) -> dict[str, bool]:
             "RawSecurityDescriptor(raw, 0)" in w,
         "worker_auth_handshake": '"AUTH_PROBE\\n"' in w and
             '"AUTH_PEER_OK_NO_WRITE\\n"' in w,
+        "worker_bounded_overlapped_read": all(x in w for x in
+            ("client.BeginRead(", "pending.AsyncWaitHandle.WaitOne(4000)",
+             "CancelIoEx(client.SafePipeHandle, IntPtr.Zero)",
+             "pending.AsyncWaitHandle.WaitOne(1500)", "client.EndRead(pending)")),
+        "worker_no_unsupported_readtimeout": "client.ReadTimeout" not in w,
         "worker_no_write_to_files": "File.WriteAll" not in w and
             "File.AppendAll" not in w and "new FileStream(" not in w,
         "both_pipe_name_equivalent": "TTM_P01_L1_BROKER_V1" in b and
@@ -179,6 +186,9 @@ def run_mutants(b: str, w: str) -> dict[str, bool]:
         "worker_accepts_weak_mask": (b, w.replace(
             "mask != (int)PipeAccessRights.ReadWrite",
             "mask == (int)PipeAccessRights.ReadWrite", 1)),
+        "worker_disables_overlapped_cancel": (b, w.replace(
+            "CancelIoEx(client.SafePipeHandle, IntPtr.Zero)",
+            "true", 1)),
     }
     result: dict[str, bool] = {}
     for name, (mb, mw) in alterations.items():
