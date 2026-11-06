@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.p01.l1.windows_native_security_dispatch.v1",
+  "date": "2026-11-06",
+  "original_local_head_pinned": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "remote_command_probe": {
+    "argv": "git --version",
+    "result": "BLOCK",
+    "message": "managed mode requires task_job_submit",
+    "TTM_lease_and_task_identified": false
+  },
+  "new_github_files": {
+    "qa/p01/native_pipe_acl_policy_v1.py": "228fcd0faf25940a1cd45b8d89e4111680dec3f6",
+    "qa/p01/test_native_pipe_acl_policy_v1.py": "26d5680e14ae589914823bb73dbb1270710c894a",
+    "qa/p01/inspect_pipe_dacl_win32_v1.py": "f871fed9f0bcd5a35ed3663a91a0756c13464980",
+    "qa/p01/native_restricted_token_acl_probe_v1.py": "123d150438016e471d6439c8781c874070708690"
+  },
+  "pipe_client_access_mask": "0x0012019B",
+  "pipe_instance_create_bit_excluded": true,
+  "applied_pipe_dacl": false,
+  "scm_service_native_attested": false,
+  "dedicated_worker_native_attested": false,
+  "w01_w12_native": {
+    "W01": "NOT_EXECUTED",
+    "W02": "NOT_EXECUTED",
+    "W03": "NOT_EXECUTED",
+    "W04": "NOT_EXECUTED",
+    "W05": "NOT_EXECUTED",
+    "W06": "NOT_EXECUTED",
+    "W07": "NOT_EXECUTED",
+    "W08": "NOT_EXECUTED",
+    "W09": "NOT_EXECUTED",
+    "W10": "NOT_EXECUTED",
+    "W11": "NOT_EXECUTED",
+    "W12": "NOT_EXECUTED"
+  },
+  "tests_L1_not_executed": true,
+  "science_F0_not_rerun": true,
+  "P00_untouched": true,
+  "P02_not_opened": true,
+  "native_security_verdict": "BLOCK_NOT_QUALIFIED",
+  "L1_grouped_QA_permit": "NOT_GRANTED",
+  "powershell_fallback": {
+    "filename": "Run-TTM-P01-L1-Windows-Native-Security-QA.ps1",
+    "sha256": "e488e265ae8ec8badb8160c3afcde2676a8f0255e6a2138e09ec3cbd86bc11e0",
+    "required_local_actions": "read-only checks and optional native probes; upload new immutable receipt with gh api",
+    "no_worker_launch": true
+  }
+}
