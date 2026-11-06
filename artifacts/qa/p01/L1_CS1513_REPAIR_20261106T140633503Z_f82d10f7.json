@@ -1,0 +1,19 @@
+{
+    "schema":  "ttm.p01.l1.cs1513_compile_recovery.v1",
+    "run_id":  "L1_CS1513_REPAIR_20261106T140633503Z_f82d10f7",
+    "source_commit":  "6109897e3697bec6a3fbadb561f1d9ec907f589a",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "checks":  {
+
+               },
+    "compiler_output":  [
+
+                        ],
+    "verdict":  "BLOCK_OR_COMPILE_FAIL",
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "errors":  [
+                   "A positional parameter cannot be found that accepts argument \u0027PASS\u0027."
+               ],
+    "utc":  "2026-11-06T14:06:33.6985796Z"
+}
