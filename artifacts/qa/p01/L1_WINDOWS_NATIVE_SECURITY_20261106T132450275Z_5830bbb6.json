@@ -1,0 +1,83 @@
+{
+    "schema":  "ttm.p01.l1.windows_native_security_gate.v1",
+    "run_id":  "L1_WINDOWS_NATIVE_SECURITY_20261106T132450275Z_5830bbb6",
+    "original_p01_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "evidence_branch":  "audit/p01-l1-native-security-critical-fix-20261106",
+    "executed_utc":  "2026-11-06T13:24:59.0997073Z",
+    "host_os":  "Microsoft Windows NT 10.0.26300.0",
+    "source_commit":  "d680c7f118dcd7ef63c06ec58d2a3d38f044ec20",
+    "source_sha256":  {
+                          "durable_broker_quota_v1.py":  "352a59ab21c3f7f197fb95bd65f25f3d30f456ed93eabea044f962447ae52251",
+                          "worker_identity_acl_win32_v1.py":  "15d6ef048144036b4a998f031ed67b1d6894172aee24f2ee385b44cd6073adf3",
+                          "atomic_handle_writer_win32_v1.py":  "e5636f89ea0be005a373f808f2e3e59196e962d5bb6caf989f8c3e3fc1f557b5",
+                          "trusted_broker_service_v1.py":  "8f9756fb6827561b8341558e08d79e16726f011124d94ad5d75d6f9d2dd01a31",
+                          "test_trusted_broker_protocol_v1.py":  "02f40d119623665886c24e6ebf7b7091d4e2825f13f59557881d7c7eaabc4557",
+                          "native_pipe_acl_policy_v1.py":  "ef6aabf6b6cebd821f00b74a9553fdcc5b72add30ea661f41146e49c965ac5f7",
+                          "test_native_pipe_acl_policy_v1.py":  "f867185f0ae8c4b6c132249cbd427fa522a8aad64397006fbaaa98871a172471",
+                          "inspect_pipe_dacl_win32_v1.py":  "963620289bc542a859843a8eec0edd79285504727aa6e26d30cec44ea0456189",
+                          "native_restricted_token_acl_probe_v1.py":  "455e3f45186d8f92da26edf58844c36e51c9bb2769147ce6651c3243a991780d"
+                      },
+    "checks":  {
+                   "EXACT_ORIGINAL_WORKTREE":  {
+                                                   "status":  "PASS",
+                                                   "detail":  "Local HEAD, branch, origin unchanged; no checkout"
+                                               },
+                   "EVIDENCE_PATH_INSIDE_PROJECT":  {
+                                                        "status":  "PASS",
+                                                        "detail":  "Only new QA receipt directories under repository worktrees"
+                                                    },
+                   "EXACT_GITHUB_SOURCE_PINS":  {
+                                                    "status":  "PASS",
+                                                    "detail":  "Source commit d680c7f118dcd7ef63c06ec58d2a3d38f044ec20; 9 files; 5 historical fixed SHA-256 pins"
+                                                },
+                   "BROKER_SERVICE_SID":  {
+                                              "status":  "BLOCK",
+                                              "detail":  "Named broker service is not installed; no service creation performed"
+                                          },
+                   "WORKER_ACCOUNT":  {
+                                          "status":  "BLOCK",
+                                          "detail":  "Dedicated worker account is absent or unresolved"
+                                      },
+                   "EVIDENCE_ROOT_ACL":  {
+                                             "status":  "BLOCK",
+                                             "detail":  "Approved broker directory not provisioned; script does not create or change ACL"
+                                         },
+                   "PIPE_DACL_NATIVE":  {
+                                            "status":  "NOT_EXECUTED",
+                                            "detail":  "Broker identity/root ACL prerequisites missing"
+                                        },
+                   "RESTRICTED_TOKEN_DENIED_OPEN_PROBE":  {
+                                                              "status":  "NOT_EXECUTED",
+                                                              "detail":  "Broker identity/root ACL prerequisites missing"
+                                                          },
+                   "W01_TO_W12_NATIVE":  {
+                                             "status":  "NOT_EXECUTED",
+                                             "detail":  "Native end-to-end negative tests require qualified service, pipe, token, Job and independently approved test launcher"
+                                         },
+                   "L1_GROUPED_QA":  {
+                                         "status":  "NOT_AUTHORIZED",
+                                         "detail":  "No one-shot permit issued"
+                                     }
+               },
+    "w01_w12":  {
+                    "W01":  "NOT_EXECUTED",
+                    "W02":  "NOT_EXECUTED",
+                    "W03":  "NOT_EXECUTED",
+                    "W04":  "NOT_EXECUTED",
+                    "W05":  "NOT_EXECUTED",
+                    "W06":  "NOT_EXECUTED",
+                    "W07":  "NOT_EXECUTED",
+                    "W08":  "NOT_EXECUTED",
+                    "W09":  "NOT_EXECUTED",
+                    "W10":  "NOT_EXECUTED",
+                    "W11":  "NOT_EXECUTED",
+                    "W12":  "NOT_EXECUTED"
+                },
+    "native_worker_started":  false,
+    "l1_tests_started":  false,
+    "permit":  "NOT_GRANTED",
+    "verdict":  "BLOCK_NOT_QUALIFIED",
+    "errors":  [
+
+               ]
+}
