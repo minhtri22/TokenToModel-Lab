@@ -1,0 +1,58 @@
+{
+    "schema":  "ttm.p01.l1.native_worker_v3_compile_gate.v1",
+    "run_id":  "L1_WORKER_V3_COMPILE_20261106T160319388Z_3fa6cd41",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "broker_v2_sha256":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+    "prior_probe_v2_sha256":  "ea44cc5fca81e7f1e692726502dea0ad97ab543bc86f2abef52a25e1ffa96eb6",
+    "probe_v3_source_commit":  "28e43406f65cd38b08e12d2061664d0202139a9c",
+    "probe_v3_source_blob":  "0414705e093780a6da3b9d2466abe67586db108e",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated administrator token"
+                             },
+                   "PINNED_ORIGINAL":  {
+                                           "status":  "PASS",
+                                           "detail":  "Local original read-only"
+                                       },
+                   "ORIGINAL_BINARY_PINS":  {
+                                                "status":  "PASS",
+                                                "detail":  "Broker V2 EXE and V2 worker DLL preserved"
+                                            },
+                   "SCM_V2_STOPPED":  {
+                                          "status":  "PASS",
+                                          "detail":  "Broker V2 installed but not started; no SCM changes"
+                                      },
+                   "PIPE_CLIENT_MASK":  {
+                                            "status":  "PASS_EXCLUDES_CREATE_INSTANCE",
+                                            "detail":  "ReadWrite=131483;CreateNewInstance=4"
+                                        },
+                   "V3_SOURCE_PIN":  {
+                                         "status":  "PASS",
+                                         "detail":  "Exact source blob downloaded into new TTM filename"
+                                     },
+                   "WINDOWS_CSC":  {
+                                       "status":  "PASS",
+                                       "detail":  "V3 worker probe compiled natively with exact access mask"
+                                   }
+               },
+    "compiler_output":  [
+
+                        ],
+    "compiler_exit":  0,
+    "artifact_sha256":  {
+                            "source":  "00964b57c60d80e4628d51cfe840f249edcc9edb16c7d44787081b74da03cfa0",
+                            "dll":  "bd08ae55ad7eca5eb29e237467166f58f7c9fd7d6dc9ef6f4de71cbb1ba33d9d"
+                        },
+    "verdict":  "PASS_COMPILE_ONLY_V3_NOT_EXECUTED",
+    "errors":  [
+
+               ],
+    "SCM_changed":  false,
+    "service_started":  false,
+    "ACL_changed":  false,
+    "worker_changed":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T16:03:21.9107919Z"
+}
