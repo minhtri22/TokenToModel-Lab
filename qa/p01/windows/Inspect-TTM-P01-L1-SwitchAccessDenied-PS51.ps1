@@ -37,7 +37,7 @@ function Record-Path([string]$label,[string]$target) {
   try {
    $exists=Test-Path -LiteralPath $cursor -ErrorAction Stop
    if(-not $exists){
-    $result='ABSENT'
+    $result='ABSENT_OR_INACCESSIBLE'
     $stoppedAt=$cursor
     break
    }
@@ -129,8 +129,8 @@ try {
  $marker=$report.checks['PATH_SWITCH_MARKER'].status
  if($marker -eq 'READABLE_METADATA_ONLY'){
   Record-Check 'ONE_SHOT_REPLAY' 'BLOCK_MARKER_PRESENT' 'Do not run any SCM config; marker was already created'
- } elseif($marker -eq 'ABSENT') {
-  Record-Check 'ONE_SHOT_REPLAY' 'NOT_ATTEMPTED_BY_PREVIOUS_RECEIPT' 'Marker absent; independent SCM state readback still needed'
+ } elseif($marker -eq 'ABSENT_OR_INACCESSIBLE') {
+  Record-Check 'ONE_SHOT_REPLAY' 'BLOCK_NOT_PROVEN_ABSENT' 'Test-Path returned false; marker absence requires elevated independent verification'
  } else {
   Record-Check 'ONE_SHOT_REPLAY' 'BLOCK_UNRESOLVED' 'Marker path inspection not conclusive'
  }
