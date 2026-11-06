@@ -23,6 +23,8 @@ public static class TTMWorkerNativeProbe {
   if(!Path.IsPathRooted(evidenceRoot) || !Directory.Exists(evidenceRoot))
    return "BLOCK_INVALID_ROOT";
   if(pipeName!="TTM_P01_L1_BROKER_V1")return "BLOCK_UNPINNED_PIPE";
+  string ledger=Path.Combine(evidenceRoot,"broker_ledger.sqlite3");
+  if(!File.Exists(ledger)) return "BLOCK_LEDGER_MISSING";
   IntPtr token=IntPtr.Zero;
   if(!LogonUser(user,domain,password,2,0,out token))
    return "BLOCK_LOGON_"+Marshal.GetLastWin32Error().ToString();
@@ -52,8 +54,7 @@ public static class TTMWorkerNativeProbe {
     }
     if(error!=5) return "BLOCK_DIR_ACCESS_INCONCLUSIVE_0x"+right.ToString("X")+"_ERROR_"+error.ToString();
    }
-   string ledger=Path.Combine(evidenceRoot,"broker_ledger.sqlite3");
-   if(!File.Exists(ledger)) return "BLOCK_LEDGER_MISSING";
+
    // Existing ledger must not be opened under the worker token for WRITE.
    IntPtr ledgerHandle=CreateFile(ledger,0x40000000u,0x7u,
                                 IntPtr.Zero,3u,0u,IntPtr.Zero);
