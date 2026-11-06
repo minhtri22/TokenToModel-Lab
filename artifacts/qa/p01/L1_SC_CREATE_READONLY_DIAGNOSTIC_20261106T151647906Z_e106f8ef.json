@@ -1,0 +1,75 @@
+{
+    "schema":  "ttm.p01.l1.sc_create_readonly_diagnostic.v1",
+    "run_id":  "L1_SC_CREATE_READONLY_DIAGNOSTIC_20261106T151647906Z_e106f8ef",
+    "source_failure_commit":  "e4d3cee3935759f351d9fdeb0c19f57b41b1f5da",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "checks":  {
+                   "LOCAL_HEAD":  {
+                                      "status":  "PASS",
+                                      "detail":  "Original HEAD pinned; no Git writes"
+                                  },
+                   "BINARY_SHA256":  {
+                                         "status":  "PASS",
+                                         "detail":  "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef"
+                                     },
+                   "WORKER_ACCOUNT":  {
+                                          "status":  "PRESENT_NOT_REATTESTED",
+                                          "detail":  "SID=S-1-5-21-2910051730-1322758338-3406810807-1009;Enabled=True"
+                                      },
+                   "SERVICE":  {
+                                   "status":  "ABSENT",
+                                   "detail":  "SCM service not found"
+                               },
+                   "DIR_BROKER_SERVICE":  {
+                                              "status":  "PRESENT_ACL_READBACK_ONLY",
+                                              "owner":  "BUILTIN\\Administrators",
+                                              "protected":  true,
+                                              "rules":  [
+                                                            "NT AUTHORITY\\SYSTEM:FullControl:Allow",
+                                                            "BUILTIN\\Administrators:FullControl:Allow",
+                                                            "S-1-5-80-3250491234-3884958938-4011397885-464722667-3405458206:FullControl:Allow"
+                                                        ]
+                                          },
+                   "DIR_EVIDENCE":  {
+                                        "status":  "PRESENT_ACL_READBACK_ONLY",
+                                        "owner":  "BUILTIN\\Administrators",
+                                        "protected":  true,
+                                        "rules":  [
+                                                      "NT AUTHORITY\\SYSTEM:FullControl:Allow",
+                                                      "BUILTIN\\Administrators:FullControl:Allow",
+                                                      "DESKTOP-4PSD0G2\\TTMP01Worker:ReadAndExecute, Synchronize:Allow",
+                                                      "S-1-5-80-3250491234-3884958938-4011397885-464722667-3405458206:FullControl:Allow"
+                                                  ]
+                                    },
+                   "CREDENTIAL_FILE":  {
+                                           "status":  "PRESENT_NO_CONTENT_READ",
+                                           "detail":  "Credential bytes and password never read"
+                                       },
+                   "LEDGER_FILE":  {
+                                       "status":  "PRESENT_NOT_MODIFIED",
+                                       "detail":  "No ledger write or read"
+                                   }
+               },
+    "verdict":  "READONLY_DIAGNOSTIC_COMPLETE_NO_PROVISION",
+    "errors":  [
+
+               ],
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "account_or_service_changed":  false,
+    "sc_query_exit":  1060,
+    "sc_query_lines":  [
+                           "[SC] EnumQueryServicesStatus:OpenService FAILED 1060:",
+                           "",
+                           "The specified service does not exist as an installed service.",
+                           ""
+                       ],
+    "sc_qc_exit":  1060,
+    "sc_qc_lines":  [
+                        "[SC] OpenService FAILED 1060:",
+                        "",
+                        "The specified service does not exist as an installed service.",
+                        ""
+                    ],
+    "utc":  "2026-11-06T15:16:48.1976612Z"
+}
