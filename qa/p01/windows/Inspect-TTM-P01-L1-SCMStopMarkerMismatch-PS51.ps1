@@ -108,7 +108,8 @@ try{
   $rec.force_marker_state='NOT_CONFIRMED_PRESENT'
  }
  Gate 'FORCE_MARKER' $rec.force_marker_state 'No changes and no inference of guaranteed absence'
- $rec.verdict=if($observed -ceq $oldSha){'MARKER_NOW_EXACT_REASSESS_REQUIRED'}else{'BLOCK_MARKER_DRIFT_CONFIRMED_NO_ACTION'}
+ if($observed -ceq $oldSha){$rec.verdict='MARKER_NOW_EXACT_REASSESS_REQUIRED'}
+ else{$rec.verdict='BLOCK_MARKER_DRIFT_CONFIRMED_NO_ACTION'}
 }catch{
  $rec.errors+= $_.Exception.Message
  $rec.verdict='BLOCK_FORENSIC_READONLY_EXCEPTION'
