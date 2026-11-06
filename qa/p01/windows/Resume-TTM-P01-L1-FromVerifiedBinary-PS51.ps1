@@ -81,7 +81,7 @@ function Read-GH-Source([string]$path,[string]$ref,[string]$blob) {
  if($LASTEXITCODE -ne 0){Stop-Gate 'GITHUB_PINNED_SOURCE_UNAVAILABLE'}
  $obj=($txt -join [Environment]::NewLine)|ConvertFrom-Json
  if($obj.sha -cne $blob){Stop-Gate 'GITHUB_SOURCE_BLOB_MISMATCH'}
- return [Convert]::FromBase64String(($obj.content -replace '\s',''))
+ return ,([Convert]::FromBase64String(($obj.content -replace '\s','')))
 }
 try {
  if(-not(Test-Path -LiteralPath $wt -PathType Container)){Stop-Gate 'PINNED_WORKTREE_ABSENT'}
