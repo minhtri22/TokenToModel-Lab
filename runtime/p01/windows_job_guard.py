@@ -126,15 +126,24 @@ class NativeJob:
         self._require_open()
         if suspended is not True or type(process_handle) is not int or process_handle <= 0:
             raise GuardNotEstablished("SUSPENDED_PROCESS_NOT_VERIFIED")
-        self.query_limits()
-        if not self._api.AssignProcessToJobObject(self._handle, process_handle):
-            raise GuardNotEstablished("ASSIGN_PROCESS_TO_JOB_FAILED")
-        member = wintypes.BOOL()
-        if not self._api.IsProcessInJob(process_handle, self._handle, ctypes.byref(member)):
-            raise GuardNotEstablished("JOB_MEMBERSHIP_QUERY_FAILED")
-        if member.value != 1:
-            raise GuardNotEstablished("JOB_MEMBERSHIP_NOT_CONFIRMED")
-        self.query_limits()
+        try:
+            self.query_limits()
+            if not self._api.AssignProcessToJobObject(self._handle, process_handle):
+                raise GuardNotEstablished("ASSIGN_PROCESS_TO_JOB_FAILED")
+            member = wintypes.BOOL()
+            if not self._api.IsProcessInJob(process_handle, self._handle, ctypes.byref(member)):
+                raise GuardNotEstablished("JOB_MEMBERSHIP_QUERY_FAILED")
+            if member.value != 1:
+                raise GuardNotEstablished("JOB_MEMBERSHIP_NOT_CONFIRMED")
+            self.query_limits()
+        except Exception as exc:
+            # A failure MUST NOT leave a candidate suspended process orphaned.
+            # Win32 assignment can itself terminate the process; regardless,
+            # a signaled process handle is required before classifying cleanup.
+            self._api.TerminateProcess(process_handle, 1)
+            if self._api.WaitForSingleObject(process_handle, 5000) != 0:
+                raise GuardNotEstablished("FAILED_WORKER_TERMINATION_UNVERIFIED") from exc
+            raise
 
     def terminate(self, exit_code: int = 1) -> None:
         self._require_open()
@@ -192,6 +201,10 @@ def prepare_limited_job(plan: GuardPlan | None = None) -> NativeJob:
     kernel.IsProcessInJob.restype = wintypes.BOOL
     kernel.TerminateJobObject.argtypes = [wintypes.HANDLE, wintypes.UINT]
     kernel.TerminateJobObject.restype = wintypes.BOOL
+    kernel.TerminateProcess.argtypes = [wintypes.HANDLE, wintypes.UINT]
+    kernel.TerminateProcess.restype = wintypes.BOOL
+    kernel.WaitForSingleObject.argtypes = [wintypes.HANDLE, wintypes.DWORD]
+    kernel.WaitForSingleObject.restype = wintypes.DWORD
     kernel.CloseHandle.argtypes = [wintypes.HANDLE]
     kernel.CloseHandle.restype = wintypes.BOOL
 

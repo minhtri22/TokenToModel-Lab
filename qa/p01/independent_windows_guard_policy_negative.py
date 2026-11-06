@@ -5,8 +5,13 @@ mutations occur. Run only after the independent static-test admission.
 """
 from __future__ import annotations
 
+import ctypes
 import unittest
-from runtime.p01.windows_job_guard import GuardNotEstablished, GuardPlan, start_worker
+from runtime.p01.windows_job_guard import (
+    GuardNotEstablished, GuardPlan, NativeJob, start_worker,
+    _ExtendedLimits, JOB_OBJECT_LIMIT_JOB_MEMORY,
+    JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+)
 from runtime.p01.write_quota_broker import (
     BrokerUnavailable, BrokerPolicy, QuotaLedger, relative_output_path, write_file
 )
@@ -93,6 +98,72 @@ class IndependentGuardPolicyNegativeQA(unittest.TestCase):
             with self.subTest(args=args):
                 with self.assertRaises(BrokerUnavailable):
                     write_file(*args)
+
+    def test_assign_failure_terminates_suspended_process(self):
+        # Pure fake adapter; no Win32 API calls and no spawned process.
+        class Fake:
+            terminated = False
+            def QueryInformationJobObject(self, h, k, info, sz, out):
+                record = ctypes.cast(info, ctypes.POINTER(_ExtendedLimits)).contents
+                record.BasicLimitInformation.LimitFlags = (
+                    JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+                )
+                record.JobMemoryLimit = 4 * 1024**3
+                return 1
+            def AssignProcessToJobObject(self, job, proc):
+                return 0
+            def TerminateProcess(self, proc, code):
+                self.terminated = (proc == 7 and code == 1)
+                return 1
+            def WaitForSingleObject(self, proc, timeout):
+                return 0
+        fake = Fake()
+        with self.assertRaises(GuardNotEstablished):
+            NativeJob(3, fake, GuardPlan()).attach_suspended(7, suspended=True)
+        self.assertTrue(fake.terminated)
+
+    def test_job_membership_mismatch_terminates_process(self):
+        class Fake:
+            terminated = False
+            def QueryInformationJobObject(self, h, k, info, sz, out):
+                record = ctypes.cast(info, ctypes.POINTER(_ExtendedLimits)).contents
+                record.BasicLimitInformation.LimitFlags = (
+                    JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+                )
+                record.JobMemoryLimit = 4 * 1024**3
+                return 1
+            def AssignProcessToJobObject(self, job, proc):
+                return 1
+            def IsProcessInJob(self, proc, job, result):
+                ctypes.cast(result, ctypes.POINTER(ctypes.c_long)).contents.value = 0
+                return 1
+            def TerminateProcess(self, proc, code):
+                self.terminated = True
+                return 1
+            def WaitForSingleObject(self, proc, timeout):
+                return 0
+        fake = Fake()
+        with self.assertRaises(GuardNotEstablished):
+            NativeJob(3, fake, GuardPlan()).attach_suspended(7, suspended=True)
+        self.assertTrue(fake.terminated)
+
+    def test_termination_timeout_is_not_silent_success(self):
+        class Fake:
+            def QueryInformationJobObject(self, h, k, info, sz, out):
+                record = ctypes.cast(info, ctypes.POINTER(_ExtendedLimits)).contents
+                record.BasicLimitInformation.LimitFlags = (
+                    JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+                )
+                record.JobMemoryLimit = 4 * 1024**3
+                return 1
+            def AssignProcessToJobObject(self, job, proc):
+                return 0
+            def TerminateProcess(self, proc, code):
+                return 1
+            def WaitForSingleObject(self, proc, timeout):
+                return 0x102  # WAIT_TIMEOUT
+        with self.assertRaisesRegex(GuardNotEstablished, "TERMINATION_UNVERIFIED"):
+            NativeJob(3, Fake(), GuardPlan()).attach_suspended(7, suspended=True)
 
 
 MAX_PLUS_ONE = 2 * 1024**3 + 1
