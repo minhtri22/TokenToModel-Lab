@@ -1,0 +1,25 @@
+{
+    "schema":  "ttm.p01.l1.windows_service_provision.v1",
+    "run_id":  "L1_SERVICE_PROVISION_20261106T135942574Z_a8731579",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "branch":  "audit/p01-l1-native-security-critical-fix-20261106",
+    "source_commit":  "3954551912794bc0886b898b3900c87201450f72",
+    "apply":  true,
+    "checks":  {
+                   "PINNED_WORKTREE":  {
+                                           "status":  "PASS",
+                                           "detail":  "No checkout/fetch/pull/commit on local original"
+                                       },
+                   "GH_AUTH":  {
+                                   "status":  "PASS",
+                                   "detail":  "GitHub CLI can write evidence"
+                               }
+               },
+    "verdict":  "BLOCK_OR_PARTIAL_FAILURE",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_permit":  "NOT_GRANTED",
+    "errors":  [
+                   "ADMIN_REQUIRED"
+               ],
+    "utc":  "2026-11-06T13:59:43.7335504Z"
+}
