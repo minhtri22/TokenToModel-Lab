@@ -9,6 +9,8 @@ $worktree=Join-Path $repo 'worktrees\p01-f0-static-i0a-20261105'
 $stage=Join-Path $repo 'worktrees\_ttm_p01_l1_service_provision_20261106'
 $bin=Join-Path $stage 'broker_service'
 $exe=Join-Path $bin 'TTMP01Broker.attestationV2.exe'
+$serverSource=Join-Path $bin 'BrokerAttestationServiceV2.cs'
+$serverSourceSha='42ef0c0046d9b90ec0584211010341e7a04b93ea9541cb36ada66fdc2d830fae'
 $probeDll=Join-Path $bin 'TTMWorkerNativeProbeV3.dll'
 $probeSource=Join-Path $bin 'TTMWorkerNativeProbeV3.cs'
 $probeSourceSha='00964b57c60d80e4628d51cfe840f249edcc9edb16c7d44787081b74da03cfa0'
@@ -25,7 +27,9 @@ $exeSha='a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a'
 $probeSha='bd08ae55ad7eca5eb29e237467166f58f7c9fd7d6dc9ef6f4de71cbb1ba33d9d'
 $branch='audit/p01-l1-native-security-critical-fix-20261106'
 $marker=Join-Path $stage 'L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_ATTEMPT_20261106.lock'
-$id='L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_'+[DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ')+'_'+[Guid]::NewGuid().ToString('N').Substring(0,8)
+$switchMarker=Join-Path $stage 'L1_SCM_V2_SWITCH_ATTEMPT_20261106.lock'
+$switchMarkerSha='29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1'
+$id='L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_V2_'+[DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ')+'_'+[Guid]::NewGuid().ToString('N').Substring(0,8)
 $receiptDir=Join-Path $repo ('worktrees\_ttm_p01_l1_qa_receipts\'+$id)
 $receipt=[ordered]@{
  schema='ttm.p01.l1.broker_v2_worker_v3_native_security_one_shot.v2'
@@ -75,13 +79,15 @@ try{
  $admin=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
  if(-not $admin){Block 'ADMIN_REQUIRED_BEFORE_STAGE_ACCESS'}
  Gate 'ADMIN_ELEVATED' 'PASS' 'Elevated Windows Administrator token'
- foreach($p in @($worktree,$stage,$bin,$exe,$probeDll,$probeSource,$credentialFile,$cfgFile,$ledgerFile,$marker)){NoReparse $p}
+ foreach($p in @($worktree,$stage,$bin,$exe,$serverSource,$probeDll,$probeSource,$credentialFile,$cfgFile,$ledgerFile,$marker,$switchMarker,$receiptDir)){NoReparse $p}
  if((ReadGit -GitArguments @('rev-parse','HEAD')) -cne $base){Block 'ORIGINAL_HEAD_CHANGED'}
  if((ReadGit -GitArguments @('branch','--show-current')) -cne 'implementation/p01-i0a-s-f0-static-20261106'){Block 'ORIGINAL_BRANCH_CHANGED'}
  if((ReadGit -GitArguments @('remote','get-url','origin')) -ine 'https://github.com/minhtri22/TokenToModel-Lab.git'){Block 'ORIGIN_CHANGED'}
  Gate 'PINNED_ORIGINAL' 'PASS' 'No original worktree mutation'
- if((Sha256 $exe) -cne $exeSha -or (Sha256 $probeDll) -cne $probeSha -or (Sha256 $probeSource) -cne $probeSourceSha){Block 'BROKER_V2_WORKER_V3_SHA256_MISMATCH'}
- Gate 'BINARY_PINS' 'PASS' 'Broker V2 EXE, worker V3 source and DLL SHA256 verified'
+ if((Sha256 $exe) -cne $exeSha -or (Sha256 $serverSource) -cne $serverSourceSha -or (Sha256 $probeDll) -cne $probeSha -or (Sha256 $probeSource) -cne $probeSourceSha){Block 'BROKER_V2_WORKER_V3_SHA256_MISMATCH'}
+ if((Sha256 $switchMarker) -cne $switchMarkerSha){Block 'SCM_V2_SWITCH_MARKER_CHANGED_OR_MISSING'}
+ Gate 'SCM_SWITCH_MARKER' 'PASS' 'Previously qualified exact SCM switch marker SHA256 preserved'
+ Gate 'BINARY_PINS' 'PASS' 'Broker V2 source/EXE and worker V3 source/DLL SHA256 verified'
  $workerPipeRights=[int][System.IO.Pipes.PipeAccessRights]::ReadWrite
  $pipeCreateRight=[int][System.IO.Pipes.PipeAccessRights]::CreateNewInstance
  if(($workerPipeRights -band $pipeCreateRight) -ne 0){Block 'WORKER_V3_RIGHTS_INCLUDE_CREATE_INSTANCE'}
@@ -124,8 +130,7 @@ public static class TtmP01NativeMarkerRead {
  & gh auth status 1>$null 2>$null
  if($LASTEXITCODE -ne 0){Block 'GH_AUTH_REQUIRED'}
  Gate 'GITHUB_AUTH' 'PASS' 'Ready for receipt upload and readback'
- $python=Join-Path $env:USERPROFILE 'miniforge3\python.exe'
- if(-not(Test-Path -LiteralPath $python -PathType Leaf)){Block 'MINIFORGE_PYTHON_MISSING'}
+
  if(-not $Execute){
   Gate 'NATIVE_EXECUTION' 'NOT_EXECUTED' 'Pass -Execute only in separately authorized one-shot'
   $receipt.verdict='PREFLIGHT_PASS_NO_SERVICE_START'
