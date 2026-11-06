@@ -1,0 +1,63 @@
+{
+    "schema":  "ttm.p01.l1.stop_marker_mismatch_readonly.v1",
+    "run_id":  "L1_STOP_MARKER_MISMATCH_READONLY_20261106T170118472Z_ebead616",
+    "reported_failure_commit":  "441bec040d9d186bc2088d0747efe04d71a62f74",
+    "original_receipt_commit":  "8a3666c655edba86bef2a841a31246fe19e0e870",
+    "marker_expected_sha256":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated token"
+                             },
+                   "SCM":  {
+                               "status":  "PASS_READONLY",
+                               "detail":  "State=Running;Pid=26200"
+                           },
+                   "ORIGINAL":  {
+                                    "status":  "PASS",
+                                    "detail":  "HEAD branch origin read-only"
+                                },
+                   "ORIGINAL_MARKER_RECONSTRUCTION":  {
+                                                          "status":  "PASS_EXACT",
+                                                          "detail":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502"
+                                                      },
+                   "STOP_MARKER":  {
+                                       "status":  "PASS_EXACT",
+                                       "detail":  "SHA256/length/times only; content not published"
+                                   },
+                   "FORCE_MARKER":  {
+                                        "status":  "NOT_CONFIRMED_PRESENT",
+                                        "detail":  "No changes and no inference of guaranteed absence"
+                                    }
+               },
+    "marker":  {
+                   "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\L1_BROKER_V2_SCM_STOP_RECOVERY_ATTEMPT_20261106.lock",
+                   "expected_sha256":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+                   "actual_sha256":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+                   "expected_length":  130,
+                   "actual_length":  130,
+                   "first_different_byte":  null,
+                   "created_utc":  "2026-11-06T16:38:21.3892390Z",
+                   "modified_utc":  "2026-11-06T16:38:21.3934352Z",
+                   "attributes":  "Archive",
+                   "bytes_published":  false
+               },
+    "scm":  {
+                "state":  "Running",
+                "pid":  26200,
+                "account":  "NT AUTHORITY\\LocalService",
+                "mode":  "Manual",
+                "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+            },
+    "force_marker_state":  "NOT_CONFIRMED_PRESENT",
+    "verdict":  "MARKER_NOW_EXACT_REASSESS_REQUIRED",
+    "errors":  [
+
+               ],
+    "service_changed":  false,
+    "marker_changed":  false,
+    "process_terminated":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T17:01:19.3451330Z"
+}
