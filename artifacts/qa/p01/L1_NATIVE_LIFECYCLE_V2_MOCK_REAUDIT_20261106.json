@@ -1,0 +1,20 @@
+{
+  "schema": "ttm.p01.l1.lifecycle_mock_reaudit.v1",
+  "date": "2026-11-06",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "base_commit": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "entrypoint": "python -B -m unittest -v test_native_guard_lifecycle_v2.py",
+  "execution_environment": "isolated Linux Python; not target Windows",
+  "test_count": 8,
+  "passed": 8,
+  "failed": 0,
+  "scope": "fake-backend lifecycle ordering, fail-closed behavior, termination-uncertainty and error propagation",
+  "native_win32_calls": false,
+  "worker_spawned": false,
+  "filesystem_access_tested": false,
+  "qualified_security_boundary": false,
+  "independent_native_W01_W12": "NOT_EXECUTED",
+  "verdict": "PASS_MOCK_ONLY",
+  "gate": "L1_SINGLE_QA_NOT_GRANTED",
+  "note": "This receipt is a subordinate engineering QA outcome. It does not override the earlier static security FAIL."
+}
