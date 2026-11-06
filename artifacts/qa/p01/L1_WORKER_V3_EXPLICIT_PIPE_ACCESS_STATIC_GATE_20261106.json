@@ -1,0 +1,29 @@
+{
+  "schema": "ttm.p01.l1.worker_v3_exact_pipe_access_static_gate.v1",
+  "date": "2026-11-06",
+  "original_local_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "SCM_V2_switch_evidence_commit": "98f96dfd002fde146b0922501510b3229ad63bc9",
+  "SCM_V2_switch_verified": "PASS_SCM_SWITCH_V2_NOT_STARTED_SECURITY_NOT_QUALIFIED",
+  "broker_v2_exe_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+  "worker_v2_dll_sha256": "ea44cc5fca81e7f1e692726502dea0ad97ab543bc86f2abef52a25e1ffa96eb6",
+  "source_blobs": {
+    "qa/p01/windows/TTMWorkerNativeProbeV3.cs": "0414705e093780a6da3b9d2466abe67586db108e",
+    "qa/p01/windows/Compile-TTM-P01-L1-WorkerProbeV3-PS51.ps1": "b856750fe6205a41b76ce1c17a34be415ff79af1",
+    "qa/p01/windows/Invoke-TTM-P01-L1-BrokerV2-NativeSecurityOneShot-PS51.ps1": "36ac06d9761584157f29891d80f4b66668517065"
+  },
+  "static_checks": {
+    "total": 21,
+    "present": 21,
+    "method": "source presence and order only"
+  },
+  "factual_basis": "Windows named pipe FILE_GENERIC_WRITE includes FILE_APPEND_DATA=FILE_CREATE_PIPE_INSTANCE; PipeAccessRights.ReadWrite excludes CreateNewInstance. A generic PipeDirection.InOut client may require a broader access mask than the intended DACL. This mismatch must be removed before native peer-auth testing.",
+  "next_only": "Compile exact V3 worker probe to new DLL filename under TTM protected staging without service start, SCM changes, account or ACL modifications.",
+  "compiled_V3": "NOT_EXECUTED",
+  "native_service_started": "NOT_EXECUTED",
+  "native_pipe_DACL_verified": "NOT_EXECUTED",
+  "worker_denied_rights": "NOT_EXECUTED",
+  "W01_W12": "NOT_EXECUTED",
+  "grouped_L1": "NOT_AUTHORIZED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED"
+}
