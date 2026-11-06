@@ -1,0 +1,112 @@
+{
+    "schema":  "ttm.p01.l1.stop_unverified_readonly.v1",
+    "run_id":  "L1_V2_STOP_UNVERIFIED_READONLY_20261106T163110268Z_e71a460b",
+    "source_incident_commit":  "45f74877a43a66e6559f2a61d6f765ffd0c7da98",
+    "original_head_expected":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "checks":  {
+                   "ELEVATED":  {
+                                    "status":  "PASS",
+                                    "detail":  "Windows elevated token checked before protected path access"
+                                },
+                   "SCM_SNAPSHOT":  {
+                                        "status":  "PASS_READONLY",
+                                        "detail":  "State=Running;PID=26200"
+                                    },
+                   "QUERYEX":  {
+                                   "status":  "PASS_READONLY",
+                                   "detail":  "SCM queryex captured"
+                               },
+                   "SCM_CONFIG":  {
+                                      "status":  "PASS_READBACK_ONLY",
+                                      "detail":  "Expected V2 binary, LocalService, demand start"
+                                  },
+                   "SCM_PID":  {
+                                   "status":  "PASS_PROCESS_OBSERVED",
+                                   "detail":  "SCM-linked PID and image metadata observed"
+                               },
+                   "ORIGINAL_WORKTREE":  {
+                                             "status":  "PASS",
+                                             "detail":  "Exact original HEAD/branch/origin read-only"
+                                         },
+                   "V2_EXE_PIN":  {
+                                      "status":  "PASS",
+                                      "detail":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+                                  },
+                   "SCM_SWITCH_MARKER":  {
+                                             "status":  "PASS_PRESENT_EXACT",
+                                             "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                         },
+                   "NATIVE_TEST_MARKER":  {
+                                              "status":  "PASS_PRESENT_EXACT",
+                                              "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                          },
+                   "SERVICE_CURRENT_STATE":  {
+                                                 "status":  "BLOCK_ACTIVE_OR_TRANSITION",
+                                                 "detail":  "State=Running;Pid=26200"
+                                             }
+               },
+    "scm":  {
+                "name":  "TTMP01Broker",
+                "state":  "Running",
+                "status":  "Degraded",
+                "start_mode":  "Manual",
+                "account":  "NT AUTHORITY\\LocalService",
+                "binpath":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                "process_id":  26200,
+                "exit_code":  0,
+                "service_specific_exit":  0
+            },
+    "process":  {
+                    "pid":  26200,
+                    "name":  "TTMP01Broker.attestationV2.exe",
+                    "executable_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                    "creation_date":  "\/Date(1793982282113)\/"
+                },
+    "queryex":  {
+                    "exit_code":  0,
+                    "lines":  [
+                                  "",
+                                  "SERVICE_NAME: TTMP01Broker ",
+                                  "        TYPE               : 10  WIN32_OWN_PROCESS  ",
+                                  "        STATE              : 4  RUNNING ",
+                                  "                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)",
+                                  "        WIN32_EXIT_CODE    : 0  (0x0)",
+                                  "        SERVICE_EXIT_CODE  : 0  (0x0)",
+                                  "        CHECKPOINT         : 0x0",
+                                  "        WAIT_HINT          : 0x0",
+                                  "        PID                : 26200",
+                                  "        FLAGS              : "
+                              ]
+                },
+    "marker":  {
+
+               },
+    "errors":  [
+
+               ],
+    "verdict":  "BLOCK_ACTIVE_OR_TRANSITIONING_SERVICE_NEEDS_SEPARATE_RECOVERY",
+    "service_mutated":  false,
+    "process_terminated":  false,
+    "account_mutated":  false,
+    "ACL_mutated":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "qc":  {
+               "exit_code":  0,
+               "lines":  [
+                             "[SC] QueryServiceConfig SUCCESS",
+                             "",
+                             "SERVICE_NAME: TTMP01Broker",
+                             "        TYPE               : 10  WIN32_OWN_PROCESS ",
+                             "        START_TYPE         : 3   DEMAND_START",
+                             "        ERROR_CONTROL      : 1   NORMAL",
+                             "        BINARY_PATH_NAME   : D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                             "        LOAD_ORDER_GROUP   : ",
+                             "        TAG                : 0",
+                             "        DISPLAY_NAME       : TTMP01Broker",
+                             "        DEPENDENCIES       : ",
+                             "        SERVICE_START_NAME : NT AUTHORITY\\LocalService"
+                         ]
+           },
+    "utc":  "2026-11-06T16:31:11.5632674Z"
+}
