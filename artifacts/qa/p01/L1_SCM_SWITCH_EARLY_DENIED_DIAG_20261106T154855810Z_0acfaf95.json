@@ -1,0 +1,116 @@
+{
+    "schema":  "ttm.p01.l1.scm_switch_early_access_diagnostic.v1",
+    "run_id":  "L1_SCM_SWITCH_EARLY_DENIED_DIAG_20261106T154855810Z_0acfaf95",
+    "original_head_expected":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "prior_failure_commit":  "14b51937f861f26f05d53b38f0808522e462e5d9",
+    "admin_elevated":  true,
+    "checks":  {
+                   "ADMIN_ELEVATED":  {
+                                          "status":  "PASS",
+                                          "detail":  "Windows admin membership of the current elevated token"
+                                      },
+                   "PATH_WORKTREE":  {
+                                         "status":  "READABLE_METADATA_ONLY",
+                                         "stopped_at":  "",
+                                         "exception_type":  "",
+                                         "error_id":  ""
+                                     },
+                   "PATH_STAGE":  {
+                                      "status":  "READABLE_METADATA_ONLY",
+                                      "stopped_at":  "",
+                                      "exception_type":  "",
+                                      "error_id":  ""
+                                  },
+                   "PATH_BROKER_DIR":  {
+                                           "status":  "READABLE_METADATA_ONLY",
+                                           "stopped_at":  "",
+                                           "exception_type":  "",
+                                           "error_id":  ""
+                                       },
+                   "PATH_V1_EXE":  {
+                                       "status":  "READABLE_METADATA_ONLY",
+                                       "stopped_at":  "",
+                                       "exception_type":  "",
+                                       "error_id":  ""
+                                   },
+                   "PATH_V2_EXE":  {
+                                       "status":  "READABLE_METADATA_ONLY",
+                                       "stopped_at":  "",
+                                       "exception_type":  "",
+                                       "error_id":  ""
+                                   },
+                   "PATH_V2_SOURCE":  {
+                                          "status":  "READABLE_METADATA_ONLY",
+                                          "stopped_at":  "",
+                                          "exception_type":  "",
+                                          "error_id":  ""
+                                      },
+                   "PATH_V2_PROBE_DLL":  {
+                                             "status":  "READABLE_METADATA_ONLY",
+                                             "stopped_at":  "",
+                                             "exception_type":  "",
+                                             "error_id":  ""
+                                         },
+                   "PATH_SID_CONFIG":  {
+                                           "status":  "READABLE_METADATA_ONLY",
+                                           "stopped_at":  "",
+                                           "exception_type":  "",
+                                           "error_id":  ""
+                                       },
+                   "PATH_CREDENTIAL_METADATA":  {
+                                                    "status":  "READABLE_METADATA_ONLY",
+                                                    "stopped_at":  "",
+                                                    "exception_type":  "",
+                                                    "error_id":  ""
+                                                },
+                   "PATH_LEDGER_METADATA":  {
+                                                "status":  "READABLE_METADATA_ONLY",
+                                                "stopped_at":  "",
+                                                "exception_type":  "",
+                                                "error_id":  ""
+                                            },
+                   "PATH_SWITCH_MARKER":  {
+                                              "status":  "ABSENT_OR_INACCESSIBLE",
+                                              "stopped_at":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\L1_SCM_V2_SWITCH_ATTEMPT_20261106.lock",
+                                              "exception_type":  "",
+                                              "error_id":  ""
+                                          },
+                   "SCM_PRESENT":  {
+                                       "status":  "PASS_READBACK_ONLY",
+                                       "detail":  "State=Stopped;Mode=Manual"
+                                   },
+                   "GIT_HEAD":  {
+                                    "status":  "PASS",
+                                    "detail":  "Read-only identity comparison"
+                                },
+                   "GIT_BRANCH":  {
+                                      "status":  "PASS",
+                                      "detail":  "Read-only identity comparison"
+                                  },
+                   "GIT_ORIGIN":  {
+                                      "status":  "PASS",
+                                      "detail":  "Read-only identity comparison"
+                                  },
+                   "ONE_SHOT_REPLAY":  {
+                                           "status":  "BLOCK_NOT_PROVEN_ABSENT",
+                                           "detail":  "Test-Path returned false; marker absence requires elevated independent verification"
+                                       }
+               },
+    "errors":  [
+
+               ],
+    "verdict":  "READONLY_DIAGNOSTIC_COMPLETED_NOT_SCM_PERMIT",
+    "scm_changed_by_diagnostic":  false,
+    "account_changed_by_diagnostic":  false,
+    "acl_changed_by_diagnostic":  false,
+    "worker_started":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "scm_snapshot":  {
+                         "state":  "Stopped",
+                         "start_mode":  "Manual",
+                         "start_name":  "NT AUTHORITY\\LocalService",
+                         "path_name":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.fixed.exe"
+                     },
+    "utc":  "2026-11-06T15:48:56.7968439Z"
+}
