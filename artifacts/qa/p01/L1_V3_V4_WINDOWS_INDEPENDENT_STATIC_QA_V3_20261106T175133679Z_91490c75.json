@@ -1,0 +1,83 @@
+{
+    "schema":  "ttm.p01.l1.v3_v4_windows_independent_python_static_preflight.v3",
+    "run_id":  "L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V3_20261106T175133679Z_91490c75",
+    "source_commit":  "782f101f001973f8c23f23b22ae2b0896232d722",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "predecessor_block_commit":  "ac246d1b4c8b4bea4ffda57196a77e4b9ab0d2b8",
+    "mode":  "PYTHON_STATIC_ONLY_AND_COMPILER_PRESENCE_READONLY",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated PowerShell 5.1 on target machine"
+                             },
+                   "ORIGINAL_HEAD":  {
+                                         "status":  "PASS",
+                                         "detail":  "Frozen F0 worktree HEAD/branch/origin read-only"
+                                     },
+                   "SCM_READONLY":  {
+                                        "status":  "PASS_STOPPED_PID0",
+                                        "detail":  "No service commands issued"
+                                    },
+                   "MARKER_SWITCH":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                     },
+                   "MARKER_NATIVE":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                     },
+                   "MARKER_SCM_STOP":  {
+                                           "status":  "PASS_EXACT",
+                                           "detail":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502"
+                                       },
+                   "MARKER_EXACT_PROCESS":  {
+                                                "status":  "PASS_EXACT",
+                                                "detail":  "59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9"
+                                            },
+                   "WINDOWS_PYTHON":  {
+                                          "status":  "PASS",
+                                          "detail":  "Windows 3.13.12 x64"
+                                      },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Receipt upload and readback available"
+                                   }
+               },
+    "source_files":  [
+
+                     ],
+    "python_identity":  {
+                            "exe":  "C:\\Users\\minht\\miniforge3\\python.exe",
+                            "platform":  "Windows",
+                            "machine":  "DESKTOP-4PSD0G2",
+                            "version":  "3.13.12",
+                            "pointer_width":  "64"
+                        },
+    "python_checker_exit":  null,
+    "python_checker_result":  {
+
+                              },
+    "python_checker_stdout_sha256":  null,
+    "python_checker_stderr":  null,
+    "compiler_preflight":  {
+
+                           },
+    "system_capacity":  {
+
+                        },
+    "qa_marker_sha256":  null,
+    "verdict":  "BLOCK_WINDOWS_STATIC_QA_OR_PREFLIGHT",
+    "errors":  [
+                   "  File \"\u003cstring\u003e\", line 1"
+               ],
+    "service_started":  false,
+    "scm_changed":  false,
+    "windows_csc_executed":  false,
+    "binary_compiled":  false,
+    "marker_cleanup":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "utc":  "2026-11-06T17:51:35.4478943Z"
+}
