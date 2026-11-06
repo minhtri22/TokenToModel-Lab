@@ -131,6 +131,7 @@ try {
   if(-not $workerSid.StartsWith('S-1-5-21-')){Stop-Gate 'WORKER_SID_INVALID'}
   Add-Check 'WORKER_ACCOUNT_CREATED' 'PASS_PROVISIONED' 'Dedicated nonadministrator SID'
   # Protect broker binary, secret and root by service SID; worker only read/traverse evidence.
+  Set-ExactDirectoryAcl $stage $serviceSid $workerSid $false
   Set-ExactDirectoryAcl $binDir $serviceSid $workerSid $false
   Set-ExactDirectoryAcl $ev $serviceSid $workerSid $true
   Add-Check 'DIRECTORY_ACL_SET' 'PASS_CONFIGURED_ONLY' 'Independent denied-open probe required'
