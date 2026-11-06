@@ -1,0 +1,56 @@
+{
+  "schema": "ttm.p01.l1.broker_v2_native_incident_static_adjudication.v1",
+  "date": "2026-11-06",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "evidence_commit": "45f74877a43a66e6559f2a61d6f765ffd0c7da98",
+  "evidence_run": "L1_BROKER_V2_WORKER_V3_NATIVE_SECURITY_V2_20261106T162440152Z_456c7969",
+  "reported_receipt_sha256": "c46645a686701151878f4b96b439d502a9ecaa66d5384b08f6e8a3809bc2e59c",
+  "broker_exe_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+  "worker_V3_dll_sha256": "bd08ae55ad7eca5eb29e237467166f58f7c9fd7d6dc9ef6f4de71cbb1ba33d9d",
+  "one_shot_native_test_marker_sha256": "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7",
+  "verified_narrow_pass": [
+    "Elevated administrator",
+    "Original HEAD and SCM-switch marker exact",
+    "Broker V2 and worker V3 pins",
+    "SCM started exact broker V2 process PID 26200 at execution time",
+    "Actual service process Windows token LocalService and matching derived service SID"
+  ],
+  "blocking_findings": [
+    {
+      "gate": "PIPE_DACL_NATIVE",
+      "verdict": "BLOCK",
+      "win32": 231,
+      "meaning": "ERROR_PIPE_BUSY: all pipe instances busy",
+      "note": "Does not adjudicate DACL policy. A name-based GetFileSecurityW may need to open the busy named pipe, unlike handle-based GetSecurityInfo."
+    },
+    {
+      "gate": "SERVICE_STOP",
+      "verdict": "BLOCK",
+      "error": "ServiceCommandException",
+      "state": "UNVERIFIED",
+      "note": "Service may be Stopped, Stop Pending, or Running now; must read live SCM and PID independently."
+    }
+  ],
+  "not_executed": [
+    "Worker V3 denied directory and ledger write",
+    "Worker V3 peer-auth handshake",
+    "W01-W12",
+    "L1 grouped QA",
+    "P02"
+  ],
+  "source_hypothesis": "Broker V2 blocks synchronously in NamedPipeServerStream.WaitForConnection; OnStop closes active pipe and joins server thread for 5000ms. This may explain stop failure, but live process/service data is missing. Do not classify root cause yet.",
+  "strict_boundary": "Do not reuse one-shot native test marker, repeat Start-Service, change SCM/ACL, kill PID 26200, or open W01-W12 until state adjudicated. PID is historical only and may be reassigned.",
+  "read_only_diagnostic": {
+    "path": "qa/p01/windows/Inspect-TTM-P01-L1-StopUnverified-PS51.ps1",
+    "git_blob": "368ccbcb35203b2190c0d2073e765505a356c69f",
+    "static_source_guards_checked": 23,
+    "static_source_guards_present": 23,
+    "Windows_execution": "NOT_EXECUTED",
+    "mutation_scope": "Only a new TTM QA JSON receipt and GitHub evidence upload; no SCM, process, account, ACL, marker changes"
+  },
+  "overall_verdict": "BLOCK_STOP_UNVERIFIED_CURRENT_SERVICE_STATE_UNKNOWN",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED"
+}
