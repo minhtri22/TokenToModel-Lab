@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.p01.l1.stop_marker_pass_recovery_v3_source_lock.v1",
+  "date_utc": "2026-11-06",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "forensic_receipt": {
+    "run": "L1_STOP_MARKER_MISMATCH_READONLY_20261106T170118472Z_ebead616",
+    "github_commit": "8f8dfde1fda2a8907a1bae04f6459f486f0f68ec",
+    "receipt_sha256": "010964d601b2e10692a6419d252ef8d33389628dc146f991535271dddee29e5f",
+    "expected_marker_sha256": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+    "observed_marker_sha256": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+    "expected_bytes": 130,
+    "observed_bytes": 130,
+    "first_different_byte": null,
+    "verdict": "PASS_MARKER_INTEGRITY_ONLY"
+  },
+  "last_observed_scm": {
+    "state": "RUNNING",
+    "pid": 26200,
+    "account": "NT AUTHORITY\\LocalService",
+    "service": "TTMP01Broker",
+    "image": "TTMP01Broker.attestationV2.exe",
+    "note": "Time-bound read-only forensic snapshot, not live guaranteed state"
+  },
+  "predecessors": [
+    {
+      "path": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-PS51.ps1",
+      "git_blob": "24de8b99bf3c11250af5002d57603ebf0365713b",
+      "status": "EXECUTED_BLOCK_63_CHAR_STOP_MARKER_PIN_OLD_SOURCE_PRESERVED"
+    },
+    {
+      "path": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-V2-PS51.ps1",
+      "git_blob": "f630efdf62345f8a983ae7cf76d171bbd85646bb",
+      "status": "SOURCE_CORRUPTED_UNBALANCED_REGEX_AND_DUPLICATED_TAIL_NOT_EXECUTED_DO_NOT_RUN"
+    }
+  ],
+  "successor": {
+    "path": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-V3-PS51.ps1",
+    "git_blob": "0928fc1879ce2ac8bf344ab5fa2c65c73bc74e38",
+    "source_derived_from": "24de8b99bf3c11250af5002d57603ebf0365713b",
+    "lines": 297,
+    "markers_exact_64_hex": true,
+    "single_terminateprocess_site": true,
+    "source_static_check": "PASS",
+    "Windows_ParseFile": "NOT_EXECUTED",
+    "Windows_one_shot_termination": "NOT_EXECUTED"
+  },
+  "safety": {
+    "mode_readonly": "Without switch no termination; still publishes new receipt",
+    "mode_terminate": "-TerminateExactTTMProcess explicit one-shot; only after live service + exact PID+image+process creation, exact SHA pins, observed recovery marker absent via GetFileAttributesW, OS process HANDLE revalidates identity",
+    "anti_replay": "Atomic marker creation in TTM staging; old markers never removed or changed",
+    "after": "Require SCM Stopped and PID0, record GitHub receipt and SHA256 independently",
+    "block": "Any mismatch or process change remains BLOCK; do not rerun or kill generic PID",
+    "effects": "Forced termination may discard target service's in-memory state; no SCM config/account/ACL/DPAPI/ledger changes",
+    "scope": "No F0, W01-W12, grouped L1 or P02"
+  },
+  "approved_next": "Windows shell local source blob/powershell parser qualification; if parse PASS and exact runtime guards PASS, one authorized exact TTM service process recovery action. Source static PASS does not itself prove Windows runtime.",
+  "verdict": "MARKER_INTEGRITY_PASS_V3_SOURCE_LOCKED_WINDOWS_RUNTIME_PENDING",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "W01_W12": "NOT_EXECUTED",
+  "grouped_L1_QA": "NOT_AUTHORIZED"
+}
