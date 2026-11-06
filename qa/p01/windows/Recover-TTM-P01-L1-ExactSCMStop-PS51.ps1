@@ -89,6 +89,10 @@ try {
  if($svc.StartName -ine 'NT AUTHORITY\LocalService' -or $svc.StartMode -ne 'Manual' -or
     $svc.PathName.Trim().Trim([char]34).Trim() -ine $exe){Block 'SCM_CONFIGURATION_CHANGED'}
  Gate 'SCM_CONFIG' 'PASS' 'Manual, LocalService, exact pinned broker V2'
+ if(-not(Get-Command gh.exe -ErrorAction SilentlyContinue)){Block 'GITHUB_CLI_MISSING'}
+ & gh auth status 1>$null 2>$null
+ if($LASTEXITCODE -ne 0){Block 'GITHUB_AUTH_REQUIRED'}
+ Gate 'GITHUB_AUTH' 'PASS' 'Evidence publication preflight before any possible stop action'
  if($svc.State -eq 'Stopped' -and [int]$svc.ProcessId -eq 0){
   Gate 'SERVICE' 'PASS_ALREADY_STOPPED' 'Service stopped before any action'
   $rec.verdict='PASS_CURRENTLY_STOPPED_NO_ACTION_PREVIOUS_STOP_BLOCK_RETAINED'
