@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """TTM P01 L1 independent, source-only V3/V4 static QA.
 
-No service invocation, writes, network, imports of target source or scientific seeds.
-The checker reads only the two named C# text files. Output is JSON on stdout.
+No service invocation, file writes, network, imports of target source or scientific seeds.
+The checker reads only the two named C# text files. Output is JSON on stdout; it never writes files.
 Source checks do not establish .NET Framework compilability or runtime behavior.
 """
 import argparse
@@ -199,8 +199,6 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--broker", required=True, type=pathlib.Path)
     ap.add_argument("--worker", required=True, type=pathlib.Path)
-    ap.add_argument("--output", help="optional JSON output file; not used by default",
-                    type=pathlib.Path)
     args = ap.parse_args()
     b_bytes = args.broker.read_bytes()
     w_bytes = args.worker.read_bytes()
@@ -241,8 +239,6 @@ def main() -> int:
     }
     encoded = json.dumps(output, ensure_ascii=False, indent=2) + "\n"
     print(encoded, end="")
-    if args.output is not None:
-        args.output.write_text(encoded, encoding="utf-8")
     return 0 if output["verdict"].startswith("PASS_") else 3
 
 if __name__ == "__main__":
