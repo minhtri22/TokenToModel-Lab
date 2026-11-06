@@ -1,0 +1,87 @@
+{
+    "schema":  "ttm.p01.l1.service_only_recovery.v1",
+    "run_id":  "L1_SC_CREATE_SERVICE_ONLY_RECOVERY_20261106T152355102Z_454cdea0",
+    "mode":  "APPLY_ONCE",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_receipt_commit":  "a56692b0029296042279218e33924008edd2e64b",
+    "checks":  {
+                   "PINNED_WORKTREE":  {
+                                           "status":  "PASS",
+                                           "detail":  "Read-only original worktree"
+                                       },
+                   "EXACT_BINARY":  {
+                                        "status":  "PASS",
+                                        "detail":  "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef"
+                                    },
+                   "WORKER_IDENTITY":  {
+                                           "status":  "PASS_PRESENT_NOT_TOKEN_QUALIFIED",
+                                           "detail":  "Existing worker SID and enabled state; no account mutation"
+                                       },
+                   "EXISTING_CONFIG_AND_SECRET":  {
+                                                      "status":  "PASS_PRESENCE_ONLY",
+                                                      "detail":  "Exactly pinned SID metadata; DPAPI/ledger bytes not read or changed"
+                                                  },
+                   "WORKER_NONADMIN":  {
+                                           "status":  "PASS",
+                                           "detail":  "Exact worker SID is not a direct local Administrators member"
+                                       },
+                   "DIRECTORY_DACL_STATIC":  {
+                                                 "status":  "PASS_READBACK_ONLY",
+                                                 "detail":  "Protected DACL with service SID; worker denied-open not attested"
+                                             },
+                   "SCM_ABSENT_1060":  {
+                                           "status":  "PASS",
+                                           "detail":  "Service currently absent"
+                                       },
+                   "DERIVED_SERVICE_SID":  {
+                                               "status":  "PASS",
+                                               "detail":  "SCM service SID matches existing protected DACL"
+                                           },
+                   "SC_CREATE":  {
+                                     "status":  "PASS_CREATED",
+                                     "detail":  "Corrected argv separation; independent SCM verification pending"
+                                 },
+                   "SC_SIDTYPE":  {
+                                      "status":  "PASS_CONFIGURED",
+                                      "detail":  "Unrestricted service SID enabled"
+                                  },
+                   "SCM_CONFIG_READBACK":  {
+                                               "status":  "PASS_CONFIG_ONLY",
+                                               "detail":  "Exact executable, LocalService and manual start; no process launched"
+                                           }
+               },
+    "sc_create_exit":  0,
+    "sc_create_output":  [
+                             "[SC] CreateService SUCCESS"
+                         ],
+    "sc_sidtype_exit":  0,
+    "sc_sidtype_output":  [
+                              "[SC] ChangeServiceConfig2 SUCCESS"
+                          ],
+    "verdict":  "PASS_SERVICE_CREATED_NOT_STARTED_NOT_SECURITY_QUALIFIED",
+    "errors":  [
+
+               ],
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "account_created":  false,
+    "ACL_modified":  false,
+    "service_started":  false,
+    "sc_query_exit":  1060,
+    "sc_qc_exit":  0,
+    "sc_qc_output":  [
+                         "[SC] QueryServiceConfig SUCCESS",
+                         "",
+                         "SERVICE_NAME: TTMP01Broker",
+                         "        TYPE               : 10  WIN32_OWN_PROCESS ",
+                         "        START_TYPE         : 3   DEMAND_START",
+                         "        ERROR_CONTROL      : 1   NORMAL",
+                         "        BINARY_PATH_NAME   : D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.fixed.exe",
+                         "        LOAD_ORDER_GROUP   : ",
+                         "        TAG                : 0",
+                         "        DISPLAY_NAME       : TTMP01Broker",
+                         "        DEPENDENCIES       : ",
+                         "        SERVICE_START_NAME : NT AUTHORITY\\LocalService"
+                     ],
+    "utc":  "2026-11-06T15:23:56.8592960Z"
+}
