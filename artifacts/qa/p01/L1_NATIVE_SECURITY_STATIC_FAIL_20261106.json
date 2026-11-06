@@ -1,0 +1,25 @@
+{
+  "schema": "ttm.p01.l1.native_security.static_audit.v1",
+  "date": "2026-11-06",
+  "base_commit": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "test_environment": "Linux Python in isolated artifact environment; NOT Windows-native",
+  "source_sha256": {
+    "native_win32_process_backend.py": "4488e491acbe3694fa106b587544bbe4e1841e9d5502db6903d1dd69e8cc08d7",
+    "native_win32_handle_broker.py": "7a5946405bee5e74be49c17ad7189ac5ccbc699a3e1613c06e26927084ffe431"
+  },
+  "static_audit": {
+    "V1_NO_ORCHESTRATED_ASSIGN_BEFORE_RESUME": true,
+    "V1_NO_RESTRICTED_TOKEN_ACL_PROOF": true,
+    "V1_NO_BROKER_WORKER_PROCESS_SEPARATION": true,
+    "V1_NO_REPARSE_SAFE_ROOT_ATTESTATION": true,
+    "V1_NO_DELETE_PARTIAL_ON_WRITE_FAILURE": true,
+    "V1_QUOTA_NOT_CROSS_PROCESS_DURABLE": true
+  },
+  "static_audit_verdict": "FAIL",
+  "mock_lifecycle_test_count": 7,
+  "mock_lifecycle_passed": 7,
+  "mock_lifecycle_verdict": "PASS_MOCK_ONLY",
+  "windows_native_W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED",
+  "scientific_result": "NOT_EVALUATED"
+}
