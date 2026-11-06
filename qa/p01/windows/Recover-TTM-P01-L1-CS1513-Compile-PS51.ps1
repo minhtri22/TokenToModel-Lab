@@ -47,7 +47,7 @@ try {
  $lines=@(& $csc '/nologo' '/target:exe' ('/out:'+$binary) '/reference:System.dll' '/reference:System.Core.dll' '/reference:System.ServiceProcess.dll' $fixed 2>&1)
  $code=$LASTEXITCODE
  $r.compiler_output=@($lines|ForEach-Object {"$_"})
- if($code -ne 0 -or -not(Test-Path -LiteralPath $binary)){R 'WINDOWS_CSC' 'FAIL' ('exit='+$code);Deny 'WINDOWS_COMPILE_FAILED'}
+ if($code -ne 0 -or -not(Test-Path -LiteralPath $binary)){Write-RepairCheck 'WINDOWS_CSC' 'FAIL' ('exit='+$code);Deny 'WINDOWS_COMPILE_FAILED'}
  Write-RepairCheck 'WINDOWS_CSC' 'PASS' 'Exact source built; service NOT installed or started'
  $r.binary_sha256=(Get-FileHash -LiteralPath $binary -Algorithm SHA256).Hash.ToLowerInvariant()
  $r.source_sha256=(Get-FileHash -LiteralPath $fixed -Algorithm SHA256).Hash.ToLowerInvariant()
