@@ -90,6 +90,11 @@ class ProtocolQA(unittest.TestCase):
     def test_windows_backend_untested_static_import_only(self):
         from worker_identity_acl_win32_v1 import RestrictedWorkerIdentity,WorkerIdentityFailure
         from atomic_handle_writer_win32_v1 import AtomicHandleWriter,AtomicWriteError
-        with self.assertRaises(WorkerIdentityFailure):RestrictedWorkerIdentity()
-        with self.assertRaises(AtomicWriteError):AtomicHandleWriter('fake')
+        if sys.platform == 'win32':
+            # Native checks require their own W01-W12 permit, never run here.
+            self.assertTrue(callable(RestrictedWorkerIdentity))
+            self.assertTrue(callable(AtomicHandleWriter))
+        else:
+            with self.assertRaises(WorkerIdentityFailure):RestrictedWorkerIdentity()
+            with self.assertRaises(AtomicWriteError):AtomicHandleWriter('fake')
 if __name__=='__main__':unittest.main(verbosity=2)
