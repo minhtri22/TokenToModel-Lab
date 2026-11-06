@@ -1,0 +1,102 @@
+{
+    "schema":  "ttm.p01.l1.exact_scm_stop_recovery.v1",
+    "run_id":  "L1_BROKER_V2_SCM_STOP_RECOVERY_20261106T163818549Z_8b9033ff",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "incident_commit":  "45f74877a43a66e6559f2a61d6f765ffd0c7da98",
+    "live_snapshot_commit":  "bcbc91328045d691819faaf81fdbb5f085e8ba2f",
+    "mode":  "APPLY_ONCE",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated Windows Administrator token"
+                             },
+                   "ORIGINAL_HEAD":  {
+                                         "status":  "PASS",
+                                         "detail":  "Original repository checked read-only"
+                                     },
+                   "V2_EXE":  {
+                                  "status":  "PASS_EXACT",
+                                  "detail":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+                              },
+                   "NATIVE_MARKER":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                     },
+                   "SWITCH_MARKER":  {
+                                         "status":  "PASS_EXACT",
+                                         "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                     },
+                   "SCM_CONFIG":  {
+                                      "status":  "PASS",
+                                      "detail":  "Manual, LocalService, exact pinned broker V2"
+                                  },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Evidence publication preflight before any possible stop action"
+                                   },
+                   "EXACT_LIVE_PROCESS":  {
+                                              "status":  "PASS",
+                                              "detail":  "PID + image path + creation-time identity pinned to incident"
+                                          },
+                   "RECOVERY_MARKER_ABSENT":  {
+                                                  "status":  "PASS_WIN32_2",
+                                                  "detail":  "Marker proven not to exist by Win32"
+                                              },
+                   "RECOVERY_MARKER":  {
+                                           "status":  "PASS_CREATED",
+                                           "detail":  "No replay, do not delete marker"
+                                       },
+                   "SCM_STOP_COMMAND":  {
+                                            "status":  "RETURNED_ERROR",
+                                            "detail":  "Exit=1061"
+                                        },
+                   "SERVICE_FINAL_STATE":  {
+                                               "status":  "BLOCK_RUNNING_OR_PENDING_NO_FORCE",
+                                               "detail":  "State=Running;PID=26200"
+                                           }
+               },
+    "SCM_before":  {
+                       "name":  "TTMP01Broker",
+                       "state":  "Running",
+                       "start_mode":  "Manual",
+                       "start_name":  "NT AUTHORITY\\LocalService",
+                       "path_name":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                       "pid":  26200,
+                       "exit_code":  0
+                   },
+    "SCM_after":  {
+                      "name":  "TTMP01Broker",
+                      "state":  "Running",
+                      "start_mode":  "Manual",
+                      "start_name":  "NT AUTHORITY\\LocalService",
+                      "path_name":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                      "pid":  26200,
+                      "exit_code":  0
+                  },
+    "sc_stop_exit":  1061,
+    "sc_stop_output":  [
+                           "[SC] ControlService FAILED 1061:",
+                           "",
+                           "The service cannot accept control messages at this time.",
+                           ""
+                       ],
+    "recovery_marker_sha256":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+    "service_stop_requested":  true,
+    "forced_termination":  false,
+    "service_started":  false,
+    "account_changed":  false,
+    "ACL_changed":  false,
+    "SCM_configuration_changed":  false,
+    "verdict":  "BLOCK_STOP_RECOVERY_UNRESOLVED_NO_FORCE",
+    "errors":  [
+
+               ],
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "process_identity":  {
+                             "pid":  26200,
+                             "creation_unix_ms":  1793982282113,
+                             "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                         },
+    "utc":  "2026-11-06T16:38:36.8138391Z"
+}
