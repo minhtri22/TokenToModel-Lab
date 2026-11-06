@@ -1,0 +1,32 @@
+{
+    "schema":  "ttm.p01.l1.cs1513_compile_recovery.v1",
+    "run_id":  "L1_CS1513_REPAIR_20261106T144340635Z_6fbab634",
+    "source_commit":  "6109897e3697bec6a3fbadb561f1d9ec907f589a",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "checks":  {
+                   "PINNED_LOCAL":  {
+                                        "detail":  "No local Git mutations",
+                                        "status":  "PASS"
+                                    },
+                   "FIX_SOURCE":  {
+                                      "detail":  "Exact one closing brace only, old source retained",
+                                      "status":  "PASS"
+                                  },
+                   "WINDOWS_CSC":  {
+                                       "detail":  "Exact source built; service NOT installed or started",
+                                       "status":  "PASS"
+                                   }
+               },
+    "compiler_output":  [
+
+                        ],
+    "verdict":  "PASS_COMPILE_ONLY",
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "errors":  [
+
+               ],
+    "binary_sha256":  "56a780db6aa61fdd556540da340a3be223df2e41e1a7295bb33d05628dbf87ef",
+    "source_sha256":  "8916fe262bf27d9176a648dd625b5fbb602f87a2cf69967fe9339def6d3561e4",
+    "utc":  "2026-11-06T14:43:42.5151020Z"
+}
