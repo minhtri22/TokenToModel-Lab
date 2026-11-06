@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.p01.l1.v3v4.compile_runner_windows_ps51_independent_qa_adjudication.v1",
+  "adjudication_date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "audit_branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "frozen_original": {
+    "head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "worktree": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\p01-f0-static-i0a-20261105",
+    "status": "UNCHANGED_FROM_QA_ATTESTATION",
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "P00_P12": "UNCHANGED",
+    "science_lineage": "NOT_EDITED"
+  },
+  "independent_windows_receipt": {
+    "run_id": "L1_V3_V4_COMPILE_RUNNER_INDEPENDENT_STATIC_QA_20261106T183739852Z_b874cf08",
+    "github_commit": "f82848927b4671fc7f32f0a818bf939f24941731",
+    "github_blob": "2cef89b051b982f680a40fe5c748ff298ae68b1f",
+    "sha256": "8ed3e5007b059de4e449a4e4d3a99831cf28d2c8fc1107283e492c6260bd7a4b",
+    "user_attachment_sha256_verified": "PASS",
+    "remote_Github_readback": "PASS",
+    "verdict": "PASS_WINDOWS_PS51_PARSE_AND_INDEPENDENT_SOURCE_QA_NO_COMPILATION",
+    "source_commit": "9bd43e88752448d7bdb9d5941ebef8c3ed269d4e",
+    "runner_git_blob": "a3a130a17d54598631aafd2706d0341a990ee971",
+    "runner_sha256": "663bb33a1c473bc93d529fa25858e0e7afd370af6d8cf4901278c5a9bc4af9ca",
+    "qa_checker_git_blob": "1448fcd2a697a00babf49b1bf3942388188765af",
+    "qa_checker_sha256": "1f745a3260368a203c923de7aa07cd0ab215c57831480d985da0312cfd5227d6",
+    "source_git_blob_readback": "PASS_EXACT",
+    "Windows_PS51_native_AST_parser": "PASS_ZERO_ERRORS",
+    "positive_checks": {
+      "total": 45,
+      "passed": 45,
+      "failed": []
+    },
+    "negative_mutations": {
+      "total": 12,
+      "rejected": 12,
+      "failed": []
+    },
+    "python_checker_exit": 0,
+    "marker": {
+      "name": "L1_V3_V4_COMPILE_RUNNER_INDEPENDENT_STATIC_QA_ATTEMPT_20261107.lock",
+      "sha256": "984ec8f04074c8c85370a422be2d17c6784cf79029ed14ac41f980756e7c4e0d",
+      "status": "PASS_CREATED",
+      "instruction": "PRESERVE_NO_REPLAY"
+    },
+    "errors": []
+  },
+  "scope_adjudication": {
+    "Windows_powerShell_parser_and_independent_source_QA": "PASS",
+    "runner_default_mode": "PREFLIGHT_ONLY_NO_COMPILATION",
+    "native_csc_compilation": "NOT_EXECUTED",
+    "exe_dll_built": "NOT_EXECUTED",
+    "compile_only_permit": "NOT_ISSUED",
+    "compile_attempt_marker": "NOT_CREATED_BY_THIS_QA",
+    "scm_live_state": "NOT_RECHECKED_IN_THIS_QA",
+    "scm_change": "NONE",
+    "service_start_stop": "NONE",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED",
+    "W01_W12": "NOT_EXECUTED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "permit_gate_requirements": [
+    "Independent compile permit decision must bind the SHA256 and GitHub commit of this runner-specific QA receipt, not only the older V4 source QA receipt.",
+    "Confirm runner Git blob and local SHA256 unchanged: a3a130a17d54598631aafd2706d0341a990ee971 and 663bb33a1c473bc93d529fa25858e0e7afd370af6d8cf4901278c5a9bc4af9ca.",
+    "Read back one-shot QA marker and hash 984ec8f04074c8c85370a422be2d17c6784cf79029ed14ac41f980756e7c4e0d; do not delete or reuse.",
+    "Run exact runner in no-switch preflight mode on Windows first; confirm contemporary Stopped/PID0, QA V4 marker and source hashes, pinned csc.exe SHA and compiler output filename absence.",
+    "Use an explicit separately authorized -CompileOnce invocation only once after the permit gate PASS. Default preflight does not authorize it.",
+    "Compile only Broker V3 EXE, followed by Worker V4 DLL if broker succeeds; no reinstall/SCM change/service start; preserve any partial outputs and append-only failure receipts."
+  ],
+  "verdict": "PASS_QA_SOURCE_AND_PS51_PARSER__COMPILE_PERMIT_PENDING",
+  "next_gate": "TTM_P01_L1_V3_V4_EXACT_SOURCE_COMPILE_ONLY_ONE_SHOT_PERMIT_DECISION_AND_READONLY_PREFLIGHT",
+  "important_limit": "QA checks runner source safety predicates and PowerShell parsing, not actual C# compilation nor service/worker runtime qualification."
+}
