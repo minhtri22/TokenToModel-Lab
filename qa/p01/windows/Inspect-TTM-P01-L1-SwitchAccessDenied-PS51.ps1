@@ -109,7 +109,8 @@ try {
   @{name='ORIGIN';args=@('remote','get-url','origin')}
   )){
   try{
-   $out=@(& git.exe -C $worktree @($command.args) 2>&1)
+   $gitArgs=[string[]]$command.args
+   $out=@(& git.exe -C $worktree @gitArgs 2>&1)
    $code=$LASTEXITCODE
    if($code -ne 0){Record-Check ('GIT_'+$command.name) 'BLOCK' ('Exit='+$code)}
    else{
