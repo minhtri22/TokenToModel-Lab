@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.p01.l1.broker_v3_worker_v4_static_implementation_source_audit.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "prior_native_evidence": {
+    "recovery_receipt_commit": "a5a0006f6586a78b6a748fea018625c65e569c8f",
+    "last_confirmed_scm_state": "Stopped",
+    "last_confirmed_scm_pid": 0,
+    "scope": "V2 exact process recovery PASS at receipt time only; native security unchanged"
+  },
+  "source_artifacts": [
+    {
+      "path": "runtime/p01/windows/BrokerAttestationServiceV3.cs",
+      "git_blob": "2fc1b63d6e21e7d8ac86184251974e9960572f3f",
+      "status": "NEW_SOURCE_ONLY"
+    },
+    {
+      "path": "qa/p01/windows/TTMWorkerNativeProbeV4.cs",
+      "git_blob": "63d5407ccb3f9e15f8dda59ee6323a0e5009d860",
+      "status": "NEW_SOURCE_ONLY"
+    },
+    {
+      "path": "qa/p01/windows/Independent-QA-BrokerV3-WorkerV4-Static.py",
+      "git_blob": "0d42c4f7a4ac08c59022449210a323feed3a7495",
+      "status": "NEW_READONLY_CHECKER_NOT_YET_PYTHON_EXECUTED"
+    }
+  ],
+  "checks_executed": {
+    "executor": "ChatGPT functions.exec independent JavaScript readback validator over exact GitHub source files",
+    "positive_static_source_predicates": {
+      "passed": 48,
+      "total": 48
+    },
+    "negative_source_mutation_fixtures": {
+      "rejected": 12,
+      "total": 12
+    },
+    "source_lexical_balance": {
+      "broker": "PASS",
+      "worker": "PASS"
+    },
+    "github_source_readback": "PASS",
+    "method_limit": "Textual/lexical source invariants only; not C# compilation, executable integration, Windows token qualification, or fully independent third-party adjudication",
+    "python_checker_native_run": "NOT_EXECUTED",
+    "no_science_data_consumed": true
+  },
+  "threat_model_scope": {
+    "broker_graceful_stop": "Protected explicit three-principal DACL; only service thread owns pipe; asynchronous accept/read/write; stop event + CancelIoEx; OnStop bounded join; READ before RunAsClient; no file write operations",
+    "worker_handle_DACL": "Connected worker PipeAccessRights.ReadWrite handle; GetSecurityInfo(handle,SE_FILE_OBJECT=1,DACL_SECURITY_INFORMATION=4), LocalFree, exact ACE/SID/mask checks, forbidden create-instance/WRITE_DAC/WRITE_OWNER; separate directory rights & SQLite write denied, SID peer handshake",
+    "sensitive_data": "No passwords, raw security descriptors, SQLite contents or F0 data written or committed"
+  },
+  "known_unresolved": [
+    "Win32 CancelIoEx only requests cancellation; pending APM completion and OnStop may still fail. Native Windows idle/stalled-client stop scenarios must be independently tested.",
+    "Worker V4 async read timeout/cancel error paths require Windows native test; script does not guarantee completion under every OS/driver condition.",
+    "Exact DACL ACE mask equality may be normalized by Windows/.NET; must fail closed on mismatch and investigate, not weaken controls.",
+    "LocalService, service SID, worker impersonation and DACL behavior are untested with new source.",
+    "Native Windows .NET Framework csc compilation and standalone Python static checker execution are not performed."
+  ],
+  "non_actions": {
+    "windows_compilation": "NOT_EXECUTED",
+    "Windows_EXE_creation": "NOT_EXECUTED",
+    "Windows_DLL_creation": "NOT_EXECUTED",
+    "SCM_binary_switch": "NOT_EXECUTED",
+    "service_start": "NOT_EXECUTED",
+    "service_stop": "NOT_EXECUTED",
+    "account_or_ACL_modification": "NOT_EXECUTED",
+    "F0_run": "NOT_EXECUTED",
+    "scientific_lineage_edit": "NOT_EXECUTED",
+    "marker_deletion": "NOT_EXECUTED",
+    "W01_W12": "NOT_EXECUTED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "P02": "NOT_OPENED"
+  },
+  "verdict": "PASS_SOURCE_STATIC_ONLY_WITH_NATIVE_GATES_OPEN",
+  "P01": "OPEN",
+  "next_gate": "Independent local Windows Python static QA with exact source pins and negative mutants; after PASS, separate exact Windows C# compile-only gate. No SCM install/switch/start in either step."
+}
