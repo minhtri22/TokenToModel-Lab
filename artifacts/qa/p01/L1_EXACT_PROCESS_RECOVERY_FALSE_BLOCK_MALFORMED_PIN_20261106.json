@@ -1,0 +1,44 @@
+{
+  "schema": "ttm.p01.l1.false_block_malformed_marker_pin_adjudication.v1",
+  "date": "2026-11-06",
+  "original_HEAD": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "prior_scm_stop_receipt_commit": "8a3666c655edba86bef2a841a31246fe19e0e870",
+  "failed_exact_process_recovery_receipt_commit": "441bec040d9d186bc2088d0747efe04d71a62f74",
+  "failed_recovery_run": "L1_BROKER_V2_EXACT_PROCESS_RECOVERY_20261106T164643808Z_85dd6aeb",
+  "failed_recovery_verdict": "BLOCK_EXACT_PROCESS_RECOVERY_EXCEPTION",
+  "failed_recovery_error": "PRIOR_MARKER_SHA256_CHANGED_SCM_STOP_RECOVERY",
+  "failed_recovery_process_termination_attempted": false,
+  "failed_recovery_force_marker_created": false,
+  "service_last_observed": {
+    "state": "Running",
+    "pid": 26200,
+    "image_sha256": "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+  },
+  "source_pin_error": {
+    "source": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-PS51.ps1",
+    "original_source_git_blob": "24de8b99bf3c11250af5002d57603ebf0365713b",
+    "original_source_pin": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8aafa1e8a3989599143502",
+    "original_source_pin_length": 63,
+    "correct_from_immutable_receipt": "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+    "correct_hash_length": 64,
+    "analysis": "False negative caused by an incorrect expected source hash. The failed recovery receipt did not record the observed on-disk marker hash, so a separate read-only marker readback is required to establish whether disk content is unchanged."
+  },
+  "new_source_candidates": {
+    "read_only": "qa/p01/windows/Inspect-TTM-P01-L1-SCMStopMarkerMismatch-PS51.ps1",
+    "read_only_git_blob": "f3a62bb007d55fc6fef70fa4c2890a0abf37f990",
+    "exact_process_successor": "qa/p01/windows/Recover-TTM-P01-L1-ExactProcessAfter1061-V2-PS51.ps1",
+    "exact_process_successor_git_blob": "f630efdf62345f8a983ae7cf76d171bbd85646bb"
+  },
+  "static_source_checks": {
+    "checked": 17,
+    "passed": 17,
+    "kind": "source and receipt pin comparison, not Windows-native execution"
+  },
+  "next_authorized_scope": "Read-only marker forensic on Windows, recording SHA256, byte-count, first mismatching byte offset (if any), timestamps, SCM state, while preserving markers, all service state and original F0.",
+  "native_force_termination_authorized_now": false,
+  "native_force_termination_executed": false,
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED"
+}
