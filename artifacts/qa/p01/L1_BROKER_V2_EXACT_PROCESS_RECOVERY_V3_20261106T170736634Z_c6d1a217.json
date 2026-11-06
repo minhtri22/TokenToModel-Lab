@@ -1,0 +1,112 @@
+{
+    "schema":  "ttm.p01.l1.exact_process_recovery_after_scm_1061.v3",
+    "run_id":  "L1_BROKER_V2_EXACT_PROCESS_RECOVERY_V3_20261106T170736634Z_c6d1a217",
+    "original_HEAD":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_failure_commit":  "8a3666c655edba86bef2a841a31246fe19e0e870",
+    "marker_integrity_receipt_commit":  "8f8dfde1fda2a8907a1bae04f6459f486f0f68ec",
+    "malformed_predecessor_receipt_commit":  "441bec040d9d186bc2088d0747efe04d71a62f74",
+    "mode":  "EXPLICIT_TERMINATE_EXACT_PROCESS_ONCE",
+    "checks":  {
+                   "ADMIN":  {
+                                 "status":  "PASS",
+                                 "detail":  "Elevated Windows administrator"
+                             },
+                   "SCM_SNAPSHOT":  {
+                                        "status":  "PASS_READONLY",
+                                        "detail":  "State=Running;PID=26200"
+                                    },
+                   "ORIGINAL_WORKTREE":  {
+                                             "status":  "PASS",
+                                             "detail":  "Pinned worktree read-only"
+                                         },
+                   "EXACT_EXE":  {
+                                     "status":  "PASS",
+                                     "detail":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a"
+                                 },
+                   "MARKER_SCM_SWITCH":  {
+                                             "status":  "PASS_EXACT",
+                                             "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1"
+                                         },
+                   "MARKER_NATIVE_TEST":  {
+                                              "status":  "PASS_EXACT",
+                                              "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7"
+                                          },
+                   "MARKER_SCM_STOP_RECOVERY":  {
+                                                    "status":  "PASS_EXACT",
+                                                    "detail":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502"
+                                                },
+                   "SCM_CONFIG":  {
+                                      "status":  "PASS",
+                                      "detail":  "Dedicated Manual LocalService V2 executable"
+                                  },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "Evidence publication available before possible termination"
+                                   },
+                   "EXACT_PROCESS":  {
+                                         "status":  "PASS",
+                                         "detail":  "SCM PID, V2 image and process creation time all pinned"
+                                     },
+                   "TERMINATION_MARKER_ABSENCE":  {
+                                                      "status":  "PASS_WIN32_2",
+                                                      "detail":  "One-shot force recovery marker not present"
+                                                  },
+                   "KERNEL_PROCESS_HANDLE":  {
+                                                 "status":  "PASS_EXACT_NO_TERMINATE",
+                                                 "detail":  "Kernel handle creation time, binary image and live exit code checked"
+                                             },
+                   "SCM_RECHECK":  {
+                                       "status":  "PASS",
+                                       "detail":  "SCM still maps exact service and PID immediately before action"
+                                   },
+                   "ONE_SHOT_MARKER":  {
+                                           "status":  "PASS_CREATED",
+                                           "detail":  "New TTM-only marker; never automatically removed"
+                                       },
+                   "EXACT_TERMINATION":  {
+                                             "status":  "PASS_PROCESS_HANDLE_EXITED",
+                                             "detail":  "Only exact matched V2 service process handle terminated"
+                                         },
+                   "SCM_FINAL_STATE":  {
+                                           "status":  "PASS_STOPPED_PID_0",
+                                           "detail":  "Actual SCM state after handle-based termination"
+                                       }
+               },
+    "before":  {
+                   "state":  "Running",
+                   "service_name":  "TTMP01Broker",
+                   "process_id":  26200,
+                   "start_mode":  "Manual",
+                   "service_account":  "NT AUTHORITY\\LocalService",
+                   "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                   "win32_exit":  0
+               },
+    "after":  {
+                  "state":  "Stopped",
+                  "service_name":  "TTMP01Broker",
+                  "process_id":  0,
+                  "start_mode":  "Manual",
+                  "service_account":  "NT AUTHORITY\\LocalService",
+                  "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                  "win32_exit":  1067
+              },
+    "process_identity":  {
+                             "pid":  26200,
+                             "creation_unix_ms":  1793982282113,
+                             "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                         },
+    "recovery_marker_sha256":  "59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9",
+    "native_handle_result":  "PASS_EXACT_HANDLE_EXIT_CONFIRMED",
+    "termination_attempted":  true,
+    "forced_termination":  true,
+    "SCM_configuration_changed":  false,
+    "worker_or_ACL_changed":  false,
+    "prior_markers_changed":  false,
+    "errors":  [
+
+               ],
+    "verdict":  "PASS_EXACT_TTM_PROCESS_RECOVERED_WITH_FORCED_TERMINATION",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T17:07:41.6403865Z"
+}
