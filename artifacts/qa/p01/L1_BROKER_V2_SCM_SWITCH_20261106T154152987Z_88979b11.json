@@ -1,0 +1,33 @@
+{
+    "schema":  "ttm.p01.l1.broker_v2_scm_binary_switch.v1",
+    "run_id":  "L1_BROKER_V2_SCM_SWITCH_20261106T154152987Z_88979b11",
+    "compile_receipt_commit":  "82ad048e899c33bfff576d12eda706d3b00aa8a4",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "mode":  "APPLY_ONCE",
+    "checks":  {
+
+               },
+    "sc_config_exit":  null,
+    "sc_config_output":  [
+
+                         ],
+    "sc_qc_before":  [
+
+                     ],
+    "sc_qc_after":  [
+
+                    ],
+    "verdict":  "BLOCK_OR_PARTIAL_SCM_SWITCH",
+    "errors":  [
+                   "Access is denied"
+               ],
+    "scm_binpath_changed":  false,
+    "service_started":  false,
+    "worker_account_changed":  false,
+    "ACL_changed":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "utc":  "2026-11-06T15:41:53.0845777Z",
+    "V2_exe_sha256":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+    "V2_probe_dll_sha256":  "ea44cc5fca81e7f1e692726502dea0ad97ab543bc86f2abef52a25e1ffa96eb6"
+}
