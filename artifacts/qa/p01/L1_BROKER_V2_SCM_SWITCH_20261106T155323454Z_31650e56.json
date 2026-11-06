@@ -1,0 +1,97 @@
+{
+    "schema":  "ttm.p01.l1.broker_v2_scm_binary_switch_v2.v1",
+    "run_id":  "L1_BROKER_V2_SCM_SWITCH_20261106T155323454Z_31650e56",
+    "compile_receipt_commit":  "82ad048e899c33bfff576d12eda706d3b00aa8a4",
+    "prior_readonly_receipt_commit":  "b1ab271d18cc310c590602d24299a6e906f04cc5",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "mode":  "APPLY_ONCE",
+    "checks":  {
+                   "ADMIN_ELEVATED":  {
+                                          "status":  "PASS",
+                                          "detail":  "Administrator token verified before protected-path traversal"
+                                      },
+                   "PINNED_ORIGINAL":  {
+                                           "status":  "PASS",
+                                           "detail":  "Original worktree checked read-only"
+                                       },
+                   "EXACT_V1_V2_SHA256":  {
+                                              "status":  "PASS",
+                                              "detail":  "V1 EXE, V2 EXE, V2 C# source, V2 probe DLL"
+                                          },
+                   "WORKER_IDENTITY":  {
+                                           "status":  "PASS_PRESENT_NOT_TOKEN_QUALIFIED",
+                                           "detail":  "No account mutation"
+                                       },
+                   "STAGING_SID_DACL":  {
+                                            "status":  "PASS_READBACK_ONLY",
+                                            "detail":  "Protected ACL and service SID; no effective token claim"
+                                        },
+                   "SCM_V1_STOPPED":  {
+                                          "status":  "PASS",
+                                          "detail":  "Expected V1 binPath, Manual LocalService, unrestricted service SID"
+                                      },
+                   "ONE_SHOT_MARKER_ABSENCE":  {
+                                                   "status":  "PASS_WIN32_2",
+                                                   "detail":  "GetFileAttributesW returned ERROR_FILE_NOT_FOUND=2; parent path exists and is ACL-readable"
+                                               },
+                   "ONE_SHOT_MARKER":  {
+                                           "status":  "PASS_CREATED",
+                                           "detail":  "Non-secret marker retained on success/failure; never remove automatically"
+                                       },
+                   "SCM_CONFIG_COMMAND":  {
+                                              "status":  "PASS",
+                                              "detail":  "sc config returned exit 0; independent readback required"
+                                          },
+                   "SCM_V2_READBACK":  {
+                                           "status":  "PASS_CONFIG_ONLY",
+                                           "detail":  "SCM pinned V2 executable; still STOPPED and manual"
+                                       }
+               },
+    "sc_config_exit":  0,
+    "sc_config_output":  [
+                             "[SC] ChangeServiceConfig SUCCESS"
+                         ],
+    "sc_qc_before":  [
+                         "[SC] QueryServiceConfig SUCCESS",
+                         "",
+                         "SERVICE_NAME: TTMP01Broker",
+                         "        TYPE               : 10  WIN32_OWN_PROCESS ",
+                         "        START_TYPE         : 3   DEMAND_START",
+                         "        ERROR_CONTROL      : 1   NORMAL",
+                         "        BINARY_PATH_NAME   : D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.fixed.exe",
+                         "        LOAD_ORDER_GROUP   : ",
+                         "        TAG                : 0",
+                         "        DISPLAY_NAME       : TTMP01Broker",
+                         "        DEPENDENCIES       : ",
+                         "        SERVICE_START_NAME : NT AUTHORITY\\LocalService"
+                     ],
+    "sc_qc_after":  [
+                        "[SC] QueryServiceConfig SUCCESS",
+                        "",
+                        "SERVICE_NAME: TTMP01Broker",
+                        "        TYPE               : 10  WIN32_OWN_PROCESS ",
+                        "        START_TYPE         : 3   DEMAND_START",
+                        "        ERROR_CONTROL      : 1   NORMAL",
+                        "        BINARY_PATH_NAME   : D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                        "        LOAD_ORDER_GROUP   : ",
+                        "        TAG                : 0",
+                        "        DISPLAY_NAME       : TTMP01Broker",
+                        "        DEPENDENCIES       : ",
+                        "        SERVICE_START_NAME : NT AUTHORITY\\LocalService"
+                    ],
+    "verdict":  "PASS_SCM_SWITCH_V2_NOT_STARTED_SECURITY_NOT_QUALIFIED",
+    "errors":  [
+
+               ],
+    "scm_binpath_changed":  true,
+    "service_started":  false,
+    "worker_account_changed":  false,
+    "ACL_changed":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "grouped_L1":  "NOT_AUTHORIZED",
+    "marker_GetFileAttributesW_error":  2,
+    "one_shot_marker_sha256":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1",
+    "utc":  "2026-11-06T15:53:27.7545487Z",
+    "V2_exe_sha256":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+    "V2_probe_dll_sha256":  "ea44cc5fca81e7f1e692726502dea0ad97ab543bc86f2abef52a25e1ffa96eb6"
+}
