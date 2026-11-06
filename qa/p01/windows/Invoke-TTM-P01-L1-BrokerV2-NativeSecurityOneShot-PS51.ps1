@@ -1,5 +1,5 @@
 #requires -Version 5.1
-# TTM P01 L1: native V2 security tests only, one-shot Windows service start/stop.
+# TTM P01 L1: DESIGN-ONLY candidate. Native dispatch is blocked until V3 client probe lock.
 # No SCM config, account, ACL, ledger writes, F0, W01-W12, or grouped QA.
 [CmdletBinding()] param([switch]$Execute)
 Set-StrictMode -Version Latest
@@ -128,6 +128,7 @@ public static class TtmP01NativeMarkerRead {
  Gate 'GITHUB_AUTH' 'PASS' 'Ready for receipt upload and readback'
  $python=Join-Path $env:USERPROFILE 'miniforge3\python.exe'
  if(-not(Test-Path -LiteralPath $python -PathType Leaf)){Block 'MINIFORGE_PYTHON_MISSING'}
+ if($Execute){Block 'V3_EXPLICIT_PIPE_RIGHTS_CLIENT_PROBE_REQUIRED_BEFORE_NATIVE_DISPATCH'}
  if(-not $Execute){
   Gate 'NATIVE_EXECUTION' 'NOT_EXECUTED' 'Pass -Execute only in separately authorized one-shot'
   $receipt.verdict='PREFLIGHT_PASS_NO_SERVICE_START'
