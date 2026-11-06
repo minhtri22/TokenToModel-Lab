@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.p01.l1.v3_v4_windows_qa_preflight_source_lock.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "qa_branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "v3v4_sources_locked_at": "782f101f001973f8c23f23b22ae2b0896232d722",
+  "source_pins": [
+    {
+      "path": "runtime/p01/windows/BrokerAttestationServiceV3.cs",
+      "git_blob": "2fc1b63d6e21e7d8ac86184251974e9960572f3f"
+    },
+    {
+      "path": "qa/p01/windows/TTMWorkerNativeProbeV4.cs",
+      "git_blob": "63d5407ccb3f9e15f8dda59ee6323a0e5009d860"
+    },
+    {
+      "path": "qa/p01/windows/Independent-QA-BrokerV3-WorkerV4-Static.py",
+      "git_blob": "0d42c4f7a4ac08c59022449210a323feed3a7495"
+    }
+  ],
+  "windows_runner": {
+    "path": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-IndependentWindowsStaticPreflight-V2-PS51.ps1",
+    "git_blob": "ca8a0bd45a778379f2387eff0aa14c068c2713b3",
+    "source_commit": "40f6146cc6fc206b9d80c76f3992ab05233d07c7",
+    "lines": 253,
+    "preflight": "Original HEAD/branch/origin, stopped/manual LocalService V2 SCM, exact hashes of 4 preexisting markers, pinned Windows Python x64, gh auth, new static-QA marker absence through ctypes GetFileAttributesW",
+    "only_allowed_writes": "New protected TTM-scoped one-shot QA marker, three exact source copies and evidence receipts in D:\\WORK\\RESEARCH\\TokenToModel-Lab, append-only GitHub QA evidence",
+    "qa": "Execute pinned existing independent Python checker once with -B, verify source SHA256, checks and negative cases, JSON result; reject any fail",
+    "compiler_preflight": "Verify Framework64 csc.exe presence/hash/version, D/RAM free, and new output filenames absent; never invoke compiler in this step",
+    "prohibited": "No service start/stop, SCM reconfiguration, account/ACL changes, installation, csc or .NET compilation, F0, W01-W12, P02 or lineage edits",
+    "anti_replay": "Atomic FileMode.CreateNew of exact project-local L1_V3_V4_INDEPENDENT_STATIC_QA_ATTEMPT_20261107.lock before running QA; no retry after failed attempt"
+  },
+  "checks": {
+    "runner_source_review": "30/30 PASS",
+    "runner_structural_scan": "Source/readback only, Windows PowerShell Parser.ParseFile pending",
+    "qa_checker_source_review": "Previously 48/48 lexical source checks and 12/12 negative mutations over V3/V4",
+    "independent_python_checker_executed_on_windows": false,
+    "Windows_compiler_executed": false,
+    "Windows_files_created_by_this_chat": false,
+    "remote_attempt": "RemoteDesktop direct Python probe rejected with managed-mode requiring task_job_submit; scientific adapter not used",
+    "known_corrupt_predecessor": "qa/p01/windows/Invoke-TTM-P01-L1-V3V4-IndependentWindowsStaticPreflight-PS51.ps1 has duplicated tail / 487 lines, blob 3eac7cd66f6308a65aca69235cc73a657c48f1be. MUST NOT RUN."
+  },
+  "result": "SOURCE_PREPARED_AND_PINNED_WINDOWS_RUN_PENDING_NOT_PASS",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "normal_scm_stop": "NOT_REQUALIFIED",
+  "native_security": "NOT_QUALIFIED",
+  "W01_W12": "NOT_EXECUTED",
+  "L1_grouped_QA": "NOT_AUTHORIZED",
+  "future_compile_gate": "Prepare a separate one-shot Windows native csc compile-only script only after target Windows QA receipt PASS, independent source SHA readback, and explicit permit; no SCM install/switch/start in compile gate."
+}
