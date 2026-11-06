@@ -1,0 +1,35 @@
+{
+  "schema": "ttm.p01.l1.worker_broker_independent_static_source_audit.v1",
+  "all_pins_match": true,
+  "source_sha256_match": {
+    "durable_broker_quota_v1.py": true,
+    "worker_identity_acl_win32_v1.py": true,
+    "atomic_handle_writer_win32_v1.py": true,
+    "trusted_broker_service_v1.py": true,
+    "test_trusted_broker_protocol_v1.py": true
+  },
+  "positive_source_contracts": {
+    "restricted_sid_and_write_restricted": true,
+    "nonmutating_acl_probe_and_restore": true,
+    "broker_requires_distinct_service_sid": true,
+    "broker_authenticated_bounded_json_ipc": true,
+    "broker_does_not_expose_cli_worker_launch": true,
+    "atomic_handle_root_pinning": true,
+    "atomic_rename_no_replace_and_readback": true,
+    "durable_sqlite_quota_and_fail_held": true,
+    "no_python_pickle_ipc": true
+  },
+  "all_positive_source_contracts": true,
+  "remaining_native_security_gates": [
+    "Windows-specific token/ACL effective access probe not executed",
+    "Dedicated Windows SCM broker service SID not provisioned; distinct process identity not attested",
+    "Named pipe SDDL/DACL, per-connection peer SID and secret ACL not native-qualified",
+    "Evidence root/parent ACL immutability not independently proven",
+    "NT atomic handle writer and quota/rename crash cases not run on Windows",
+    "W01-W12 native negative QA not executed"
+  ],
+  "source_contract_verdict": "PASS_STATIC_ONLY",
+  "native_security_verdict": "NOT_QUALIFIED",
+  "W01_W12_native": "NOT_EXECUTED",
+  "grouped_L1_permit": "NOT_GRANTED"
+}
