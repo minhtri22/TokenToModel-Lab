@@ -1,0 +1,48 @@
+{
+  "schema": "ttm.p01.f1_snapshot_v1_pre_marker_failure_v2_recovery.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_commit": "4f72d356bf7a2d103c240bff2ba393fc7ae9cfb2",
+  "source_dataset_id": "F1-VI-GENERAL-01",
+  "V1": {
+    "script_sha256": "50ee540eec7a946792fc1c291feb4adb21a8f2ffc7a88b68e2a8c20f38ca2b75",
+    "observed_console_result": "TTM_P01_SOURCE_SNAPSHOT=FAIL_OR_HOLD: GIT_READ_FAILED:",
+    "failure_stage": "GIT_ORIGIN_PREFLIGHT",
+    "cause": "PowerShell function ReadGit([string[]]$Args) collides with built-in automatic variable $args and invokes Git without intended argv",
+    "marker": "NOT_CREATED_AT_OBSERVED_FAILURE",
+    "receipt": "NOT_CREATED_AT_OBSERVED_FAILURE",
+    "dataset_dir": "NOT_CREATED_AT_OBSERVED_FAILURE",
+    "Windows_directory_readback": "CONFIRMED_NO_V1_MARKER_OR_RECEIPT_NO_DATASETS_FOLDER_NO_F1_TEMP",
+    "corpus_downloaded": false,
+    "K1_K2_or_S1_or_E0_executed": false
+  },
+  "V2": {
+    "script_filename": "TTM_P01_F1_VI_GENERAL_01_SOURCE_SNAPSHOT_ARGV_RECOVERY_V2_PS51.ps1",
+    "script_sha256": "b453a1228adbe90b9e3eaab79d6c640e57b60f21437bbd6473c0a436a3a8205a",
+    "publication": "conversation_attachment_not_committed_to_github",
+    "repair": "Rename ReadGit parameter to GitArgs and invoke all 6 call sites with -GitArgs; separate recovery marker, failure receipt and project-scoped temporary folder",
+    "embedded_python_sha256": "9da5b25f2b8b45a62f1f88d7e6142e4cfa9d9b3b69caa513f16361c0b35bdb5b",
+    "embedded_100_candidate_pool_sha256": "d4f3210c229f2c1d9808bd615ec8b605a86f3312880b7e422b80f1c3f7e732bd",
+    "payload_identity_check": "PASS_EXACT_BYTE",
+    "Python_parse": "PASS",
+    "static_patch_checks": "PASS_SCOPED",
+    "PS51_native_parser": "NOT_EXECUTED_REQUIRE_USER_PREFLIGHT",
+    "windows_execution": "NOT_EXECUTED",
+    "one_shot_marker": "evidence/p01/TTM_P01_F1_VI_GENERAL_01_SOURCE_SNAPSHOT_ARGV_RECOVERY_V2_20261107.once",
+    "receipt": "evidence/p01/TTM_P01_F1_VI_GENERAL_01_SOURCE_SNAPSHOT_20261107.json",
+    "quarantine": "datasets/quarantine/f1_vi_general_01_20261107",
+    "F1_admission": "HOLD_PENDING_RIGHTS_PII_AND_GROUP_QA"
+  },
+  "constraints": {
+    "no_original_marker_delete": true,
+    "no_K1_K2_repeat": true,
+    "no_S1_repeat": true,
+    "no_E0_train": true,
+    "no_CQG_J3": true,
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "lineage_md": "UNCHANGED",
+    "main": "NOT_UPDATED"
+  },
+  "next_step": "RUN_V2_ONCE_PRESERVE_RECEIPT_THEN_SOURCE_ADMISSION_AND_SINGLE_DOCKER_QA"
+}
