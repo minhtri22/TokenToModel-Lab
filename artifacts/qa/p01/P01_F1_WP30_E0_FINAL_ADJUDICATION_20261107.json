@@ -1,0 +1,81 @@
+{
+  "schema": "ttm.p01.wp30.e0.formal_independent_file_readback_adjudication.v1",
+  "date": "2026-11-07",
+  "operator": "TTM P01 source and result readback",
+  "original_execution": "TTM_P01_F1_WP30_E0_DOCKER_20261107",
+  "original_one_shot_marker": "evidence/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107.once",
+  "readback_paths": {
+    "source_lock": "experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107/source_lock.json",
+    "integrated_result": "experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107/e0_integrated_result.json",
+    "independent_qa": "experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107/independent_qa.json",
+    "receipt": "evidence/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107.json"
+  },
+  "original_receipt_sha256_from_console": "acefa6dde2e2d5a683fc9da169b0d2c70e03bacd28457cdaae5351ccab9728b3",
+  "source_scope": "PRIVATE_INTERNAL_BPE_E0_ONLY_NO_CORPUS_REDISTRIBUTION",
+  "source_document_count": 30,
+  "group_count": 30,
+  "split": {
+    "TRAIN": 24,
+    "VALIDATION": 3,
+    "TEST_SEALED": 3
+  },
+  "unique_text_hashes": 30,
+  "leakage": {
+    "canonical": 0,
+    "group": 0,
+    "raw": 0
+  },
+  "b0_roundtrip": "PASS_100_PERCENT",
+  "b1_roundtrip_train": true,
+  "b1_roundtrip_validation": true,
+  "independent_roundtrip_docs": 27,
+  "b1_target_vocab": 2048,
+  "b1_actual_vocab": 2048,
+  "merge_count": 1792,
+  "two_worker_merges_sha256": "53aabcb8ac3a3c16c7cbd915b76eb82653a334c98381fad95a05eba0a9353f60",
+  "worker_seconds": {
+    "a": 6.787,
+    "b": 7.817
+  },
+  "independent_qa_status": "INDEPENDENT_E0_QA_PASS",
+  "test_used_for_training_or_model_selection": false,
+  "metrics": {
+    "TRAIN": {
+      "b0_tokens": 1127975,
+      "b1_tokens": 288526,
+      "bytes": 1127975
+    },
+    "VALIDATION": {
+      "b0_tokens": 147164,
+      "b1_tokens": 38992,
+      "bytes": 147164
+    }
+  },
+  "token_reduction_percent_vs_byte": {
+    "TRAIN": 74.42,
+    "VALIDATION": 73.5
+  },
+  "Docker_image_id": "sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54",
+  "host_python": "3.12.10",
+  "docker_python": "3.12.16",
+  "exact_software_source": {
+    "launcher_path": "scripts/p01/TTM_P01_F1_WP30_BPE_E0_DOCKER_PY312_PROCESS_EXIT_RECOVERY_V4_PS51_20261107.ps1",
+    "launcher_sha256": "7b36c6657957367908d26190b600e5e0b39c93007e455c0e20345ef48b29f2af",
+    "exact_Git_blob_sha": "6baf7f94405a6e83ba40c92984f42f0531519ad4",
+    "embedded_engine_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
+    "embedded_checker_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1"
+  },
+  "adjudication": {
+    "E0": "PASS_CONFIRMED_IN_SCOPE",
+    "P01_technical_exit": "PASS_SCOPED_F1_WP30_E0",
+    "P01_branch_status": "READY_FOR_REVIEW_AND_MERGE_NOT_YET_MAIN",
+    "P02": "NOT_OPENED_UNTIL_P01_MERGE_DECISION",
+    "P03_P04": "NOT_OPENED",
+    "scientific_generalization": "NOT_CLAIMED",
+    "quality_of_Vietnamese_generation": "NOT_CLAIMED",
+    "public_corpus_or_commercial_rights": "NOT_GRANTED_BY_THIS_ADJUDICATION",
+    "K4_windows_native_S1": "HISTORICAL_FAIL_PRESERVED_DOCKER_ROUTE_USED",
+    "independent_binary_rehash_by_adjudicator": "NOT_PERFORMED_REPORT_AND_QA_SHA_CROSSCHECKED",
+    "lineage_entry": "L0020_APPEND_ONLY_SCIENTIFIC_RESULT"
+  }
+}

@@ -243,3 +243,14 @@
 - Hồ sơ: `docs/p01/P01_D1_I0A_GOLDEN_BYTES_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_FILESYSTEM_AND_SOURCE_ALLOWLIST_DESIGN_20261105.md`, `docs/p01/P01_D1_I0A_WINDOWS_GIT_RESOURCE_READONLY_EVIDENCE_20261105.md`, `docs/p01/P01_D1_I0A_F0_PREAUTH_EVIDENCE_AND_ADJUDICATION_20261105.md`.
 - Quyết định: `I0A_PREAUTH_EVIDENCE_REVIEW=COMPLETED_WITH_HOLD`, `I0A_STATIC_IMPLEMENTATION_PERMIT=NOT_GRANTED`, `QA0/E0=NOT_GRANTED`, D1 khoa học vẫn HOLD. Không tạo worktree P01, không viết/chạy checker/guard, không tải corpus hoặc huấn luyện, không merge PR #4 hoặc dọn P00.
 - Bước tiếp theo: `TTM_P01_D1_I0A_WINDOWS_READONLY_PREFLIGHT_RESULT_ADJUDICATION` — chỉ nhận console từ chương trình đã ghim, đối chiếu I0A-01/02/07 và trình quyết định I0A độc lập nếu đủ bằng chứng.
+
+## L0020 — 2026-11-07 — P01 F1 Wikipedia WP30, E0 byte-BPE một lượt, QA độc lập PASS (phạm vi nội bộ)
+
+- Loại: SCIENTIFIC_TOKENIZER_EXPERIMENT; kết quả đo E0 thực trên 30 tài liệu Wikipedia tiếng Việt thuộc phạm vi F1 nội bộ; không phải chứng nhận chất lượng mô hình hoặc thương mại.
+- Phạm vi đã khóa: H03 30 nhóm độc lập, split seed 20261105, TRAIN=24/VALIDATION=3/TEST=3; TEST niêm phong, không tham gia học BPE hay chọn cấu hình.
+- E0 B0 byte round-trip 100%. B1 target/actual vocab 2048, 1792 merges. Hai worker Linux Docker độc lập có cùng SHA-256 `53aabcb8ac3a3c16c7cbd915b76eb82653a334c98381fad95a05eba0a9353f60`, huấn luyện chỉ trên TRAIN; thời gian lần lượt 6.787 và 7.817 giây.
+- TRAIN byte/B0 tokens 1,127,975 → B1 tokens 288,526; VALIDATION byte/B0 tokens 147,164 → B1 tokens 38,992. Hoàn nguyên TRAIN/VALIDATION PASS; kiểm tra rò rỉ raw/canonical/group = 0/0/0.
+- QA độc lập `INDEPENDENT_E0_QA_PASS` trên 30 nguồn SHA và 27 tài liệu round-trip; biên bản `experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107/independent_qa.json`, source `source_lock.json`, `e0_integrated_result.json`; receipt tại `evidence/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107.json` (SHA từ console `acefa6dde2e2d5a683fc9da169b0d2c70e03bacd28457cdaae5351ccab9728b3`).
+- Mã chạy V4 SHA-256 `7b36c6657957367908d26190b600e5e0b39c93007e455c0e20345ef48b29f2af`, Git blob `6baf7f94405a6e83ba40c92984f42f0531519ad4`; engine `2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d`, checker `ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1`.
+- Phán quyết: `E0=PASS_CONFIRMED_IN_SCOPE`, `P01_TECHNICAL_EXIT=PASS_SCOPED_WP30`; chỉ P01 main closure sau review/merge. Bảo toàn lịch sử S1 FAIL và các biên bản trước; không chạy lại E0, không dùng dữ liệu TEST, không cấp quyền P03 huấn luyện mô hình hay phát hành công khai qua entry này.
+- Hồ sơ phán quyết: `docs/p01/P01_F1_WP30_E0_FORMAL_ADJUDICATION_AND_P02_OPEN_GATE_20261107.md`; `artifacts/qa/p01/P01_F1_WP30_E0_FINAL_ADJUDICATION_20261107.json`.
