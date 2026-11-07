@@ -8,7 +8,9 @@
     "path": "qa/p01/windows/S1/TTMS1IsolatedJobWatchdogEngineV2.cs",
     "commit": "91a0f7b96d6c05321e7f0bd4cafef744b459e4c2",
     "git_blob": "5763ca10025bb928f161a0f33fa493d436107375",
-    "sha256": "PENDING_EXACT_BYTE_HASH_CONFIRMATION"
+    "sha256": "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3",
+    "bytes": 21811,
+    "pin_method": "UTF8 bytes from pinned GitHub fetch_file; independent SHA256 implementation self-tested against empty and abc"
   },
   "positive": {
     "passed": 68,
