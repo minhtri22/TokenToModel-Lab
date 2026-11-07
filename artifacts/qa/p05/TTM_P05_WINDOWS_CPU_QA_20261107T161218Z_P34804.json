@@ -1,0 +1,51 @@
+{
+    "schema":  "ttm.p05.windows.cpu_synthetic_integrated_qa.v1",
+    "run_id":  "TTM_P05_WINDOWS_CPU_QA_20261107T161218Z_P34804",
+    "timestamp_utc":  "2026-11-07T16:12:28.3651280Z",
+    "repository":  "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "expected_main":  "88bde037705607730cfc24e36875aa865d3a380c",
+    "expected_head":  "9afbdcdbd5c39da0ae5d92da327498cb3ad866d9",
+    "expected_branch":  "feature/p05-dense-kv-cache-20261107",
+    "local_head_before":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "python":  "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "python_version":  "Python 3.12.10",
+    "pytorch_version":  null,
+    "source_git_blobs":  {
+                             "src/p05/dense_kv_cache.py":  "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+                             "tests/p05/test_dense_kv_cache.py":  "2fa25a579a600b3c80c28ac7ef07b253805e3490",
+                             "tools/p05/independent_dense_kv_qa.py":  "2e318b38b0a4e5a33a407515908d31d0c7d32e6d",
+                             "src/p02/transformer_core.py":  "9762343e06cf800b50574c2871ae1ed58537fb18"
+                         },
+    "source_sha256":  {
+                          "src/p05/dense_kv_cache.py":  "45e3b2e153a4d37578a5dfacc86a313a5026c89eba13fcff41b59a0143b50412",
+                          "tests/p05/test_dense_kv_cache.py":  "616638f65de58008245c059ffcae4114898f7985296b505cb5209b6b8f84598f",
+                          "tools/p05/independent_dense_kv_qa.py":  "3da42c253daebf6cde229ebeaf305263c370fbdf23133582e9271b480b300d97",
+                          "src/p02/transformer_core.py":  "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07"
+                      },
+    "unit_tests":  {
+                       "pass":  true,
+                       "exit_code":  0,
+                       "count":  6,
+                       "log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p05\\TTM_P05_WINDOWS_CPU_QA_20261107T161218Z_P34804.unittest.log",
+                       "log_sha256":  "b41f6618a9e6fa5fa36323e58b0f245b7b6ffc3e923a5189fda76abd5ba7712b"
+                   },
+    "independent_tests":  {
+                              "pass":  false,
+                              "exit_code":  0,
+                              "count":  0,
+                              "log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p05\\TTM_P05_WINDOWS_CPU_QA_20261107T161218Z_P34804.independent.log",
+                              "log_sha256":  "91363e4149628a9ceaa6939bcfb81b69b621b85cbc8ae805b4612eb5e3790dc8"
+                          },
+    "benchmark":  null,
+    "cleanup":  "PASS_EXACT_OWNED_GIT_WORKTREE",
+    "dataset":  "SYNTHETIC_TOKEN_IDS_ONLY",
+    "p01_e0":  "DO_NOT_RERUN",
+    "p01_test":  "NOT_READ",
+    "p03":  "NOT_EXECUTED",
+    "p04_real_heldout":  "NOT_EXECUTED",
+    "p06":  "NOT_OPENED",
+    "main_changes_by_runner":  "NONE_HEAD_UNCHANGED",
+    "verdict":  "FAIL_OR_INCONCLUSIVE",
+    "failure":  "INDEPENDENT_QA_REPORT_SCOPE_OR_STATUS_MISMATCH"
+}
