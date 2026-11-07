@@ -1,0 +1,128 @@
+{
+  "schema": "ttm.p01.l1.s1.watchdog_engine_source_only_independent_qa.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "observed_windows_preflight": {
+    "origin": "USER_PROVIDED_WINDOWS_POWERHELL_CONSOLE",
+    "status": "PASS_READONLY_DESIGN_PREFLIGHT_NO_NATIVE",
+    "exit_code": 0,
+    "pins": {
+      "script": "PASS_EXACT",
+      "ps51_parse": "PASS",
+      "frozen_original": "PASS_EXACT_READONLY",
+      "scm": "PASS_STOPPED_PID0_READONLY",
+      "markers": "PASS_EXACT_PRESERVED",
+      "broker_worker_sha": "PASS_EXACT_READONLY",
+      "harness_source": "PASS_EXACT_READONLY",
+      "python_v3": "PASS_REUSED_EVIDENCE_NO_RERUN",
+      "resources": "PASS_DESIGN_PREFLIGHT_ONLY"
+    },
+    "receipt": "NO_INDEPENDENT_TARGET_EVIDENCE_ARTIFACT_PROVIDED_FOR_THIS_READONLY_PREFLIGHT",
+    "no_native_execution": true,
+    "SCM_action": "NONE"
+  },
+  "engine_source": {
+    "path": "qa/p01/windows/S1/TTMS1IsolatedJobWatchdogEngine.cs",
+    "commit": "8074e76be889d9a0ecbeb7f49a5aa6b8583bc0e3",
+    "git_blob": "6154dcf2efc31e796544029373ff4a268b0a98d9",
+    "sha256": "53b520e4399a7546d8ecd165c4360796d330dc467afa82e2f888cbd9f053a823",
+    "bytes": 19030,
+    "lines": 398,
+    "has_Main": false,
+    "Csharp_compilation": "NOT_EXECUTED",
+    "parent_permit_and_marker_wrapper": "NOT_IMPLEMENTED",
+    "Job_Object_runtime_validation": "NOT_EXECUTED",
+    "contained_child_execution": "NOT_EXECUTED"
+  },
+  "independent_source_static_review": {
+    "method": "Second implementation JavaScript textual contract and 21 in-memory negative source mutations using exact GitHub file content. Does not compile code, execute P/Invoke, or run Windows.",
+    "positive": {
+      "passed": 37,
+      "total": 37,
+      "failed": []
+    },
+    "negatives": {
+      "rejected": 21,
+      "total": 21,
+      "failed": [],
+      "cases": [
+        "entry",
+        "wrong_exe",
+        "skip_scope",
+        "skip_sha",
+        "open_log",
+        "remove_job_close_limit",
+        "multiple_processes",
+        "no_suspend",
+        "resume_before_assign",
+        "handle_list_missing",
+        "breakaway",
+        "deadline_gone",
+        "term_verify_gone",
+        "close_job_gone",
+        "stdout_cap_gone",
+        "stderr_allowed",
+        "wrong_idle",
+        "exit_gate_gone",
+        "scm",
+        "compilation",
+        "killname"
+      ]
+    },
+    "gates": [
+      "No entrypoint; C# engine cannot be run directly",
+      "Only pinned TTMS1IsolatedCancellationHarness.exe under project root",
+      "Job Object kill-on-close and max active process 1",
+      "CreateProcessW suspended, then assign to job, then resume",
+      "STARTUPINFOEX restricted inherited std handles",
+      "15 second timeout, 3 second termination check",
+      "TerminateJobObject only on owned job; never service PID/name",
+      "3 exact stdout lines, exit0, stderr empty",
+      "Source-only; no new one-shot native marker, no SCIENCE"
+    ]
+  },
+  "unresolved_before_permit": [
+    {
+      "severity": "HIGH",
+      "code": "SUSPENDED_CHILD_PARENT_CRASH_WINDOW",
+      "reason": "The engine assigns child to job after CreateProcessW; abrupt parent crash in this short gap might strand a suspended child before it is assigned. Source-only checks cannot prove fail-safe containment. Consider creation-time PROC_THREAD_ATTRIBUTE_JOB_LIST (supported on Win10+) or equivalent independently reviewed recovery, while preserving approved architecture boundaries."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "OUTPUT_FILE_GROWTH_NOT_HARD_QUOTA",
+      "reason": "8KiB is enforced by polling/at-rest check, not a hard OS quota; a fast child may temporarily exceed it before 100ms poll. Limit output/disk and demonstrate bounded failure before real run."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "HASH_TO_CREATE_RACE",
+      "reason": "Executable SHA-256 is verified by path before CreateProcessW, leaving a TOCTOU gap on writable filesystem. Require immutable staged binary/ACL pin or equivalent assurance."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "CSHARP_ABI_NOT_COMPILED",
+      "reason": "Win32 PInvoke structures/marshaling and 64-bit STARTUPINFOEX behavior must be independently inspected and later compiler/runtime qualified before permit."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "WRAPPER_NOT_ISSUED",
+      "reason": "There is intentionally no Main, no permit verifier, no one-shot marker consumer, and no source-pinned executable watchdog. These are mandatory before run."
+    }
+  ],
+  "formal_outcome": "PASS_STRUCTURAL_SOURCE_AUDIT_WITH_PRE_PERMIT_BLOCKERS__NO_NATIVE_EXECUTION",
+  "native_permit": "NOT_ISSUED",
+  "S1_status": "NOT_EXECUTED",
+  "SCM": "UNCHANGED",
+  "normal_stop": "NOT_REQUALIFIED",
+  "native_security": "NOT_QUALIFIED",
+  "P00": "UNCHANGED",
+  "F0_10": "UNCHANGED",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "science_lineage": "UNCHANGED",
+  "existing_markers": "PRESERVED",
+  "P00_P12": "UNCHANGED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "next_gate": "TTM_P01_L1_V3V4_S1_WATCHDOG_CONTAINMENT_HARDENING_AND_INTEGRATED_STATIC_QA",
+  "next_scope": "One integrated engineering task: address creation-to-job crash gap and output cap, validate Win32 ABI source and one-shot permit wrapper, independent source QA. One combined one-shot native permit decision only when blockers close; no separate license for each edit. No native run or SCM change in that task."
+}
