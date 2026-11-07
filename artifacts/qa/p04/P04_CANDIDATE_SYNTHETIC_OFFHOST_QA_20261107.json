@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.p04.offhost_candidate_cpu_synthetic_qa.v1",
+  "date": "2026-11-07",
+  "base_main": "94b01b4817c3c11c8b9a9cbbc01bfc867066a596",
+  "python": "3.13.5",
+  "pytorch": "2.10.0+cpu",
+  "model_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "p03_source_git_blob": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+  "sources": {
+    "src/p04/eval_checkpoints.py": {
+      "sha256": "e749c8eb880081feaf75443289a900bea352c92c9cd0df07746c1961398d180d",
+      "git_blob": "f047fcd33d871d26f789f0008611c04af4579bc4"
+    },
+    "tests/p04/test_eval_checkpoints.py": {
+      "sha256": "60b6ede81f624e59a0e7897e7fb9dc6f52a34d4f1196c6da7a1d6de1404291b6",
+      "git_blob": "8b84278dc5a0964e9fd86af3d8e06c26b91cc90f"
+    },
+    "tools/p04/independent_p04_qa.py": {
+      "sha256": "fbdc56f440cb07687b02af49a346a844b44e59a7c1af90513fafe60a33377d45",
+      "git_blob": "c31619932990c7acf4bd3be7a4bb2b5d7da34781"
+    }
+  },
+  "unit_tests": {
+    "pass": 6,
+    "total": 6,
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B -m unittest discover -s tests/p04 -p 'test_*.py' -v",
+    "checks": [
+      "checkpoint_weights_only_strict_roundtrip",
+      "tamper_checkpoint_rejected",
+      "sampling_is_deterministic_and_greedy",
+      "seeded_stochastic_generation",
+      "sealed_split_and_nonmutation",
+      "invalid_parameters_fail_closed"
+    ]
+  },
+  "independent_tests": {
+    "pass": 4,
+    "total": 4,
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -B tools/p04/independent_p04_qa.py",
+    "checks": [
+      "checkpoint_restores_exact_parameters",
+      "checkpoint_wrong_tokenizer_rejected",
+      "greedy_matches_sequential_argmax_oracle",
+      "heldout_nll_independent_recompute_and_weights_unchanged"
+    ]
+  },
+  "test_data": "SYNTHETIC_TOKEN_IDS_ONLY",
+  "temporary_checkpoint": "TEMPORARY_AND_DELETED",
+  "constraints": "NO_EXTERNAL_CORPUS_NO_P01_TEST_NO_REAL_MODEL_EVALUATION",
+  "Windows_QA": "NOT_EXECUTED",
+  "P04": "OPEN_CANDIDATE_NOT_CLOSED",
+  "lineage_md": "UNCHANGED"
+}

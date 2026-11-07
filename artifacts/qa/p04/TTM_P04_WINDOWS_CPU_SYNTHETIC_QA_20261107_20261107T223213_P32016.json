@@ -1,0 +1,33 @@
+﻿{
+    "schema":  "ttm.p04.windows.synthetic_cpu_integrated_qa.v1",
+    "run_id":  "TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016",
+    "timestamp_utc":  "2026-11-07T15:32:21.3535108Z",
+    "verdict":  "PASS_PENDING_P04_FORMAL_ADJUDICATION",
+    "failure":  null,
+    "repo":  "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "expected_main":  "94b01b4817c3c11c8b9a9cbbc01bfc867066a596",
+    "expected_head":  "9d9a366c92b14f8e235a20954fa2782a17d74a49",
+    "local_head_before":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "python_path":  "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "python_version":  "Python 3.12.10",
+    "source_git_blobs":  {
+                             "tests/p04/test_eval_checkpoints.py":  "8b84278dc5a0964e9fd86af3d8e06c26b91cc90f",
+                             "src/p04/eval_checkpoints.py":  "f047fcd33d871d26f789f0008611c04af4579bc4",
+                             "src/p02/transformer_core.py":  "9762343e06cf800b50574c2871ae1ed58537fb18",
+                             "src/p03/train_loop.py":  "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+                             "tools/p04/independent_p04_qa.py":  "c31619932990c7acf4bd3be7a4bb2b5d7da34781"
+                         },
+    "unit_exit":  0,
+    "independent_exit":  0,
+    "unit_log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p04\\TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016.unit.log",
+    "independent_log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p04\\TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016.independent.log",
+    "unit_log_sha256":  "EE61C2C948533426A5D63278C502B31430AF5C61D9398E16C0019894741AFE62",
+    "independent_log_sha256":  "0973EFB1B5B73D363D5184E39B21082683FF1B712C759CDE8456A45C0DAA58AC",
+    "cleanup":  "PASS_OWNED_WORKTREE_ONLY",
+    "dataset":  "SYNTHETIC_TOKEN_IDS_ONLY",
+    "p01_test":  "NOT_READ",
+    "P03":  "NO_TRAINING",
+    "P04_REAL_HELDOUT":  "NOT_EXECUTED",
+    "main_changes_by_runner":  "NONE"
+}

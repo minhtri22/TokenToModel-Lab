@@ -1,0 +1,16 @@
+{
+  "schema": "ttm.p04.checkpoints_sampling_synthetic_eval.candidate.v1",
+  "status": "P04_IMPLEMENTATION_CANDIDATE_NOT_SCIENCE",
+  "base_main": "94b01b4817c3c11c8b9a9cbbc01bfc867066a596",
+  "P02_vocab_size": 2048,
+  "BPE_E0_merges_sha256": "53aabcb8ac3a3c16c7cbd915b76eb82653a334c98381fad95a05eba0a9353f60",
+  "cpu_only": true,
+  "dataset": "EXPLICIT_SYNTHETIC_TOKEN_IDS_ONLY",
+  "valid_split_label": "SYNTHETIC_HELDOUT",
+  "checkpoint_format": "torch_weights_only_with_strict_sha_and_config",
+  "checkpoint_overwrite_forbidden": true,
+  "sampler": "autoregressive_top_k_temperature_local_seed",
+  "P01_WP30_real_TRAIN_or_TEST": "NOT_AUTHORIZED_BY_THIS_PHASE",
+  "P04_real_heldout_evaluation": "NOT_EXECUTED",
+  "P05": "NOT_OPENED"
+}

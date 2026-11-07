@@ -1,0 +1,89 @@
+{
+  "schema": "ttm.p04.windows.synthetic_cpu_formal_adjudication.v1",
+  "adjudicated_on": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pull_request_number": 8,
+  "tested_head": "9d9a366c92b14f8e235a20954fa2782a17d74a49",
+  "base_main": "94b01b4817c3c11c8b9a9cbbc01bfc867066a596",
+  "original_receipts": {
+    "V1_preflight_failure": {
+      "run_id": "TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T222344_P6284",
+      "file": "evidence/p04/TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T222344_P6284.json",
+      "sha256": "02f5b48c6fd1f615096a895b3b51185aa3f172630909e3526d0c5e2ef5db3d13",
+      "verdict": "FAIL_OR_INCONCLUSIVE_PREEXECUTION_GIT_ORIGIN_CWD",
+      "unit_exit": null,
+      "independent_exit": null,
+      "worktree": "NOTHING_CREATED"
+    },
+    "V2_windows_pass": {
+      "run_id": "TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016",
+      "file": "evidence/p04/TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016.json",
+      "sha256": "3a9ff268acfa4371c9ab2026ae17afdd19fb398b8039b0ffa2127f8e906884b6",
+      "exact_git_blob": "7636b4113478f8c6dfde7040a16a3026b90b6751",
+      "verdict": "PASS_PENDING_P04_FORMAL_ADJUDICATION",
+      "unit_exit": 0,
+      "independent_exit": 0,
+      "worktree_cleanup": "PASS_OWNED_WORKTREE_ONLY"
+    }
+  },
+  "environment": {
+    "os": "Windows 11",
+    "python": "3.12.10",
+    "pytorch": "2.11.0+cpu",
+    "runner_v2_sha256": "b6e65851adbe204085842998ab6b3f11622c04255266e29ba805e53842db6c9f"
+  },
+  "source_exact_git_blobs": {
+    "tests/p04/test_eval_checkpoints.py": "8b84278dc5a0964e9fd86af3d8e06c26b91cc90f",
+    "src/p04/eval_checkpoints.py": "f047fcd33d871d26f789f0008611c04af4579bc4",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "src/p03/train_loop.py": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+    "tools/p04/independent_p04_qa.py": "c31619932990c7acf4bd3be7a4bb2b5d7da34781"
+  },
+  "qa": {
+    "unit": {
+      "tests": 6,
+      "passed": 6,
+      "exit_code": 0,
+      "log_path": "evidence/p04/TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016.unit.log",
+      "log_sha256_from_runner": "ee61c2c948533426a5d63278c502b31430af5c61d9398e16c0019894741afe62",
+      "observed_text": "Ran 6 tests in 0.142s; OK",
+      "powershell_wrapped_nativecommanderror_header": "PRESENT_ON_FIRST_TEST_STDERR_STREAM",
+      "code_failure": false
+    },
+    "independent": {
+      "tests": 4,
+      "passed": 4,
+      "exit_code": 0,
+      "log_path": "evidence/p04/TTM_P04_WINDOWS_CPU_SYNTHETIC_QA_20261107_20261107T223213_P32016.independent.log",
+      "log_sha256_from_runner": "0973efb1b5b73d363d5184e39b21082683ff1b712c759cde8456a45c0daa58ac",
+      "observed_checks": [
+        "checkpoint_restores_exact_parameters",
+        "checkpoint_wrong_tokenizer_rejected",
+        "greedy_matches_sequential_argmax_oracle",
+        "heldout_nll_independent_recompute_and_weights_unchanged"
+      ],
+      "status": "PASS"
+    },
+    "test_data": "SYNTHETIC_TOKEN_IDS_ONLY",
+    "result_scope": "P04_CHECKPOINT_RESTORE_SAMPLING_SYNTHETIC_EVALUATION_CPU_CORRECTNESS",
+    "exact_source_hashes_from_runner": true,
+    "log_byte_sha_recomputed_by_adjudicator": false,
+    "independent_third_party_review": false,
+    "remote_log_contents_read": true
+  },
+  "boundaries": {
+    "P01_E0": "UNCHANGED_DO_NOT_RERUN",
+    "P03": "NO_TRAINING",
+    "P01_TEST": "NOT_READ",
+    "P04_REAL_HELDOUT": "NOT_EXECUTED",
+    "F1_WP30": "E0_BPE_INTERNAL_ONLY_NOT_AUTHORIZED_FOR_P03_OR_P04",
+    "checkpoint_from_real_training": "NOT_TESTED",
+    "model_generalization": "NOT_CLAIMED",
+    "main_local_head": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "main_local_synced": "NO",
+    "lineage_md": "UNCHANGED"
+  },
+  "adjudication": "P04_PASS_SCOPED_SYNTHETIC_CPU_READY_FOR_EXACT_HEAD_MERGE",
+  "merge_status_at_adjudication": "PENDING",
+  "P05": "NOT_OPENED_UNTIL_MERGE"
+}
