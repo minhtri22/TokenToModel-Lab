@@ -12,7 +12,8 @@
   "runner": {
     "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-SuccessorNativeOnce-PS51.ps1",
     "git_blob": "ad5f86ec21fa2b769c07548177098c2a76905cef",
-    "sha256": "PENDING_BYTE_HASH_CONFIRMATION"
+    "sha256": "4552ccba3a8290ed149151c58d3aec2d682409d3ec73880ffec389a20d5e2681",
+    "bytes": 19517
   },
   "positive": {
     "passed": 47,
@@ -64,7 +65,7 @@
       }
     }
   },
-  "static_review": "PASS_SOURCE_CONTRACT_ONLY",
+  "static_review": "PASS_47_47_POSITIVE_10_10_NEGATIVE_SOURCE_ONLY",
   "method": "Independent JS checks exact GitHub source and ten targeted in-memory mutants; no PS51 parse, C# compile, or Windows runtime.",
   "prior_native_fail": "PRESERVED",
   "prior_marker": "CONSUMED_PRESERVED",
