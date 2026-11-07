@@ -45,7 +45,8 @@
     "outer_runner_timeout": false,
     "outer_runner_stderr_empty": true,
     "outer_runner_error": "TTM_S1_COMBINED_BLOCK_HOST_EXIT_TIMEOUT_OR_STDERR",
-    "interpretation": "Outer runner's error string is a union predicate; it was not an actual timeout and not stderr. Host returned exit 3 because its watchdog rejected S1."
+    "interpretation": "The runner's HOST_EXIT_TIMEOUT_OR_STDERR error is a combined predicate, not evidence of an actual timeout/stderr. The HOST stdout reports CHILD exit 3. The outer receipt's host.exit field is null, so the host's own process exit is not independently recorded; pinned host source would return 3 for any non-PASS watchdog verdict.",
+    "host_exit_in_outer_receipt": null
   },
   "independent_stdout_reconstruction": {
     "method": "Reconstruct exact two-line UTF-8 CRLF output allowed by pinned S1 source. Compute length and SHA256 and compare to watchdog receipt. Not a claim that raw captured 101 bytes were attached.",
@@ -53,7 +54,7 @@
     "utf8_length_bytes": 101,
     "sha256": "8078d43cb98b9c4b89c77c6d87410afb9911777c5562491418ca6773bbd85e79",
     "matches_watched_stdout_length_and_sha256": true,
-    "code_path": "S1 CancelAndObserve calls EndWaitForConnection after AsyncWaitHandle completion. Generic catch(Exception ex) maps an OperationCanceledException to BLOCK_END_OperationCanceledException. IdleAccept fails; SilentClientRead never runs.",
+    "code_path": "S1 CancelAndObserve's EndWaitForConnection callback raised OperationCanceledException. Generic catch(Exception ex) produced the exact BLOCK_END_OperationCanceledException. No SILENT_READ output exists.",
     "root_cause_conclusion": "The S1 result acceptance contract only considers IOException with low Win32 HRESULT ==995 PASS, and does not accept OperationCanceledException. This is an observed mismatch, not evidence of completed Windows ERROR_OPERATION_ABORTED under the preregistered criterion."
   },
   "external_reference": [
