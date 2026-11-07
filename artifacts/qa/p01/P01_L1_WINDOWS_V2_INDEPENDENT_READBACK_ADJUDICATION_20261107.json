@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.p01.windows_v2_scoped_independent_adjudication.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "source_ref": "b481a90fa82abb194f5ae60945a5ad4408b5a425",
+  "evidence": {
+    "receipt_path": "artifacts/qa/p01/TTM_P01_L1_WINDOWS_ARGV_RECOVERY_V2_20261107.json",
+    "receipt_sha256": "7248d741c1e206a445873cc49d9e2acb44ad4bba906498d08f70e9ed04d4a5f5",
+    "receipt_git_blob_sha1": "1b3165fb5b793cbab7d1c2bda39d1e4c6274d596",
+    "receipt_uploaded_file_and_windows_readback": "MATCH_FIELDS_AND_EXACT_GIT_BLOB",
+    "stderr_windows_direct_readback": "7 test methods all ok; Ran 7 tests in 0.059s; OK",
+    "stderr_sha256_reported": "bad32a35ee464d978bfbd598f80a4bbc5a227f2b8b2ff70ebf40d63f4a0b3ccb",
+    "stderr_independent_byte_sha256": "NOT_RECOMPUTED",
+    "code_git_blob": "6e9b024a60461d76220ef2e8bdce51b68afc420c",
+    "python": "C:\\Users\\minht\\miniforge3\\python.exe",
+    "git": "git version 2.52.0.windows.1",
+    "tests_total": 7,
+    "tests_pass": 7,
+    "exit_code": 0,
+    "original_failed_receipt_sha256": "cbf046b4728e293e3ed73c5f96fedb0866b0d8805849fbe7335d6fa7d7cd37fc",
+    "original_failed_marker_sha256": "ddc9f3b25a4770cf9210a2496e223bbdc925761f052647ee1f13381f1c7c0255",
+    "original_failure_reason": "EXACT_SOURCE_EXTRACTION_FAILED",
+    "original_marker": "PRESERVED",
+    "v2_marker": "PRESERVED_DISTINCT",
+    "repo_head_before_and_after": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "lineage_sha256_before_and_after": "05ed529550f62bc1d35bdf93036724b7cadefa9c5d073c71412e9e0dbfb0172a",
+    "tracked_clean_after": true,
+    "no_f0_rerun": true,
+    "owned_temp_cleanup": "PASS_USER_CONSOLE"
+  },
+  "adjudication": {
+    "K1": "PASS_SCOPED_WINDOWS_ALGORITHM",
+    "K2": "PASS_SCOPED_WINDOWS_34_SYNTHETIC_DOCUMENTS_30_GROUPS",
+    "K3": "HOLD_SOURCE_RIGHTS_NO_F1_SELECTED",
+    "K4": "HOLD_E0_RUNTIME_ROUTE_DECISION",
+    "K5": "NOT_EXECUTED",
+    "L1": "PASS_SCOPED_FIXTURE_QA_NOT_F1_PRODUCTION_PIPELINE",
+    "L2": "HOLD",
+    "L3": "NOT_EXECUTED",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "S1_NATIVE": "HISTORICAL_FAIL_PRESERVED"
+  },
+  "limitations": [
+    "This readback independently verifies a real Windows QA run, but is not an independent second native execution or third-party scientific certification",
+    "The fixture test temporarily patches an in-process hash admission function, and does not validate an F1 corpus admission path",
+    "No source F1 selected or authorized, PII/licensing and 30 real post-dedup groups unverified",
+    "No E0 runtime route, TEST sealing, or two-clean-process TRAIN-only BPE established"
+  ],
+  "next": "TTM_P01_F1_OWNER_SNAPSHOT_SELECTION_AND_E0_ROUTE_DECISION_THEN_SINGLE_E0"
+}
