@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.p01.l1.scoped_fixture_algorithm_offhost.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "parent_commit": "cae0ea80648954d218231ba87178307ba825dc4b",
+  "scope": "offhost fixture-scoped algorithm QA; not Windows or scientific training",
+  "pinned_source_sha256": {
+    "src/p01/byte_bpe.py": "97751c63e7f01484913e2a60fde4dd17873540f3227aadcf89f1bf51fe1b3f99",
+    "src/p01/data_dedup_split.py": "e0492e6a290d62c681d0d27902dc5c6be31ccb66180d63e706d83594ab1db33a",
+    "runtime/p01/source_scope_guard.py": "7d87cf5555931e9777dee0106291a6620e80dc07715b7857a89d889fb216cce6",
+    "qa/p01/f0_fixture_generator.py": "82b0a7a60c09517a8e831fac0f524a7760068cb56c21296b5c234842cd3f211e"
+  },
+  "prior_f0": "10/10 reused, not rerun",
+  "prior_additive": "14/14 and 3/3 reused, not rerun",
+  "new_tests": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "errors": 0,
+    "artificial_documents": 34,
+    "independent_groups": 30,
+    "train_groups": 24,
+    "validation_groups": 3,
+    "test_groups": 3,
+    "cross_split_group_overlap": 0,
+    "cross_split_raw_sha256_overlap": 0,
+    "cross_split_canonical_sha256_overlap": 0,
+    "negative_leak_injection": "PASS",
+    "unpatched_source_scope": "DENY"
+  },
+  "test_source_note": "GitHub QA file is same executable logic as locally executed suite; minor comment-only formatting is inconsequential; Windows readback not yet run",
+  "limits": [
+    "test-only patch of classifier imported fixture guard; product source guard untouched",
+    "not a F1 production admission path",
+    "not native Windows QA",
+    "not independent external certification",
+    "not TEST seal",
+    "not E0 run"
+  ],
+  "status": {
+    "K1_K2": "PASS_SCOPED_FIXTURE_ALGORITHM",
+    "F1": "HOLD_SOURCE_RIGHTS",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "S1": "FAIL_PRESERVED",
+    "SCM": "UNCHANGED_BY_QA",
+    "lineage": "UNCHANGED"
+  }
+}
