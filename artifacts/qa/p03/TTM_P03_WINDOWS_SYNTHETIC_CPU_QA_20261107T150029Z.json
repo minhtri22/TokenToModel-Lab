@@ -1,0 +1,23 @@
+{
+    "schema":  "ttm.p03.windows.synthetic_cpu_integrated_qa.v1",
+    "run_id":  "TTM_P03_WINDOWS_SYNTHETIC_CPU_QA_20261107T150029Z",
+    "verdict":  "PASS_PENDING_P03_FORMAL_ADJUDICATION",
+    "failure":  null,
+    "repository":  "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "expected_head":  "3ae89a6de84ed5fd009b82842a38657c7aaa7f8f",
+    "local_head_before":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "python":  "Python 3.12.10",
+    "torch":  "SEE_INDEPENDENT_LOG",
+    "source_blobs":  {
+                         "src/p03/train_loop.py":  "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+                         "tests/p03/test_train_loop.py":  "daa454adc8b0a5077b9c70a023d2f846be9fb2b7",
+                         "tools/p03/independent_p03_qa.py":  "b0ac4c1e619c4e85a250b19073a0a2a2f4daecd9",
+                         "src/p02/transformer_core.py":  "9762343e06cf800b50574c2871ae1ed58537fb18"
+                     },
+    "unittest_log_sha256":  "11606cc17f2e5c3ba9c7c4c71af0c760d23b6bf28dfda2dedca4cb54ecad3a8d",
+    "independent_log_sha256":  "35bdbc1294e533a63bd209815d3ae7b379fde13b33ff3f263e188b100d478ec0",
+    "no_external_corpus":  true,
+    "p01_e0":  "DO_NOT_RERUN",
+    "p04":  "NOT_EXECUTED"
+}
