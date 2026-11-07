@@ -1,0 +1,64 @@
+{
+  "schema": "ttm.p01.l1.v3v4.compile_once_independent_adjudication.v1",
+  "date_utc": "2026-11-07",
+  "source": "Target Windows one-shot compile receipt + uploaded JSON, GitHub readback, pinned source inspection",
+  "receipt": {
+    "run_id": "L1_V3_V4_COMPILE_ONLY_20261107T012655622Z_a578caba",
+    "git_commit": "a8b7e762ba9110c3e9246fb6570a2d0246aa50d4",
+    "git_blob": "8d16e56c299796bc3545be03b24dcea2250bc6c8",
+    "file_sha256": "e20690db0ea91b3af4ba3f9b311e1f01fb8574f26273201b3b55499427002bcf",
+    "user_upload_sha256": "MATCHES_FILE_SHA256",
+    "verdict": "PASS_COMPILE_ONLY_NO_SERVICE_ACTION",
+    "mode": "COMPILE_ONCE"
+  },
+  "frozen": {
+    "research_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_commit": "782f101f001973f8c23f23b22ae2b0896232d722",
+    "earlier_QA_commit": "3860d08601ee77402d44926776f69208da103157"
+  },
+  "compile": {
+    "broker_v3": {
+      "exit_code": 0,
+      "diagnostics": "",
+      "size_bytes": 10240,
+      "sha256_reported": "0751f89fee519367580e89b2e99b5347ee49c6b4c15f67ebf7d43706ac78ec5c",
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV3.exe"
+    },
+    "worker_v4": {
+      "exit_code": 0,
+      "diagnostics": "CS0162: Unreachable code detected at TTMWorkerNativeProbeV4.cs line 179",
+      "size_bytes": 11776,
+      "sha256_reported": "b36b5868b09b4da7bdb7198f3acd86923aba57f29a993fc8188bcb1cdc729f36",
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMWorkerNativeProbeV4.dll"
+    },
+    "marker_sha256": "fca9ee976878674ccdcc60c8dc1e621a01b35a472fb7e9e80f79997ef2fb7ef7",
+    "marker_status": "PASS_CREATED_NO_REPLAY",
+    "compilation_only": "PASS",
+    "on_target_binary_rehash_by_independent_agent": "NOT_PERFORMED",
+    "binary_execution": "NOT_PERFORMED"
+  },
+  "warning": {
+    "code": "CS0162",
+    "location": "TTMWorkerNativeProbeV4.cs:179",
+    "source_reason": "The condition compares constant PipeAccessRights.ReadWrite against CreateNewInstance; the compiler identifies return BLOCK_CLIENT_RIGHTS_MASK as unreachable",
+    "classification": "NON_BLOCKING_FOR_COMPILATION; MUST_NOT_COUNT_AS_RUNTIME_SECURITY_PASS",
+    "source_verification": "READ_SOURCE_GIT_BLOB_63d5407ccb3f9e15f8dda59ee6323a0e5009d860"
+  },
+  "scope": {
+    "SCM_initial_during_run": "STOPPED_PID_0",
+    "SCM_action": "NONE",
+    "service_start": false,
+    "service_install": false,
+    "ACL_or_account_change": false,
+    "W01_W12": "NOT_EXECUTED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED"
+  },
+  "verdict": "PASS_COMPILE_ONLY_WITH_RECORDED_CS0162_WARNING",
+  "next_gate": "TTM_P01_L1_V3V4_NATIVE_BINARIES_INDEPENDENT_READBACK_AND_MINIMAL_SMOKE_STATIC_PREFLIGHT",
+  "next_gate_scope": "Read-only SHA256 and size recheck on target for both binaries and compile marker, recheck SCM and frozen original. Review CS0162 and design bounded negative tests. Do not yet install/switch SCM/start or run W01-W12.",
+  "notes": "Compiled EXE/DLL values are reported in uploaded Windows receipt, not independently rehashed from target binaries in this adjudication. Preserve all one-shot markers and past QA receipts. No science lineage changes."
+}
