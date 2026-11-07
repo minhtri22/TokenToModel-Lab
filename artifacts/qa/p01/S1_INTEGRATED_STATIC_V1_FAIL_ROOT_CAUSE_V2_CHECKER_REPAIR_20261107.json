@@ -1,0 +1,83 @@
+{
+  "schema": "ttm.p01.l1.s1.integrated_static_v1_failure_root_cause_and_v2_source_repair.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "v1_failure": {
+    "run_id": "S1_HOST_RUNNER_STATIC_20261107T051308922Z_a295a31b",
+    "artifact_path": "artifacts/qa/p01/S1_HOST_RUNNER_STATIC_20261107T051308922Z_a295a31b.json",
+    "github_commit": "4ab95d06c730d8968d62d6546cc4c688e6836144",
+    "git_blob": "87e374ce54a3f8f585f7945c8c9794a5ee61dcc5",
+    "sha256": "c63b0db7d0039e25ec23879481979cf7be359a852103b8e6b9693c4ad965c421",
+    "verdict": "BLOCK",
+    "sources": "PASS_EXACT",
+    "powershell51_parser": "PASS",
+    "python_checker": "FAIL_SOURCE_ONLY",
+    "python_positive": "65/66",
+    "python_failed_predicate": "runner_host_exit0",
+    "python_reported_negative": "22/22",
+    "python_negative_scientific_or_security_qualification": "INVALID_DUE_TO_FAILED_BASELINE",
+    "native_compilation": "NOT_EXECUTED",
+    "S1_native": "NOT_EXECUTED",
+    "SCM_before_after": "Stopped/PID0, V2 image, LocalService",
+    "preservation": "ORIGINAL_FAIL_RECEIPT_AND_ALL_MARKERS_UNCHANGED"
+  },
+  "diagnosis": {
+    "cause": "QA textual predicate expected one complete string 'TTM_S1_HOST_EXIT=0' but the frozen native runner checks the exact same value using a fixed hashtable assignment TTM_S1_HOST_EXIT='0', a loop over fixed.Keys, and comparison against parsed host output.",
+    "category": "SOURCE_STATIC_CHECKER_FALSE_NEGATIVE_NOT_PROOF_OF_NATIVE_FAILURE",
+    "confound": "Every one of V1's 22 negative-mutant failed-predicate arrays also contained the unrelated baseline failure runner_host_exit0, so rejected==22 could be spuriously true irrespective of each mutation.",
+    "counterfactual_validation": "From uploaded V1 source QA JSON, removing the common runner_host_exit0 predicate left exactly the intended target predicate(s) for each of all 22 named mutants. This is consistency analysis of a failed receipt, NOT a new Windows QA pass.",
+    "original_runner_source_modified": false,
+    "original_host_modified": false,
+    "original_engine_modified": false
+  },
+  "repair": {
+    "python_v2": {
+      "path": "qa/p01/windows/S1/Independent-QA-S1-HostRunner-IntegratedStatic-V2.py",
+      "git_blob": "947a3d50f67e1459cb02ea85125a95b31c0d2b49",
+      "sha256": "9908aa55c1d2b851d5e4b817557d40ebd9ca0a54f4977bed07f806e57da3ba38",
+      "source_commit": "e4594f7e9f1cf9c27a1afefb9765bea20b23a82f",
+      "source_static_guards": [
+        "Require matching TTM_S1_HOST_EXIT='0' key in PowerShell $fixed table AND exact hostFields comparison and error path",
+        "Baseline must satisfy all 66 positive checks before any negative case qualifies",
+        "All 22 named mutants must be present and each must break exactly its registered target predicates",
+        "Native compilation and execution never invoked by checker"
+      ],
+      "Windows_python_execution": "PENDING"
+    },
+    "windows_v2_qa": {
+      "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-HostRunner-IntegratedStaticQA-V2-PS51.ps1",
+      "source_commit": "e50487daa15a187c3b00982f85c9a3707a0ad2a7",
+      "git_blob": "81473f08d82173bf82ed4200b7b72476ab6385ba",
+      "sha256": "714f8fb40a847bbefbf08276a3d3b71622e4abdcb4c99bbf1b1297892337828b",
+      "source_static_guards": [
+        "Read/validate exact V1 failed receipt SHA256 and FAIL state; no overwrite",
+        "Fetch V2 QA by immutable GitHub commit and pin exact blob/SHA256",
+        "Run PowerShell 5.1 native parse and V2 Python integrated source check",
+        "Require V2 schema, 66/66 positive, 22/22 TARGETED negative, no residual failed cases",
+        "Read-only SCM; no native marker creation, no native compiler, no Process.Start",
+        "Write unique V2 QA evidence inside project, publish and SHA256 readback GitHub"
+      ],
+      "Windows_powershell_parse": "PENDING",
+      "Windows_integrated_python_qa": "PENDING"
+    }
+  },
+  "adjudication": {
+    "source_repair_review": "PASS_SOURCE_STATIC_ONLY",
+    "windows_v2_qa": "PENDING",
+    "native_combined_one_shot_permit": "HOLD_NOT_ISSUED",
+    "reason": "A source-level correction and a clean negative mutation design do not constitute actual Windows V2 QA or permission to compile/run native.",
+    "next": "Exactly one Windows V2 static QA run, inspect its GitHub receipt, then adjudicate ONE combined native build-and-smoke permit if PASS. No micro-permit on each small check.",
+    "S1_native": "NOT_EXECUTED",
+    "broker_worker_recompile": "FORBIDDEN_NO_NEED",
+    "SCM_action": "NONE",
+    "P00": "UNCHANGED",
+    "ten_F0": "UNCHANGED",
+    "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "lineage_md": "UNCHANGED",
+    "markers": "PRESERVED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "P00_P12_order": "UNCHANGED"
+  }
+}
