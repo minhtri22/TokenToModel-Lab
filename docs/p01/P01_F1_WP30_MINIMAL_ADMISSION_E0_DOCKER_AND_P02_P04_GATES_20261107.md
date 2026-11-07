@@ -10,9 +10,9 @@ Giữ 10 Wikisource và CQG-J3 ngoài E0. Không sửa kết quả cũ hoặc h�
 
 ## Triển khai và kiểm tra tĩnh đã hoàn thành
 
-Bộ chạy đính kèm hội thoại `TTM_P01_F1_WP30_E0_DOCKER_INTEGRATED_BUNDLE_20261107.zip` SHA `71bbb875b1cb866f5e9510ea50aa3cd545142ea7d2e08f9269bd5bdec6e02a17`.
+Bộ chạy đính kèm hội thoại `TTM_P01_F1_WP30_E0_DOCKER_INTEGRATED_BUNDLE_20261107.zip` SHA `ea4a03e1f0f4cb1331f55d608c53073e3fce7f6d36725393934af3a44b04d5d3`.
 
-- Một PowerShell: `TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1`, SHA `905c6231505df536dbf4756abb2a815d885a412676e97c570bbbbf612b6976c2`.
+- Một PowerShell: `TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1`, SHA `fe0dda35644aba67c276b15aa9849a0c98f3ee08ac3ee92fee38b057bd305b5e`.
 - Engine Python SHA `2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d`; independent checker SHA `ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1`.
 - Preflight chặn nếu sai Git origin, sai SHA biên bản/corpus, thiếu 30 nhóm H03, thiếu quyền ghi công, có cờ PII chưa xử lý, RAM trống dưới 8 GiB, D: trống dưới 16 GiB hoặc Docker Linux image không sẵn. Image Python có thể tải trước marker bằng tùy chọn rõ ràng.
 - Chia bằng H03 seed `20261105`: 24 TRAIN / 3 VALIDATION / 3 TEST. Stage chỉ copy TRAIN cho hai container; TEST **không** được mount vào Docker hoặc dùng để chọn BPE.
