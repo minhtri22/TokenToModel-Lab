@@ -1,0 +1,65 @@
+{
+  "schema": "ttm.p03.windows.synthetic_microbatch_formal_adjudication.v1",
+  "date": "2026-11-07",
+  "pr": 7,
+  "repository": "minhtri22/TokenToModel-Lab",
+  "tested_head": "3ae89a6de84ed5fd009b82842a38657c7aaa7f8f",
+  "base": "dd8e83658535daad02d008d1b6a959628336cf31",
+  "windows_receipt": {
+    "run_id": "TTM_P03_WINDOWS_SYNTHETIC_CPU_QA_20261107T150029Z",
+    "sha256": "4f89c1006ad2344b10bb1d9b8ff05e11cdf6dd7c2923f43cffbbb923c1c2dc80",
+    "exact_git_blob": "e71e13bea6f87f2d4725f240c18f11bb6a3bb8e1",
+    "same_as_uploaded_file": true
+  },
+  "python": "3.12.10",
+  "torch": "2.11.0+cpu",
+  "source_blobs": {
+    "src/p03/train_loop.py": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+    "tests/p03/test_train_loop.py": "daa454adc8b0a5077b9c70a023d2f846be9fb2b7",
+    "tools/p03/independent_p03_qa.py": "b0ac4c1e619c4e85a250b19073a0a2a2f4daecd9",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18"
+  },
+  "unit_tests": {
+    "pass": 6,
+    "total": 6,
+    "exit": 0,
+    "console": "Ran 6 tests in 2.797s; OK",
+    "log_sha256_runner": "11606cc17f2e5c3ba9c7c4c71af0c760d23b6bf28dfda2dedca4cb54ecad3a8d"
+  },
+  "independent": {
+    "pass": 7,
+    "total": 7,
+    "exit": 0,
+    "log_sha256_runner": "35bdbc1294e533a63bd209815d3ae7b379fde13b33ff3f263e188b100d478ec0",
+    "observed": [
+      "finite_parameters",
+      "high_token_id",
+      "loss_ratio",
+      "loss_threshold",
+      "no_checkpoint",
+      "weights_changed",
+      "schedule_bounds"
+    ]
+  },
+  "metrics": {
+    "initial_loss": 7.674461841583252,
+    "final_loss": 0.015135478228330612,
+    "loss_reduction_percent": 99.8027812432877,
+    "scope": "SAME_FIXED_SYNTHETIC_BATCH_OVERFIT_ONLY"
+  },
+  "governance": {
+    "p01_e0": "NO_RERUN",
+    "no_external_corpus": true,
+    "test_sealed": true,
+    "no_P04": true,
+    "no_model_checkpoint": true,
+    "no_gpu_qa": true,
+    "no_language_quality_claim": true,
+    "lineage_md": "UNCHANGED",
+    "local_main_head_before_and_after": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "worktree_cleanup": "PASS_FROM_CONSOLE"
+  },
+  "verdict": "P03_PASS_SCOPED_SYNTHETIC_CPU_READY_FOR_MERGE",
+  "P04": "NOT_OPENED_UNTIL_P03_MERGED",
+  "verification_limit": "Log contents independently read from Windows; per-log byte SHA taken from runner, not independently rehashed."
+}

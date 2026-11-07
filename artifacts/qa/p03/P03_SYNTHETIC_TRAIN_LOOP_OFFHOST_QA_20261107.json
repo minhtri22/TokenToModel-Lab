@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.p03.synthetic_train_loop.offhost_qa.v1",
+  "date": "2026-11-07",
+  "phase": "P03_OPEN_IMPLEMENTATION_CANDIDATE_NOT_CLOSED",
+  "base_main": "dd8e83658535daad02d008d1b6a959628336cf31",
+  "source_blobs": {
+    "src/p03/train_loop.py": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+    "tests/p03/test_train_loop.py": "daa454adc8b0a5077b9c70a023d2f846be9fb2b7",
+    "tools/p03/independent_p03_qa.py": "b0ac4c1e619c4e85a250b19073a0a2a2f4daecd9",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18"
+  },
+  "source_sha256": {
+    "src/p03/train_loop.py": "4ece40d2c61a26583fd932987055d95435ae190e6d5c7d713a981154cbe3f2a6",
+    "tests/p03/test_train_loop.py": "427912e62446b66a575efe815eaaab3c8b1d95414f612d4f369ca4a59f197364",
+    "tools/p03/independent_p03_qa.py": "b8ad9fbeb78eef8e728228f28671ff805ca8a861ba5f6b6081db412268a1af9d"
+  },
+  "environment": {
+    "platform": "OFFHOST_LINUX_CPU",
+    "python": "3.13.5",
+    "pytorch": "2.10.0+cpu",
+    "torch_threads": 2
+  },
+  "qa": {
+    "unit_tests": {
+      "pass": 6,
+      "total": 6,
+      "run": "python -B -m unittest discover -s tests/p03 -p test_*.py -v"
+    },
+    "independent_checks": {
+      "pass": 7,
+      "total": 7,
+      "run": "python -B tools/p03/independent_p03_qa.py"
+    },
+    "preliminary_test_fix": "Initial offhost unit-test 5/6 due to negative-case test constructing TrainConfig(steps=1,warmup_steps=5) invalid; fixture corrected warmup_steps=0; not model/experiment failure",
+    "preliminary_checker_fix": "Independent checker first invocation failed import root from script path; added sys.path repository root; retest PASS",
+    "windows_qa": "NOT_EXECUTED"
+  },
+  "synthetic_overfit": {
+    "train_examples": 2,
+    "sequence_length": 6,
+    "unique_input_token_ids": 6,
+    "peak_lr": 0.003,
+    "warmup_steps": 5,
+    "steps": 90,
+    "optimizer": "AdamW",
+    "accumulation_steps": 2,
+    "grad_clip_max_norm": 1,
+    "initial_loss": 7.674461841583252,
+    "final_loss": 0.01513530034571886,
+    "input_token_ids_include_high_bpe_id": 2047,
+    "model": "P02_GPT_BPE2048_CPU",
+    "dataset": "SYNTHETIC_EXPLICIT_TOKEN_IDS_ONLY",
+    "checkpoint": "NOT_SAVED"
+  },
+  "authorization": {
+    "F1_WP30": "BPE_E0_ONLY_NOT_AUTHORIZED_FOR_P03_GPT_TRAINING",
+    "TEST": "NOT_ACCESSED",
+    "P04": "NOT_EXECUTED",
+    "P01_E0": "DO_NOT_RERUN"
+  },
+  "lineage_md": "UNCHANGED_ENGINEERING_QA_NOT_FORMAL_SCIENTIFIC_RESULT",
+  "next": "P03_WINDOWS_CPU_EXACT_SOURCE_INTEGRATED_AND_INDEPENDENT_QA"
+}
