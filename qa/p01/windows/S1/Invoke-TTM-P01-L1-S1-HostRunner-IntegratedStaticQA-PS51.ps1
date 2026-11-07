@@ -44,7 +44,8 @@ function DenyReparse([string]$p){
 }
 function SCM{
  $svc=Get-CimInstance Win32_Service -Filter "Name='TTMP01Broker'"
- if($null -eq $svc -or $svc.State -ne 'Stopped' -or [int]$svc.ProcessId -ne 0){StopGate 'SCM'}
+ if($null -eq $svc -or $svc.State -ne 'Stopped' -or [int]$svc.ProcessId -ne 0 -or
+    $svc.StartMode -ne 'Manual' -or $svc.StartName -ine 'NT AUTHORITY\LocalService'){StopGate 'SCM'}
  return [ordered]@{state=$svc.State;pid=[int]$svc.ProcessId;image=$svc.PathName;account=$svc.StartName}
 }
 function Fetch($p,$blob,$sha){
@@ -119,7 +120,7 @@ try{
  if(($report.scm_before|ConvertTo-Json -Compress) -cne
     ($report.scm_after|ConvertTo-Json -Compress)){StopGate 'SCM_CHANGED'}
  if(Test-Path $marker){StopGate 'NATIVE_MARKER_CHANGED'}
- $report.verdict='PASS_WINDOWS_INTEGRATED_STATIC_NO_NATIVE'
+ $report.verdict='LOCAL_STATIC_PASS_PENDING_GITHUB_READBACK'
  $pass=$true
 }catch{
  $report.errors+=@($_.Exception.Message)
