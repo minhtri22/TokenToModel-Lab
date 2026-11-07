@@ -144,7 +144,6 @@ function Compile([string]$label,[string[]]$args){
  $info=[ordered]@{target=$label;exit_code=$r.code;
    output_sha256=(HashData ([Text.Encoding]::UTF8.GetBytes($r.output)));
    output_preview=$r.output.Substring(0,[Math]::Min($r.output.Length,12000))}
- if($r.code -ne 0){Fail ('COMPILER_'+$label+'_FAILED')}
  return $info
 }
 # No active permit is supplied or issued in the present design step.
@@ -196,13 +195,17 @@ try{
  $s1exe=Join-Path $build 'TTMS1IsolatedCancellationHarness.exe'
  $hostexe=Join-Path $build 'TTMS1JobWatchdogHostV1.exe'
  if((Test-Path $s1exe) -or (Test-Path $hostexe)){Fail 'BUILD_OUTPUT_NOT_PRISTINE'}
- $receipt.compile+=@(Compile 'S1' @('/nologo','/target:exe','/platform:x64','/langversion:5',
+ $c1=Compile 'S1' @('/nologo','/target:exe','/platform:x64','/langversion:5',
    ('/out:'+$s1exe),'/reference:System.Core.dll','/reference:System.Security.dll',
-   (Join-Path $dir $src[0].f)))
+   (Join-Path $dir $src[0].f))
+ $receipt.compile+=@($c1)
+ if($c1['exit_code'] -ne 0){Fail 'COMPILER_S1_FAILED'}
  $s1sha=HashPath $s1exe
- $receipt.compile+=@(Compile 'HOST' @('/nologo','/target:exe','/platform:x64','/langversion:5',
+ $c2=Compile 'HOST' @('/nologo','/target:exe','/platform:x64','/langversion:5',
    ('/out:'+$hostexe),'/reference:System.Core.dll','/reference:System.Runtime.Serialization.dll',
-   (Join-Path $dir $src[1].f),(Join-Path $dir $src[2].f)))
+   (Join-Path $dir $src[1].f),(Join-Path $dir $src[2].f))
+ $receipt.compile+=@($c2)
+ if($c2['exit_code'] -ne 0){Fail 'COMPILER_HOST_FAILED'}
  $hostsha=HashPath $hostexe
  $receipt['s1_sha256']=$s1sha;$receipt['host_sha256']=$hostsha
  $outFile=Join-Path $dir 'host.stdout.txt'
@@ -235,6 +238,7 @@ try{
  }
  $lines=@($text.Replace([string][char]13+[string][char]10,[string][char]10).TrimEnd([char]10).Split([char]10))
  $required=@('TTM_S1_HOST_VERDICT=PASS_ISOLATED_S1_ONLY',
+   'TTM_S1_HOST_EXIT=0',
    'TTM_S1_HOST_JOB_CHECKED=TRUE','TTM_S1_HOST_EXIT_CONFIRMED=TRUE',
    'TTM_S1_HOST_STDOUT_BOUNDED=TRUE','TTM_S1_HOST_STDERR_EMPTY=TRUE')
  foreach($line in $required){if(-not($lines -ccontains $line)){Fail 'HOST_RESULT_INCOMPLETE'}}
@@ -242,7 +246,7 @@ try{
  $receipt.scm_after=ServiceSnapshot
  if(($receipt.scm_before|ConvertTo-Json -Compress) -cne
     ($receipt.scm_after|ConvertTo-Json -Compress)){Fail 'SCM_CHANGED'}
- $receipt.verdict='PASS_ISOLATED_S1_NATIVE_ONLY'
+ $receipt.verdict='LOCAL_S1_PASS_PENDING_GITHUB_READBACK'
  $passed=$true
 }catch{
  if($null -ne $receipt){$receipt.errors+=@($_.Exception.Message)}
@@ -254,6 +258,9 @@ try{
    catch{$receipt.errors+=@('SCM_AFTER_'+$_.Exception.Message);$passed=$false}
   }
   try{
+   if(-not(Test-Path -LiteralPath $dir -PathType Container)){
+    New-Item -ItemType Directory -Path $dir -Force -ErrorAction Stop|Out-Null
+   }
    $receipt['utc']=[DateTime]::UtcNow.ToString('o')
    [IO.File]::WriteAllText($receiptPath,($receipt|ConvertTo-Json -Depth 18),
        (New-Object Text.UTF8Encoding $false))
