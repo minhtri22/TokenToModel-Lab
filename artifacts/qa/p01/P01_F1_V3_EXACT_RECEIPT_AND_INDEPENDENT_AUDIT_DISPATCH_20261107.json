@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.p01.f1_v3_independent_readback_and_qa_dispatch.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "source_dataset_id": "F1-VI-GENERAL-01",
+  "prior_commit": "bf3114babc9282d1151471050a1f7df999210705",
+  "v3_source": {
+    "filename": "artifacts/qa/p01/TTM_P01_F1_VI_GENERAL_WP30_REVIEW_V3_20261107.json",
+    "file_sha256": "9fcdebbd53eb538d8f4a6743d7e2a0c9584b379bee50ce09a6b1b711e9c15db9",
+    "exact_git_blob_sha1": "64b970615be7503a8141d8635699bf5a5a18a3ff",
+    "local_upload_hash_check": "PASS",
+    "github_raw_git_blob_readback": "MATCH_EXACT",
+    "remote_folder_readback": "PASS_30_WP_PAIRS_10_WS_PAIRS_AND_V2_V3_MARKERS",
+    "wikipedia_pinned_sha_verified": 30,
+    "wikisource_original_verified": 10,
+    "H03_groups_candidate": 40,
+    "H03_min_30": "PASS_CANDIDATE",
+    "admitted_for_training": 0,
+    "e0": "NOT_EXECUTED"
+  },
+  "observations": {
+    "wikipedia": "30 items with site-level CC BY-SA 4.0 and page-level exception verification still required",
+    "wikisource": "10 old items with auto PD category, but work/edition/translation rights still require independent confirmation",
+    "manual_attention_wikisource": [
+      "WS001:75_PERCENT_INCOMPLETE_TAG",
+      "WS012:50_PERCENT_INCOMPLETE_TAG",
+      "WS014:WIKISOURCE_TRANSLATION_TAG",
+      "WS009:AUTHOR_OVERRIDE_TAG"
+    ],
+    "no_text_uploaded_to_github": true
+  },
+  "proposed_technical_audit": {
+    "scope": "VERIFY_EXACT_LOCAL_40_BYTE_PAIRS_RECOMPUTE_H03_AND_REPORT_NON_CONTENT_RIGHTS_PII_FLAGS",
+    "powershell_file": "TTM_P01_F1_V3_INDEPENDENT_ADMISSION_AUDIT_PS51_V1.ps1",
+    "powershell_sha256": "12cc51d176080b7bf17aa9eb87fc64b6ef5e561523c51f6714de86f8c0a72ed9",
+    "python_file": "TTM_P01_F1_V3_INDEPENDENT_ADMISSION_AUDIT_V1.py",
+    "python_sha256": "920bf8867e1d9cb45be62b1849b66ab52e033a882db9b0b7d994bf44517ae42f",
+    "offhost_python_selftest": "PASS",
+    "offhost_python_ast": "PASS",
+    "embedded_py_byte_identity": "PASS",
+    "powershell_51_native_parser": "NOT_EXECUTED",
+    "windows_execution": "NOT_EXECUTED",
+    "script_publication": "ATTACHED_TO_CONVERSATION_NOT_COMMITTED",
+    "expected_receipt": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_F1_V3_INDEPENDENT_RIGHTS_PII_AUDIT_20261107.json",
+    "read_only_input_no_network": true,
+    "no_F0_K1_K2_repeat": true,
+    "no_S1_repeat": true,
+    "no_E0": true
+  },
+  "gate": {
+    "F1": "HOLD_INDEPENDENT_PER_PAGE_RIGHTS_PII_CONFIRMATION",
+    "K1": "PASS_SCOPED_WINDOWS_PRESERVED",
+    "K2": "PASS_SCOPED_WINDOWS_PRESERVED",
+    "K3": "HOLD_RIGHTS_PII",
+    "K4": "ROUTE_SELECTED_NOT_QUALIFIED",
+    "K5": "NOT_EXECUTED",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "lineage": "UNCHANGED"
+  },
+  "next_step": "TTM_P01_F1_V3_INDEPENDENT_SOURCE_RIGHTS_PII_ADJUDICATION_THEN_SINGLE_DOCKER_E0_QA"
+}
