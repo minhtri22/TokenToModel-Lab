@@ -1,0 +1,22 @@
+{
+  "schema": "ttm.p02.core_candidate.v1",
+  "status": "IMPLEMENTATION_CANDIDATE_NOT_SCIENTIFIC_LOCK",
+  "purpose": "Transformer Core synthetic CPU correctness only; no P03 training or TEST access",
+  "base_main_commit": "848c8437cc19a5843b5286d93c246fc1762593a4",
+  "P00_reference_path": "reference/phase0/model.py",
+  "P01_e0_merges_sha256": "53aabcb8ac3a3c16c7cbd915b76eb82653a334c98381fad95a05eba0a9353f60",
+  "vocab_size": 2048,
+  "max_seq_len": 64,
+  "n_embd": 64,
+  "n_layer": 2,
+  "n_head": 4,
+  "norm_type": "layernorm",
+  "rmsnorm": "OPTIONAL_VARIANT_NOT_SELECTED_FOR_P03",
+  "seed": 20261107,
+  "device": "cpu",
+  "precision": "fp32",
+  "dataset": "SYNTHETIC_TOKEN_IDS_ONLY",
+  "P02_QA_criteria": ["shape", "finite_gradient", "future_token_isolation", "P00_logit_loss_gradient_parity", "RMSNorm_sanity", "negative_input_rejection"],
+  "P03": "NOT_OPENED",
+  "P04": "NOT_OPENED"
+}

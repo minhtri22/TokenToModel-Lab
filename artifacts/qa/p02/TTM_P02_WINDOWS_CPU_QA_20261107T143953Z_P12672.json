@@ -1,0 +1,39 @@
+{
+    "schema":  "ttm.p02.windows.cpu_integrated_independent_qa.v1",
+    "run_id":  "TTM_P02_WINDOWS_CPU_QA_20261107T143953Z_P12672",
+    "timestamp_utc":  "2026-11-07T14:40:06.9885150Z",
+    "verdict":  "PASS_PENDING_P02_FORMAL_ADJUDICATION",
+    "failure":  null,
+    "original_main_commit":  "848c8437cc19a5843b5286d93c246fc1762593a4",
+    "expected_p02_head":  "08e01e5c9c5749ca7da44989e528b175b32ea96e",
+    "local_repo_head_not_changed":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "github_repository":  "minhtri22/TokenToModel-Lab",
+    "selected_python_path":  "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "python_version":  "Python 3.12.10",
+    "pytorch_version":  "2.11.0",
+    "source_git_blobs":  {
+                             "src/p02/transformer_core.py":  "9762343e06cf800b50574c2871ae1ed58537fb18",
+                             "tests/p02/test_transformer_core.py":  "06a7221cb82b75cbff2e448d2801b61ded7d400e",
+                             "tools/p02/independent_p02_qa.py":  "7f7038da478f23c3f5c260ef332ed70628bd4142",
+                             "configs/p02_transformer_core_bpe2048.json":  "4cc8e81f82cd1482648ced78cd3c5e065dfdf644",
+                             "reference/phase0/model.py":  "fccd8d9f923b75dad04dccf51caa0a696eefb118"
+                         },
+    "unit_tests":  {
+                       "exit_code":  0,
+                       "six_of_six":  true
+                   },
+    "independent_tests":  {
+                              "exit_code":  0,
+                              "four_of_four":  true
+                          },
+    "unittest_log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p02\\TTM_P02_WINDOWS_CPU_QA_20261107T143953Z_P12672.unittest.log",
+    "independent_log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p02\\TTM_P02_WINDOWS_CPU_QA_20261107T143953Z_P12672.independent.log",
+    "unittest_log_sha256":  "c7d499fbd3c50b08d0984e804399ad86a79d7e0528e258f89401764ad7c2729e",
+    "independent_log_sha256":  "7fa84c99768c0d816b31eee3f39e37a5e6433e2eb893d653d1ac2e24fa9e7d0a",
+    "cleanup":  "PASS_EXACT_OWNED_GIT_WORKTREE",
+    "data":  "SYNTHETIC_TOKEN_IDS_ONLY",
+    "p01_e0":  "UNCHANGED_DO_NOT_RERUN",
+    "p03":  "NOT_EXECUTED",
+    "p04":  "NOT_EXECUTED",
+    "main_git_changes":  "NONE_BY_RUNNER"
+}
