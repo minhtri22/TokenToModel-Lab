@@ -1,0 +1,30 @@
+{
+  "schema": "ttm.p07.g0_g1.design_contract_static_lock.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "base_main": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+  "old_design_head": "a1a5fde085bacce834656c0d5140e1cb5b433b51",
+  "backend_selection": "PENDING_WINDOWS_RUNTIME_EVIDENCE",
+  "gpu_kernel_implemented": false,
+  "gpu_kernel_executed": false,
+  "windows_gpu_probe_executed": false,
+  "exact_technical_contract_git_blob": "7025bd6d727728acf63c7d1557288b8f69ab1813",
+  "downloadable_readonly_probe_sha256": "31d3196398950fe25671eeb7cf3d72d8dd83043ce2def51c93cb53a8f143600e",
+  "source_oracle_git_blobs": {
+    "p06": "4d52188adaf55674b6965513ea1beb38ec9a8e9b",
+    "p05": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+    "p02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p00paged": "ead322ff7559686cd8989264506cee6dd54c7441"
+  },
+  "local_main_sync": false,
+  "installed_driver_verified": false,
+  "installed_sycl_compiler_verified": false,
+  "installed_torch_xpu_verified": false,
+  "lineage_md": "UNCHANGED",
+  "p01_test": "NOT_READ",
+  "p01_e0": "NOT_RERUN",
+  "p07": "DESIGN_CONTRACT_ONLY",
+  "p08": "NOT_OPENED",
+  "remote_command_capability": "MANAGED_TASK_ONLY_DIRECT_READ_COMMAND_BLOCKED",
+  "next": "TTM_P07_G0_WINDOWS_READONLY_RECEIPT_REVIEW_AND_BACKEND_DISPOSITION"
+}
