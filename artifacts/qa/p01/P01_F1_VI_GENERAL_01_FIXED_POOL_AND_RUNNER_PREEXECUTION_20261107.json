@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.p01.f1_vi_general_01_fast_snapshot_preflight.v1",
+  "date": "2026-11-07",
+  "base_commit": "d8ac88b06035e27cfc8a2aa18e6bc87a1fd3b249",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-f1-vi-general-source-snapshot-fast-20261107",
+  "operation": "TTM_P01_F1_VI_GENERAL_01_SOURCE_SNAPSHOT_AND_ADMISSION",
+  "candidate_url_pool_sha256": "d4f3210c229f2c1d9808bd615ec8b605a86f3312880b7e422b80f1c3f7e732bd",
+  "candidate_pool_size": 100,
+  "candidate_hosts": {
+    "vi.wikipedia.org": 70,
+    "vi.wikisource.org": 20,
+    "vbpl.vn": 10
+  },
+  "source_selection": "FIXED_BEFORE_COLLECTION",
+  "script_ps51_sha256": "50ee540eec7a946792fc1c291feb4adb21a8f2ffc7a88b68e2a8c20f38ca2b75",
+  "embedded_python_sha256": "9da5b25f2b8b45a62f1f88d7e6142e4cfa9d9b3b69caa513f16361c0b35bdb5b",
+  "zip_sha256": "5658ced41c2721cd36412997bccdf463b7673c01c1b7f05618e7ba595dc1fa96",
+  "static_preflight": {
+    "embedded_sha_check": "PASS",
+    "python_ast": "PASS",
+    "python_compile": "PASS",
+    "offline_no_science_fixture": "PASS",
+    "powershell_51_native_parser": "NOT_RUN",
+    "windows_snapshot": "NOT_EXECUTED"
+  },
+  "sources": {
+    "CQG_J3": "EXCLUDED",
+    "internal_research": "EXCLUDED",
+    "real_corpus_bytes_downloaded_by_author": "0"
+  },
+  "policy": {
+    "f0_rerun": false,
+    "k1_k2_rerun": false,
+    "s1_rerun": false,
+    "source_target_all_candidates": 100,
+    "min_groups_after_dedup": 30,
+    "max_source_plus_derived_bytes": 67108864,
+    "raw_text_to_github": false,
+    "source_public_redistribution": false,
+    "license_and_pii_review": "MANDATORY_BEFORE_ALLOW",
+    "selected_E0_route": "LINUX_DOCKER_CPU_QUARANTINE_FIRST_NOT_QUALIFIED"
+  },
+  "snapshot": "NOT_YET_MATERIALIZED",
+  "f1_admission": "HOLD_PENDING_ACTUAL_SNAPSHOT_AND_RIGHTS_PII",
+  "e0": "NOT_EXECUTED",
+  "p01": "OPEN",
+  "p02": "NOT_OPENED",
+  "next": "RUN_EXACT_ONE_WINDOWS_SNAPSHOT_RECEIPT_THEN_INDEPENDENT_ADMISSION_AND_SINGLE_DOCKER_INTEGRATED_QA"
+}
