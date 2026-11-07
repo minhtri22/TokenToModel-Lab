@@ -10,9 +10,9 @@ Giữ 10 Wikisource và CQG-J3 ngoài E0. Không sửa kết quả cũ hoặc h�
 
 ## Triển khai và kiểm tra tĩnh đã hoàn thành
 
-Bộ chạy đính kèm hội thoại `TTM_P01_F1_WP30_E0_DOCKER_INTEGRATED_BUNDLE_20261107.zip` SHA `ea4a03e1f0f4cb1331f55d608c53073e3fce7f6d36725393934af3a44b04d5d3`.
+Bộ chạy đính kèm hội thoại `TTM_P01_F1_WP30_E0_DOCKER_INTEGRATED_BUNDLE_20261107.zip` SHA `9263487c4efaa475016deaec016b75c886434b99d0586d41368e3caf470f3723`.
 
-- Một PowerShell: `TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1`, SHA `fe0dda35644aba67c276b15aa9849a0c98f3ee08ac3ee92fee38b057bd305b5e`.
+- Một PowerShell: `TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1`, SHA `ae5c875f2b8aaa3b493b0bfdcdd24c862f9a3913df2e41cceaff233d11fc2072`.
 - Engine Python SHA `2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d`; independent checker SHA `ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1`.
 - Preflight chặn nếu sai Git origin, sai SHA biên bản/corpus, thiếu 30 nhóm H03, thiếu quyền ghi công, có cờ PII chưa xử lý, RAM trống dưới 8 GiB, D: trống dưới 16 GiB hoặc Docker Linux image không sẵn. Image Python có thể tải trước marker bằng tùy chọn rõ ràng.
 - Chia bằng H03 seed `20261105`: 24 TRAIN / 3 VALIDATION / 3 TEST. Stage chỉ copy TRAIN cho hai container; TEST **không** được mount vào Docker hoặc dùng để chọn BPE.
@@ -25,3 +25,6 @@ Bộ chạy đính kèm hội thoại `TTM_P01_F1_WP30_E0_DOCKER_INTEGRATED_BUND
 Khi user chạy E0 một lần, đọc receipt `evidence/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107.json` và `experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107/independent_qa.json`. Chỉ sau khi **E0 PASS + independent QA và phán quyết đóng P01** mới mở P02 core Transformer, tiếp đó P03 loop training và P04 checkpoints/held-out evaluation. Với máy 32 GB/Arc 140V, P02 và micro-batch P03 CPU chạy local; dài hơn dùng Colab có pin môi trường, giữ dữ liệu riêng và checkpoint; không thay đổi tiêu chí thực nghiệm.
 
 `F1_WP30_INTERNAL=SCOPED_ALLOW` · `E0=NOT_EXECUTED` · `P01=OPEN` · `P02/P03/P04=NOT_OPENED` · `lineage.md=UNCHANGED`.
+
+
+**Bổ sung QA trước marker:** chạy container Python chỉ để xác minh Docker Linux, giới hạn RAM/CPU/PID, read-only, network=none và bind mount; không truy cập F1 hoặc sinh dữ liệu khoa học.

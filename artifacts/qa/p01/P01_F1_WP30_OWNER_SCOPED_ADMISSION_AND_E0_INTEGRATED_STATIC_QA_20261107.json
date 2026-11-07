@@ -344,16 +344,17 @@
   },
   "implementation": {
     "launcher_filename": "TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1",
-    "launcher_sha256": "fe0dda35644aba67c276b15aa9849a0c98f3ee08ac3ee92fee38b057bd305b5e",
+    "launcher_sha256": "ae5c875f2b8aaa3b493b0bfdcdd24c862f9a3913df2e41cceaff233d11fc2072",
     "engine_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
     "independent_qa_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1",
-    "bundle_sha256": "ea4a03e1f0f4cb1331f55d608c53073e3fce7f6d36725393934af3a44b04d5d3",
+    "bundle_sha256": "9263487c4efaa475016deaec016b75c886434b99d0586d41368e3caf470f3723",
     "source_code_distribution": "CONVERSATION_BUNDLE_ONLY; GITHUB_RECEIPT_PINS_NOT_CODE_UPLOAD",
     "static_qa": "PASS_8_INTEGRATION_AND_NEGATIVE_FIXTURES_PLUS_PAYLOAD_BYTE_PINS",
     "independent_encoder_differential": "PASS_30_BATCHES",
     "PS51_native_parse": "NOT_EXECUTED",
     "Windows_docker_training": "NOT_EXECUTED",
-    "host_cleanup_logic": "EXACT_TWO_OWNED_TEMP_PATHS_EXPLICIT_GUARD_NO_ARRAY_FLATTENING"
+    "host_cleanup_logic": "EXACT_TWO_OWNED_TEMP_PATHS_EXPLICIT_GUARD_NO_ARRAY_FLATTENING",
+    "docker_resource_capability_probe": "NO_SCIENCE_PRE_MARKER_SAME_FLAGS_WITH_READONLY_BIND"
   },
   "formal_phase_gates": {
     "K1_K2": "PREVIOUS_PASS_PRESERVED",
