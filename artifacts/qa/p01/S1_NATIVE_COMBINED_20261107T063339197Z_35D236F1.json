@@ -1,0 +1,60 @@
+{
+    "schema":  "ttm.p01.l1.s1.native_combined_once_receipt.v1",
+    "run_id":  "S1_NATIVE_COMBINED_20261107T063339197Z_35D236F1",
+    "source_ref":  "e1ff28ca2808164dfbd51a902492a0218c345c54",
+    "permit_ref":  "f64e7ed871fd87eef0cdc644a1663061b181567a",
+    "permit_sha256":  "02c472fe9bf27b9fd51849fa48cd4c5a49f22b2d7750b679259f4dcdda9931ae",
+    "frozen_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "scm_before":  {
+                       "name":  "TTMP01Broker",
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "start":  "Manual",
+                       "account":  "NT AUTHORITY\\LocalService",
+                       "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                   },
+    "scm_after":  {
+                      "name":  "TTMP01Broker",
+                      "state":  "Stopped",
+                      "pid":  0,
+                      "start":  "Manual",
+                      "account":  "NT AUTHORITY\\LocalService",
+                      "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                  },
+    "marker_sha256":  "0673bc2f2a374905b28de83b02324fa12afba80152dcdcda8a37de19b7b02eb2",
+    "sources":  [
+                    {
+                        "name":  "HARNESS",
+                        "blob":  "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+                        "sha256":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9"
+                    },
+                    {
+                        "name":  "WATCHDOG",
+                        "blob":  "5763ca10025bb928f161a0f33fa493d436107375",
+                        "sha256":  "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3"
+                    },
+                    {
+                        "name":  "HOST",
+                        "blob":  "7eedfab02ab995507e36a9beee25772393dc70ab",
+                        "sha256":  "986b622a4318459c68f666911b19f964ba0c129799139d5151a371bc4c8414b8"
+                    }
+                ],
+    "compile":  [
+                    {
+                        "target":  "S1",
+                        "exit_code":  1,
+                        "output_sha256":  "83669ef7c1bd1a33b3cdaedd2d2d8f9f91b4742fcdc9b40bb82ee9b5cabdd7bb",
+                        "output_preview":  "Microsoft (R) Visual C# Compiler version 14.8.10001.0\r\n\r\nfor C# 5\r\nCopyright (C) Microsoft Corporation. All rights reserved.\r\n\r\n\r\n\r\nThis compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240\r\n\r\nwarning CS2008: No source files specified\r\nerror CS1562: Outputs without source must have the /out option specified"
+                    }
+                ],
+    "host":  null,
+    "errors":  [
+                   "TTM_S1_COMBINED_BLOCK_COMPILER_S1_FAILED"
+               ],
+    "verdict":  "BLOCK",
+    "science_execution":  "NOT_EXECUTED",
+    "SCM_action":  "NONE",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "utc":  "2026-11-07T06:33:39.9065854Z"
+}
