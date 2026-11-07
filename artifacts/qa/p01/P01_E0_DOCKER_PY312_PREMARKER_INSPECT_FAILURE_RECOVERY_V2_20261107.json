@@ -1,0 +1,65 @@
+{
+  "schema": "ttm.p01.e0_pre_marker_docker_inspect_py312_recovery.v2",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "predecessor_commit": "b05a06ff269e8954437539352fb72f25b8bdc23a",
+  "observed_user_console": {
+    "preflight": "TTM_P01_E0_OFFLINE_FIXTURE_SELFTEST=PASS",
+    "source": "PREFLIGHT_PASS_SCOPED_F1",
+    "groups": 30,
+    "split": {
+      "TRAIN": 24,
+      "VALIDATION": 3,
+      "TEST": 3
+    },
+    "error": "Docker daemon: No such image: python:3.13-slim",
+    "exception": "Windows PowerShell 5.1 NativeCommandError at Check-DockerImage after expected-not-found stderr",
+    "marker": "NOT_CREATED_PREEXECUTION",
+    "E0": "NOT_EXECUTED",
+    "cleanup": "COMPLETE_SCOPED"
+  },
+  "independent_remote_directory_readback": {
+    "evidence/p01 E0 entries": 0,
+    "experiments/p01 directory": "ABSENT",
+    "temp E0 entries": 0
+  },
+  "root_cause": {
+    "python_Docker_image": "python:3.13-slim not present local and inspect expected-not-found writes STDERR",
+    "powershell_51": "ErrorActionPreference Stop treats STDERR from native tools as errors",
+    "incomplete_fix_in_V1": "AllowImagePull branch unreachable because inspect exception",
+    "additional_same_pattern": "docker container inspect expected absent probe and worker names",
+    "host_python": "Miniforge path is NOT proof Python 3.12; must check actual runtime"
+  },
+  "successor": {
+    "script": "TTM_P01_F1_WP30_BPE_E0_DOCKER_PY312_ARGV_RECOVERY_V2_PS51_20261107.ps1",
+    "script_sha256": "6070e42420b16a599c5a304b8b4e157b8b5c28396acdb278966a63161439f74a",
+    "bundle_zip_sha256": "588f5fb8eb0cd4c00561e4df32d8cf17255c923d446f015ffdfaaf939252ee58",
+    "embedded_engine_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
+    "independent_checker_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1",
+    "payload_byte_identity": "PASS_EXACT_V1",
+    "image_tag": "python:3.12-slim",
+    "host_python_default": "C:\\Users\\minht\\miniforge3\\python.exe",
+    "host_python_requirement": "PYTHON 3.12 verified before marker; -HostPythonPath for existing alternative Python 3.12",
+    "docker_read_probes": "CAPPED .NET ProcessStartInfo used instead of native stderr",
+    "docker_pull": "Bounded pre-marker Start-Process, 300s timeout, output in owned tmp",
+    "docker_capability": "Pre-marker limited offline Docker Python3.12 probe, captured outputs",
+    "original_marker_name_preserved": "TTM_P01_F1_WP30_E0_DOCKER_20261107.once",
+    "original_result_path_preserved": true,
+    "F1_sources_and_BPE_design_unchanged": true,
+    "test_result": "PASS_8_SYNTHETIC_OFFHOST",
+    "python_AST_312_grammar": "PASS_BOTH_EMBEDDED",
+    "PS51_native_parser": "NOT_EXECUTED",
+    "Windows_Docker_E0": "NOT_EXECUTED",
+    "code_distribution": "ATTACHED_SCRIPT_NOT_COMMITTED_TO_GITHUB"
+  },
+  "unchanged": {
+    "sources": "WP30_SCOPED_ALLOW",
+    "K1_K2": "PASS_PRESERVED",
+    "S1": "HISTORICAL_FAIL_PRESERVED",
+    "lineage_md": "UNCHANGED",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02_P03_P04": "NOT_OPENED"
+  },
+  "next": "USER_VERIFY_HOST_PYTHON_312_AND_PS51_PARSER_THEN_ONE_ORIGINAL_E0_SHOT_THROUGH_REPAIRED_RUNNER"
+}
