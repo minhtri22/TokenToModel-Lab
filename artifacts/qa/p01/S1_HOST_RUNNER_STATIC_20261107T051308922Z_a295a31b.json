@@ -1,0 +1,62 @@
+{
+    "schema":  "ttm.p01.l1.s1.host_runner_windows_integrated_static.v1",
+    "run_id":  "S1_HOST_RUNNER_STATIC_20261107T051308922Z_a295a31b",
+    "source_commit":  "8e2a2033187d22e8c44c7493e8853dafe974715f",
+    "inputs":  [
+                   {
+                       "key":  "HOST",
+                       "sha":  "986b622a4318459c68f666911b19f964ba0c129799139d5151a371bc4c8414b8",
+                       "blob":  "7eedfab02ab995507e36a9beee25772393dc70ab"
+                   },
+                   {
+                       "key":  "RUNNER",
+                       "sha":  "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505",
+                       "blob":  "611ac1506176c53fc6b51de7ea54d228a161bb98"
+                   },
+                   {
+                       "key":  "ENGINE",
+                       "sha":  "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3",
+                       "blob":  "5763ca10025bb928f161a0f33fa493d436107375"
+                   },
+                   {
+                       "key":  "QA",
+                       "sha":  "5f1ff0d53d79b2211faa39614733d2c5c129e6d4aefacc880e9a03db98c8e49a",
+                       "blob":  "46f240f23d6644ef3b81a1971d4253bb64087ecf"
+                   }
+               ],
+    "scm_before":  {
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                       "account":  "NT AUTHORITY\\LocalService"
+                   },
+    "scm_after":  {
+                      "state":  "Stopped",
+                      "pid":  0,
+                      "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                      "account":  "NT AUTHORITY\\LocalService"
+                  },
+    "ps51_parser":  "PASS",
+    "python":  {
+                   "exit":  3,
+                   "sha256":  "f866f2b960f1899a6bd0494270c016565e94c11d88449ab661fb948fed4deffb",
+                   "output":  "{\r\n  \"SCM_action\": \"NONE\",\r\n  \"checker_errors\": {},\r\n  \"hashes\": {\r\n    \"engine\": \"f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3\",\r\n    \"host\": \"986b622a4318459c68f666911b19f964ba0c129799139d5151a371bc4c8414b8\",\r\n    \"runner\": \"463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505\"\r\n  },\r\n  \"hashes_pinned\": true,\r\n  \"native_S1\": \"NOT_EXECUTED\",\r\n  \"native_compilation\": \"NOT_EXECUTED\",\r\n  \"negative_failed\": [],\r\n  \"negative_failed_predicates\": {\r\n    \"engine_no_job\": [\r\n      \"runner_host_exit0\",\r\n      \"engine_job_list_creation\"\r\n    ],\r\n    \"engine_no_output_cap\": [\r\n      \"runner_host_exit0\",\r\n      \"engine_pipe_capture\"\r\n    ],\r\n    \"engine_remove_timeout\": [\r\n      \"runner_host_exit0\",\r\n      \"engine_timeout\"\r\n    ],\r\n    \"host_forged_decision\": [\r\n      \"host_authorized_decision\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_ignore_child_exit\": [\r\n      \"host_result_exit0\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_marker_bypass\": [\r\n      \"host_marker_hash\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_marker_replay\": [\r\n      \"host_marker_run_id\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_permit_bypass\": [\r\n      \"host_permit_hash\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_spawn_api\": [\r\n      \"host_no_direct_spawn\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"host_unbounded_runs\": [\r\n      \"host_permit_once\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_compile_before_marker\": [\r\n      \"runner_marker_before_compiler\",\r\n      \"runner_exact_two_compiles\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_default_execute\": [\r\n      \"runner_default_preflight\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_delete_marker\": [\r\n      \"runner_host_exit0\",\r\n      \"runner_no_cleanup\"\r\n    ],\r\n    \"runner_early_pass\": [\r\n      \"runner_host_exit0\",\r\n      \"runner_no_early_PASS\"\r\n    ],\r\n    \"runner_fake_permit\": [\r\n      \"runner_authorized_decision\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_no_marker_atomic\": [\r\n      \"runner_create_new_once\",\r\n      \"runner_marker_before_compiler\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_remove_timeout\": [\r\n      \"runner_host_outer_timeout\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_scm_start\": [\r\n      \"runner_host_exit0\",\r\n      \"runner_no_scm_mutation\"\r\n    ],\r\n    \"runner_second_host\": [\r\n      \"runner_single_host_start\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_skip_markers\": [\r\n      \"runner_no_replay\",\r\n      \"runner_host_exit0\"\r\n    ],\r\n    \"runner_skip_readback\": [\r\n      \"runner_host_exit0\",\r\n      \"runner_github_readback\"\r\n    ],\r\n    \"runner_skip_stdout_sha\": [\r\n      \"runner_host_exit0\",\r\n      \"runner_child_hash_checked_independently\"\r\n    ]\r\n  },\r\n  \"negative_rejected\": 22,\r\n  \"negative_total\": 22,\r\n  \"positive_failed\": [\r\n    \"runner_host_exit0\"\r\n  ],\r\n  \"positive_passed\": 65,\r\n  \"positive_total\": 66,\r\n  \"schema\": \"ttm.p01.l1.s1.host_runner_integrated_source_QA.v1\",\r\n  \"verdict\": \"FAIL_SOURCE_ONLY\"\r\n}",
+                   "verdict":  "FAIL_SOURCE_ONLY",
+                   "positives":  65,
+                   "negatives":  22,
+                   "positive_failed":  [
+                                           "runner_host_exit0"
+                                       ],
+                   "negative_failed":  [
+
+                                       ]
+               },
+    "errors":  [
+                   "BLOCK_PYTHON_STATIC_QA"
+               ],
+    "verdict":  "BLOCK",
+    "native_compilation":  "NOT_EXECUTED",
+    "S1_native":  "NOT_EXECUTED",
+    "SCM_action":  "NONE",
+    "utc":  "2026-11-07T05:13:12.2933860Z"
+}
