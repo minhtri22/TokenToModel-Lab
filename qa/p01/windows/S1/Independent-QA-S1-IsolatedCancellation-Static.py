@@ -147,11 +147,15 @@ def inspect(source: str) -> dict[str, bool]:
           c.index("end(pending)") if "end(pending)" in c else False)
     check("timeout_blocks", "BLOCK_CANCEL_COMPLETION_TIMEOUT" in c)
     check("normal_completion_blocks", "BLOCK_END_COMPLETED_NORMALLY" in c)
-    check("uncompleted_not_disposed", "pending == null || pending.IsCompleted" in c and
+    check("uncompleted_not_disposed", c.count("pending == null || pending.IsCompleted") == 2 and
+          "if (server != null && (pending == null || pending.IsCompleted))" in c and
           "read == null || read.IsCompleted" in c and
           "accept == null || accept.IsCompleted" in c)
     check("both_cases_mandatory", "if (!idle.Passed)" in c and
           "(silent.Passed ? 0 : 3)" in c)
+    check("both_cases_actually_invoked",
+          c.count("Outcome idle = IdleAccept();") == 1 and
+          c.count("Outcome silent = SilentClientRead();") == 1)
     check("no_side_effect_api", not re.search(
         r"\b(?:File\.(?:Write|Append|Delete|Move)|Directory\.(?:Create|Delete)|"
         r"Process\.Start|Registry|ServiceController|ServiceBase|LogonUser|"
