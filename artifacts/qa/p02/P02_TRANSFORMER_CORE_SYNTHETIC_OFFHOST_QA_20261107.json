@@ -1,0 +1,71 @@
+{
+  "schema": "ttm.p02.transformer_core.offhost_synthetic_qa.v1",
+  "date": "2026-11-07",
+  "classification": "ENGINEERING_OFFHOST_SYNTHETIC_QA_NOT_P02_WINDOWS_ADJUDICATION_NOT_P03_TRAINING",
+  "source_base_main": "848c8437cc19a5843b5286d93c246fc1762593a4",
+  "source_files": {
+    "src/p02/transformer_core.py": {
+      "sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+      "git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18"
+    },
+    "tests/p02/test_transformer_core.py": {
+      "sha256": "e3a20b6c805ae7a2f86cf357e95c9c80b9852875be4f97e3db4da4852989ddad",
+      "git_blob": "06a7221cb82b75cbff2e448d2801b61ded7d400e"
+    },
+    "configs/p02_transformer_core_bpe2048.json": {
+      "sha256": "2b66414313791778a2bbc81ae29522ffda5899173fc69061372219ad49329938",
+      "git_blob": "4cc8e81f82cd1482648ced78cd3c5e065dfdf644"
+    },
+    "reference/phase0/model.py": {
+      "sha256": "821e60a6c97536bf3a251602b31dcc6b55f1c81836cffa5223ec2f063ae578ea",
+      "git_blob": "fccd8d9f923b75dad04dccf51caa0a696eefb118"
+    }
+  },
+  "config": {
+    "phase": "P02",
+    "status": "IMPLEMENTATION_CANDIDATE",
+    "bound_p01_e0_merges_sha256": "53aabcb8ac3a3c16c7cbd915b76eb82653a334c98381fad95a05eba0a9353f60",
+    "vocab_size": 2048,
+    "max_seq_len": 64,
+    "n_embd": 64,
+    "n_layer": 2,
+    "n_head": 4,
+    "selected_normalization": "layernorm",
+    "optional_experimental_variant": "rmsnorm",
+    "unique_trainable_parameters": 235264,
+    "P00_state_dict_compatibility": "EXACT_KEY_SHAPE_COMPATIBILITY_WHEN_P00_INSTANTIATED_WITH_IDENTICAL_CONFIG",
+    "historical_P00_256_checkpoint": "INCOMPATIBLE_VOCAB_NO_DIRECT_RESTORE"
+  },
+  "offhost": {
+    "python": "3.13.5",
+    "pytorch": "2.10.0+cpu",
+    "device": "cpu",
+    "dataset": "SYNTHETIC_TOKEN_IDS_ONLY",
+    "test_command": "PYTHONDONTWRITEBYTECODE=1 python -B -m unittest discover -s tests/p02 -p 'test_*.py' -v",
+    "test_count": 6,
+    "pass_count": 6,
+    "fail_count": 0,
+    "tests": [
+      "bpe2048_shape_and_tied_head",
+      "exact_reference_p00_layernorm_parity_logits_loss_gradients",
+      "finite_gradients_with_high_bpe_token_ids",
+      "future_token_cannot_change_prefix_logits",
+      "invalid_inputs_and_configs_fail_closed",
+      "rmsnorm_mode_finite_shape_and_backward"
+    ],
+    "P00_model_py_exact_blob_matched": true,
+    "external_paged_kv_used_for_dense_path": false,
+    "independent_third_party_review": false,
+    "Windows_11_native_QA": "NOT_EXECUTED"
+  },
+  "phase_status": {
+    "P01": "CLOSED_SCOPED_MERGED_PR5",
+    "P02": "OPEN_IMPLEMENTATION_CANDIDATE",
+    "P03": "NOT_OPENED",
+    "P04": "NOT_OPENED"
+  },
+  "source_license_scope": "P01_F1_WP30_IS_E0_ONLY; P02_SYNTHETIC_TESTS_DO_NOT_USE_CORPUS; GPT_TRAINING_PERMISSION_NOT_INFERRED",
+  "destructive_operations": "NONE",
+  "old_lineage": "UNCHANGED",
+  "next": "P02_WINDOWS_CPU_EXACT_BRANCH_QA_THEN_INDEPENDENT_REVIEW_MERGE_DECISION"
+}
