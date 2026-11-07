@@ -226,7 +226,7 @@ try{
   if((HashPath $dest) -cne $sources[$f.k].sha){Fail 'LOCAL_SOURCE_MISMATCH'}
   $receipt.sources+=@([ordered]@{name=$f.k;blob=$f.blob;sha256=$sources[$f.k].sha})
  }
- $permitFile=Join-Path $dir 'S1_NATIVE_COMBINED_PERMIT.json'
+ $permitFile=Join-Path $dir 'S1_NATIVE_SUCCESSOR_PERMIT.json'
  [IO.File]::WriteAllBytes($permitFile,$permit.data)
  if((HashPath $permitFile) -cne $PermitSha256){Fail 'LOCAL_PERMIT_MISMATCH'}
  $s1exe=Join-Path $build 'TTMS1IsolatedCancellationHarness.exe'
