@@ -1,0 +1,31 @@
+--- a/qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-CombinedNativeOnce-PS51.ps1
++++ b/qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-CombinedNativeOnce-PS51.ps1
+@@ -156,7 +156,21 @@
+-function Compile([string]$label,[string[]]$args){
+- $r=Cmd $csc $args
+- $info=[ordered]@{target=$label;exit_code=$r.code;
+-   output_sha256=(HashData ([Text.Encoding]::UTF8.GetBytes($r.output)));
+-   output_preview=$r.output.Substring(0,[Math]::Min($r.output.Length,12000))}
+- return $info
+-}
++function Compile([string]$label,[string[]]$compilerArgv){
++ # Avoid the PowerShell automatic variable $args.
++ if($null -eq $compilerArgv -or $compilerArgv.Count -lt 8){Fail 'COMPILER_ARGV_TOO_SHORT'}
++ $sourceItems=@($compilerArgv | Where-Object { $_ -match '(?i)\.cs$' })
++ $outItems=@($compilerArgv | Where-Object { $_ -match '^/out:.+' })
++ $wanted=if($label -ceq 'S1'){1}elseif($label -ceq 'HOST'){2}else{
++  Fail 'COMPILER_TARGET_UNEXPECTED'
++ }
++ if($sourceItems.Count -ne $wanted -or $outItems.Count -ne 1){
++  Fail 'COMPILER_ARGV_NO_SOURCE_OR_OUT'
++ }
++ foreach($item in $sourceItems){
++  if(-not(Test-Path -LiteralPath $item -PathType Leaf)){Fail 'COMPILER_SOURCE_NOT_FOUND'}
++ }
++ $r=Cmd $csc $compilerArgv
++ $info=[ordered]@{target=$label;exit_code=$r.code;
++   argv_count=$compilerArgv.Count;source_count=$sourceItems.Count;
++   output_sha256=(HashData ([Text.Encoding]::UTF8.GetBytes($r.output)));
++   output_preview=$r.output.Substring(0,[Math]::Min($r.output.Length,12000))}
++ return $info
++}
