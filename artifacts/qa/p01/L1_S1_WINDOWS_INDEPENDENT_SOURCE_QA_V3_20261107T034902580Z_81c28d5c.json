@@ -1,0 +1,190 @@
+{
+    "schema":  "ttm.p01.l1.s1.windows_independent_source_static_qa.v3",
+    "run_id":  "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c",
+    "source_commit":  "3add36f538c6fe39658ea72d91034b8c8a5f666a",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "mode":  "SOURCE_ONLY_NO_NATIVE",
+    "checks":  {
+                   "PROJECT_BOUNDARY":  {
+                                            "status":  "PASS_EXACT",
+                                            "detail":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab"
+                                        },
+                   "FROZEN_ORIGINAL":  {
+                                           "status":  "PASS_EXACT",
+                                           "detail":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0"
+                                       },
+                   "SCM_READONLY":  {
+                                        "status":  "PASS_STOPPED_PID0",
+                                        "detail":  "Manual LocalService V2 image"
+                                    },
+                   "PYTHON_X64":  {
+                                      "status":  "PASS",
+                                      "detail":  "3|13|64"
+                                  },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "GitHub CLI authenticated"
+                                   },
+                   "V1_FAILED_RECEIPT_AND_MARKER":  {
+                                                        "status":  "PASS_EXACT_FAIL_PRESERVED",
+                                                        "detail":  "53fdf29600117f39eb5fd3c68a6d6276eaaa73b0238859fd6a79725260b95b41"
+                                                    },
+                   "V2_FAILED_RECEIPT_AND_MARKER":  {
+                                                        "status":  "PASS_EXACT_FAIL_PRESERVED",
+                                                        "detail":  "fa955c9ebc23de8daddbd44e9af90171e53a65075aa8e7e3cf6dd17945ed5bad"
+                                                    },
+                   "SOURCE_HARNESS":  {
+                                          "status":  "PASS_EXACT_GIT_BLOB_SHA256",
+                                          "detail":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9"
+                                      },
+                   "SOURCE_INDEPENDENT_QA":  {
+                                                 "status":  "PASS_EXACT_GIT_BLOB_SHA256",
+                                                 "detail":  "488bf941a872391ac55d6c3ce2fb5684846f756e4d87899844513bb5157850a2"
+                                             },
+                   "ONE_SHOT_QA_MARKER":  {
+                                              "status":  "PASS_CREATED",
+                                              "detail":  "No replay, no cleanup"
+                                          },
+                   "SCM_AFTER":  {
+                                     "status":  "PASS_STOPPED_PID0",
+                                     "detail":  "Read-only including checker failure"
+                                 }
+               },
+    "source_files":  [
+                         {
+                             "name":  "HARNESS",
+                             "git_blob":  "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+                             "sha256":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c\\TTMS1IsolatedCancellationHarness.cs"
+                         },
+                         {
+                             "name":  "INDEPENDENT_QA",
+                             "git_blob":  "8b65cb027b8ec7f7950036ca7cc6cc45eed3e603",
+                             "sha256":  "488bf941a872391ac55d6c3ce2fb5684846f756e4d87899844513bb5157850a2",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c\\Independent-QA-S1-IsolatedCancellation-Static-V3.py"
+                         }
+                     ],
+    "python_checker":  {
+                           "exit_code":  0,
+                           "stdout_sha256":  "36ff3a77b81201015f2d41c4ec3d5b10fdfeb8cafb2a154a074ec3e931f1d585",
+                           "stdout_preview":  "{\r\n  \"SCM_action\": \"NONE\",\r\n  \"native_csharp_compile\": \"NOT_EXECUTED\",\r\n  \"native_harness_run\": \"NOT_EXECUTED\",\r\n  \"negative_fail_checks\": {\r\n    \"accept_normal_completion\": [\r\n      \"normal_completion_blocks\"\r\n    ],\r\n    \"allow_args\": [\r\n      \"no_runtime_arguments\"\r\n    ],\r\n    \"dispose_before_complete\": [\r\n      \"uncompleted_not_disposed\"\r\n    ],\r\n    \"drop_current_sid\": [\r\n      \"current_user_only\"\r\n    ],\r\n    \"drop_guid\": [\r\n      \"unique_guid\"\r\n    ],\r\n    \"drop_protected_dacl\": [\r\n      \"protected_dacl\"\r\n    ],\r\n    \"ignore_timeout\": [\r\n      \"timeout_blocks\"\r\n    ],\r\n    \"inject_client_payload\": [\r\n      \"no_client_payload\"\r\n    ],\r\n    \"inject_file_write\": [\r\n      \"no_test_artifact_write\"\r\n    ],\r\n    \"inject_scm_start\": [\r\n      \"no_ps_or_scm\"\r\n    ],\r\n    \"remove_abort_proof\": [\r\n      \"operation_aborted_995\"\r\n    ],\r\n    \"remove_cancel\": [\r\n      \"cancel_invocation_once\"\r\n    ],\r\n    \"remove_completion_bound\": [\r\n      \"completion_bounded_4000\",\r\n      \"end_only_after_wait\",\r\n      \"no_unbounded_wait\"\r\n    ],\r\n    \"skip_silent_case\": [\r\n      \"both_cases_actually_invoked\"\r\n    ],\r\n    \"sync_pipe\": [\r\n      \"async_pipe\"\r\n    ],\r\n    \"use_production_pipe\": [\r\n      \"unique_pipe_prefix\",\r\n      \"no_prod_pipe_name\"\r\n    ]\r\n  },\r\n  \"negative_failed\": [],\r\n  \"negative_inspection_errors\": {},\r\n  \"negative_rejected\": 16,\r\n  \"negative_total\": 16,\r\n  \"positive_failed\": [],\r\n  \"positive_passed\": 41,\r\n  \"positive_total\": 41,\r\n  \"schema\": \"ttm.p01.l1.s1.isolated_cancel_independent_static.v3\",\r\n  \"sha256_pinned\": true,\r\n  \"source_sha256\": \"fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9\",\r\n  \"verdict\": \"PASS_SOURCE_STATIC_NO_NATIVE\"\r\n}",
+                           "parsed_json":  true,
+                           "schema":  "ttm.p01.l1.s1.isolated_cancel_independent_static.v3",
+                           "verdict":  "PASS_SOURCE_STATIC_NO_NATIVE",
+                           "positive_passed":  41,
+                           "positive_total":  41,
+                           "negative_rejected":  16,
+                           "negative_total":  16,
+                           "positive_failed":  [
+
+                                               ],
+                           "negative_failed":  [
+
+                                               ],
+                           "negative_inspection_errors":  {
+
+                                                          },
+                           "negative_fail_checks":  {
+                                                        "accept_normal_completion":  [
+                                                                                         "normal_completion_blocks"
+                                                                                     ],
+                                                        "allow_args":  [
+                                                                           "no_runtime_arguments"
+                                                                       ],
+                                                        "dispose_before_complete":  [
+                                                                                        "uncompleted_not_disposed"
+                                                                                    ],
+                                                        "drop_current_sid":  [
+                                                                                 "current_user_only"
+                                                                             ],
+                                                        "drop_guid":  [
+                                                                          "unique_guid"
+                                                                      ],
+                                                        "drop_protected_dacl":  [
+                                                                                    "protected_dacl"
+                                                                                ],
+                                                        "ignore_timeout":  [
+                                                                               "timeout_blocks"
+                                                                           ],
+                                                        "inject_client_payload":  [
+                                                                                      "no_client_payload"
+                                                                                  ],
+                                                        "inject_file_write":  [
+                                                                                  "no_test_artifact_write"
+                                                                              ],
+                                                        "inject_scm_start":  [
+                                                                                 "no_ps_or_scm"
+                                                                             ],
+                                                        "remove_abort_proof":  [
+                                                                                   "operation_aborted_995"
+                                                                               ],
+                                                        "remove_cancel":  [
+                                                                              "cancel_invocation_once"
+                                                                          ],
+                                                        "remove_completion_bound":  [
+                                                                                        "completion_bounded_4000",
+                                                                                        "end_only_after_wait",
+                                                                                        "no_unbounded_wait"
+                                                                                    ],
+                                                        "skip_silent_case":  [
+                                                                                 "both_cases_actually_invoked"
+                                                                             ],
+                                                        "sync_pipe":  [
+                                                                          "async_pipe"
+                                                                      ],
+                                                        "use_production_pipe":  [
+                                                                                    "unique_pipe_prefix",
+                                                                                    "no_prod_pipe_name"
+                                                                                ]
+                                                    },
+                           "source_sha256":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+                           "sha256_pinned":  true,
+                           "compiler_status":  "NOT_EXECUTED",
+                           "native_status":  "NOT_EXECUTED"
+                       },
+    "marker_sha256":  "c923fa283a3737bcdb2dcefed2c384899187cee532c8d580a589e0c7fda7d4ea",
+    "scm_before":  {
+                       "name":  "TTMP01Broker",
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "start_mode":  "Manual",
+                       "start_name":  "NT AUTHORITY\\LocalService",
+                       "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                   },
+    "scm_after":  {
+                      "name":  "TTMP01Broker",
+                      "state":  "Stopped",
+                      "pid":  0,
+                      "start_mode":  "Manual",
+                      "start_name":  "NT AUTHORITY\\LocalService",
+                      "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                  },
+    "predecessor":  {
+                        "run_id":  "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411",
+                        "receipt_commit":  "f99a5ed372fde9787cc050b1f492021e9d4842e3",
+                        "receipt_sha256":  "53fdf29600117f39eb5fd3c68a6d6276eaaa73b0238859fd6a79725260b95b41",
+                        "marker_sha256":  "d39f4cd82c48c0401d48089c961f353663955671135c1e76ede06334b0b0f877",
+                        "status":  "PASS_PINNED_FAIL_PRESERVED"
+                    },
+    "predecessor_v2":  {
+                           "run_id":  "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V2_20261107T022147072Z_cd5dc8ba",
+                           "receipt_commit":  "57b9511770d2d5407475e621cc5f296606003750",
+                           "receipt_sha256":  "fa955c9ebc23de8daddbd44e9af90171e53a65075aa8e7e3cf6dd17945ed5bad",
+                           "marker_sha256":  "506425d4fcd9e82fc0aa2d6c0056e0dda69f03a7ebbf270e43c97d3ddb2215d0",
+                           "status":  "PASS_PINNED_FAIL_PRESERVED"
+                       },
+    "errors":  [
+                   "The property \u0027Count\u0027 cannot be found on this object. Verify that the property exists."
+               ],
+    "verdict":  "BLOCK_WINDOWS_S1_SOURCE_QA",
+    "compiler_execution":  "NOT_EXECUTED",
+    "s1_native_execution":  "NOT_EXECUTED",
+    "service_action":  "NONE",
+    "scm_mutation":  false,
+    "science_jobs":  "NOT_EXECUTED",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "utc":  "2026-11-07T03:49:08.6130600Z"
+}
