@@ -1,0 +1,97 @@
+{
+  "schema": "ttm.p01.l1.s1.windows_integrated_static_qa_v2_and_single_combined_permit_adjudication.v1",
+  "date_utc": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "reference_source_commit": "8e2a2033187d22e8c44c7493e8853dafe974715f",
+  "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "windows_v2": {
+    "source_of_evidence": "User-provided exact local JSON receipt corroborated by GitHub contents API and console SHA/readback",
+    "run_id": "S1_HOST_RUNNER_STATIC_V2_20261107T052127254Z_cc88ca38",
+    "github_receipt_commit": "d684b576cfd6662dc48363e17eabfb2fd1cbb493",
+    "github_receipt_path": "artifacts/qa/p01/S1_HOST_RUNNER_STATIC_V2_20261107T052127254Z_cc88ca38.json",
+    "receipt_sha256": "a410fa93c0b952a5e01164d5aa6e42a3f13745bba4602c6053399cf2c4958e29",
+    "receipt_git_blob": "ab273d96af64ddfc4ddda43fb4341642e1baf34a",
+    "powershell51_source_pin": "PASS_EXACT",
+    "powershell51_parser": "PASS",
+    "frozen_source_inputs": "PASS_EXACT",
+    "python_checker": {
+      "exit_code": 0,
+      "verdict": "PASS_SOURCE_ONLY",
+      "positive_pass": 66,
+      "positive_total": 66,
+      "negative_rejected": 22,
+      "negative_total": 22,
+      "baseline_clean": true,
+      "target_isolation": true,
+      "failed_checks": [],
+      "errors": []
+    },
+    "scm_before_after": "Stopped, PID0, V2 path, LocalService; no SCM actions",
+    "V1_failed_receipt": "PRESERVED; see commit 4ab95d06c730d8968d62d6546cc4c688e6836144",
+    "adjudicated_result": "PASS_WINDOWS_INTEGRATED_SOURCE_ONLY"
+  },
+  "candidate_sources": {
+    "harness": {
+      "ref": "e1ff28ca2808164dfbd51a902492a0218c345c54",
+      "sha256": "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+      "git_blob": "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c"
+    },
+    "engine": {
+      "ref": "e1ff28ca2808164dfbd51a902492a0218c345c54",
+      "sha256": "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3",
+      "git_blob": "5763ca10025bb928f161a0f33fa493d436107375"
+    },
+    "host": {
+      "ref": "e1ff28ca2808164dfbd51a902492a0218c345c54",
+      "sha256": "986b622a4318459c68f666911b19f964ba0c129799139d5151a371bc4c8414b8",
+      "git_blob": "7eedfab02ab995507e36a9beee25772393dc70ab"
+    },
+    "runner": {
+      "ref": "8e2a2033187d22e8c44c7493e8853dafe974715f",
+      "sha256": "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505",
+      "git_blob": "611ac1506176c53fc6b51de7ea54d228a161bb98"
+    },
+    "compiler_expected_sha256": "eca02e6b15cde93009a59a3d129d5a77fb5008f2e1cf62cf573b6737c747ecc3"
+  },
+  "scope_review": {
+    "source_ref_is_valid": true,
+    "note": "The combined runner downloads only HARNESS/WATCHDOG/HOST from e1ff28ca; it validates its OWN SHA against permit runner_sha256, so it does not download itself from the older source ref.",
+    "one_shot_marker": "L1_S1_NATIVE_COMBINED_ONE_SHOT_ATTEMPT_20261107.lock",
+    "marker_expected": "NOT_CONSUMED",
+    "scm_action": "NONE",
+    "compiles_authorized": "One S1 harness build and one watchdog-host build, with exact pinned sources and compiler, only after preflight and immutable permit proof",
+    "native_launch_authorized": "Exactly one S1 isolated host invocation with Job Object; timeout and explicit proof requirements",
+    "failure_behavior": "Stop on first FAIL, do not auto retry; preserve one-shot marker and receipt and report evidence failures separately",
+    "native_qualification_claim": "NONE_YET"
+  },
+  "permit": {
+    "decision": "AUTHORIZED_ONCE_EXACT_SOURCE_S1_NATIVE",
+    "repository_path": "artifacts/qa/p01/S1_NATIVE_COMBINED_PERMIT_20261107.json",
+    "permit_commit": "f64e7ed871fd87eef0cdc644a1663061b181567a",
+    "permit_git_blob": "b2b01276b5c523a41d2c17a6697b5b49a9fa4c34",
+    "permit_sha256": "02c472fe9bf27b9fd51849fa48cd4c5a49f22b2d7750b679259f4dcdda9931ae",
+    "allowed_native_runs": 1,
+    "SCM_actions": "FORBIDDEN",
+    "no_new_micropermit": true
+  },
+  "post_decision_state": {
+    "WINDOWS_READONLY_PREFLIGHT": "PASS",
+    "WINDOWS_INTEGRATED_STATIC_V2": "PASS_66_66_NEG_22_22",
+    "S1_NATIVE": "NOT_EXECUTED",
+    "COMPILE_S1_AND_HOST": "NOT_EXECUTED",
+    "SCM": "UNCHANGED_STOPPED_PID0",
+    "NORMAL_STOP": "NOT_REQUALIFIED",
+    "NATIVE_SECURITY": "NOT_QUALIFIED",
+    "P00": "UNCHANGED",
+    "TEN_F0": "UNCHANGED",
+    "original_head": "UNCHANGED",
+    "lineage_md": "UNCHANGED",
+    "W01_W12": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "P00_P12": "UNCHANGED",
+    "existing_markers": "PRESERVED"
+  },
+  "next_action": "Perform read-only runner Preflight with exact SHA then, if PASS, ExecuteOnce using permit_commit+permit_sha256. One native attempt only; adjudicate its binary/Job Object runtime evidence. No Broker/Worker rebuild, no SCM switch, no science."
+}
