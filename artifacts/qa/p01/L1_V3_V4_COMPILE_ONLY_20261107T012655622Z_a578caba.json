@@ -1,0 +1,119 @@
+{
+    "schema":  "ttm.p01.l1.v3v4.exact_source_compile_only.v1",
+    "run_id":  "L1_V3_V4_COMPILE_ONLY_20261107T012655622Z_a578caba",
+    "mode":  "COMPILE_ONCE",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_commit":  "782f101f001973f8c23f23b22ae2b0896232d722",
+    "qa_commit":  "3860d08601ee77402d44926776f69208da103157",
+    "qa_sha256":  "619bd23aee3d901418a41e638597718929baed6caeb7e5db5e5078fd96cbed3c",
+    "checks":  {
+                   "FROZEN_ORIGINAL":  {
+                                           "detail":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+                                           "status":  "PASS"
+                                       },
+                   "SCM":  {
+                               "detail":  "Read-only",
+                               "status":  "PASS_STOPPED_PID0"
+                           },
+                   "SCM_V2_EXE":  {
+                                      "detail":  "a9dbc179b668559a0a5d6fe0bf979c9a6339d4977cb47f6a0c30d66fb289106a",
+                                      "status":  "PASS_EXACT"
+                                  },
+                   "QA_MARKER":  {
+                                     "detail":  "515fc6c37370cb0080af05b87f837bff2e4f564f693cf49d7c1e5840d1f44e38",
+                                     "status":  "PASS_EXACT"
+                                 },
+                   "HIST_SWITCH":  {
+                                       "detail":  "29f1a8836da83d34d233b165698dc20bb2fb6022941a93b840ae528b2ae4a8d1",
+                                       "status":  "PASS_EXACT"
+                                   },
+                   "HIST_NATIVE":  {
+                                       "detail":  "f0d895e68c30b8c3845336ea8aee40d2e1ca84f96816906a952ae70ad81587c7",
+                                       "status":  "PASS_EXACT"
+                                   },
+                   "HIST_SCM_STOP":  {
+                                         "detail":  "f1ca3d0899fe6637a512e44dd073b449d4805ca8f8a8afa1e8a3989599143502",
+                                         "status":  "PASS_EXACT"
+                                     },
+                   "HIST_FORCED_RECOVERY":  {
+                                                "detail":  "59823e4cd684195692dc5988a4af3eb484b05c4f7e5597e34140c1e21ac01dc9",
+                                                "status":  "PASS_EXACT"
+                                            },
+                   "QA_RECEIPT":  {
+                                      "detail":  "619bd23aee3d901418a41e638597718929baed6caeb7e5db5e5078fd96cbed3c",
+                                      "status":  "PASS_EXACT"
+                                  },
+                   "CSC_BINARY":  {
+                                      "detail":  "eca02e6b15cde93009a59a3d129d5a77fb5008f2e1cf62cf573b6737c747ecc3",
+                                      "status":  "PASS_EXACT"
+                                  },
+                   "BROKER":  {
+                                  "detail":  "8bbcb2bb7b9f0d69e20ebd8ac04fa6216b20c986207b4215617bac8ffb782ca4",
+                                  "status":  "PASS_EXACT"
+                              },
+                   "WORKER":  {
+                                  "detail":  "0e81e2a2ae9914daff20956d3d85f54b98dfa921ddd1764c771b8e9bae5cef04",
+                                  "status":  "PASS_EXACT"
+                              },
+                   "CHECKER":  {
+                                   "detail":  "f75ce6ecf16fc5a3d00807dc958f4421027578f1aab7a587144c5ca2ab32642d",
+                                   "status":  "PASS_EXACT"
+                               },
+                   "QUALIFIED_QA":  {
+                                        "detail":  "3860d08601ee77402d44926776f69208da103157",
+                                        "status":  "PASS_46_9"
+                                    },
+                   "OUTPUT_PRISTINE":  {
+                                           "detail":  "No binary or attempt marker present",
+                                           "status":  "PASS"
+                                       },
+                   "ONE_SHOT_MARKER":  {
+                                           "detail":  "Atomic no replay",
+                                           "status":  "PASS_CREATED"
+                                       },
+                   "BROKER_V3":  {
+                                     "detail":  "0751f89fee519367580e89b2e99b5347ee49c6b4c15f67ebf7d43706ac78ec5c",
+                                     "status":  "PASS"
+                                 },
+                   "WORKER_V4":  {
+                                     "detail":  "b36b5868b09b4da7bdb7198f3acd86923aba57f29a993fc8188bcb1cdc729f36",
+                                     "status":  "PASS"
+                                 }
+               },
+    "steps":  [
+                  {
+                      "component":  "BROKER_V3",
+                      "exit_code":  0,
+                      "diagnostics":  ""
+                  },
+                  {
+                      "component":  "WORKER_V4",
+                      "exit_code":  0,
+                      "diagnostics":  "d:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_V3_V4_WINDOWS_INDEPENDENT_STATIC_QA_V4_20261106T180725764Z_b9748149\\exact_sources\\TTMWorkerNativeProbeV4.cs(179,7): warning CS0162: Unreachable code detected"
+                  }
+              ],
+    "outputs":  {
+                    "BROKER_V3":  {
+                                      "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV3.exe",
+                                      "sha256":  "0751f89fee519367580e89b2e99b5347ee49c6b4c15f67ebf7d43706ac78ec5c",
+                                      "size":  10240
+                                  },
+                    "WORKER_V4":  {
+                                      "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMWorkerNativeProbeV4.dll",
+                                      "sha256":  "b36b5868b09b4da7bdb7198f3acd86923aba57f29a993fc8188bcb1cdc729f36",
+                                      "size":  11776
+                                  }
+                },
+    "compile_marker_sha256":  "fca9ee976878674ccdcc60c8dc1e621a01b35a472fb7e9e80f79997ef2fb7ef7",
+    "errors":  [
+
+               ],
+    "verdict":  "PASS_COMPILE_ONLY_NO_SERVICE_ACTION",
+    "scm_action":  "NONE",
+    "worker_or_acl_mutation":  false,
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "utc":  "2026-11-07T01:26:58.9869272Z"
+}
