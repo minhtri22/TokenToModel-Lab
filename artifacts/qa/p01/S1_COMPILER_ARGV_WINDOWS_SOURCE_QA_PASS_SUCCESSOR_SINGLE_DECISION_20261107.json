@@ -1,0 +1,67 @@
+{
+  "schema": "ttm.p01.l1.s1.compiler_argv_windows_successor_qa_adjudication.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "evidence": {
+    "type": "WINDOWS_PS51_SOURCE_ONLY_QA",
+    "run_id": "S1_COMPILER_ARGV_SOURCE_QA_20261107T070616901Z_1da16711",
+    "github_commit": "c16a33415d286e94df14e4d72490a54a74ed5de0",
+    "github_path": "artifacts/qa/p01/S1_COMPILER_ARGV_SOURCE_QA_20261107T070616901Z_1da16711.json",
+    "receipt_sha256": "b2912bc4d1092399ba9c4fba4edd7a9084a46cdf803b608e5a1589b95bf92725",
+    "github_blob": "9587647446f63dcb1ef3d8693f6cb7e43b1cb3c2",
+    "windows_parser": "PASS",
+    "targeted_source_contract": "PASS_TARGETED_COMPILER_ARGV",
+    "targeted_negative": "PASS_1_OF_1_TARGETED_AUTOMATIC_ARGS",
+    "source_candidate_sha256": "62eded1f6ea90b648fb025f9836e60aa11dbd34c7242c8c2e2960b8263264d31",
+    "old_runner_sha256": "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505",
+    "patch_sha256": "f8bd177fa34e2614c3e291a2e2c2ca29574114fa8f3fc79c1939e30b9e177300",
+    "source_patch_path": "qa/p01/windows/S1/TTM-S1-Compile-CompilerArgv-SourceRepair-CANDIDATE.patch",
+    "preexisting_failed_native_attempt": {
+      "run_id": "S1_NATIVE_COMBINED_20261107T063339197Z_35D236F1",
+      "sha256": "39c670f86881bccebe3d8033b41ec28784b3ee5322daee10846b3a93c17939c6",
+      "compiler_S1": "FAIL_CS2008_CS1562",
+      "host": "NOT_EXECUTED",
+      "S1_native": "NOT_EXECUTED",
+      "old_permit": "CONSUMED",
+      "marker_sha256": "0673bc2f2a374905b28de83b02324fa12afba80152dcdcda8a37de19b7b02eb2"
+    },
+    "SCM_before_after": "STOPPED_PID0_MANUAL_LOCALSERVICE_SAME_V2_EXE",
+    "GitHub_upload_readback": "PASS_REPORTED_AND_RECEIPT_FETCHED",
+    "compiler_invocation": "NOT_EXECUTED",
+    "native_execution": "NOT_EXECUTED",
+    "marker_action": "NONE",
+    "permit_action": "NONE"
+  },
+  "decision": {
+    "source_repair": "ACCEPT_PASS_WINDOWS_PS51_SOURCE_QA",
+    "native_successor_execution": "HOLD_NOT_AUTHORIZED",
+    "successor_permit": "NOT_ISSUED",
+    "reason": "The successfully patched runner still pins the already-consumed marker and old permit path/id/one-shot id and old native output root. The Host V1 embeds and checks the old permit_id, one_shot_id and marker basename. Reusing either would violate the one-shot guard, while changing only the runner would break host's independent permit/marker checks.",
+    "candidate_scope": "Only Compile function differed from frozen source in the accepted source repair; its negative test was source-level mutation detection, not a compiler or Windows parameter-binding runtime test.",
+    "next_single_integrated_package": [
+      "Create an exact successor runner and matching Host identity with a fresh, distinct native marker, permit_id, one_shot_id, permit artifact path, and pristine project-contained native output root; retain all previous source/compiler/SCM guards",
+      "Retain original consumed marker and its FAIL receipt permanently, no deletion or automatic rerun",
+      "Bind SHA256 for successor runner, Host, Engine, Harness, C# compiler and verify a single Windows PS5.1 parse plus focused negative conditions, including compiler argv and successor identity mismatch",
+      "Only if integrated source+identity QA PASS, decide ONE new combined compile/isolated-S1-native attempt permit, without separate micro-permits",
+      "If eventual compiler or isolated S1 fails, preserve a terminal PASS/FAIL receipt and do not repeat automatically"
+    ],
+    "excluded": "No native build/run now; no Broker V3 or Worker V4 rebuild, no SCM mutation, no W01-W12, no P02 opening"
+  },
+  "state": {
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "original_head": "UNCHANGED",
+    "lineage_md": "UNCHANGED",
+    "prior_markers": "PRESERVED",
+    "prior_fail_receipt": "PRESERVED",
+    "SCM": "UNCHANGED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "phase_order": "P00-P12_UNCHANGED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED"
+  },
+  "next": "TTM_P01_L1_S1_SINGLE_SUCCESSOR_IDENTITY_BINDING_AND_ONE_COMBINED_NATIVE_PERMIT_GATE"
+}
