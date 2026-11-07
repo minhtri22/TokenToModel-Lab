@@ -1,0 +1,95 @@
+{
+  "schema": "ttm.p01.l1.s1.native_successor_terminal_fail_independent_output_reconstruction.v1",
+  "date_utc": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "run": {
+    "id": "S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88",
+    "receipt_path": "artifacts/qa/p01/S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88.json",
+    "receipt_commit": "ab1a3ff2fbc0e4e4c642470cbe39bab6420e03f5",
+    "receipt_sha256": "725cbc0d4b031341a216a759f4a2004881c986b5e1aa2066b81b9e7f4d3a50fb",
+    "receipt_blob": "1a6ecb586964e4b40074d31b11c490efec968fcb",
+    "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "source_ref": "54669af28491611c389b9b02fd7020fba590ad73",
+    "permit_ref": "e1fad6b92d5e67b5b80b64b793ac32d0a7b6a5f7",
+    "permit_status": "CONSUMED_NO_REUSE",
+    "marker_sha256": "46b0af2064be3e383b5df9c3e98a9f5c18221c73bad28acb2a0d1b59b0dc207f",
+    "marker_status": "CONSUMED_PRESERVE",
+    "native_attempt_verdict": "BLOCK"
+  },
+  "compile": {
+    "S1": {
+      "exit_code": 0,
+      "argv_count": 8,
+      "source_count": 1,
+      "result": "PASS_COMPILED"
+    },
+    "Host": {
+      "exit_code": 0,
+      "argv_count": 9,
+      "source_count": 2,
+      "result": "PASS_COMPILED_WITH_CS0649_WARNINGS"
+    }
+  },
+  "watchdog_runtime": {
+    "host_process_started": true,
+    "child_pid": 31500,
+    "child_job_membership_checked": true,
+    "child_exit_confirmed": true,
+    "child_exit_code": 3,
+    "stdout_length_bytes": 101,
+    "stdout_bounded": true,
+    "stderr_length_bytes": 0,
+    "stderr_empty": true,
+    "watchdog_verdict": "BLOCK_WATCHDOG_InvalidOperationException",
+    "outer_runner_timeout": false,
+    "outer_runner_stderr_empty": true,
+    "outer_runner_error": "TTM_S1_COMBINED_BLOCK_HOST_EXIT_TIMEOUT_OR_STDERR",
+    "interpretation": "Outer runner's error string is a union predicate; it was not an actual timeout and not stderr. Host returned exit 3 because its watchdog rejected S1."
+  },
+  "independent_stdout_reconstruction": {
+    "method": "Reconstruct exact two-line UTF-8 CRLF output allowed by pinned S1 source. Compute length and SHA256 and compare to watchdog receipt. Not a claim that raw captured 101 bytes were attached.",
+    "reconstructed_text_escaped": "TTM_S1_IDLE_ACCEPT=BLOCK_END_OperationCanceledException\\r\\nTTM_S1_VERDICT=BLOCK_ISOLATED_CANCELLATION\\r\\n",
+    "utf8_length_bytes": 101,
+    "sha256": "8078d43cb98b9c4b89c77c6d87410afb9911777c5562491418ca6773bbd85e79",
+    "matches_watched_stdout_length_and_sha256": true,
+    "code_path": "S1 CancelAndObserve calls EndWaitForConnection after AsyncWaitHandle completion. Generic catch(Exception ex) maps an OperationCanceledException to BLOCK_END_OperationCanceledException. IdleAccept fails; SilentClientRead never runs.",
+    "root_cause_conclusion": "The S1 result acceptance contract only considers IOException with low Win32 HRESULT ==995 PASS, and does not accept OperationCanceledException. This is an observed mismatch, not evidence of completed Windows ERROR_OPERATION_ABORTED under the preregistered criterion."
+  },
+  "external_reference": [
+    "https://learn.microsoft.com/windows/win32/api/ioapiset/nf-ioapiset-cancelioex",
+    "https://learn.microsoft.com/en-us/dotnet/api/system.io.pipes.namedpipeserverstream.endwaitforconnection"
+  ],
+  "governance": {
+    "technical_outcome": "S1_NATIVE_FAIL_PRESERVED",
+    "scientific_outcome": "NO_SCIENCE_EXECUTED",
+    "relabel_to_pass": "PROHIBITED",
+    "reusing_permit_or_marker": "PROHIBITED",
+    "automatic_native_rerun": "PROHIBITED",
+    "new_native_permit": "NOT_ISSUED",
+    "SCM_before_after": "STOPPED_PID0_MANUAL_LOCALSERVICE_UNCHANGED",
+    "Broker_Worker_recompiled": false,
+    "P00": "UNCHANGED",
+    "ten_F0": "UNCHANGED",
+    "original_HEAD": "UNCHANGED",
+    "lineage_md": "UNCHANGED",
+    "old_and_new_markers": "PRESERVED",
+    "existing_PASS_FAIL_receipts": "PRESERVED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "P00_P12": "UNCHANGED"
+  },
+  "strategic_decision": {
+    "S1": "STOP_THIS_NATIVE_REPAIR_CYCLE_AND_FREEZE_FAIL_PENDING_EXPLICIT_DEPENDENCY_REVIEW",
+    "why": "An OperationCanceledException is not automatically proof of the frozen ERROR_OPERATION_ABORTED criterion. Reopening requires an explicitly reviewed successor contract and an actual dependency on P01 authorized E0 Windows route.",
+    "P01_reference": "docs/p01/P01_LEAN_EXECUTION_PLAN_AND_REMAINING_SCOPE_REVIEW_20261106.md",
+    "critical_path": [
+      "K1/K2 B0/B1 roundtrip and 30-plus synthetic group split/leakage integration with independent QA",
+      "K3 F1 owned/licensed source manifest with rights and PII admission",
+      "K4 qualified resource/security route if E0 executes via guarded Windows runtime",
+      "K5 TRAIN-only BPE reproducibility two clean processes, measurements and independent closure"
+    ],
+    "no_unilateral_P02_open": "P02 follows valid P01 closure/merge; S1 cannot replace tokenizer/data exit criteria and no approved blanket rule makes every S1 microtest a hard P01 closure dependency.",
+    "next": "TTM_P01_L1_L2_L3_CANONICAL_EXIT_GAP_REVIEW_AND_SINGLE_INTEGRATED_QA_PLAN"
+  }
+}
