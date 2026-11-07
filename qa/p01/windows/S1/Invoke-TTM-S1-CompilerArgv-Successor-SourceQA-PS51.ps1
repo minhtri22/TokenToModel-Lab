@@ -91,7 +91,7 @@ try {
  $report.patch_sha256=Sha256 $patchBytes
  $oldText=[Text.Encoding]::UTF8.GetString($oldBytes)
  $diffText=[Text.Encoding]::UTF8.GetString($patchBytes)
- if($oldText.Contains([char]13) -or $diffText.Contains([char]13)){Block 'SOURCE_LINE_ENDINGS_NOT_LF'}
+ if($oldText.IndexOf([char]13) -ge 0 -or $diffText.IndexOf([char]13) -ge 0){Block 'SOURCE_LINE_ENDINGS_NOT_LF'}
  $originalLines=$oldText.Split([char]10)
  $diffLines=$diffText.Split([char]10)
  if($diffLines.Length -lt 10 -or
