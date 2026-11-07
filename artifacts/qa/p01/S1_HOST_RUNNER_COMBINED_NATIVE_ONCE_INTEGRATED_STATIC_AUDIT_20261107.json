@@ -1,0 +1,114 @@
+{
+  "schema": "ttm.p01.l1.s1.native_host_combined_runner_integrated_source_adjudication.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "source_lock_commit": "8e2a2033187d22e8c44c7493e8853dafe974715f",
+  "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "source_pins": {
+    "host": {
+      "path": "qa/p01/windows/S1/TTMS1JobWatchdogHostV1.cs",
+      "git_blob": "7eedfab02ab995507e36a9beee25772393dc70ab",
+      "sha256": "986b622a4318459c68f666911b19f964ba0c129799139d5151a371bc4c8414b8"
+    },
+    "runner": {
+      "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-CombinedNativeOnce-PS51.ps1",
+      "git_blob": "611ac1506176c53fc6b51de7ea54d228a161bb98",
+      "sha256": "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505"
+    },
+    "watchdog": {
+      "path": "qa/p01/windows/S1/TTMS1IsolatedJobWatchdogEngineV2.cs",
+      "git_blob": "5763ca10025bb928f161a0f33fa493d436107375",
+      "sha256": "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3"
+    },
+    "independent_python_qa": {
+      "path": "qa/p01/windows/S1/Independent-QA-S1-HostRunner-IntegratedStatic.py",
+      "git_blob": "46f240f23d6644ef3b81a1971d4253bb64087ecf",
+      "sha256": "5f1ff0d53d79b2211faa39614733d2c5c129e6d4aefacc880e9a03db98c8e49a"
+    },
+    "windows_qa_launcher": {
+      "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-HostRunner-IntegratedStaticQA-PS51.ps1",
+      "git_blob": "fde93fbb2c05cafe72d8c82efbe5fbef6cde7fc6",
+      "sha256": "3fec1b2d28e93c14832cc2e30148ac65e5223b397be3cb315c2e97e2cadfb793"
+    }
+  },
+  "independent_qa": {
+    "method": "Second JavaScript source implementation directly inspecting exact GitHub content; 37 safety predicates and 18 deliberate in-memory mutants. SHA-256 algorithm tested against empty and abc.",
+    "positive_passed": 37,
+    "positive_total": 37,
+    "negative_rejected": 18,
+    "negative_total": 18,
+    "mutants": [
+      "host_authorization",
+      "host_marker",
+      "host_replay",
+      "host_exit",
+      "runner_default",
+      "runner_auth",
+      "runner_atomic",
+      "runner_compiler_order",
+      "runner_double_run",
+      "runner_timeout",
+      "runner_receipt",
+      "runner_child_hash",
+      "runner_scm",
+      "runner_cleanup",
+      "engine_job",
+      "engine_output",
+      "engine_timeout",
+      "engine_loss_stdout"
+    ],
+    "source_checks": "PASS_SOURCE_ONLY",
+    "python_checker_declares": "66_POSITIVE_22_NEGATIVE",
+    "python_checker_executed": "NOT_EXECUTED",
+    "Windows_PS51_native_parser": "NOT_EXECUTED",
+    "native_CSharp_compiler": "NOT_EXECUTED",
+    "Win32_JOB_OBJECT_runtime": "NOT_EXECUTED"
+  },
+  "controls": {
+    "host": "Requires exactly 8 args, matching permit and marker SHA-256, exact permit decision/one-shot, project local paths, single engine delegation; fail closed.",
+    "runner": "Default Preflight, remote immutable permit commit and SHA, pins harness/watchdog/host/compiler and self hash, exact frozen original, V1-V3 markers and QA V3 readback, atomic native marker before first compiler call, one S1 and one host compiler action, one owned bounded host launch, exact child stdout SHA-256, 2 SCM snapshots and immutable receipt GitHub readback.",
+    "windows_static_qa": "One engineering QA pass fetches 4 exact sources, parses PS5.1, runs independent Python positive/negative checks and uploads receipt. No native marker or compilation.",
+    "engine": "Uses creation-time JOB_LIST, 1 child, 256 MiB memory limit, 8 KiB bounded pipe capture, binary read-only lock, 15 sec timer and 3 sec termination confirmation."
+  },
+  "prior_results": {
+    "S1_python_v3": "PASS_41_41_AND_16_16_FROM_WINDOWS_RECEIPT_REUSED",
+    "S1_windows_launcher_v3": "BLOCK_PRESERVED",
+    "watchdog_engine_v2": "SOURCE_ONLY_68_68_NEG_24_24",
+    "watchdog_readonly_preflight": "PASS_REPORTED_EXIT_0",
+    "broker_v3_worker_v4": "COMPILE_ONLY_PASS_BINARY_READBACK_PASS_UNCHANGED",
+    "qa_v1_v2_v3_receipts_and_markers": "PRESERVED"
+  },
+  "combined_permit_decision": {
+    "status": "HOLD_NOT_ISSUED",
+    "permit_path": "artifacts/qa/p01/S1_NATIVE_COMBINED_PERMIT_20261107.json",
+    "permit_file_at_source_lock_commit": "NOT_FOUND",
+    "native_one_shot_marker": "L1_S1_NATIVE_COMBINED_ONE_SHOT_ATTEMPT_20261107.lock",
+    "native_marker_status": "NOT_CREATED",
+    "blocking_evidence": [
+      "Windows PowerShell 5.1 parser and exact integrated Python QA 66/66 plus 22/22 have not yet run on target.",
+      "Compiler/Win32 PInvoke ABI and Job Object runtime error handling are not validated; source checks are not runtime safety proof.",
+      "Formal user/adjudicator authorization for one combined compile+S1 native attempt is not issued."
+    ],
+    "allowed_eventual_scope": "One future combined native permit: two exact-source builds and one isolated S1 smoke, never SCM service modification, Broker/Worker rebuild or science.",
+    "deny_auto_retry": true
+  },
+  "state": {
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "lineage_md": "UNCHANGED",
+    "original_head": "UNCHANGED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "order": "P00-P12_UNCHANGED",
+    "SCM": "UNCHANGED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED",
+    "S1_native": "NOT_EXECUTED",
+    "watchdog_native": "NOT_EXECUTED",
+    "W01_W12": "NOT_EXECUTED",
+    "existing_markers": "PRESERVED"
+  },
+  "verdict": "PASS_IMPLEMENTATION_AND_SECOND_STATIC_REVIEW_ONLY__PERMIT_HOLD",
+  "next": "TTM_P01_L1_V3V4_S1_WINDOWS_INTEGRATED_HOST_RUNNER_STATIC_QA_AND_SINGLE_COMBINED_PERMIT_ADJUDICATION"
+}
