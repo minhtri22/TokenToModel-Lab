@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.p01.l1.s1.windows_independent_python_static_qa_launcher_source_audit.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "source_commit": "ec62ed6c07fece40a06e44aa6fada778d9c8c8ce",
+  "windows_launcher_path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-Windows-IndependentStaticQA-PS51.ps1",
+  "windows_launcher_source_commit": "3568025f6c8f1a3b4b99383fa661e15f47eb7386",
+  "windows_launcher_git_blob": "5646caaa60c87b1b0a260d444f01f4bac03d4778",
+  "harness_pin": {
+    "git_blob": "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+    "sha256": "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9"
+  },
+  "independent_python_checker_pin": {
+    "git_blob": "81d78f60a2c92e29e2d4818dfdf15953487768b8",
+    "sha256": "78d873cba4f0078187c9126ceb4a20ecade78c40ca74ca163e02e554384c3227"
+  },
+  "static_second_review": {
+    "implementation": "READ_ONLY_JS_SOURCE_CONTRACT_ANALYSIS",
+    "launcher_checks_passed": 32,
+    "launcher_checks_total": 32,
+    "launcher_negative_mutations_rejected": 11,
+    "launcher_negative_mutations_total": 11,
+    "checked_source_integrity": true,
+    "checks_include": [
+      "frozen HEAD/branch/origin",
+      "GH immutable source commit and exact blobs",
+      "SHA256 both source copies",
+      "SCM read-only Manual/LocalService/V2 Stopped/PID0 before and after",
+      "scope reparse point refusal",
+      "atomic one-shot marker",
+      "python -B checker only, no C# harness launch",
+      "41/41 positive contract and 16/16 negative contract",
+      "local JSON receipt and GitHub readback hash",
+      "fail closed on no-Github readback",
+      "no SCM change, no compiler, no cleanup"
+    ]
+  },
+  "runtime": {
+    "Windows_PS51_parser": "NOT_EXECUTED",
+    "Windows_independent_python_QA": "NOT_EXECUTED",
+    "CSharp_compile": "NOT_EXECUTED",
+    "native_S1_run": "NOT_EXECUTED",
+    "SCM_mutation": "NONE",
+    "original_F0_science": "UNCHANGED"
+  },
+  "governance": {
+    "one_shot_marker": "L1_S1_WINDOWS_INDEPENDENT_SOURCE_STATIC_QA_ATTEMPT_20261107.lock",
+    "marker_status": "NOT_CREATED_IN_THIS_SOURCE_AUDIT",
+    "prior_markers": "PRESERVED",
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "phase_order": "P00-P12_UNCHANGED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED"
+  },
+  "verdict": "PASS_LAUNCHER_SOURCE_STATIC_32_OF_32_NEGATIVE_11_OF_11_WINDOWS_QA_PENDING",
+  "next": "Run exact launcher on Windows PowerShell 5.1 once only; inspect GitHub receipt and adjudicate. No native compile/smoke permit."
+}
