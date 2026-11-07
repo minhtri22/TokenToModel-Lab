@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.p01.e0.v3_pre_marker_python_argv_quote_fault_recovery.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "parent": "c0aab373fc69d3088313887a8bb19b4aff96439c",
+  "user_console": {
+    "miniforge_runtime_version": "3.13.12",
+    "selected_host_python": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "E0_precheck_started": true,
+    "failure": "SyntaxError: invalid syntax from generated expression import sys;print(str(sys.version_info.major)+.+str(...))",
+    "classified_at": "HOST_PYTHON_VERSION_CHECK_FAILED_NO_MARKER",
+    "marker_consumed": false,
+    "E0_executed": false,
+    "owned_temp_cleanup": "COMPLETE_SCOPED"
+  },
+  "independent_remote_readback": {
+    "evidence_e0_entries": 0,
+    "experiments_p01": "DIRECTORY_ABSENT",
+    "date": "2026-11-07"
+  },
+  "diagnosis": "Windows PowerShell 5.1 native argv conversion stripped embedded double-quoted '.' literal in Python -c string; fault in V2 preflight probe; host Python itself was found",
+  "patch": {
+    "script_filename": "TTM_P01_F1_WP30_BPE_E0_DOCKER_PY312_VERSION_PROBE_RECOVERY_V3_PS51_20261107.ps1",
+    "script_sha256": "6afe3ca0bdf9ef18f6c37a360b59f97634dd985d1ae59125bb8eb280d12c0c09",
+    "replaced": "& $py -B -c 'import sys;print(str(sys.version_info.major)+\".\"+str(sys.version_info.minor)+\".\"+str(sys.version_info.micro))'",
+    "new": "& $py --version",
+    "expected_pattern": "^Python 3\\.12\\.[0-9]+(?:\\s|$)",
+    "pinned_engine_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
+    "pinned_checker_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1",
+    "payload_byte_identity": "PASS_EXACT_V2",
+    "marker_name": "evidence/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107.once",
+    "image_tag": "python:3.12-slim",
+    "zip_sha256": "395553b7b9d41bbb865afbcd3ef93bedd29a185b480978cb81eb6bd94dadb3b8",
+    "code_distribution": "ATTACHED_TO_CONVERSATION_NOT_COMMITTED",
+    "static_diff_review": "PASS_ONLY_HOST_VERSION_CHECK",
+    "offhost_bpe_selftest": "PASS",
+    "powershell_5_1_native_parse": "NOT_EXECUTED",
+    "actual_E0": "NOT_EXECUTED"
+  },
+  "conservation": {
+    "F1": "WP30_SCOPED_ALLOW",
+    "H03": "30_GROUPS_SPLIT_24_3_3_PRESERVED",
+    "no_S1_K1_K2_rerun": true,
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02_P03_P04": "NOT_OPENED",
+    "lineage_md": "UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "next": "VERIFY_V3_SHA_AND_PS51_PARSE_AND_HOST_PY312_THEN_RUN_ORIGINAL_E0_ONCE"
+}
