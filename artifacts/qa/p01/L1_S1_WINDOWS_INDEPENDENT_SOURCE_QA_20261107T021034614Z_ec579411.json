@@ -1,0 +1,83 @@
+{
+    "schema":  "ttm.p01.l1.s1.windows_independent_source_static_qa.v1",
+    "run_id":  "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411",
+    "source_commit":  "ec62ed6c07fece40a06e44aa6fada778d9c8c8ce",
+    "original_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "mode":  "SOURCE_ONLY_NO_NATIVE",
+    "checks":  {
+                   "PROJECT_BOUNDARY":  {
+                                            "status":  "PASS_EXACT",
+                                            "detail":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab"
+                                        },
+                   "FROZEN_ORIGINAL":  {
+                                           "status":  "PASS_EXACT",
+                                           "detail":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0"
+                                       },
+                   "SCM_READONLY":  {
+                                        "status":  "PASS_STOPPED_PID0",
+                                        "detail":  "Manual LocalService V2 image"
+                                    },
+                   "PYTHON_X64":  {
+                                      "status":  "PASS",
+                                      "detail":  "3|13|64"
+                                  },
+                   "GITHUB_AUTH":  {
+                                       "status":  "PASS",
+                                       "detail":  "GitHub CLI authenticated"
+                                   },
+                   "SOURCE_HARNESS":  {
+                                          "status":  "PASS_EXACT_GIT_BLOB_SHA256",
+                                          "detail":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9"
+                                      },
+                   "SOURCE_INDEPENDENT_QA":  {
+                                                 "status":  "PASS_EXACT_GIT_BLOB_SHA256",
+                                                 "detail":  "78d873cba4f0078187c9126ceb4a20ecade78c40ca74ca163e02e554384c3227"
+                                             },
+                   "ONE_SHOT_QA_MARKER":  {
+                                              "status":  "PASS_CREATED",
+                                              "detail":  "No replay, no cleanup"
+                                          }
+               },
+    "source_files":  [
+                         {
+                             "name":  "HARNESS",
+                             "git_blob":  "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+                             "sha256":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411\\TTMS1IsolatedCancellationHarness.cs"
+                         },
+                         {
+                             "name":  "INDEPENDENT_QA",
+                             "git_blob":  "81d78f60a2c92e29e2d4818dfdf15953487768b8",
+                             "sha256":  "78d873cba4f0078187c9126ceb4a20ecade78c40ca74ca163e02e554384c3227",
+                             "path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411\\Independent-QA-S1-IsolatedCancellation-Static.py"
+                         }
+                     ],
+    "python_checker":  {
+                           "exit_code":  1,
+                           "error":  "Traceback (most recent call last):\r\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411\\Independent-QA-S1-IsolatedCancellation-Static.py\", line 254, in \u003cmodule\u003e\r\n    raise SystemExit(main())\r\n                     ~~~~^^\r\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411\\Independent-QA-S1-IsolatedCancellation-Static.py\", line 228, in main\r\n    negatives = {name: not all(inspect(mut).values())\r\n                               ~~~~~~~^^^^^\r\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_20261107T021034614Z_ec579411\\Independent-QA-S1-IsolatedCancellation-Static.py\", line 146, in inspect\r\n    check(\"end_only_after_wait\", c.index(\"pending.AsyncWaitHandle.WaitOne(CompletionTimeoutMs)\") \u003c\r\n                                 ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nValueError: substring not found"
+                       },
+    "marker_sha256":  "d39f4cd82c48c0401d48089c961f353663955671135c1e76ede06334b0b0f877",
+    "scm_before":  {
+                       "name":  "TTMP01Broker",
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "start_mode":  "Manual",
+                       "start_name":  "NT AUTHORITY\\LocalService",
+                       "image_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                   },
+    "scm_after":  null,
+    "errors":  [
+                   "S1_INDEPENDENT_PYTHON_QA_FAILED"
+               ],
+    "verdict":  "BLOCK_WINDOWS_S1_SOURCE_QA",
+    "compiler_execution":  "NOT_EXECUTED",
+    "s1_native_execution":  "NOT_EXECUTED",
+    "service_action":  "NONE",
+    "scm_mutation":  false,
+    "science_jobs":  "NOT_EXECUTED",
+    "W01_W12":  "NOT_EXECUTED",
+    "L1_grouped_QA":  "NOT_AUTHORIZED",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "utc":  "2026-11-07T02:10:41.1784881Z"
+}
