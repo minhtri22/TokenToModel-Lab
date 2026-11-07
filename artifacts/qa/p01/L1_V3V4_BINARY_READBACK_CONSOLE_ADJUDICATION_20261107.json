@@ -1,0 +1,71 @@
+{
+  "schema": "ttm.p01.l1.v3v4.native_binary_readback_console_adjudication.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "execution_receipt": {
+    "run_id": "L1_V3_V4_COMPILE_ONLY_20261107T012655622Z_a578caba",
+    "github_commit": "a8b7e762ba9110c3e9246fb6570a2d0246aa50d4",
+    "git_blob": "8d16e56c299796bc3545be03b24dcea2250bc6c8",
+    "sha256": "e20690db0ea91b3af4ba3f9b311e1f01fb8574f26273201b3b55499427002bcf",
+    "independently_rehashed_uploaded_receipt": true,
+    "compile_verdict": "PASS_COMPILE_ONLY_NO_SERVICE_ACTION",
+    "broker_compiler_exit": 0,
+    "worker_compiler_exit": 0,
+    "worker_warning": "CS0162 at TTMWorkerNativeProbeV4.cs line 179"
+  },
+  "user_supplied_windows_readback": {
+    "broker_v3_exe": {
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV3.exe",
+      "sha256": "0751f89fee519367580e89b2e99b5347ee49c6b4c15f67ebf7d43706ac78ec5c",
+      "size_bytes_from_compile_receipt": 10240,
+      "status": "PASS_EXACT_CONSOLE"
+    },
+    "worker_v4_dll": {
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMWorkerNativeProbeV4.dll",
+      "sha256": "b36b5868b09b4da7bdb7198f3acd86923aba57f29a993fc8188bcb1cdc729f36",
+      "size_bytes_from_compile_receipt": 11776,
+      "status": "PASS_EXACT_CONSOLE"
+    },
+    "compile_marker": {
+      "name": "L1_V3_V4_EXACT_SOURCE_COMPILE_ATTEMPT_20261107.lock",
+      "sha256": "fca9ee976878674ccdcc60c8dc1e621a01b35a472fb7e9e80f79997ef2fb7ef7",
+      "status": "PASS_EXACT_CONSOLE"
+    },
+    "SCM": {
+      "service": "TTMP01Broker",
+      "state": "Stopped",
+      "pid": 0,
+      "status": "PASS_STOPPED_PID0_CONSOLE"
+    },
+    "binary_executed": false,
+    "source_of_local_observation": "USER_PROVIDED_POWERSHELL_CONSOLE_TRANSCRIPT",
+    "independent_direct_local_machine_probe": "NOT_PERFORMED_BY_ADJUDICATOR"
+  },
+  "technical_review": {
+    "compiler_warning_CS0162": "The worker const-only mask condition is compiled as unreachable. Do not promote this check to a runtime security proof.",
+    "shutdown_semantics": "CancelIoEx requests cancellation, but completion must be observed; do not claim normal-stop PASS from compilation.",
+    "DACL_semantics": "GetSecurityInfo on an already connected pipe handle and a real worker token must be tested; source-only checks are insufficient.",
+    "scm_warning": "Stopped/PID0 is an observation at the time of the user's command, not a continuing guarantee."
+  },
+  "verdict": "PASS_BINARY_SHA_READBACK_AS_REPORTED_AND_RECEIPT_VERIFIED",
+  "gate": "NATIVE_MINIMAL_SMOKE_NOT_AUTHORIZED",
+  "permitted_next_scope": "SOURCE_ONLY_MINIMAL_SMOKE_DESIGN_AND_INDEPENDENT_STATIC_PREFLIGHT",
+  "prohibited_now": [
+    "SCM_CHANGE",
+    "SERVICE_START",
+    "SERVICE_STOP",
+    "BINARY_RECOMPILE",
+    "MARKER_DELETE",
+    "F0_RUN",
+    "W01_W12",
+    "L1_GROUPED_QA",
+    "P02_OPEN"
+  ],
+  "normal_stop": "NOT_REQUALIFIED",
+  "native_security": "NOT_QUALIFIED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "freeze": "P00, frozen original HEAD, 10 F0 outcomes, markers, PASS/FAIL evidence and P00-P12 sequence unchanged"
+}
