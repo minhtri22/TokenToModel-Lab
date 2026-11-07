@@ -1,0 +1,831 @@
+{
+  "schema": "ttm.p01.f1.vi_general.v3_independent_metadata_audit.v1",
+  "scope": "F1_V3_30_WP_AND_V2_10_WS_PINNED_ONLY",
+  "original_v2_receipt_sha256": "c4b1faa9abd3562816cc3de880cbcfec6a02542829aab31d9ca81d0651871049",
+  "original_v3_receipt_sha256": "9fcdebbd53eb538d8f4a6743d7e2a0c9584b379bee50ce09a6b1b711e9c15db9",
+  "source_document_bytes_verified": 11285752,
+  "verified_document_count": 40,
+  "independent_h03_group_count": 40,
+  "h03_min_30_groups": "PASS_CANDIDATE_ONLY",
+  "source_integrity": "PASS_ALL_40_EXACT_SHA256_AND_MARKERS",
+  "pii_automated_flag_document_count": 0,
+  "copyright_cue_document_count": 0,
+  "independent_rights_per_page": "NOT_ESTABLISHED_BY_AUTOMATED_SCAN",
+  "human_or_independent_page_review_required": true,
+  "CC_BY_SA_reuse_evidence": "SITE_LICENSE_SUPPORTED_WITH_AUTHOR_ATTRIBUTION_AND_EXCEPTIONS_REQUIRED",
+  "Wikisource_note": "PD tag not proof every translation/editorial layer is public domain",
+  "admission_decision": "HOLD_INDEPENDENT_PER_PAGE_RIGHTS_PII_CONFIRMATION",
+  "model_or_tokenizer_training_authorized": false,
+  "data_partitions_created": false,
+  "original_sources_modified": false,
+  "new_downloads": false,
+  "E0": "NOT_EXECUTED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "documents": [
+    {
+      "document_id": "WP006",
+      "source": "wikipedia",
+      "title": "Hội An",
+      "source_sha256": "f844f6ae4b849e0bef1be75143bfd67284e854182cc9f01d3dd5bfe01c57ad1b",
+      "text_sha256": "827197ef4d3f7473f49c115a29ae2bfa043e5a57022515c33983ac0857d914c2",
+      "source_bytes": 310362,
+      "text_bytes": 70535,
+      "revision_id": 75654046,
+      "source_url": "https://vi.wikipedia.org/wiki/H%E1%BB%99i_An",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phố_cổ_Hội_An&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "c93e28a3b98a55d68ca10df2dd34c17106242469158e4c53b4cbf841772992ad"
+    },
+    {
+      "document_id": "WP008",
+      "source": "wikipedia",
+      "title": "Đồng bằng sông Cửu Long",
+      "source_sha256": "3fd16bed24bb1dfdfbbfa7c787c05131f82e89184052c081f393602db09c868b",
+      "text_sha256": "8a0054a57b1fba7d2235dcdeea1f035807764874de64d8e9e1aa061b1d54419a",
+      "source_bytes": 172534,
+      "text_bytes": 31246,
+      "revision_id": 75642271,
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_b%E1%BA%B1ng_s%C3%B4ng_C%E1%BB%ADu_Long",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Đồng_bằng_sông_Cửu_Long&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "a1ea30b9d18a923b0d245791117a5aaa6641ee031e2ac3426f7f184a93677b68"
+    },
+    {
+      "document_id": "WP011",
+      "source": "wikipedia",
+      "title": "Địa lý Việt Nam",
+      "source_sha256": "9dec6310cd33a9694694738c153372eb8458741bca001c5f3498a82ff6b93df8",
+      "text_sha256": "678dc21b195b3e443220bba18a61892fcdb68251e1f30e11e2dbcc4cdcb1eae1",
+      "source_bytes": 151731,
+      "text_bytes": 22512,
+      "revision_id": 75108045,
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_l%C3%BD_Vi%E1%BB%87t_Nam",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Địa_lý_Việt_Nam&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "3a57143b7f105c983aa35b01c1a89dbb19486819148de746c27ad456cc86a327"
+    },
+    {
+      "document_id": "WP012",
+      "source": "wikipedia",
+      "title": "Khí hậu Việt Nam",
+      "source_sha256": "a52c9077ac9d732b9fb02039edfd7fcd4269ca6b3b8d35028ddeb39b99914452",
+      "text_sha256": "6be7d4e14f4c9dd557ba767a6be9191630482e2712e025cf3ea65359b1b717f5",
+      "source_bytes": 94808,
+      "text_bytes": 22869,
+      "revision_id": 75660280,
+      "source_url": "https://vi.wikipedia.org/wiki/Kh%C3%AD_h%E1%BA%ADu_Vi%E1%BB%87t_Nam",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Khí_hậu_Việt_Nam&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "0e7986dbae67e8597bc24e246394dd5a1292e0ef4487b7f340e557e69de013e1"
+    },
+    {
+      "document_id": "WP016",
+      "source": "wikipedia",
+      "title": "Phú Quốc",
+      "source_sha256": "56b8db1b0a08212e4cbb579c268a51b51b69fbe552c88b4f3e14d3817578cc2e",
+      "text_sha256": "6e1d5ccb1913b9d986707b8ec45992c904b1e608a279076ad440e75ddeaf2046",
+      "source_bytes": 308968,
+      "text_bytes": 44278,
+      "revision_id": 75641049,
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Qu%E1%BB%91c",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phú_Quốc&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "dbe7a905a5bb360757dc1deb3dc58fec4a9c3bfe0d5487ae4b22abbc29bed7b3"
+    },
+    {
+      "document_id": "WP017",
+      "source": "wikipedia",
+      "title": "Sa Pa",
+      "source_sha256": "6a1177af5a0aac83a96e467785c3417fa27e2b0047f1351408c6d8ab9270269b",
+      "text_sha256": "1e0891069302fec5caa43e141f29b11eb0cfad3142126203b1b1a2c18debdb36",
+      "source_bytes": 39179,
+      "text_bytes": 9584,
+      "revision_id": 75216552,
+      "source_url": "https://vi.wikipedia.org/wiki/Sa_Pa",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Sa_Pa&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "25fb69dd7179bb0e73b694bde7c107d80802a14c0850b8bc27a39dd51143f120"
+    },
+    {
+      "document_id": "WP021",
+      "source": "wikipedia",
+      "title": "Lịch sử Việt Nam",
+      "source_sha256": "2c7c96f2637faff65ca15774ca9565c01158e87209581a7d2f9aecf925bb21fc",
+      "text_sha256": "01f1ca7625eaeea379987dd659acf5abbcf2748efb14142980dffb02d4dcbb0d",
+      "source_bytes": 958888,
+      "text_bytes": 159341,
+      "revision_id": 75667370,
+      "source_url": "https://vi.wikipedia.org/wiki/L%E1%BB%8Bch_s%E1%BB%AD_Vi%E1%BB%87t_Nam",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Lịch_sử_Việt_Nam&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "33ce9d55795a0cfc1f6fd74dd093544992283c799ec7090d1d976f6bf55dd874"
+    },
+    {
+      "document_id": "WP022",
+      "source": "wikipedia",
+      "title": "Nhà Trần",
+      "source_sha256": "f3034c712e16ca67f2c8171feec448d63cd821ded3f06b4497b92a1a2bea5675",
+      "text_sha256": "75e91f34212dd9e1f3f6fb7fc825a8aa8407b304a613d9c3625c24b3231b6a4d",
+      "source_bytes": 350248,
+      "text_bytes": 76880,
+      "revision_id": 75660286,
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_Tr%E1%BA%A7n",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Nhà_Trần&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "bbe3500a152f96beee806469e9e5af947898549384ac284a13fd6960e9b08d5f"
+    },
+    {
+      "document_id": "WP023",
+      "source": "wikipedia",
+      "title": "Nhà Lý",
+      "source_sha256": "56c22df826162e17b644595e32378eb033d680a46d8ae48aff383ebfca101623",
+      "text_sha256": "87d284187a1b141c46052e8e4bf01af4642826080f312b5c0501db899de12c7d",
+      "source_bytes": 380078,
+      "text_bytes": 76789,
+      "revision_id": 75611474,
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_L%C3%BD",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Nhà_Lý&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "29435c477d5b9be73c3a20e03133b3ace7514b6b8a06f410ac555418cf196692"
+    },
+    {
+      "document_id": "WP025",
+      "source": "wikipedia",
+      "title": "Văn Lang",
+      "source_sha256": "635739f7acfc142bbef7199703e76df75720f32dd3e139d7dd368e8e9196e02a",
+      "text_sha256": "1dae0756978345a60c54e816a6b7dcb2e3b8f0bb114dbcd988810bc6c7f2f9de",
+      "source_bytes": 105455,
+      "text_bytes": 11246,
+      "revision_id": 75578223,
+      "source_url": "https://vi.wikipedia.org/wiki/V%C4%83n_Lang",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Văn_Lang&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "cd053dbee1240afc49cc8c5aba14e0c726812275da56d7f9483ca1208541bf19"
+    },
+    {
+      "document_id": "WP027",
+      "source": "wikipedia",
+      "title": "Cách mạng tháng Tám",
+      "source_sha256": "050ca60f60ee0ae35c950a6f456ae26fa134d49d8af6568e8aa4f468fb61eda3",
+      "text_sha256": "1f03b7498a6218797badb1a579fb6cda5345df89a52bde3e217a28c1f06eb32b",
+      "source_bytes": 196126,
+      "text_bytes": 39258,
+      "revision_id": 75533120,
+      "source_url": "https://vi.wikipedia.org/wiki/C%C3%A1ch_m%E1%BA%A1ng_th%C3%A1ng_T%C3%A1m",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Cách_mạng_Tháng_Tám&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "5893ca8d2c21c6e5750739c3aff7ed6c51599b74a8297d822a78b418c2bb5682"
+    },
+    {
+      "document_id": "WP029",
+      "source": "wikipedia",
+      "title": "Khởi nghĩa Lam Sơn",
+      "source_sha256": "d4668f14f2b46f7f77f4b7bec07b0079d5ab917f4eac1b683772e04bf314ce31",
+      "text_sha256": "3e5075dff7c4761c76b4b42e83841c4a86aaae48a0f2a3d3f2e8cd50e0f507f8",
+      "source_bytes": 679339,
+      "text_bytes": 93063,
+      "revision_id": 75630810,
+      "source_url": "https://vi.wikipedia.org/wiki/Kh%E1%BB%9Fi_ngh%C4%A9a_Lam_S%C6%A1n",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Khởi_nghĩa_Lam_Sơn&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "fded7d714364a802d30724caa467334f238056eb9952b5f36061c07eff2f3fe8"
+    },
+    {
+      "document_id": "WP031",
+      "source": "wikipedia",
+      "title": "Văn hóa Việt Nam",
+      "source_sha256": "f772ad3a77feb1373ac4176a4d4c24b676d5b43684c0341fc769148d8e3e9370",
+      "text_sha256": "271a96325d62680d93320d1188b7709eff386d80f2104166ad1bf58b1f2baedc",
+      "source_bytes": 193246,
+      "text_bytes": 47052,
+      "revision_id": 75550832,
+      "source_url": "https://vi.wikipedia.org/wiki/V%C4%83n_h%C3%B3a_Vi%E1%BB%87t_Nam",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Văn_hóa_Việt_Nam&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "e4a89aa3c19cc24e8ebe57ea805dcfa9952e33b4265bc00f54ea7cde9eccd899"
+    },
+    {
+      "document_id": "WP032",
+      "source": "wikipedia",
+      "title": "Ẩm thực Việt Nam",
+      "source_sha256": "d7c931b74e3f51c7d5202579990d04758168f88c25ba426fe3d9d7d674b733fd",
+      "text_sha256": "0c5130fa1bbe7f8e50cbb8d604b8ecfeed82dca871130557a49a300d92bd7bec",
+      "source_bytes": 386796,
+      "text_bytes": 86159,
+      "revision_id": 75524867,
+      "source_url": "https://vi.wikipedia.org/wiki/%E1%BA%A8m_th%E1%BB%B1c_Vi%E1%BB%87t_Nam",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Ẩm_thực_Việt_Nam&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "a4c91703871c6d6a570d180d77406b7481ccd631429d24ba3addc57cef595238"
+    },
+    {
+      "document_id": "WP033",
+      "source": "wikipedia",
+      "title": "Phở",
+      "source_sha256": "dac8e506d5596c36bfb3fb4bc7b5a5ffc7a8424b42b4f1f48a9c0f15f8f38d72",
+      "text_sha256": "3c3b10b03336b178068b452c6884b1259d45c4e999c12952fc86373889b1f90d",
+      "source_bytes": 217749,
+      "text_bytes": 34461,
+      "revision_id": 75647145,
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%9F",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phở&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "230d1618e3cc54f453a083b7681a806326be7008289377c685a94a01b4d8d2e3"
+    },
+    {
+      "document_id": "WP035",
+      "source": "wikipedia",
+      "title": "Áo dài",
+      "source_sha256": "233b07cc9d23afd9cbf60ae8e441c5b54976af8daa53feb572e51fe5940f9a62",
+      "text_sha256": "2576c735b685a06de380525e59df418870495e97cea7d63f279d48701c3830e9",
+      "source_bytes": 201607,
+      "text_bytes": 25067,
+      "revision_id": 75565615,
+      "source_url": "https://vi.wikipedia.org/wiki/%C3%81o_d%C3%A0i",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Áo_dài&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "64c9ad080f4a4958512a71ea440c519ac881e90a529ed49ef4b8402a8077f6ce"
+    },
+    {
+      "document_id": "WP036",
+      "source": "wikipedia",
+      "title": "Tết Nguyên Đán",
+      "source_sha256": "7414c9ea68ac58366a0969b1cab014c64124de671fbb72312bebf1dfa0d48912",
+      "text_sha256": "ceb7ed12cfeaf986b904ed3623e3b8ba32e994cfc17e685d18753ae0cb7e9272",
+      "source_bytes": 376083,
+      "text_bytes": 87626,
+      "revision_id": 75681026,
+      "source_url": "https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Nguy%C3%AAn_%C4%90%C3%A1n",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Tết_Nguyên_Đán&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "33e12bde44c36070c71c7591a6f2fb9a62880dee1b38fe2e8cb924baa3d206fa"
+    },
+    {
+      "document_id": "WP037",
+      "source": "wikipedia",
+      "title": "Quan họ",
+      "source_sha256": "84f15ccf2d1fd45cce4783424fe6ae83cd870824b61670a0950b588d0571cd6e",
+      "text_sha256": "d40a19f9eeeb967da3c6c385a7f1f7c0cbe5ea470e75a5369af10a310eb239fa",
+      "source_bytes": 94057,
+      "text_bytes": 29863,
+      "revision_id": 75673678,
+      "source_url": "https://vi.wikipedia.org/wiki/Quan_h%E1%BB%8D",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Quan_họ&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "7264ba9384229e1ca82db32a1f33fe8fe54579fe39daf743211765fdeb0a2da8"
+    },
+    {
+      "document_id": "WP042",
+      "source": "wikipedia",
+      "title": "Di truyền học",
+      "source_sha256": "4c20f57577f695f9da04956490c2ec7837bb1495f2cc934c8a74ef07d08cac9c",
+      "text_sha256": "0309dc5f1ba65cc2b0bd4fc02e24dcd49c466fa62cc513aaac5c608a038a240b",
+      "source_bytes": 375914,
+      "text_bytes": 60622,
+      "revision_id": 75586128,
+      "source_url": "https://vi.wikipedia.org/wiki/Di_truy%E1%BB%81n_h%E1%BB%8Dc",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Di_truyền_học&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "caa8485f0b19151c98ebce2215cc7606fd36e6ba854e51dca3d0c849d67ef66b"
+    },
+    {
+      "document_id": "WP043",
+      "source": "wikipedia",
+      "title": "Sinh thái học",
+      "source_sha256": "6fa66c3c17306c3958c452a4ce7d3dc30e60c0aad3ff53b5b3023b7b0fec488c",
+      "text_sha256": "5cc006ad2998553d0fafbfec1df3fef9348d7b172f55532e9365b907deae1c75",
+      "source_bytes": 932359,
+      "text_bytes": 112318,
+      "revision_id": 75472997,
+      "source_url": "https://vi.wikipedia.org/wiki/Sinh_th%C3%A1i_h%E1%BB%8Dc",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Sinh_thái_học&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "ff59bef084f02cb050f1f693f8166452d58ab77e08b888213024ce88a7ac4e68"
+    },
+    {
+      "document_id": "WP044",
+      "source": "wikipedia",
+      "title": "Quang hợp",
+      "source_sha256": "ce66985d7b10899d18fb8be6c70010e46e3e6991f4231e7319d06b4cdc857f5f",
+      "text_sha256": "4743bd394a7215c5bbfa54ccbe6eecab0aee6f7726bbfaaabedcfc157e031f01",
+      "source_bytes": 216799,
+      "text_bytes": 32507,
+      "revision_id": 75051386,
+      "source_url": "https://vi.wikipedia.org/wiki/Quang_h%E1%BB%A3p",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Quang_hợp&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "093e42b9615807c86d8aadd5e611f9ea40e5aecffe2a3c5faee41453495e84b4"
+    },
+    {
+      "document_id": "WP048",
+      "source": "wikipedia",
+      "title": "Vi sinh vật học",
+      "source_sha256": "09782a8b4d207290aa616ec44c289db0d15f023956a9311d9ccd8ffd737039e3",
+      "text_sha256": "0fedf5e72d75accf6c1daecc0f5312d24cecc8be47d92fa0eb45d3524710d507",
+      "source_bytes": 239755,
+      "text_bytes": 17725,
+      "revision_id": 75079245,
+      "source_url": "https://vi.wikipedia.org/wiki/Vi_sinh_v%E1%BA%ADt_h%E1%BB%8Dc",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Vi_sinh_vật_học&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "dd7078b7564950d01a8ab29de0b10640408f7ec3854b2c6a1e27fb50ca191280"
+    },
+    {
+      "document_id": "WP049",
+      "source": "wikipedia",
+      "title": "Đa dạng sinh học",
+      "source_sha256": "8705d6e12a25ac236f8ba97e43f29df10c45255455233758d2faa1a669b30f9b",
+      "text_sha256": "e4b2c2826c89be86b713e282692ef6266183798da69fa95c9629aa6bae0bdc45",
+      "source_bytes": 389908,
+      "text_bytes": 34663,
+      "revision_id": 75574422,
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90a_d%E1%BA%A1ng_sinh_h%E1%BB%8Dc",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Đa_dạng_sinh_học&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "f34b44bf5746b857176385baf981e7f0703c83420ccdf6084a1df8d0f6a6840b"
+    },
+    {
+      "document_id": "WP053",
+      "source": "wikipedia",
+      "title": "Toán học",
+      "source_sha256": "8b8b66dee6d55fb2d057ef4cc43e6bc67998bf07be5d766b034d98420a40068f",
+      "text_sha256": "064f872cfc9782136de0de788abe05e4650057814b301b5e4c00ad9af36e70e7",
+      "source_bytes": 232605,
+      "text_bytes": 35132,
+      "revision_id": 75607277,
+      "source_url": "https://vi.wikipedia.org/wiki/To%C3%A1n_h%E1%BB%8Dc",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Toán_học&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "a0130adc3d696ddd73ee8b747da4d2e88b3f5761f87d2fe3597fb6605aa582d7"
+    },
+    {
+      "document_id": "WP054",
+      "source": "wikipedia",
+      "title": "Xác suất",
+      "source_sha256": "706e20e03f49d3a2610540d0261efe884420e31c399bbf8cc8b9ceb7e8e19a80",
+      "text_sha256": "1ea77d6418d70b71806f67c59de41486e18c3ab2143f47c6dd5989ab257d7732",
+      "source_bytes": 143443,
+      "text_bytes": 23703,
+      "revision_id": 75665965,
+      "source_url": "https://vi.wikipedia.org/wiki/X%C3%A1c_su%E1%BA%A5t",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Xác_suất&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "e9b34852d8c49db2ca4c0f4b013b6de5e604dafdfd552e0b1e7e766e7683d5b1"
+    },
+    {
+      "document_id": "WP061",
+      "source": "wikipedia",
+      "title": "Internet",
+      "source_sha256": "0b52556a867effdf300581bd42f53a8cc5269a2f045654c744a56625478a19eb",
+      "text_sha256": "8f310661cdb0285dbce386407ecdc04d038c8dbfd752f2b9a3a4eeaa9d80ad21",
+      "source_bytes": 200828,
+      "text_bytes": 14606,
+      "revision_id": 75348708,
+      "source_url": "https://vi.wikipedia.org/wiki/Internet",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Internet&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "d0a0722a05882c79cea714864839f5df2c6bd5ff64bc394bdbac1cc8413597cf"
+    },
+    {
+      "document_id": "WP062",
+      "source": "wikipedia",
+      "title": "Máy tính",
+      "source_sha256": "8825d2de16cdd9ef62a6a613c2e0d5688a4a36a91e76649119b747e0224901ee",
+      "text_sha256": "dce9434ce7786aa4ac004e3eb68135896fac0e4ac7aa399d9168076b93c30e4d",
+      "source_bytes": 171062,
+      "text_bytes": 38093,
+      "revision_id": 75614991,
+      "source_url": "https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Máy_tính&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "5477f6e7933e27f5703a2e20083b86c81f5f8ec9b5d53d58d70a297fdcfda340"
+    },
+    {
+      "document_id": "WP063",
+      "source": "wikipedia",
+      "title": "Trí tuệ nhân tạo",
+      "source_sha256": "f05c8c52ee598c198993ebb589f9fa4ab845e13c065694fe97b1a48dd41d3ee3",
+      "text_sha256": "2ac87367fd00b9bec5bf48415dc4536c7fb557afe7387447cc3b621070d16036",
+      "source_bytes": 619200,
+      "text_bytes": 36948,
+      "revision_id": 75515418,
+      "source_url": "https://vi.wikipedia.org/wiki/Tr%C3%AD_tu%E1%BB%87_nh%C3%A2n_t%E1%BA%A1o",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Trí_tuệ_nhân_tạo&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "72459dfcd84d5c4ae690b008a6558930d40c11081f8f7cbcdd21e019b0901950"
+    },
+    {
+      "document_id": "WP068",
+      "source": "wikipedia",
+      "title": "Giáo dục",
+      "source_sha256": "756d22e389f0d7b3f52d92c9810dcb643c72275599eafc43b026c35af789dc30",
+      "text_sha256": "c2d1732b2511b5d1a400f91cbfe2a1bb6abc78f95af4e868fe612e9f1ace7922",
+      "source_bytes": 286436,
+      "text_bytes": 29099,
+      "revision_id": 75352011,
+      "source_url": "https://vi.wikipedia.org/wiki/Gi%C3%A1o_d%E1%BB%A5c",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Giáo_dục&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "c2ec86b165555c955e3d3079aed15dab740680af939b7e74953de55820bc1124"
+    },
+    {
+      "document_id": "WP070",
+      "source": "wikipedia",
+      "title": "Du lịch",
+      "source_sha256": "94198ca829dd84fecd61b890fbef3aba134bbfa049d213b0170ee11721ad922f",
+      "text_sha256": "598bb060e87d35c9c4a53047e1a9456f098601d40ed903200e81826a64d429a2",
+      "source_bytes": 157399,
+      "text_bytes": 19438,
+      "revision_id": 75296343,
+      "source_url": "https://vi.wikipedia.org/wiki/Du_l%E1%BB%8Bch",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Du_lịch&action=history",
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "PAGE_EXCEPTION_CHECK_REQUIRED"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "f0c9372a75d36d833d67fc24d4ad3f064757fc04a5c84dd074eba2c205fe8f8e"
+    },
+    {
+      "document_id": "WS001",
+      "source": "wikisource",
+      "title": "Truyện Kiều",
+      "source_sha256": "154e4b37f1ab7860b28f04252a3664003eb499bc40a39ab557f43e99213bc3dd",
+      "text_sha256": "2ce96bafa9adced03109c532e472557437c1bdbc3904efa8ec97342789ada13e",
+      "source_bytes": 358199,
+      "text_bytes": 143093,
+      "revision_id": 205132,
+      "source_url": "https://vi.wikisource.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "INCOMPLETE_WORK_REVIEW",
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "56fba1d146f46dd152c62379efe222b0e1ea8abf2b1e56d1b762049f30a3b1e7"
+    },
+    {
+      "document_id": "WS003",
+      "source": "wikisource",
+      "title": "Chiều hôm nhớ nhà",
+      "source_sha256": "b25789876b83d61729aecd119789883f94bdef943f5ec3c6dab90b2bdac16c41",
+      "text_sha256": "4e044f46e4ba6d110ca762907de7551029448a3fe418860ec0c18f59225730b8",
+      "source_bytes": 7848,
+      "text_bytes": 711,
+      "revision_id": 168443,
+      "source_url": "https://vi.wikisource.org/wiki/Chi%E1%BB%81u_h%C3%B4m_nh%E1%BB%9B_nh%C3%A0",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "721753107fcc86a49952e0f644a4dca9268216ef125b7bcdf5503246e8468ffc"
+    },
+    {
+      "document_id": "WS008",
+      "source": "wikisource",
+      "title": "Sấm Trạng Trình",
+      "source_sha256": "9c4c0059d2fe9b45541fc7a7042d810eaab2921360fb74e313dcbf829585c6da",
+      "text_sha256": "77a595bd72e3e2ddabd291b11e352ee70efa1415f9ac0e99285fffdcd0c3706e",
+      "source_bytes": 33193,
+      "text_bytes": 22684,
+      "revision_id": 57003,
+      "source_url": "https://vi.wikisource.org/wiki/S%E1%BA%A5m_Tr%E1%BA%A1ng_Tr%C3%ACnh",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "bdd46fd0e59519237008ad583b020bb60ec9c56a912ebe613a63d5e615778de8"
+    },
+    {
+      "document_id": "WS009",
+      "source": "wikisource",
+      "title": "Nguyễn Trãi - Thị Lộ",
+      "source_sha256": "aee2c9950aed394fc3fcd35ab007efd8a0f270fa40b00349ed068fb30964cad2",
+      "text_sha256": "250a58621647ec3d405ed829841cf7ac537fac792778e0733e643fb7b9fb3fd8",
+      "source_bytes": 6081,
+      "text_bytes": 777,
+      "revision_id": 91556,
+      "source_url": "https://vi.wikisource.org/wiki/Nguy%E1%BB%85n_Tr%C3%A3i_-_Th%E1%BB%8B_L%E1%BB%99",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "AUTHOR_ATTRIBUTION_CONFLICT_REVIEW",
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "6e2ef6c27d72e79a5ffdeb78cc6f9fdb6f05313843bb97a6204da3fa7b6c9ca5"
+    },
+    {
+      "document_id": "WS011",
+      "source": "wikisource",
+      "title": "Tự thán (Nguyễn Trãi)",
+      "source_sha256": "f97e6cb1ee9bc632aa74807a4c8b75d021a87d6b2ee9bb58713daee6e5ff8c4a",
+      "text_sha256": "525887e7992d0aa21ca5233bd9ddf3dbbb8e6a900204931a8509b0f1f7ea9dd5",
+      "source_bytes": 11669,
+      "text_bytes": 609,
+      "revision_id": 107020,
+      "source_url": "https://vi.wikisource.org/wiki/T%E1%BB%B1_th%C3%A1n_(Nguy%E1%BB%85n_Tr%C3%A3i)",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "fd0f250e074513389cd96e578bb7f4e50a62b5dfe5ff2e930c20e93301bbb9a3"
+    },
+    {
+      "document_id": "WS012",
+      "source": "wikisource",
+      "title": "Thơ vô đề của Nguyễn Bỉnh Khiêm",
+      "source_sha256": "4662999c0e45c5b0c951ee5c457a9f03d6dd15214d2061ddceb18666b0328603",
+      "text_sha256": "78a53a37fb29f7aaffa59fba79ec77a0c8e4cb1cfc11551b3965cf5e94507832",
+      "source_bytes": 17858,
+      "text_bytes": 813,
+      "revision_id": 107120,
+      "source_url": "https://vi.wikisource.org/wiki/Th%C6%A1_v%C3%B4_%C4%91%E1%BB%81_c%E1%BB%A7a_Nguy%E1%BB%85n_B%E1%BB%89nh_Khi%C3%AAm",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "INCOMPLETE_WORK_REVIEW",
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "0361d060d8848907c78d67aad096dfda94e029cadd2dd92836b2b380a277d402"
+    },
+    {
+      "document_id": "WS014",
+      "source": "wikisource",
+      "title": "Nam quốc sơn hà",
+      "source_sha256": "aaf32923432622104a92c7f020383f293442986b63cb7d2ab37b218b3077db07",
+      "text_sha256": "01dfa73d6b47f655f249d033e3edeb33a6a825542613c31d473796453e6c6eb5",
+      "source_bytes": 9411,
+      "text_bytes": 594,
+      "revision_id": 206534,
+      "source_url": "https://vi.wikisource.org/wiki/Nam_qu%E1%BB%91c_s%C6%A1n_h%C3%A0",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "TRANSLATION_RIGHTS_CONFIRMATION",
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "3508edb3cc7cc427768fbfb655d8e957d4208c61ccd5c3b54a9d8f5387b01ec3"
+    },
+    {
+      "document_id": "WS015",
+      "source": "wikisource",
+      "title": "Văn tế nghĩa sĩ Cần Giuộc",
+      "source_sha256": "9c50a00b69d772517d1c14755a8c1d381616283eeb42473b02428505c787ac81",
+      "text_sha256": "cb9b0f3b6755788452ea6640271ec2484e7bf0e8382abfd5b87a01d18f5cb503",
+      "source_bytes": 14274,
+      "text_bytes": 5412,
+      "revision_id": 202551,
+      "source_url": "https://vi.wikisource.org/wiki/V%C4%83n_t%E1%BA%BF_ngh%C4%A9a_s%C4%A9_C%E1%BA%A7n_Giu%E1%BB%99c",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "df1413d79d161476a115b8d449da4a1cb5fde5065f05fb6055daf08642550d58"
+    },
+    {
+      "document_id": "WS018",
+      "source": "wikisource",
+      "title": "Bình Ngô đại cáo",
+      "source_sha256": "940ee123daaa7dbf30463b5106142039630cf74e67041d78ca2011624b1f37ea",
+      "text_sha256": "2bd0979103c6d69b2b161d589f34475861110a27b4032146482a01c4acf3ed7f",
+      "source_bytes": 29905,
+      "text_bytes": 902,
+      "revision_id": 205842,
+      "source_url": "https://vi.wikisource.org/wiki/B%C3%ACnh_Ng%C3%B4_%C4%91%E1%BA%A1i_c%C3%A1o",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "bb43a26c1c07c1a0b87a9098d8e4c4095fb58505605c423c9f38f50aaa35468c"
+    },
+    {
+      "document_id": "WS019",
+      "source": "wikisource",
+      "title": "Chiếu dời đô",
+      "source_sha256": "f8dec1f21941417c57969141e77b13aed9e7d9f9f362b77dd6fc496ad170199c",
+      "text_sha256": "0a371701625f37e015b5a66f39a1b2904bc8d2ae93e0af75a593d173891ddd75",
+      "source_bytes": 15293,
+      "text_bytes": 781,
+      "revision_id": 115831,
+      "source_url": "https://vi.wikisource.org/wiki/Chi%E1%BA%BFu_d%E1%BB%9Di_%C4%91%C3%B4",
+      "attribution_url": null,
+      "automated_pii_flag_counts": {},
+      "copyright_cue_counts": {},
+      "rights_review_flags": [
+        "WORK_EDITOR_TRANSLATOR_LICENSE_REVIEW"
+      ],
+      "verification_status": "PINNED_BYTES_PASS_WITH_RIGHTS_AND_PII_REVIEW_PENDING",
+      "admission_decision": "HOLD",
+      "independently_computed_h03_group_id": "bcd1410a69e7d0275c7f3476d16a76e3e3356d08ab3e03605fbdf7bada3ea18e"
+    }
+  ]
+}
