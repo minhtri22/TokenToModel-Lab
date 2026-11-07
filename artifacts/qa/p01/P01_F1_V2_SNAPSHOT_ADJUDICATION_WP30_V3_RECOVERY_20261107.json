@@ -1,0 +1,111 @@
+{
+  "schema": "ttm.p01.f1_vi_general_01_v2_readback_and_wp30_v3_successor.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "predecessor_commit": "1e9df85e8497ebdaaab8b3355239242f2c357bfb",
+  "v2": {
+    "receipt_schema": "ttm.p01.f1_vi_general_01_snapshot_pre_admission.v1",
+    "receipt_sha256": "c4b1faa9abd3562816cc3de880cbcfec6a02542829aab31d9ca81d0651871049",
+    "console_receipt_sha256_match": true,
+    "independent_uploaded_file_digest_check": "PASS",
+    "remote_folder_readback": "receipt, V2 one-shot marker and ten paired Wikisource .txt/.source in private quarantine",
+    "candidate_pool_size": 100,
+    "fetched_or_parsed": 83,
+    "auto_screen_pass_documents": 10,
+    "screened_in_source": "wikisource",
+    "screened_in_source_document_count": 10,
+    "screened_in_source_bytes": 176376,
+    "independent_h03_groups": 10,
+    "required_min_groups": 30,
+    "hold_counts": {
+      "wikipedia": 70,
+      "wikisource": 10,
+      "vbpl": 10
+    },
+    "wikipedia_auto_hold_reasons": {
+      "RIGHTS_UNCLEAR": 70,
+      "PII_OR_SECRET_PATTERN": 4
+    },
+    "wikisource_hold_reasons": {
+      "COLLECTION_OR_PARSE_FAILED": 7,
+      "RIGHTS_UNCLEAR": 3
+    },
+    "vbpl_hold_reasons": {
+      "COLLECTION_OR_PARSE_FAILED": 10
+    },
+    "status": "PASS_SCOPED_PRE_ADMISSION_F1_HOLD"
+  },
+  "root_cause": {
+    "old_source_python_sha256": "9da5b25f2b8b45a62f1f88d7e6142e4cfa9d9b3b69caa513f16361c0b35bdb5b",
+    "old_condition": "('creativecommons' in license_text or 'cc by-sa' in license_text or 'ghi công' in license_text)",
+    "rightsinfo_human_readable_text": "Creative Commons Attribution-Share Alike 4.0",
+    "mismatch": "LICENSE_DISPLAY_NAME_WHITESPACE_DID_NOT_MATCH_OLD_TOKEN_TEST",
+    "legal_qualification": "CC BY-SA is conditionally reusable with attribution and share-alike when applicable; page-level exceptions and privacy remain subject to review",
+    "no_retroactive_allow": true
+  },
+  "successor_v3": {
+    "operation": "TTM_P01_F1_WP30_PINNED_REVISION_SHA_RECOVERY_V3",
+    "candidate_policy": "Select 30 diverse non-PII-auto-flagged WP pages from frozen 100; no new URLs or TEST-driven tuning",
+    "selected_ids": [
+      "WP006",
+      "WP008",
+      "WP011",
+      "WP012",
+      "WP016",
+      "WP017",
+      "WP021",
+      "WP022",
+      "WP023",
+      "WP025",
+      "WP027",
+      "WP029",
+      "WP031",
+      "WP032",
+      "WP033",
+      "WP035",
+      "WP036",
+      "WP037",
+      "WP042",
+      "WP043",
+      "WP044",
+      "WP048",
+      "WP049",
+      "WP053",
+      "WP054",
+      "WP061",
+      "WP062",
+      "WP063",
+      "WP068",
+      "WP070"
+    ],
+    "selected_count": 30,
+    "selected_manifest_sha256": "d28d88d82750ac85568cc994c58b1690b72862b17ef0ee4148bbeb3a1b5c7084",
+    "original_snapshot_parser_sha256": "9da5b25f2b8b45a62f1f88d7e6142e4cfa9d9b3b69caa513f16361c0b35bdb5b",
+    "new_python_sha256": "e67c873c4f08b007945b5ed1bb3be70ca3329805e778ca46dc2fec392b4c6a4f",
+    "new_ps51_sha256": "a46384850b0f8b0c0f28da1be32725613f5b5bbc2c66824e9423d416f1b478ec",
+    "bundle_sha256": "7d85e14f17d94860ffe2dcd9a4eacdfdaf6c28b5a93daa43f412b1c00f28b688",
+    "preexecution_checks": [
+      "PY3_AST=PASS",
+      "BUNDLED_BYTE_EQUALITY=PASS",
+      "OFFHOST_LICENSE_POSITIVE_NEGATIVE_QA=PASS",
+      "30_PINNED_IDS_SOURCE_SCOPE=PASS",
+      "PS51_NATIVE_PARSE=NOT_EXECUTED"
+    ],
+    "approach": "Re-fetch EXACT oldid source; independently verify html SHA + derived text SHA against V2; re-evaluate PII flags; compare H03 dedup with ten preserved Wikisource texts; save conditional candidate files to distinct quarantine",
+    "output_receipt": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_F1_VI_GENERAL_WP30_REVIEW_V3_20261107.json",
+    "output_marker": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_F1_VI_GENERAL_WP30_REVIEW_V3_20261107.once",
+    "new_quarantine": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\datasets\\quarantine\\f1_vi_general_01_wp30_review_v3_20261107",
+    "status": "PREPARED_NOT_WINDOWS_EXECUTED"
+  },
+  "decisions": {
+    "F1": "HOLD_INDEPENDENT_RIGHTS_AND_PII_REVIEW",
+    "K1": "PASS_SCOPED_WINDOWS_RETAINED",
+    "K2": "PASS_SCOPED_WINDOWS_RETAINED",
+    "S1": "HISTORICAL_FAIL_PRESERVED",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "lineage_md": "UNCHANGED"
+  },
+  "next": "V3_ONE_SHOT_WINDOWS_SOURCE_RECOVERY_THEN_FINAL_F1_SOURCE_ADMISSION_AND_SINGLE_E0_DOCKER_QA"
+}
