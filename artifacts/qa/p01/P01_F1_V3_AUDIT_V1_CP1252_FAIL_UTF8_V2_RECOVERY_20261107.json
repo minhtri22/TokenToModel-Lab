@@ -1,0 +1,54 @@
+{
+  "schema": "ttm.p01.f1_v3_independent_audit_utf8_recovery_v2.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_commit": "4718395eba4adf2d8f2ed98183f52c519f8eab94",
+  "v1": {
+    "script_sha256": "12cc51d176080b7bf17aa9eb87fc64b6ef5e561523c51f6714de86f8c0a72ed9",
+    "console_last_line": "UnicodeEncodeError: 'charmap' codec can't encode character '\\u1ed9' in position 1363: character maps to <undefined>",
+    "failing_line": "print(json.dumps(audit(Path(sys.argv[1])),ensure_ascii=False,indent=2))",
+    "traceback_encoding": "C:\\Users\\minht\\miniforge3\\Lib\\encodings\\cp1252.py",
+    "root_cause": "Python redirected stdout inherited cp1252; JSON contains Vietnamese U+1ED9 from document metadata",
+    "error_classification": "TECHNICAL_OUTPUT_ENCODING_FAIL_AFTER_ANALYSIS_BEFORE_RECEIPT",
+    "remote_readback": {
+      "V1_final_receipt": "NOT_PRESENT",
+      "V1_temp": "CLEANED",
+      "V2_V3_source_receipts": "PRESERVED",
+      "forty_source_pairs": "PRESERVED"
+    },
+    "science_executed": false,
+    "F1_training_admitted": false
+  },
+  "v2": {
+    "script": "TTM_P01_F1_V3_INDEPENDENT_AUDIT_UTF8_RECOVERY_V2_PS51.ps1",
+    "script_sha256": "211e0b4e90273904a923abb7fbe56eb38647094e7a9b8a304a1b02d6938938e7",
+    "embedded_python_sha256": "920bf8867e1d9cb45be62b1849b66ab52e033a882db9b0b7d994bf44517ae42f",
+    "embedded_python_byte_identity": "PASS_EXACT_V1_V2",
+    "patch_scope": [
+      "PYTHONIOENCODING=utf-8:strict",
+      "PYTHONUTF8=1",
+      "StandardOutputEncoding=UTF8",
+      "StandardErrorEncoding=UTF8",
+      "distinct V2 temp / sentinel / receipt / CreateNew marker"
+    ],
+    "static_diff_review": "PASS_MINIMAL_HOST_ENCODING_ONLY",
+    "offhost_encoding_smoke": "CP1252_FAIL_UTF8_PASS",
+    "runtime_ps51_parser": "NOT_YET_EXECUTED",
+    "windows_run": "NOT_EXECUTED",
+    "output_receipt": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_F1_V3_INDEPENDENT_RIGHTS_PII_AUDIT_UTF8_RECOVERY_V2_20261107.json",
+    "marker": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_F1_V3_INDEPENDENT_AUDIT_UTF8_RECOVERY_V2_20261107.once",
+    "old_receipt_overwrite": "FORBIDDEN",
+    "prior_docs_and_snapshots": "READ_ONLY_UNCHANGED"
+  },
+  "constraints": {
+    "CQG_J3": "EXCLUDED",
+    "K1_K2": "PASS_PRESERVED_NOT_RERUN",
+    "S1": "HISTORICAL_FAIL_PRESERVED",
+    "E0": "NOT_EXECUTED",
+    "F1": "HOLD_FINAL_RIGHTS_AND_PII",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "lineage": "UNCHANGED"
+  },
+  "next": "RUN_SCOPED_V2_ONCE_AFTER_PS51_PARSER_AND_SHA256_CHECK_THEN_FINAL_SOURCE_ADMISSION"
+}
