@@ -1,0 +1,37 @@
+{
+    "schema":  "ttm.p01.l1.s1.compiler_argv_source_successor_qa.v1",
+    "run_id":  "S1_COMPILER_ARGV_SOURCE_QA_20261107T070616901Z_1da16711",
+    "old_ref":  "8e2a2033187d22e8c44c7493e8853dafe974715f",
+    "patch_ref":  "d845abc458c5d61db1ec6139def379ba89c5ca29",
+    "original_fail_receipt_sha256":  "39c670f86881bccebe3d8033b41ec28784b3ee5322daee10846b3a93c17939c6",
+    "consumed_marker_sha256":  "0673bc2f2a374905b28de83b02324fa12afba80152dcdcda8a37de19b7b02eb2",
+    "old_runner_sha256":  "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505",
+    "patch_sha256":  "f8bd177fa34e2614c3e291a2e2c2ca29574114fa8f3fc79c1939e30b9e177300",
+    "candidate_sha256":  "62eded1f6ea90b648fb025f9836e60aa11dbd34c7242c8c2e2960b8263264d31",
+    "ps51_parse":  "PASS",
+    "positive":  "PASS_TARGETED_COMPILER_ARGV",
+    "negative":  "PASS_1_OF_1_TARGETED_AUTOMATIC_ARGS",
+    "scm_before":  {
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                       "account":  "NT AUTHORITY\\LocalService",
+                       "start":  "Manual"
+                   },
+    "scm_after":  {
+                      "state":  "Stopped",
+                      "pid":  0,
+                      "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe",
+                      "account":  "NT AUTHORITY\\LocalService",
+                      "start":  "Manual"
+                  },
+    "native":  "NOT_EXECUTED",
+    "compiler":  "NOT_EXECUTED",
+    "marker_action":  "NONE",
+    "permit_action":  "NONE",
+    "verdict":  "LOCAL_SOURCE_QA_PASS_PENDING_GITHUB_READBACK",
+    "errors":  [
+
+               ],
+    "utc":  "2026-11-07T07:06:19.0093425Z"
+}
