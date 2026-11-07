@@ -1,0 +1,118 @@
+{
+  "schema": "ttm.p05.windows.cpu_integrated_independent_adjudication.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "PR": 9,
+  "base_main": "88bde037705607730cfc24e36875aa865d3a380c",
+  "scientific_source_head": "9afbdcdbd5c39da0ae5d92da327498cb3ad866d9",
+  "source_pins": {
+    "src/p05/dense_kv_cache.py": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+    "tests/p05/test_dense_kv_cache.py": "2fa25a579a600b3c80c28ac7ef07b253805e3490",
+    "tools/p05/independent_dense_kv_qa.py": "2e318b38b0a4e5a33a407515908d31d0c7d32e6d",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18"
+  },
+  "original_v1_receipt": {
+    "run_id": "TTM_P05_WINDOWS_CPU_QA_20261107T161218Z_P34804",
+    "path": "evidence/p05/TTM_P05_WINDOWS_CPU_QA_20261107T161218Z_P34804.json",
+    "sha256": "b8dc243e194e121bda7bd1cd164e375e535239978a2e60b3362230dae77127fb",
+    "git_blob_sha": "9a18fbfb37e830c6d803e822280f114d5d39e3c3",
+    "recorded_verdict": "FAIL_OR_INCONCLUSIVE",
+    "recorded_failure": "INDEPENDENT_QA_REPORT_SCOPE_OR_STATUS_MISMATCH",
+    "worktree_cleanup": "PASS_EXACT_OWNED_GIT_WORKTREE",
+    "local_head_before": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7"
+  },
+  "original_v1_launcher": {
+    "sha256": "547a22e11cd59b01ace78cf0d8a20e534d8faeec4e65f53550b4323a5f7fad71",
+    "git_blob_sha": "3b4da49ef341db08eac3e4feb5619df65ef7c608",
+    "path": "scripts/p05/TTM_P05_WINDOWS_CPU_INTEGRATED_QA_PS51_V1_20261107.ps1",
+    "result_binding_failure_line": 209,
+    "predicate_under_question": "$report.checks.PSObject.Properties.Count -ne 4",
+    "root_cause_status": "LIKELY_POWERSHELL51_MEMBER_COLLECTION_COUNT_INTERPRETATION_NOT_DIRECTLY_OBSERVED",
+    "remedy_for_future_run_only": "$checkNames = @($report.checks.PSObject.Properties | ForEach-Object { $_.Name }); assert $checkNames.Count==4 and exact set",
+    "V1_reexecution": "NOT_PERFORMED",
+    "V2_correction_executed": "NO"
+  },
+  "independent_readback": {
+    "windows_python": "3.12.10",
+    "windows_torch_from_report": "2.11.0+cpu",
+    "unit": {
+      "exit_code": 0,
+      "tests_passed": 6,
+      "total": 6,
+      "log_contains": "Ran 6 tests in 0.083s; OK",
+      "reported_log_sha256": "b41f6618a9e6fa5fa36323e58b0f245b7b6ffc3e923a5189fda76abd5ba7712b"
+    },
+    "independent": {
+      "exit_code": 0,
+      "status": "PASS",
+      "checks_passed": 4,
+      "total": 4,
+      "check_names": [
+        "explicit_sdpa_incremental_oracle",
+        "interleaved_dense_vs_uncached",
+        "independent_kv_byte_accounting",
+        "cpu_wall_time_measured_no_speedup_claim"
+      ],
+      "reported_log_sha256": "91363e4149628a9ceaa6939bcfb81b69b621b85cbc8ae805b4612eb5e3790dc8"
+    },
+    "report_scope": {
+      "P01_TEST": "NOT_READ",
+      "P03_TRAINING": "NOT_EXECUTED",
+      "no_real_corpus": true
+    },
+    "measurement": {
+      "status": "P05_CPU_MEASURED_NO_PERFORMANCE_CLAIM",
+      "sequence_length": 6,
+      "repeats": 2,
+      "allocated_kv_bytes": 65536,
+      "logical_kv_bytes": 6144,
+      "dense_ms": [
+        6.55459999688901,
+        6.346500013023615
+      ],
+      "recompute_ms": [
+        5.325200007064268,
+        5.692399980034679
+      ],
+      "precision": "float32",
+      "device": "cpu"
+    },
+    "recomputed_predicates": {
+      "process_exit_zero": true,
+      "report_pass": true,
+      "all_four_checks_true": true,
+      "exact_four_check_names": true,
+      "source_pins_match_receipt": true,
+      "no_real_corpus": true,
+      "p01_test_not_read": true,
+      "p03_not_executed": true,
+      "measurement_status_matches": true,
+      "sequence_length_matches": true,
+      "repeats_match": true,
+      "kv_bytes_match": true,
+      "timing_positive_finite": true,
+      "unit_tests_six_ok": true
+    },
+    "log_bytes_rehashed_by_adjudicator": false
+  },
+  "verdicts": {
+    "original_runner": "FAIL_OR_INCONCLUSIVE_PRESERVED",
+    "independent_Python_qa": "PASS_4_OF_4",
+    "unit_tests": "PASS_6_OF_6",
+    "adjudication": "PASS_SCOPED_CPU_WITH_RUNNER_V1_FALSE_NEGATIVE",
+    "P05_scientific_generalization": "NOT_ESTABLISHED",
+    "speedup": "NOT_ESTABLISHED",
+    "P05_main": "PENDING_MERGE",
+    "P06": "NOT_OPENED"
+  },
+  "governance": {
+    "lineage_md": "UNCHANGED_TECHNICAL_QA",
+    "p01_p04": "FROZEN_UNCHANGED",
+    "p01_e0": "NOT_RERUN",
+    "p01_test": "NOT_READ",
+    "science_rerun": "NONE",
+    "new_P05_worktree": "NONE"
+  },
+  "next": "EXACT_HEAD_PR9_REVIEW_MERGE_THEN_OPEN_P06"
+}
