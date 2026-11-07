@@ -206,7 +206,8 @@ def mutation_fixtures(src: str) -> dict[str, str]:
         "ignore_timeout": replace_once(
             src, '"BLOCK_CANCEL_COMPLETION_TIMEOUT"', '"PASS_COMPLETED_ABORTED"'),
         "dispose_before_complete": replace_once(
-            src, "pending == null || pending.IsCompleted", "true"),
+            src, "if (server != null && (pending == null || pending.IsCompleted)) server.Dispose();",
+            "if (server != null) server.Dispose();"),
         "skip_silent_case": replace_once(
             src, "Outcome silent = SilentClientRead();",
             "Outcome silent = new Outcome(\"SILENT_READ\", \"PASS_COMPLETED_ABORTED\");"),
