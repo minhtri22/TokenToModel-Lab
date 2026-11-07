@@ -79,7 +79,7 @@ def inspect(host, runner, engine):
     ck("runner_host_own_kill", "$owned.Kill()" in runner and
        "Stop-Process" not in runner and "taskkill" not in runner)
     ck("runner_host_exit0",
-       bool(re.search(r"(?m)^\\s*TTM_S1_HOST_EXIT='0'\\s*$", runner)) and
+       bool(re.search(r"(?m)^\s*TTM_S1_HOST_EXIT='0'\s*$", runner)) and
        "foreach($key in $fixed.Keys)" in runner and
        "$hostFields[$key] -cne $fixed[$key]" in runner and
        "Fail 'HOST_FIELD_CONTRACT'" in runner)
@@ -276,7 +276,7 @@ def main():
         except Exception as ex:
             rejected[key]=False;errors[key]=type(ex).__name__;detail[key]=["CHECKER_EXCEPTION"]
     passed=pins and baseline_clean and len(rejected)==22 and all(rejected.values()) and not errors
-    print(json.dumps({"schema":"ttm.p01.l1.s1.host_runner_integrated_source_QA.v1",
+    print(json.dumps({"schema":"ttm.p01.l1.s1.host_runner_integrated_source_QA.v2",
         "hashes":hashes,"hashes_pinned":pins,
         "positive_passed":sum(checks.values()),"positive_total":len(checks),
         "positive_failed":[k for k,v in checks.items() if not v],
