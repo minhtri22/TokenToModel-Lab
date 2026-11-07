@@ -150,6 +150,18 @@ internal static class IsolatedJobWatchdogV2 {
   static void Need(bool condition, string reason) {
     if (!condition) throw new InvalidOperationException(reason);
   }
+  // Fail closed on unexpected .NET x64 marshaling layouts BEFORE any Win32 call.
+  static void AssertMarshalLayoutsX64() {
+    Need(IntPtr.Size == 8, "BLOCK_ABI_POINTER_WIDTH");
+    Need(Marshal.SizeOf(typeof(SECURITY_ATTRIBUTES)) == 24 &&
+         Marshal.SizeOf(typeof(STARTUPINFO)) == 104 &&
+         Marshal.SizeOf(typeof(STARTUPINFOEX)) == 112 &&
+         Marshal.SizeOf(typeof(PROCESS_INFORMATION)) == 24 &&
+         Marshal.SizeOf(typeof(IO_COUNTERS)) == 48 &&
+         Marshal.SizeOf(typeof(JOBOBJECT_BASIC_LIMIT_INFORMATION)) == 64 &&
+         Marshal.SizeOf(typeof(JOBOBJECT_EXTENDED_LIMIT_INFORMATION)) == 144,
+         "BLOCK_ABI_LAYOUT_X64");
+  }
   static bool HandleOK(IntPtr value) {
     return value != IntPtr.Zero && value != new IntPtr(-1);
   }
@@ -260,6 +272,7 @@ internal static class IsolatedJobWatchdogV2 {
         String.Equals(Path.GetFileName(binaryPath),
           "TTMS1IsolatedCancellationHarness.exe", StringComparison.OrdinalIgnoreCase),
         "BLOCK_WRONG_S1_EXE");
+      AssertMarshalLayoutsX64();
       ProjectFile(binaryPath, projectRoot);
       lockedBinary = LockBinaryAndCheck(binaryPath, exactBinarySha256);
 
