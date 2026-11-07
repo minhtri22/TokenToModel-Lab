@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.p01.l1.s1.windows_qa_v2_failure_and_v3_source_successor_adjudication.v1",
+  "adjudicated_date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "v1_failure": {
+    "receipt_commit": "f99a5ed372fde9787cc050b1f492021e9d4842e3",
+    "receipt_sha256": "53fdf29600117f39eb5fd3c68a6d6276eaaa73b0238859fd6a79725260b95b41",
+    "marker_sha256": "d39f4cd82c48c0401d48089c961f353663955671135c1e76ede06334b0b0f877",
+    "classification": "BLOCK_PYTHON_CHECKER_VALUEERROR_REMOVED_WAIT_ANCHOR",
+    "preserve": "YES_NO_REPLAY"
+  },
+  "v2_failure": {
+    "run_id": "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V2_20261107T022147072Z_cd5dc8ba",
+    "receipt_commit": "57b9511770d2d5407475e621cc5f296606003750",
+    "receipt_git_blob": "3923ade3082a1c8d9530a5482a98eeee7a7f3339",
+    "receipt_sha256": "fa955c9ebc23de8daddbd44e9af90171e53a65075aa8e7e3cf6dd17945ed5bad",
+    "attachment_sha256_verified": "YES",
+    "marker_sha256": "506425d4fcd9e82fc0aa2d6c0056e0dda69f03a7ebbf270e43c97d3ddb2215d0",
+    "receipt_verdict": "BLOCK_WINDOWS_S1_SOURCE_QA",
+    "python_checker_receipt": null,
+    "scm_before": "STOPPED_PID0_MANUAL_LOCALSERVICE_V2",
+    "scm_after": "NOT_REACHED_IN_V2",
+    "compiler_executed": false,
+    "native_s1_executed": false,
+    "scm_action": "NONE",
+    "exact_source_root_cause": "V2 check both_cases_mandatory looks for '(silent.Passed ? 0 : 3)' absent from actual C# 'return silent.Passed ? 0 : 3;'. It rejects the pristine source.",
+    "independent_second_implementation_reproduction": {
+      "positive_pass": 40,
+      "positive_total": 41,
+      "negative_flagged": 16,
+      "negative_total": 16,
+      "negative_verdict_meaning": "INVALID_BASELINE_FALSE_CAUSES_ALL_MUTANTS_FALSE",
+      "note": "Source semantic emulation (JS) is not executed target Windows Python checker output"
+    },
+    "second_masked_negative": "The async_pipe check used general 'PipeOptions.Asynchronous' and would miss mutation to server PipeOptions.None because client still uses Async.",
+    "reporting_failure": "The V2 PowerShell launcher performed nonzero exit check before storing parsed Python JSON, so receipt.python_checker remained null even if JSON was available.",
+    "preserve": "YES_NO_REPLAY"
+  },
+  "v3_successor": {
+    "harness": {
+      "path": "qa/p01/windows/S1/TTMS1IsolatedCancellationHarness.cs",
+      "git_blob": "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+      "sha256": "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+      "changed": false
+    },
+    "Python_checker": {
+      "path": "qa/p01/windows/S1/Independent-QA-S1-IsolatedCancellation-Static-V3.py",
+      "source_commit": "3add36f538c6fe39658ea72d91034b8c8a5f666a",
+      "git_blob": "8b65cb027b8ec7f7950036ca7cc6cc45eed3e603",
+      "sha256": "488bf941a872391ac55d6c3ce2fb5684846f756e4d87899844513bb5157850a2",
+      "repairs": [
+        "exact C# return syntax",
+        "specific asynchronous server pipe options",
+        "baseline 41/41 is prerequisite for valid negatives",
+        "exact 16 mutant checks with individual failed predicates",
+        "negative inspector exceptions cause FAIL and are reported",
+        "source SHA256 mandatory"
+      ]
+    },
+    "Windows_launcher": {
+      "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-Windows-IndependentStaticQA-V3-PS51.ps1",
+      "source_commit": "da27d6f1b84968d3cd8d6f08375678d0c9a65a9e",
+      "git_blob": "f737e4e0b1b257d18e637122c9531a8656df0dfd",
+      "sha256": "e95eccc7ad124cee5ae90c0cbc93278b454ee314467ad46d742a4fe20bb11089",
+      "new_marker": "L1_S1_WINDOWS_INDEPENDENT_SOURCE_STATIC_QA_V3_ATTEMPT_20261107.lock",
+      "safeguards": [
+        "pins V1 and V2 failed receipts and markers before new QA",
+        "checks frozen source SHA and exact Git blobs",
+        "SCM Stopped PID0 Manual LocalService V2 before and after, even after checker FAIL",
+        "captures raw checker exit, SHA256, output preview and parsed failure details before checking nonzero exit",
+        "project-local evidence and GitHub SHA256 readback, fail closed"
+      ]
+    },
+    "independent_static_audit": {
+      "harness_baseline": "41/41_PASS",
+      "negative_mutants": "16/16_REJECTED",
+      "specific_server_sync_mutant": "REJECTED_BY_async_pipe",
+      "runner_source_checks": "37/37_PASS",
+      "runner_negative_mutants": "14/14_REJECTED",
+      "runner_lexical_balanced": "PASS_TEXTUAL_ONLY",
+      "Windows_PS51_native_parser": "NOT_EXECUTED",
+      "V3_Python_checker_executed": "NOT_EXECUTED",
+      "V3_native_S1_executed": "NOT_EXECUTED"
+    },
+    "verdict": "PASS_V3_SOURCE_STATIC_ONLY_WINDOWS_QA_PENDING"
+  },
+  "governance": {
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "P00_P12": "UNCHANGED",
+    "science_lineage": "UNCHANGED",
+    "all_old_fail_receipts_and_markers": "PRESERVE_APPEND_ONLY",
+    "SCM": "UNCHANGED_AS_LAST_OBSERVED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "BROKER_V3_WORKER_V4_COMPILE_ONLY": "PASS",
+    "S1_NATIVE": "NOT_EXECUTED",
+    "NORMAL_STOP": "NOT_REQUALIFIED",
+    "NATIVE_SECURITY": "NOT_QUALIFIED"
+  },
+  "next_gate": "TTM_P01_L1_V3V4_S1_WINDOWS_INDEPENDENT_PYTHON_STATIC_QA_V3_ONE_SHOT_EXECUTION_AND_ADJUDICATION",
+  "no_native_permit": "YES"
+}
