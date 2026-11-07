@@ -1,0 +1,149 @@
+{
+  "schema": "ttm.p07.g0.windows_inventory_backend_disposition.v1",
+  "disposition_date_local": "2026-11-08",
+  "source": {
+    "type": "USER_SUPPLIED_CONSOLE_JSON",
+    "receipt_schema": "ttm.p07.windows_gpu_readonly_capability_preflight.v1",
+    "collected_utc": "2026-11-07T17:34:26.8672025Z",
+    "original_console_record_sha256": "NOT_AVAILABLE_NO_OUTPUT_FILE_WRITTEN",
+    "normalized_public_record": true,
+    "source_script_sha256": "d4bfc3ea86ac1ffde0836a8df7321447ee0fb6b22f5f4e38dc6cc0d666ac17ec",
+    "error_count": 0,
+    "original_report_final": "G0_READONLY_INVENTORY_CAPTURED_BACKEND_UNCONFIRMED"
+  },
+  "repo": {
+    "url": "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "expected_remote_main": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+    "probed_design_baseline": "a1a5fde085bacce834656c0d5140e1cb5b433b51",
+    "actual_branch_at_review": "6c55a220bb5931fc14f823a2e241b21ff8d5867b",
+    "probed_local_head": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "origin_exact": true,
+    "worktree_tracked_changes": false,
+    "local_main_sync": "NOT_PERFORMED",
+    "note": "The probed design baseline predates the G0/G1 contract commit; this is not a source mismatch."
+  },
+  "host": {
+    "os": "Microsoft Windows 11 Home Single Language",
+    "windows_version": "10.0.26300",
+    "powershell": "5.1.26100.9818",
+    "cpu": "Intel Core Ultra 7 258V",
+    "ram_free_gib": 13.668,
+    "d_drive_free_gib": 34.563,
+    "graphics": {
+      "name": "Intel Arc 140V integrated GPU",
+      "driver": "32.0.101.8860",
+      "driver_date": "2026-06-25",
+      "pnp_vendor_device": "VEN_8086&DEV_64A0",
+      "status": "OK",
+      "vendor": "Intel",
+      "dedicated_gpu_memory_bytes": "NOT_VERIFIED_SHARED_MEMORY_POSSIBLE"
+    }
+  },
+  "python_readonly_probes": [
+    {
+      "role": "Python312",
+      "python": "3.12.10",
+      "torch": "2.11.0+cpu",
+      "xpu_available": false,
+      "xpu_count": 0,
+      "sycl_packages_present": false,
+      "triton_present": false
+    },
+    {
+      "role": "Miniforge-base",
+      "python": "3.13.12",
+      "torch": "2.12.0+cpu",
+      "xpu_available": false,
+      "xpu_count": 0,
+      "sycl_packages_present": false,
+      "triton_present": false
+    },
+    {
+      "role": "Miniforge-cfcr-gpu-311",
+      "python": "3.11.15",
+      "torch": "2.4.1+cpu",
+      "xpu_available": false,
+      "xpu_count": 0,
+      "torch_directml_metadata": "0.2.5.dev240914",
+      "directml_compute_test": "NOT_EXECUTED"
+    },
+    {
+      "role": "AzureCLI-private-venv",
+      "python": "3.13.12",
+      "torch": null,
+      "import_error": "No module named torch"
+    }
+  ],
+  "tools": {
+    "found": [
+      "MSVC cl.exe (14.44.35207)",
+      "cmake.exe",
+      "ninja.exe"
+    ],
+    "not_found_on_path": [
+      "icx.exe",
+      "icpx.exe",
+      "dpcpp.exe",
+      "sycl-ls.exe",
+      "clang-cl.exe",
+      "llvm-spirv.exe"
+    ],
+    "oneapi_standard_directories_present": false,
+    "caveat": "Absent on PATH/standard directories does not prove no installation anywhere."
+  },
+  "vendor_docs_consulted": [
+    "https://docs.pytorch.org/docs/main/notes/get_start_xpu.html",
+    "https://docs.pytorch.org/get-started/additional-platforms/",
+    "https://www.intel.com/content/www/us/en/developer/articles/release-notes/oneapi-dpcpp/2026.html",
+    "https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html",
+    "https://github.com/intel/intel-xpu-backend-for-triton/blob/main/.github/WINDOWS.md"
+  ],
+  "backend_matrix": {
+    "SYCL_LEVEL_ZERO_NATIVE": {
+      "disposition": "PREFERRED_ARCHITECTURE_CONDITIONAL_NOT_RUNTIME_LOCKED",
+      "technical_match": "Direct paged-KV indexing in a custom native GPU kernel",
+      "blocker": "SYCL compiler/runtime not seen; Level Zero compute device not probed; Windows Home is not among Intel compiler 2026 GPU tested editions (Pro/Enterprise 11 listed)",
+      "next": "No install/compile/dispatch until isolated capability enablement approved"
+    },
+    "PYTORCH_XPU": {
+      "disposition": "INTEGRATION_AND_GPU_ORACLE_CANDIDATE_NOT_INSTALLED",
+      "support": "Intel Core Ultra Series 2 Lunar Lake and Windows 11 listed in PyTorch official documentation",
+      "blocker": "All probed wheels are CPU-only; xpu.available false",
+      "next": "If later explicitly approved, test with separate pinned venv and unchanged existing interpreters"
+    },
+    "DIRECTML": {
+      "disposition": "DISCOVERED_METADATA_ONLY_NOT_P07_BACKEND",
+      "evidence": "torch-directml 0.2.5.dev240914 in cfcr-gpu-311",
+      "blocker": "No DirectML GPU dispatch was performed; cannot establish direct-paged custom kernel capability"
+    },
+    "TRITON_XPU_WINDOWS": {
+      "disposition": "NOT_SELECTED",
+      "blocker": "Experimental source-build path, reference validated device list does not name Arc 140V"
+    },
+    "CUDA": {
+      "disposition": "OUT_OF_SCOPE_INTEL_DEVICE"
+    }
+  },
+  "restrictions": {
+    "gpu_dispatch": false,
+    "install": false,
+    "driver_changed": false,
+    "git_mutation_local": false,
+    "checkpoint_used": false,
+    "corpus_read": false,
+    "heldout_read": false,
+    "p01_e0_rerun": false,
+    "p08_opened": false
+  },
+  "adjudication": {
+    "G0_readonly_inventory": "PASS_RECORDED_EVIDENCE",
+    "G0_backend_viability": "BLOCKED_CAPABILITY_UNCONFIRMED",
+    "installed_PyTorch_XPU": "FAIL_NOT_PRESENT_IN_PROBED_ENVIRONMENTS",
+    "installed_SYCL_compiler": "NOT_FOUND_IN_PROBED_SCOPE",
+    "P07": "DESIGN_ONLY_BLOCKED_GPU_RUNTIME",
+    "G1_gpu_kernel": "NOT_IMPLEMENTED_NOT_EXECUTED",
+    "G2_gpu_benchmark": "NOT_EXECUTED",
+    "P08": "NOT_OPENED",
+    "next": "TTM_P07_G0_CAPABILITY_GAP_ISOLATED_ENABLEMENT_PLAN_NO_INSTALL"
+  }
+}
