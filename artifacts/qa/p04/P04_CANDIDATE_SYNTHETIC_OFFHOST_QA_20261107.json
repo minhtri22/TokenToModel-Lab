@@ -12,12 +12,12 @@
       "git_blob": "f047fcd33d871d26f789f0008611c04af4579bc4"
     },
     "tests/p04/test_eval_checkpoints.py": {
-      "sha256": "7855a1231ac15bb1f1fba1cdad65f37c6d5fb07b5c6c3712fe2055caa3a29836",
-      "git_blob": "3fdfee8355d667724687aaa6954cc18f1d47eb19"
+      "sha256": "60b6ede81f624e59a0e7897e7fb9dc6f52a34d4f1196c6da7a1d6de1404291b6",
+      "git_blob": "8b84278dc5a0964e9fd86af3d8e06c26b91cc90f"
     },
     "tools/p04/independent_p04_qa.py": {
-      "sha256": "dd154233dfb9552a001ab92c3abb017ef85ab45849dd15bbd8f5aaec0ef482ec",
-      "git_blob": "92607140872aa2a7abe54ba011126acdcddb5888"
+      "sha256": "fbdc56f440cb07687b02af49a346a844b44e59a7c1af90513fafe60a33377d45",
+      "git_blob": "c31619932990c7acf4bd3be7a4bb2b5d7da34781"
     }
   },
   "unit_tests": {

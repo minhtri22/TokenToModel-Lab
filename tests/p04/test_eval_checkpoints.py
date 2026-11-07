@@ -26,7 +26,7 @@ class P04Tests(unittest.TestCase):
         self.model = GPT(P02Config()).eval()
 
     def test_checkpoint_weights_only_strict_roundtrip(self):
-        with TemporaryDirectory() as folder:
+        with TemporaryDirectory(dir=ROOT) as folder:
             path = Path(folder) / "model.pt"
             sha = save_checkpoint_new(path, self.model, BPE_SHA)
             self.assertEqual(sha, hashlib.sha256(path.read_bytes()).hexdigest())
@@ -39,7 +39,7 @@ class P04Tests(unittest.TestCase):
                 save_checkpoint_new(path, self.model, BPE_SHA)
 
     def test_tamper_checkpoint_rejected(self):
-        with TemporaryDirectory() as folder:
+        with TemporaryDirectory(dir=ROOT) as folder:
             path = Path(folder) / "model.pt"
             sha = save_checkpoint_new(path, self.model, BPE_SHA)
             with self.assertRaises(ValueError):

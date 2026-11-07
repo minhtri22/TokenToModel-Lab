@@ -4,7 +4,8 @@ import math
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
 
 import torch
 from torch.nn import functional as F
@@ -21,7 +22,7 @@ def main() -> int:
     torch.manual_seed(404)
     model = GPT(P02Config()).eval()
     checks = {}
-    with TemporaryDirectory() as d:
+    with TemporaryDirectory(dir=ROOT) as d:
         p = Path(d) / "synthetic_weights.pt"
         sha = save_checkpoint_new(p, model, BPE_SHA)
         restored = load_checkpoint_verified(p, sha, BPE_SHA)

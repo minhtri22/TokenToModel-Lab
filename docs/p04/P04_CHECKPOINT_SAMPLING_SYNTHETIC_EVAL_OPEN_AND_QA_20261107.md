@@ -15,8 +15,8 @@ Python 3.13.5, PyTorch 2.10.0+cpu: **6/6 unittest PASS và 4/4 independent check
 
 Các tệp:
 - `src/p04/eval_checkpoints.py` SHA `e749c8eb880081feaf75443289a900bea352c92c9cd0df07746c1961398d180d`.
-- `tests/p04/test_eval_checkpoints.py` SHA `7855a1231ac15bb1f1fba1cdad65f37c6d5fb07b5c6c3712fe2055caa3a29836`.
-- `tools/p04/independent_p04_qa.py` SHA `dd154233dfb9552a001ab92c3abb017ef85ab45849dd15bbd8f5aaec0ef482ec`.
+- `tests/p04/test_eval_checkpoints.py` SHA `60b6ede81f624e59a0e7897e7fb9dc6f52a34d4f1196c6da7a1d6de1404291b6`.
+- `tools/p04/independent_p04_qa.py` SHA `fbdc56f440cb07687b02af49a346a844b44e59a7c1af90513fafe60a33377d45`.
 
 ## Quyền dữ liệu và điều kiện đóng P04
 
@@ -25,3 +25,8 @@ Dữ liệu F1 WP30 trước đây chỉ được duyệt cho BPE E0 nội bộ,
 Bước tiếp theo duy nhất: chạy QA tích hợp P04 trên Windows máy chủ dự án (6+4 bài) với exact Git blob/head, biên bản hash và dọn worktree tạm trong dự án, rồi thẩm định/merge nếu PASS. Đánh giá thực nghiệm trên held-out văn bản thật cần một quyết định nguồn/đăng ký riêng phù hợp, không tự động mở qua QA tổng hợp.
 
 `P01=CLOSED_SCOPED` · `P02=CLOSED_SCOPED_CPU` · `P03=CLOSED_SCOPED_SYNTHETIC_CPU` · `P04=OPEN_CANDIDATE` · `P05=NOT_OPENED` · `lineage.md=UNCHANGED`.
+
+
+## Sửa ranh giới checkpoint tạm (QA-only)
+
+Bộ thử và checker độc lập sử dụng `TemporaryDirectory(dir=ROOT)` với ROOT là gốc worktree P04 để không ghi/xóa thư mục tạm mặc định ngoài workplace. Mã core `eval_checkpoints.py` không thay đổi. 6/6 + 4/4 tiếp tục PASS ngoại tuyến sau sửa. Không thay phase/gate khoa học.
