@@ -1,0 +1,93 @@
+{
+  "schema": "ttm.p00.f1_wp30_gpt_demo_result_independent_file_audit.v1",
+  "date": "2026-11-07",
+  "project": "TokenToModel-Lab",
+  "data_scope": "30 pinned Vietnamese Wikipedia documents, byte vocabulary 256, demo-only",
+  "execution_class": "DEMO_ONLY_NOT_P01_E0_NOT_P03",
+  "source_report_sha256": "9056db47e554fd9c708923036f49f81f6d09d447dd85615ed8757439e5bc53b6",
+  "source_sample_sha256": "d9bcf019ebc9cbfed6afbe314bdd5a6dae08a7ef85b75f301cc7c72ca37471fd",
+  "source_checkpoint_sha256": "4f45056a67d177c66dcd2430614c5d0e417f9c8d02d51d1a5c988cfe5cd4759e",
+  "checkpoint_bytes": 488351,
+  "verification": {
+    "report_json": "VALID_SCHEMA_AND_SOURCE_PINS",
+    "sample_txt": "VALID_UTF8_GENERATION_REPORT",
+    "checkpoint_weights_only": "PASS",
+    "checkpoint_state_dict_tensors": 29,
+    "unique_model_parameter_elements": 119552,
+    "checkpoint_no_nonfinite_tensor_values": true,
+    "actual_windows_training": "USER_CONSOLE_CONFIRMED",
+    "independent_user_machine_rerun": false,
+    "github_was_source_of_demo_code": "YES_REFERENCE_P00",
+    "no_source_text_republished": true,
+    "checkpoint_not_republished": true
+  },
+  "execution": {
+    "torch": "2.12.0+cpu",
+    "device": "cpu",
+    "steps": 36,
+    "config": {
+      "vocab_size": 256,
+      "max_seq_len": 48,
+      "n_embd": 64,
+      "n_layer": 2,
+      "n_head": 4
+    },
+    "source_document_count": 30,
+    "corpus_sample_bytes_console": 356830,
+    "F1_input_byte_count_report": 356888,
+    "train_loss_log": [
+      {
+        "step": 1,
+        "loss": 5.56057
+      },
+      {
+        "step": 6,
+        "loss": 4.77397
+      },
+      {
+        "step": 12,
+        "loss": 4.09584
+      },
+      {
+        "step": 24,
+        "loss": 3.14822
+      },
+      {
+        "step": 36,
+        "loss": 2.83296
+      }
+    ],
+    "fixed_batch_loss_before": 5.567609,
+    "fixed_batch_loss_after": 2.74368,
+    "fixed_batch_loss_absolute_drop": 2.823929,
+    "fixed_batch_loss_relative_drop_percent": 50.7206774,
+    "generated_output_replacement_character_count": 19,
+    "generated_output_characters": 104
+  },
+  "interpretation": {
+    "engineering": "PASS_WEIGHTS_UPDATED_AND_CHECKPOINT_VALID",
+    "heldout_validation": "NOT_PERFORMED",
+    "language_quality": "NOT_ESTABLISHED_GENERATION_INCOHERENT",
+    "causal_model_paging": "NO_NEW_SCIENTIFIC_COMPARISON",
+    "tokenizer_bpe": "NOT_IMPLEMENTED_IN_THIS_DEMO",
+    "reason_for_replacement_characters": "Byte-level autoregressive generation may emit invalid UTF8 byte sequences"
+  },
+  "resources": {
+    "user_windows": "Windows 11 x64 / Intel Core Ultra 7 258V / 32 GB RAM / Intel Arc 140V",
+    "disk_storage_user_reported": "902 GB used of 954 GB nominal (approximately 52 GB available, not verified)",
+    "user_intent": "Local short QA and demos, Google Colab for longer training",
+    "accelerators": "torch 2.12.0+cpu used; XPU not measured; integrated Arc memory not assumed dedicated 16 GB"
+  },
+  "governance": {
+    "P00": "BASELINE_REFERENCE_USED",
+    "P01": "OPEN",
+    "F1_formal_admission": "HOLD_UNCHANGED",
+    "E0": "NOT_EXECUTED",
+    "P02": "NOT_OPENED",
+    "P03": "NOT_OPENED",
+    "P04": "NOT_OPENED",
+    "K1_K2_S1": "UNCHANGED",
+    "lineage_md": "UNCHANGED"
+  },
+  "next": "TTM_P01_MINIMAL_F1_ADMISSION_BPE_E0_INTEGRATED_QA_THEN_P02_P03_P04"
+}
