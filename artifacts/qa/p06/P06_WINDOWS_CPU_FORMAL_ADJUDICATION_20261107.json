@@ -1,0 +1,102 @@
+{
+  "schema": "ttm.p06.windows.synthetic_cpu_formal_adjudication.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pr_number": 10,
+  "base_main": "e35a9d179e9ee3584bf2bc3f34cbfe1b6c3d88ec",
+  "tested_source_head": "af8f339e4e2de0a2ef5a9e25712874bbc461fffa",
+  "windows_run": {
+    "id": "TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520",
+    "original_local_path": "evidence/p06/TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520.json",
+    "sha256": "d19a72394df586a290a33394fd3b342a7d9f4d3fc44dcee7288c1b3016bdb5a3",
+    "exact_git_blob": "2f8cf8f0e0e28ae119938ac53542a04c977ed9cd",
+    "console_verdict": "PASS_PENDING_P06_FORMAL_ADJUDICATION",
+    "error": null,
+    "local_head_before": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "cleanup": "PASS_EXACT_OWNED_GIT_WORKTREE"
+  },
+  "runtime": {
+    "python": "3.12.10",
+    "pytorch": "2.11.0+cpu",
+    "device": "cpu",
+    "dtype": "float32"
+  },
+  "pinned_source_git_blobs": {
+    "src/p06/paged_kv_manager.py": "4d52188adaf55674b6965513ea1beb38ec9a8e9b",
+    "tests/p06/test_paged_kv_manager.py": "be31dbcaf560810b61b2c30fd3b6fe17a901a708",
+    "tools/p06/independent_paged_kv_qa.py": "ba51a565bab0c0deef7d0a0ba3ad6dc7d574cab4",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "src/p05/dense_kv_cache.py": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+    "reference/phase0/paged_kv.py": "ead322ff7559686cd8989264506cee6dd54c7441"
+  },
+  "windows_qa": {
+    "unit": {
+      "passed": 8,
+      "total": 8,
+      "exit_code": 0,
+      "log_path": "evidence/p06/TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520.unittest.log",
+      "reported_sha256": "8fe777493e009b93993302bb56c24ea3f7adcf868ab11385ed019a9b01482d5e",
+      "observed_summary": "Ran 8 tests in 0.139s / OK"
+    },
+    "independent": {
+      "passed": 5,
+      "total": 5,
+      "exit_code": 0,
+      "status": "PASS",
+      "log_path": "evidence/p06/TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520.independent.log",
+      "reported_sha256": "8d4a5a59b2bc43b18116bf13e6a2c9d0de6cf5ea0be608dcaad3028983472c19",
+      "checks": [
+        "cpu_repeated_benchmark_no_speedup_claim",
+        "explicit_sdpa_vs_p05_dense_vs_p06_paged_logits",
+        "independent_fragmentation_and_block_accounting",
+        "interleaved_isolation_reuse_scrub_vs_p00",
+        "oom_and_invalid_write_atomicity"
+      ]
+    },
+    "separate_adjudicator_recomputed_log_predicates": "PASS_ALL_11",
+    "original_log_contents_read_back_from_Windows": true,
+    "log_byte_sha256_independently_recomputed": false
+  },
+  "benchmark": {
+    "block_size": 3,
+    "sequence_length": 7,
+    "repeats": 2,
+    "dense_allocated_bytes": 65536,
+    "paged_allocated_bytes": 67584,
+    "used_logical_bytes": 7168,
+    "fragmented_bytes": 2048,
+    "dense_ms": [
+      18.5258999990765,
+      10.576800006674603
+    ],
+    "paged_ms": [
+      7.967799989273772,
+      4.742799996165559
+    ],
+    "recompute_ms": [
+      3.150800010189414,
+      15.148100006626919
+    ],
+    "scope": "DIAGNOSTIC_CPU_WALL_TIME_NO_SPEEDUP_CLAIM"
+  },
+  "restrictions": {
+    "corpus": "SYNTHETIC_TOKEN_IDS_ONLY",
+    "P01_E0": "DO_NOT_RERUN",
+    "P01_TEST": "NOT_READ",
+    "P03": "NOT_EXECUTED",
+    "P04_REAL_HELDOUT": "NOT_EXECUTED",
+    "P07": "NOT_OPENED",
+    "not_demonstrated": [
+      "CPU_SPEEDUP",
+      "GPU_KERNEL",
+      "REAL_TRAFFIC_PERFORMANCE",
+      "MODEL_GENERALIZATION",
+      "INDEPENDENT_THIRD_PARTY_AUDIT"
+    ],
+    "science_lineage_md": "UNCHANGED_ENGINEERING_CORRECTNESS"
+  },
+  "verdict": "P06_TECHNICAL_EXIT_PASS_SCOPED_CPU_READY_FOR_EXACT_HEAD_MERGE",
+  "P06_main_status": "NOT_CLOSED_UNTIL_PR10_MERGE",
+  "P07_status": "NOT_OPENED_UNTIL_PR10_MERGE"
+}

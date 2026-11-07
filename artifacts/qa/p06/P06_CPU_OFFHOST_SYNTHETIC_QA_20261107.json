@@ -1,0 +1,90 @@
+{
+  "schema": "ttm.p06.synthetic_cpu_offhost.qa.v1",
+  "date": "2026-11-07",
+  "classification": "OFFHOST_SYNTHETIC_CPU_CORRECTNESS_ONLY",
+  "original_p06_branch_head": "614bb61bbe66ef18af0553fb6121e0b0f85a7cc7",
+  "base_main": "e35a9d179e9ee3584bf2bc3f34cbfe1b6c3d88ec",
+  "source_pins": {
+    "src/p06/paged_kv_manager.py": {
+      "sha256": "f4febf0e22d9647abe3dd2e2c0856558e44af973a5955619b87c50a61b669db3",
+      "git_blob": "4d52188adaf55674b6965513ea1beb38ec9a8e9b"
+    },
+    "tests/p06/test_paged_kv_manager.py": {
+      "sha256": "d6bd0b9fb30ef9d3e8c651623b15de1884bbe8041a91d97e50c40b293670371e",
+      "git_blob": "be31dbcaf560810b61b2c30fd3b6fe17a901a708"
+    },
+    "tools/p06/independent_paged_kv_qa.py": {
+      "sha256": "87dae032ac99eff8e7a7cf2df7f49430cc5df27120f0c7c24dce3740c1464b1c",
+      "git_blob": "ba51a565bab0c0deef7d0a0ba3ad6dc7d574cab4"
+    }
+  },
+  "reference_blobs": {
+    "p00_paged": "ead322ff7559686cd8989264506cee6dd54c7441",
+    "p02_core": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p05_dense": "d835e5d7bb07fea447c5a869b13c70327ab05a53"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pytorch": "2.10.0+cpu",
+    "os": "isolated_linux_cpu_container"
+  },
+  "unit": {
+    "pass": 8,
+    "total": 8,
+    "exit": 0,
+    "log_sha256": "e97b79238d6da06fb86683a67d12521f3ac4ab6e34d54a4e5af91df0b1c0767f"
+  },
+  "independent": {
+    "pass": 5,
+    "total": 5,
+    "exit": 0,
+    "log_sha256": "0f8e85ed746a4f7efec010c7c4122a674d278501090aa5778fc541052cb876cc",
+    "checks": [
+      "explicit_sdpa_vs_p05_dense_vs_p06_paged_logits",
+      "interleaved_isolation_reuse_scrub_vs_p00",
+      "independent_fragmentation_and_block_accounting",
+      "oom_and_invalid_write_atomicity",
+      "cpu_repeated_benchmark_no_speedup_claim"
+    ]
+  },
+  "measurements": {
+    "status": "P06_CPU_MEASURED_NO_SPEEDUP_CLAIM",
+    "sequence_length": 7,
+    "repeats": 2,
+    "block_size": 3,
+    "dense_allocated_bytes": 65536,
+    "paged_allocated_bytes": 67584,
+    "used_logical_bytes": 7168,
+    "fragmented_bytes": 2048,
+    "dense_ms": [
+      6.87381899842876,
+      6.921775002410868
+    ],
+    "paged_ms": [
+      6.839334000687813,
+      6.560369998624083
+    ],
+    "recompute_ms": [
+      7.588472999486839,
+      7.691163998326732
+    ]
+  },
+  "first_checker_attempt": {
+    "verdict": "FAIL_TECHNICAL_ORACLE_NOT_P06",
+    "causes": [
+      "independent_SDPA_QKV_reshape_used_3x_embedding",
+      "local_P00_reference_was_stub"
+    ],
+    "repair": "Checker reshaped Q/K/V using emb3/3; restored original P00 reference exact Git blob; production P06 code unchanged",
+    "science_seed_consumed": false
+  },
+  "evidence_bundle_zip_sha256": "ef7c072399d2c331a2f6a39926b81e8404f1a03c6da902bdb58915ffa848d4b8",
+  "verdict": "OFFHOST_SYNTHETIC_QA_PASS_13_OF_13",
+  "windows_qa": "NOT_EXECUTED",
+  "model_generalization": "NOT_ESTABLISHED",
+  "performance_speedup": "NOT_ESTABLISHED",
+  "P01_TEST": "NOT_READ",
+  "P01_E0": "NOT_RERUN",
+  "P07": "NOT_OPENED",
+  "lineage_md": "UNCHANGED_TECHNICAL_QA"
+}

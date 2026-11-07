@@ -1,0 +1,78 @@
+{
+    "schema":  "ttm.p06.windows.cpu_synthetic_integrated_qa.v1",
+    "run_id":  "TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520",
+    "timestamp_utc":  "2026-11-07T16:40:00.6342918Z",
+    "repository":  "https://github.com/minhtri22/TokenToModel-Lab.git",
+    "expected_main":  "e35a9d179e9ee3584bf2bc3f34cbfe1b6c3d88ec",
+    "expected_head":  "af8f339e4e2de0a2ef5a9e25712874bbc461fffa",
+    "expected_branch":  "feature/p06-paged-kv-manager-20261107",
+    "local_head_before":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_head_after":  "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "python":  "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "python_version":  "Python 3.12.10",
+    "pytorch_version":  "2.11.0+cpu",
+    "source_git_blobs":  {
+                             "src/p06/paged_kv_manager.py":  "4d52188adaf55674b6965513ea1beb38ec9a8e9b",
+                             "tests/p06/test_paged_kv_manager.py":  "be31dbcaf560810b61b2c30fd3b6fe17a901a708",
+                             "tools/p06/independent_paged_kv_qa.py":  "ba51a565bab0c0deef7d0a0ba3ad6dc7d574cab4",
+                             "src/p02/transformer_core.py":  "9762343e06cf800b50574c2871ae1ed58537fb18",
+                             "src/p05/dense_kv_cache.py":  "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+                             "reference/phase0/paged_kv.py":  "ead322ff7559686cd8989264506cee6dd54c7441"
+                         },
+    "source_sha256":  {
+                          "src/p06/paged_kv_manager.py":  "f4febf0e22d9647abe3dd2e2c0856558e44af973a5955619b87c50a61b669db3",
+                          "tests/p06/test_paged_kv_manager.py":  "d6bd0b9fb30ef9d3e8c651623b15de1884bbe8041a91d97e50c40b293670371e",
+                          "tools/p06/independent_paged_kv_qa.py":  "87dae032ac99eff8e7a7cf2df7f49430cc5df27120f0c7c24dce3740c1464b1c",
+                          "src/p02/transformer_core.py":  "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+                          "src/p05/dense_kv_cache.py":  "45e3b2e153a4d37578a5dfacc86a313a5026c89eba13fcff41b59a0143b50412",
+                          "reference/phase0/paged_kv.py":  "64839ac57a8252d10d84efeef314b3186b3486734999ae8241736f0989c75458"
+                      },
+    "unit_tests":  {
+                       "pass":  true,
+                       "exit_code":  0,
+                       "count":  8,
+                       "log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p06\\TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520.unittest.log",
+                       "log_sha256":  "8fe777493e009b93993302bb56c24ea3f7adcf868ab11385ed019a9b01482d5e"
+                   },
+    "independent_tests":  {
+                              "pass":  true,
+                              "exit_code":  0,
+                              "count":  5,
+                              "log":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p06\\TTM_P06_WINDOWS_CPU_QA_20261107T163950Z_P10520.independent.log",
+                              "log_sha256":  "8d4a5a59b2bc43b18116bf13e6a2c9d0de6cf5ea0be608dcaad3028983472c19"
+                          },
+    "benchmark":  {
+                      "block_size":  3,
+                      "dense_allocated_bytes":  65536,
+                      "dense_ms":  [
+                                       18.5258999990765,
+                                       10.576800006674603
+                                   ],
+                      "device":  "cpu",
+                      "fragmented_bytes":  2048,
+                      "paged_allocated_bytes":  67584,
+                      "paged_ms":  [
+                                       7.967799989273772,
+                                       4.742799996165559
+                                   ],
+                      "precision":  "float32",
+                      "recompute_ms":  [
+                                           3.150800010189414,
+                                           15.148100006626919
+                                       ],
+                      "repeats":  2,
+                      "sequence_length":  7,
+                      "status":  "P06_CPU_MEASURED_NO_SPEEDUP_CLAIM",
+                      "used_logical_bytes":  7168
+                  },
+    "cleanup":  "PASS_EXACT_OWNED_GIT_WORKTREE",
+    "dataset":  "SYNTHETIC_TOKEN_IDS_ONLY",
+    "p01_e0":  "DO_NOT_RERUN",
+    "p01_test":  "NOT_READ",
+    "p03":  "NOT_EXECUTED",
+    "p04_real_heldout":  "NOT_EXECUTED",
+    "p07":  "NOT_OPENED",
+    "main_changes_by_runner":  "NONE_HEAD_UNCHANGED",
+    "verdict":  "PASS_PENDING_P06_FORMAL_ADJUDICATION",
+    "failure":  null
+}
