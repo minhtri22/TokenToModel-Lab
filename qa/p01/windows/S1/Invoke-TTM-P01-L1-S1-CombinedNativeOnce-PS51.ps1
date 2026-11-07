@@ -97,6 +97,20 @@ function Preconditions {
  foreach($m in $priorMarkers){if((HashPath (Join-Path $stage $m.f)) -cne $m.sha){Fail 'PRIOR_MARKER_CHANGED'}}
  if((HashPath (Join-Path $stage 'broker_service\TTMP01Broker.attestationV3.exe')) -cne '0751f89fee519367580e89b2e99b5347ee49c6b4c15f67ebf7d43706ac78ec5c'){Fail 'BROKER_V3_PIN'}
  if((HashPath (Join-Path $stage 'broker_service\TTMWorkerNativeProbeV4.dll')) -cne 'b36b5868b09b4da7bdb7198f3acd86923aba57f29a993fc8188bcb1cdc729f36'){Fail 'WORKER_V4_PIN'}
+ # Reuse, never re-run, exact Windows Python V3 QA; preserve its launcher BLOCK.
+ $priorRun='L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c'
+ $priorReceipt=Join-Path $receipts ($priorRun+'\'+$priorRun+'.json')
+ $priorSha='52f5f8c896a5306b3f5e3fd4b85b3763a97a193273c49dbe809e5a065efe5c33'
+ if((HashPath $priorReceipt) -cne $priorSha){Fail 'V3_QA_RECEIPT_SHA'}
+ $previous=Fetch ('artifacts/qa/p01/'+$priorRun+'.json') 'f61af1431ff41c3588657b57828d7928a30c2832' '673d12839b3821820732361b43540ccc5c748ffc'
+ if($previous.sha -cne $priorSha){Fail 'V3_QA_GITHUB_SHA'}
+ $record=[Text.Encoding]::UTF8.GetString($previous.data)|ConvertFrom-Json
+ if($record.verdict -cne 'BLOCK_WINDOWS_S1_SOURCE_QA' -or
+    $record.python_checker.exit_code -ne 0 -or
+    $record.python_checker.verdict -cne 'PASS_SOURCE_STATIC_NO_NATIVE' -or
+    $record.python_checker.positive_passed -ne 41 -or
+    $record.python_checker.negative_rejected -ne 16){Fail 'V3_QA_RECEIPT_CONTRACT'}
+ Write-Host 'TTM_S1_COMBINED_PYTHON_V3=PASS_REUSED_NO_RERUN'
  if((HashPath $csc) -cne $cscSha){Fail 'CSC_PIN'}
  if(Test-Path -LiteralPath $marker){Fail 'NATIVE_MARKER_ALREADY_USED_NO_REPLAY'}
  if(Test-Path -LiteralPath $nativeRoot){Fail 'NATIVE_OUTPUTS_NOT_PRISTINE'}
