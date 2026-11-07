@@ -1,0 +1,79 @@
+{
+    "schema":  "ttm.p01.l1.s1.native_combined_once_receipt.v1",
+    "run_id":  "S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88",
+    "source_ref":  "54669af28491611c389b9b02fd7020fba590ad73",
+    "permit_ref":  "e1fad6b92d5e67b5b80b64b793ac32d0a7b6a5f7",
+    "permit_sha256":  "0ceb7df50411d0c90ab684b7f99e7500aeb571f4d00f32a722a7c6b5a61abfe1",
+    "frozen_head":  "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "scm_before":  {
+                       "name":  "TTMP01Broker",
+                       "state":  "Stopped",
+                       "pid":  0,
+                       "start":  "Manual",
+                       "account":  "NT AUTHORITY\\LocalService",
+                       "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                   },
+    "scm_after":  {
+                      "name":  "TTMP01Broker",
+                      "state":  "Stopped",
+                      "pid":  0,
+                      "start":  "Manual",
+                      "account":  "NT AUTHORITY\\LocalService",
+                      "image":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106\\broker_service\\TTMP01Broker.attestationV2.exe"
+                  },
+    "marker_sha256":  "46b0af2064be3e383b5df9c3e98a9f5c18221c73bad28acb2a0d1b59b0dc207f",
+    "sources":  [
+                    {
+                        "name":  "HARNESS",
+                        "blob":  "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+                        "sha256":  "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9"
+                    },
+                    {
+                        "name":  "WATCHDOG",
+                        "blob":  "5763ca10025bb928f161a0f33fa493d436107375",
+                        "sha256":  "f8c07f486a4e373810e75ec1cf99d79414f66d7e74c65851d0ff268b949640c3"
+                    },
+                    {
+                        "name":  "HOST",
+                        "blob":  "95e023a8ca0b7de984582dd39097f05d454d22fc",
+                        "sha256":  "304046cfd418de9d5d8addaafb87a6813622229952ca4037e4c66e523075e24b"
+                    }
+                ],
+    "compile":  [
+                    {
+                        "target":  "S1",
+                        "exit_code":  0,
+                        "argv_count":  8,
+                        "source_count":  1,
+                        "output_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "output_preview":  ""
+                    },
+                    {
+                        "target":  "HOST",
+                        "exit_code":  0,
+                        "argv_count":  9,
+                        "source_count":  2,
+                        "output_sha256":  "1188e8ee0ce9dcce2a3a42345427fa64a8fe75ae84bb0f69e9f4f55e11bc4ecf",
+                        "output_preview":  "d:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(13,45): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.Schema\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(14,47): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.Decision\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(15,48): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.PermitId\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(16,50): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.OneShotId\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(17,52): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.OriginalHead\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(18,53): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.HarnessSha\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(19,54): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.WatchdogSha\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(20,50): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.HostSha\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(21,52): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.RunnerSha\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(22,50): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.ScmActions\u0027 is never assigned to, and will always have its default value null\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(23,55): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.AllowedNativeRuns\u0027 is never assigned to, and will always have its default value 0\r\nd:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_qa_receipts\\S1_NATIVE_SUCCESSOR_20261107T072754646Z_D607CF88\\TTMS1JobWatchdogHostSuccessorV1.cs(24,44): warning CS0649: Field \u0027TTMP01S1.S1NativePermit.Scope\u0027 is never assigned to, and will always have its default value null"
+                    }
+                ],
+    "host":  {
+                 "exit":  null,
+                 "timeout":  false,
+                 "termination_confirmed":  false,
+                 "stdout_sha256":  "1fdf63c504ea9bad26c9ee972aa694694188c914084a9e006d7318f595900261",
+                 "stderr_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                 "stdout_preview":  "TTM_S1_HOST_VERDICT=BLOCK_WATCHDOG_InvalidOperationException\r\nTTM_S1_HOST_PID=31500\r\nTTM_S1_HOST_EXIT=3\r\nTTM_S1_HOST_JOB_CHECKED=TRUE\r\nTTM_S1_HOST_EXIT_CONFIRMED=TRUE\r\nTTM_S1_HOST_STDOUT_BOUNDED=TRUE\r\nTTM_S1_HOST_STDERR_EMPTY=TRUE\r\nTTM_S1_HOST_STDOUT_LENGTH=101\r\nTTM_S1_HOST_STDERR_LENGTH=0\r\nTTM_S1_HOST_STDOUT_SHA256=8078d43cb98b9c4b89c77c6d87410afb9911777c5562491418ca6773bbd85e79\r\nTTM_S1_HOST_STDERR_SHA256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\r\n"
+             },
+    "errors":  [
+                   "TTM_S1_COMBINED_BLOCK_HOST_EXIT_TIMEOUT_OR_STDERR"
+               ],
+    "verdict":  "BLOCK",
+    "science_execution":  "NOT_EXECUTED",
+    "SCM_action":  "NONE",
+    "P01":  "OPEN",
+    "P02":  "NOT_OPENED",
+    "s1_sha256":  "29c0b5fe24aa99a4516b1359f69bc3ae16b2263ca367973ddd2d011d63546916",
+    "host_sha256":  "fbc50a642ec24902e152856a65a3f363c37e79da91920c98d31dab13a82f888f",
+    "utc":  "2026-11-07T07:27:56.1892491Z"
+}
