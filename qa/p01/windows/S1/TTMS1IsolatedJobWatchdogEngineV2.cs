@@ -230,7 +230,11 @@ internal static class IsolatedJobWatchdogV2 {
     try { decoded = new UTF8Encoding(false, true).GetString(data); }
     catch { return false; }
     // No arbitrary text or extra blank lines allowed.
-    string[] lines = decoded.Replace("\r\n", "\n").TrimEnd('\n').Split('\n');
+    string normalized = decoded.Replace("\r\n", "\n");
+    // A single optional final newline is allowed. Extra blank lines are not.
+    if (normalized.EndsWith("\n", StringComparison.Ordinal))
+      normalized = normalized.Substring(0, normalized.Length - 1);
+    string[] lines = normalized.Split('\n');
     return lines.Length == 3 &&
       lines[0] == "TTM_S1_IDLE_ACCEPT=PASS_COMPLETED_ABORTED" &&
       lines[1] == "TTM_S1_SILENT_READ=PASS_COMPLETED_ABORTED" &&
