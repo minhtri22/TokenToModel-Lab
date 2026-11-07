@@ -237,12 +237,55 @@ try{
   Fail 'HOST_EXIT_TIMEOUT_OR_STDERR'
  }
  $lines=@($text.Replace([string][char]13+[string][char]10,[string][char]10).TrimEnd([char]10).Split([char]10))
- $required=@('TTM_S1_HOST_VERDICT=PASS_ISOLATED_S1_ONLY',
-   'TTM_S1_HOST_EXIT=0',
-   'TTM_S1_HOST_JOB_CHECKED=TRUE','TTM_S1_HOST_EXIT_CONFIRMED=TRUE',
-   'TTM_S1_HOST_STDOUT_BOUNDED=TRUE','TTM_S1_HOST_STDERR_EMPTY=TRUE')
- foreach($line in $required){if(-not($lines -ccontains $line)){Fail 'HOST_RESULT_INCOMPLETE'}}
  if($lines.Length -ne 11){Fail 'HOST_OUTPUT_LINE_COUNT'}
+ $hostFields=@{}
+ foreach($line in $lines){
+  $pos=$line.IndexOf('=')
+  if($pos -le 0){Fail 'HOST_FIELD_SYNTAX'}
+  $key=$line.Substring(0,$pos)
+  if($hostFields.ContainsKey($key)){Fail 'HOST_DUPLICATE_FIELD'}
+  $hostFields[$key]=$line.Substring($pos+1)
+ }
+ $fixed=@{
+  TTM_S1_HOST_VERDICT='PASS_ISOLATED_S1_ONLY'
+  TTM_S1_HOST_EXIT='0'
+  TTM_S1_HOST_JOB_CHECKED='TRUE'
+  TTM_S1_HOST_EXIT_CONFIRMED='TRUE'
+  TTM_S1_HOST_STDOUT_BOUNDED='TRUE'
+  TTM_S1_HOST_STDERR_EMPTY='TRUE'
+  TTM_S1_HOST_STDERR_LENGTH='0'
+  TTM_S1_HOST_STDERR_SHA256='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+ }
+ foreach($key in $fixed.Keys){
+  if(-not $hostFields.ContainsKey($key) -or $hostFields[$key] -cne $fixed[$key]){
+   Fail 'HOST_FIELD_CONTRACT'
+  }
+ }
+ $pidValue=0
+ if(-not [int]::TryParse([string]$hostFields.TTM_S1_HOST_PID,[ref]$pidValue) -or
+    $pidValue -le 0){Fail 'HOST_PID_CONTRACT'}
+ # Independent SHA-256 check on exact expected S1 stdout bytes, not the
+ # watchdog host's PASS statement alone. LF or CRLF, optional one final EOL.
+ $expectedLines=@('TTM_S1_IDLE_ACCEPT=PASS_COMPLETED_ABORTED',
+   'TTM_S1_SILENT_READ=PASS_COMPLETED_ABORTED',
+   'TTM_S1_VERDICT=PASS_ISOLATED_CANCELLATION_ONLY')
+ $expectedOutputs=@()
+ $LF=[string][char]10
+ $CRLF=[string][char]13+[string][char]10
+ foreach($eol in @($LF,$CRLF)){
+  $body=$expectedLines -join $eol
+  $expectedOutputs+=@($body,($body+$eol))
+ }
+ $match=$false
+ foreach($candidate in $expectedOutputs){
+  $candidateBytes=[Text.Encoding]::UTF8.GetBytes($candidate)
+  if((HashData $candidateBytes) -ceq $hostFields.TTM_S1_HOST_STDOUT_SHA256 -and
+     ([string]$candidateBytes.Length) -ceq $hostFields.TTM_S1_HOST_STDOUT_LENGTH){
+   $match=$true
+  }
+ }
+ if(-not $match){Fail 'HOST_CHILD_STDOUT_SHA256_NOT_EXPECTED'}
+ $receipt.host['parsed_fields']=$hostFields
  $receipt.scm_after=ServiceSnapshot
  if(($receipt.scm_before|ConvertTo-Json -Compress) -cne
     ($receipt.scm_after|ConvertTo-Json -Compress)){Fail 'SCM_CHANGED'}
