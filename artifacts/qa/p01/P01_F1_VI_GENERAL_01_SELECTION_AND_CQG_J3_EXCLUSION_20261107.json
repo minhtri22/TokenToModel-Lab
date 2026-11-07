@@ -1,0 +1,155 @@
+{
+  "schema": "ttm.p01.f1_vi_general_source_selection.v1",
+  "decision_date": "2026-11-07",
+  "operation": "TTM_P01_F1_RESELECT_VI_GENERAL_EXCLUDE_CQG_J3",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "predecessor_commit": "2bd023cfe93a5e525dfc5c680b0bd32a3d75db39",
+  "status": {
+    "K1": "PASS_SCOPED_WINDOWS_L1",
+    "K2": "PASS_SCOPED_WINDOWS_L1",
+    "K3": "HOLD_SOURCE_ADMISSION",
+    "K4": "ROUTE_SELECTED_NOT_QUALIFIED",
+    "K5": "E0_NOT_EXECUTED",
+    "F1": "CANDIDATE_SELECTION_ONLY",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "lineage_md": "UNCHANGED"
+  },
+  "corpus_id": "F1-VI-GENERAL-01",
+  "source_selection_version": "F1_VI_GENERAL_SOURCE_POLICY_V1",
+  "supersedes": "F1_CQG_J3_PREREG_OWNER_SCOPE_20261107",
+  "owner_instruction": "Exclude CQG-J3 from P01 F1 and select better general Vietnamese text.",
+  "exclusions": {
+    "entire_research_project_docs_for_p01_f1": true,
+    "explicit": [
+      "D:\\WORK\\RESEARCH\\2.CQG\\studies\\j3_*",
+      "D:\\WORK\\RESEARCH\\SIX",
+      "D:\\WORK\\RESEARCH\\3.ARN",
+      "D:\\WORK\\RESEARCH\\0.IRIS"
+    ],
+    "named_prior_census_tool": "TTM_P01_F1_CQG_J3_READONLY_CENSUS_PS51_V1.ps1",
+    "prior_tool_status": "SUPERSEDED_DO_NOT_EXECUTE_FOR_P01_F1",
+    "original_source_documents": "LEFT_UNCHANGED",
+    "earlier_decision_and_pass_fail_receipts": "RETAINED_FOR_AUDIT_NOT_REWRITTEN"
+  },
+  "target_candidates": 100,
+  "sources": [
+    {
+      "source_id": "WIKIPEDIA_VI",
+      "url": "https://vi.wikipedia.org",
+      "count_target": 70,
+      "role": "modern general Vietnamese cross-topic articles",
+      "rights": "CC BY-SA typically; per page revision, authors, license and exceptions must be reviewed",
+      "source_revision_required": true,
+      "admitted": 0
+    },
+    {
+      "source_id": "WIKISOURCE_VI",
+      "url": "https://vi.wikisource.org",
+      "count_target": 20,
+      "role": "literary prose with verified public domain or compatible license",
+      "rights": "work-level, edition-level, translator and translation rights; do not assume PD from platform presence",
+      "source_revision_required": true,
+      "admitted": 0
+    },
+    {
+      "source_id": "VI_LEGAL_OFFICIAL",
+      "url": "https://vbpl.vn",
+      "count_target": 10,
+      "role": "formal official legal Vietnamese prose",
+      "rights": "only original promulgated legal/administrative texts or official translations subject to Article 15; no commentary",
+      "source_revision_required": true,
+      "admitted": 0
+    }
+  ],
+  "frozen_selection_proposals": {
+    "wiki_topics": [
+      "geography_environment",
+      "history",
+      "culture",
+      "science",
+      "technology",
+      "health",
+      "daily_life"
+    ],
+    "intended_per_topic": 10,
+    "wiki_exclude": [
+      "talk",
+      "user",
+      "category",
+      "template",
+      "machine listings",
+      "infobox-only",
+      "very short text",
+      "pages containing unreviewed third-party material"
+    ],
+    "wikisource": "Prefer 20 different independent works; avoid two chapters of one work crossing split; verify PD/license at original and translation layers",
+    "official_law": "10 independent original legal documents; avoid selecting an amended and a consolidated duplicate as independent document groups",
+    "sample_unit": "whole page or work; if partitioned into chunks all chunks inherit document/work group_id",
+    "deterministic_preselection": "Freeze a candidate URL/revision list and extraction version before corpus statistics or E0; do not select based on TEST",
+    "ratio_proposal": "70/20/10 TARGET_DOCUMENTS_NOT_GROUPS",
+    "language_scope": "Vietnamese text; keep UTF-8 exact bytes for BPE; canonical comparison separately"
+  },
+  "bounds": {
+    "max_source_bytes": 67108864,
+    "max_documents": 2000,
+    "min_distinct_groups_after_dedup": 30,
+    "split_seed": 20261105,
+    "split_group_algorithm": "TTM-P01-H03-V1; connected-component near duplicate",
+    "split": "80% TRAIN / 10% VALIDATION / 10% TEST by independent groups",
+    "zero_overlap": [
+      "group_id",
+      "raw_sha256",
+      "canonical_sha256"
+    ],
+    "E0_source": "TRAIN_ONLY",
+    "target_vocab_size_candidate": 2048,
+    "TWO_CLEAN_PROCESSES_MATCH": "REQUIRED",
+    "TEST_SEAL": "REQUIRED_BEFORE_E0"
+  },
+  "mandatory_manifest_fields": [
+    "source_id",
+    "original_location",
+    "owner_or_author",
+    "license_id",
+    "license_evidence_uri",
+    "permitted_uses",
+    "source_revision",
+    "source_sha256",
+    "byte_count",
+    "document_count",
+    "encoding",
+    "pii_status",
+    "copyright_status",
+    "rights_reviewed_at",
+    "reviewer",
+    "source_snapshot_id",
+    "admission_decision"
+  ],
+  "current_snapshot": {
+    "document_urls_selected": 0,
+    "original_bytes_acquired": 0,
+    "actual_rights_cleared": 0,
+    "actual_pii_cleared": 0,
+    "actual_group_count": null,
+    "raw_snapshot_sha256": null,
+    "source_admission": "HOLD_NOT_YET_ACQUIRED"
+  },
+  "execution_route": {
+    "candidate": "LINUX_DOCKER_CPU_ONLY_PROJECT_SCOPED",
+    "route_qualification": "NOT_YET_PASSED",
+    "source_mounts": "READ_ONLY_AFTER_ADMISSION",
+    "test_data_mount": "FORBIDDEN_DURING_TRAIN",
+    "container_network": "DISABLED_ON_E0",
+    "resource_guard": "MEMORY_WALL_DISK_CPU_ENFORCEMENT_AND_NEGATIVE_QA_REQUIRED",
+    "s1_native_previous_result": "PRESERVED_CONSUMED_FAIL_NOT_REQUALIFIED"
+  },
+  "references": [
+    "https://foundation.wikimedia.org/wiki/Terms_of_Use",
+    "https://www.mediawiki.org/wiki/Wikimedia_APIs/Content_reuse",
+    "https://vi.wikisource.org/wiki/Wikisource:Quy_%C4%91%E1%BB%8Bnh_b%E1%BA%A3n_quy%E1%BB%81n",
+    "https://vbpl.vn",
+    "https://ipvietnam.gov.vn/bo-luat-luat"
+  ]
+}
