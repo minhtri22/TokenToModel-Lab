@@ -1,0 +1,117 @@
+{
+  "schema": "ttm.p01.canonical_l1_l2_l3_gap_review_and_offhost_k1_k2_qa.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "evidence_scope": "Additive synthetic offhost technical QA and bounded closure review; no science, E0, TEST, Windows native or F1 admitted",
+  "prior_f0": "PASS_10_OF_10_REUSED_NO_RERUN",
+  "pinned_modules": [
+    {
+      "path": "src/p01/byte_bpe.py",
+      "git_blob": "0777124a8cc77a21f703116eab25b8f8c1201530",
+      "sha256": "97751c63e7f01484913e2a60fde4dd17873540f3227aadcf89f1bf51fe1b3f99"
+    },
+    {
+      "path": "src/p01/data_dedup_split.py",
+      "git_blob": "38f6938abb2b74ef7b47e5328fd1079cc64ad8ab",
+      "sha256": "e0492e6a290d62c681d0d27902dc5c6be31ccb66180d63e706d83594ab1db33a"
+    },
+    {
+      "path": "runtime/p01/source_scope_guard.py",
+      "git_blob": "a3830ebb74520ac3892e2bfbb0b8fc83e38ae07c",
+      "sha256": "7d87cf5555931e9777dee0106291a6620e80dc07715b7857a89d889fb216cce6"
+    },
+    {
+      "path": "qa/p01/f0_fixture_generator.py",
+      "git_blob": "6cf45b07f8992d92e8c5ebde4cb9d7ce5f5a9e15",
+      "sha256": "82b0a7a60c09517a8e831fac0f524a7760068cb56c21296b5c234842cd3f211e"
+    }
+  ],
+  "test_results": {
+    "additive_product_offhost": {
+      "tests": 14,
+      "passed": 14,
+      "failed": 0,
+      "errors": 0,
+      "verdict": "PASS_ADDITIVE_SYNTHETIC_OFFHOST",
+      "sha256_receipt": "cc694293579b268a953e7b9395205ac42a62df8206ef56501c3a947659c1402d",
+      "qa_sha256": "08143183b431e5c96df3579c2eea1df71bb7644a07ad238bd7fc94a7c25f585a",
+      "runtime": "Python 3.13.5"
+    },
+    "independent_split_oracle_offhost": {
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "errors": 0,
+      "verdict": "PASS_ORACLE_ONLY_OFFHOST",
+      "source_sha256": "1b508f7c017816290d3590fd3c95f86ed990eaa95d6ff920bbe56fde6ad62c67",
+      "sha256_receipt": "7582467ea4fc6edba97cf59491d6bbe4d1c402ea6451f3dad0930c802d87cb74"
+    },
+    "reproducible_bundle": {
+      "name": "TTM_P01_K1_K2_OFFHOST_REPRODUCIBLE_QA_BUNDLE_20261107.zip",
+      "sha256": "59bc272e45361d708d2bb83d88d08c6cf22d92033eced02b14ef875ca7e2ed74",
+      "bytes": 14077,
+      "location": "ChatGPT conversation attachment, not uploaded to GitHub"
+    }
+  },
+  "established": {
+    "BPE_leftmost_nonoverlap": "PASS_OFFHOST",
+    "BPE_serialization_new_merge": "PASS_OFFHOST",
+    "strict_invalid_id_and_utf8": "PASS_OFFHOST",
+    "canonicalization_preserves_raw": "PASS_OFFHOST",
+    "near_duplicate_short_levenshtein_and_long_jaccard_threshold": "PASS_OFFHOST",
+    "near_duplicate_transitive_edge_pattern": "PASS_PAIRS_ONLY_NO_FULL_30DOC_UNIONFIND",
+    "assign_splits_29_rejects": "PASS_OFFHOST",
+    "assign_splits_30_synthetic_group_ids": "PASS_OFFHOST_24_3_3",
+    "split_order_independent_oracle": "PASS_OFFHOST",
+    "group_id_cross_split_overlap": "ZERO_ON_SYNTHETIC_ID_SET",
+    "raw_and_canonical_cross_split_audit": "PASS_INDEPENDENT_AUDITOR_NEGATIVE_CONTROL_NOT_PRODUCT_30_DOCUMENT_PIPELINE",
+    "F1_unapproved_rejected": "PASS_SOURCE_GUARD_OFFHOST"
+  },
+  "unestablished": {
+    "full_30_document_dedup_to_split_pipeline": "NOT_ESTABLISHED_PINNED_F0_DOCUMENT_SCOPE",
+    "full_union_find_transitivity_under_product_classify_for_30_docs": "NOT_ESTABLISHED",
+    "production_raw_canonical_cross_split_audit": "NOT_ESTABLISHED",
+    "F1_rights_admission": "HOLD_NO_VERIFIED_ALLOW_MANIFEST",
+    "F1_corpus_inventory": "UNKNOWN_NOT_CLAIMED_MISSING_ON_USERS_DISK",
+    "TRAIN_only_BPE_2_clean_processes": "NOT_EXECUTED",
+    "E0_science": "NOT_AUTHORIZED_NOT_EXECUTED",
+    "Windows_native_W01_W12": "NOT_QUALIFIED_IF_E0_ROUTE_REQUIRES",
+    "P01_closure": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "source_rights_required": [
+    "source_id",
+    "original_location",
+    "owner_or_author",
+    "license_id",
+    "license_evidence_uri",
+    "rights_reviewed_at",
+    "reviewer",
+    "permitted_uses_tokenizer_training_and_derivatives",
+    "source_snapshot_id",
+    "source_sha256",
+    "byte_count",
+    "document_count",
+    "encoding",
+    "pii_status",
+    "copyright_status",
+    "admission_decision=ALLOW",
+    "verified_distinct_groups>=30"
+  ],
+  "frozen_science_and_safety": {
+    "S1_predecessor_and_successor": "FAIL_TERMINAL_MARKERS_AND_RECEIPTS_PRESERVED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "science_lineage_md": "UNCHANGED",
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "original_head": "UNCHANGED",
+    "P00_P12_order": "UNCHANGED",
+    "SCM_action": "NONE",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "next_gate": "L1_ONE_INTEGRATED_30_DOCUMENT_FIXTURE_OR_SCOPE_DECISION_AND_INDEPENDENT_QA; L2_F1_RIGHTS_MANIFEST_REVIEW; L3_E0_ONLY_AFTER_ADMISSION_AND_REQUIRED_RUNTIME_GATE",
+  "disclaimer": "This is project-level QA report by ChatGPT and not independent third-party certification. Does not assert P01 closure, source legal clearance, Windows guard qualification or that TEST is sealed."
+}
