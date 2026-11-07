@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.p01.l1.s1.successor_identity_compiler_argv_independent_static_qa.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "source_commit": "8e7df31227b8b6ffc401106a04256753344b39f4",
+  "host": {
+    "path": "qa/p01/windows/S1/TTMS1JobWatchdogHostSuccessorV1.cs",
+    "git_blob": "95e023a8ca0b7de984582dd39097f05d454d22fc",
+    "sha256": "304046cfd418de9d5d8addaafb87a6813622229952ca4037e4c66e523075e24b"
+  },
+  "runner": {
+    "path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-SuccessorNativeOnce-PS51.ps1",
+    "git_blob": "ad5f86ec21fa2b769c07548177098c2a76905cef",
+    "sha256": "PENDING_BYTE_HASH_CONFIRMATION"
+  },
+  "positive": {
+    "passed": 47,
+    "total": 47
+  },
+  "negative": {
+    "detected": 10,
+    "total": 10,
+    "predicates": {
+      "compiler_args": {
+        "target": "runner_compiler_argv_forward",
+        "detected": true
+      },
+      "runner_permit_file": {
+        "target": "runner_local_permit",
+        "detected": true
+      },
+      "host_permit": {
+        "target": "host_permit",
+        "detected": true
+      },
+      "runner_marker": {
+        "target": "runner_marker",
+        "detected": true
+      },
+      "old_marker": {
+        "target": "runner_old_marker_sha",
+        "detected": true
+      },
+      "host_blob": {
+        "target": "runner_host_source_blob",
+        "detected": true
+      },
+      "unguarded_compiler": {
+        "target": "runner_compiler_source_guard",
+        "detected": true
+      },
+      "auto_execute": {
+        "target": "runner_preflight_default",
+        "detected": true
+      },
+      "double_host": {
+        "target": "single_host_launch",
+        "detected": true
+      },
+      "non_atomic_marker": {
+        "target": "runner_atomic_marker",
+        "detected": true
+      }
+    }
+  },
+  "static_review": "PASS_SOURCE_CONTRACT_ONLY",
+  "method": "Independent JS checks exact GitHub source and ten targeted in-memory mutants; no PS51 parse, C# compile, or Windows runtime.",
+  "prior_native_fail": "PRESERVED",
+  "prior_marker": "CONSUMED_PRESERVED",
+  "new_native_permit": "HOLD_NOT_ISSUED",
+  "SCM_action": "NONE",
+  "S1_native": "NOT_EXECUTED",
+  "P00": "UNCHANGED",
+  "F0_10": "UNCHANGED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "P01_original_exit_criteria": "tokenizer/data roundtrip, leakage, provenance, SHA256 and independent QA; do not infer S1 as phase hard dependency"
+}
