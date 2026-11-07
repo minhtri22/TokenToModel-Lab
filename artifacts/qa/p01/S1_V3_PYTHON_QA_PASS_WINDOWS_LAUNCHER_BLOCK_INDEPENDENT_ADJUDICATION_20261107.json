@@ -1,0 +1,112 @@
+{
+  "schema": "ttm.p01.l1.s1.v3_python_checker_independent_recovery_adjudication.v1",
+  "adjudication_date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "evidence": {
+    "run_id": "L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c",
+    "uploaded_receipt_sha256": "52f5f8c896a5306b3f5e3fd4b85b3763a97a193273c49dbe809e5a065efe5c33",
+    "uploaded_receipt_git_blob_sha1": "673d12839b3821820732361b43540ccc5c748ffc",
+    "receipt_bytes": 14999,
+    "github_commit": "f61af1431ff41c3588657b57828d7928a30c2832",
+    "github_receipt_path": "artifacts/qa/p01/L1_S1_WINDOWS_INDEPENDENT_SOURCE_QA_V3_20261107T034902580Z_81c28d5c.json",
+    "github_blob_readback": "PASS_EXACT",
+    "provenance": "User-submitted complete Windows JSON matched by SHA256 and Git blob SHA1 against pinned GitHub receipt"
+  },
+  "source_pins": {
+    "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+    "harness_source_commit": "3add36f538c6fe39658ea72d91034b8c8a5f666a",
+    "harness_git_blob": "872c67174c6fbbcea9941fe3bfa0acee3cddfb7c",
+    "harness_sha256": "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+    "python_v3_checker_git_blob": "8b65cb027b8ec7f7950036ca7cc6cc45eed3e603",
+    "python_v3_checker_sha256": "488bf941a872391ac55d6c3ce2fb5684846f756e4d87899844513bb5157850a2",
+    "windows_launcher_git_blob": "f737e4e0b1b257d18e637122c9531a8656df0dfd",
+    "windows_launcher_sha256": "e95eccc7ad124cee5ae90c0cbc93278b454ee314467ad46d742a4fe20bb11089"
+  },
+  "independent_checker_result": {
+    "source": "Exact Windows V3 receipt Python checker JSON and captured stdout",
+    "schema": "ttm.p01.l1.s1.isolated_cancel_independent_static.v3",
+    "exit_code": 0,
+    "verdict": "PASS_SOURCE_STATIC_NO_NATIVE",
+    "source_sha256_pinned": true,
+    "positive_passed": 41,
+    "positive_total": 41,
+    "positive_failed": [],
+    "negative_rejected": 16,
+    "negative_total": 16,
+    "negative_failed": [],
+    "negative_inspection_errors": {},
+    "negative_fail_checks_key_count": 16,
+    "every_negative_has_named_rejection_predicate": true,
+    "stdout_preview_full": true,
+    "stdout_sha256": "36ff3a77b81201015f2d41c4ec3d5b10fdfeb8cafb2a154a074ec3e931f1d585",
+    "stdout_sha256_recomputed": "PASS",
+    "parsed_stdout_consistent_with_receipt": "PASS",
+    "native_csharp_compile": "NOT_EXECUTED",
+    "native_harness_run": "NOT_EXECUTED",
+    "scm_action": "NONE"
+  },
+  "launcher_v3": {
+    "original_receipt_verdict": "BLOCK_WINDOWS_S1_SOURCE_QA",
+    "marker_name": "L1_S1_WINDOWS_INDEPENDENT_SOURCE_STATIC_QA_V3_ATTEMPT_20261107.lock",
+    "marker_sha256": "c923fa283a3737bcdb2dcefed2c384899187cee532c8d580a589e0c7fda7d4ea",
+    "marker_status": "CONSUMED_PRESERVE_NO_REPLAY",
+    "exit_code": 3,
+    "error": "The property 'Count' cannot be found on this object. Verify that the property exists.",
+    "likely_code_lines": [
+      230,
+      232
+    ],
+    "likely_root_cause": "V3 PowerShell 5.1 with Set-StrictMode -Version Latest accesses .PSObject.Properties.Count on a deserialized PSCustomObject, including an empty negative_inspection_errors object; member Count is unavailable in this evaluation. This is separate from the Python checker's already completed PASS.",
+    "certainty": "Count-property failure is certain; exact branch among the two expressions is inferred rather than stack-location-confirmed.",
+    "recommended_future_pattern": "$names = @($obj.PSObject.Properties | ForEach-Object { $_.Name }); $names.Count",
+    "launch_result_policy": "DO_NOT_REWRITE_ORIGINAL_BLOCK_VERDICT"
+  },
+  "scm": {
+    "before": {
+      "state": "Stopped",
+      "pid": 0,
+      "start_mode": "Manual",
+      "account": "NT AUTHORITY\\LocalService",
+      "image": "TTMP01Broker.attestationV2.exe"
+    },
+    "after": "IDENTICAL_TO_BEFORE_AS_CAPTURED_IN_RECEIPT",
+    "checked_after_failure": true,
+    "service_actions": "NONE"
+  },
+  "predecessor": {
+    "v1_receipt_sha256": "53fdf29600117f39eb5fd3c68a6d6276eaaa73b0238859fd6a79725260b95b41",
+    "v1_marker_sha256": "d39f4cd82c48c0401d48089c961f353663955671135c1e76ede06334b0b0f877",
+    "v2_receipt_sha256": "fa955c9ebc23de8daddbd44e9af90171e53a65075aa8e7e3cf6dd17945ed5bad",
+    "v2_marker_sha256": "506425d4fcd9e82fc0aa2d6c0056e0dda69f03a7ebbf270e43c97d3ddb2215d0",
+    "status": "V1_V2_FAILURE_RECEIPTS_AND_MARKERS_VERIFIED_AND_PRESERVED"
+  },
+  "adjudicated_outcome": {
+    "independent_python_source_QA": "PASS_VERIFIED_FROM_ORIGINAL_WINDOWS_V3_RECEIPT",
+    "windows_PowerShell_launcher": "BLOCK_PRESERVED",
+    "combined_original_windows_launcher_gate": "BLOCK_NOT_REWRITTEN",
+    "source_only_scope_acceptable_as_evidence": "YES_FOR_SEPARATE_DECISION_ONLY",
+    "need_to_repeat_same_python_qa": "NO",
+    "native_csharp_compilation": "NOT_EXECUTED",
+    "S1_native_runtime_result": "NOT_ESTABLISHED",
+    "S1_native_permit": "NOT_ISSUED",
+    "broker_normal_stop": "NOT_REQUALIFIED",
+    "worker_native_security": "NOT_QUALIFIED",
+    "W01_W12": "NOT_EXECUTED",
+    "L1_grouped_QA": "NOT_AUTHORIZED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "guardrails": {
+    "P00": "UNCHANGED",
+    "ten_F0": "UNCHANGED",
+    "scientific_lineage": "UNCHANGED_NO_APPEND",
+    "frozen_HEAD": "UNCHANGED",
+    "P00_P12": "UNCHANGED",
+    "historical_markers": "NO_DELETION_OR_REPLAY",
+    "brokerage_SCManagement": "NONE",
+    "scientific_jobs": "NONE"
+  },
+  "next_step": "TTM_P01_L1_V3V4_S1_NATIVE_SMOKE_EXECUTION_DESIGN_AND_WATCHDOG_STATIC_PREFLIGHT",
+  "next_scope": "Use the completed V3 checker result, preserve the blocked launcher outcome, and design only an independently source-pinned external watchdog for isolated S1 runtime; a separate one-shot permit is mandatory before compiling or executing S1. No need for QA V4."
+}
