@@ -1,0 +1,39 @@
+{
+  "schema": "ttm.p01.l1.windows_argv_recovery_v2_evidence_plan.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "base_commit": "b481a90fa82abb194f5ae60945a5ad4408b5a425",
+  "original_failure": {
+    "observed_on": "DESKTOP-4PSD0G2",
+    "receipt_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_L1_WINDOWS_SINGLE_BATCH_20261107.json",
+    "marker_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence\\p01\\TTM_P01_L1_WINDOWS_SINGLE_BATCH_20261107.once",
+    "schema": "ttm.p01.windows_single_batch_failure.v1",
+    "verdict": "FAIL_OR_INCONCLUSIVE",
+    "reason": "EXACT_SOURCE_EXTRACTION_FAILED",
+    "python_exception": "SyntaxError: invalid decimal literal in Python -c source passed through PowerShell 5.1",
+    "marker_consumed": true,
+    "user_console_temp_cleanup": "PASS",
+    "f0_reexecuted": false,
+    "e0": "NOT_EXECUTED",
+    "original_failed_evidence": "PRESERVE_READ_ONLY"
+  },
+  "root_cause": "Passing embedded multiline Python source directly through PowerShell 5.1 native executable -c argument does not reliably preserve quotes.",
+  "recovery": {
+    "script_filename": "TTM_P01_L1_WINDOWS_ARGV_RECOVERY_V2_PS51.ps1",
+    "script_sha256": "33fce6fa4ce42c08662e0f04b62744a5092d086c9ce702ab809e91f88cfe2967",
+    "script_location": "Generated chat attachment, not included in this GitHub commit",
+    "design": "Write Python source as UTF-8 text to exact project-owned temporary file and invoke python -B <file> with argv paths.",
+    "static_qa": "EMBEDDED_PYTHON_AST_PASS_AND_11_BOUNDED_SOURCE_INVARIANTS_PASS; PS51_NATIVE_PARSE_NOT_RUN",
+    "original_receipt_guard": "REQUIRE_PREVIOUS_FAIL_BEFORE_NEW_ONE_SHOT",
+    "fresh_once": "TTM_P01_L1_WINDOWS_ARGV_RECOVERY_V2_20261107.once",
+    "fresh_receipt": "TTM_P01_L1_WINDOWS_ARGV_RECOVERY_V2_20261107.json",
+    "git_behavior": "READ_ONLY_OBJECTS_ALREADY_FETCHED_NO_FETCH_RESET_MERGE_CLEAN",
+    "scientific_seed_consumed": false,
+    "status": "SCRIPT_PREPARED_NOT_YET_WINDOWS_EXECUTED"
+  },
+  "F1": "HOLD_SOURCE_RIGHTS_NO_OWNER_SELECTED_SNAPSHOT",
+  "L1": "PENDING_WINDOWS_SUCCESSOR_QA",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED",
+  "lineage_md": "UNCHANGED"
+}
