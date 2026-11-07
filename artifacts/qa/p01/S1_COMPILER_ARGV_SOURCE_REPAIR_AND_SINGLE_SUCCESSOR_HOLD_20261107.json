@@ -1,0 +1,89 @@
+{
+  "schema": "ttm.p01.l1.s1.compiler_argv_source_repair_single_successor_decision.v1",
+  "adjudicated_at": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "original_frozen_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0",
+  "predecessor_failure": {
+    "github_receipt_commit": "c5e39fc404bfdd97c6a7ae8a30bef82501b138fa",
+    "path": "artifacts/qa/p01/S1_NATIVE_COMBINED_20261107T063339197Z_35D236F1.json",
+    "sha256": "39c670f86881bccebe3d8033b41ec28784b3ee5322daee10846b3a93c17939c6",
+    "compiler_exit_code": 1,
+    "errors": [
+      "CS2008 no source files",
+      "CS1562 output without /out option"
+    ],
+    "host": "NOT_COMPILED_OR_EXECUTED",
+    "S1_native": "NOT_EXECUTED",
+    "one_shot": "CONSUMED",
+    "marker_sha256": "0673bc2f2a374905b28de83b02324fa12afba80152dcdcda8a37de19b7b02eb2",
+    "permit": "CONSUMED_DO_NOT_REISSUE_OR_REUSE",
+    "preservation": "APPEND_ONLY_EVIDENCE_ORIGINAL_FAILURE_UNMODIFIED"
+  },
+  "root_cause": {
+    "likely_cause": "PowerShell automatic variable $args used as a declared compiler argument parameter, forwarding no expected /out and .cs arguments",
+    "proof_level": "STRONG_SOURCE_INFERENCE_CONSISTENT_WITH_COMPILER_DIAGNOSTICS_NOT_WINDOWS_BINDER_DYNAMIC_REPRODUCTION"
+  },
+  "successor_source": {
+    "type": "EXACT_FROZEN_SOURCE_UNIFIED_DIFF_PATCH_NOT_EXECUTABLE",
+    "path": "qa/p01/windows/S1/TTM-S1-Compile-CompilerArgv-SourceRepair-CANDIDATE.patch",
+    "commit": "d845abc458c5d61db1ec6139def379ba89c5ca29",
+    "git_blob": "106043c330d220f6219a7a415467726fcbc857f8",
+    "sha256": "f8bd177fa34e2614c3e291a2e2c2ca29574114fa8f3fc79c1939e30b9e177300",
+    "bytes": 1471,
+    "base_runner_blob": "611ac1506176c53fc6b51de7ea54d228a161bb98",
+    "base_runner_sha256": "463789ce69aa025271e36e6748339b89a626f82a3bdf61b1738b881c27a02505",
+    "scope": "REPLACE_ONLY_FUNCTION_Compile_7_LINES_WITH_21_LINES",
+    "change_details": "Use compilerArgv parameter, validate count, expected 1/2 .cs sources and one /out, preserve existing compiler result and receipt logic",
+    "exact_hunk_verified": true,
+    "non_compile_function_bytes_unchanged_in_reconstruction": true,
+    "no_native_replay_path_created": true
+  },
+  "independent_source_QA": {
+    "technique": "Exact GitHub source and patch content, in-memory unified hunk application; compare every line outside Compile function",
+    "positive_checks_passed": 10,
+    "positive_checks_total": 10,
+    "negative_case": "Mutate forwarding back to $args; checker must detect missing $compilerArgv forwarding",
+    "negative_case_rejected": "PASS_1_OF_1_SOURCE_ONLY",
+    "result": "PASS_SOURCE_STRUCTURE_ONLY",
+    "actual_windows_PS51_parser": "NOT_EXECUTED",
+    "real_powershell_parameter_binding_test": "NOT_EXECUTED",
+    "native_compiler": "NOT_EXECUTED",
+    "S1_native": "NOT_EXECUTED"
+  },
+  "single_target_windows_QA": {
+    "path": "qa/p01/windows/S1/Invoke-TTM-S1-CompilerArgv-Successor-SourceQA-PS51.ps1",
+    "commit": "9eb40cf018f7816cb0080a461e96746f935c7851",
+    "git_blob": "bace57702cb4e39370d0e6c7d6bcd51b6ab990a8",
+    "sha256": "4e8b47765f3df2e4ea42fa35c13b57621ea92227983df3e9770cce3ee5bcdb47",
+    "bytes": 10765,
+    "mode": "SOURCE_ONLY_PARSE_IN_MEMORY_NO_COMPILE_NO_NATIVE",
+    "checks": "Exact old runner+patch Git blobs, V1 FAIL and marker SHA, frozen HEAD and SCM, reconstruct candidate in memory, PowerShell 5.1 ParseInput, single mutation, one receipt and GitHub readback",
+    "target_execution_result": "PENDING"
+  },
+  "successor_decision": {
+    "status": "HOLD_PENDING_SINGLE_WINDOWS_SOURCE_QA",
+    "new_native_permit": "NOT_ISSUED",
+    "new_native_marker": "NOT_CREATED",
+    "old_permit": "CONSUMED_AND_UNUSABLE",
+    "future_authorization": "Only one new successor adjudication after actual Windows source QA PASS, never a repeat using predecessor permit",
+    "no_independent_micro_permits": true,
+    "rationale": "PowerShell 5.1 parser evidence requested by user is not yet produced, and the patch is a source-only candidate, not a qualified runnable successor."
+  },
+  "preserved": {
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "original_head": "UNCHANGED",
+    "lineage_md": "UNCHANGED",
+    "prior_markers": "UNCHANGED",
+    "old_PASS_FAIL_receipts": "UNCHANGED",
+    "SCM": "UNCHANGED",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED",
+    "W01_W12": "NOT_EXECUTED",
+    "phase_order": "P00-P12_UNCHANGED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED"
+  },
+  "next": "RUN_EXACTLY_ONE_WINDOWS_PS51_SOURCE_QA_FOR_PATCH_AND_REPORT_PASS_FAIL; THEN ONE_COMBINED_SUCCESSOR_NATIVE_PERMIT_DECISION. NO NATIVE IN CURRENT_PHASE."
+}
