@@ -1,0 +1,123 @@
+{
+  "schema": "ttm.p01.l1.s1.watchdog_v2.independent_source_integrated_static_qa.v1",
+  "date": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "method": "Independent V8 textual contract evaluation and in-memory negative source mutations, exact GitHub source. No C# compiler, CLR, Win32 P/Invoke, service action or science.",
+  "source": {
+    "path": "qa/p01/windows/S1/TTMS1IsolatedJobWatchdogEngineV2.cs",
+    "commit": "91a0f7b96d6c05321e7f0bd4cafef744b459e4c2",
+    "git_blob": "5763ca10025bb928f161a0f33fa493d436107375",
+    "sha256": "PENDING_EXACT_BYTE_HASH_CONFIRMATION"
+  },
+  "positive": {
+    "passed": 68,
+    "total": 68,
+    "failed": []
+  },
+  "negative": {
+    "rejected": 24,
+    "total": 24,
+    "failed": [],
+    "predicate_failures": {
+      "main": [
+        "no_main"
+      ],
+      "wrong_exe": [
+        "correct_exe"
+      ],
+      "wrong_project": [
+        "project_root"
+      ],
+      "skip_path": [
+        "project_scope"
+      ],
+      "skip_sha": [
+        "sha_verification",
+        "hash_held"
+      ],
+      "allow_binary_writes": [
+        "lock_no_write"
+      ],
+      "drop_kill_on_close": [
+        "kill_on_close"
+      ],
+      "drop_memory": [
+        "job_mem_flag"
+      ],
+      "second_child": [
+        "active_one"
+      ],
+      "wrong_job_attr": [
+        "job_attr",
+        "job_before_spawn"
+      ],
+      "wrong_job_id": [
+        "job_id"
+      ],
+      "skip_suspend": [
+        "suspended"
+      ],
+      "skip_membership": [
+        "confirm_job",
+        "verification_before_resume"
+      ],
+      "late_assign": [
+        "no_late_assign"
+      ],
+      "breakaway": [
+        "no_breakaway"
+      ],
+      "inherit_read": [
+        "read_no_inherit"
+      ],
+      "disable_output_cap": [
+        "capture_max"
+      ],
+      "disable_overflow": [
+        "overlimit_set"
+      ],
+      "leak_handle": [
+        "safehandle_own"
+      ],
+      "unbounded": [
+        "run_timeout"
+      ],
+      "assume_termination": [
+        "explicit_unconfirmed_block"
+      ],
+      "extra_lines": [
+        "exact_lines"
+      ],
+      "skip_exit": [
+        "exit0"
+      ],
+      "allow_stderr": [
+        "stderr_empty"
+      ]
+    }
+  },
+  "special_safety": {
+    "creation_time_job": true,
+    "live_pipe_output_memory_bounded": true,
+    "binary_open_FileshareRead_lock": true,
+    "ABI_struct_runtime_assertions_source": true,
+    "external_permit_wrapper": "NOT_IMPLEMENTED"
+  },
+  "limitations": {
+    "csharp_compiler": "NOT_EXECUTED",
+    "native_abi": "NOT_VERIFIED",
+    "Windows_runtime_Job_Object": "NOT_EXECUTED",
+    "native_S1": "NOT_EXECUTED",
+    "timeout_negative_windows": "NOT_EXECUTED",
+    "SCM": "NONE"
+  },
+  "verdict": "PASS_WATCHDOG_V2_STRUCTURAL_SOURCE_ONLY_68_68_NEGATIVE_24_24",
+  "permit_decision": "HOLD_NOT_ISSUED",
+  "next_gate": "TTM_P01_L1_V3V4_S1_ONE_SHOT_HOST_PERMIT_WRAPPER_AND_WINDOWS_CSHARP_STATIC_COMPILATION_PREFLIGHT",
+  "no_science": true,
+  "P00": "UNCHANGED",
+  "F0_10": "UNCHANGED",
+  "P01": "OPEN",
+  "P02": "NOT_OPENED"
+}
