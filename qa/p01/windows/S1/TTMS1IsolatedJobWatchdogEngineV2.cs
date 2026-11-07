@@ -136,12 +136,13 @@ internal static class IsolatedJobWatchdogV2 {
     internal string Verdict = "BLOCK_NOT_STARTED";
     internal uint ChildPid, ExitCode;
     internal bool JobChecked, ChildExitConfirmed, StdoutBounded, StderrEmpty;
-    internal int StdoutLength, StderrLength;
+    internal long StdoutLength, StderrLength;
     internal string StdoutSha256 = "", StderrSha256 = "";
   }
   sealed class Capture {
     internal byte[] Bytes = new byte[0];
-    internal int SeenBytes;
+    internal long SeenBytes;
+    internal int OverflowFlag;
     internal bool Overflow;
     internal bool ReadFailed;
   }
@@ -201,10 +202,9 @@ internal static class IsolatedJobWatchdogV2 {
 
   // Reader runs on a separate managed task. Child cannot write to a disk log.
   // Memory never stores more than 8192 bytes; overflow is signaled and drained.
-  static Capture ReadCapped(IntPtr inheritedReadHandle) {
-    Capture capture = new Capture();
+  static Capture ReadCapped(IntPtr inheritedReadHandle, Capture capture) {
     try {
-      using (SafeFileHandle safe = new SafeFileHandle(inheritedReadHandle, false))
+      using (SafeFileHandle safe = new SafeFileHandle(inheritedReadHandle, true))
       using (FileStream pipe = new FileStream(safe, FileAccess.Read, 4096, false))
       using (MemoryStream mem = new MemoryStream()) {
         byte[] block = new byte[512];
@@ -214,6 +214,7 @@ internal static class IsolatedJobWatchdogV2 {
           capture.SeenBytes += read;
           if (capture.SeenBytes > OUTPUT_LIMIT) {
             capture.Overflow = true;
+            Interlocked.Exchange(ref capture.OverflowFlag, 1);
             // Discard remaining data and continue draining to release pipe backpressure.
           } else {
             mem.Write(block, 0, read);
@@ -328,9 +329,12 @@ internal static class IsolatedJobWatchdogV2 {
       // Parent must not retain write ends, otherwise pipe reader would never get EOF.
       Close(ref outWrite); Close(ref errWrite); Close(ref stdin);
       // Transfer native read-handle ownership to dedicated tasks.
+      Capture stdoutState = new Capture(), stderrState = new Capture();
       IntPtr readOutHandle = outRead, readErrHandle = errRead;
-      readOut = Task.Run(() => ReadCapped(readOutHandle));
-      readErr = Task.Run(() => ReadCapped(readErrHandle));
+      readOut = Task.Run(() => ReadCapped(readOutHandle, stdoutState));
+      outRead = IntPtr.Zero; // Task now owns native read handle.
+      readErr = Task.Run(() => ReadCapped(readErrHandle, stderrState));
+      errRead = IntPtr.Zero; // Task now owns native read handle.
       Need(ResumeThread(child.hThread) != WAIT_FAILED, "BLOCK_RESUME");
       Stopwatch clock = Stopwatch.StartNew();
       bool timeoutOrOverflow = false;
@@ -354,8 +358,8 @@ internal static class IsolatedJobWatchdogV2 {
         }
         // Actual in-memory cap is enforced by the readers. Parent kills the
         // owned job if either reader reports overflow; no child writes disk logs.
-        if ((readOut.IsCompleted && readOut.Result.Overflow) ||
-            (readErr.IsCompleted && readErr.Result.Overflow)) {
+        if (Interlocked.CompareExchange(ref stdoutState.OverflowFlag, 0, 0) != 0 ||
+            Interlocked.CompareExchange(ref stderrState.OverflowFlag, 0, 0) != 0) {
           result.Verdict = "BLOCK_CAPTURE_LIMIT";
           timeoutOrOverflow = true;
           break;
@@ -415,8 +419,8 @@ internal static class IsolatedJobWatchdogV2 {
           (readErr != null && !readErr.IsCompleted)) {
         result.Verdict = "BLOCK_READERS_UNCONFIRMED";
       }
-      if (readOut == null) Close(ref outRead);
-      if (readErr == null) Close(ref errRead);
+      Close(ref outRead);
+      Close(ref errRead);
     }
     if (!result.ChildExitConfirmed || !result.JobChecked ||
         !result.StdoutBounded || !result.StderrEmpty) {
