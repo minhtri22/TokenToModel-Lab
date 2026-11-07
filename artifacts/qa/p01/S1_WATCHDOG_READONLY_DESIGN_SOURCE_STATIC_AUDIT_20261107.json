@@ -1,0 +1,110 @@
+{
+  "schema": "ttm.p01.l1.s1.watchdog_readonly_design_independent_source_audit.v1",
+  "date_utc": "2026-11-07",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "audit/p01-l1-native-security-critical-fix-20261106",
+  "source_review": {
+    "source_path": "qa/p01/windows/S1/Invoke-TTM-P01-L1-S1-Watchdog-ReadOnlyDesignPreflight-PS51.ps1",
+    "source_commit": "de26dc4592740e1f145324543d9aadaa76155214",
+    "git_blob_sha1": "f3cc3f40ed81ba4018a79fe8c68a44f047f0d865",
+    "sha256": "67b4c9431917647a8bb4596fe8e3ef3646af7d93fddc4316601de29bde0ea667",
+    "bytes": 7429,
+    "static_positive": {
+      "passed": 31,
+      "total": 31,
+      "failed": []
+    },
+    "in_memory_negative_mutations": {
+      "rejected": 16,
+      "total": 16,
+      "failed": [],
+      "cases": [
+        "unsafe_mode",
+        "change_original",
+        "change_harness",
+        "change_qa",
+        "change_marker",
+        "change_worker",
+        "disable_reparse",
+        "disable_scm",
+        "relax_memory",
+        "relax_disk",
+        "run_child",
+        "change_SCM",
+        "compile",
+        "delete_marker",
+        "write_evidence",
+        "permit_claim"
+      ]
+    },
+    "review_method": "Second independent JavaScript textual contract and in-memory mutants on exact pinned GitHub source. Does not execute Windows PowerShell parser, Windows SCM, OS preflight, or native harness.",
+    "disallowed_operations_not_in_source": [
+      "Start-Process",
+      "CreateProcessW",
+      "Start-Service",
+      "Stop-Service",
+      "Set-Service",
+      "csc.exe",
+      "Remove-Item",
+      "Set-Content",
+      "New-Item"
+    ],
+    "explicit_source_only_verdict": "PASS_READONLY_DESIGN_PREFLIGHT_NO_NATIVE"
+  },
+  "design": {
+    "document_path": "docs/qa/P01_L1_V3V4_S1_WATCHDOG_DESIGN_AND_READONLY_STATIC_PREFLIGHT_20261107.md",
+    "design_commit": "e9cf3280c171c8e58a043c775ec8113ee8c8385d",
+    "doc_git_blob_sha1": "c1c550e6b4a79e4518bac643c84debfac0255aba",
+    "doc_sha256": "de9261bff2749f366da1e09a1cd438cb7252a672b1356053aa6524ac4d1cf2df",
+    "ownership": "Only isolated S1 owned child, never TTMP01Broker service PID; no kill-by-name or foreign PID.",
+    "runtime_containment_requirement": "CreateProcessW CREATE_SUSPENDED -> AssignProcessToJobObject -> ResumeThread; JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE, no breakaway.",
+    "runtime_timeout_ms": 15000,
+    "termination_confirmation_timeout_ms": 3000,
+    "max_target_runtime_total_ms": 20000,
+    "native_stdout_cap_bytes": 8192,
+    "exact_pass_lines": [
+      "TTM_S1_IDLE_ACCEPT=PASS_COMPLETED_ABORTED",
+      "TTM_S1_SILENT_READ=PASS_COMPLETED_ABORTED",
+      "TTM_S1_VERDICT=PASS_ISOLATED_CANCELLATION_ONLY"
+    ],
+    "expected_exit": 0,
+    "SCM_before_after": "Stopped/PID0 Manual LocalService V2 image, read-only.",
+    "exact_s1_executable_hash": "NOT_AVAILABLE_BINARY_NOT_COMPILED",
+    "Windows_job_object_runtime_source": "NOT_IMPLEMENTED",
+    "native_one_shot_permit": "NOT_ISSUED",
+    "next_potential_decision": "One scoped permit for S1 compile + execute once after watchdog source/QA and Windows read-only preflight PASS. Do not split into independent licenses for trivial static checks.",
+    "ms_docs": [
+      "https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects",
+      "https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-assignprocesstojobobject"
+    ]
+  },
+  "evidence_reused": {
+    "V3_Python_checker_result": "PASS_WINDOWS_PYTHON_QA_SOURCE_ONLY_41_OF_41_16_OF_16",
+    "V3_PowerShell_launcher": "BLOCK_PRESERVED",
+    "V3_receipt_git_commit": "f61af1431ff41c3588657b57828d7928a30c2832",
+    "V3_receipt_sha256": "52f5f8c896a5306b3f5e3fd4b85b3763a97a193273c49dbe809e5a065efe5c33",
+    "V1_V2_V3_markers": "CONSUMED_PRESERVE_NO_REPLAY",
+    "harness_sha256": "fd179c74fa1a136d791a5f9f6394ea657c58e7a46d1983c0eafa81051e99d6a9",
+    "frozen_original_head": "f2e333df2f9ca24a8e483507c3cfc386ad9c76f0"
+  },
+  "status": {
+    "windows_ps51_native_parse": "NOT_EXECUTED",
+    "target_windows_readonly_preflight": "NOT_EXECUTED",
+    "S1_native_csc": "NOT_EXECUTED",
+    "S1_native_runtime": "NOT_EXECUTED",
+    "SCM_action": "NONE",
+    "job_object_containment": "NOT_IMPLEMENTED",
+    "broker_v3_worker_v4": "UNCHANGED_COMPILE_ONLY_PASS",
+    "normal_stop": "NOT_REQUALIFIED",
+    "native_security": "NOT_QUALIFIED",
+    "P00": "UNCHANGED",
+    "F0_10": "UNCHANGED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "science_lineage": "UNCHANGED",
+    "W01_W12": "NOT_EXECUTED",
+    "P00_P12": "UNCHANGED"
+  },
+  "verdict": "PASS_SOURCE_ONLY_WATCHDOG_DESIGN_PREFLIGHT_31_31_NEG_16_16_NO_NATIVE_PERMIT",
+  "next_gate": "TTM_P01_L1_V3V4_S1_WATCHDOG_WINDOWS_READONLY_PREFLIGHT_AND_JOB_OBJECT_EXECUTION_DESIGN_LOCK"
+}
