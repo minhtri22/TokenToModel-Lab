@@ -8,8 +8,8 @@
   "gpu_kernel_implemented": false,
   "gpu_kernel_executed": false,
   "windows_gpu_probe_executed": false,
-  "exact_technical_contract_git_blob": "7025bd6d727728acf63c7d1557288b8f69ab1813",
-  "downloadable_readonly_probe_sha256": "31d3196398950fe25671eeb7cf3d72d8dd83043ce2def51c93cb53a8f143600e",
+  "exact_technical_contract_git_blob": "48dfb252eb7a5f85d26b9d63c3956f2969d954dc",
+  "downloadable_readonly_probe_sha256": "d4bfc3ea86ac1ffde0836a8df7321447ee0fb6b22f5f4e38dc6cc0d666ac17ec",
   "source_oracle_git_blobs": {
     "p06": "4d52188adaf55674b6965513ea1beb38ec9a8e9b",
     "p05": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
@@ -26,5 +26,11 @@
   "p07": "DESIGN_CONTRACT_ONLY",
   "p08": "NOT_OPENED",
   "remote_command_capability": "MANAGED_TASK_ONLY_DIRECT_READ_COMMAND_BLOCKED",
-  "next": "TTM_P07_G0_WINDOWS_READONLY_RECEIPT_REVIEW_AND_BACKEND_DISPOSITION"
+  "next": "TTM_P07_G0_WINDOWS_READONLY_RECEIPT_REVIEW_AND_BACKEND_DISPOSITION",
+  "preexecution_static_amendment": {
+    "reason": "PS5.1 robustness: avoid use of reserved $Args automatic variable in command wrapper; avoid inline if expression in CIM driver hashtable",
+    "old_script_sha256": "31d3196398950fe25671eeb7cf3d72d8dd83043ce2def51c93cb53a8f143600e",
+    "new_script_sha256": "d4bfc3ea86ac1ffde0836a8df7321447ee0fb6b22f5f4e38dc6cc0d666ac17ec",
+    "windows_runtime_probed": false
+  }
 }

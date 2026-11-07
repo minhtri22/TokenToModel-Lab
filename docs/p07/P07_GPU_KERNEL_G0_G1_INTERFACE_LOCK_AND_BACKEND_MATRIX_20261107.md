@@ -18,7 +18,7 @@ Date: 2026-11-07. Classification: **DESIGN_AND_CONTRACT_LOCK_ONLY**. No GPU kern
 
 ## G0 — read-only Windows observation contract
 
-The approved **downloadable, local-only** probe is `TTM_P07_WINDOWS_GPU_READONLY_PREFLIGHT_PS51_V1_20261107.ps1`, SHA-256 `31d3196398950fe25671eeb7cf3d72d8dd83043ce2def51c93cb53a8f143600e`. It is provided in the bundled ZIP, **not committed to the GitHub branch in this step**. The ZIP also contains its SHA-256 manifest. It:
+The approved **downloadable, local-only** probe is `TTM_P07_WINDOWS_GPU_READONLY_PREFLIGHT_PS51_V1_20261107.ps1`, SHA-256 `d4bfc3ea86ac1ffde0836a8df7321447ee0fb6b22f5f4e38dc6cc0d666ac17ec`. It is provided in the bundled ZIP, **not committed to the GitHub branch in this step**. The ZIP also contains its SHA-256 manifest. It:
 
 1. Uses read-only Git commands (`git -C <TTM> remote get-url origin`, `rev-parse`, `status` with optional locking disabled). It **does not fetch, checkout, merge, pull, prune, modify worktree, or synchronize local main**, even if local HEAD remains stale at `92facee...`.
 2. Reads Windows OS/CPU/free RAM and D: free space, `Win32_VideoController`, display-class `Win32_PnPSignedDriver` (no full PnP serials), installed command paths (`icx`, `icpx`, `dpcpp`, `sycl-ls`, MSVC, CMake) and well-known oneAPI directories.
