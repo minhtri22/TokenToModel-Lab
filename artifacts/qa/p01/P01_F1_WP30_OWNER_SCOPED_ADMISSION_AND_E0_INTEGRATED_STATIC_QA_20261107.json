@@ -1,0 +1,368 @@
+{
+  "schema": "ttm.p01.f1.wp30.owner_scoped_e0_admission_and_offhost_qa.v1",
+  "date": "2026-11-07",
+  "operation": "TTM_P01_MINIMAL_F1_ADMISSION_BPE_E0_INTEGRATED_QA_THEN_P02_P03_P04",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_commit": "4a16f0014dc1c6cf768627c0f1d7a9cd6c6286ab",
+  "admission_decision": "ALLOW_WP30_SCOPED_INTERNAL_BPE_E0_CONDITIONAL_CC_BY_SA",
+  "authority": "OWNER_REQUEST_EXPLICIT_REDUCE_PER_PAGE_LICENSE_BUREAUCRACY_AND_RUN_RESEARCH",
+  "scope": "30_PINNED_VI_WIKIPEDIA_ARTICLES_ONLY",
+  "prior_40_doc_audit_sha256": "6e373ffe6e6340c633b52a45035abbe41836ba8a341afa1dd279ba1fd5d68cf3",
+  "prior_v3_snapshot_sha256": "9fcdebbd53eb538d8f4a6743d7e2a0c9584b379bee50ce09a6b1b711e9c15db9",
+  "independent_groups_wp30": 30,
+  "previous_independent_groups_40": 40,
+  "site_license": "Creative Commons Attribution-ShareAlike 4.0 International",
+  "site_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "site_reuse_terms": "https://foundation.wikimedia.org/wiki/Terms_of_Use",
+  "site_license_risk": "SITE_TERMS_DO_NOT_CLEAR_EVERY_THIRD_PARTY_EXCERPT; ESCALATE_DOCUMENTED_EXCEPTIONS_AND_PII; NO_PUBLIC_REDISTRIBUTION",
+  "banned_sources": [
+    "CQG-J3",
+    "Wikisource in E0",
+    "Any other internal research files"
+  ],
+  "documents": [
+    {
+      "id": "WP006",
+      "title": "Hội An",
+      "revision_id": 75654046,
+      "text_sha256": "827197ef4d3f7473f49c115a29ae2bfa043e5a57022515c33983ac0857d914c2",
+      "source_sha256": "f844f6ae4b849e0bef1be75143bfd67284e854182cc9f01d3dd5bfe01c57ad1b",
+      "group_id": "c93e28a3b98a55d68ca10df2dd34c17106242469158e4c53b4cbf841772992ad",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phố_cổ_Hội_An&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/H%E1%BB%99i_An"
+    },
+    {
+      "id": "WP008",
+      "title": "Đồng bằng sông Cửu Long",
+      "revision_id": 75642271,
+      "text_sha256": "8a0054a57b1fba7d2235dcdeea1f035807764874de64d8e9e1aa061b1d54419a",
+      "source_sha256": "3fd16bed24bb1dfdfbbfa7c787c05131f82e89184052c081f393602db09c868b",
+      "group_id": "a1ea30b9d18a923b0d245791117a5aaa6641ee031e2ac3426f7f184a93677b68",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Đồng_bằng_sông_Cửu_Long&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_b%E1%BA%B1ng_s%C3%B4ng_C%E1%BB%ADu_Long"
+    },
+    {
+      "id": "WP011",
+      "title": "Địa lý Việt Nam",
+      "revision_id": 75108045,
+      "text_sha256": "678dc21b195b3e443220bba18a61892fcdb68251e1f30e11e2dbcc4cdcb1eae1",
+      "source_sha256": "9dec6310cd33a9694694738c153372eb8458741bca001c5f3498a82ff6b93df8",
+      "group_id": "3a57143b7f105c983aa35b01c1a89dbb19486819148de746c27ad456cc86a327",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Địa_lý_Việt_Nam&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_l%C3%BD_Vi%E1%BB%87t_Nam"
+    },
+    {
+      "id": "WP012",
+      "title": "Khí hậu Việt Nam",
+      "revision_id": 75660280,
+      "text_sha256": "6be7d4e14f4c9dd557ba767a6be9191630482e2712e025cf3ea65359b1b717f5",
+      "source_sha256": "a52c9077ac9d732b9fb02039edfd7fcd4269ca6b3b8d35028ddeb39b99914452",
+      "group_id": "0e7986dbae67e8597bc24e246394dd5a1292e0ef4487b7f340e557e69de013e1",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Khí_hậu_Việt_Nam&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Kh%C3%AD_h%E1%BA%ADu_Vi%E1%BB%87t_Nam"
+    },
+    {
+      "id": "WP016",
+      "title": "Phú Quốc",
+      "revision_id": 75641049,
+      "text_sha256": "6e1d5ccb1913b9d986707b8ec45992c904b1e608a279076ad440e75ddeaf2046",
+      "source_sha256": "56b8db1b0a08212e4cbb579c268a51b51b69fbe552c88b4f3e14d3817578cc2e",
+      "group_id": "dbe7a905a5bb360757dc1deb3dc58fec4a9c3bfe0d5487ae4b22abbc29bed7b3",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phú_Quốc&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Qu%E1%BB%91c"
+    },
+    {
+      "id": "WP017",
+      "title": "Sa Pa",
+      "revision_id": 75216552,
+      "text_sha256": "1e0891069302fec5caa43e141f29b11eb0cfad3142126203b1b1a2c18debdb36",
+      "source_sha256": "6a1177af5a0aac83a96e467785c3417fa27e2b0047f1351408c6d8ab9270269b",
+      "group_id": "25fb69dd7179bb0e73b694bde7c107d80802a14c0850b8bc27a39dd51143f120",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Sa_Pa&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Sa_Pa"
+    },
+    {
+      "id": "WP021",
+      "title": "Lịch sử Việt Nam",
+      "revision_id": 75667370,
+      "text_sha256": "01f1ca7625eaeea379987dd659acf5abbcf2748efb14142980dffb02d4dcbb0d",
+      "source_sha256": "2c7c96f2637faff65ca15774ca9565c01158e87209581a7d2f9aecf925bb21fc",
+      "group_id": "33ce9d55795a0cfc1f6fd74dd093544992283c799ec7090d1d976f6bf55dd874",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Lịch_sử_Việt_Nam&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/L%E1%BB%8Bch_s%E1%BB%AD_Vi%E1%BB%87t_Nam"
+    },
+    {
+      "id": "WP022",
+      "title": "Nhà Trần",
+      "revision_id": 75660286,
+      "text_sha256": "75e91f34212dd9e1f3f6fb7fc825a8aa8407b304a613d9c3625c24b3231b6a4d",
+      "source_sha256": "f3034c712e16ca67f2c8171feec448d63cd821ded3f06b4497b92a1a2bea5675",
+      "group_id": "bbe3500a152f96beee806469e9e5af947898549384ac284a13fd6960e9b08d5f",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Nhà_Trần&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_Tr%E1%BA%A7n"
+    },
+    {
+      "id": "WP023",
+      "title": "Nhà Lý",
+      "revision_id": 75611474,
+      "text_sha256": "87d284187a1b141c46052e8e4bf01af4642826080f312b5c0501db899de12c7d",
+      "source_sha256": "56c22df826162e17b644595e32378eb033d680a46d8ae48aff383ebfca101623",
+      "group_id": "29435c477d5b9be73c3a20e03133b3ace7514b6b8a06f410ac555418cf196692",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Nhà_Lý&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Nh%C3%A0_L%C3%BD"
+    },
+    {
+      "id": "WP025",
+      "title": "Văn Lang",
+      "revision_id": 75578223,
+      "text_sha256": "1dae0756978345a60c54e816a6b7dcb2e3b8f0bb114dbcd988810bc6c7f2f9de",
+      "source_sha256": "635739f7acfc142bbef7199703e76df75720f32dd3e139d7dd368e8e9196e02a",
+      "group_id": "cd053dbee1240afc49cc8c5aba14e0c726812275da56d7f9483ca1208541bf19",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Văn_Lang&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C4%83n_Lang"
+    },
+    {
+      "id": "WP027",
+      "title": "Cách mạng tháng Tám",
+      "revision_id": 75533120,
+      "text_sha256": "1f03b7498a6218797badb1a579fb6cda5345df89a52bde3e217a28c1f06eb32b",
+      "source_sha256": "050ca60f60ee0ae35c950a6f456ae26fa134d49d8af6568e8aa4f468fb61eda3",
+      "group_id": "5893ca8d2c21c6e5750739c3aff7ed6c51599b74a8297d822a78b418c2bb5682",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Cách_mạng_Tháng_Tám&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/C%C3%A1ch_m%E1%BA%A1ng_th%C3%A1ng_T%C3%A1m"
+    },
+    {
+      "id": "WP029",
+      "title": "Khởi nghĩa Lam Sơn",
+      "revision_id": 75630810,
+      "text_sha256": "3e5075dff7c4761c76b4b42e83841c4a86aaae48a0f2a3d3f2e8cd50e0f507f8",
+      "source_sha256": "d4668f14f2b46f7f77f4b7bec07b0079d5ab917f4eac1b683772e04bf314ce31",
+      "group_id": "fded7d714364a802d30724caa467334f238056eb9952b5f36061c07eff2f3fe8",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Khởi_nghĩa_Lam_Sơn&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Kh%E1%BB%9Fi_ngh%C4%A9a_Lam_S%C6%A1n"
+    },
+    {
+      "id": "WP031",
+      "title": "Văn hóa Việt Nam",
+      "revision_id": 75550832,
+      "text_sha256": "271a96325d62680d93320d1188b7709eff386d80f2104166ad1bf58b1f2baedc",
+      "source_sha256": "f772ad3a77feb1373ac4176a4d4c24b676d5b43684c0341fc769148d8e3e9370",
+      "group_id": "e4a89aa3c19cc24e8ebe57ea805dcfa9952e33b4265bc00f54ea7cde9eccd899",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Văn_hóa_Việt_Nam&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/V%C4%83n_h%C3%B3a_Vi%E1%BB%87t_Nam"
+    },
+    {
+      "id": "WP032",
+      "title": "Ẩm thực Việt Nam",
+      "revision_id": 75524867,
+      "text_sha256": "0c5130fa1bbe7f8e50cbb8d604b8ecfeed82dca871130557a49a300d92bd7bec",
+      "source_sha256": "d7c931b74e3f51c7d5202579990d04758168f88c25ba426fe3d9d7d674b733fd",
+      "group_id": "a4c91703871c6d6a570d180d77406b7481ccd631429d24ba3addc57cef595238",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Ẩm_thực_Việt_Nam&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/%E1%BA%A8m_th%E1%BB%B1c_Vi%E1%BB%87t_Nam"
+    },
+    {
+      "id": "WP033",
+      "title": "Phở",
+      "revision_id": 75647145,
+      "text_sha256": "3c3b10b03336b178068b452c6884b1259d45c4e999c12952fc86373889b1f90d",
+      "source_sha256": "dac8e506d5596c36bfb3fb4bc7b5a5ffc7a8424b42b4f1f48a9c0f15f8f38d72",
+      "group_id": "230d1618e3cc54f453a083b7681a806326be7008289377c685a94a01b4d8d2e3",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Phở&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Ph%E1%BB%9F"
+    },
+    {
+      "id": "WP035",
+      "title": "Áo dài",
+      "revision_id": 75565615,
+      "text_sha256": "2576c735b685a06de380525e59df418870495e97cea7d63f279d48701c3830e9",
+      "source_sha256": "233b07cc9d23afd9cbf60ae8e441c5b54976af8daa53feb572e51fe5940f9a62",
+      "group_id": "64c9ad080f4a4958512a71ea440c519ac881e90a529ed49ef4b8402a8077f6ce",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Áo_dài&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/%C3%81o_d%C3%A0i"
+    },
+    {
+      "id": "WP036",
+      "title": "Tết Nguyên Đán",
+      "revision_id": 75681026,
+      "text_sha256": "ceb7ed12cfeaf986b904ed3623e3b8ba32e994cfc17e685d18753ae0cb7e9272",
+      "source_sha256": "7414c9ea68ac58366a0969b1cab014c64124de671fbb72312bebf1dfa0d48912",
+      "group_id": "33e12bde44c36070c71c7591a6f2fb9a62880dee1b38fe2e8cb924baa3d206fa",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Tết_Nguyên_Đán&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Nguy%C3%AAn_%C4%90%C3%A1n"
+    },
+    {
+      "id": "WP037",
+      "title": "Quan họ",
+      "revision_id": 75673678,
+      "text_sha256": "d40a19f9eeeb967da3c6c385a7f1f7c0cbe5ea470e75a5369af10a310eb239fa",
+      "source_sha256": "84f15ccf2d1fd45cce4783424fe6ae83cd870824b61670a0950b588d0571cd6e",
+      "group_id": "7264ba9384229e1ca82db32a1f33fe8fe54579fe39daf743211765fdeb0a2da8",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Quan_họ&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Quan_h%E1%BB%8D"
+    },
+    {
+      "id": "WP042",
+      "title": "Di truyền học",
+      "revision_id": 75586128,
+      "text_sha256": "0309dc5f1ba65cc2b0bd4fc02e24dcd49c466fa62cc513aaac5c608a038a240b",
+      "source_sha256": "4c20f57577f695f9da04956490c2ec7837bb1495f2cc934c8a74ef07d08cac9c",
+      "group_id": "caa8485f0b19151c98ebce2215cc7606fd36e6ba854e51dca3d0c849d67ef66b",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Di_truyền_học&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Di_truy%E1%BB%81n_h%E1%BB%8Dc"
+    },
+    {
+      "id": "WP043",
+      "title": "Sinh thái học",
+      "revision_id": 75472997,
+      "text_sha256": "5cc006ad2998553d0fafbfec1df3fef9348d7b172f55532e9365b907deae1c75",
+      "source_sha256": "6fa66c3c17306c3958c452a4ce7d3dc30e60c0aad3ff53b5b3023b7b0fec488c",
+      "group_id": "ff59bef084f02cb050f1f693f8166452d58ab77e08b888213024ce88a7ac4e68",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Sinh_thái_học&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Sinh_th%C3%A1i_h%E1%BB%8Dc"
+    },
+    {
+      "id": "WP044",
+      "title": "Quang hợp",
+      "revision_id": 75051386,
+      "text_sha256": "4743bd394a7215c5bbfa54ccbe6eecab0aee6f7726bbfaaabedcfc157e031f01",
+      "source_sha256": "ce66985d7b10899d18fb8be6c70010e46e3e6991f4231e7319d06b4cdc857f5f",
+      "group_id": "093e42b9615807c86d8aadd5e611f9ea40e5aecffe2a3c5faee41453495e84b4",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Quang_hợp&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Quang_h%E1%BB%A3p"
+    },
+    {
+      "id": "WP048",
+      "title": "Vi sinh vật học",
+      "revision_id": 75079245,
+      "text_sha256": "0fedf5e72d75accf6c1daecc0f5312d24cecc8be47d92fa0eb45d3524710d507",
+      "source_sha256": "09782a8b4d207290aa616ec44c289db0d15f023956a9311d9ccd8ffd737039e3",
+      "group_id": "dd7078b7564950d01a8ab29de0b10640408f7ec3854b2c6a1e27fb50ca191280",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Vi_sinh_vật_học&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Vi_sinh_v%E1%BA%ADt_h%E1%BB%8Dc"
+    },
+    {
+      "id": "WP049",
+      "title": "Đa dạng sinh học",
+      "revision_id": 75574422,
+      "text_sha256": "e4b2c2826c89be86b713e282692ef6266183798da69fa95c9629aa6bae0bdc45",
+      "source_sha256": "8705d6e12a25ac236f8ba97e43f29df10c45255455233758d2faa1a669b30f9b",
+      "group_id": "f34b44bf5746b857176385baf981e7f0703c83420ccdf6084a1df8d0f6a6840b",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Đa_dạng_sinh_học&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/%C4%90a_d%E1%BA%A1ng_sinh_h%E1%BB%8Dc"
+    },
+    {
+      "id": "WP053",
+      "title": "Toán học",
+      "revision_id": 75607277,
+      "text_sha256": "064f872cfc9782136de0de788abe05e4650057814b301b5e4c00ad9af36e70e7",
+      "source_sha256": "8b8b66dee6d55fb2d057ef4cc43e6bc67998bf07be5d766b034d98420a40068f",
+      "group_id": "a0130adc3d696ddd73ee8b747da4d2e88b3f5761f87d2fe3597fb6605aa582d7",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Toán_học&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/To%C3%A1n_h%E1%BB%8Dc"
+    },
+    {
+      "id": "WP054",
+      "title": "Xác suất",
+      "revision_id": 75665965,
+      "text_sha256": "1ea77d6418d70b71806f67c59de41486e18c3ab2143f47c6dd5989ab257d7732",
+      "source_sha256": "706e20e03f49d3a2610540d0261efe884420e31c399bbf8cc8b9ceb7e8e19a80",
+      "group_id": "e9b34852d8c49db2ca4c0f4b013b6de5e604dafdfd552e0b1e7e766e7683d5b1",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Xác_suất&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/X%C3%A1c_su%E1%BA%A5t"
+    },
+    {
+      "id": "WP061",
+      "title": "Internet",
+      "revision_id": 75348708,
+      "text_sha256": "8f310661cdb0285dbce386407ecdc04d038c8dbfd752f2b9a3a4eeaa9d80ad21",
+      "source_sha256": "0b52556a867effdf300581bd42f53a8cc5269a2f045654c744a56625478a19eb",
+      "group_id": "d0a0722a05882c79cea714864839f5df2c6bd5ff64bc394bdbac1cc8413597cf",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Internet&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Internet"
+    },
+    {
+      "id": "WP062",
+      "title": "Máy tính",
+      "revision_id": 75614991,
+      "text_sha256": "dce9434ce7786aa4ac004e3eb68135896fac0e4ac7aa399d9168076b93c30e4d",
+      "source_sha256": "8825d2de16cdd9ef62a6a613c2e0d5688a4a36a91e76649119b747e0224901ee",
+      "group_id": "5477f6e7933e27f5703a2e20083b86c81f5f8ec9b5d53d58d70a297fdcfda340",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Máy_tính&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh"
+    },
+    {
+      "id": "WP063",
+      "title": "Trí tuệ nhân tạo",
+      "revision_id": 75515418,
+      "text_sha256": "2ac87367fd00b9bec5bf48415dc4536c7fb557afe7387447cc3b621070d16036",
+      "source_sha256": "f05c8c52ee598c198993ebb589f9fa4ab845e13c065694fe97b1a48dd41d3ee3",
+      "group_id": "72459dfcd84d5c4ae690b008a6558930d40c11081f8f7cbcdd21e019b0901950",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Trí_tuệ_nhân_tạo&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Tr%C3%AD_tu%E1%BB%87_nh%C3%A2n_t%E1%BA%A1o"
+    },
+    {
+      "id": "WP068",
+      "title": "Giáo dục",
+      "revision_id": 75352011,
+      "text_sha256": "c2d1732b2511b5d1a400f91cbfe2a1bb6abc78f95af4e868fe612e9f1ace7922",
+      "source_sha256": "756d22e389f0d7b3f52d92c9810dcb643c72275599eafc43b026c35af789dc30",
+      "group_id": "c2ec86b165555c955e3d3079aed15dab740680af939b7e74953de55820bc1124",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Giáo_dục&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Gi%C3%A1o_d%E1%BB%A5c"
+    },
+    {
+      "id": "WP070",
+      "title": "Du lịch",
+      "revision_id": 75296343,
+      "text_sha256": "598bb060e87d35c9c4a53047e1a9456f098601d40ed903200e81826a64d429a2",
+      "source_sha256": "94198ca829dd84fecd61b890fbef3aba134bbfa049d213b0170ee11721ad922f",
+      "group_id": "f0c9372a75d36d833d67fc24d4ad3f064757fc04a5c84dd074eba2c205fe8f8e",
+      "attribution_url": "https://vi.wikipedia.org/w/index.php?title=Du_lịch&action=history",
+      "source_url": "https://vi.wikipedia.org/wiki/Du_l%E1%BB%8Bch"
+    }
+  ],
+  "execution": {
+    "route": "DOCKER_LINUX_CPU_NOT_WINDOWS_NATIVE_S1",
+    "dataset_split_seed": 20261105,
+    "split_counts": {
+      "TRAIN": 24,
+      "VALIDATION": 3,
+      "TEST": 3
+    },
+    "bpe_source_guard": "F0_ONLY_CODE_UNCHANGED_NEW_F1_SCOPED_IMPLEMENTATION",
+    "bpe_target_vocab_size": 2048,
+    "base_byte_vocab_size": 256,
+    "independent_train_processes": 2,
+    "docker_image": "python:3.13-slim",
+    "image_id": "MUST_PIN_FROM_LOCAL_DOCKER_IMAGE_BEFORE_E0_MARKER",
+    "docker_pull": "ONLY_BEFORE_E0_MARKER_IF_EXPLICIT_ALLOW_IMAGE_PULL",
+    "network": "NONE",
+    "memory_per_worker_bytes": 4294967296,
+    "wall_time_per_worker_seconds": 600,
+    "TEST": "SEALED_NO_MOUNT_TO_DOCKER_OR_BPE_METRIC"
+  },
+  "implementation": {
+    "launcher_filename": "TTM_P01_F1_WP30_BPE_E0_DOCKER_ONE_SHOT_PS51_20261107.ps1",
+    "launcher_sha256": "905c6231505df536dbf4756abb2a815d885a412676e97c570bbbbf612b6976c2",
+    "engine_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
+    "independent_qa_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1",
+    "bundle_sha256": "71bbb875b1cb866f5e9510ea50aa3cd545142ea7d2e08f9269bd5bdec6e02a17",
+    "source_code_distribution": "CONVERSATION_BUNDLE_ONLY; GITHUB_RECEIPT_PINS_NOT_CODE_UPLOAD",
+    "static_qa": "PASS_8_INTEGRATION_AND_NEGATIVE_FIXTURES",
+    "independent_encoder_differential": "PASS_30_BATCHES",
+    "PS51_native_parse": "NOT_EXECUTED",
+    "Windows_docker_training": "NOT_EXECUTED"
+  },
+  "formal_phase_gates": {
+    "K1_K2": "PREVIOUS_PASS_PRESERVED",
+    "S1": "FAILED_PRESERVED_NO_RERUN",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "P03": "NOT_OPENED",
+    "P04": "NOT_OPENED",
+    "lineage_md": "UNCHANGED"
+  },
+  "next": "RUN_SINGLE_PS51_DOCKER_E0_AFTER_NATIVE_PARSER_AND_RESOURCE_PREFLIGHT_THEN_INDEPENDENT_P01_CLOSURE"
+}
