@@ -1,0 +1,59 @@
+{
+  "schema": "ttm.p01.e0.docker_guard_process_exit_recovery.v4.static.v1",
+  "date": "2026-11-07",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "predecessor_commit": "acce5db67a839a81262cf18ab13e42c89ded938d",
+  "observed_console": {
+    "docker_image": "python:3.12-slim",
+    "docker_image_id": "sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54",
+    "host_python": "Python 3.12.10",
+    "input_documents": 30,
+    "H03_groups": 30,
+    "split": {
+      "TRAIN": 24,
+      "VALIDATION": 3,
+      "TEST": 3
+    },
+    "failure": "DOCKER_GUARD_CAPABILITY_FAILED_PRE_MARKER_EXIT_: <blank>",
+    "owner_temp_cleanup": "COMPLETE_SCOPED",
+    "E0": "NOT_EXECUTED"
+  },
+  "remote_readback": {
+    "E0_marker": "NOT_PRESENT",
+    "E0_receipt": "NOT_PRESENT",
+    "E0_experiment_directory": "ABSENT",
+    "worktree_or_tracked_sources_modified": "NO_ACTION_BY_AGENT"
+  },
+  "diagnosis": {
+    "v3_runner_problem": "Start-Process -PassThru produced blank ExitCode/error detail on Docker capability run; did not establish whether Docker itself rejects a guard flag.",
+    "docker_guard_actual_failure_reason": "UNKNOWN_UNTIL_V4_STDERR_AND_EXITCODE",
+    "prescribed_repair": "Replace Start-Process wrappers for pull, guard probe, and science worker with System.Diagnostics.Process capturing ExitCode and asynchronously draining stdout/stderr.",
+    "retain_all_container_resource_and_security_flags": true
+  },
+  "v4": {
+    "script_filename": "TTM_P01_F1_WP30_BPE_E0_DOCKER_PY312_PROCESS_EXIT_RECOVERY_V4_PS51_20261107.ps1",
+    "script_sha256": "7b36c6657957367908d26190b600e5e0b39c93007e455c0e20345ef48b29f2af",
+    "engine_python_sha256": "2f1b85c52b198046ffb472f284488b6d0ce17bcff7697062f6767e6f0ae6a53d",
+    "independent_checker_python_sha256": "ae07e11942e09cd910231e48f86d0e8d2d541ca80f8abbb6fbdcf2476ccb67c1",
+    "bundle_sha256": "df3e01a93d6ad9308b48cf4157d0a1d6607779ea9c7dcaa711ec89d923d40c15",
+    "host_python_path": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "same_marker": "TTM_P01_F1_WP30_E0_DOCKER_20261107.once",
+    "same_results": "experiments/p01/TTM_P01_F1_WP30_E0_DOCKER_20261107",
+    "static_verification": "PASS_SHA_AND_SYNTHETIC_ENGINE_SELFTEST",
+    "windows_ps51_parser": "NOT_EXECUTED",
+    "docker_runtime": "NOT_EXECUTED_V4",
+    "source_distribution": "SCRIPT_IN_CONVERSATION_ARTIFACT_NOT_COMMITTED_TO_GITHUB"
+  },
+  "governance": {
+    "K1_K2": "PASS_PRESERVED",
+    "S1": "HISTORICAL_FAIL_PRESERVED",
+    "F1": "SCOPED_ALLOW",
+    "E0": "NOT_EXECUTED",
+    "P01": "OPEN",
+    "P02": "NOT_OPENED",
+    "P03": "NOT_OPENED",
+    "P04": "NOT_OPENED",
+    "lineage_md": "UNCHANGED"
+  },
+  "next": "RUN_V4_IF_MARKER_PRISTINE; ON_GUARD_FAILURE_USE_ACTUAL_EXIT_CODE_AND_STDERR; ON_E0_SUCCESS_INDEPENDENT_QA_AND_P01_CLOSURE"
+}
