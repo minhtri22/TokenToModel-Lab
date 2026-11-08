@@ -1,0 +1,130 @@
+{
+  "config": {
+    "max_seq_len": 256,
+    "n_embd": 256,
+    "n_head": 4,
+    "n_layer": 4,
+    "norm_type": "layernorm",
+    "vocab_size": 2048
+  },
+  "cuda": "13.0",
+  "failed_candidates": [],
+  "gpu": "Tesla T4",
+  "important_limitations": [
+    "only synthetic uniform 256-token windows",
+    "actual TRAIN mixture of short/long windows could require more microbatches",
+    "VAL, checkpoint/Drive IO and downtime not directly measured; 25 pct reserve heuristic",
+    "provisional until independent readback and policy acceptance"
+  ],
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "p02_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+  "records": [
+    {
+      "context": 256,
+      "feasible_on_measured_smoke": true,
+      "gradient_accumulation": 8,
+      "last_synthetic_loss": 0.9582521915435791,
+      "median_seconds": 0.0873554470000073,
+      "memory_reserved_ratio": 0.009924435149599963,
+      "microbatch_windows": 2,
+      "peak_cuda_reserved_bytes": 155189248,
+      "precision": "fp32",
+      "projected_science_seconds_with_25pct_reserved": 125.41,
+      "sample_seconds": [
+        0.09185,
+        0.08839,
+        0.08632,
+        0.08392
+      ],
+      "scored_target_tokens_per_optimizer_step": 4096,
+      "timed_steps": 4,
+      "warmup_steps": 2,
+      "worst_seconds": 0.09185155000000123
+    },
+    {
+      "context": 256,
+      "feasible_on_measured_smoke": true,
+      "gradient_accumulation": 8,
+      "last_synthetic_loss": 0.9582511782646179,
+      "median_seconds": 0.10127991749997989,
+      "memory_reserved_ratio": 0.00952209318407564,
+      "microbatch_windows": 2,
+      "peak_cuda_reserved_bytes": 148897792,
+      "precision": "fp16",
+      "projected_science_seconds_with_25pct_reserved": 155.31,
+      "sample_seconds": [
+        0.10229,
+        0.11375,
+        0.09762,
+        0.10027
+      ],
+      "scored_target_tokens_per_optimizer_step": 4096,
+      "timed_steps": 4,
+      "warmup_steps": 2,
+      "worst_seconds": 0.11375069100000701
+    },
+    {
+      "context": 256,
+      "feasible_on_measured_smoke": true,
+      "gradient_accumulation": 4,
+      "last_synthetic_loss": 1.9162712097167969,
+      "median_seconds": 0.05102679400000909,
+      "memory_reserved_ratio": 0.013545512839318869,
+      "microbatch_windows": 4,
+      "peak_cuda_reserved_bytes": 211812352,
+      "precision": "fp16",
+      "projected_science_seconds_with_25pct_reserved": 70.3,
+      "sample_seconds": [
+        0.0509,
+        0.05115,
+        0.05051,
+        0.05149
+      ],
+      "scored_target_tokens_per_optimizer_step": 4096,
+      "timed_steps": 4,
+      "warmup_steps": 2,
+      "worst_seconds": 0.05148910299999443
+    },
+    {
+      "context": 256,
+      "feasible_on_measured_smoke": true,
+      "gradient_accumulation": 2,
+      "last_synthetic_loss": 3.8356130123138428,
+      "median_seconds": 0.027080708500008654,
+      "memory_reserved_ratio": 0.020385326253232357,
+      "microbatch_windows": 8,
+      "peak_cuda_reserved_bytes": 318767104,
+      "precision": "fp16",
+      "projected_science_seconds_with_25pct_reserved": 37.23,
+      "sample_seconds": [
+        0.02727,
+        0.02673,
+        0.02697,
+        0.02719
+      ],
+      "scored_target_tokens_per_optimizer_step": 4096,
+      "timed_steps": 4,
+      "warmup_steps": 2,
+      "worst_seconds": 0.02726955699998257
+    }
+  ],
+  "reserve_fraction": 0.25,
+  "schema": "ttm.t4.capacity.synthetic.v1",
+  "science_executed": false,
+  "selected_technical_candidate": {
+    "gradient_accumulation": 2,
+    "microbatch_windows": 8,
+    "precision": "fp16",
+    "projected_science_seconds_with_25pct_reserved": 37.23,
+    "worst_seconds": 0.02726955699998257
+  },
+  "status": "PASS_PROVISIONAL_CAPACITY_ONLY",
+  "steps_target": 1024,
+  "synthetic_only": true,
+  "time_cap_seconds": 5400,
+  "tokens_per_step": 4096,
+  "torch": "2.14.1+cu130",
+  "total_device_memory_bytes": 15637086208,
+  "unique_parameters": 3749376,
+  "vram_reserved_limit_fraction": 0.8
+}
