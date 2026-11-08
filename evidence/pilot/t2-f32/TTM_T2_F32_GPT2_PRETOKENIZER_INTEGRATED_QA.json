@@ -1,0 +1,95 @@
+{
+  "f32": {
+    "bpe_manifest_sha256": "e85028842955334cad014d6f1365f95d79ec953f7cab3a0a2f75ded83bcb1a08",
+    "max_abs_weight_error": 0.0,
+    "sha256": "474bc1dcb472cca429ce07747bdaf6ecbe8a7e9b66ce4d5e8658ad919e5e191e",
+    "size_bytes": 15052128,
+    "tensor_count": 52
+  },
+  "finished_at_unix": 1794119922,
+  "fixture_sha256": "5a4ba58db3ad7c1ad0a7c6a790c08184d43c1e3a081ad2dcaf2d4c3b9dbeb9f2",
+  "gpu_used": false,
+  "llama_sha": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+  "negative_checks": {
+    "reject_EOS_decode": true,
+    "reject_TEST": true,
+    "reject_VAL": true,
+    "reject_unknown_token_id": true,
+    "reject_wrong_source": true
+  },
+  "numeric": {
+    "allowed_max_abs_error": 0.001,
+    "cases": [
+      {
+        "case": "N01",
+        "max_abs_diff": 0.00042882562135010405,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N02",
+        "max_abs_diff": 0.0006634443974343866,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N03",
+        "max_abs_diff": 0.0005476921983718908,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N04",
+        "max_abs_diff": 0.0007237941350295984,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N05",
+        "max_abs_diff": 0.0005640983722640935,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N06",
+        "max_abs_diff": 0.0007541775409637408,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N07",
+        "max_abs_diff": 0.0006308481112477851,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N08",
+        "max_abs_diff": 0.0005532205257782197,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N09",
+        "max_abs_diff": 0.0008438229900207261,
+        "top1_mismatch": false
+      },
+      {
+        "case": "N10",
+        "max_abs_diff": 0.0007376074788059996,
+        "top1_mismatch": false
+      }
+    ],
+    "native_cases": 10,
+    "pass": true,
+    "top1_mismatch_count": 0,
+    "worst_abs_error": 0.0008438229900207261
+  },
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "schema": "ttm.t2.gpt2.pretok.trainonly.f32.integrated.v1",
+  "science_executed": false,
+  "started_at_unix": 1794119883,
+  "status": "PASS_F32_INTEGRATED_TECHNICAL_ONLY",
+  "tokenizer": {
+    "fit_seconds": 33.363,
+    "manifest_sha256": "652d74488646d8d329792a37cef3ba1bfcd221d7ec7ee57dc6700208a3ca1fca",
+    "merges_count": 1791,
+    "mismatches": [],
+    "native_cases": 20,
+    "pass": true,
+    "vocab_count": 2048
+  },
+  "train_data": "SYNTHETIC_TRAIN_FIXTURE_ONLY_NOT_TINYSTORIES",
+  "v5b_probe_sha256": "080c096d52448f665df43ebc962d7a62b17a0781326bc6358e8535d25f37c963"
+}
