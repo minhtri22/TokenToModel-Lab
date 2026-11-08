@@ -37,7 +37,6 @@
 | T2 V5B — Phân xử tương đương F32, lỗi F16 | [Đọc bản tiếng Việt](pilot/TTM_T2_V5B_PARITY_ADJUDICATION_AND_F32_FIRST_ADAPTER_DECISION_20261108.md) | [Nguồn](../pilot/TTM_T2_V5B_PARITY_ADJUDICATION_AND_F32_FIRST_ADAPTER_DECISION_20261108.md) |
 | T2 V5 — Lỗi biên dịch C1083 và phục hồi V5B | [Đọc bản tiếng Việt](pilot/TTM_T2_V5_CMAKE_C1083_AND_V5B_RECOVERY_20261108.md) | [Nguồn](../pilot/TTM_T2_V5_CMAKE_C1083_AND_V5B_RECOVERY_20261108.md) |
 | T1–T7 — Tiền đăng ký thử nghiệm mô hình nhỏ | [Đọc bản tiếng Việt](pilot/TTM_TRAIN_FIRST_END_TO_END_PILOT_PREREG_DRAFT_20261108.md) | [Nguồn](../pilot/TTM_TRAIN_FIRST_END_TO_END_PILOT_PREREG_DRAFT_20261108.md) |
-
 | Hướng dẫn gói T1/T3 — nguồn thật và phục hồi | [Đọc bản tiếng Việt](tools/README_TTM_T1_T3_VI.md) | [Nguồn](../../tools/pilot_t1t3/README_TTM_T1_T3_VI.md) |
 | Hướng dẫn gói T2 F32 — tokenizer và GGUF | [Đọc bản tiếng Việt](tools/README_TTM_T2_F32_VI.md) | [Nguồn](../../tools/pilot_t1t3/source_t2/README_TTM_T2_F32_VI.md) |
 
