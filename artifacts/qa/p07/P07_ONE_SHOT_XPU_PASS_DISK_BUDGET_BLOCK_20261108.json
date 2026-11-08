@@ -1,0 +1,241 @@
+{
+  "schema": "ttm.p07.xpu_success_budget_guard_block_independent_review.v1",
+  "date_local": "2026-11-08",
+  "source": {
+    "origin": "Windows local P07 one-shot JSON and two logs, read back through connected RemoteDesktop",
+    "original_run_id": "P07_GPU_ENABLEMENT_20261108T024525Z_P28364",
+    "original_receipt_path": "evidence/p07/gpu_enablement/P07_GPU_ENABLEMENT_20261108T024525Z_P28364.json",
+    "original_receipt_sha256_reported": "9a619f41412a6be87fcd7a307477a148ae80c6bd8801206cfc5791fb7af3b647",
+    "original_file_byte_sha_independently_verified": false,
+    "original_receipt_preserved_in_local_workspace": true,
+    "one_shot_lock": "P07_GPU_ENABLEMENT_V1_ONE_SHOT.lock",
+    "lock_present_and_matches_run_and_head": true,
+    "exact_runner_sha256": "84a5d91790544c7a10e3b618cbf205a16d0c7c02cc57e4bb593707bdf3c250d6"
+  },
+  "git": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "feature/p07-paged-attention-kernel-design-20261107",
+    "tested_p07_head": "4024941b96358828804ea77481e860550c5547a0",
+    "main_at_run": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+    "local_head_observed": "92facee15d7c0d46b0e84ddf5b6d8b2073e078f7",
+    "local_git_mutation": false
+  },
+  "evidence": {
+    "original_final_status": "FAIL_OR_INCONCLUSIVE_NO_AUTORERUN",
+    "original_failure": "PYTORCH_XPU_DISK_BUDGET_6_GIB_EXCEEDED",
+    "stages": {
+      "preflight": "PASS",
+      "wheel_download": "PASS_HASHED",
+      "xpu_install": "PASS_OFFLINE_PINNED_WHEELS",
+      "xpu_compute": "PASS_REAL_GPU_COMPUTE",
+      "compiler_download": "NOT_EXECUTED",
+      "compiler_install": "NOT_EXECUTED",
+      "sycl_direct_page_index": "NOT_EXECUTED"
+    },
+    "wheel_count": 30,
+    "wheel_manifest": [
+      {
+        "file": "dpcpp_cpp_rt-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 58378,
+        "sha256": "3a8645e0ae570f54e2514c92fbfb57c0759158afe576b8c966ba06dc90729ca5"
+      },
+      {
+        "file": "filelock-4.2.4-py3-none-any.whl",
+        "bytes": 162475,
+        "sha256": "301241438c57936ef93f4243a94f2559022268bfcf9b375a9a72eb0f8db8358e"
+      },
+      {
+        "file": "fsspec-2026.9.0-py3-none-any.whl",
+        "bytes": 221738,
+        "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f"
+      },
+      {
+        "file": "intel_cmplr_lib_rt-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 17741766,
+        "sha256": "89bba5899d0e057f0ecbc55768558e55bd7a3740950d0e4d0b01d25d8b62b020"
+      },
+      {
+        "file": "intel_cmplr_lib_ur-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 1253478,
+        "sha256": "28dcf7e7401e54f16c4ece55c07029d9ef2b8fe8602b6530f0bcfec906c63823"
+      },
+      {
+        "file": "intel_cmplr_lic_rt-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 49549,
+        "sha256": "b4d79398df82325dbd121ad7239735117e541b768c45ae4ad29fb40b07531d7e"
+      },
+      {
+        "file": "intel_opencl_rt-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 109882206,
+        "sha256": "fa0df93b218eb1b690729ac2b842aba491648b52556d9d520ac88e0c73a9f8e6"
+      },
+      {
+        "file": "intel_openmp-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 32087876,
+        "sha256": "8950bb59ffd146232aaf5c0d4272acdfcbe251f5982b83b329dab2e67069dc11"
+      },
+      {
+        "file": "intel_pti-0.16.0-py2.py3-none-win_amd64.whl",
+        "bytes": 662771,
+        "sha256": "5f50056cea4ef1dbfb0a52c96feab2137e9fc2fbd742e8d4081adfb467d221be"
+      },
+      {
+        "file": "intel_sycl_rt-2025.3.2-py2.py3-none-win_amd64.whl",
+        "bytes": 49654161,
+        "sha256": "c3a38e2ec1f15417c77f67ece1e8ebb0aef81ffab946e0bf8b1aaa2052e700bb"
+      },
+      {
+        "file": "jinja2-3.1.6-py3-none-any.whl",
+        "bytes": 134899,
+        "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+      },
+      {
+        "file": "markupsafe-3.0.3-cp312-cp312-win_amd64.whl",
+        "bytes": 15105,
+        "sha256": "26a5784ded40c9e318cfc2bdb30fe164bdb8665ded9cd64d500a34fb42067b1c"
+      },
+      {
+        "file": "mkl-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 155530417,
+        "sha256": "74084f58784c4cde1dc3284bdf3a19df30fbfe11416567e4ba6419d3bd9ce33e"
+      },
+      {
+        "file": "mpmath-1.3.0-py3-none-any.whl",
+        "bytes": 536198,
+        "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"
+      },
+      {
+        "file": "networkx-3.7-py3-none-any.whl",
+        "bytes": 2142205,
+        "sha256": "e3fd2c13a7814cee3746340d8d7f8598a67f16a58bf47fb7f8793fab6efca1b0"
+      },
+      {
+        "file": "onemkl_license-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 58959,
+        "sha256": "9fa45b274f05a61797f9ec3166b136124250ec7c9c91dedb87f3a926bfed9a54"
+      },
+      {
+        "file": "onemkl_sycl_blas-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 17500055,
+        "sha256": "8a094fb2d6f393e6beb030e507475cdb704178ac7afec80b634a5d1eb848b557"
+      },
+      {
+        "file": "onemkl_sycl_dft-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 6075958,
+        "sha256": "720d31ef23d5fe15355e6b95434244b27e254f817c45c89057f576a8a3e087a1"
+      },
+      {
+        "file": "onemkl_sycl_lapack-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 7588219,
+        "sha256": "b4df2a705422a7c27d5ad35ea853a26103a39dbfc1fe4c5180c4d7b39ba34e7e"
+      },
+      {
+        "file": "onemkl_sycl_rng-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 16292810,
+        "sha256": "fe9bf5b9db1bb72578df997beb7e8ff7e4c0345b692fe947ee4a0af284709006"
+      },
+      {
+        "file": "onemkl_sycl_sparse-2025.3.1-py2.py3-none-win_amd64.whl",
+        "bytes": 17905264,
+        "sha256": "994969efc1a4ee0483466ce0b75c510df4c5ffc89a6a12a0e878d5536ce29c69"
+      },
+      {
+        "file": "pyelftools-0.32-py3-none-any.whl",
+        "bytes": 188525,
+        "sha256": "013df952a006db5e138b1edf6d8a68ecc50630adbd0d83a2d41e7f846163d738"
+      },
+      {
+        "file": "setuptools-78.1.0-py3-none-any.whl",
+        "bytes": 1256108,
+        "sha256": "3e386e96793c8702ae83d17b853fb93d3e09ef82ec62722e61da5cd22376dcd8"
+      },
+      {
+        "file": "sympy-1.14.0-py3-none-any.whl",
+        "bytes": 6299353,
+        "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5"
+      },
+      {
+        "file": "tbb-2022.3.1-py3-none-win_amd64.whl",
+        "bytes": 422729,
+        "sha256": "8187e4c50a77c75c51ca9395febddd3a67d88dcb4cc537947d68d244925710f7"
+      },
+      {
+        "file": "tcmlib-1.4.1-py2.py3-none-win_amd64.whl",
+        "bytes": 370347,
+        "sha256": "5202a1fd8541182fbd4ef72848784e4bf94340152d7ddff33d401d30930fa53c"
+      },
+      {
+        "file": "torch-2.12.1+xpu-cp312-cp312-win_amd64.whl",
+        "bytes": 746583295,
+        "sha256": "cfbe9f3ea7692977ce0184a8f0ffb2a616d29f48ca3ce751e33775bd1f44fe4b"
+      },
+      {
+        "file": "triton_xpu-3.7.1-cp312-cp312-win_amd64.whl",
+        "bytes": 376878357,
+        "sha256": "6589ece3adc2b1ab88d90ff1267afc25df5c7b868f0b633e732cac70df36cbde"
+      },
+      {
+        "file": "typing_extensions-4.16.0-py3-none-any.whl",
+        "bytes": 45571,
+        "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      },
+      {
+        "file": "umf-1.0.3-py2.py3-none-win_amd64.whl",
+        "bytes": 249098,
+        "sha256": "2182a623433329bd53863ac3b15a4af253d0eda62c603dc7c4e2bdce78658270"
+      }
+    ],
+    "python_seed_version": "3.12.10",
+    "torch_version": "2.12.1+xpu",
+    "xpu_available": true,
+    "xpu_device_count": 1,
+    "gpu_name": "Intel(R) Arc(TM) 140V GPU (16GB)",
+    "fp32_canary_max_abs_error": 3.725290298461914e-9,
+    "logged_pip_check": "No broken requirements found",
+    "xpu_log_nonfatal_warning": "torch emitted NumPy missing warning; XPU JSON PASS followed it",
+    "reported_environment_changed": true,
+    "reported_gpu_dispatched": true,
+    "disk_gib": {
+      "before": 34.561,
+      "after": 28.524,
+      "delta": 6.037,
+      "xpu_stage_budget": 6,
+      "excess_over_xpu_budget": 0.037,
+      "safety_free_disk_floor": 12,
+      "total_increment_budget": 18,
+      "total_increment_remaining": 11.963
+    },
+    "sycl": null,
+    "compiler_env_downloaded": false,
+    "cleanup": "PRESERVED_FOR_DIAGNOSIS_NO_DELETION",
+    "notes": "Wheel manifest hashes are original runner-reported SHA256; no independent re-hash of physical wheel files or receipt bytes was performed in adjudication."
+  },
+  "adjudication": {
+    "P07_APPROVED_ONE_SHOT": "CONSUMED_LOCK_EXISTS",
+    "TORCH_XPU_INSTALL": "PASS",
+    "XPU_GPU_COMPUTE": "PASS_REAL_ARC_140V",
+    "SYCL_COMPILER": "NOT_EXECUTED",
+    "DIRECT_PAGE_GPU_TEST": "NOT_EXECUTED",
+    "OVERALL_RUN": "FAIL_OR_INCONCLUSIVE_PRESERVED",
+    "CAUSE": "XPU_SEPARATE_6_GIB_BUDGET_EXCEEDED_BY_0_037_GIB",
+    "GPU_INCOMPATIBILITY": "NOT_SUPPORTED_BY_EVIDENCE",
+    "P07": "DESIGN_ONLY_GPU_KERNEL_NOT_IMPLEMENTED",
+    "P08": "NOT_OPENED",
+    "NO_AUTO_RERUN": true
+  },
+  "successor": {
+    "type": "SAME_PROJECT_RECOVERY_PROPOSAL_NOT_AUTHORIZATION",
+    "scope": "Adopt preserved Python XPU venv and wheelhouse read-only verification; do NOT rerun XPU download/install/canary; if new successor execution explicitly authorized, continue ONLY SYCL download/install and one direct-page canary with remaining total budget and exact source pins",
+    "gates": [
+      "No deletion/reset of one-shot lock",
+      "Verify original local receipt SHA-256 and wheel lock against physical files before continuation",
+      "Validate existing XPU venv without new GPU dispatch before SYCL stage",
+      "Ensure D free >=12GiB and original total consumed <=18GiB with strict incremental remaining cap",
+      "Verify expected Git ref and unchanged driver/system environments",
+      "No unapproved fallback to Pro Windows/driver change",
+      "New successor identity and one execution, preserve FAIL and PASS receipts separately"
+    ],
+    "code_status": "NOT_IMPLEMENTED",
+    "successor_permission": "NOT_GRANTED_BY_THIS_RECORD"
+  }
+}
