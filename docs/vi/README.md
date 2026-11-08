@@ -2,6 +2,8 @@
 
 **Ngày rà soát:** 08/11/2026. **Nhánh nguồn:** `research/ttm-small-4m-colab-pilot-prereg-20261108`. **Phạm vi:** toàn bộ **57 tệp Markdown mô tả/hướng dẫn/biên bản** được kiểm kê trên `main` và PR #12; không sửa mã nguồn, hình ảnh, dữ liệu, tệp JSON/máy hoặc tệp khoa học `lineage.md`.
 
+**[Báo cáo rà soát, Việt hóa và kiểm tra đối chiếu](BAO_CAO_KIEM_TRA_VIET_HOA_20261108.md):** kiểm kê 57 tài liệu nguồn và 15 bản Việt hóa bổ sung; giữ nguyên các hồ sơ lịch sử, mã băm và trạng thái kiểm thử.
+
 ## Nguyên tắc đọc
 
 - **Tiếng Việt trước, thuật ngữ tiếng Anh trong ngoặc đơn:** ví dụ *điểm lưu mô hình (Checkpoint)*, *bộ tách token (Tokenizer)*, *độ tương đương số học (Numerical Parity)*.
