@@ -10,6 +10,8 @@
 
 **Quyết định bổ sung mới nhất (2026-11-08):** [T2 F32 native closure and F16 gate amendment](TTM_T2_F32_NATIVE_CLOSURE_AND_F16_GATE_AMENDMENT_20261108.md) có hiệu lực diễn giải ưu tiên trong phạm vi T2: bộ xuất GGUF F32 trên synthetic TRAIN-only PASS tokenizer 20/20 và logits 10/10, F16 vẫn BLOCKED nhưng chuyển sang tuyến tối ưu tùy chọn; T1 nguồn thật, T3 Colab/Drive và science lock tiếp tục HOLD. Không biến PASS kỹ thuật này thành PASS khoa học.
 
+**CẬP NHẬT KIỂM ĐỊNH KỸ THUẬT 2026-11-08 (ưu tiên hơn snapshot lịch sử):** [Độc lập đóng T1–T3 và tổng hợp các cổng khoa học T4 còn mở](TTM_T1_T2_T3_TECHNICAL_CLOSURE_AND_T4_SCIENCE_LOCK_REVIEW_20261108.md). T1 nguồn/split/tokenizer thật **PASS có giới hạn trong tập pilot**, T2 GGUF F32/llama.cpp **PASS**, T3 GPU Tesla T4 + Drive checkpoint/resume **PASS đọc lại độc lập**; lỗi RNG của lượt Colab đầu vẫn lưu STOP, F16 vẫn BLOCKED tùy chọn. Mọi dòng `T1_NOT_EXECUTED`/`T3_NOT_EXECUTED` còn xuất hiện ở các bảng bên dưới là **snapshot lúc biên soạn**, không phải trạng thái hiện tại. **`SCIENCE_LOCK=HOLD`** cho đến khi chốt quyền dữ liệu, phạm vi 2048/256/64, baseline/ngưỡng H1, ngân sách 1024×4096, microbatch/precision qua capacity smoke, T4 runner và thẩm định độc lập tổng hợp. Chưa huấn luyện T4.
+
 ## 1. Câu hỏi và giả thuyết
 
 **Câu hỏi chính:** Transformer P02 do TTM tự xây có thể học dự đoán văn bản truyện tiếng Anh đơn giản ngoài tập TRAIN, vượt đối chứng thống kê (baseline) trong cùng quy tắc token hóa, và xuất sang llama.cpp/Ollama mà không thay đổi có ý nghĩa đầu ra hay không?
