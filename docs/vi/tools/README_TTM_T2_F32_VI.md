@@ -15,7 +15,7 @@
 
 ## QA chỉ với CPU trong môi trường tạo gói
 
-`11/11 phép kiểm Python (pytest) PASS` dùng Python `3.13`, torch `2.10.0+cpu`, `regex 2026.5.9`, NumPy `2.3.4` trên môi trường riêng, bao gồm exact P02 F32 GGUF 52 tensor, sai lệch đọc lại trọng số (Weight Readback Error) bằng 0, từ chối bản kê đã bị chỉnh sửa (Manifest Tamper Rejection) và các cổng TRAIN-only. Chưa chạy được chương trình nhị phân gốc Windows (Native Binary) tại môi trường tạo gói; không tự nhận `T2_FULL_PASS`.
+**11/11 phép kiểm Python (pytest) đạt:** `11/11 pytest PASS` dùng Python `3.13`, torch `2.10.0+cpu`, `regex 2026.5.9`, NumPy `2.3.4` trên môi trường riêng, bao gồm exact P02 F32 GGUF 52 tensor, sai lệch đọc lại trọng số (Weight Readback Error) bằng 0, từ chối bản kê đã bị chỉnh sửa (Manifest Tamper Rejection) và các cổng TRAIN-only. Chưa chạy được chương trình nhị phân gốc Windows (Native Binary) tại môi trường tạo gói; không tự nhận `T2_FULL_PASS`.
 
 ## Đường dẫn sử dụng trên máy Windows
 
