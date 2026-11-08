@@ -26,7 +26,7 @@ Mọi phát triển và mọi sửa lỗi đều phải có nhánh Git riêng. N
 
 ## Lưu trữ và truy xuất
 
-- `lineage.md`: chỉ ghi bổ sung (append-only) các mốc quyết định, kể cả lỗi hạ tầng, QA và kết quả khoa học.
+- `lineage.md`: chỉ ghi bổ sung (append-only) **phán quyết và kết quả khoa học**, gồm cả FAIL khoa học; lỗi hạ tầng, sửa mã và QA kỹ thuật phải ghi trong biên bản/nhật ký riêng, không đưa vào `lineage.md`. Theo ADR-0001 ngày 2026-11-08, không sửa hoặc xóa hồi tố bản ghi cũ.
 - `experiments/runs/<run-id>.json`: biên bản lần chạy (Run Receipt) bất biến.
 - `experiments/registry.jsonl`: sổ mục lục lần chạy bất biến, có SHA-256.
 - `experiments/comparisons/`: báo cáo đối chứng và kết luận về tính so sánh được.
@@ -51,3 +51,7 @@ Mọi tài liệu mới và tài liệu hướng dẫn có thể chỉnh sửa d
 - Mã P00 được kiểm định chức năng trên CPU; không khẳng định GPU, huấn luyện hoàn chỉnh hoặc tăng tốc.
 - Local `main` ban đầu còn ở commit khởi tạo, nhưng đã đồng bộ tiến nhanh (Fast-forward) đúng P00 vào ngày 05/11/2026; xem `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Mọi đợt đồng bộ tiếp theo vẫn phải kiểm tra Git độc lập.
 - Xem biên bản `docs/qa/P00_POST_MERGE_AUDIT_20261105.md` trước khi mở P01.
+
+## Quyết định điều chỉnh ưu tiên 08/11/2026
+
+Theo [ADR-0001](decisions/ADR-0001_TRAIN_FIRST_COLAB_AND_BRANCH_CLEANUP_20261108.md), ưu tiên pilot Colab → Drive → GGUF/llama.cpp/Ollama trước khi tiếp tục tối ưu P07/P08. Đây là cổng quản trị bổ sung, không thay thế hay sửa hồi tố điều kiện đóng P00–P12. Việc xóa nhánh lịch sử phải dựa trên manifest exact SHA và archive có bảo toàn tổ tiên; không dùng cherry-pick hoặc merge legacy tùy tiện.
