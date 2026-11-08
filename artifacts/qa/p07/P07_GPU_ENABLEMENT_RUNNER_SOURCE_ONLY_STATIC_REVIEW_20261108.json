@@ -1,0 +1,59 @@
+{
+  "schema": "ttm.p07.gpu_enablement_runner_static_review.v1",
+  "date": "2026-11-08",
+  "status": "PREPARED_NOT_EXECUTED",
+  "branch": "feature/p07-paged-attention-kernel-design-20261107",
+  "prior_head": "f19b89ce92e3b89a88ef7405a3d54fddb4f95068",
+  "main_frozen": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+  "script_filename": "TTM_P07_SINGLE_ISOLATED_GPU_ENABLEMENT_PS51_V1_20261108.ps1",
+  "script_sha256": "84a5d91790544c7a10e3b618cbf205a16d0c7c02cc57e4bb593707bdf3c250d6",
+  "zip_filename": "TTM_P07_SINGLE_GPU_ENABLEMENT_RUNNER_PACKAGE_20261108.zip",
+  "zip_sha256": "2ff8260eb98beb5a6d1bb3417e1a3ac1f6565e06a2ec77499463417dd8a3e6aa",
+  "runbook_git_blob": "ac69ecf9931def0279025e393b55bce07bfe55bc",
+  "script_git_blob_expected": "c3c36a3118aef5d5acd71249d3dfa76d3bd5ba7a",
+  "script_committed_to_github": false,
+  "approval_required": "TTM_P07_APPROVE_ISOLATED_INSTALL_AND_GPU_CANARY_V1",
+  "default_mode": "Preview",
+  "paths": {
+    "project": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "runtime": "_runtime\\p07",
+    "evidence": "evidence\\p07\\gpu_enablement"
+  },
+  "source_versions": {
+    "python_seed": "3.12.10",
+    "torch_xpu": "2.12.1+xpu Windows cp312",
+    "compiler": "dpcpp_win-64=2026.2.0",
+    "sycl_runtime": "intel-sycl-rt=2026.2.0"
+  },
+  "stages": [
+    "GIT_REMOTE_SHA_PRECHECK",
+    "LOCAL_RESOURCE_SAFETY_GUARD",
+    "PYTORCH_WHEEL_DOWNLOAD_SHA_LOCK",
+    "VENV_OFFLINE_INSTALL",
+    "REAL_XPU_FP32_CPU_PARITY",
+    "CONDA_COMPILER_DOWNLOAD_SHA_LOCK",
+    "CONDA_COMPILER_OFFLINE_INSTALL",
+    "SYCL_LEVEL_ZERO_DIRECT_PAGE_INDEX_TWO_REQUEST_CANARY",
+    "ONE_SHOT_RECEIPT"
+  ],
+  "source_only_checks": {
+    "default_preview_pass": true,
+    "exact_approval_required": true,
+    "one_shot_lock": true,
+    "disk_cap": true,
+    "strict_owned_cleanup": true,
+    "no_driver_update": true,
+    "no_system_python_pip": true,
+    "no_git_checkout_fetch_merge": true,
+    "python_embedded_AST_parse": true,
+    "direct_paged_index_canary_present": true
+  },
+  "windows_PS51_parse": "NOT_RUN",
+  "GPU_xpu_dispatch": "NOT_RUN",
+  "GPU_sycl_dispatch": "NOT_RUN",
+  "windows_home_supported_by_oneapi_vendor": "NOT_VALIDATED",
+  "state": "P07_DESIGN_ONLY_ENABLEMENT_RUNNER_PREPARED",
+  "P08": "NOT_OPENED",
+  "lineage_md": "UNCHANGED",
+  "next": "TTM_P07_EXPLICIT_APPROVAL_AND_ONE_SHOT_EXECUTION"
+}
