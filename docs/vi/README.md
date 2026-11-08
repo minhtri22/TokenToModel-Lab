@@ -1,12 +1,12 @@
 # Mục lục tài liệu tiếng Việt của TokenToModel-Lab (TTM)
 
-**Ngày rà soát:** 08/11/2026. **Nhánh nguồn:** `research/ttm-small-4m-colab-pilot-prereg-20261108`. **Phạm vi:** toàn bộ **55 tệp Markdown mô tả/hướng dẫn/biên bản** được kiểm kê trên `main` và PR #12; không sửa mã nguồn, hình ảnh, dữ liệu, tệp JSON/máy hoặc tệp khoa học `lineage.md`.
+**Ngày rà soát:** 08/11/2026. **Nhánh nguồn:** `research/ttm-small-4m-colab-pilot-prereg-20261108`. **Phạm vi:** toàn bộ **57 tệp Markdown mô tả/hướng dẫn/biên bản** được kiểm kê trên `main` và PR #12; không sửa mã nguồn, hình ảnh, dữ liệu, tệp JSON/máy hoặc tệp khoa học `lineage.md`.
 
 ## Nguyên tắc đọc
 
 - **Tiếng Việt trước, thuật ngữ tiếng Anh trong ngoặc đơn:** ví dụ *điểm lưu mô hình (Checkpoint)*, *bộ tách token (Tokenizer)*, *độ tương đương số học (Numerical Parity)*.
 - **Giữ nguyên định danh máy:** tên tệp, trường JSON, đường dẫn, lệnh, mã trạng thái như `PASS_INDEPENDENT`, commit, SHA-256 và tên công cụ như `llama.cpp`. Chúng không phải câu diễn giải cần dịch.
-- **Không chỉnh sửa bằng chứng lịch sử đã khóa:** 13 tài liệu cần Việt hóa sâu được lưu **bản tiếng Việt riêng** và liên kết với nguyên bản. Các dòng `NOT_EXECUTED` trong hồ sơ lịch sử **không phải trạng thái hiện hành**, tham khảo biên bản đóng T1–T3.
+- **Không chỉnh sửa bằng chứng lịch sử đã khóa:** 15 tài liệu cần Việt hóa sâu được lưu **bản tiếng Việt riêng** và liên kết với nguyên bản. Các dòng `NOT_EXECUTED` trong hồ sơ lịch sử **không phải trạng thái hiện hành**, tham khảo biên bản đóng T1–T3.
 - **Không ghi đè lịch sử khoa học:** `lineage.md` giữ nguyên và chỉ ghi bổ sung (Append-only). Nhật ký máy, tệp JSON, code Python/PowerShell, checkpoint và ảnh SVG/PNG không được sửa chỉ để Việt hóa.
 
 ## Tình trạng tổng hợp
@@ -16,10 +16,11 @@
 | Tài liệu vốn có phần diễn giải chính bằng tiếng Việt | **42** | Đọc trực tiếp bản gốc (mã định danh kỹ thuật giữ nguyên) |
 | Hồ sơ cũ cần bản diễn giải tiếng Việt riêng | **2** | `docs/vi/qa/`, `docs/vi/experiments/` |
 | Hồ sơ pilot T1–T3/T4 có nội dung tiếng Anh hoặc thuật ngữ chưa đồng nhất | **11** | `docs/vi/pilot/` |
-| **Tổng Markdown đã kiểm kê** | **55** | Mục lục bên dưới |
+| Hai tài liệu hướng dẫn mã T1/T2 có thuật ngữ chưa thống nhất | **2** | `docs/vi/tools/` |
+| **Tổng Markdown đã kiểm kê** | **57** | Mục lục bên dưới |
 | Hồ sơ kỹ thuật/máy (JSON, log, Python, PS, ipynb, SVG/PNG) | Ngoài tập Markdown | Giữ nguyên vì mã và bằng chứng cần đối chiếu |
 
-## A. Bản tiếng Việt riêng cho 13 hồ sơ
+## A. Bản tiếng Việt riêng cho 15 hồ sơ
 
 | Nội dung | Bản tiếng Việt | Hồ sơ nguyên bản |
 |---|---|---|
@@ -36,6 +37,9 @@
 | T2 V5B — Phân xử tương đương F32, lỗi F16 | [Đọc bản tiếng Việt](pilot/TTM_T2_V5B_PARITY_ADJUDICATION_AND_F32_FIRST_ADAPTER_DECISION_20261108.md) | [Nguồn](../pilot/TTM_T2_V5B_PARITY_ADJUDICATION_AND_F32_FIRST_ADAPTER_DECISION_20261108.md) |
 | T2 V5 — Lỗi biên dịch C1083 và phục hồi V5B | [Đọc bản tiếng Việt](pilot/TTM_T2_V5_CMAKE_C1083_AND_V5B_RECOVERY_20261108.md) | [Nguồn](../pilot/TTM_T2_V5_CMAKE_C1083_AND_V5B_RECOVERY_20261108.md) |
 | T1–T7 — Tiền đăng ký thử nghiệm mô hình nhỏ | [Đọc bản tiếng Việt](pilot/TTM_TRAIN_FIRST_END_TO_END_PILOT_PREREG_DRAFT_20261108.md) | [Nguồn](../pilot/TTM_TRAIN_FIRST_END_TO_END_PILOT_PREREG_DRAFT_20261108.md) |
+
+| Hướng dẫn gói T1/T3 — nguồn thật và phục hồi | [Đọc bản tiếng Việt](tools/README_TTM_T1_T3_VI.md) | [Nguồn](../../tools/pilot_t1t3/README_TTM_T1_T3_VI.md) |
+| Hướng dẫn gói T2 F32 — tokenizer và GGUF | [Đọc bản tiếng Việt](tools/README_TTM_T2_F32_VI.md) | [Nguồn](../../tools/pilot_t1t3/source_t2/README_TTM_T2_F32_VI.md) |
 
 ## B. 42 tài liệu đã trình bày chính bằng tiếng Việt
 
@@ -94,7 +98,7 @@
 
 ## D. Kiểm soát chất lượng bản dịch
 
-- Mã SHA-256/commit, mã trạng thái và liên kết URL được đối chiếu giữa bản gốc và bản dịch cho cả 13 hồ sơ; **không thiếu chuỗi SHA/URL** trong các bản dịch.
+- Mã SHA-256/commit, mã trạng thái và liên kết URL được đối chiếu giữa bản gốc và bản dịch cho cả 15 hồ sơ; **không thiếu chuỗi SHA/URL** trong các bản dịch.
 - Liên kết giữa các tài liệu và đường dẫn từ mục lục dùng đường dẫn tương đối (Relative Paths); không đổi tên tệp nguyên bản.
 - Ngôn ngữ chỉ là lớp trình bày; không đổi hợp đồng khoa học, tiêu chí PASS/FAIL, ngân sách hay số đo. Bản gốc tiếp tục là nguồn chứng cứ có thẩm quyền (Authoritative Source).
 - **Giới hạn:** phần chính của 42 tài liệu trước đây đã là tiếng Việt, nhưng tên lệnh, mã thử nghiệm và một số nhãn kỹ thuật tiếng Anh vẫn giữ nguyên để nhận dạng và truy xuất đúng. Mục lục cùng [từ điển thuật ngữ](../TERMINOLOGY_VI.md) giải thích những nhãn này.
