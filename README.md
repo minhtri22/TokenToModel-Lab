@@ -14,6 +14,8 @@
 
 ## Cấu trúc tài liệu
 
+**[Mục lục tài liệu tiếng Việt của toàn dự án](docs/vi/README.md)**: kiểm kê 55 tệp Markdown, liên kết đến 13 bản tiếng Việt bổ sung cho hồ sơ còn diễn giải tiếng Anh; bản gốc lịch sử và mã băm giữ nguyên.
+
 | Đường dẫn | Nội dung |
 |---|---|
 | `PROJECT_CHARTER.md` | Điều lệ, mục tiêu và phạm vi |
@@ -29,6 +31,7 @@
 | `lineage.md` | Dòng lịch sử chỉ ghi bổ sung (append-only) |
 | `book/` | Dàn ý sách hướng dẫn |
 | `docs/TERMINOLOGY_VI.md` | Quy tắc viết tiếng Việt và thuật ngữ |
+| `docs/vi/README.md` | Mục lục đầy đủ và bản diễn giải tiếng Việt của hồ sơ lịch sử |
 
 ## Quy trình thay đổi
 
