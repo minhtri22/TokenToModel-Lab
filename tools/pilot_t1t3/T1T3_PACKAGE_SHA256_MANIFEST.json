@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-08",
+  "files": {
+    "README_TTM_T1_T3_VI.md": "34194c54b93c1190b040f7a16573781d90a0a6c23e08d6c8f6a7c0775e1dbbef",
+    "T3_LOCAL_CPU_QA.json": "6422ce87ec18b7cf2c4eb16617d6932f788f892951573c75b509bcd8e5e77cb2",
+    "TTM_T3_Colab_Drive_Resume_Synthetic_20261108.ipynb": "8fe95355bc482fc144f6eac0b1e2d1183cca6c9b59311f8720b1a74a51a74efe",
+    "generate_colab_notebook.py": "a7249e8856acc138d16406426ab357355818099d925074fb1ec76ac7d66a62bf",
+    "p02_source_exact.py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "source_t2/BUNDLE_SHA256_MANIFEST.json": "54935b8425c12d8773e8e1e8907015a95ec698d6db0ef5d7cbaf2a7a531fe8e1",
+    "source_t2/Check-TTM-T2-Regex.py": "f17718d78bc9731c2a03a4de2c7a2dec54053ea7ddee92c05d68103ed3668870",
+    "source_t2/README_TTM_T2_F32_VI.md": "5e8c4979f7262cdf98a157427fae7e209dd317842876703d1349b1e1b7d2a592",
+    "source_t2/Run-TTM-T2-F32-TrainOnly-Integrated-PS51.ps1": "62f0246ddbebe01aa8603e781226ea5cc8436141442b71e4dc3e595f5bd0be73",
+    "source_t2/TTM_T2_F32_NEW_FIXTURES_FROZEN_20261108.json": "5a4ba58db3ad7c1ad0a7c6a790c08184d43c1e3a081ad2dcaf2d4c3b9dbeb9f2",
+    "source_t2/t2_gguf_cpu.py": "577a063bd75ec5fe1dea4ad57e0826dffa8a2a99d7ca7327bffd2fee01d5ff1d",
+    "source_t2/test_ttm_t2_f32_contract.py": "57f9d3c6d75668d5642072b9bdbd652ba74727d9ef4bf89718db04aaec003388",
+    "source_t2/ttm_gpt2_bpe2048.py": "36d66a1f569b502b7c9def6215fa296de57822146f7845b6d67151982d4ce961",
+    "source_t2/ttm_t2_f32_integrated.py": "61351df745d5a2d0048640daadf2004e6467cea928f990d189962ffe612b8143",
+    "t1_real_tokenizer_native.py": "b7d8459a808030dbe4106d075d31e14a97b694de22cffd374373613553cdc3ff",
+    "t1_source_split_tokenizer.py": "91bcc4b5a871c51556ebeb2616d52e995f9850165e69054fea963e395db0603f",
+    "t3_resume_smoke.py": "a95c50f20771fbc3137b8be187ae8f220957345d9d3e3eb3a10989fcd4ff8f2b",
+    "tests/test_t1_t3_contract.py": "7cc9e9ba72ef5345b082a302176dc9347123a54384db3dc759897dfdb740e32c"
+  },
+  "launcher_sha256": "73e084bc5fb03b71d03065b446980be4bd1fef2bc5ad918bb1fe11f3cb2f4169",
+  "project_main": "1a9d8cba56564d6d36257fe95c34f2fd52c4f48a",
+  "project_pr12_expected_head": "ea9c022a9774c9f10e4cdc2f905222ae9d39d993",
+  "schema": "ttm.small4m.t1_t3.integrated.package.v1",
+  "science_executed": false,
+  "source_raw_sha256_advertised_not_downloaded": {
+    "TinyStories-train.txt": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "TinyStories-valid.txt": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4"
+  },
+  "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+  "t1_fast_bpe_same_merges_as_T2": "PASS_1791_OF_1791",
+  "t1_real_corpus": "NOT_DOWNLOADED",
+  "t1_t3_unit_tests": "10/10_PASS",
+  "t2_f32_source_zip_sha256": "d6fd9d09a031c4c19e099f0d66d7d5fcccc0e8543ea602d7268ec6cb415dbcb9",
+  "t3_colab_drive": "NOT_EXECUTED",
+  "t3_local_cpu_resume": "PASS_20_VS_10_PLUS_10_EXACT"
+}
