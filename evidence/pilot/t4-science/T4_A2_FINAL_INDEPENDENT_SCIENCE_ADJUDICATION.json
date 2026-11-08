@@ -1,0 +1,98 @@
+{
+  "absolute_nll_gain_recomputed": 0.47489256527293255,
+  "architecture_original_p02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "base_bigram_val_nll_recomputed": 3.9972314169551506,
+  "bootstrap_95pct_absolute_gain_ci_recomputed": [
+    0.4581867476104475,
+    0.49406158185105853
+  ],
+  "bootstrap_rounds": 1000,
+  "bootstrap_seed": 20261109,
+  "bootstrap_val_story_count": 256,
+  "capacity_review_sha256": "62bc2702d1460ae2f51c2573b45bdb27b4b465376cc24081b6701e4564d60042",
+  "caveats": [
+    "VAL-only H1 result on bounded TinyStories pilot, not a blind TEST result",
+    "Single seed and 498287 distinct training target positions reused ~8.417x",
+    "Model outputs/ story generation and trained GGUF deployment not evaluated",
+    "Near-duplicate review applies only to selected active subsets, not entire corpus"
+  ],
+  "checkpoint_ready_sha_and_prefix_verified": [
+    {
+      "checkpoint_sha256": "9d183d481e46e1dd5edc284a6998af6748c697048b4e8e59dd831c43a77401dd",
+      "checkpoint_size_bytes": 45074891,
+      "full_log_prefix_equivalent": true,
+      "progress_length": 256,
+      "progress_sha256": "db51e8c39b6daed8c6def36fcb3aee3380eb46d05cecaa6e243d9a4771d7bfe0",
+      "step": 256,
+      "torch_weights_only_checkpoint_load": true
+    },
+    {
+      "checkpoint_sha256": "6cb2789f8e2b6fbf2fb59cb18cab07ed045ba980f6fe945fc5bbe25f61da02aa",
+      "checkpoint_size_bytes": 45074891,
+      "full_log_prefix_equivalent": true,
+      "progress_length": 512,
+      "progress_sha256": "b47ce4fb6f7a7113df1f51ecd3332b600cebd108bd8d7866818eebc4447b67a8",
+      "step": 512,
+      "torch_weights_only_checkpoint_load": true
+    },
+    {
+      "checkpoint_sha256": "01a700ec792e87b783377d29cd715bd2566a327d173d62646a3b1f51bb10615a",
+      "checkpoint_size_bytes": 45074891,
+      "full_log_prefix_equivalent": true,
+      "progress_length": 768,
+      "progress_sha256": "09eab05258001d5d1641f0f890f05378eb8188565d26694e4f9bf9c2ec14aafb",
+      "step": 768,
+      "torch_weights_only_checkpoint_load": true
+    },
+    {
+      "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "checkpoint_size_bytes": 45074891,
+      "full_log_prefix_equivalent": true,
+      "progress_length": 1024,
+      "progress_sha256": "5517cc691fc803eaa69db4078f1f3b3ed78f99fa3c012cb17fd8655123c606ec",
+      "step": 1024,
+      "torch_weights_only_checkpoint_load": true
+    }
+  ],
+  "drive_final_report_sha256": "5a6c0ab4da808bbe0bfaa0b6cde085277c1a8eb0735b73d24a3700e3f34f62c4",
+  "dynamic_accumulation_exact_targets": true,
+  "every_step_scored_targets": 4096,
+  "exact_total_target_exposures": 4194304,
+  "execution": "1024_OF_1024_OPTIMIZER_STEPS_COMPLETED_NO_PLANNED_STOP",
+  "final_checkpoint_cpu_load_and_metadata_verified": true,
+  "gpu_elapsed_seconds_logged_train_plus_val_only": 74.25350468499931,
+  "independent_cpu_model_checkpoint_val_recompute": true,
+  "lineage_decision": "APPEND_SCIENTIFIC_PASS_FOR_H1_AFTER_SOURCE_READBACK",
+  "log_step_continuity": true,
+  "loss_at_step1": 7.677355527877808,
+  "loss_at_step1024": 3.282975196838379,
+  "microbatch_windows": 8,
+  "model_val_nll_recomputed": 3.522338851682218,
+  "nll_relative_improvement_recomputed": 0.11880537195283955,
+  "no_new_training_execution": true,
+  "precision": "fp16",
+  "primary_preselected_step": 1024,
+  "private_pack_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+  "private_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "schema": "ttm.t4.a2.scientific.independent.adjudication.v1",
+  "science_lock_sha256": "fd183ade2a696d40313aae19b63429d4ef3edd8abf25c899c8cc496836d36817",
+  "scientific_run": "t4_science_4m_1024_a2_20261108_v1",
+  "sealed_test_count": 64,
+  "seed": 20261108,
+  "selected_from_val_history": false,
+  "story_level_train_count": 2048,
+  "story_level_val_count": 256,
+  "test_accessed_in_science": false,
+  "val_evaluations_at": [
+    128,
+    256,
+    384,
+    512,
+    640,
+    768,
+    896,
+    1024
+  ],
+  "verdict": "PASS_H1_CONFIRMATORY_VAL_SCOPE",
+  "wall_clock_runtime_verified": false
+}
