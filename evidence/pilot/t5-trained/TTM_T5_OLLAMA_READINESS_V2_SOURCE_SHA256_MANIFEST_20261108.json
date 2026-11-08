@@ -1,0 +1,16 @@
+{
+  "schema": "ttm.t5.ollama.readiness.v2.sourceonly.manifest.v1",
+  "bundle_filename": "TTM_T5_OLLAMA_READINESS_V2_SOURCE_ONLY_20261108.zip",
+  "bundle_sha256": "9da06fad41cd45a03f9221aade5de1fd6ef8446879276eebeebbebcbd9f71bbf",
+  "bundle_bytes": 16872,
+  "predecessor_v1_source_sha256": "bef6ac32dd9546693de70fb628c6a37062eb9c85ad893d6b3f968f678733f41d",
+  "files": {
+    "t5_ollama_smoke_v2.py": "de80194c4576ea8749fce0ec1367ee65a9d520f563ab70063006d5a6506def6f",
+    "test_independent_readiness_v2.py": "1d5da70808a9d63844b1a9ce66ba25864f27bee47b5c040d93795cebe4a7acae",
+    "README_VI.md": "38445911c98c55d8bc0ae35679f4c579aca3c395cf2bdb404e9e788b4be0f174",
+    "INDEPENDENT_STATIC_QA_V2.json": "f88fb51d944d44f215e4df3205d9573c1b9770804df3b08ae6076de1b59cb7d9",
+    "SOURCE_SHA256_MANIFEST.json": "649664434e65a480b3c750989dddb0aaf8ecaec5f0cc68c4e9ed337465a5542d"
+  },
+  "source_bundle_location": "Conversation artifact; distributed separately. GitHub records SHA256.",
+  "github_source_full_zip_uploaded": false
+}
