@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.p07.g0_gpu_environment_setup_single_integrated_test_plan.v1",
+  "date": "2026-11-08",
+  "branch": "feature/p07-paged-attention-kernel-design-20261107",
+  "base_main": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+  "prior_branch_head": "446824d823949043d4d4e6cf76d0a0884a49165f",
+  "plan_status": "LOCKED_NO_INSTALL",
+  "selected_components": {
+    "python": "3.12.10 seed used only for isolated venv",
+    "torch": "2.12.1+xpu cp312 win_amd64 candidate",
+    "compiler": "Intel oneAPI DPC++/C++ 2026.2.0 standalone candidate",
+    "backend": "SYCL_Level_Zero conditional"
+  },
+  "paths": {
+    "project": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "venv": "_runtime\\p07\\venv_xpu_cp312",
+    "wheels": "_runtime\\p07\\wheels",
+    "scratch": "_runtime\\p07\\tmp",
+    "compiler": "_runtime\\p07\\oneapi",
+    "receipts": "evidence\\p07\\gpu_enablement"
+  },
+  "resource_budget": {
+    "d_free_prior_g0_gib": 34.563,
+    "minimum_start_gib": 24,
+    "minimum_reserve_gib": 12,
+    "max_pytorch_incremental_gib": 6,
+    "max_oneapi_extra_gib": 12,
+    "max_total_extra_gib": 18,
+    "min_free_ram_gib": 8,
+    "all_budgets": "PLANNED_CAPS_NOT_VERIFIED_INSTALL_SIZES"
+  },
+  "licensing_os": {
+    "installed_os": "Windows 11 Home Single Language",
+    "intel_oneapi_tested_windows_client_gpu": "Windows 11 Pro/Enterprise",
+    "status": "UNVALIDATED_OS_NOT_PROOF_OF_INCOMPATIBILITY"
+  },
+  "sources": [
+    "https://download.pytorch.org/whl/xpu/torch/",
+    "https://docs.pytorch.org/docs/main/notes/get_start_xpu.html",
+    "https://www.intel.com/content/www/us/en/developer/articles/release-notes/oneapi-dpcpp/2026.html",
+    "https://www.intel.com/content/www/us/en/docs/oneapi-toolkit/installation-guide-windows/latest/install-standalone-tools.html"
+  ],
+  "stages": [
+    "A1_ISOLATED_VENV_AND_WHEEL_SHA",
+    "A2_XPU_TENSOR_FP32_COMPUTE_AND_CPU_PARITY",
+    "B1_SYCL_LEVEL_ZERO_DEVICE_AND_COMPILER",
+    "B2_GPU_DIRECT_PAGED_INDEX_TWO_REQUEST_CANARY",
+    "R1_SINGLE_INTEGRATED_RECEIPT"
+  ],
+  "stop_if": [
+    "DISK_BELOW_SAFETY_RESERVE",
+    "PACKAGE_HASH_OR_RESOLUTION_MISMATCH",
+    "XPU_UNAVAILABLE_OR_WRONG_DEVICE",
+    "INSTALLER_WANTS_UNAPPROVED_SYSTEM_SCOPE",
+    "SYCL_DEVICE_NOT_INTEL_LEVEL_ZERO",
+    "PAGED_READ_INCORRECT_OR_CROSS_REQUEST_LEAK"
+  ],
+  "user_authorization_required_before": [
+    "download",
+    "pip_install",
+    "oneapi_install",
+    "gpu_compute",
+    "native_sycl_compilation_or_dispatch"
+  ],
+  "restrictions": {
+    "gpu_dispatch": false,
+    "download": false,
+    "install": false,
+    "local_git_mutation": false,
+    "os_driver_update": false,
+    "p01_e0": false,
+    "p01_test": false,
+    "p03_training": false,
+    "p08": false,
+    "lineage_md": "unchanged"
+  },
+  "verdict": "P07_ENABLEMENT_PLAN_LOCKED_NO_RUNTIME_ACTION",
+  "next": "TTM_P07_SINGLE_ISOLATED_GPU_ENABLEMENT_AUTHORIZATION_AND_RUNNER"
+}
