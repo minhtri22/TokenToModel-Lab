@@ -19,7 +19,7 @@
 
 ## 2. Lỗi T3 ban đầu và lịch sử phục hồi hợp lệ
 
-GPU Colab gốc: **Tesla T4**, phiên bản `torch 2.14.1+cu130`, CUDA `13.0`. Lượt `t3_resume_synthetic_20261108_v1` phát sinh `TypeError: RNG state must be a torch.ByteTensor` do `torch.load(..., map_location=cuda)` chuyển trạng thái RNG vốn dành cho CPU sang CUDA. Phải giữ nguyên trạng thái dừng (STOP) của lượt này; **không đổi nhãn thành PASS**.
+GPU Colab gốc: **Tesla T4**, phiên bản PyTorch `2.14.1+cu130`, CUDA `13.0`. Lượt `t3_resume_synthetic_20261108_v1` phát sinh `TypeError: RNG state must be a torch.ByteTensor` do `torch.load(..., map_location=cuda)` chuyển trạng thái RNG vốn dành cho CPU sang CUDA. Phải giữ nguyên trạng thái dừng (STOP) của lượt này; **không đổi nhãn thành PASS**.
 
 Checkpoint gốc `checkpoint_step10.pt` trên Google Drive có **45.069.785 byte**, SHA-256 `3546105cb736084956c8d4bea6950fe931b658845ed29a5791c6669b40f67382`. Đã kiểm tra trên Colab và kiểm tra độc lập lần nữa bằng cách tải toàn bộ tệp khoảng 45 MB. Tệp báo hoàn tất sau khi ghi (READY-last) `READY.json` có SHA-256 `c77231124003199573227425b3cdeea94f0544eec8cf0906c4443af6b6591765`, cũng tồn tại bền vững. Không sửa hoặc ghi đè checkpoint.
 
