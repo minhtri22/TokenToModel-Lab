@@ -1,0 +1,30 @@
+{
+  "check_results": {
+    "exact_gguf_ollama_import": "NOT_EXECUTED",
+    "gguf_parser_corrupt_magic_negative": "PASS_REJECT",
+    "gguf_parser_synthetic_positive": "PASS",
+    "ollama_inference": "NOT_EXECUTED",
+    "powershell_5_1_native_execution": "NOT_EXECUTED",
+    "powershell_forbidden_model_mutation_surface_static": "PASS",
+    "python_stdlib_import": "PASS",
+    "windows_installed_ollama_version": "NOT_VERIFIED",
+    "windows_ollama_service": "NOT_VERIFIED"
+  },
+  "date": "2026-11-08",
+  "lineage_modified": false,
+  "main_modified": false,
+  "prior_full_logits": "FAIL_7_OF_8_PRESERVED",
+  "schema": "ttm.t5.ollama.readonly.static.qa.v1",
+  "scope": "ENGINEERING_ONLY_READONLY_NO_IMPORTED_MODEL",
+  "source_files": {
+    "Inspect-TTM-GGUF-ReadOnly.py": "ae475839041133dc25514d9a8b2954ecc436e01e8dbd1b9452b89e8c8a47ff71",
+    "Inspect-TTM-Ollama-ReadOnly-PS51.ps1": "66726a3f52e61a04d1741671159482489e228d6d574b83918915edc8a5aa5cbf"
+  },
+  "source_gguf_f32_tensor_count": 52,
+  "source_gguf_on_windows": "FILE_EXISTS_REMOTE_DIRECTORY_ONLY_SHA_NOT_RECHECKED_THIS_TURN",
+  "source_gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+  "status": "PASS_SCOPED_STATIC_READONLY_QA_WINDOWS_OLLAMA_PREFLIGHT_PENDING",
+  "test_read": false,
+  "train_steps": 0,
+  "zip_sha256": "b2919a966f56d1cc954938078473df637d76661bf78d21e9ce51cc8cb942076c"
+}
