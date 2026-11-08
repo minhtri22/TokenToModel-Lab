@@ -5,10 +5,10 @@
   "source_v3_original_sha256": "9d7be21e5bc961a2fbcbe42c58790d8b2aac755e7d1e184eb7fd5d4c833f13cf",
   "source_files": {
     "t5_ollama_v3rc1.py": "54a60678e72ebb829395edb2aa23e12d23da1388e3204b2e629138abc8ab493b",
-    "test_v3rc1_independent.py": "0b7c23a58eed94b04b48de0716eb7a7dbfdb8ddb9af887cbe274590028796139",
-    "Invoke-TTM-T5-Ollama-V3RC1-PS51.ps1": "d5bb2a72a2188cc7d1a9eeae44c8bb572d17cf29d46d60f46524fd4f8dc2fa37",
+    "test_v3rc1_independent.py": "cb154024d208bd8859f9a26ad3dacb60f7a0bf2b04b1253e76e9f1140112c75d",
+    "Invoke-TTM-T5-Ollama-V3RC1-PS51.ps1": "71eccba312b550291620dee1a6ab96d6dcd7cac287b59d70b8fa1a092e65980d",
     "README_VI.md": "6eb094aa87899d971fe35e62a89faa3df02ae24e6a20904de94ad09f15a288fe",
-    "INDEPENDENT_OFFLINE_QA_RC1.json": "6354ec42119d1e7b1e4a5e5562da67fc88e6161a90ed1f2db90443f9a06f33ba"
+    "INDEPENDENT_OFFLINE_QA_RC1.json": "6ca8f77d72b5d07d5091a45856228adf804970086d50c36d5e68ea0646daf7c1"
   },
   "port": 12645,
   "model": "ttm-t5-f32-compat-only-v3rc1:latest",

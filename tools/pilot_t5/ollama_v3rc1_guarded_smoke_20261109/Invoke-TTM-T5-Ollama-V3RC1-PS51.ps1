@@ -67,7 +67,7 @@ if (Test-Path -LiteralPath $resultPath -PathType Leaf) {
     Write-Host ('T5_V3RC1_RESULT_STATUS='+$result.status)
     Write-Host ('T5_V3RC1_RESULT_PATH='+$resultPath)
     Write-Host ('T5_V3RC1_RESULT_SHA256='+ (Get-FileHash -LiteralPath $resultPath -Algorithm SHA256).Hash.ToLowerInvariant())
-    if ($result.failure) {Write-Host ('T5_V3RC1_FAILURE='+$result.failure.message)}
+    if ($result.PSObject.Properties.Name -contains 'failure') {Write-Host ('T5_V3RC1_FAILURE='+$result.failure.message)}
 } else {
     Write-Host 'T5_V3RC1_RESULT_MISSING=HOLD_KEEP_ALL_EVIDENCE'
 }

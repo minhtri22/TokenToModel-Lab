@@ -6,8 +6,8 @@ Chỉ xác nhận GGUF F32 gốc TTM-Small-4M-T4 step1024 có thể **nhập và
 ## Nguồn và danh tính được khóa
 - V3 nguồn (không sửa, đang khóa): `tools/pilot_t5/ollama_tcp_owner_guard_v3_source_only_20261109/t5_ollama_smoke_v3_candidate.py`, SHA256 `9d7be21e5bc961a2fbcbe42c58790d8b2aac755e7d1e184eb7fd5d4c833f13cf`.
 - RC1 tệp mới: `tools/pilot_t5/ollama_v3rc1_guarded_smoke_20261109/t5_ollama_v3rc1.py`, SHA256 `54a60678e72ebb829395edb2aa23e12d23da1388e3204b2e629138abc8ab493b`.
-- ZIP đúng nguồn: `TTM_T5_OLLAMA_V3RC1_GUARDED_SMOKE_20261109.zip`, SHA256 `63f5aaacceea07a0ec6eef4cdf57ca8ad9a7ee1f810f7bbb8d762c6695fc5ef9`, 25989 bytes. ZIP phát hành kèm thông qua liên kết tệp hội thoại; 6 file văn bản trong ZIP đã được commit, hash Git blob đều khớp.
-- Manifest: `tools/pilot_t5/ollama_v3rc1_guarded_smoke_20261109/SOURCE_SHA256_MANIFEST.json` (SHA256 `cdebed02f65f632d553d61ac7d4e307e225c2c22486ac247fa53b54a2673ef77`).
+- ZIP đúng nguồn: `TTM_T5_OLLAMA_V3RC1_GUARDED_SMOKE_20261109.zip`, SHA256 `e96a876e5a08cdaa0da056570cc40da6807f8e59fe606c48e97b6108be3a5e9f`, 26099 bytes. ZIP phát hành kèm thông qua liên kết tệp hội thoại; 6 file văn bản trong ZIP đã được commit, hash Git blob đều khớp.
+- Manifest: `tools/pilot_t5/ollama_v3rc1_guarded_smoke_20261109/SOURCE_SHA256_MANIFEST.json` (SHA256 `b9c500968ceb37c3c78b920c5cdd6917246ef5c8d840d172333be29adf187774`).
 - Windows Python 3.12 (đường dẫn cố định), PowerShell 5.1, Ollama `0.40.14` executable SHA `14e0fff0449ce3c3a7fe9db8b8b32089274db5f835d4c99f5af7c32dcbf08981`.
 - GGUF `TTM-Small4M-T4-step1024-F32.gguf` 15,061,376 bytes SHA256 `5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5`.
 - Cổng `127.0.0.1:12645`, tag `ttm-t5-f32-compat-only-v3rc1:latest`, `num_ctx=256`, `num_predict=32`, prompt tổng hợp.
@@ -30,3 +30,6 @@ Chỉ xác nhận GGUF F32 gốc TTM-Small-4M-T4 step1024 có thể **nhập và
 
 ## Bước thực hiện tiếp theo
 `TTM_T5_OLLAMA_V3RC1_EXACT_ONCE_NATIVE_SMOKE_AND_EVIDENCE_READBACK`: người dùng thực thi đúng wrapper `-Mode Smoke` một lần tại Windows đích theo ZIP SHA pinned, trả về `RESULT.json` và `READINESS_ATTEMPTS.jsonl` cùng SHA. Chỉ sau đó phân xử `PASS_COMPATIBILITY_ONLY` hay `FAIL/HOLD`; không mở lại V1/V2 và không đổi strict parity.
+
+### Chốt bản sửa wrapper sau QA
+Đã sửa đọc trường tùy chọn `failure` trong PowerShell 5.1 bằng kiểm tra `PSObject.Properties` để PASS không bị lỗi giả; stdout/stderr của Python QA được redirect bằng `Start-Process` vào tệp trong project, tránh giả lỗi `NativeCommandError`. QA 84/84 vẫn PASS trên nguồn cuối. Mã RC1, wrapper và manifest chỉ được coi là đúng khi SHA phiên bản **cuối** khớp.

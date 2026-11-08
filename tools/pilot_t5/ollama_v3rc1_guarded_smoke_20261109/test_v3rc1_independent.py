@@ -469,6 +469,9 @@ class TestRC1FullPipeline(unittest.TestCase):
         self.assertEqual(subject.MAX_TOKENS,32)
         self.assertEqual(subject.CONTEXT,256)
         self.assertEqual(subject.API,'http://127.0.0.1:12645')
+        ps=(Path(__file__).parent/'Invoke-TTM-T5-Ollama-V3RC1-PS51.ps1').read_text('utf-8')
+        self.assertIn("$result.PSObject.Properties.Name -contains 'failure'",ps)
+        self.assertIn('Start-Process -FilePath $py',ps)
 
     def test_import_and_generate_endpoints_both_pinned_loopback(self):
         s=__import__('inspect').getsource(subject.api_json)
