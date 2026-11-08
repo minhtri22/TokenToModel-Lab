@@ -1,0 +1,11 @@
+{
+  "records": [
+    {
+      "scored_targets": 4096,
+      "step": 1,
+      "synthetic_only": true
+    }
+  ],
+  "schema": "ttm.t4.progress.v1",
+  "step": 1
+}
