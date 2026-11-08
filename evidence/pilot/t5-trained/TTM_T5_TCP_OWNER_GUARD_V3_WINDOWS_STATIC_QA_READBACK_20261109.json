@@ -1,0 +1,267 @@
+{
+  "schema": "ttm.t5.tcp_owner_guard.v3.windows_static_qa.readback.v1",
+  "recorded_date": "2026-11-09",
+  "evidence_source": "User-supplied Windows PowerShell console output in conversation; not independently executed by assistant on Windows",
+  "bundle_sha256": "ab4bcbe1d9e591f124b90fc5d342e93b6ae0a042b405053cbd7b437d8d691c71",
+  "source_pin_check": "PASS_REPORTED",
+  "windows_static_qa": "PASS_60_OF_60_REPORTED",
+  "test_count": 60,
+  "tests": [
+    {
+      "name": "test_ipv4_loopback_exact_pid",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_ipv6_loopback_exact_pid",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wildcard_ipv6_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wildcard_ipv4_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_other_ipv4_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_ipv4_mapped_loopback_is_not_silently_accepted",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_pid_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_two_owners_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_same_owner_ipv4_ipv6_loopback",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_no_listener_waits_not_pass",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_bound_only_does_not_pass",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_established_only_does_not_pass",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_state_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_pid_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_zero_pid_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_port_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_port_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_bad_schema_and_shape_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_identity_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_double_identity_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_executable_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_process_name_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_creation_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_creation_change_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_creation_match_pass",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_missing_listen_state_other_connection_blocked",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_nonlisten_same_pid_does_not_invalidate_good_listener",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_bool_pid_rejected",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_pass_requires_two_snapshots_and_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_pid_skips_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wildcard_skips_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_empty_listener_skips_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_http_503_observed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_http_wrong_version_observed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_http_invalid_json_observed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_http_unexpected_exception_logged_without_detail",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_tcp_query_failure_holds_and_no_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_process_exit_no_probe",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_recheck_pid_replaced_after_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_recheck_process_creation_changed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_recheck_listener_set_changed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_recheck_fails_closed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_no_recheck_when_http_version_wrong",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_trace_success_two_snapshots_and_fsnyc",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_trace_no_listener_timeout_without_http",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_trace_exclusive_no_overwrite",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_trace_holds_first_bad_pid",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_encoded_command_is_powershell_5_1_and_get_tcp",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_port_validation_before_subprocess",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_wrong_schema_fails_closed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_nonzero_exit_fails_closed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_invalid_json_fails_closed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_too_big_response_fails_closed",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_no_accidental_v1v2_write_paths",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_execution_lock_blocks_before_evidence",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_contract_mode_does_not_touch_runtime",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_execute_argument_rejected_by_argparse",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_independent_checker_no_real_ollama_or_ps",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_no_netstat_in_candidate",
+      "observed_status": "ok"
+    },
+    {
+      "name": "test_proxy_explicitly_disabled_by_http",
+      "observed_status": "ok"
+    }
+  ],
+  "test_summary": "Ran 60 tests in 0.077s; OK",
+  "qa_interpretation": "PASS_SCOPED_STATIC_ONLY_NO_NATIVE_TCP_PROBE",
+  "contract_mode_output": [
+    "TTM_T5_V3_SOURCE_ONLY=TRUE",
+    "TTM_T5_V3_EXECUTION_LOCK=ACTIVE_NO_RUNTIME_PERMIT",
+    "TTM_T5_V3_PORT=12645",
+    "TTM_T5_V3_GGUF_COMPATIBILITY=NOT_TESTED"
+  ],
+  "negative_test_execute_argument": "EXPECTED_REJECTION_PASS",
+  "windows_tcp_live_query_from_v3": "NOT_EXECUTED",
+  "ollama_v3_runtime": "NOT_EXECUTED_EXECUTION_LOCK_ACTIVE",
+  "v1_v2_one_shots": "CONSUMED_PRESERVED",
+  "frozen_t5_strict_parity": "FAIL_7_OF_8_PRESERVED",
+  "science_data_access": "NOT_EXECUTED",
+  "original_gguf": "NOT_MUTATED_BY_SOURCE_ONLY_QA",
+  "next_step": "TTM_T5_TCP_OWNER_GUARD_V3_GUARDED_SINGLE_SMOKE_RELEASE_CANDIDATE_QA_THEN_EXECUTION_DECISION"
+}
