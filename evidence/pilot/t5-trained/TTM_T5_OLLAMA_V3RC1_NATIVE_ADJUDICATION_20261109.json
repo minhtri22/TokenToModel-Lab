@@ -1,0 +1,56 @@
+{
+  "schema": "ttm.t5.ollama.v3rc1.native.single_smoke.adjudication.v1",
+  "date": "2026-11-09",
+  "provenance": {
+    "result": "user-uploaded original RESULT(20261108-182223).json; SHA256 eafbd3383af348cbedd3505f78b19f4c1ea063bac975eef4eada8e52606ed4b2",
+    "trace": "user console READINESS_ATTEMPTS first line matched node readback; SHA256 b1ea5d9e9192801f32b2a5efec57062abde9b3a1fca4b29be77c8819bc72ec03",
+    "console": "Pasted text(20261108-182302).txt; original uploaded SHA256 d1790b61e40f9b063b5f61b937f535069c7205387f644c3536473e1d8b32cae4; not committed verbatim",
+    "server_log": "RemoteDesktop read-only serve.log; summarized without SSH key"
+  },
+  "attempted_qa": "PASS_84_OF_84_REPORTED_WINDOWS",
+  "source_sha256": "PASS_REPORTED",
+  "preflight": "PASS_READONLY_NO_CLAIM",
+  "rc1_one_shot": "CONSUMED_NO_RERUN",
+  "port": 12645,
+  "pid": 32976,
+  "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+  "readiness": {
+    "samples": 1,
+    "decision": "HOLD_TCP_ROW_INVALID_OR_MISSING_STATE",
+    "socket": {
+      "local_address": "127.0.0.1",
+      "local_port": 12645,
+      "pid": 32976,
+      "state": ""
+    },
+    "http_attempted": false,
+    "pid_ownership_identity_evaluated": false
+  },
+  "ollama": {
+    "version": "0.40.14",
+    "serve_log_listener": "Listening on 127.0.0.1:12645",
+    "create": "NOT_EXECUTED",
+    "generate": "NOT_EXECUTED",
+    "models_after_run_empty": true
+  },
+  "shutdown": {
+    "pid": 32976,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "postcheck": {
+    "original_sha256s_unchanged": true,
+    "store_manifest_created": false
+  },
+  "path_dll_risk": {
+    "parent_path_contained_ggml_dir": true,
+    "child_path_filtered_only": true,
+    "server_log_warn_for_ggml_dll": false
+  },
+  "science": {
+    "test_train_executed": false,
+    "strict_logits": "FAIL_7_OF_8_PRESERVED"
+  },
+  "decision": "HOLD_TCP_STATE_EMPTY_COMPATIBILITY_NOT_ESTABLISHED",
+  "next_step": "TTM_T5_NATIVE_TCP_STATE_READONLY_DIAGNOSTIC_BEFORE_ANY_NEW_RC"
+}
