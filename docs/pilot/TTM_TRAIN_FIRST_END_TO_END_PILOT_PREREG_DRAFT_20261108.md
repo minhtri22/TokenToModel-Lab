@@ -1,10 +1,12 @@
 # TTM-SMALL-PILOT — Tiền đăng ký thiết kế tích hợp Colab → Drive → Windows
 
 **Ngày lập:** 2026-11-08  
-**Trạng thái:** `GITHUB_DESIGN_PROPOSAL_NOT_SCIENCE_LOCKED`  
+**Trạng thái:** `GITHUB_DESIGN_PROPOSAL_T1_T2_REVIEWED_NOT_SCIENCE_LOCKED`  
 **Repository:** https://github.com/minhtri22/TokenToModel-Lab  
 **Baseline quản trị:** `main` merge PR #11 `1a9d8cba56564d6d36257fe95c34f2fd52c4f48a`; local Windows `main` và `origin/main` đã được đọc lại qua Git refs đúng SHA này sau đồng bộ V2.  
 **Phạm vi:** Nhánh đề xuất riêng; không thay P00–P12, không mở P08/P09/P10, không sửa lịch sử `lineage.md`, không huấn luyện hoặc tải corpus trong bước thiết kế.
+
+**Phụ lục thẩm định tổng hợp có hiệu lực ưu tiên:** [TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md). Tệp này là bản tiền đăng ký nháp; điều kiện chưa được khóa và giá trị thiết kế T1/T2 được diễn giải bởi phụ lục trên, không xem là thực nghiệm PASS.
 
 ## 1. Câu hỏi và giả thuyết
 
@@ -18,11 +20,11 @@
 
 ## 2. Nguồn dữ liệu và quyền
 
-- Ứng viên duy nhất: [roneneldan/TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories), tiếng Anh, license **`cdla-sharing-1.0`** theo dataset card (xác minh ngày 2026-11-08). Nghiên cứu mô hình nhỏ: https://arxiv.org/abs/2305.07759.
+- Nguồn đã ghim: [roneneldan/TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories/tree/f54c09fd23315a6f9c86f9dc80f725de7d8f9c64) ở commit **`f54c09fd23315a6f9c86f9dc80f725de7d8f9c64`**, tiếng Anh, license **`cdla-sharing-1.0`** theo dataset card (xác minh ngày 2026-11-08). Quyền Use/Computational Use có điều kiện theo https://cdla.dev/sharing-1-0/ ; cần thực hiện nghĩa vụ khi Publish Data và review riêng trước phát hành model. Nghiên cứu gốc https://arxiv.org/abs/2305.07759.
 - Ưu tiên dùng hai file gốc `TinyStories-train.txt` và `TinyStories-valid.txt`, **không mặc nhiên thay bằng TinyStoriesV2 hay 7.62 GB dữ liệu**. Metadata chủ repository đã được rà soát; SHA commit 40 ký tự của Hugging Face, SHA-256 cho từng tệp đã trích và hồ sơ phạm vi quyền sử dụng cần điền trước khi tải/huấn luyện.
 - Quyền nguồn WP30 P01 chỉ dùng cho BPE E0; không mang vào corpus GPT pilot, không huấn luyện tokenizer tiếng Anh từ WP30.
 - Tách theo **câu chuyện nguyên bản**, không tách theo từng cửa sổ token; xác định story-boundary parser và canonicalization trước khi đóng băng dataset. Dedup exact SHA256 giữa TRAIN/VAL/TEST và kiểm tra near-dup theo cùng thuật toán được khóa; không dùng TEST để chọn mô hình, tokenizer hay siêu tham số.
-- Quy tắc ứng viên: chọn mẫu TRAIN theo thứ tự hash của story ID/bytes ổn định với seed `20261108`; từ file `valid` tạo VAL/TEST disjoint theo hash nguyên câu chuyện, tỷ lệ 80/20 sau dedup; khóa manifest ID và source SHA, hash các partition sau trích mẫu. Cần kiểm chứng định dạng separators thực tế trước khi khóa số mẫu. TEST được niêm phong, chỉ đọc một lần sau quyết định mô hình cuối.
+- Quy tắc nguồn/split được chi tiết hóa tại [T1/T2 review](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md): TRAIN chỉ lấy từ file gốc train theo story-hash seed `20261108`; VAL/TEST (~80/20) lấy từ file gốc valid sau dedup, hash theo story, không học tokenizer/đối chứng từ chúng. Parser separator, raw file bytes SHA, near-dup audit và manifest thực tế vẫn HOLD trước science. TEST niêm phong, một lần dùng cuối.
 - License card không tự động đồng nghĩa với quyền ứng dụng thương mại hoặc tuân thủ toàn bộ yêu cầu phân phối; hoàn tất review attribution, PII, model output và vận hành trước mọi phát hành.
 
 ## 3. Bộ tách token (Tokenizer)
@@ -55,7 +57,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 ## 6. Điều kiện đo và ngân sách
 
 - T3 có thể dùng các batch tổng hợp kỹ thuật để đo tốc độ, thống kê RAM/VRAM và độ bền Drive; **không** được chọn hyperparameter hoặc kiểm thử trên TEST.
-- **Ngân sách khoa học chưa khóa:** ứng viên 16 triệu TRAIN tokens với 1 seed, batch hiệu dụng 4.096 tokens, quy tắc chọn bước/learning rate phải khóa **trước lượt TRAIN đầu tiên** sau khi đo thông lượng synthetic Colab. Mọi thay đổi ngân sách sau khi thấy VAL là nghiên cứu successor, không là sửa không lưu dấu.
+- **Ngân sách thiết kế đề nghị:** `1024` optimizer steps x `4096` target tokens/step = **4.194.304 TRAIN tokens**, `1` seed (`20261108`), AdamW peak LR `3e-4`, warmup `32`, cosine đến `3e-5`, VAL mỗi `128` steps, checkpoint cuối step `1024` là primary. Chọn microbatch và precision qua zero-science Colab smoke rồi khóa **trước TRAIN**; tối đa `90` phút GPU cho science run, nếu không đáp ứng thì HOLD thay vì tự giảm/tăng tokens. Các giá trị bổ sung ở [T1/T2 review](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md), chưa có quyền run.
 - Đối chứng: uniform, unigram và smoothed bigram cùng tokenizer/partition; baseline được fit trên TRAIN, không trên VAL/TEST. Metric chính là NLL per token (không so PPL giữa tokenizers khác nhau); PPL=exp(NLL) chỉ báo phụ. Sử dụng bootstrap từng **truyện** 1.000 lượt với seed khóa để tránh coi token cùng truyện độc lập; primary gap là bigram NLL - model NLL.
 - Mẫu sinh: bộ prompt cố định từ trước và không lấy nguyên văn TEST làm prompt thử nghiệm; đầu ra được chấm ẩn nhãn (blind) theo cấu trúc truyện, mạch ý và lặp, không dùng cảm nhận đơn lẻ để thay primary metric.
 - Khi chi phí/độ chính xác không đạt: kết luận `EXPERIMENT_FAIL` hoặc `INCONCLUSIVE`, không tự tăng kích thước/seed/tokens để tìm PASS.
@@ -71,7 +73,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 ## 8. GGUF / llama.cpp / Ollama
 
 - P02 là GPT-2-like nhưng không giống checkpoint GPT-2 Hugging Face: tên tensor tự tạo (`tok`, `pos`, `blocks.*`, `attn.qkv`, `mlp`, ...), QKV projection là `nn.Linear`, LayerNorm eps=1e-5, GELU, embedding/head tied. Cần mapping có kiểm tra chiều và thứ tự transpose, special token, pretokenization. Không đổi `.pt` thành `.gguf` để coi là conversion.
-- Chốt commit `ggml-org/llama.cpp` và version exporter trước khi T2. T2 CPU F32/F16 test trên một tập `fixture_token_ids.json`, kiểm toàn bộ ID, logits batch và greedy 16 steps; **ngưỡng đề xuất** FP32 `max_abs_logit_diff <= 1e-3`, F16 `<= 2e-2`, phải khóa theo đặc tả và kiểm thử trước khi đo checkpoint đã học.
+- Mã `ggml-org/llama.cpp` đã ghim tại commit `372dc5ca157276beb6c67b2e92477e8d662e964a` (GPT2 backend/converter được thấy trong source); exporter còn phải chứng minh số học T2, không lấy existence làm PASS. T2 CPU F32/F16 test trên một tập `fixture_token_ids.json`, kiểm toàn bộ ID, logits batch và greedy 16 steps; **ngưỡng đề xuất** FP32 `max_abs_logit_diff <= 1e-3`, F16 `<= 2e-2`, phải khóa theo đặc tả và kiểm thử trước khi đo checkpoint đã học.
 - Sau khi export đạt mới so sánh Ollama `Modelfile FROM ./model.gguf`; Ollama không phải bằng chứng đúng nếu llama.cpp parity chưa PASS. Đối chiếu trên cùng dtype và quan sát số học thay vì kỳ vọng chuỗi sinh luôn trùng ở điểm near-tie.
 - Nếu GPT-2/GGUF backend hiện tại không hỗ trợ byte-BPE mới hoặc một phép tính nào đó, ghi `EXPORT_COMPATIBILITY_GAP`, không thay kiến trúc khoa học đã duyệt hoặc train lại để khắc phục.
 
@@ -95,7 +97,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 
 `LOCAL_MAIN_SYNC=PASS_INDEPENDENT_READBACK` · `PILOT_PREREG_DRAFT=GITHUB_PROPOSAL_NOT_LOCKED` · `PILOT_GITHUB_BRANCH=CREATED_FROM_EXACT_MAIN` · `T1_T7=NOT_EXECUTED` · `COLAB_GPU=NOT_USED` · `GGUF_EXPORT=NOT_EXECUTED` · `P07=PAUSED_PRESERVE`.
 
-**Bước thực hiện tiếp theo:** Rà soát PR nháp, xác minh quyền nguồn và revision 40 SHA của TinyStories, chốt tệp nguồn/split/tokenizer cùng ngân sách, kiểm định mapping GGUF ở mức thiết kế. Chỉ sau tiền đăng ký được khóa và T2 export dry-run PASS mới cho phép huấn luyện dài trên Colab; không thực nghiệm trong nhánh tài liệu này.
+**Bước thực hiện tiếp theo:** Thực hiện T2 GGUF synthetic export trên CPU theo hợp đồng [T1/T2 review](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md), đồng thời bổ sung raw source SHA/story parser trước khoa học. Chỉ sau T2/T3 và tích hợp khóa source/split/tokenizer/budget mới cho phép huấn luyện Colab; không thực nghiệm trong nhánh tài liệu này.
 
 ## 12. Những trường tiền đăng ký phải khóa trước TRAIN
 
