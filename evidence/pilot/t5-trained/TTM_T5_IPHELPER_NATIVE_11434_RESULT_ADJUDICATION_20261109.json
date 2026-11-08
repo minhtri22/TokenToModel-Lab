@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.t5.iphelper.native.readonly.11434.adjudication.v1",
+  "date": "2026-11-09",
+  "provenance": "user-provided Windows 11 PowerShell console and Ollama GUI screenshot; GUI model identity not shown",
+  "scope": "READONLY_EXISTING_11434_NO_MODEL_OR_SERVER_MUTATION",
+  "zip_sha256": "a684caf1417a6c50931ebeef6e0b3d1b6334d115e4db63514b3df9ad795ab202",
+  "source_sha256": "PASS_REPORTED",
+  "offline_qa": "PASS_22_OF_22_REPORTED",
+  "api_test": {
+    "reference_port": 11434,
+    "pid": 14464,
+    "IPv4": {
+      "status": "API_SUCCESS",
+      "matching_rows": 1,
+      "local_address": "0.0.0.0",
+      "local_port": 11434,
+      "state_code": 0,
+      "state": "UNKNOWN",
+      "validated_listen": false,
+      "loopback_only": false
+    },
+    "IPv6": {
+      "status": "API_SUCCESS",
+      "matching_rows": 1,
+      "local_address": "::",
+      "local_port": 11434,
+      "state_code": 0,
+      "state": "UNKNOWN",
+      "validated_listen": false,
+      "loopback_only": false
+    }
+  },
+  "running_app": {
+    "screenshot": "Ollama desktop chat visible with user 'hi' and assistant response 'Hello! How can I help you today?'; model name not visible",
+    "prior_http": "GET http://127.0.0.1:11434/api/version HTTP 200 version 0.40.14",
+    "distinction": "Running Ollama with unknown selected model does not establish compatibility of TTM-Small-4M GGUF"
+  },
+  "native_diagnostic_status": "HOLD_NO_VALIDATED_LISTEN_ROW",
+  "native_probe_exit_code": 4,
+  "wrapper_exit_code": 0,
+  "wrapper_exit_note": "Successful wrapper exit does not mean native TCP status PASS",
+  "sourced_contract": "MIB_TCP_STATE_LISTEN=2; state 0 is undocumented for MIB_TCPROW_OWNER_PID and is not accepted as LISTEN",
+  "precedent": "Microsoft Q&A describes similar Windows 11 26H2 behavior but machine OS build and update provenance are unverified; no causal attribution",
+  "no_os_config_updates": true,
+  "no_ollama_import": true,
+  "no_inference_executed": true,
+  "prior_one_shots": "V1/V2/V3RC1_CONSUMED_NO_RERUN",
+  "original_t5_strict_logits": "FAIL_7_OF_8_PRESERVED",
+  "model_compatibility": "NOT_ESTABLISHED",
+  "next_step": "TTM_T5_FROZEN_REPLAY_SAFE_OWNER_HTTP_DUAL_ATTESTATION_RELEASE_DESIGN_AND_OFFLINE_QA"
+}
