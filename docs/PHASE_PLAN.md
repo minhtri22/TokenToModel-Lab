@@ -21,3 +21,7 @@ Mỗi giai đoạn (Phase) có thể gồm nhiều nhánh nhỏ, nhưng **mỗi 
 **Các cổng phụ thuộc:** P05 phải đo với đường không cache, P06 phải đo với P05, P07 với P06, P08 với P07 trên điều kiện ngang bằng. P09/P10 so sánh chất lượng trên dữ liệu kiểm định giữ riêng (Held-out Dataset), không dựa duy nhất vào độ giảm mất mát huấn luyện.
 
 **Tình trạng sau đồng bộ:** P00 có mốc GitHub đã hợp nhất và local `main` đã đồng bộ tới đúng commit P00, theo biên bản `docs/qa/P00_LOCAL_FAST_FORWARD_ADJUDICATION_20261105.md`. Công việc rà soát tài liệu PR #2 là quyết định riêng; chưa mở P01 cho đến khi kiểm toán sau hợp nhất tài liệu và cổng P01 được chấp thuận. Cấu hình P00 làm đối chứng kỹ thuật theo mã băm (hash), không phải khóa thí nghiệm khoa học.
+
+## Phụ lục quyết định ưu tiên 08/11/2026 — Train-first pilot
+
+Chủ dự án đồng ý đổi thứ tự ưu tiên: sau khi dọn nhánh GitHub, ưu tiên thử nghiệm tích hợp một mô hình TTM nhỏ trên Colab có checkpoint/resume trên Drive và kiểm chứng GGUF/llama.cpp/Ollama trước khi phát triển kernel GPU P07/P08. **Bảng P00–P12, phụ thuộc và tiêu chí đóng gốc ở trên không đổi.** Pilot T1–T7 là tuyến thực nghiệm bổ sung, không có nghĩa P09/P10/P11 đã mở. Xem [ADR-0001](decisions/ADR-0001_TRAIN_FIRST_COLAB_AND_BRANCH_CLEANUP_20261108.md). P07 được giữ PAUSED_PRESERVE tại đúng HEAD và khóa one-shot; không dùng kết quả XPU canary để đóng P07. Tiền đăng ký và quyền nguồn cho huấn luyện thật là cổng riêng chưa được cấp.
