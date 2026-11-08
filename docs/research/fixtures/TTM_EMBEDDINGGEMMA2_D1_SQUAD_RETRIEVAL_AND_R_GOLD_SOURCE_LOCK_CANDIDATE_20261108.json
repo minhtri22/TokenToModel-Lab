@@ -1,0 +1,127 @@
+{
+  "schema": "ttm.embeddinggemma2.d1.source_selection.v1",
+  "date": "2026-11-08",
+  "status": "DESIGN_LOCK_CANDIDATE_NO_EXECUTION",
+  "model_sources": {
+    "embedding": {
+      "repo": "google/embeddinggemma-2",
+      "revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+      "license": "Apache-2.0",
+      "policy": "Google Gemma Prohibited Use Policy",
+      "mode": "text-only",
+      "dtype": "float32",
+      "vector_dimensions": 768,
+      "feature": "local no API"
+    },
+    "answer": {
+      "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "license": "Apache-2.0",
+      "mode": "frozen"
+    },
+    "pythia": "out-of-scope D1"
+  },
+  "real_corpus": {
+    "dataset": "rajpurkar/squad",
+    "revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+    "config": "plain_text",
+    "license": "CC BY-SA 4.0",
+    "original_project": "https://rajpurkar.github.io/SQuAD-explorer/",
+    "source_attribution": "Stanford SQuAD contributors and cited Wikipedia source articles; attribution/link and adaptation notice required",
+    "evaluation_source": {
+      "path": "plain_text/validation-00000-of-00001.parquet",
+      "upstream_reported_sha256": "8c6646d36bd5a95061e076788cf3161d11f6f3e7d625dac7a83bbed0a49f69f7",
+      "upstream_reported_rows": 10570,
+      "downloaded": false,
+      "local_sha256": null
+    },
+    "optional_train_source": {
+      "path": "plain_text/train-00000-of-00001.parquet",
+      "upstream_reported_sha256": "ea7f52bac024f6b1bdc7aaa2a4ee302cba8c2fdc8d4a235cf18a9a5196b6175b",
+      "upstream_reported_rows": 87599,
+      "used_in_D1": false,
+      "downloaded": false
+    },
+    "split_policy": "Use ONLY published validation parquet for D1 public diagnostic; its questions/answers publicly available, not claimed blind TEST. No train or training on SQuAD.",
+    "unit_of_index": "One unique (title,context) passage in validation, not a QA row",
+    "normalization": "Use exact strings supplied by parquet; UTF-8, no punctuation removal; (title,context) duplicates collapsed, SHA256 of UTF8(title) + ASCII newline + UTF8(context) for passage_id",
+    "group_id": "SHA256 of NFKC(title), one Wikipedia article title = one bootstrap group; do not place article in different splits",
+    "query_selection": "Per title group, select lexicographically lowest 3 SHA256(UTF8(question_id)) values, or all if <3; no reference to answer, correctness, model or retrieval scores",
+    "query_id": "Published SQuAD `id`; SHA256 collision tie by literal id ascending",
+    "gold_passage_ids": "Reference(s) to original canonical context for published QA; may not reflect all semantically relevant passages; primary Hit@3 is source-passage recovery rather than exhaustive relevance.",
+    "index_membership": "All unique validation contexts for all groups, including groups evaluated. This represents document-known retrieval, not TEST label peeking.",
+    "sensitivity": "If duplicate/near-duplicate across titles or source id ambiguity, STOP and report, no posthoc resampling.",
+    "final_manifest_status": "NOT_MATERIALIZED_REQUIRE_DATA_PREP_QA_BEFORE_SCIENCE"
+  },
+  "r_gold_fixture": {
+    "path": "docs/research/fixtures/TTM_EMBEDDINGGEMMA2_D1_R_GOLD_60_GROUPS_LOCK_CANDIDATE_20261108.jsonl",
+    "git_blob_sha1": "d6b23349d65724c5a7aaba41604b396facabfbe8",
+    "sha256": "0215719de94f86a4f2b7a48959ca81343014c127e74799f737901a57b33f341a",
+    "positive_groups": 48,
+    "negative_groups": 12,
+    "total_questions": 120,
+    "status": "AUTHOR_GENERATED_CANDIDATE_NOT_INDEPENDENTLY_HUMAN_VALIDATED",
+    "sample_policy": "No tuning or modifying records after any Qwen outputs; if QA finds a defect before science, document successor and new SHA",
+    "origin": "assistant-authored fictitious evidence on user request, rights owner acceptance and independent content check pending"
+  },
+  "retrieval": {
+    "bm25": {
+      "role": "R1 lexical retrieval",
+      "tokenization": "Python unicodedata.normalize('NFKC', text).casefold(), then re.findall(r'(?u)\\b\\w+\\b', text); no stem or stopword removal",
+      "input_text": "title: {title} | text: {context}",
+      "query_text": "raw SQuAD question",
+      "k1": 1.2,
+      "b": 0.75,
+      "formula": "IDF=ln(1+(N-df+0.5)/(df+0.5)); sum over unique query terms with query term-frequency weight fixed at 1 of IDF * f*(k1+1)/(f+k1*(1-b+b*doc_length/avg_doc_length))",
+      "tie_break": "UTF-8 passage_id ascending"
+    },
+    "embedding": {
+      "role": "R2 semantic retrieval",
+      "model": "google/embeddinggemma-2 pinned above",
+      "dtype": "float32",
+      "query_prefix": "QuestionAnswering",
+      "query_input": "raw SQuAD question",
+      "doc_prefix": "title: {title} | text: {context}",
+      "pooling": "model's official sentence-transformers pipeline pinned to same revision",
+      "normalize_embeddings": true,
+      "dimension": 768,
+      "similarity": "cosine",
+      "tie_break": "passage_id ascending",
+      "max_input_tokens_with_prefix": 8192,
+      "oversize_policy": "STOP (cannot silently truncate)"
+    },
+    "rag_text": {
+      "role": "R3 single Qwen text-RAG generation with the exact top-3 R2 doc IDs",
+      "evidence": "full original context, concatenated in R2 ranking order; no vector fed to Qwen",
+      "qwen_prompt": "frozen system+user template to be pinned against exact revision; no answer metadata in prompt",
+      "scoring": "answer-only teacher-forced NLL + Exact Match; causal correct shift and mask, no prompt loss",
+      "min_valid_context": "Full prompt+all passages+all target tokens fit effective Qwen context for primary S_SHORT; otherwise S_LONG descriptive only",
+      "no_retrieval_fusion_training": true
+    },
+    "top_k_primary": 3,
+    "top_k_secondary": 5,
+    "primary_retrieval_metric": "Hit@3 on original SQuAD source-passage id",
+    "secondary_retrieval_metric": "MRR@3, sampled per article group",
+    "statistical_unit": "article group (title), not QA row/token",
+    "decision_rule": "Paired 95% group-bootstrap CI lower for mean(R2_hit3-R1_hit3)>0 for scoped retrieval improvement; if fails NO_EVIDENCE_OF_SUPERIORITY not general model failure",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261108,
+    "no_modification_after_results": true
+  },
+  "r_gold_prereg_candidate": {
+    "primary": "mean over 48 groups of within-group mean answer-only NLL(R0)-NLL(R_gold), nats per answer token",
+    "criterion": "two-sided paired group bootstrap 95% CI lower bound >0.10; bootstrap 10000 resamples, seed 20261108",
+    "competence_guards": "Exact Match(R_gold)>=0.60 AND difference EM(R_gold)-EM(R0)>=0.10; mean NLL(R_wrong)-NLL(R_gold)>0",
+    "abstention_guard": "no more than 6 incorrect factual answers among 24 no-answer questions; diagnostic only, NOT population guarantee",
+    "missing_data": "any missing/invalid source evidence, answer target, NaN or context overflow invalidates prereg cohort; INCONCLUSIVE, not drop/relabel sample",
+    "reviewer_signoff": "PENDING"
+  },
+  "execution_gates": {
+    "D1_authorized": false,
+    "downloads_in_current_task": false,
+    "GPU_runs_in_current_task": false,
+    "owner_data_rights_approval": "PENDING_AT_SCOPE_OF_REUSE",
+    "TTM_Small_T4_priority": "FIRST",
+    "next": "one integrated protocol lock decision; then separately authorized no-science T4 preflight"
+  }
+}
