@@ -1,5 +1,8 @@
 # TTM-Small-4M — Rà soát tổng hợp tiền đăng ký T1/T2 (2026-11-08)
 
+> **CẬP NHẬT VÀ CHỨNG CỨ ƯU TIÊN (2026-11-08):** [T2 F32 native closure và quyết định F16 không chặn pilot](TTM_T2_F32_NATIVE_CLOSURE_AND_F16_GATE_AMENDMENT_20261108.md). T2 synthetic GGUF F32 đã PASS native tokenizer 20/20, logits 10/10 trên fixture mới khóa trước. Các trạng thái `GGUF=NOT_EXECUTED` và `T2=HOLD` ở dưới là biên bản lịch sử tại lúc lập tài liệu, **không còn là trạng thái hiện tại của T2 F32**. T1 nguồn TinyStories thật, tokenizer thật, T3 resume và science lock vẫn HOLD; F16 backend vẫn BLOCKED và được tách khỏi đường găng pilot.
+
+
 **Nhánh:** `research/ttm-small-4m-colab-pilot-prereg-20261108` · PR #12 · baseline `main@1a9d8cba56564d6d36257fe95c34f2fd52c4f48a`  
 **Phán quyết:** `DESIGN_SPEC_REVIEW=PASS_SCOPED` · `DATA_SOURCE_RIGHTS=PASS_CARD_AND_LICENSE_REVIEW` · `SOURCE_REVISION=PINNED` · `RAW_FILE_SHA256=NOT_VERIFIED` · `STORY_PARSER=NOT_VERIFIED` · `GGUF_FEASIBILITY=SUPPORTED_ARCH_WITH_OPEN_MAPPING_GAPS` · `SCIENCE_LOCK=HOLD`.  
 **Phạm vi:** chỉ tài liệu. Không tải corpus, không chạy máy GPU, tokenizer training, GGUF conversion, TEST hoặc science; không sửa P00–P12, P07 hay `lineage.md`.
