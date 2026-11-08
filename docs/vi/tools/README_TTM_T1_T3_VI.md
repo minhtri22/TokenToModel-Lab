@@ -7,8 +7,8 @@
 ## Cấu trúc gói
 
 - `source_t2/*`: bảy tệp mã và tình huống kiểm thử (Fixtures) gốc của T2 F32, kiểm từng SHA-256 từ ZIP đã PASS; thêm công cụ phụ trợ (Helper) GGUF V3 có SHA-256 chính xác (Exact). Đây là bản thực thi T2 cuối cùng, không phải V5B F16.
-- `t1_source_split_bộ tách token (Tokenizer).py`: tải hai tệp TinyStories gốc phiên bản (Revision) đã khóa, kiểm SHA256, trình phân tích theo luồng (Streaming Parser) với EOS, chọn TRAIN/VAL/TEST theo hàm băm truyện (Story Hash), chống trùng hoàn toàn (Exact Deduplication) và độ tương đồng Jaccard theo nhóm năm từ (Word 5-gram), huấn luyện mã hóa theo cặp byte (BPE) trên TRAIN thật. Không đưa văn bản thô (Raw Text) vào biên bản GitHub.
-- `t1_real_bộ tách token (Tokenizer)_native.py`: nạp mã hóa theo cặp byte (BPE) thật từ T1, xuất GGUF F32 với trọng số ngẫu nhiên của P02 (Random Weights), kiểm tra 20 mã token (Token IDs) và 10 vectơ giá trị dự đoán (Logits) qua `llama.cpp` chương trình gốc (Native Backend) đã ghim. Không sử dụng TEST truyện.
+- `t1_source_split_tokenizer.py`: tải hai tệp TinyStories gốc phiên bản (Revision) đã khóa, kiểm SHA256, trình phân tích theo luồng (Streaming Parser) với EOS, chọn TRAIN/VAL/TEST theo hàm băm truyện (Story Hash), chống trùng hoàn toàn (Exact Deduplication) và độ tương đồng Jaccard theo nhóm năm từ (Word 5-gram), huấn luyện mã hóa theo cặp byte (BPE) trên TRAIN thật. Không đưa văn bản thô (Raw Text) vào biên bản GitHub.
+- `t1_real_tokenizer_native.py`: nạp mã hóa theo cặp byte (BPE) thật từ T1, xuất GGUF F32 với trọng số ngẫu nhiên của P02 (Random Weights), kiểm tra 20 mã token (Token IDs) và 10 vectơ giá trị dự đoán (Logits) qua `llama.cpp` chương trình gốc (Native Backend) đã ghim. Không sử dụng TEST truyện.
 - `t3_resume_smoke.py`, `p02_source_exact.py`: điểm lưu/khôi phục (Checkpoint/Resume) trên dữ liệu tổng hợp, đủ mô hình (Model), bộ tối ưu (Optimizer), lịch học (Scheduler), RNG Python/PyTorch, bộ lấy mẫu (Sampler) và vị trí đọc (Cursor).
 - `TTM_T3_Colab_Drive_Resume_Synthetic_20261108.ipynb`: sổ tay (Notebook) tự chứa P02 và bộ chạy (Runner) có kiểm SHA; chỉ chạy sau khi người dùng gắn Drive và cấp GPU Colab. Sau khi chạy, đồng bộ và ngắt kết nối Drive (Flush/Unmount) rồi đọc file từ Google Drive độc lập.
 - `Run-TTM-T1T3-Integrated-PS51.ps1`: kiểm tra trước (Preview) / thực thi (Execute) trên Windows, lưu mã bằng commit trong cây làm việc Git cô lập (Isolated Worktree) **bên trong repo** lên PR #12 đúng HEAD, rồi chạy T1 đúng một lần. Nếu lỗi bất kỳ giữ thư mục/bằng chứng; không tự chạy lại (Rerun).
@@ -48,4 +48,4 @@ Các tập con này cần được phê duyệt rõ trong hợp đồng T1 trư�
 
 ## Kết luận hiện tại
 
-`T2_F32=PASS_TECHNICAL` · `T1_SOURCE_META_LICENSE=PASS_WITH_CONDITIONS` · `T1_RAW_SHA/SPLIT/mã hóa theo cặp byte (BPE)=NOT_EXECUTED` · `T3_LOCAL_CPU_RESUME=PASS` · `T3_COLAB_DRIVE=NOT_EXECUTED` · `T4_SCIENCE=NOT_AUTHORIZED`.
+`T2_F32=PASS_TECHNICAL` · `T1_SOURCE_META_LICENSE=PASS_WITH_CONDITIONS` · `T1_RAW_SHA/SPLIT/BPE=NOT_EXECUTED` · `T3_LOCAL_CPU_RESUME=PASS` · `T3_COLAB_DRIVE=NOT_EXECUTED` · `T4_SCIENCE=NOT_AUTHORIZED`.
