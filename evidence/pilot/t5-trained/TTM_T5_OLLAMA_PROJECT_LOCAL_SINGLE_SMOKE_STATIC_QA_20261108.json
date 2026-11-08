@@ -1,0 +1,36 @@
+{
+  "schema": "ttm.t5.ollama.project.local.single.smoke.static.qa.v1",
+  "date": "2026-11-08",
+  "result": "PASS_SCOPED_SOURCE_ONLY_WINDOWS_NATIVE_NOT_EXECUTED",
+  "package_sha256": "c338987d7c3bd2b46c07587614e436aac481b118e3f425ba4edb32a5f52b3dad",
+  "package_bytes": 11884,
+  "source_sha256": {
+    "t5_ollama_smoke_single.py": "bef6ac32dd9546693de70fb628c6a37062eb9c85ad893d6b3f968f678733f41d",
+    "Run-TTM-T5-Ollama-Compatibility-Single-PS51.ps1": "65e52ef3e0f301811ebf3f3101b85d5c1e1d32b876579ef905a59767e200bf02",
+    "test_static_guard.py": "7750e71419744fc219b0e809f55919808a540c320b9cf77387e64779c39dc12a",
+    "README_VI.md": "09b95143ba9352a971c73fbb4d79c5e6a32914b88ab904c591d4fde1b18a5aff"
+  },
+  "preflight": {
+    "gguf": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "ollama_version": "0.40.14",
+    "readonly_preflight": "PASS_SCOPED"
+  },
+  "static_tests": {
+    "python_ast": "PASS",
+    "source_hash_manifest_readback": "PASS",
+    "windows_command_sources": "STATIC_INSPECTED_NOT_PARSED_WITH_PS51",
+    "python_helper_negative_tests": "PASS",
+    "package_zip_readback": "PASS",
+    "linux_preview": "HOLD_PYTHON312_WINDOWS_REQUIRED_EXPECTED",
+    "isolation": "SOURCE_GUARDS_PRESENT_NOT_YET_PROVEN_IN_NATIVE_RUNTIME"
+  },
+  "native_execution": {
+    "ollama_create": "NOT_EXECUTED",
+    "ollama_generate": "NOT_EXECUTED",
+    "model_store_guard": "PENDING_NATIVE",
+    "one_shot_claim": "NOT_CREATED"
+  },
+  "remote_execution_attempt": "BLOCKED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+  "frozen_t5_logits": "FAIL_7_OF_8_PRESERVED",
+  "main_or_lineage_changed": false
+}
