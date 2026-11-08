@@ -1,0 +1,40 @@
+{
+  "schema": "ttm.p07.sycl_s2.successor.source_static_qa.v1",
+  "date": "2026-11-08",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "feature/p07-paged-attention-kernel-design-20261107",
+  "base_main": "4731f75cda6aa86b1dd2929b3f10d11fbbed0812",
+  "source_v1_run_id": "P07_GPU_ENABLEMENT_20261108T024525Z_P28364",
+  "original_v1_receipt_sha256": "9a619f41412a6be87fcd7a307477a148ae80c6bd8801206cfc5791fb7af3b647",
+  "original_v1_lock": "CONSUMED_UNMODIFIED",
+  "original_v1_xpu": "PASS_REAL_GPU_COMPUTE",
+  "original_v1_final": "FAIL_OR_INCONCLUSIVE_NO_AUTORERUN",
+  "original_disk_charged_gib": 6.037,
+  "remaining_total_budget_gib": 11.963,
+  "free_disk_floor_gib": 12,
+  "script_sha256": "05274b2f634faf723cee4fd2f9b092458177b19c776a51ea4cbbc01302654dd6",
+  "static_review": "PASS_SOURCE_ONLY",
+  "static_checks_count": 24,
+  "windows_powershell_parse": "NOT_EXECUTED",
+  "sycl_install": "NOT_EXECUTED",
+  "gpu_canary": "NOT_EXECUTED",
+  "source_wheel_rehash": "EXECUTION_GUARD_ONLY_NOT_YET_PERFORMED",
+  "approval_scope": "TTM_P07_APPROVE_SYCL_STAGE_ONLY_PRESERVED_XPU_V1",
+  "approval_status": "NOT_GRANTED",
+  "features": [
+    "preserves original 30 wheel hashes and V1 one-shot lock",
+    "pinned 2026.2.0 dpcpp_win-64 and intel-sycl-rt",
+    "Conda --download-only followed by --offline env create",
+    "sycl Level Zero direct page-table index with 2 isolated requests",
+    "separate S2 one-shot lock after checks",
+    "bounded scratch cleanup only",
+    "no torch GPU canary repetition",
+    "no tracked repository changes"
+  ],
+  "limitations": [
+    "Static source checks not Windows PowerShell 5.1 parser",
+    "Conda compatibility on Windows Home not verified",
+    "Disk caps checked at phase boundaries, not enforced as hard per-write Windows quotas"
+  ],
+  "next": "TTM_P07_SYCL_S2_PREVIEW_PS51_PARSE_AND_EXPLICIT_SUCCESSOR_APPROVAL"
+}
