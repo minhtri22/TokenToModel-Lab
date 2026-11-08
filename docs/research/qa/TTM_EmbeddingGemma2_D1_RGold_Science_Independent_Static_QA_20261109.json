@@ -1,0 +1,217 @@
+{
+  "schema": "ttm.embeddinggemma2.d1.rgold.static_qa.v1",
+  "source": "TTM_EmbeddingGemma2_D1_RGold_OneShot_Science_20261109.py",
+  "source_sha256": "221a3dde64b29a24bd86c6b8035cf501007163c5c0b458205379da0dfc89a70a",
+  "total": 51,
+  "passed": 51,
+  "failed": [],
+  "status": "PASS_SOURCE_ONLY_NO_SCIENCE",
+  "checks": [
+    {
+      "name": "python source compiles",
+      "pass": true
+    },
+    {
+      "name": "source pinned fixture SHA",
+      "pass": true
+    },
+    {
+      "name": "source pinned Qwen revision",
+      "pass": true
+    },
+    {
+      "name": "source pinned GPT backend Transformers",
+      "pass": true
+    },
+    {
+      "name": "source pinned one-shot ID",
+      "pass": true
+    },
+    {
+      "name": "source special-token EOS",
+      "pass": true
+    },
+    {
+      "name": "source no EmbeddingGemma loading",
+      "pass": true
+    },
+    {
+      "name": "source no SQuAD dataset loading",
+      "pass": true
+    },
+    {
+      "name": "source no adapter training",
+      "pass": true
+    },
+    {
+      "name": "source source-code SHA gate",
+      "pass": true
+    },
+    {
+      "name": "source one scientific claim",
+      "pass": true
+    },
+    {
+      "name": "source one terminal result",
+      "pass": true
+    },
+    {
+      "name": "source prevent rerun after terminal",
+      "pass": true
+    },
+    {
+      "name": "source stored group readback",
+      "pass": true
+    },
+    {
+      "name": "source no CLAIM overwrite",
+      "pass": true
+    },
+    {
+      "name": "source 30 minute",
+      "pass": true
+    },
+    {
+      "name": "source 5GiB and 8GiB",
+      "pass": true
+    },
+    {
+      "name": "source free GPU T4",
+      "pass": true
+    },
+    {
+      "name": "science record not auto append lineage",
+      "pass": true
+    },
+    {
+      "name": "bootstrap 10000 seed 20261108",
+      "pass": true
+    },
+    {
+      "name": "greedy max 24",
+      "pass": true
+    },
+    {
+      "name": "no science infer before claim",
+      "pass": true
+    },
+    {
+      "name": "Qwen file sha pins count",
+      "pass": true
+    },
+    {
+      "name": "all Qwen expected size/hash match exact V3 receipt",
+      "pass": true
+    },
+    {
+      "name": "all 4 original receipt hashes match loaded actual bytes",
+      "pass": true
+    },
+    {
+      "name": "model hosted in private Drive for Colab resume",
+      "pass": true
+    },
+    {
+      "name": "strict local model readback before CLAIM",
+      "pass": true
+    },
+    {
+      "name": "NFKC EM terminal punctuation",
+      "pass": true
+    },
+    {
+      "name": "empty evidence no leak",
+      "pass": true
+    },
+    {
+      "name": "dict vs list token normalized",
+      "pass": true
+    },
+    {
+      "name": "nested token normalized",
+      "pass": true
+    },
+    {
+      "name": "numpy token normalized",
+      "pass": true
+    },
+    {
+      "name": "reject bad token IDs",
+      "pass": true
+    },
+    {
+      "name": "fixed bootstrap values",
+      "pass": true
+    },
+    {
+      "name": "bootstrap deterministic",
+      "pass": true
+    },
+    {
+      "name": "bootstrap percentile ordered",
+      "pass": true
+    },
+    {
+      "name": "answer plus EOS exactly two targets",
+      "pass": true
+    },
+    {
+      "name": "causal shift low NLL with correct last-prompt logit",
+      "pass": true
+    },
+    {
+      "name": "NLL wrong scored count rejected",
+      "pass": true
+    },
+    {
+      "name": "changing last prompt logit affects first answer NLL",
+      "pass": true
+    },
+    {
+      "name": "fixture 60/120 schema pass",
+      "pass": true
+    },
+    {
+      "name": "duplicate group rejected",
+      "pass": true
+    },
+    {
+      "name": "gold leakage into wrong evidence rejected",
+      "pass": true
+    },
+    {
+      "name": "negative answer mismatch rejected",
+      "pass": true
+    },
+    {
+      "name": "screen positive on synthetic favorable metrics",
+      "pass": true
+    },
+    {
+      "name": "positive group weighting correct",
+      "pass": true
+    },
+    {
+      "name": "EM over 96 questions",
+      "pass": true
+    },
+    {
+      "name": "negative conservative gate strict zero",
+      "pass": true
+    },
+    {
+      "name": "capability gap on no improvement",
+      "pass": true
+    },
+    {
+      "name": "negative > 6 nonexact => inconclusive, not false fail",
+      "pass": true
+    },
+    {
+      "name": "negative grouping 5/12",
+      "pass": true
+    }
+  ],
+  "models_executed": false,
+  "science_executed": false
+}
