@@ -1,0 +1,18 @@
+{
+  "actual_tokenizer_merges": 1791,
+  "actual_tokenizer_tokens": 2048,
+  "actual_train_only_tokenizer_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "bytes": 15061376,
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "f32_weight_readback_exact": true,
+  "file": "TTM-Small4M-T4-step1024-F32.gguf",
+  "llama_cpp_runtime": "NOT_YET_MEASURED",
+  "no_training": true,
+  "ollama_runtime": "NOT_YET_MEASURED",
+  "schema": "ttm.t5.trained.gguf.f32.export.v1",
+  "science_checkpoint_step": 1024,
+  "sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+  "tensor_count": 52,
+  "test_accessed": false,
+  "trained": true
+}
