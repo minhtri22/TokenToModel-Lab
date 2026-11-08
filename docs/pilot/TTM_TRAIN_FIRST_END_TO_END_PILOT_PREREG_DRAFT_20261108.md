@@ -8,6 +8,8 @@
 
 **Phụ lục thẩm định tổng hợp có hiệu lực ưu tiên:** [TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md). Tệp này là bản tiền đăng ký nháp; điều kiện chưa được khóa và giá trị thiết kế T1/T2 được diễn giải bởi phụ lục trên, không xem là thực nghiệm PASS.
 
+**Quyết định bổ sung mới nhất (2026-11-08):** [T2 F32 native closure and F16 gate amendment](TTM_T2_F32_NATIVE_CLOSURE_AND_F16_GATE_AMENDMENT_20261108.md) có hiệu lực diễn giải ưu tiên trong phạm vi T2: bộ xuất GGUF F32 trên synthetic TRAIN-only PASS tokenizer 20/20 và logits 10/10, F16 vẫn BLOCKED nhưng chuyển sang tuyến tối ưu tùy chọn; T1 nguồn thật, T3 Colab/Drive và science lock tiếp tục HOLD. Không biến PASS kỹ thuật này thành PASS khoa học.
+
 ## 1. Câu hỏi và giả thuyết
 
 **Câu hỏi chính:** Transformer P02 do TTM tự xây có thể học dự đoán văn bản truyện tiếng Anh đơn giản ngoài tập TRAIN, vượt đối chứng thống kê (baseline) trong cùng quy tắc token hóa, và xuất sang llama.cpp/Ollama mà không thay đổi có ý nghĩa đầu ra hay không?
@@ -50,7 +52,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 | T2 — Export dry-run | Mô hình **chưa huấn luyện**: mapping tensors/tokenizer P02 → GPT2/GGUF, chạy llama.cpp CPU | 100% token IDs trên fixture khóa, top-1 logits trùng trên bộ prompt khóa và sai số logits trong ngưỡng đã đăng ký; nếu FAIL thì STOP trước training |
 | T3 — Colab/Drive | Script/notebook versioned; warmup benchmark **synthetic**, save/restore model+optimizer+scheduler+RNG+sampler; READY-last | Interrupted/resumed parity PASS trên cùng GPU/dtype/seed và checkpoint hoàn chỉnh; không dùng corpus khoa học trong T3 |
 | T4 — Small model train | Train 4M nhiều batch trên TRAIN đã khóa, VAL định kỳ, 1 seed cho pilot, baseline unigram/bigram | H1 PASS hoặc FAIL đúng ngân sách; lưu VAL curve, sample rubric đã đăng ký |
-| T5 — Windows deployment | Lưu SHA trên Drive, tải checkpoint về Windows, GGUF F16, llama.cpp/Ollama | Cùng tokenizer/tensors, logits và seeded greedy generation vượt ngưỡng định trước |
+| T5 — Windows deployment | Lưu SHA trên Drive, tải checkpoint về Windows, GGUF F32 (bắt buộc), llama.cpp/Ollama; F16 tùy chọn sau kiểm thử tương thích | Cùng tokenizer/tensors, logits và seeded greedy generation vượt ngưỡng định trước |
 | T6 — A/B | No-cache/Dense/Paged, PyTorch/llama.cpp, F16/Q8/Q4 (nếu đường dẫn có) | Cùng checkpoint/prompt/device, log sai số, TTFT/TPOT, tokens/s, RAM, nhiều lần lặp; không tuyên bố cải thiện khi chưa đo |
 | T7 — Revisit P07 | Chỉ đánh giá kế hoạch tối ưu GPU sau pilot | P07 vẫn có cổng numerical parity và benchmark độc lập; không tự mở P08 |
 
@@ -73,7 +75,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 ## 8. GGUF / llama.cpp / Ollama
 
 - P02 là GPT-2-like nhưng không giống checkpoint GPT-2 Hugging Face: tên tensor tự tạo (`tok`, `pos`, `blocks.*`, `attn.qkv`, `mlp`, ...), QKV projection là `nn.Linear`, LayerNorm eps=1e-5, GELU, embedding/head tied. Cần mapping có kiểm tra chiều và thứ tự transpose, special token, pretokenization. Không đổi `.pt` thành `.gguf` để coi là conversion.
-- Mã `ggml-org/llama.cpp` đã ghim tại commit `372dc5ca157276beb6c67b2e92477e8d662e964a` (GPT2 backend/converter được thấy trong source); exporter còn phải chứng minh số học T2, không lấy existence làm PASS. T2 CPU F32/F16 test trên một tập `fixture_token_ids.json`, kiểm toàn bộ ID, logits batch và greedy 16 steps; **ngưỡng đề xuất** FP32 `max_abs_logit_diff <= 1e-3`, F16 `<= 2e-2`, phải khóa theo đặc tả và kiểm thử trước khi đo checkpoint đã học.
+- Mã `ggml-org/llama.cpp` đã ghim tại commit `372dc5ca157276beb6c67b2e92477e8d662e964a` (GPT2 backend/converter được thấy trong source); exporter còn phải chứng minh số học T2, không lấy existence làm PASS. T2 CPU F32 là cổng kỹ thuật bắt buộc: 20/20 tokenizer IDs và 10/10 vector logits trên bộ fixture mới đã khóa (ngưỡng F32 `max_abs_logit_diff <= 1e-3`, 0 top1 mismatch) đã PASS khi dùng dữ liệu tổng hợp. F16 `<= 2e-2` là tuyến tối ưu *tùy chọn*, hiện BLOCKED theo V4/V5B; không bắt buộc để bắt đầu khoa học nếu các cổng T1/T3 độc lập PASS. Chỉ checkpoint **đã huấn luyện** mới được đánh giá thật ở T5.
 - Sau khi export đạt mới so sánh Ollama `Modelfile FROM ./model.gguf`; Ollama không phải bằng chứng đúng nếu llama.cpp parity chưa PASS. Đối chiếu trên cùng dtype và quan sát số học thay vì kỳ vọng chuỗi sinh luôn trùng ở điểm near-tie.
 - Nếu GPT-2/GGUF backend hiện tại không hỗ trợ byte-BPE mới hoặc một phép tính nào đó, ghi `EXPORT_COMPATIBILITY_GAP`, không thay kiến trúc khoa học đã duyệt hoặc train lại để khắc phục.
 
@@ -83,7 +85,7 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 |---|---|---|
 | No KV / Dense KV / Paged KV | checkpoint, tokens, dtype, backend, device | logits parity, TTFT, TPOT, throughput, RAM/VRAM |
 | PyTorch vs llama.cpp | weights, tokenizer, prompts | logit error, token ID parity, timing |
-| GGUF F16 vs Q8/Q4 | pretrained checkpoint, tokenizer | VAL NLL degradation, size, timing, memory |
+| GGUF F16 vs Q8/Q4 (tùy chọn, khi backend hỗ trợ) | checkpoint đã huấn luyện, tokenizer đã khóa | VAL NLL degradation, size, timing, memory; BLOCKED không cản đánh giá primary bằng F32 |
 | LayerNorm vs RMSNorm | cùng TRAIN, seed, budget và model size | cần **train riêng**; để ngoài critical path 4M |
 | FP32 vs mixed precision | cùng dữ liệu/schedule/seed và budget, 2 lần train | sau pilot; stability, accuracy, speed |
 
@@ -95,9 +97,9 @@ Hợp đồng hiện hành `src/p03/train_loop.py` chỉ chạy *cùng một bat
 
 ## 11. Trạng thái tại thời điểm viết
 
-`LOCAL_MAIN_SYNC=PASS_INDEPENDENT_READBACK` · `PILOT_PREREG_DRAFT=GITHUB_PROPOSAL_NOT_LOCKED` · `PILOT_GITHUB_BRANCH=CREATED_FROM_EXACT_MAIN` · `T1_T7=NOT_EXECUTED` · `COLAB_GPU=NOT_USED` · `GGUF_EXPORT=NOT_EXECUTED` · `P07=PAUSED_PRESERVE`.
+`LOCAL_MAIN_SYNC=PASS_INDEPENDENT_READBACK` · `PILOT_PREREG_DRAFT=SCIENCE_NOT_LOCKED` · `T2_F32_SYNTHETIC_GGUF=PASS_TECHNICAL` · `T2_F16=BLOCKED_OPTIONAL` · `T1_REAL_DATA=NOT_EXECUTED` · `T3_COLAB_RESUME=NOT_EXECUTED` · `T4_T7=NOT_EXECUTED` · `COLAB_GPU=NOT_USED` · `P07=PAUSED_PRESERVE`.
 
-**Bước thực hiện tiếp theo:** Thực hiện T2 GGUF synthetic export trên CPU theo hợp đồng [T1/T2 review](TTM_SMALL4M_T1_T2_INTEGRATED_SOURCE_TOKENIZER_EXPORT_REVIEW_20261108.md), đồng thời bổ sung raw source SHA/story parser trước khoa học. Chỉ sau T2/T3 và tích hợp khóa source/split/tokenizer/budget mới cho phép huấn luyện Colab; không thực nghiệm trong nhánh tài liệu này.
+**Bước thực hiện tiếp theo:** `TTM_SMALL4M_T1_T3_TINYSTORIES_SOURCE_SPLIT_AND_COLAB_DRIVE_RESUME_INTEGRATED_PREFLIGHT`. Chỉ sau khi kiểm định dữ liệu TinyStories thực, tokenizer TRAIN-only thật và T3 Colab/Drive synthetic resume PASS mới đánh giá science lock và T4; không huấn luyện trong nhánh tài liệu này.
 
 ## 12. Những trường tiền đăng ký phải khóa trước TRAIN
 
@@ -111,7 +113,7 @@ Những thông tin sau **chưa có bằng chứng khóa**, nên tài liệu này
 | TRAIN | Ngân sách tokens, effective batch, LR/optimizer/scheduler, seeds, mixed-precision/hardware | `HOLD_SYNTHETIC_CAPACITY_TEST` |
 | BASE | Uniform/unigram/Add-alpha bigram và công thức NLL; bootstrap theo truyện; chênh NLL tối thiểu 5% | `DESIGN_PROPOSED` |
 | RESUME | Schema + SHA READY, optimizer/scheduler/cursor/RNG; parity 20 vs 10+10 cùng runtime | `DESIGN_PROPOSED` |
-| EXPORT | Pin llama.cpp commit, tokenizer/tensor/positional mapping GPT2/GGUF, logits parity; dry-run phải PASS trước train dài | `TECHNICAL_BLOCKER_UNVERIFIED` |
+| EXPORT | T2 F32 synthetic đã PASS native; sau khi khóa TRAIN-only tokenizer dữ liệu thật phải kiểm parity lại trước T4 | `F32_SYNTHETIC_PASS_REAL_TOKENIZER_PENDING` |
 | RESULTS | VAL dùng chọn model trước TEST; TEST một lượt, kết luận PASS/FAIL theo tiêu chí gốc | `DESIGN_PROPOSED` |
 
 Thứ tự: SRC/SPLIT/TOK kiểm định trước TRAIN; GGUF dry-run T2 và resume synthetic T3 phải PASS trước train dài. Không mặc định máy Colab cấp loại GPU cố định. Mọi QA kỹ thuật không cần permit riêng, nhưng cổng nguồn/tiền đăng ký khoa học vẫn bắt buộc.
