@@ -1,0 +1,10 @@
+{
+  "cuda": "13.0",
+  "gpu_name": "Tesla T4",
+  "pip_freeze_sha256": "a6eebfff272109bc4732b72d4bb1a0892d73e3db37c8f35d3afd7f32dcff0b80",
+  "report_sha256": "c55a568496a888bc3abc95c0231a5ed17d3a6f366361571b6f89a4457d09f1ee",
+  "schema": "ttm.t4.capacity.colab.env.v1",
+  "science_executed": false,
+  "synthetic_only": true,
+  "torch": "2.14.1+cu130"
+}
