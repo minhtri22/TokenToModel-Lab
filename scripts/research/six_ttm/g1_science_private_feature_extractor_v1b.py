@@ -280,7 +280,7 @@ def main():
     fit_valid=False
     if split=='TEST':
         frozen_path=work/'G1_FIT_DEV_FROZEN.json'
-        freeze=guard.ensure_regular_no_redirect(frozen_path,work).read_bytes()
+        freeze=guard.read_private_bytes(frozen_path,work,max_size=131072)
         exp=authority.get('fit_sha256')
         need(isinstance(exp,str),'TEST_FIT_SHA_REQUIRED')
         hashes=authority.get('pack_sha_by_split',{})
