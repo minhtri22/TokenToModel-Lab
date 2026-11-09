@@ -1,0 +1,126 @@
+{
+  "complete_calls": 5,
+  "completed_tokens": 283,
+  "completed_utc": "2026-11-09T07:59:03.945250+00:00",
+  "duration_seconds": 12.531,
+  "failure": {
+    "message": "OWNERSHIP_RECHECK_HOLD_UNTRUSTED_PID",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_Q1Q2_BOOTSTRAP_acd72ef759f4\\ttm_q1q2_single_batch.py\", line 277, in run_batch\n    v5.assert_owned_listener(proc,created)\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\tools\\pilot_t5\\v5_native_source_20261109\\t5_final_minimal_smoke_v5.py\", line 241, in assert_owned_listener\n    raise RuntimeError('OWNERSHIP_RECHECK_'+sample['decision'])\nRuntimeError: OWNERSHIP_RECHECK_HOLD_UNTRUSTED_PID\n",
+    "type": "RuntimeError"
+  },
+  "model": "ttm-t5-f32-compat-only-v5final:latest",
+  "no_ollama_create": true,
+  "no_test_access": true,
+  "no_training": true,
+  "output_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_q1q2_ollama_once_v2",
+  "planned_calls": 74,
+  "runs": [
+    {
+      "done_reason": "length",
+      "eval_duration": 40718000,
+      "eval_tokens_per_second": 1571.7864335183458,
+      "generated_tokens": 64,
+      "phase": "Q1",
+      "prompt_id": "E01",
+      "raw_sha256": "0e37354745c441074538b0935bd40b90e8e334a0783108d1d8fe5982cc18c9e6",
+      "reencoded_metrics": {
+        "distinct_2": 0.6666666666666666,
+        "distinct_3": 0.7903225806451613,
+        "repeat_3gram_ratio": 0.20967741935483875,
+        "token_count_reencoded": 64
+      },
+      "run_id": "Q1-E01-G0",
+      "total_duration": 343776500
+    },
+    {
+      "done_reason": "length",
+      "eval_duration": 69607000,
+      "eval_tokens_per_second": 919.4477566911373,
+      "generated_tokens": 64,
+      "phase": "Q1",
+      "prompt_id": "E01",
+      "raw_sha256": "665838f2c9cde8288ba979c4fc4f2e8aa573dcbaefe88b2e4240136bdc5e0c59",
+      "reencoded_metrics": {
+        "distinct_2": 0.9206349206349206,
+        "distinct_3": 0.967741935483871,
+        "repeat_3gram_ratio": 0.032258064516129004,
+        "token_count_reencoded": 64
+      },
+      "run_id": "Q1-E01-S101",
+      "total_duration": 86695500
+    },
+    {
+      "done_reason": "length",
+      "eval_duration": 34212000,
+      "eval_tokens_per_second": 1870.6886472582719,
+      "generated_tokens": 64,
+      "phase": "Q1",
+      "prompt_id": "E01",
+      "raw_sha256": "08ddfec0ab7f7fd9b02df4e22726d3957388001645174cf7f7b091d7370056b4",
+      "reencoded_metrics": {
+        "distinct_2": 0.9682539682539683,
+        "distinct_3": 1.0,
+        "repeat_3gram_ratio": 0.0,
+        "token_count_reencoded": 64
+      },
+      "run_id": "Q1-E01-S102",
+      "total_duration": 40023400
+    },
+    {
+      "done_reason": "stop",
+      "eval_duration": 21091000,
+      "eval_tokens_per_second": 1280.1668958323457,
+      "generated_tokens": 27,
+      "phase": "Q1",
+      "prompt_id": "E02",
+      "raw_sha256": "2956e53c7f8c3c485c96d2618251f4569128f31e837e7b391911cb71885857ac",
+      "reencoded_metrics": {
+        "distinct_2": 0.88,
+        "distinct_3": 0.9166666666666666,
+        "repeat_3gram_ratio": 0.08333333333333337,
+        "token_count_reencoded": 26
+      },
+      "run_id": "Q1-E02-G0",
+      "total_duration": 29064900
+    },
+    {
+      "done_reason": "length",
+      "eval_duration": 67862000,
+      "eval_tokens_per_second": 943.0903893195012,
+      "generated_tokens": 64,
+      "phase": "Q1",
+      "prompt_id": "E02",
+      "raw_sha256": "8b6634f281da3fbd3e55947a7bb0630b931f6c66b5cd862db078d65b78ea6f6b",
+      "reencoded_metrics": {
+        "distinct_2": 0.9523809523809523,
+        "distinct_3": 0.9838709677419355,
+        "repeat_3gram_ratio": 0.016129032258064502,
+        "token_count_reencoded": 64
+      },
+      "run_id": "Q1-E02-S101",
+      "total_duration": 74096800
+    }
+  ],
+  "schema": "ttm.q1q2.single.native.batch.v1",
+  "server_pid": 18428,
+  "shutdown": {
+    "pid": 18428,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "shutdown_port": {
+    "benign_timewait_count": 2,
+    "decision": "HOLD_UNSAFE_PORT_ROW_AFTER_SHUTDOWN"
+  },
+  "source_main": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "status": "HOLD_SHUTDOWN_UNVERIFIED",
+  "store_after_tags": {
+    "added_files": [
+      "metadata/sha256-5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5.json"
+    ],
+    "baseline_files": 5,
+    "sidecar_bytes": 37555,
+    "sidecar_sha256": "d9cdd0ea320df3a97644156fabc9e93263ba2ee9a682d9cfecd2475ebdce272d",
+    "status": "PASS_IMMUTABLE_BLOBS_WITH_OPTIONAL_METADATA"
+  }
+}
