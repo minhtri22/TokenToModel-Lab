@@ -110,7 +110,7 @@ def test_rng_primitives_for_weights_only(tmp_path):
 
 def test_capacity_notebook_no_science_and_source_pinned():
     import ast
-    n=json.loads((ROOT/'TTM_T4_Synthetic_Capacity_20261108_v1.ipynb').read_text())
+    n=json.loads((ROOT/'TTM_T4_Synthetic_Capacity_20261108_v1.ipynb').read_text(encoding='utf-8'))
     assert len(n['cells'])==5
     for c in n['cells']:
         if c['cell_type']=='code':ast.parse(''.join(c['source']))
@@ -156,7 +156,7 @@ def test_capacity_real_window_inflation_can_block_90min():
 
 def test_science_notebook_fails_closed_before_drive():
     import ast
-    nb=json.loads((ROOT/'TTM_T4_Science_FailClosed_20261108_v1.ipynb').read_text())
+    nb=json.loads((ROOT/'TTM_T4_Science_FailClosed_20261108_v1.ipynb').read_text(encoding='utf-8'))
     for c in nb['cells']:
         if c['cell_type']=='code':ast.parse(''.join(c['source']))
     cell2=''.join(nb['cells'][2]['source'])
