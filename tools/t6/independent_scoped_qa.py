@@ -14,6 +14,9 @@ import re
 import sys
 
 ROOT=Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+ sys.path.insert(0, str(ROOT))
+from tools.t6.path_containment import resolve_t6_artifact
 BLOBS={
  "src/p02/transformer_core.py":"9762343e06cf800b50574c2871ae1ed58537fb18",
  "src/p05/dense_kv_cache.py":"d835e5d7bb07fea447c5a869b13c70327ab05a53",
@@ -85,18 +88,13 @@ def main(argv=None):
  ap.add_argument("--unittest-log",default="artifacts/qa/t6/TTM_T6_UNITTEST_20261109.log")
  ap.add_argument("--output",default="artifacts/qa/t6/TTM_T6_INDEPENDENT_QA_20261109.json")
  args=ap.parse_args(argv)
- paths=[]
- for name in (args.report,args.unittest_log,args.output):
-  p=Path(name)
-  if p.is_absolute() or ".." in p.parts or p.parts[:3] != ("artifacts","qa","t6"):
-   ap.error("paths must be inside artifacts/qa/t6")
-  paths.append(ROOT/p)
- source,logfile,out=paths
- if out.exists():raise FileExistsError("no overwrite independent QA artifact")
+ # Guard all three direct-Python paths before reading or writing any file.
+ source = resolve_t6_artifact(ROOT, args.report, for_write=False, suffix=".json")
+ logfile = resolve_t6_artifact(ROOT, args.unittest_log, for_write=False, suffix=".log")
+ out = resolve_t6_artifact(ROOT, args.output, for_write=True, suffix=".json")
  report=json.loads(source.read_text(encoding="utf8"))
  res=audit(report,unittest_log=logfile.read_text(encoding="utf8"))
  res["inputs"]={"benchmark_report_sha256":file_sha(source),"unittest_log_sha256":file_sha(logfile)}
- out.parent.mkdir(parents=True,exist_ok=True)
  with out.open("x",encoding="utf8") as f:json.dump(res,f,indent=2,sort_keys=True);f.write("\n")
  print(res["status"])
  print("T6_INDEPENDENT_QA_SHA256="+file_sha(out))
