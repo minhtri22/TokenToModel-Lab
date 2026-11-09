@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.small4m.posthoc_semantic_review.rubric.github_canonical.v1",
+  "source_original_rubric_sha256": "61705dac08df2c4458eb37e1fd9530d75a2efa11bec0a85f7f63640a5aaabad3",
+  "scope": "32 completed post-hoc AI ratings; not human or independently repeated",
+  "axes_0to3": {
+    "adherence": {
+      "0": "No distinctive character/setting/object/task continuation",
+      "1": "Only one distinctive detail or minimal meaningful reference, main task abandoned",
+      "2": "Multiple defining elements retained with some relevant continuation",
+      "3": "Main agents, object and causal goal retained in coherent continuation"
+    },
+    "coherence": {
+      "0": "Predominantly broken fragments, repetitions or unrelated dialogue with no understandable progression",
+      "1": "Some intelligible phrases/sentences but unstable or disconnected narrative",
+      "2": "Mostly comprehensible local narrative with several connected events",
+      "3": "Well-formed, progressing and understandable story continuation"
+    },
+    "consistency": {
+      "0": "Abrupt referent/agent/scene shifts or internally contradictory/incoherent references",
+      "1": "Some local referent/scene continuity with notable lapses",
+      "2": "Mostly stable referents/scene with minor lapses",
+      "3": "Stable setting, entities, events and references throughout"
+    }
+  },
+  "instructions": [
+    "Rate continuation content, not leading newline/space",
+    "Do not penalize only because a 64-token truncation ends mid-clause",
+    "Do not use known condition labels to score",
+    "Single AI rater was not an independent human evaluator"
+  ],
+  "failure_report": "A/B original allocation 24 A=trimmed vs 8 A=baseline, not balanced; design caveat retained",
+  "github_copy_note": "This GitHub-normalized rubric records the substance of the frozen source; the original SHA above refers to the original UTF-8 source file, not this copy."
+}
