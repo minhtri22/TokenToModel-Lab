@@ -349,6 +349,6 @@ if __name__=='__main__':
     import argparse
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['selftest'],required=True)
     p.parse_args()
-    print(json.dumps({'status':'V1B_GUARD_SOURCE_ONLY_NO_SCIENCE',
+    print(json.dumps({'status':'V1C_GUARD_SOURCE_ONLY_NO_SCIENCE',
         'owner_key_provisioned': OWNER_ED25519_PUBLIC_SHA256_PIN is not None,
         'science_authorized':False},sort_keys=True))
