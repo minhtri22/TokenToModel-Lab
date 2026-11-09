@@ -16,9 +16,9 @@ An author-distinct scientist/agent should review **source code, exact blob pins 
 | Source mapper and private G1 metadata producer | `aee230060f8202907953e0eeab0ae5b1099a584e` |
 | Private G1 29-gate metadata QA | `7dfc6bea2cee1773c20fee655691fc366a6a9ecd` |
 | Science core `g1_science_core_v1.py` | `b3ea8c890c45e3e2d248ad850977b53f5782552e` |
-| Feature extractor `g1_science_private_feature_extractor_v1.py` | `f1557470ff66857e35ced71641b542685f6b3083` |
+| Feature extractor `g1_science_private_feature_extractor_v1.py` | `9b490c8ed65dc1ecc56d7d0217dc89f022807327` |
 | Adversarial QA `g1_science_adversarial_qa_v1.py` | `e6a93ac8248665de78d970ef9d237de5a45d9d8c` |
-| Integrated QA `g1_science_preexecution_integrated_qa_v1.py` | `c022de4bdc2eae88b61d1ea2d578302c25c12445` |
+| Integrated QA `g1_science_preexecution_integrated_qa_v1.py` | `23d1c947a14f663b17c9d96cdbb33c26b9a9f9c2` |
 | T1 split 2368 IDs (SHA256) | `9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9` |
 | G1 private prefix manifest SHA256 | `6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6` |
 | Qwen0.6B weight SHA256 | `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b` |
@@ -65,7 +65,7 @@ reviewer_id=<independently verified human or genuinely separate agent execution>
 reviewer_is_code_author=false
 reviewed_branch=<exact research branch>
 reviewed_core_blob=b3ea8c890c45e3e2d248ad850977b53f5782552e
-reviewed_extractor_blob=f1557470ff66857e35ced71641b542685f6b3083
+reviewed_extractor_blob=9b490c8ed65dc1ecc56d7d0217dc89f022807327
 reviewed_v1a_amendment=<exact reviewed blob>
 independent_tests=<source, methods, receipts>
 risks_and_open_findings=<specific evidence>
