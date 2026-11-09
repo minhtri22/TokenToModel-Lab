@@ -1,0 +1,64 @@
+{"case": "V1B_FREEZE_ACCEPTED_BY_GUARD", "status": "CONTROL_PASS"}
+{"case": "V1B_SCHEMA_MISMATCH_REPRODUCED", "old_replay_schema": "ttm.six.g1.fit_dev_frozen_v1", "persisted_schema": "ttm.six.g1.fit_dev_frozen_v1b", "status": "CONTROL_PASS"}
+{"case": "V1B_CRITICAL_A_OBSERVED", "status": "DEFECT_REPRODUCED", "terminal": "FIT_DEV_SELECTION_CHANGED"}
+{"alphas": [1.0, 1.0, 1.0], "case": "V1C_FULL_PREPARE_FINALIZE_REPLAY_MATCH", "freeze_sha256": "3a332e7235c83c35b0ab210bad702f6088df913e6783e1392b618e555ebc3be9", "null_count": 1000, "permutation_sha256": "1333e77fbafdc8a66fb7bf77ebd99db4a68b19d41ef9a8c2389be03d9ce9e4f9", "status": "CONTROL_PASS"}
+{"case": "V1C_DEV_REPLAY_UNCONSUMED_MARKER", "status": "CONTROL_PASS"}
+{"case": "FREEZE_MISSING_ALPHA", "error_code": "STOP_G1_FIT_DEV_KEYSET_INCOMPLETE_OR_EXTRA", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_BOOLEAN_ALPHA", "error_code": "STOP_G1_FIT_DEV_ALPHA", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_NULL_BOOLEAN_ALPHA", "error_code": "STOP_G1_FIT_DEV_NULL_GRID", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_MISSING_SEED", "error_code": "STOP_G1_FIT_DEV_FIELD_SEED_BOOT", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_NONHEX_DIGEST", "error_code": "STOP_G1_FIT_DEV_SHA_FORMAT_NULL_PERMUTATION_SHA256", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_WRONG_RUN", "error_code": "STOP_G1_FIT_DEV_FIELD_RUN_ID", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_WRONG_TRAIN_SHA", "error_code": "STOP_G1_FIT_DEV_FIELD_TRAIN_PACK_SHA256", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_PARTIAL_NULLS", "error_code": "STOP_G1_FIT_DEV_NULL_GRID", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_STALE_HASH", "error_code": "STOP_G1_FIT_DEV_HASH_CHANGED", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_EMPTY_BYTES", "error_code": "STOP_G1_FIT_DEV_JSON_INVALID", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "FREEZE_ADDED_UNKNOWN_KEY", "error_code": "STOP_G1_FIT_DEV_KEYSET_INCOMPLETE_OR_EXTRA", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "V1B_FALSE_CKA_SIGNIFICANCE_REPRODUCED", "old_null_max": 1.0, "old_null_min": 0.9999999999999998, "old_observed": 1.0000000000000013, "old_p": 0.000999000999000999, "status": "CONTROL_PASS"}
+{"case": "V1B_CRITICAL_B_OBSERVED", "p": 0.000999000999000999, "status": "DEFECT_REPRODUCED"}
+{"case": "V1C_INVARIANT_CKA_P_ONE", "observed": 1.0000000000000013, "p": 1.0, "status": "CONTROL_PASS"}
+{"case": "V1C_INDEPENDENT_GRAM_OBSERVED", "independent_observed": 1.0000000000000013, "status": "CONTROL_PASS"}
+{"case": "V1C_CKA_INDEPENDENT_1000_DRAW_REPLAY", "draws": 1000, "status": "CONTROL_PASS", "tolerance": 1.4210854715202023e-14}
+{"case": "V1C_INFORMATIVE_PAIRED_P_SMALL", "p": 0.000999000999000999, "status": "CONTROL_PASS"}
+{"case": "V1C_ZERO_GRAM_TERMINAL_INCONCLUSIVE", "status": "CONTROL_PASS"}
+{"case": "V1C_CKA_SCALE_0.1", "status": "PASS_CKA"}
+{"case": "V1C_CKA_SCALE_1000.0", "status": "PASS_CKA"}
+{"case": "RIDGE_PRIMAL_DUAL_1.0", "max_abs_diff": 1.2601031329495527e-14, "status": "CONTROL_PASS"}
+{"case": "RIDGE_PRIMAL_DUAL_10.0", "max_abs_diff": 5.773159728050814e-15, "status": "CONTROL_PASS"}
+{"case": "RIDGE_PRIMAL_DUAL_100.0", "max_abs_diff": 4.440892098500626e-15, "status": "CONTROL_PASS"}
+{"case": "ORTHOGONAL_ROTATION_NEUTRALITY", "max_abs_diff": 3.552713678800501e-15, "status": "CONTROL_PASS"}
+{"case": "V1C_INDEPENDENT_FULL_LOOP_COUNTS", "result_scoped_verdict": "PASS_SCOPED_FEASIBILITY_NOT_CAUSAL_SIX", "status": "CONTROL_PASS", "synthetic_only": true}
+{"case": "PAIRED_BOOTSTRAP_63_PLUS_ONE_ZERO_LOWER", "lower": 0.0, "status": "CONTROL_PASS"}
+{"case": "PAIRED_BOOTSTRAP_DEGENERATE_INCONCLUSIVE", "status": "CONTROL_PASS"}
+{"case": "PROBE_BANK_8_EXACT_FIXED", "status": "CONTROL_PASS"}
+{"case": "SYNTHETIC_KEY_SIGNATURE_CONTRACT", "status": "CONTROL_PASS"}
+{"case": "UNPROVISIONED_PRODUCTION_KEY_REJECTS", "error_code": "STOP_G1_AUTHORITY_KEY_NOT_PROVISIONED", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "MUTATED_SIGNATURE_STOP", "error_code": "STOP_G1_PERMIT_SIGNATURE_INVALID", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "WRONG_HEAD_FORMAT", "error_code": "STOP_G1_PERMIT_SOURCE_PIN_FORMAT_HEAD_COMMIT_SHA", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "NO_OWNER_ID", "error_code": "STOP_G1_PERMIT_IDENTITY_OR_PIN_MISSING", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "REVIEWER_EQ_AUTHOR", "error_code": "STOP_G1_PERMIT_NOT_DISTINCT", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "WRONG_DATA_SCOPE", "error_code": "STOP_G1_PERMIT_DATA_SCOPE", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "EXPIRED", "error_code": "STOP_G1_PERMIT_EXPIRED", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "WRONG_CORE_BLOB", "error_code": "STOP_G1_PERMIT_FIELD_REVIEWED_CORE_BLOB", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "CROSS_COMPONENT_BINDING_GAP_reviewed_guard_blob", "status": "CONTROL_PASS"}
+{"case": "EXTERNAL_LAUNCHER_MISSING_reviewed_guard_blob", "status": "DEFECT_REPRODUCED"}
+{"case": "CROSS_COMPONENT_BINDING_GAP_reviewed_extractor_blob", "status": "CONTROL_PASS"}
+{"case": "EXTERNAL_LAUNCHER_MISSING_reviewed_extractor_blob", "status": "DEFECT_REPRODUCED"}
+{"case": "CROSS_COMPONENT_BINDING_GAP_reviewed_amendment_blob", "status": "CONTROL_PASS"}
+{"case": "EXTERNAL_LAUNCHER_MISSING_reviewed_amendment_blob", "status": "DEFECT_REPRODUCED"}
+{"case": "CROSS_COMPONENT_BINDING_GAP_head_commit_sha", "status": "CONTROL_PASS"}
+{"case": "EXTERNAL_LAUNCHER_MISSING_head_commit_sha", "status": "DEFECT_REPRODUCED"}
+{"case": "SPLIT_HARDLINK_PRE_FREEZE_READ_BOUNDARY_GAP", "status": "CONTROL_PASS"}
+{"case": "SPLIT_BROKER_UNTRUSTED_ALIAS", "status": "DEFECT_REPRODUCED"}
+{"case": "SPLIT_TEST_PRE_FREEZE_REJECT", "error_code": "STOP_G1_TEST_PREMATURE_SOURCE_ACCESS", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "SELF_SIGNED_PACK_RECEIPT_ACCEPTS_NUMERIC_MUTATION", "status": "CONTROL_PASS"}
+{"case": "PACK_EXTERNAL_TRUST_MISSING", "status": "DEFECT_REPRODUCED"}
+{"case": "TRUSTED_PACK_DIGEST_MISMATCH_REJECTS", "error_code": "STOP_G1_TRUSTED_PACK_SHA_MISMATCH", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "TRANSACTION_POST_LINK_INJECTION", "error_code": "INJECT_POST_LINK_FAILURE", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "TRANSACTION_ORPHAN_FILE_REPRODUCED", "status": "CONTROL_PASS"}
+{"case": "PACK_RECEIPT_NOT_ATOMIC", "status": "DEFECT_REPRODUCED"}
+{"case": "ONE_SHOT_LOCAL_ROLLBACK_REPLAY_REPRODUCED", "status": "CONTROL_PASS"}
+{"case": "MONOTONIC_EXTERNAL_LEDGER_ABSENT", "status": "DEFECT_REPRODUCED"}
+{"case": "BUDGET_COOPERATIVE_TIMEOUT_ON_NEXT_POLL", "error_code": "STOP_G1_MODEL_CUMULATIVE_TIMEOUT", "error_type": "RuntimeError", "status": "CONTROL_PASS"}
+{"case": "BUDGET_CANNOT_KILL_BLOCKED_CALL", "external_kill_tested": false, "status": "CONTROL_PASS", "wall": 3601}
+REVIEW_SUMMARY={"checks": 63, "controls": 51, "corrected_v1c_cka_p": 1.0, "critical_v1b_cka": "REPRODUCED", "critical_v1b_freeze": "REPRODUCED", "critical_v1c_cka": "PASS", "critical_v1c_freeze": "PASS", "defects_reproduced": 10, "informative_v1c_cka_p": 0.000999000999000999, "original_v1b_cka_p": 0.000999000999000999, "review_schema": "ttm.six.g1.v1c.distinct_adversarial_cpu.v1", "reviewed_head": "d5d0c5346a595557a76349f900d09be50bce289c", "science_executed": false, "synthetic_only": true}

@@ -1,0 +1,16 @@
+G1 V1C SOURCE-PINNED AUTHOR QA REPLAY, synthetic CPU only
+== RUN test_g1_v1c_critical_qa.py ==
+{"checks": 7, "cka_invariant_null_p": 1.0, "cka_significant_fixture_p": 0.000999000999000999, "freeze_replay": "PASS", "full_loops": "1000_SHUFFLE_1000_CKA_2000_BOOTSTRAP", "science_executed": false, "status": "PASS_V1C_CRITICAL_SYNTHETIC_QA_NO_SCIENCE", "zero_gram": "INCONCLUSIVE"}
+EXIT_CODE=0
+== RUN test_g1_v1c_hard_gate_negative_qa.py ==
+{"checks": 22, "items": ["TEST_KEY_ONLY_PROVES_SIGNATURE_CONTRACT", "AUTHORITY_KEY_NOT_PROVISIONED", "PERMIT_IDENTITY_OR_PIN_MISSING", "PERMIT_FIELD_REVIEWED_GUARD_BLOB", "PERMIT_IDENTITY_OR_PIN_MISSING", "PERMIT_IDENTITY_OR_PIN_MISSING", "PERMIT_DATA_SCOPE", "COMPLETE_FREEZE_PASS", "FIT_DEV_FIELD_", "FIT_DEV_FIELD_", "FIT_DEV_FIELD_", "FIT_DEV_KEYSET_", "FIT_DEV_NULL_GRID", "FIT_DEV_SHA_FORMAT_", "NONFINITE_SCORE_STOP", "BUDGET_LEDGER_REQUIRED", "BUDGET_LEDGER_REQUIRED", "BUDGET_BAD_LEDGER", "BUDGET_FULL_LEDGER_PASS", "COMMIT_ROOT_REDIRECT", "NO_WRITE_BEFORE_ROOT_REDIRECT_STOP", "PACK_OPEN_IDENTITY_CHANGED"], "science_executed": false, "status": "PASS_V1C_HARD_GATE_NEGATIVE_QA_NO_SCIENCE"}
+EXIT_CODE=0
+== RUN g1_science_guard_v1c.py --mode selftest ==
+{"owner_key_provisioned": false, "science_authorized": false, "status": "V1C_GUARD_SOURCE_ONLY_NO_SCIENCE"}
+EXIT_CODE=0
+== RUN g1_science_core_v1c.py --mode synthetic-qa ==
+{"negative_overlap_caught": true, "no_test_files_read": true, "no_weights_or_raw_text_read": true, "one_shot_not_consumed": true, "status": "PASS_SYNTHETIC_ONLY_NO_SCIENCE", "tests": 6}
+EXIT_CODE=0
+== RUN g1_science_private_feature_extractor_v1c.py --mode synthetic-qa ==
+{"status": "PASS_EXTRACTOR_V1C_SYNTHETIC_ONLY", "probes": 8, "science_executed": false}
+EXIT_CODE=0
