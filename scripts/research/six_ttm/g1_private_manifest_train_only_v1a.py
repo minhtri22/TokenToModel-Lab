@@ -385,7 +385,7 @@ def selftest():
     ensure(err is None and value[1] == 134, "WHITESPACE_PREFIX_FIXTURE_FAIL")
     source = {}
     for i in range(300):
-        body = ("a"*100 + "." + str(i).zfill(5) + " the day continued")
+        body = (str(i).zfill(5) + "a"*95 + ". the day continued")
         source[sha_bytes(body.encode())] = (i, body)
     result, exclusions, before, dedup = collect_candidates(source, {
         "qwen06": FakeTokenizer(), "qwen17": FakeTokenizer()})
