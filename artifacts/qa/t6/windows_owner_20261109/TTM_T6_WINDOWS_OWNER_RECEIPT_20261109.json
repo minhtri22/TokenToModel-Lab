@@ -1,0 +1,16 @@
+{
+    "schema":  "ttm.t6.windows.owner_cpu_replay_receipt.v1",
+    "branch":  "feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109",
+    "source_head":  "ff4d30ea294f148d5d060f1331cfbf6f4f6d44aa",
+    "scope":  "synthetic CPU only; no training, TEST, Q1/Q2, P07 or P08",
+    "platform":  "Windows-11-10.0.26300-SP0",
+    "python":  "3.12.10",
+    "torch":  "2.11.0+cpu",
+    "unittest_status":  "PASS_16_OF_16",
+    "independent_qa_status":  "PASS_33_OF_33_SCOPED_MATERIAL_AND_ARITHMETIC",
+    "hashes_sha256":  {
+                          "unittest_log":  "2f063493c448723ae9fcfd2d2ca364bb0374dcdf1369558c9302669924c93590",
+                          "benchmark_json":  "39275324dc56c2bbfb075e73991cf4383f48bdc38acdaf182c66178b42e113b0",
+                          "independent_qa_json":  "2525b423dac500c19810e4c66a301939bf0e4083ceeeb0a779509c41783b6591"
+                      }
+}
