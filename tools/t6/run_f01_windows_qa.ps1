@@ -16,8 +16,8 @@ $wt = Join-Path $RepoRoot '.worktrees\ttm-t6-f01-security-qa-20261109'
 $qaDirRel = 'artifacts/qa/t6/f01_windows_qa'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 
-function GitOne([string[]]$Args, [string]$WorkDir, [string]$Tag) {
-    $r = @(& git -C $WorkDir @Args)
+function GitOne([string[]]$GitArguments, [string]$WorkDir, [string]$Tag) {
+    $r = @(& git -C $WorkDir @GitArguments)
     if ($LASTEXITCODE -ne 0 -or $r.Count -ne 1) { throw ($Tag+'_GIT_FAILURE') }
     return ([string]$r[0]).Trim()
 }
