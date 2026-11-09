@@ -1,0 +1,72 @@
+{"case": "authority production disabled", "detail": "", "observation": "CONTROL"}
+{"case": "signed wrong phase", "detail": "PERMIT_FIELD_PHASE", "observation": "CONTROL"}
+{"case": "signed wrong workspace", "detail": "PERMIT_FIELD_WORKSPACE", "observation": "CONTROL"}
+{"case": "signed wrong run_id", "detail": "PERMIT_FIELD_RUN_ID", "observation": "CONTROL"}
+{"case": "signed wrong reviewed_extractor_blob", "detail": "PERMIT_FIELD_REVIEWED_EXTRACTOR_BLOB", "observation": "CONTROL"}
+{"case": "authority expired", "detail": "PERMIT_EXPIRED", "observation": "CONTROL"}
+{"case": "authority same reviewer", "detail": "PERMIT_NOT_DISTINCT", "observation": "CONTROL"}
+{"case": "authority missing author", "detail": "PERMIT_IDENTITY_OR_PIN_MISSING", "observation": "CONTROL"}
+{"case": "authority foreign self-sign", "detail": "", "observation": "CONTROL"}
+{"case": "authority foreign signature under pinned key", "detail": "", "observation": "CONTROL"}
+{"case": "authority modified after signing", "detail": "", "observation": "CONTROL"}
+{"case": "authority missing HEAD and weak cross-pins/identity binding", "detail": "accepted synthetic signature with absent HEAD and scope detail", "observation": "DEFECT"}
+{"case": "independent primal DEV selection and all shuffled fits", "detail": {"alpha_histogram": {"1.0": 246, "10.0": 63, "100.0": 691}, "null_fits": 1000, "permutation_sha256": "1333e77fbafdc8a66fb7bf77ebd99db4a68b19d41ef9a8c2389be03d9ce9e4f9"}, "observation": "CONTROL"}
+{"case": "orthogonal basis control after scaling", "detail": 1.0658141036401503e-14, "observation": "CONTROL"}
+{"case": "TRAIN zero probe standard deviation", "detail": "TRAIN_FUNCTION_STD_DEGENERATE", "observation": "CONTROL"}
+{"case": "DEV zero SST", "detail": "DEV_SST_DEGENERATE", "observation": "CONTROL"}
+{"case": "invalid alpha", "detail": "", "observation": "CONTROL"}
+{"case": "wrong permutation count", "detail": "", "observation": "CONTROL"}
+{"case": "full synthetic evaluate counts", "detail": {"aligned_macro_r2": 0.9871008465064092, "bootstrap_95_lower_aligned_minus_mean": 0.787463356076878, "cka_permutation_p": 0.000999000999000999, "direct_macro_r2": 0.9874527876170297, "oracle_macro_r2": 0.9953626874143913, "permutation_p": 0.000999000999000999}, "observation": "CONTROL"}
+{"case": "full synthetic zero TEST SST", "detail": "", "observation": "CONTROL"}
+{"case": "full synthetic zero CKA", "detail": "", "observation": "CONTROL"}
+{"case": "63+1 bootstrap includes zero-deviation draws", "detail": {"lower": 0.0, "zero_deviation_draws": 766}, "observation": "CONTROL"}
+{"case": "NPZ tensor mutation with same IDs and matching self-written receipt", "detail": "", "observation": "CONTROL"}
+{"case": "hash and parse same buffer despite post-read substitution", "detail": "", "observation": "CONTROL"}
+{"case": "oversize member", "detail": "PACK_MEMBER_SIZE", "observation": "CONTROL"}
+{"case": "ZIP bomb compression ratio", "detail": "PACK_COMPRESSION_RATIO", "observation": "CONTROL"}
+{"case": "Windows junction rejected", "detail": "", "observation": "CONTROL"}
+{"case": "commit through junction root writes before rejecting", "detail": "", "observation": "DEFECT"}
+{"case": "Windows symbolic link rejected", "detail": "", "observation": "CONTROL"}
+{"case": "read handle not tied to prechecked path identity", "detail": "mock redirect at os.open; trusted NPZ digest independently detects byte change", "observation": "DEFECT"}
+{"case": "8 concurrent exclusive marker claimants", "detail": {"wins": 1}, "observation": "CONTROL"}
+{"case": "workspace rollback/deleted marker replays after consumption", "detail": "", "observation": "DEFECT"}
+{"case": "crash before pack link leaves no final pack", "detail": "", "observation": "CONTROL"}
+{"case": "crash after pack link leaves pack without receipt", "detail": "", "observation": "DEFECT"}
+{"case": "crash before receipt publication leaves orphan", "detail": "", "observation": "DEFECT"}
+{"case": "crash after receipt publication leaves both bytes", "detail": "", "observation": "CONTROL"}
+{"case": "malformed complete freeze accepted by extractor validator", "detail": "boolean alpha and non-hex digest accepted; seeds omitted", "observation": "DEFECT"}
+{"case": "extractor production permit blocks before GPU or source", "detail": "", "observation": "CONTROL"}
+{"case": "missing freeze before GPU or source", "detail": "", "observation": "CONTROL"}
+{"case": "empty freeze before GPU or source", "detail": "", "observation": "CONTROL"}
+{"case": "changed freeze before GPU or source", "detail": "", "observation": "CONTROL"}
+{"case": "authentic digest but wrong freeze run", "detail": "", "observation": "CONTROL"}
+{"case": "extractor crash before marker leaves source unopened", "detail": "", "observation": "CONTROL"}
+{"case": "extractor fault after marker before TEST bytes", "detail": "", "observation": "CONTROL"}
+{"case": "extractor STOP blocks replay while marker persists", "detail": "", "observation": "CONTROL"}
+{"case": "extractor replay after workspace marker deletion", "detail": "", "observation": "DEFECT"}
+{"case": "split access trap for TRAIN and DEV", "detail": ["G1_PREFIX_TRAIN.json", "G1_PREFIX_DEV.json"], "observation": "CONTROL"}
+{"case": "authentic prepare freeze fails finalize schema comparison", "detail": {"freeze_schema": "ttm.six.g1.fit_dev_frozen_v1b", "replay_schema": "ttm.six.g1.fit_dev_frozen_v1"}, "observation": "DEFECT"}
+{"case": "core TEST read fault consumes marker first", "detail": "", "observation": "CONTROL"}
+{"case": "core read replay blocked after STOP", "detail": "", "observation": "CONTROL"}
+{"case": "core TEST replay after marker deletion", "detail": "", "observation": "DEFECT"}
+{"case": "cumulative clock detects overrun at next poll", "detail": "", "observation": "CONTROL"}
+{"case": "same run can reset counters when elapsed is omitted", "detail": "", "observation": "DEFECT"}
+{"case": "run total check with over-limit previous teacher", "detail": "", "observation": "CONTROL"}
+{"case": "mock reserved VRAM 13 GiB rejected at tail", "detail": "", "observation": "CONTROL"}
+{"case": "blocked load survives deadline without kill", "detail": "", "observation": "DEFECT"}
+{"case": "blocked forward survives deadline without kill", "detail": "", "observation": "DEFECT"}
+{"case": "public CLI sanitized failure g1_science_core_v1b.py", "detail": "{\"status\": \"STOP_G1_FAIL_CLOSED\", \"error_type\": \"RuntimeError\", \"error_code\": \"SANITIZED_STOP_DETAILS_IN_PRIVATE_LOG_ONLY\", \"science_not_claimed\": true}", "observation": "CONTROL"}
+{"case": "public CLI sanitized failure g1_science_private_feature_extractor_v1b.py", "detail": "{\"status\": \"STOP_FAIL_CLOSED\", \"error_code\": \"RuntimeError\", \"science_pass_not_claimed\": true}", "observation": "CONTROL"}
+{"case": "exact eight public probe pairs, order and leading spaces", "detail": "8daf50dc85d3bbd30061707186b1a1ef6172b8407b56dda5fea6e55d483406fe", "observation": "CONTROL"}
+{"case": "Qwen source model and auxiliary pins match historical receipt", "detail": {"files": 8}, "observation": "CONTROL"}
+{"case": "Qwen target model and auxiliary pins match historical receipt", "detail": {"files": 10}, "observation": "CONTROL"}
+{"case": "Qwen changed tokenizer.json stopped before local loader", "detail": "", "observation": "CONTROL"}
+{"case": "Qwen changed config.json stopped before local loader", "detail": "", "observation": "CONTROL"}
+{"case": "Qwen changed model.safetensors.index.json stopped before local loader", "detail": "", "observation": "CONTROL"}
+{"case": "CKA invariant Gram generates false significance from numerical ties", "detail": {"actual_p": 0.000999000999000999, "expected_p": 1.0, "first_null": 0.3544978402876986, "observed": 0.35449784028769865}, "observation": "DEFECT"}
+{"case": "plaintext synthetic heldout bytes read via TRAIN hardlink before rejection", "detail": "", "observation": "DEFECT"}
+{"case": "freeze validator accepts omitted pack digest bindings", "detail": "", "observation": "DEFECT"}
+{"case": "blocked cleanup survives deadline without kill", "detail": "", "observation": "DEFECT"}
+{"case": "v1a first occurrence is zero-based and keeps original raw identity", "detail": {"source_rows": 277, "unique_raw_ids": 276}, "observation": "CONTROL"}
+{"case": "v1a deterministic exact story/prefix dedup before 128/64/64", "detail": {"counts": {"DEV": 64, "TEST": 64, "TRAIN": 128}, "eligible": 276, "exclusions": {"DUPLICATE_NORMALIZED_STORY": 1, "DUPLICATE_PREFIX": 2, "NO_APPROVED_BOUNDARY": 0, "PREFIX_TOO_SHORT": 0, "TOKEN_COUNT_OUTSIDE_8_96": 0}, "unique": 273}, "observation": "CONTROL"}
+{"science_executed": false, "summary": {"CONTROL": 54, "DEFECT": 17, "NOT_TESTED": 0}}
