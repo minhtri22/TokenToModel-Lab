@@ -26,6 +26,7 @@ Ngày cập nhật 2026-11-09. Nguồn chính thức: repository `minhtri22/Toke
 - [QA tĩnh / trạng thái HOLD người chấm](../../../artifacts/qa/ttm-original1280/fresh12/TTM_SMALL4M_FRESH12_READINESS_SCOPED_QA_20261109.json)
 - [Mẫu CSV 144 điểm cho người chấm độc lập](../../../artifacts/qa/ttm-original1280/fresh12/REVIEWER_SCORE_TEMPLATE_20261109.csv)
 - [Mẫu tiếp nhận và xác nhận độc lập — chưa ký](TTM_SMALL4M_FRESH12_INDEPENDENT_REVIEWER_ATTESTATION_TEMPLATE_20261109.md)
+- [**Handoff dành cho Codex reviewer khi có agent rảnh**](TTM_FRESH12_CODEX_INDEPENDENT_REVIEWER_HANDOFF_20261109.md) — không chứa khóa giải mù và không tự chạy 48 mẫu nếu người chấm chưa xác nhận.
 - [Escrow A/B được mã hóa AES-256-GCM](../../../artifacts/qa/ttm-original1280/fresh12/TTM_SMALL4M_FRESH12_ENCRYPTED_BLIND_SEED_ESCROW_20261109.json); **khóa giải mã không thể đưa lên GitHub công khai** trước khi khóa điểm.
 
 ## C. Ranh giới công khai / bí mật
@@ -35,3 +36,7 @@ GitHub repo hiện tại là **public**. Không commit checkpoint, private BPE m
 Trạng thái: `SOURCE_OF_TRUTH=GITHUB_PR13` · `FRESH12_PREREG=FROZEN` · `REVIEWER=HOLD_NOT_IDENTIFIED` · `INFERENCE=NOT_EXECUTED` · `TRAINING=NOT_EXECUTED` · `TEST=UNTOUCHED` · `PR13=HOLD` · `MAIN=UNCHANGED` · `LINEAGE=L0017_UNCHANGED`.
 
 **Bước thực hiện tiếp theo:** tiếp nhận người chấm độc lập và khóa attestation, rồi thực thi one-shot 48 continuation theo hợp đồng GitHub đã ghim.
+
+## D. Rà soát quy hoạch nhánh song song
+
+[Tài liệu đối chiếu toàn bộ kế hoạch P00–P12 và các workstream có thể làm song song](https://github.com/minhtri22/TokenToModel-Lab/blob/governance/ttm-parallel-workstreams-review-20261109/docs/governance/TTM_P00_P12_ORIGINAL_PLAN_VS_CURRENT_PARALLEL_WORKSTREAMS_20261109.md) nằm ở **nhánh quản trị riêng** từ `main`, không hợp nhất cùng PR #13 và không thay phase gates gốc.
