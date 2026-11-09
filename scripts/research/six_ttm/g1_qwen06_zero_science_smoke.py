@@ -27,7 +27,7 @@ def environment():
     try: colab=importlib.util.find_spec("google.colab") is not None
     except (ImportError, ValueError, ModuleNotFoundError): colab=False
     check(Path("/content").is_dir() and colab,"COLAB_ONLY")
-    check(sys.version_info[:2]==(3,12),"PYTHON_3_12_REQUIRED")
+    check(platform.python_version()=="3.12.10","PYTHON_3_12_10_REQUIRED")
     versions={n:md.version(n) for n in PINS}
     check(versions==PINS,"LIBRARY_VERSIONS_MISMATCH:"+repr(versions))
     import torch
