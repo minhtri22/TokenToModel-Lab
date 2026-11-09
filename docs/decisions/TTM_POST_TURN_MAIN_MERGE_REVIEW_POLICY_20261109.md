@@ -21,7 +21,7 @@ Hợp nhất đòi kiểm nguồn, backend parity theo scope, QA độc lập, n
 ## 2. Kiểm kê thực tế (GitHub read-only ngày 2026-11-09)
 
 - Repository `minhtri22/TokenToModel-Lab`; main `1a9d8cba56564d6d36257fe95c34f2fd52c4f48a`; **10 nhánh** tổng cộng, **1 PR mở: #12 DRAFT**.
-- PR #12 HEAD trước kế hoạch `76607c212b77e217ae881b40f60b8e7e6242041e`, **116 commit, 178 tệp** so với main. Bao gồm 45 tệp `docs/pilot`, 59 `evidence/pilot`, 54 mã/vi/docs khác; **thay `lineage.md`**. `main/lineage.md` là prefix **nguyên byte** của `PR12/lineage.md`; hai entry khoa học L0011–L0012 được thêm đúng append-only.
+- PR #12 HEAD trước kế hoạch `76607c212b77e217ae881b40f60b8e7e6242041e`, **116 commit, 178 tệp** so với main. Bao gồm 45 tệp `docs/pilot`, 59 `evidence/pilot`, 74 tệp khác (README, `docs/vi`, `tools/*`, `lineage.md`); **thay `lineage.md`**. `main/lineage.md` là prefix **nguyên byte** của `PR12/lineage.md`; hai entry khoa học L0011–L0012 được thêm đúng append-only.
 - GitHub HEAD PR #12 **không có check-runs được báo cáo**. Trạng thái `mergeable=true` không loại bỏ cổng QA, kiểm bảo mật và scope review.
 - `feature/p07-paged-attention-kernel-design-20261107`: 9 ahead, 3 behind main, **PAUSED_PRESERVE**; không merge/xóa.
 - `research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109`: 118 ahead main nhưng phân kỳ PR12 (5 ahead/3 behind). Công việc thay tokenizer/embedding khác mục tiêu chất lượng TTM: **DEFER_SEPARATE_REVIEW**, không cherry-pick vào #12 lúc này.
