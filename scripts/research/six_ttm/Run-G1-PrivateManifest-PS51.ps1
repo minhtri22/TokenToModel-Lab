@@ -1,13 +1,13 @@
 #Requires -Version 5.1
 <#
 G1 private metadata manifest. All file writes remain under project root.
-Modes: SelfTest, Preflight, Tokenizers, Seal.
+Modes: SelfTest, Preflight, Tokenizers, Seal, QA.
 No TTM main/PR12/lineage writes; no GPU, no teacher model weights, no
 scientific outputs. Seal requires explicit owner private-scope acceptance.
 #>
 [CmdletBinding()]
 param(
- [ValidateSet('SelfTest','Preflight','Tokenizers','Seal')]
+ [ValidateSet('SelfTest','Preflight','Tokenizers','Seal','QA')]
  [string]$Mode='Preflight',
  [switch]$OwnerAcceptPrivateScope
 )
@@ -61,7 +61,20 @@ $ErrorActionPreference='Stop'
 & $py -c "import ast,pathlib; ast.parse(pathlib.Path(r'$dest').read_text(encoding='utf-8')); print('G1_SOURCE_AST_PARSE=PASS')"
 if ($LASTEXITCODE -ne 0) { throw 'STOP_G1_SOURCE_AST_PARSE' }
 $modeArgument=$Mode.ToLowerInvariant()
-if ($Mode -eq 'Seal') {
+if ($Mode -eq 'QA') {
+ $qaCommit='e8a70580c4cf7fd7075029ed201cb39d3a766597'
+ $qaBlob='7dfc6bea2cee1773c20fee655691fc366a6a9ecd'
+ $qaDest=Join-Path $target 'g1_private_manifest_independent_readonly_qa_v1.py'
+ $qaUrl="https://raw.githubusercontent.com/minhtri22/TokenToModel-Lab/$qaCommit/scripts/research/six_ttm/g1_private_manifest_independent_readonly_qa_v1.py"
+ if (-not (Test-Path -LiteralPath $qaDest)) {
+  Invoke-WebRequest -UseBasicParsing -Uri $qaUrl -OutFile $qaDest
+ }
+ $qaActual=(& git -C $root hash-object $qaDest).Trim().ToLowerInvariant()
+ if ($LASTEXITCODE -ne 0 -or $qaActual -ne $qaBlob) { throw 'STOP_G1_QA_SOURCE_BLOB_MISMATCH' }
+ & $py -B $qaDest --mode selftest
+ if ($LASTEXITCODE -ne 0) { throw 'STOP_G1_QA_SELFTEST_FAIL' }
+ & $py -B $qaDest --mode verify
+} elseif ($Mode -eq 'Seal') {
  if (-not $OwnerAcceptPrivateScope) {
     throw 'STOP_SCOPE_NOT_ACKNOWLEDGED_USE_-OwnerAcceptPrivateScope'
  }
