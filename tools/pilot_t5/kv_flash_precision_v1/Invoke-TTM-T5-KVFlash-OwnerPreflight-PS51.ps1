@@ -15,6 +15,8 @@ param(
     [switch]$OwnerApproval
 )
 $ErrorActionPreference = 'Stop'
+# Resolve executable explicitly: PowerShell command lookup is case-insensitive.
+$gitExe = (Get-Command -Name 'git.exe' -CommandType Application -ErrorAction Stop).Source
 $expected = @{
   Branch='research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109'
   P02GitBlob='9762343e06cf800b50574c2871ae1ed58537fb18'
@@ -33,8 +35,8 @@ if (-not (($work -eq $root) -or $work.StartsWith(($root+'\'),[StringComparison]:
 }
 if (-not (Test-Path -LiteralPath (Join-Path $work '.git'))) {throw 'WORKTREE_GIT_METADATA_NOT_FOUND'}
 function Sha($p) { return (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() }
-function Git([string[]]$GitArgs) {
-    $v=& git -C $work @GitArgs 2>&1
+function Invoke-TTMGit([string[]]$GitArgs) {
+    $v=& $gitExe -C $work @GitArgs 2>&1
     if($LASTEXITCODE -ne 0){throw "GIT_COMMAND_FAILED:$($GitArgs -join ' ') $v"}
     return ($v | Out-String).Trim()
 }
@@ -51,15 +53,15 @@ function InProject([string]$p) {
 }
 $checks=[ordered]@{}
 $notes=New-Object System.Collections.Generic.List[string]
-$branchName=Git @('rev-parse','--abbrev-ref','HEAD')
+$branchName=Invoke-TTMGit -GitArgs @('rev-parse','--abbrev-ref','HEAD')
 $checks.Branch=($branchName -eq $expected.Branch)
-$checks.CleanTracked=([string]::IsNullOrWhiteSpace((Git @('status','--porcelain','--untracked-files=no'))))
-$checks.P02GitBlob=( (Git @('hash-object','src/p02/transformer_core.py')) -eq $expected.P02GitBlob)
+$checks.CleanTracked=([string]::IsNullOrWhiteSpace((Invoke-TTMGit -GitArgs @('status','--porcelain','--untracked-files=no'))))
+$checks.P02GitBlob=( (Invoke-TTMGit -GitArgs @('hash-object','src/p02/transformer_core.py')) -eq $expected.P02GitBlob)
 $relativePrereg='artifacts/qa/ttm-t5-parity/TTM_T5_KV_FLASH_2X2_FRESH_SYNTHETIC_PREREG_20261109.json'
-$checks.PreregGitBlob=((Git @('hash-object',$relativePrereg)) -eq $expected.PreregGitBlob)
+$checks.PreregGitBlob=((Invoke-TTMGit -GitArgs @('hash-object',$relativePrereg)) -eq $expected.PreregGitBlob)
 $llamaRoot=Join-Path $root '_tmp\ttm_t2\llama.cpp'
 if(Test-Path -LiteralPath (Join-Path $llamaRoot '.git')) {
-    $actualLlama=(& git -C $llamaRoot rev-parse HEAD 2>&1 | Out-String).Trim()
+    $actualLlama=(& $gitExe -C $llamaRoot rev-parse HEAD 2>&1 | Out-String).Trim()
     $checks.LlamaCommit=($LASTEXITCODE -eq 0 -and $actualLlama -eq $expected.LlamaCommit)
 } else { $checks.LlamaCommit=$false }
 $cache=Join-Path $root '_tmp\ttm_t5_numeric_localization_v1\build\CMakeCache.txt'
