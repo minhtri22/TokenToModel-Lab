@@ -1,0 +1,115 @@
+{
+  "schema": "ttm.small4m.prompt_adherence.readonly_scoped_diagnostic.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SMALL4M_PROMPT_ADHERENCE_ROOT_CAUSE_READONLY_DIAGNOSTIC",
+  "scope": "EXISTING_1024_1280_CKPTS_AND_PRIVATE_TRAIN_ONLY_NO_TRAIN_NO_TEST_NO_Q1Q2_NO_NEW_GENERATION",
+  "pr": 13,
+  "pins": {
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p02_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "checkpoint1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint1280_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "private_trainval_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "earlier_generated_raw_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e"
+  },
+  "p02_parity": {
+    "checkpoint1024": {
+      "sequences": 16,
+      "logits_compared": 3373056,
+      "max_abs_logit_diff": 0,
+      "torch_equal": true
+    },
+    "checkpoint1280": {
+      "sequences": 16,
+      "logits_compared": 3373056,
+      "max_abs_logit_diff": 0,
+      "torch_equal": true
+    },
+    "scope_caveat": "CANONICAL_P02_VS_PRIOR_CPU_GENERATION_CODE_SAME_TORCH_RUNTIME_NOT_GGUF_OLLAMA"
+  },
+  "train": {
+    "stories": 2048,
+    "windows": 2691,
+    "unique_valid_labels": 498287,
+    "full_256_target_windows": 652,
+    "less_than_64_windows": 302,
+    "next_token_adjacent_shift_checks": 495596,
+    "shift_mismatches": 0,
+    "eos_target_count": 2048,
+    "total_label_exposure_1280x4096": 5242880,
+    "nominal_exposure_divided_by_unique_targets": 10.521807713225511,
+    "standalone_ascii_space_input_id32_count": 2101,
+    "standalone_space_input_frequency": 0.004216445542428359,
+    "next_newline_after_space_id32": 1612,
+    "conditional_newline_fraction": 0.7672536887196573,
+    "unconditional_newline_rate": 0.01786721307198462,
+    "rare_name_counts": {
+      "nora": 0,
+      "lumo": 0,
+      "pip": 0,
+      "june": 0,
+      "lina": 0
+    },
+    "common_cue_counts": {
+      "lily": 2902,
+      "mom": 2336,
+      "park": 629,
+      "tree": 486,
+      "one_day": 1513
+    },
+    "no_test_fields_in_npz": true
+  },
+  "prompts": {
+    "count": 8,
+    "all_trailing_ascii_space": true,
+    "all_end_token_id32": true,
+    "greedy_newline_first_token_out_of_sixteen": 16,
+    "p_newline_mean_after_trailing_space": {
+      "1024": 0.3828,
+      "1280": 0.368
+    },
+    "p_newline_mean_after_removing_trailing_space": {
+      "1024": 0.02375,
+      "1280": 0.0304625
+    },
+    "mean_distribution_tv_after_removal": {
+      "1024": 0.8303058296442032,
+      "1280": 0.8260898068547249
+    },
+    "full_vs_last_four_tokens_mean_tv": {
+      "1024": 0.23948930203914642,
+      "1280": 0.3055570311844349
+    }
+  },
+  "qa": {
+    "independent_scoped_arithmetic_and_material": "PASS_22_OF_22",
+    "nature": "COMPUTATIONAL_SELF_AUDIT_NOT_INDEPENDENT_HUMAN_OR_CONFIRMATORY_SCIENCE_REVIEW",
+    "private_checkpoint_raw_data_not_exported": true,
+    "test_reads": 0,
+    "new_train_steps": 0,
+    "new_generated_tokens": 0
+  },
+  "adjudication": {
+    "status": "READONLY_DIAGNOSTIC_COMPLETED_SCOPED",
+    "confirmed": "PROMPT_END_SPACE_BPE_SERIALIZATION_STRONGLY_BIASES_NEXT_TOKEN_NEWLINE",
+    "not_confirmed": "END_TO_END_SEMANTIC_QUALITY_GAIN_AFTER_REPAIR",
+    "previously_scoped_quality_adjudication": "NO_DEMONSTRATED_GAIN_UNDER_ORIGINAL_PROMPT_PROTOCOL_ONLY",
+    "p02_correctness": "NO_PARITY_MISMATCH_FOUND_IN_SCOPED_CPU_PROBES",
+    "data_objective": "CORRECT_NEXT_TOKEN_SHIFT_NO_INSTRUCTION_FINETUNING"
+  },
+  "evidence": {
+    "drive_zip_url": "https://drive.google.com/file/d/1MAKhIN64iZx3NCcYXgPxWUTv3QdCESLB/view",
+    "drive_zip_sha256": "b1138659aba3c0fba33fafacac5b1d72a6cf133695af2af868b5ad623a6e8f2e",
+    "drive_zip_bytes": 17433,
+    "drive_zip_readback_sha256_verified": true,
+    "bundle_members": 8
+  },
+  "governance": {
+    "science_new_train": false,
+    "test_untouched": true,
+    "q1q2_unchanged": true,
+    "pr13_merge_hold": true,
+    "main_unchanged": true,
+    "lineage_l0017_unchanged": true
+  }
+}
