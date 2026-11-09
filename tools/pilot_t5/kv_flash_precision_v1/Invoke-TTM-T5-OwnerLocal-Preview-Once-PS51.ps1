@@ -23,10 +23,25 @@ $oldCmake=Join-Path $root '_tmp\ttm_t5_numeric_localization_v1\build\CMakeCache.
 $receiptDir=Join-Path $root '_tmp\ttm_t5_f32_kvflash_owner_gate_20261109'
 $marker=Join-Path $receiptDir 'OWNER_LOCAL_PREVIEW_SINGLE_20261109.json'
 function Sha([string]$p) {(Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()}
-function Invoke-TTMGit([string[]]$Items) {
-    $a=@(& $gitExe -C $root @Items 2>&1)
-    if($LASTEXITCODE -ne 0){throw ('GIT_FAILED '+($Items -join ' ')+' '+($a -join ' '))}
-    return ($a -join "`n").Trim()
+function Invoke-TTMGit {
+    param(
+        [Parameter(Mandatory=$true)][string[]]$Items,
+        [string]$RepoPath = $root
+    )
+    # Git writes progress to stderr on SUCCESS; WinPS 5.1 2>&1 + Stop
+    # incorrectly treats that progress as a terminating NativeCommandError.
+    $savedEap = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = 'Continue'
+        $output = @(& $gitExe -C $RepoPath @Items 2>&1)
+        $status = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $savedEap
+    }
+    if ($status -ne 0) {
+        throw ('GIT_FAILED exit='+$status+' argv='+($Items -join ' ')+' output='+($output -join ' '))
+    }
+    return (($output | ForEach-Object { [string]$_ }) -join "`n").Trim()
 }
 function ParentNoReparse([string]$path,[string]$stop) {
     $n=[IO.Path]::GetFullPath($path)
@@ -54,18 +69,38 @@ $null=Invoke-TTMGit -Items @('fetch','--quiet','--no-tags','origin',('refs/heads
 $fetched=Invoke-TTMGit -Items @('rev-parse','FETCH_HEAD')
 if($fetched -ine $ExpectedCommit){throw ('GITHUB_HEAD_SHA_DIFFERENT expected='+$ExpectedCommit+' actual='+$fetched)}
 $localRef='refs/heads/'+$branch
-$hasLocalRef=(& $gitExe -C $root show-ref --verify --quiet $localRef);$refExists=($LASTEXITCODE -eq 0)
-if($refExists){
- $existing=(Invoke-TTMGit -Items @('rev-parse',$localRef))
- if($existing -ine $ExpectedCommit){throw 'LOCAL_BRANCH_HEAD_DIFFERS_FROM_SOURCE_PIN'}
-}
+# show-ref --quiet returns 1 when absent; that alone is NOT a failure.
+$null=(& $gitExe -C $root show-ref --verify --quiet $localRef)
+$refExists=($LASTEXITCODE -eq 0)
 if(-not (Test-Path -LiteralPath $work)){
- if($refExists){$null=Invoke-TTMGit -Items @('worktree','add',$work,$branch)}
- else {$null=Invoke-TTMGit -Items @('worktree','add','-b',$branch,$work,$ExpectedCommit)}
+    if($refExists){
+        $existing=Invoke-TTMGit -Items @('rev-parse',$localRef)
+        if($existing -ine $ExpectedCommit){throw 'EXISTING_LOCAL_BRANCH_OLD_WITHOUT_WORKTREE_HOLD'}
+        $null=Invoke-TTMGit -Items @('worktree','add',$work,$branch)
+    } else {
+        $null=Invoke-TTMGit -Items @('worktree','add','-b',$branch,$work,$ExpectedCommit)
+    }
 }
-$wtHead=(& $gitExe -C $work rev-parse HEAD 2>&1 | Out-String).Trim()
-$wtName=(& $gitExe -C $work rev-parse --abbrev-ref HEAD 2>&1 | Out-String).Trim()
-if($LASTEXITCODE -ne 0 -or $wtHead -ine $ExpectedCommit -or $wtName -cne $branch){throw 'WORKTREE_HEAD_OR_BRANCH_DIFFERENT'}
+# Recover a partially-created worktree WITHOUT deletion/reset/force.
+# Verify this worktree owns precisely the intended branch before updating.
+$wtName=Invoke-TTMGit -RepoPath $work -Items @('rev-parse','--abbrev-ref','HEAD')
+$wtHead=Invoke-TTMGit -RepoPath $work -Items @('rev-parse','HEAD')
+if($wtName -cne $branch){throw 'EXISTING_WORKTREE_WRONG_BRANCH_HOLD'}
+if($wtHead -ine $ExpectedCommit){
+    if(-not $refExists){throw 'EXISTING_WORKTREE_LOCAL_REF_NOT_FOUND_HOLD'}
+    $localHead=Invoke-TTMGit -Items @('rev-parse',$localRef)
+    if($wtHead -ine $localHead){throw 'EXISTING_WORKTREE_REF_MISMATCH_HOLD'}
+    $dirty=Invoke-TTMGit -RepoPath $work -Items @('status','--porcelain','--untracked-files=all')
+    if(-not [string]::IsNullOrWhiteSpace($dirty)){throw 'EXISTING_WORKTREE_DIRTY_HOLD_NO_RESET'}
+    # No rebase, checkout --force, reset --hard, branch deletion, or clobber.
+    $null=(& $gitExe -C $root merge-base --is-ancestor $wtHead $ExpectedCommit)
+    if($LASTEXITCODE -ne 0){throw 'EXPECTED_COMMIT_NOT_FAST_FORWARD_DESCENDANT_HOLD'}
+    $null=Invoke-TTMGit -RepoPath $work -Items @('merge','--ff-only','--no-edit',$ExpectedCommit)
+    $wtHead=Invoke-TTMGit -RepoPath $work -Items @('rev-parse','HEAD')
+}
+if($wtHead -ine $ExpectedCommit){throw 'WORKTREE_HEAD_NOT_AT_PIN_AFTER_FAST_FORWARD'}
+$wtStatus=Invoke-TTMGit -RepoPath $work -Items @('status','--porcelain','--untracked-files=all')
+if(-not [string]::IsNullOrWhiteSpace($wtStatus)){throw 'WORKTREE_NOT_CLEAN_AFTER_FAST_FORWARD'}
 $preflight=Join-Path $work 'tools\pilot_t5\kv_flash_precision_v1\Invoke-TTM-T5-KVFlash-OwnerPreflight-PS51.ps1'
 if(-not (Test-Path -LiteralPath $preflight -PathType Leaf)){throw 'PINNED_GITHUB_PREVIEW_SCRIPT_MISSING'}
 
@@ -90,8 +125,15 @@ $callArgs=@('-NoProfile','-ExecutionPolicy','Bypass','-File',$preflight,'-Mode',
 if($caller){$callArgs+=@('-OriginalCallerSource',$caller,'-CallerAttested')}
 if($ggufFound){$callArgs+=@('-GGUFFile',$gguf)}
 # New reference and candidate executable remain NOT_EXECUTED/UNCOMPILED in Preview.
-$preflightOutput=@(& powershell.exe @callArgs 2>&1)
-$preflightExit=$LASTEXITCODE
+# Capture child-process stderr as data, not as a WinPS 5.1 terminating error.
+$savedEap=$ErrorActionPreference
+try {
+    $ErrorActionPreference='Continue'
+    $preflightOutput=@(& powershell.exe @callArgs 2>&1)
+    $preflightExit=$LASTEXITCODE
+} finally {
+    $ErrorActionPreference=$savedEap
+}
 if($preflightExit -ne 0){throw ('OWNER_PREVIEW_COMMAND_FAILED '+($preflightOutput -join "`n"))}
 if(-not (Test-Path -LiteralPath $receiptDir)){throw 'PREVIEW_DID_NOT_WRITE_EVIDENCE_FOLDER'}
 $resultLine=@($preflightOutput | Where-Object {$_ -like 'RESULT=*'})
