@@ -198,6 +198,12 @@ def main():
                 raise ValueError("REFERENCE_METADATA_NOT_COMPLETED")
             if metadata.get("reference_sha256")!=sha(ref):
                 raise ValueError("REFERENCE_SHA_NOT_MATCHED")
+            audit_stdout=run("17_independent_reference_schema_qa",[
+                python,source/"verify_f32_reference_rows.py",
+                "--prereg",prereg,"--reference",ref],timeout=45)
+            if json.loads(audit_stdout).get("status")!="PASS_REFERENCE_8_OF_8_X_2048_F32_SCHEMA":
+                raise ValueError("REFERENCE_INDEPENDENT_SCHEMA_NOT_PASS")
+            receipts["steps"]["reference_schema"]="PASS_8_OF_8_X_2048"
             receipts["reference"]="COMPLETED_8_X_2048_F32"
             receipts["reference_sha256"]=sha(ref)
             receipts["reference_path"]=str(ref)
