@@ -113,5 +113,26 @@
     "script": "tools/t6/run_windows_exact_head.ps1",
     "script_source": "GitHub exact PR HEAD; pin HEAD and verify remote before user executes",
     "outcome": "HOLD_WINDOWS_EXACT_HEAD_REPLAY_AND_DISTINCT_REVIEW"
+  },
+  "amendment_20261109_ps51_git_pipe_recovery": {
+    "previous_owner_run": {
+      "exact_head": "2f8709aa1148c92d8b9535ac51231ebabcdda443",
+      "git_fetch": "PASS",
+      "worktree_create": "PASS",
+      "runner_preflight": "FAIL_GIT_ROOT_EXIT_MINUS_ONE",
+      "unit_tests": "NOT_EXECUTED",
+      "benchmark": "NOT_EXECUTED",
+      "qa": "NOT_EXECUTED",
+      "cause": "PowerShell 5.1 native git stdout piped to Select-Object -First 1 may early-close causing native git exit -1."
+    },
+    "correction": {
+      "updated_runner": "tools/t6/run_windows_exact_head.ps1",
+      "fix": "Replace all native git Select-Object -First 1 calls with Invoke-GitOneLine, capture complete output and immediately check native exit; check worktree status exit separately; simplify Python -c quoting.",
+      "reuse_worktree": "Existing clean worktree at prior head must be switched detached to new pinned PR15 head after remote verification; no reset/cleanup of user files.",
+      "readme": "tools/t6/README.md"
+    },
+    "status": "COMMITTED_NO_NEW_WINDOWS_EXECUTION_YET",
+    "linux_qa_16_and_33_from_old_runner": "PRESERVED_UNCHANGED",
+    "windows_scoped_qa": "PENDING"
   }
 }
