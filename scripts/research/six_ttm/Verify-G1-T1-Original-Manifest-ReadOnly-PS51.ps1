@@ -45,7 +45,7 @@ if ($actualSha -ne $expectedManifest) {
   throw ('STOP_T1_MANIFEST_SHA256_MISMATCH actual=' + $actualSha)
 }
 
-$utf8Strict = New-Object System.Text.UTF8Encoding($false, $true)
+$utf8Strict = [System.Text.UTF8Encoding]::new($false, $true)
 $payload = [IO.File]::ReadAllText($manifest, $utf8Strict)
 $d = ConvertFrom-Json -InputObject $payload
 if ($d.schema -ne 'ttm.t1.real.stories.split.v1') { throw 'STOP_T1_SCHEMA_MISMATCH' }
