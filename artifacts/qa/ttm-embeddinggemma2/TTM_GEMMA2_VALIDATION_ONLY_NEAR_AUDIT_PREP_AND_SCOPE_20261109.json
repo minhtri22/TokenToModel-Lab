@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.gemma2.validation_only_near_audit.prepared_qa_and_scoped_decision.v1",
+  "date": "2026-11-09",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_VALIDATION_ONLY_NEAR_DUPLICATE_AUDIT_AND_FINAL_GO_DECISION",
+  "parent_commit": "535b66903e270a4fb6ab67544d77f721f442c9fd",
+  "source_script_filename": "ttm_gemma2_validation_only_near_audit_final_gate_20261109.py",
+  "source_script_sha256": "80361cdfa16dd6c37ced6809adbbbd2ea778f9ef9ba7ebc578a7a9d9f7ed1f85",
+  "source_script_delivery": "Conversation sandbox attachment; NOT committed in this commit",
+  "qa": {
+    "fixture_tests": 24,
+    "fixture_tests_pass": 24,
+    "synthetic_threshold_boolean_equivalence_to_frozen_seal": 1000,
+    "synthetic_threshold_boolean_equivalence_pass": 1000,
+    "real_windows_audit": "NOT_EXECUTED_REMOTE_RUNNER_REQUIRES_MANAGED_TASK",
+    "raw_valid_available_on_owner_windows": true,
+    "original_split_manifest_available_on_owner_windows": true,
+    "private_membership_available_on_owner_windows": true
+  },
+  "source_pins": {
+    "private_manifest_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "original_split_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "valid_raw_sha256": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4"
+  },
+  "scope": {
+    "new_stories": 320,
+    "old_validation_stories": 256,
+    "pairs": 81920,
+    "method": "Exact 5-word shingle Jaccard>=0.85 on original text casefold().split(); pinned original T1 story parser",
+    "historical_TEST_text_decoded": false,
+    "historical_TEST_reopened": false,
+    "old_TEST_L0012_previously_scored": true,
+    "old_TEST_near_overlap_unverified": true,
+    "donor_pretraining_overlap_unverified": true
+  },
+  "actual_320_by_256_audit": "NOT_EXECUTED",
+  "final_decision": "HOLD_PENDING_SINGLE_REAL_VALIDATION_ONLY_AUDIT_RESULT",
+  "automatic_decision_logic": {
+    "if_0_near_pairs_and_all_sources_token_counts_PASS": "GO_SCOPED_CPU_ONE_SHOT_READY_SEPARATE_EXECUTION",
+    "if_any_near_pair": "HOLD_NEAR_DUPLICATE_WITH_USED_VALIDATION",
+    "if_missing_source_or_pin": "HOLD_AUDIT_TECHNICAL_OR_MISSING_DATA"
+  },
+  "scientific_evaluation": "NOT_EXECUTED",
+  "training": "NOT_EXECUTED",
+  "gpu": "NOT_USED",
+  "lineage": "UNCHANGED",
+  "new_holdout_membership": "UNCHANGED",
+  "source_exposure": "No raw story content, private IDs, old TEST text, checkpoints, logits, or per-story NLL published"
+}
