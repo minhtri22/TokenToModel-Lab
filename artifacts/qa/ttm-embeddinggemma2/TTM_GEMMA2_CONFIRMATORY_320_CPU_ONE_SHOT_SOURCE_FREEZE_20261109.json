@@ -1,0 +1,67 @@
+{
+  "schema": "ttm.gemma2.confirmatory_320.four_arm_cpu_one_shot.source_freeze.v1",
+  "date": "2026-11-09",
+  "branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "parent": "78c2d4483a0b3c592a06b3fdb35de00b3e013c25",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_CONFIRMATORY_320_STORY_FOUR_ARM_CPU_ONE_SHOT_EXECUTION",
+  "status": "CODE_BUNDLE_READY_EXECUTION_NOT_STARTED_REMOTE_ADMISSION_BLOCKED",
+  "backend": "owner Windows 11 Python3.12 CPU; RemoteMCP task preflight submit blocked by scientific command admission",
+  "code_bundle_filename": "TTM_GEMMA2_CPU320_ONESHOT_BUNDLE_20261109.zip",
+  "code_bundle_sha256": "128f932b7e43882be1dcaac5bdca37118a78054b3c490ad3877e3838f5d6f3d3",
+  "code_bundle_size_bytes": 181759689,
+  "code_contains_private_checkpoints": true,
+  "github_bundle_not_uploaded": true,
+  "runner_source_sha256": "081115658713ef6823b5f0a2b68959235f86b2beac780f90dd451bcae6e959a5",
+  "independent_readback_source_sha256": "1f6fc134e7bc2a590f61b2c2c0409de701b65476bb8065ad9ad5425fc197532c",
+  "pre_forward_source_sha256": "c92f827f7b462d42c53302b157038f0110d735ac41c4e4c2690f47356559e584",
+  "cpu_scorer_source_sha256": "de6ab9652bb690a6e967e752b9367f5755674a23a6c4b2fcb45941274612dfe1",
+  "original_runner_source_sha256": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+  "checkpoints_sha256": {
+    "A": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+    "B": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+    "C": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+    "D": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e"
+  },
+  "membership_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+  "real_go_receipt_sha256": "aa03c08b58aee49b46b049bceee8d735731235e19e3fed3a9725622b5d5dfdc8",
+  "counts": {
+    "stories": 320,
+    "windows": 405,
+    "targets": 75798,
+    "arms": 4
+  },
+  "prereg": {
+    "metric": "token_weighted_NLL",
+    "contrast": [
+      "A_minus_C",
+      "B_minus_C",
+      "D_minus_C"
+    ],
+    "paired_story_bootstrap": 2000,
+    "seed": 2026110901,
+    "CI": "two_sided_95_percentile",
+    "science_PASS_if": "all_three_ci95_lower_bounds_gt_zero",
+    "science_FAIL_if": "otherwise_valid_evaluation_with_any_ci95_lower_bound_le_zero"
+  },
+  "one_shot": {
+    "claim_before_any_real_forward": true,
+    "canonical_output_dir": "_tmp/ttm_small4m_gemma2_confirmatory_320_cpu_once_20261109_v1",
+    "exclusive_claim": true,
+    "no_resume_or_retry_after_claim": true,
+    "independent_readback_without_rescore": true
+  },
+  "caveats": [
+    "No old TEST materialization",
+    "Prior L0012 historical TEST assessed once; near-overlap cannot be excluded",
+    "Donor pretraining data unknown",
+    "Only fixed checkpoint effect, not seed replication",
+    "No result or model NLL generated as of freeze"
+  ],
+  "exclusions": {
+    "science_executed": false,
+    "claim_consumed": false,
+    "gpu_used": false,
+    "training_executed": false,
+    "lineage_modified": false
+  }
+}
