@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.t5.final.minimal.v4.release.decision_and_qa.v1",
+  "date": "2026-11-09",
+  "task": "TTM_T5_FINAL_MINIMAL_OLLAMA_COMPATIBILITY_SMOKE",
+  "zip_filename": "TTM_T5_FINAL_MINIMAL_OLLAMA_COMPATIBILITY_SMOKE_20261109.zip",
+  "zip_sha256": "9fde19c7f9a47d5d9548afb27f694e230116b5db5b34b5c227664c7cb81c8c34",
+  "zip_size_bytes": 24309,
+  "source_sha256": {
+    "t5_final_minimal_smoke.py": "c4a31941634a6fa3b0d7657d87aa56d5126952a97d060b14f28fde4dbf8c2e39",
+    "t5_native_tcp.py": "100ca44212c9f2ffb77c93aa11a90fa8f4a67d1b225efb16e888c58680d6f9b7",
+    "test_final_minimal_smoke.py": "9bc90c21eef6f8321045eb8e774cb922053d96937b54444ce598a7a1f3385292",
+    "Invoke-TTM-T5-Final-Minimal-PS51.ps1": "9107111544e9a61c3c6f35d8a33c4bb30d2053263c85951707a00f4be94d0a08",
+    "README_VI.md": "3b263c5c83b4b4445868d286d52e1f73eb04858aaf4c0ac96a84235a4873fff7",
+    "SOURCE_SHA256_MANIFEST.json": "997984d3b8846e5b4da4f92603ddef830bb341acd847219e836e7bb03d80d64f",
+    "INDEPENDENT_OFFLINE_QA_V4.json": "398c52be51e23dca733b1e24262375b56bc2e08c280654524afbb212a508e2fa"
+  },
+  "qa": {
+    "environment": "assistant_container",
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS_SCOPED_OFFLINE_35_OF_35",
+    "native_windows_qa": "NOT_EXECUTED",
+    "ollama_runtime": "NOT_EXECUTED"
+  },
+  "windows_runtime_guard": {
+    "port": 12647,
+    "host": "127.0.0.1",
+    "model": "ttm-t5-f32-compat-only-v4final:latest",
+    "num_ctx": 256,
+    "num_predict_max": 32,
+    "source_gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "executable_sha256": "14e0fff0449ce3c3a7fe9db8b8b32089274db5f835d4c99f5af7c32dcbf08981",
+    "one_shot_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_ollama_compat_only_single_v4final"
+  },
+  "previous_one_shots": "V1_V2_V3RC1_CONSUMED_NO_RERUN",
+  "scientific_parity": "FAIL_7_OF_8_PRESERVED",
+  "source_bundle_in_github": false,
+  "source_bundle_location": "delivered as verified ZIP in current conversation; GitHub contains SHA release receipt only",
+  "authorization": "USER_APPROVED_ONE_GUARDED_RUNTIME_SMOKE_AFTER_LOCAL_QA_AND_PRECLAIM_PASS",
+  "next": "TTM_T5_FINAL_MINIMAL_OLLAMA_COMPATIBILITY_SMOKE_EVIDENCE_READBACK_AND_ADJUDICATION"
+}
