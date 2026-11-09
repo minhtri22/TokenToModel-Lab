@@ -76,19 +76,19 @@ Mỗi prefix `x` được chấm 8 cặp continuation dưới từng teacher b�
 
 ## 6. Chỉ số và quy tắc khoa học định lượng
 
-**Primary scalar:** `macro_R2` qua 8 cặp continuation trên **TEST 64 truyện**, tính `R² = 1 - SSE/SST` với SST so với trung bình TRAIN (không fit thêm trung bình TEST). `gain = R2_aligned - percentile_95(R2_shuffled_null)`. `p_perm = (1 + #{null>=observed})/(1001)`. Thực hiện 2.000 bootstrap theo **story_id** (paired) với seed riêng `20261111`. CKA primary layer 28 có kiểm định shuffle riêng 1.000 lượt.
+**Primary scalar:** `macro_R2` qua 8 cặp continuation trên **TEST 64 truyện**, tính `R² = 1 - SSE/SST` với SST so với trung bình TRAIN (không fit thêm trung bình TEST). `gain = R2_aligned - percentile_95(R2_shuffled_null)`. `p_perm = (1 + #{null>=observed})/(1001)`. Thực hiện 2.000 bootstrap theo **story_id** (paired) cho **ΔR²_aligned−TRAIN_mean** với seed riêng `20261111`; dùng cùng danh sách story IDs trong mỗi lần lấy mẫu cho cả aligned và mean. Phân vị 95% của 1.000 null fits chỉ tính **một lần** trên TEST niêm phong, không lặp 1.000 null permutations trong mỗi bootstrap. Mọi negative fitted model được chọn alpha bằng DEV theo **cùng grid và quy tắc** như aligned model. CKA primary layer 28 có kiểm định shuffle riêng 1.000 lượt.
 
 **Các ngưỡng ứng viên khóa trước TEST** (xem cùng giá trị trong JSON):
 
 1. `R²_aligned ≥ 0.10`.
 2. `gain_aligned_vs_95th_shuffle ≥ 0.10`.
-3. `p_perm ≤ 0.01`, paired-bootstrap 95% lower bound của gain > 0.
+3. `p_perm ≤ 0.01`, paired-bootstrap 95% lower bound của **ΔR²_aligned−TRAIN_mean** > 0. Không tráo lẫn CI so với mean và ngưỡng hiệu lực so với shuffle.
 4. `p_CKA_perm ≤ 0.01` (chỉ hình học, không thay functional).
 5. `R²_target_oracle ≥ 0.20` để đủ khả năng kết luận; nếu oracle không đạt, trạng thái `INCONCLUSIVE_CONTROL_UNQUALIFIED`.
 
 Báo cáo **B-direct** đầy đủ: nếu mapping A yếu hơn đáng kể B, không được gọi lợi ích riêng của SIX, dù có PASS kỹ thuật/functional. Cần **hai cổng functional và geometric** cùng đạt; thống kê phụ có nhiều phép kiểm không tự nâng thành PASS. Không dùng ngưỡng G3 (NLL, 2%, A–E student) làm kết quả G1. Không có kết luận về ứng dụng công nghiệp.
 
-**Hạn chế power:** `n_TEST=64` là một thử nghiệm feasibility nhỏ, chưa có đánh giá power định lượng từ dữ liệu effect-size độc lập. Không được diễn giải `p>0.01` là chứng minh không chuyển được. Nếu thiếu power hoặc positive control không đủ → `INCONCLUSIVE`; chỉ adjudicate `FAIL_SCOPED` khi contract đủ điều kiện và âm tính có sức phân biệt.
+**Hạn chế power:** `n_TEST=64` là một thử nghiệm feasibility nhỏ, chưa có mô hình power 80% được hiệu chuẩn từ effect-size độc lập. G1 chỉ là *scoped feasibility*, không phải kiểm định xác nhận tính phổ quát. Không được diễn giải `p>0.01` là chứng minh không chuyển được. Nếu thiếu power hoặc positive control không đủ → `INCONCLUSIVE`; chỉ adjudicate `FAIL_SCOPED` khi contract đủ điều kiện và âm tính có sức phân biệt. Bất kỳ tuyên bố confirmatory rộng hơn đều cần bổ sung nghiên cứu power trước khoa học và thẩm định riêng.
 
 ## 7. Điều kiện một lượt science admission (không chia nhỏ giấy phép)
 
