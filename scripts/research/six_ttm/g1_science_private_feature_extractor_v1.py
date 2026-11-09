@@ -276,7 +276,6 @@ def main():
       'science_authorized_by_permit':True,'one_shot_consumed':True,
       'text_written':False,'source_train_sha256':SOURCE_SHA},sort_keys=True))
 
-
 if __name__=='__main__':
     try:main()
     except Exception as exc:
