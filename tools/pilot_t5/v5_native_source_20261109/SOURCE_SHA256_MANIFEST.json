@@ -1,0 +1,16 @@
+{
+  "schema": "ttm.t5.v5.timewait_guard.one_shot.source.manifest.v1",
+  "date": "2026-11-09",
+  "source_files": {
+    "t5_final_minimal_smoke_v5.py": "e11e4b3a809fb5da3ea47d960236d2bd0cb721a780b9e3d4c790eb194cc4fdac",
+    "t5_native_tcp.py": "100ca44212c9f2ffb77c93aa11a90fa8f4a67d1b225efb16e888c58680d6f9b7",
+    "test_final_minimal_smoke_v5.py": "2414106778d9bb38c99d4fcd6ba77f0e1593bc0c439a7d4fb530fe741efa8fb2",
+    "README_VI.md": "3124dd00ba1f13d0a017067bca9d807d6ce043327c79b77364853937a2dcdc2b",
+    "INDEPENDENT_OFFLINE_QA_V5.json": "073f05307227e054b3a0b879acbb071993052a557e9c2f2a8cfe96bf8dc91acb"
+  },
+  "qa_test_count": 47,
+  "runtime_mode": "USER_OPT_IN_ONLY_SINGLE_NATIVE_SMOKE",
+  "prior_one_shots": "V1_V2_V3RC1_V4_CONSUMED_NO_RERUN",
+  "v4_qa_and_runtime_evidence": "IMMUTABLE",
+  "T5_strict_logits": "FAIL_7_OF_8_PRESERVED"
+}

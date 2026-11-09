@@ -1,0 +1,241 @@
+{
+  "rows": [
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 1,
+      "run_id": "Q2-C128-E01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 2,
+      "run_id": "Q2-C128-E01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 3,
+      "run_id": "Q2-C128-E01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 1,
+      "run_id": "Q2-C128-E05-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 2,
+      "run_id": "Q2-C128-E05-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 3,
+      "run_id": "Q2-C128-E05-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 1,
+      "run_id": "Q2-C128-C01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 2,
+      "run_id": "Q2-C128-C01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 3,
+      "run_id": "Q2-C128-C01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 1,
+      "run_id": "Q2-C128-K01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 2,
+      "run_id": "Q2-C128-K01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 3,
+      "run_id": "Q2-C128-K01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 1,
+      "run_id": "Q2-C256-E01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 2,
+      "run_id": "Q2-C256-E01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "repetition": 3,
+      "run_id": "Q2-C256-E01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 1,
+      "run_id": "Q2-C256-E05-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 2,
+      "run_id": "Q2-C256-E05-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E05",
+      "repetition": 3,
+      "run_id": "Q2-C256-E05-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 1,
+      "run_id": "Q2-C256-C01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 2,
+      "run_id": "Q2-C256-C01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "C01",
+      "repetition": 3,
+      "run_id": "Q2-C256-C01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 1,
+      "run_id": "Q2-C256-K01-R1",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 2,
+      "run_id": "Q2-C256-K01-R2",
+      "temperature": 0.0,
+      "warmup": false
+    },
+    {
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "K01",
+      "repetition": 3,
+      "run_id": "Q2-C256-K01-R3",
+      "temperature": 0.0,
+      "warmup": false
+    }
+  ],
+  "schema": "ttm.q2.matrix.v1",
+  "warmups": [
+    {
+      "exclude_from_metrics": true,
+      "num_ctx": 128,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "run_id": "Q2-WARMUP-C128",
+      "temperature": 0.0,
+      "warmup": true
+    },
+    {
+      "exclude_from_metrics": true,
+      "num_ctx": 256,
+      "num_predict": 32,
+      "prompt_id": "E01",
+      "run_id": "Q2-WARMUP-C256",
+      "temperature": 0.0,
+      "warmup": true
+    }
+  ]
+}

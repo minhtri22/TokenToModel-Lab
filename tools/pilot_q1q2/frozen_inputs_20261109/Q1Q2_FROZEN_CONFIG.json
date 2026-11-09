@@ -1,0 +1,97 @@
+{
+  "decision_rule_exploratory": {
+    "go_to_next_small_experiment": "Of 16 greedy completions, at least 10 have fluency_readability>=2 and entity_event_consistency>=2; at least 12 have repeat_3gram_ratio<=0.25; at least 3 of 4 causal prompts have cause_effect_consistency>=2. All 48 outputs valid and pinned. These are pragmatic exploratory thresholds, not preregistered scientific confirmation or commercial gates.",
+    "otherwise": "REVISE_OR_STOP_UNLESS_MEANINGFUL_DIAGNOSTIC_EXCEPTION_DOCUMENTED"
+  },
+  "exclusions": [
+    "KV_CACHE_ON_OFF_NOT_AVAILABLE_UNTIL_API_VERIFIED",
+    "NO_QUANTIZATION",
+    "NO_GPU_BACKEND_CHANGE",
+    "NO_GQA_ARCHITECTURE_CHANGE",
+    "NO_CHECKPOINT_SELECTION",
+    "NO_REUSE_OF_SEALED_TEST"
+  ],
+  "main_head_at_design": "1a9d8cba56564d6d36257fe95c34f2fd52c4f48a",
+  "metrics": {
+    "distinct_n": "unique n-grams divided by total n-grams on generated BPE tokens only (n=2,3)",
+    "latency": "load_duration / prompt_eval_duration / eval_duration / total_duration; TTFT not inferred from non-streaming",
+    "repeat_3gram_ratio": "1-distinct_3; defined only if at least three generated BPE tokens",
+    "temperature_comparison": "sampled diversity vs greedy, not an architecture ablation",
+    "tokens_per_second": "eval_count/(eval_duration_ns/1e9); valid eval_duration>0"
+  },
+  "model": {
+    "backend": "ollama_0.40.14_cpu",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "hardware": "USER_LOCAL_WINDOWS_SAME_HARDWARE_ALL_CONDITIONS",
+    "no_training": true,
+    "num_ctx_primary": 256,
+    "tag": "ttm-t5-f32-compat-only-v5final:latest",
+    "tokenizer": "TRAIN_ONLY_BPE2048_USE_LOCKED_T1_MANIFEST"
+  },
+  "pr12_base_head": "dcf953e74df2029c7fef078314ae3999d5489561",
+  "precommit_status": "INPUTS_FROZEN_ONLY_NO_NATIVE_EXECUTION",
+  "preflight_requirements": [
+    "SAME_MODEL_SOURCE_HASHES",
+    "EXACT_BPE_TOKENIZER_AND_PROMPT_LENGTH_BELOW_128",
+    "PRIVATE_REUSABLE_MODEL_STORE_DERIVED_FROM_V5_NO_OLLAMA_CREATE",
+    "NEW_ISOLATED_PORT_AND_RUN_ID",
+    "NO_REPLAY_CONSUMED_V1_V2_V3_RC1_V4_V5_INFERENCE",
+    "NO_SEALED_TEST_NO_TRAIN",
+    "RESOURCE_CAP_AND_FAIL_CLOSED"
+  ],
+  "q1": {
+    "max_generated_tokens_total": 3072,
+    "max_new_tokens": 64,
+    "num_ctx": 256,
+    "seeds_sampled": [
+      101,
+      102
+    ],
+    "stream": false,
+    "temperature_greedy": 0.0,
+    "temperature_sampled": 0.8,
+    "top_k": null,
+    "top_p_sampled": 0.9,
+    "total_generations": 48,
+    "total_prompts": 16
+  },
+  "q2": {
+    "contexts": [
+      128,
+      256
+    ],
+    "initial_device": "CPU",
+    "max_measured_generated_tokens": 768,
+    "max_new_tokens": 32,
+    "max_warmup_generated_tokens": 64,
+    "prompt_ids": [
+      "E01",
+      "E05",
+      "C01",
+      "K01"
+    ],
+    "repetitions": 3,
+    "same_model_and_prompt_inputs": true,
+    "stream": false,
+    "temperature": 0.0,
+    "total_measured_generations": 24,
+    "warmups_per_context": 1
+  },
+  "rubric": {
+    "dimensions": [
+      "fluency_readability",
+      "entity_event_consistency",
+      "cause_effect_consistency",
+      "repetition_penalty_inverted"
+    ],
+    "reviewer": "ONE_HUMAN_RATER_NOT_INDEPENDENT_PAIR",
+    "scale": {
+      "0": "không dùng được",
+      "1": "yếu hoặc nhiều lỗi",
+      "2": "chấp nhận được trong phạm vi đoạn ngắn",
+      "3": "tương đối mạch lạc"
+    }
+  },
+  "schema": "ttm.q1q2.frozen.config.v1"
+}

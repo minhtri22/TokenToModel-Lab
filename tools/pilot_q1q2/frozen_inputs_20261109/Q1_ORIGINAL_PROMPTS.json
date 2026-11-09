@@ -1,0 +1,90 @@
+{
+  "created_date": "2026-11-09",
+  "intent": "NEW_SYNTHETIC_PROMPTS_FOR_EXPLORATORY_STORY_COMPLETION_NOT_TRAIN_VAL_TEST",
+  "items": [
+    {
+      "group": "everyday",
+      "id": "E01",
+      "prompt": "Mara put a small red cup on the kitchen table. She heard a soft tap at the window and turned to see"
+    },
+    {
+      "group": "everyday",
+      "id": "E02",
+      "prompt": "On a rainy morning, Leo found one dry sock near his bed. He wanted to keep both feet warm, so he"
+    },
+    {
+      "group": "everyday",
+      "id": "E03",
+      "prompt": "Nina brought two paper boats to the pond. Her brother Max asked why one boat was blue. Nina pointed to"
+    },
+    {
+      "group": "everyday",
+      "id": "E04",
+      "prompt": "A little rabbit named Pip lived near a quiet garden. Each morning Pip waited for a sound from"
+    },
+    {
+      "group": "everyday",
+      "id": "E05",
+      "prompt": "Tom and his grandmother planted a seed beside the porch. For many days, Tom carried a small jar of water and"
+    },
+    {
+      "group": "everyday",
+      "id": "E06",
+      "prompt": "At the market, Sara carried a basket of green apples. A friendly shopkeeper smiled when she"
+    },
+    {
+      "group": "everyday",
+      "id": "E07",
+      "prompt": "The old clock in Ben's room stopped before lunch. Ben brought it to his sister, who"
+    },
+    {
+      "group": "everyday",
+      "id": "E08",
+      "prompt": "On a cold evening, Lila shared a yellow blanket with her puppy. The puppy kept looking toward"
+    },
+    {
+      "group": "cause_effect",
+      "id": "C01",
+      "prompt": "The bridge was wet after the rain. Emma wanted to cross with a cart, but the wheels started to slide, so"
+    },
+    {
+      "group": "cause_effect",
+      "id": "C02",
+      "prompt": "A glass fell from the shelf because the table shook. Milo heard a noise and went to the room to"
+    },
+    {
+      "group": "cause_effect",
+      "id": "C03",
+      "prompt": "The little kite could not rise because the wind was still. Ava watched the clouds and decided to"
+    },
+    {
+      "group": "cause_effect",
+      "id": "C04",
+      "prompt": "The garden gate stayed open all night. In the morning, the carrots were gone, and the gardener wondered"
+    },
+    {
+      "group": "consistency",
+      "id": "K01",
+      "prompt": "Jules had a blue key and Nora had a silver key. Only the blue key opened the box. When Nora picked up the box,"
+    },
+    {
+      "group": "consistency",
+      "id": "K02",
+      "prompt": "A fox named Fen carried a round pebble, and a mouse named Dot carried a ribbon. They promised not to trade their gifts. At sunset, Fen"
+    },
+    {
+      "group": "consistency",
+      "id": "K03",
+      "prompt": "On Monday, Eli hid three yellow marbles under a red bowl. On Tuesday, his friend Rosa saw the bowl and"
+    },
+    {
+      "group": "consistency",
+      "id": "K04",
+      "prompt": "A small turtle called June lived beside a lake. June could swim, but her friend Cal the hedgehog could not. When they reached the water,"
+    }
+  ],
+  "language": "en",
+  "no_original_tinystories_raw_text": true,
+  "no_sealed_test_used": true,
+  "schema": "ttm.q1q2.original.promptset.v1"
+}
