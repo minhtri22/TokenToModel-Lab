@@ -63,6 +63,10 @@ with tempfile.TemporaryDirectory() as td:
     assert guard.open_split_payload('TEST',True,split)==b'test sentinel bytes';ok('TEST_RELEASED_ONLY_AFTER_FREEZE')
     (split/'G1_PREFIX_DEV.json').symlink_to(root/'G1_PREFIX_TEST.json')
     expect('PATH_SYMLINK',lambda:guard.open_split_payload('DEV',False,split))
+    # Nested directory redirects must be checked, not just the leaf symlink.
+    nested=split/'nested'; nested.symlink_to(root,target_is_directory=True)
+    expect('PATH_SYMLINK',lambda:guard.ensure_regular_no_redirect(nested/'G1_PREFIX_TEST.json',split))
+    expect('PATH_SYMLINK',lambda:guard.read_private_bytes(nested/'G1_PREFIX_TEST.json',split))
     marker=root/'G1_TEST_READ_ONE_SHOT_CONSUMED.marker'
     with marker.open('x') as fd:fd.write('CONSUMED')
     expect('FileExistsError',lambda:marker.open('x'))
