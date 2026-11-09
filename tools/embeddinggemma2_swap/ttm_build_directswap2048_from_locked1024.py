@@ -17,7 +17,7 @@ SRC_COMMIT = 'a22a7d3913b049b93006efa9475ca574ab2877a9'
 OLD_BUNDLE = 'TTM_GEMMA2_DIRECTSWAP_GPU1024_SOURCE_20261109.zip'
 OLD_BUNDLE_SHA256 = 'e544c645635a28fe140802421d03a7928a7f0446d2df33bbfe4ec129e3a6ea27'
 OLD_RUNNER_SHA256 = '00416c0ff5b2afdcca2780a20315dd2da0af93554cd2b32b6c94efb630dc5d3b'
-NEW_RUNNER_SHA256 = '2e8127f1b99d41fbf2799585aa2c9a501026b220da5cee35674670a72a1f45b3'
+NEW_RUNNER_SHA256 = '0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e'
 SOURCE_PINS = {
     'p02_exact.py': 'e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07',
     'ttm_embeddinggemma2_swap.py': 'd11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39',
@@ -72,6 +72,7 @@ def produce(bundle: bytes, destination: Path) -> str:
     # These appear several times in schemas/log lines and must all change together.
     s = s.replace('directswap1024.', 'directswap2048.')
     s = s.replace('TTM_GPU1024', 'TTM_GPU2048')
+    s = exact_replace(s, "        previous = latest_ready(args, arm, schedule_sha, source_sha)\n        if previous:\n", "        previous = latest_ready(args, arm, schedule_sha, source_sha)\n        # Arm-start marker prevents silent replay of consumed optimizer work\n        # when a Colab interruption occurs before the first READY checkpoint.\n        arm_marker = args.output / \"ARM_STARTS\" / (arm + \".json\")\n        expected_marker = {\"run_id\": RUN_ID, \"arm\": arm,\n                           \"schedule_sha256\": schedule_sha, \"source_sha256\": source_sha}\n        if previous:\n            if (not arm_marker.is_file()\n                    or json.loads(arm_marker.read_text(\"utf-8\")) != expected_marker):\n                raise RuntimeError(\"RESUME_ARM_MARKER_MISSING_OR_MISMATCH\")\n        elif arm_marker.exists():\n            raise RuntimeError(\"STARTED_ARM_WITHOUT_READY_NO_AUTO_REPLAY\")\n        else:\n            arm_marker.parent.mkdir(parents=True, exist_ok=True)\n            write_json_new(arm_marker, expected_marker)\n        if previous:\n")
     if 'TTM_GPU1024' in s or 'directswap1024.gpu' in s or 'STEPS = 1024' in s:
         raise RuntimeError('STOP_OLD_EXPERIMENT_IDENTIFIER_LEFT_OVER')
     updated = s.encode('utf-8')
