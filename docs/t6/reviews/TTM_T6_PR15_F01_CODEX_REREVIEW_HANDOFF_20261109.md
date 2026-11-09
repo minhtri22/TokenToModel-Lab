@@ -37,7 +37,7 @@
 
 ## D. Cổng QA/merge đã khóa
 
-Trước khi ra `PASS_REVIEWED_SCOPED`, reviewer phải có **bằng chứng dynamic Windows F-01** trên HEAD đã sửa: 16/16 legacy tests + **9/9 F-01 negative tests**, trong đó junction thật **không SKIP**, log và receipt SHA256 trên GitHub, cùng đối chiếu source. Tác giả mới có `AUTHOR_STATIC_QA=PASS_18/18` — **KHÔNG thay thế Windows tests**.
+Trước khi ra `PASS_REVIEWED_SCOPED`, reviewer phải có **bằng chứng dynamic Windows F-01** trên HEAD đã sửa: 16/16 legacy tests + **9/9 F-01 negative tests**, trong đó junction thật **không SKIP**, log và receipt SHA256 trên GitHub, cùng đối chiếu source. Tác giả mới có `AUTHOR_STATIC_QA=PASS_19/19` — **KHÔNG thay thế Windows tests**.
 
 Nếu chưa có log Windows mới: `HOLD_REQUIRED_FIX_OR_EVIDENCE` / `MERGE_HOLD`. Nếu test phát hiện lỗ hổng: ghi CRITICAL/HIGH với path/line/probe; tác giả sửa riêng và review HEAD mới. Nếu tất cả qua: đề xuất `PASS_REVIEWED_SCOPED` và `MERGE_CANDIDATE`, nhưng **chỉ chủ dự án** quyết định merge. F-02 vẫn chỉ non-blocking cho benchmark mô tả; tuyệt đối không kết luận tăng tốc. F-03 chỉ sửa nhãn lịch sử.
 
