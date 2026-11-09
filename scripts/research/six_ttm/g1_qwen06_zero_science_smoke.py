@@ -110,6 +110,15 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--phase",required=True,choices=["preflight","smoke"])
     phase=parser.parse_args().phase
+    # Fail closed without writing ANY directory on Windows or other non-Colab hosts.
+    try:
+        colab_host=Path("/content").is_dir() and importlib.util.find_spec("google.colab") is not None
+    except (ImportError, ValueError, ModuleNotFoundError):
+        colab_host=False
+    if not colab_host:
+        print("G1_STATUS=STOP_FAIL_CLOSED")
+        print("G1_REASON=GOOGLE_COLAB_REQUIRED_NO_WRITES")
+        return 1
     ROOT.mkdir(parents=True,exist_ok=True)
     report={"phase":phase,"model":MODEL,"revision":REV,"expected_weight_sha256":WEIGHT_SHA,
             "science_executed":False,"status":"STOP"}
