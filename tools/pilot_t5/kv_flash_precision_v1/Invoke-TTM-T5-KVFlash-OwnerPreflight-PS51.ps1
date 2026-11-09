@@ -33,9 +33,9 @@ if (-not (($work -eq $root) -or $work.StartsWith(($root+'\'),[StringComparison]:
 }
 if (-not (Test-Path -LiteralPath (Join-Path $work '.git'))) {throw 'WORKTREE_GIT_METADATA_NOT_FOUND'}
 function Sha($p) { return (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() }
-function Git($args) {
-    $v=& git -C $work @args 2>&1
-    if($LASTEXITCODE -ne 0){throw "GIT_COMMAND_FAILED:$($args -join ' ') $v"}
+function Git([string[]]$GitArgs) {
+    $v=& git -C $work @GitArgs 2>&1
+    if($LASTEXITCODE -ne 0){throw "GIT_COMMAND_FAILED:$($GitArgs -join ' ') $v"}
     return ($v | Out-String).Trim()
 }
 function InProject([string]$p) {
@@ -45,7 +45,7 @@ function InProject([string]$p) {
     $cur=Get-Item -LiteralPath $p -Force
     while($cur -and $cur.FullName.Length -ge $root.Length) {
         if($cur.Attributes -band [IO.FileAttributes]::ReparsePoint) {return $false}
-        $cur=$cur.Directory
+        if($cur.PSIsContainer){$cur=$cur.Parent}else{$cur=$cur.Directory}
     }
     return $true
 }
@@ -126,7 +126,10 @@ $receipt=[ordered]@{
   native_execution='NOT_EXECUTED'; training='NO'; test='UNTOUCHED'
   old_strict_logits='FAIL_7_OF_8_PRESERVED'
 }
+$tmpRoot=Join-Path $root '_tmp'
+if((Get-Item -LiteralPath $tmpRoot -Force).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'TEMP_ROOT_REPARSE_POINT'}
 $outDir=Join-Path $root '_tmp\ttm_t5_f32_kvflash_owner_gate_20261109'
+if((Test-Path -LiteralPath $outDir) -and ((Get-Item -LiteralPath $outDir -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)){throw 'OUTPUT_DIR_REPARSE_POINT'}
 if(-not (Test-Path -LiteralPath $outDir)){New-Item -ItemType Directory -Path $outDir -Force | Out-Null}
 $name='TTM_T5_KVFLASH_'+$Mode+'_'+([DateTime]::UtcNow.ToString('yyyyMMdd_HHmmss_fffffff'))+'.json'
 $outPath=Join-Path $outDir $name
