@@ -315,13 +315,11 @@ def main():
     # Immutable content commit; first create complete pack, then receipt, no overwrite.
     need(len(content)<=guard.MAX_PACK_BYTES,'PACK_OVERSIZE')
     guard._check_array_headers(content,split)
-    with pack_path.open('xb') as f:
-        f.write(content);f.flush();os.fsync(f.fileno())
+    guard.commit_immutable_bytes(pack_path,content,work)
     receipt={'schema':'ttm.six.g1.feature_pack_commit.v1b','status':'PACK_COMMITTED',
              'split':split,'run_id':args.run_id,'manifest_sha256':MANIFEST_SHA,
              'sha256':guard.sha_bytes(content),'model_seconds_cumulative':budget.elapsed}
-    with receipt_path.open('xb') as f:
-        f.write(guard.canonical(receipt)+b'\n');f.flush();os.fsync(f.fileno())
+    guard.commit_immutable_bytes(receipt_path,guard.canonical(receipt)+b'\n',work)
     print(json.dumps({'status':'PASS_PRIVATE_NUMERIC_PACK_COMMITTED',
        'split':split,'pack_sha256':receipt['sha256'],
        'science_one_shot_consumed':True,'text_written':False},sort_keys=True))
