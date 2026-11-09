@@ -14,6 +14,45 @@ Dùng cùng seed 60609, P02 synthetic CPU float32, context32, 2 layers/4 heads/6
 
 ## Chạy trên Windows 11 / Python 3.12 (không cần Colab)
 
+### Khôi phục sau lỗi `GIT_ROOT_EXIT_-1` (PowerShell 5.1)
+
+Nếu `git fetch` và `git worktree add` đã thành công, nhưng launcher cũ
+dừng ở `GIT_ROOT_EXIT_-1`, thì **chưa chạy unit test/benchmark**. Lỗi đã
+được sửa bằng cách thu trọn đầu ra Git, không dùng
+`git ... | Select-Object -First 1` (pipeline sớm ngắt native process).
+
+**Tái sử dụng worktree đã tồn tại**, không tạo bản thứ hai. Dùng PowerShell:
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$root = 'D:\WORK\RESEARCH\TokenToModel-Lab'
+$wt = Join-Path $root '.worktrees\ttm-t6-pr15-20261109'
+$branch = 'feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109'
+$old = '2f8709aa1148c92d8b9535ac51231ebabcdda443'
+$new = '<EXACT_NEW_PR15_HEAD_SHA>' # pin 40 hex digits from GitHub PR #15
+
+if (-not (Test-Path -LiteralPath $wt -PathType Container)) { throw 'WORKTREE_MISSING' }
+$remote = & git -C $root ls-remote origin "refs/heads/$branch"
+if ($LASTEXITCODE -ne 0 -or -not $remote) { throw 'REMOTE_LOOKUP_FAILED' }
+if (($remote -split '\s+')[0] -ne $new) { throw 'REMOTE_HEAD_CHANGED' }
+& git -C $root fetch --no-tags origin "refs/heads/$branch"
+if ($LASTEXITCODE -ne 0) { throw 'FETCH_FAILED' }
+if ((& git -C $root rev-parse FETCH_HEAD).Trim() -ne $new) { throw 'FETCH_HEAD_DRIFT' }
+$before = (& git -C $wt rev-parse HEAD).Trim()
+if ($LASTEXITCODE -ne 0 -or $before -ne $old) { throw 'UNEXPECTED_WORKTREE_HEAD' }
+$dirty = @(& git -C $wt status --porcelain)
+if ($LASTEXITCODE -ne 0 -or $dirty.Count -ne 0) { throw 'WORKTREE_DIRTY_ABORT' }
+& git -C $wt switch --detach $new
+if ($LASTEXITCODE -ne 0) { throw 'WORKTREE_SWITCH_FAILED' }
+
+& powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $wt 'tools\t6\run_windows_exact_head.ps1') -PinnedHead $new -RepoRoot $root
+if ($LASTEXITCODE -ne 0) { throw 'T6_REPLAY_FAILED' }
+```
+
+Không dùng `reset --hard`, không xóa worktree, không sửa checkout main.
+Đoạn này chỉ phù hợp khi worktree ở **đúng HEAD cũ và sạch**; nếu đã có
+file evidence hoặc local changes, dừng và kiểm tra trước.
+
 **Quan trọng:** bộ kiểm thử nằm trên nhánh PR #15, **không** có sẵn ở checkout main cũ.
 Nếu chạy `python -m unittest discover -s tests/t6` từ main, bạn có thể gặp
 `ImportError: Start directory is not importable: 'tests/t6'`; đó là lỗi chọn
