@@ -1,0 +1,140 @@
+{
+  "schema": "ttm.q1q2.v2.partial5.exploratory.review.v1",
+  "date": "2026-11-09",
+  "source": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+    "pr_number": 13,
+    "evidence_commit": "0ff76409919903cd1e7b7035890b012300984eef",
+    "qa_result_git_blob": "e82d5452a750058b9280f8d504b2eaff2edd78a9",
+    "q1q2_frozen_config_git_blob": "22a752485bca7420b78d78969665c876261d8d8f",
+    "base_main_sha": "b57b44e7287f842e81050c1faee337f636333dd0"
+  },
+  "execution": {
+    "v1": "HOLD_CONSUMED_ZERO_OUTPUT_NO_RERUN",
+    "v2": "HOLD_CONSUMED_NO_RERUN",
+    "status": "HOLD_SHUTDOWN_UNVERIFIED",
+    "completed_calls": 5,
+    "planned_calls": 74,
+    "completed_q1": 5,
+    "planned_q1": 48,
+    "completed_q2_warmups": 0,
+    "completed_q2_measurements": 0,
+    "native_tokens": 283,
+    "raw_files": 5,
+    "training_executed": false,
+    "sealed_test_accessed": false
+  },
+  "stop": {
+    "primary": "OWNERSHIP_RECHECK_HOLD_UNTRUSTED_PID",
+    "stage": "ownership recheck before Q1 request 6",
+    "shutdown": "STOPPED_OWNED_TREE",
+    "shutdown_tcp": "HOLD_UNSAFE_PORT_ROW_AFTER_SHUTDOWN",
+    "cause_of_untrusted_pid": "UNKNOWN_NO_FAILURE_TCP_SNAPSHOT_IN_RESULT",
+    "foreign_process_confirmed": false,
+    "port_safety_proven": false,
+    "no_safety_bypass_allowed": true,
+    "only_timewait_rows_proven": false
+  },
+  "metrics": {
+    "greedy_n": 2,
+    "sampled_n": 3,
+    "greedy_mean_distinct3_reencoded": 0.853494623655914,
+    "sampled_mean_distinct3_reencoded": 0.9838709677419355,
+    "greedy_mean_repeat3": 0.14650537634408606,
+    "sampled_mean_repeat3": 0.016129032258064502,
+    "q1_fraction_complete": 0.10416666666666667,
+    "total_fraction_complete": 0.06756756756756757,
+    "unit": "re-encoded BPE2048 tokens from generated text; not sampled native token IDs",
+    "speed_limit": "5 Q1 requests; not Q2 benchmark; no TTFT inference"
+  },
+  "per_run": [
+    {
+      "run_id": "Q1-E01-G0",
+      "prompt_id": "E01",
+      "condition": "GREEDY",
+      "native_tokens": 64,
+      "done_reason": "length",
+      "distinct_3_reencoded": 0.7903225806451613,
+      "repeat_3gram_ratio": 0.20967741935483875,
+      "tokens_per_second_from_eval_duration": 1571.7864335183458,
+      "raw_file": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/raw/Q1-E01-G0.json",
+      "raw_sha256_recorded": "0e37354745c441074538b0935bd40b90e8e334a0783108d1d8fe5982cc18c9e6"
+    },
+    {
+      "run_id": "Q1-E01-S101",
+      "prompt_id": "E01",
+      "condition": "SAMPLED",
+      "native_tokens": 64,
+      "done_reason": "length",
+      "distinct_3_reencoded": 0.967741935483871,
+      "repeat_3gram_ratio": 0.032258064516129004,
+      "tokens_per_second_from_eval_duration": 919.4477566911373,
+      "raw_file": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/raw/Q1-E01-S101.json",
+      "raw_sha256_recorded": "665838f2c9cde8288ba979c4fc4f2e8aa573dcbaefe88b2e4240136bdc5e0c59"
+    },
+    {
+      "run_id": "Q1-E01-S102",
+      "prompt_id": "E01",
+      "condition": "SAMPLED",
+      "native_tokens": 64,
+      "done_reason": "length",
+      "distinct_3_reencoded": 1,
+      "repeat_3gram_ratio": 0,
+      "tokens_per_second_from_eval_duration": 1870.6886472582719,
+      "raw_file": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/raw/Q1-E01-S102.json",
+      "raw_sha256_recorded": "08ddfec0ab7f7fd9b02df4e22726d3957388001645174cf7f7b091d7370056b4"
+    },
+    {
+      "run_id": "Q1-E02-G0",
+      "prompt_id": "E02",
+      "condition": "GREEDY",
+      "native_tokens": 27,
+      "done_reason": "stop",
+      "distinct_3_reencoded": 0.9166666666666666,
+      "repeat_3gram_ratio": 0.08333333333333337,
+      "tokens_per_second_from_eval_duration": 1280.1668958323457,
+      "raw_file": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/raw/Q1-E02-G0.json",
+      "raw_sha256_recorded": "2956e53c7f8c3c485c96d2618251f4569128f31e837e7b391911cb71885857ac"
+    },
+    {
+      "run_id": "Q1-E02-S101",
+      "prompt_id": "E02",
+      "condition": "SAMPLED",
+      "native_tokens": 64,
+      "done_reason": "length",
+      "distinct_3_reencoded": 0.9838709677419355,
+      "repeat_3gram_ratio": 0.016129032258064502,
+      "tokens_per_second_from_eval_duration": 943.0903893195012,
+      "raw_file": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/raw/Q1-E02-S101.json",
+      "raw_sha256_recorded": "8b6634f281da3fbd3e55947a7bb0630b931f6c66b5cd862db078d65b78ea6f6b"
+    }
+  ],
+  "qualitative_screen": {
+    "status": "PRELIMINARY_ASSISTANT_NONINDEPENDENT_NOT_HUMAN_RUBRIC",
+    "observations": [
+      "E01 greedy repeats big tree, introduces Lily, and fails to resolve Mara/cup/window setup.",
+      "E01 sampled outputs are more diverse but shift topics to parks/flowers and include malformed clauses.",
+      "E02 greedy/sample fail to resolve Leo's wet-weather and single-sock goal; unrelated park, tree and bear appear."
+    ],
+    "semantic_rubric_scores": null,
+    "independent_rater": false
+  },
+  "scientific_decision": {
+    "go": "NOT_ADJUDICATED",
+    "revise": "CANDIDATE_FOR_REVIEW",
+    "stop": "NOT_ADJUDICATED",
+    "frozen_go_rule_met": false,
+    "reason_frozen_go_rule_not_met": "Need all 48 valid pinned Q1 completions plus human rubric and causal prompts; 5/48 available, 0 causal and 0 consistency.",
+    "q2": "NOT_EXECUTED",
+    "checkpoint_recommendation": "Do not claim coherent story following or commercial quality; consider training/data/model diagnosis before further full inference."
+  },
+  "governance": {
+    "lineage_md_modified": false,
+    "github_readback_operator_report": "PASS_ALL_8_EVIDENCE_FILES",
+    "native_v2_raw_preserved": true,
+    "new_native_execution": false,
+    "no_v3_claim": true,
+    "merge_decision": "HOLD"
+  }
+}
