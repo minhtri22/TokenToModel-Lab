@@ -3,7 +3,7 @@
 **Ngày:** 2026-11-09. **Run ID duy nhất:** `ttm_small4m_gemma2_directswap_1024x4096_t4_gpu_20261109_v1`.
 **Phán quyết:** `DIRECT_SWAP_1024_BENEFIT_NOT_ESTABLISHED` (**không đạt điều kiện cải thiện đã khóa**).
 **QA độc lập:** `PASS_INDEPENDENT_SCOPED_CPU_REPLAY` (khác biệt FP32 GPU/CPU cho NLL < 4×10⁻⁸; không chạy lại huấn luyện).
-**Trạng thái đầu vào:** GTX? Không; đúng **Tesla T4**, CUDA FP32, PyTorch `2.14.1+cu130` theo CLAIM gốc.
+**Môi trường được báo cáo:** **Tesla T4**, CUDA FP32, PyTorch `2.14.1+cu130` theo CLAIM gốc.
 
 ## 1. Phạm vi thực hiện và nguồn đã khóa trước kết quả
 
@@ -13,7 +13,7 @@
 - Ngân sách đầy đủ: **4 nhánh × 1.024 optimizer steps × 4.096 valid TRAIN targets/step**, tức **4.194.304 lượt nhãn mỗi nhánh**, **16.777.216 tổng lượt nhãn**. A tied baseline, B untied control, C donor thật + ridge adapter, D hoán vị donor cùng kiến trúc. Cùng lịch TRAIN SHA256 `19ddc05128c188b86bda2f02de6389946944fe287c26abbf7d24cc5f9681e8f2`, AdamW mới cho mọi nhánh; không tải lại donor và không dùng GPU ngoài lượt này.
 - Các nhánh **tiếp tục từ checkpoint TTM vốn đã huấn luyện 1.024 bước**; đây là 1.024 bước **bổ sung**, không phải huấn luyện từ đầu. Số bước/nhãn bằng nhau, FLOPs không hoàn toàn bằng nhau.
 - Thư mục bằng chứng riêng tư trên [Google Drive](https://drive.google.com/drive/folders/1JeRva6DWqT8b0ltC9R3SIz7ZhXEyuNe4), chứa [CLAIM](https://drive.google.com/file/d/1gd47rTuXCUuOJ_9Il56r_HVu0cDPJPej/view), [RESULT](https://drive.google.com/file/d/1WNcmugx6hF9lpALiiw5PKNEUU8yB82QJ/view), [PER_STORY_PRIVATE](https://drive.google.com/file/d/1gfNeiCmTJpe8b_XWw8n6LHhUiAzHJ1OT/view), TRAIN schedule riêng tư và 16 checkpoint tiến trình/READY mốc 256/512/768/1024.
-- SHA256 nguyên bản **CLAIM** `BE_FILLED_IN_FILE_HASH` (phụ lục digest dưới), **RESULT** `46a93c888063c27711541c067d168ded31bbf22f6c46ba6efe45051cdc9c0bec`, **PER_STORY_PRIVATE** `3d23e6d2502060f3b7b134e6247a249dc7dd59f8dff89049764f8841a68f42da`. Mã hash per-story trong RESULT trùng khi tính lại bytes.
+- SHA256 nguyên bản **CLAIM** `d7e99b831dcb69688e4a1483732f174125f8e1a10d5e73cea5c4ef9efcfb3011`, **RESULT** `46a93c888063c27711541c067d168ded31bbf22f6c46ba6efe45051cdc9c0bec`, **PER_STORY_PRIVATE** `3d23e6d2502060f3b7b134e6247a249dc7dd59f8dff89049764f8841a68f42da`. Mã hash per-story trong RESULT trùng khi tính lại bytes.
 
 ## 2. Kết quả chính — VAL không mới, một seed, thăm dò
 
