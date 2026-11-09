@@ -116,8 +116,10 @@ def run(expected, cleanup):
     run_dir.mkdir(exist_ok=False)
     checkout = run_dir / "checkout"
     print("TTM_PR12_QA_CLAIMED=" + str(run_dir), flush=True)
-    clone = cmd(["git", "clone", "--single-branch", "--branch", BRANCH, ORIGIN, str(checkout)], timeout=180)
+    clone = cmd(["git", "-c", "core.autocrlf=false", "-c", "core.safecrlf=true", "clone", "--single-branch", "--branch", BRANCH, ORIGIN, str(checkout)], timeout=180)
     require(clone.returncode == 0, "GIT_CLONE_FAILED:" + clone.stderr[-800:].decode("utf-8", "replace"))
+    git("config", "core.autocrlf", "false", cwd=checkout)
+    git("config", "core.eol", "lf", cwd=checkout)
     require(git("rev-parse", "HEAD", cwd=checkout) == expected, "CLONED_HEAD_NOT_EXACT")
     original_main = cmd(["git", "-C", str(checkout), "show", MAIN + ":lineage.md"], timeout=30)
     require(original_main.returncode == 0, "MAIN_LINEAGE_NOT_IN_HISTORY")

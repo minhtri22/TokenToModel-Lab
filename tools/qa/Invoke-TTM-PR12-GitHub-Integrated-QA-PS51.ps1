@@ -9,7 +9,7 @@ $root='D:\WORK\RESEARCH\TokenToModel-Lab'
 $remote='https://github.com/minhtri22/TokenToModel-Lab.git'
 $branch='research/ttm-small-4m-colab-pilot-prereg-20261108'
 $pythonRel='tools/qa/ttm_pr12_github_single_integrated_qa.py'
-$sourceBlob='2d014201ba33fd8912a8b570b26a481f5629f6a7'
+$sourceBlob='95696be90c8255631535c29e25c698cf5ae44946'
 
 if (-not (Test-Path -LiteralPath (Join-Path $root '.git'))) {throw 'TTM_REPO_NOT_FOUND'}
 $origin=(& git -C $root remote get-url origin 2>&1 | Out-String).Trim()
@@ -30,8 +30,11 @@ Invoke-WebRequest -Uri $url -UseBasicParsing -OutFile $download -TimeoutSec 60
 if (-not (Test-Path -LiteralPath $download -PathType Leaf)) {throw 'QA_SOURCE_DOWNLOAD_MISSING'}
 $blob=(& git hash-object -t blob --no-filters -- $download 2>&1 | Out-String).Trim()
 if ($LASTEXITCODE -ne 0 -or $blob -cne $sourceBlob) {throw 'QA_SOURCE_EXACT_GIT_BLOB_MISMATCH'}
+$expectedSha256='5d16f2c881e37867a3c76a70835b221553d53b600feeb5de7786cfae03460275'
+$actualSha256=(Get-FileHash -LiteralPath $download -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($actualSha256 -cne $expectedSha256) {throw 'QA_SOURCE_SHA256_MISMATCH'}
 Write-Host 'TTM_PR12_QA_SOURCE_GITHUB_BLOB=PASS'
-Write-Host ('TTM_PR12_QA_SOURCE_SHA256='+(Get-FileHash -LiteralPath $download -Algorithm SHA256).Hash.ToLowerInvariant())
+Write-Host 'TTM_PR12_QA_SOURCE_SHA256=PASS'
 $python=(Get-Command python.exe -ErrorAction Stop).Source
 $argv=@('-B',$download,'--head',$ExpectedHead,'--mode','qa')
 if ($CleanupIfPublished) {$argv+=@('--cleanup-if-published')}
