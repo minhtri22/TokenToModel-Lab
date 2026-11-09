@@ -8,6 +8,8 @@ param(
     [string]$ProjectRoot = 'D:\WORK\RESEARCH\TokenToModel-Lab'
 )
 $ErrorActionPreference='Stop'
+# Resolve executable explicitly: PowerShell command lookup is case-insensitive.
+$gitExe = (Get-Command -Name 'git.exe' -CommandType Application -ErrorAction Stop).Source
 $root=[IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\')
 if ($root -ine 'D:\WORK\RESEARCH\TokenToModel-Lab') { throw 'PROJECT_ROOT_MISMATCH' }
 $branch='research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109'
@@ -21,8 +23,8 @@ $oldCmake=Join-Path $root '_tmp\ttm_t5_numeric_localization_v1\build\CMakeCache.
 $receiptDir=Join-Path $root '_tmp\ttm_t5_f32_kvflash_owner_gate_20261109'
 $marker=Join-Path $receiptDir 'OWNER_LOCAL_PREVIEW_SINGLE_20261109.json'
 function Sha([string]$p) {(Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()}
-function Git([string[]]$Items) {
-    $a=@(& git -C $root @Items 2>&1)
+function Invoke-TTMGit([string[]]$Items) {
+    $a=@(& $gitExe -C $root @Items 2>&1)
     if($LASTEXITCODE -ne 0){throw ('GIT_FAILED '+($Items -join ' ')+' '+($a -join ' '))}
     return ($a -join "`n").Trim()
 }
@@ -43,26 +45,26 @@ ParentNoReparse -path (Join-Path $root 'worktrees') -stop $root
 ParentNoReparse -path $receiptDir -stop $root
 ParentNoReparse -path $work -stop $root
 if(Test-Path -LiteralPath $marker){throw 'PREVIEW_ALREADY_EXECUTED_ONE_SHOT_MARKER_EXISTS'}
-$origin=Git @('remote','get-url','origin')
+$origin=Invoke-TTMGit -Items @('remote','get-url','origin')
 if($origin -notmatch '^(https://github\.com/|git@github\.com:|ssh://git@github\.com/)(minhtri22/TokenToModel-Lab)(\.git)?$'){
  throw ('GIT_REMOTE_ORIGIN_NOT_CANONICAL '+$origin)
 }
 # Fetch writes only project-local Git metadata (FETCH_HEAD), no main checkout/merge.
-$null=Git @('fetch','--quiet','--no-tags','origin',('refs/heads/'+$branch))
-$fetched=Git @('rev-parse','FETCH_HEAD')
+$null=Invoke-TTMGit -Items @('fetch','--quiet','--no-tags','origin',('refs/heads/'+$branch))
+$fetched=Invoke-TTMGit -Items @('rev-parse','FETCH_HEAD')
 if($fetched -ine $ExpectedCommit){throw ('GITHUB_HEAD_SHA_DIFFERENT expected='+$ExpectedCommit+' actual='+$fetched)}
 $localRef='refs/heads/'+$branch
-$hasLocalRef=(& git -C $root show-ref --verify --quiet $localRef);$refExists=($LASTEXITCODE -eq 0)
+$hasLocalRef=(& $gitExe -C $root show-ref --verify --quiet $localRef);$refExists=($LASTEXITCODE -eq 0)
 if($refExists){
- $existing=(Git @('rev-parse',$localRef))
+ $existing=(Invoke-TTMGit -Items @('rev-parse',$localRef))
  if($existing -ine $ExpectedCommit){throw 'LOCAL_BRANCH_HEAD_DIFFERS_FROM_SOURCE_PIN'}
 }
 if(-not (Test-Path -LiteralPath $work)){
- if($refExists){$null=Git @('worktree','add',$work,$branch)}
- else {$null=Git @('worktree','add','-b',$branch,$work,$ExpectedCommit)}
+ if($refExists){$null=Invoke-TTMGit -Items @('worktree','add',$work,$branch)}
+ else {$null=Invoke-TTMGit -Items @('worktree','add','-b',$branch,$work,$ExpectedCommit)}
 }
-$wtHead=(& git -C $work rev-parse HEAD 2>&1 | Out-String).Trim()
-$wtName=(& git -C $work rev-parse --abbrev-ref HEAD 2>&1 | Out-String).Trim()
+$wtHead=(& $gitExe -C $work rev-parse HEAD 2>&1 | Out-String).Trim()
+$wtName=(& $gitExe -C $work rev-parse --abbrev-ref HEAD 2>&1 | Out-String).Trim()
 if($LASTEXITCODE -ne 0 -or $wtHead -ine $ExpectedCommit -or $wtName -cne $branch){throw 'WORKTREE_HEAD_OR_BRANCH_DIFFERENT'}
 $preflight=Join-Path $work 'tools\pilot_t5\kv_flash_precision_v1\Invoke-TTM-T5-KVFlash-OwnerPreflight-PS51.ps1'
 if(-not (Test-Path -LiteralPath $preflight -PathType Leaf)){throw 'PINNED_GITHUB_PREVIEW_SCRIPT_MISSING'}
