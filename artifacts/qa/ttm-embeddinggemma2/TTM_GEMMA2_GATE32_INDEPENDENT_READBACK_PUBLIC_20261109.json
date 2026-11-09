@@ -1,0 +1,45 @@
+{
+  "contrasts": {
+    "B_minus_G": {
+      "ci95_percentile": [
+        0.0007229702191489509,
+        0.0012893495002888537
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll": 0.0010211148002552406
+    },
+    "R_minus_G": {
+      "ci95_percentile": [
+        -0.0010824417933487027,
+        -0.0003801699482066699
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.0007240518584796796
+    }
+  },
+  "gate_checkpoint_sha256": {
+    "G": "718c01f00b1e924c76905473ca2fe97ed904913562c7824ec9dd974c3288829e",
+    "R": "aca5ead18b3e3cb7f38f9b95c047353eab88841a7708b36c81d9af3871ac6d9f"
+  },
+  "gpu_used": false,
+  "holdout_320_read": false,
+  "model_forward_calls": 0,
+  "nll_val_nats_per_target": {
+    "B": 3.522338827470574,
+    "G": 3.5213177126703186,
+    "R": 3.520593660811839
+  },
+  "private_per_story_sha256": "5ebaa8ee9462bf5b50ae3a82639a9123a8cb0dddacd94d66611bdcee135aa187",
+  "run_id": "ttm_small4m_gemma2_zero_gate_residual_32_cpu_probe_20261109_v1",
+  "schema": "ttm.gemma2.gate32.independent_readback.public.v1",
+  "scientific_verdict_candidate": "GATED_32_STEP_SIGNAL_NOT_ESTABLISHED",
+  "source_claim_sha256": "d57c239d54cca10c448e919f36ac052ea70c20ba9c7d03620aff3832b9659fba",
+  "source_result_sha256": "a3eecadde88fad706411b4596aba7aa4f16ba294105cf4585c9560bf138dd3dc",
+  "status": "PASS_INDEPENDENT_STORY_BOOTSTRAP_READBACK",
+  "stories": 256,
+  "target_count": 61122,
+  "test_read": false,
+  "train_steps_G_R": 32,
+  "training_reexecuted": false,
+  "windows": 328
+}

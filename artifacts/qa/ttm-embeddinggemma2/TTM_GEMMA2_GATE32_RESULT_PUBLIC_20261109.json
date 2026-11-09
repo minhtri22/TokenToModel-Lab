@@ -1,0 +1,90 @@
+{
+  "bootstrap": {
+    "ci": "percentile_95_two_sided",
+    "samples": 1000,
+    "seed": 20261109,
+    "unit": "story"
+  },
+  "contrasts": {
+    "B_minus_G": {
+      "ci95_percentile": [
+        0.0007229702191489509,
+        0.0012893495002888537
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll": 0.0010211148002552406
+    },
+    "R_minus_G": {
+      "ci95_percentile": [
+        -0.0010824417933487027,
+        -0.0003801699482066699
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.0007240518584796796
+    }
+  },
+  "cpu_seconds_by_arm": {
+    "G": 2.1521512999897823,
+    "R": 1.953400900005363
+  },
+  "delta_valid_row_L2_mean": {
+    "G": 0.3938298523426056,
+    "R": 0.45858898758888245
+  },
+  "explanatory_limits": [
+    "reused T1 VALIDATION: exploratory, not blind confirmatory",
+    "32-step gate does not explain causal source of direct-swap C step2048 effect",
+    "donor-permuted ridge refit may change delta geometry and scale; one seed only"
+  ],
+  "gate_checkpoint_sha256": {
+    "G": "718c01f00b1e924c76905473ca2fe97ed904913562c7824ec9dd974c3288829e",
+    "R": "aca5ead18b3e3cb7f38f9b95c047353eab88841a7708b36c81d9af3871ac6d9f"
+  },
+  "gate_parameter_counts": {
+    "B": 0,
+    "G": 256,
+    "R": 256
+  },
+  "gpu_used": false,
+  "historical_test_read": false,
+  "holdout_320_read": false,
+  "input_sha256": {
+    "T4_PRIVATE_PACK_MANIFEST.json": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "T4_PRIVATE_TRAIN_VAL_WINDOWS.npz": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "candidate_initialization.pt": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "checkpoint.pt": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "src/p02_exact.py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "src/ttm_embeddinggemma2_swap.py": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39"
+  },
+  "nll_val_nats_per_target": {
+    "B": 3.522338827470574,
+    "G": 3.5213177126703186,
+    "R": 3.520593660811839
+  },
+  "per_story_sha256": "5ebaa8ee9462bf5b50ae3a82639a9123a8cb0dddacd94d66611bdcee135aa187",
+  "run_id": "ttm_small4m_gemma2_zero_gate_residual_32_cpu_probe_20261109_v1",
+  "schedule_sha256": "a460c39b176ba1ba2211bb8040821afc1bec9d41753979cf3457b00faefe430a",
+  "schema": "ttm.gemma2.gate32.result.v1",
+  "scientific_candidate_decision": "GATED_32_STEP_SIGNAL_NOT_ESTABLISHED",
+  "source_claim_sha256": "d57c239d54cca10c448e919f36ac052ea70c20ba9c7d03620aff3832b9659fba",
+  "source_runner_sha256": "235816631eedbe212f7f431700024f1e4ae8e470fd5b0cabcdabd78421c815bf",
+  "status": "COMPLETED_PENDING_INDEPENDENT_ADJUDICATION",
+  "train_batch_valid_labels": 512,
+  "train_steps_by_arm": {
+    "B": 0,
+    "G": 32,
+    "R": 32
+  },
+  "train_targets_per_arm": 16384,
+  "training_loss_step1": {
+    "G": 3.408957004547119,
+    "R": 3.408957004547119
+  },
+  "training_loss_step32": {
+    "G": 3.182140827178955,
+    "R": 3.182108163833618
+  },
+  "validation_stories": 256,
+  "validation_targets": 61122,
+  "validation_windows": 328
+}

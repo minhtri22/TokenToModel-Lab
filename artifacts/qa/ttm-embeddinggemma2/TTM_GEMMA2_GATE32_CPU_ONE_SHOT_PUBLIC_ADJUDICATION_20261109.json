@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.gemma2.gate32.one_shot.independent_science_adjudication.public.v1",
+  "date": "2026-11-09",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_ZERO_GATE_RESIDUAL_32_STEP_CPU_PROBE",
+  "research_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "prior_head": "c6ce57fcd7fe7e2b569f3f3a0a01e22456846a57",
+  "run_id": "ttm_small4m_gemma2_zero_gate_residual_32_cpu_probe_20261109_v1",
+  "verdict_exact": "GATED_32_STEP_SIGNAL_NOT_ESTABLISHED",
+  "scientific_adjudication": "FAIL_SCOPED_PREREGISTERED_COMPOSITE_GATE",
+  "technical_qa": "PASS_INDEPENDENT_STORY_BOOTSTRAP_READBACK",
+  "one_shot_claim_status": "CONSUMED",
+  "one_shot_not_rerun": true,
+  "windows_evidence_dir": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_small4m_gemma2_zero_gate_residual_32_cpu_probe_20261109_v1",
+  "source_prereg_commit": "49d407554485d31abf6ef0ca2ee188b5e1e6366a",
+  "source_prereg_blob": "ba39c53623f1f29d105777d78579b357f369a931",
+  "code_bundle_sha256": "42cae40352bb86303663a75d1e0235996ca59dc9b64470b16725706af483fdc5",
+  "source_runner_sha256": "235816631eedbe212f7f431700024f1e4ae8e470fd5b0cabcdabd78421c815bf",
+  "source_reviewer_sha256": "d25296daa0ff3185dc078195d0b239b655c0d305a031a3d0129d9b5a5d05cbca",
+  "source_ps51_quoting_fix_commit": "c6ce57fcd7fe7e2b569f3f3a0a01e22456846a57",
+  "owner_console_hashes": {
+    "claim_sha256": "d57c239d54cca10c448e919f36ac052ea70c20ba9c7d03620aff3832b9659fba",
+    "result_sha256": "a3eecadde88fad706411b4596aba7aa4f16ba294105cf4585c9560bf138dd3dc",
+    "independent_readback_sha256": "9dfa8e49a515dd1c5b5924241cdb0169b00aedbb0b077b1a5139c802e5fb96a0",
+    "per_story_sha256": "5ebaa8ee9462bf5b50ae3a82639a9123a8cb0dddacd94d66611bdcee135aa187"
+  },
+  "fixed_input_sha256": {
+    "T4_PRIVATE_PACK_MANIFEST.json": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "T4_PRIVATE_TRAIN_VAL_WINDOWS.npz": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "candidate_initialization.pt": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "checkpoint.pt": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "src/p02_exact.py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "src/ttm_embeddinggemma2_swap.py": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39"
+  },
+  "results": {
+    "trained_G_steps": 32,
+    "trained_R_steps": 32,
+    "baseline_B_steps": 0,
+    "valid_targets_per_train_step": 512,
+    "train_label_exposures_per_train_arm": 16384,
+    "validation_stories": 256,
+    "validation_windows": 328,
+    "validation_targets": 61122,
+    "validation_nll": {
+      "B": 3.522338827470574,
+      "G": 3.5213177126703186,
+      "R": 3.520593660811839
+    },
+    "contrasts": {
+      "B_minus_G": {
+        "ci95_percentile": [
+          0.0007229702191489509,
+          0.0012893495002888537
+        ],
+        "ci_lower_gt_zero": true,
+        "delta_nll": 0.0010211148002552406
+      },
+      "R_minus_G": {
+        "ci95_percentile": [
+          -0.0010824417933487027,
+          -0.0003801699482066699
+        ],
+        "ci_lower_gt_zero": false,
+        "delta_nll": -0.0007240518584796796
+      }
+    },
+    "bootstrap": {
+      "ci": "percentile_95_two_sided",
+      "samples": 1000,
+      "seed": 20261109,
+      "unit": "story"
+    },
+    "initial_logits_equal_B_G_R": true,
+    "gates_trainable_parameters": {
+      "B": 0,
+      "G": 256,
+      "R": 256
+    },
+    "checkpoint_sha256": {
+      "G": "718c01f00b1e924c76905473ca2fe97ed904913562c7824ec9dd974c3288829e",
+      "R": "aca5ead18b3e3cb7f38f9b95c047353eab88841a7708b36c81d9af3871ac6d9f"
+    },
+    "delta_valid_row_L2_mean": {
+      "G": 0.3938298523426056,
+      "R": 0.45858898758888245
+    }
+  },
+  "independent_readback": {
+    "status": "PASS_INDEPENDENT_STORY_BOOTSTRAP_READBACK",
+    "no_science_forward": true,
+    "no_training_reexecution": true,
+    "same_nll_and_bootstrap": true,
+    "private_per_story_hash_bound": "5ebaa8ee9462bf5b50ae3a82639a9123a8cb0dddacd94d66611bdcee135aa187",
+    "no_test_or_320_read": true
+  },
+  "limitations": [
+    "This experiment is exploratory on previously reused VALIDATION, not blind confirmatory",
+    "R better than G under this protocol is not proof that donor semantics has negative causal effect",
+    "Permuted donor ridge refit changes input perturbation geometry/scale, with reported mean delta row L2 G 0.39382985 vs R 0.45858899",
+    "Only one seed, only 32 steps of gate learning, fixed original TTM step1024 backbone",
+    "Does not invalidate L0017 positive direct-swap C step2048 checkpoint result",
+    "No budget extension, tuning, rescore, or one-shot replay authorized"
+  ],
+  "lineage_action": "APPEND_ONLY_L0018",
+  "raw_private_story_ids_text_weights_committed": false
+}
