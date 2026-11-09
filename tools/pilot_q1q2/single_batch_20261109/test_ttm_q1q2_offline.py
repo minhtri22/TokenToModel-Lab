@@ -1,6 +1,7 @@
 """Pure offline Q1/Q2 contract tests: no network/model/TEST access."""
 import importlib.util
 import json
+import sys
 from pathlib import Path
 from unittest import TestCase, main
 from unittest.mock import patch
@@ -11,6 +12,42 @@ m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 
 class Tests(TestCase):
+    def test_dynamic_dataclass_module_registration_before_execution(self):
+        # Reproduce the exact pre-CLAIM failure class without model or network.
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d:
+            path=Path(d)/'synthetic_bpe.py'
+            path.write_text('from dataclasses import dataclass\n'
+                            '@dataclass(frozen=True)\n'
+                            'class FakeBPE:\n'
+                            '    vocab: int = 2048\n',encoding='utf-8')
+            name='ttm_q1q2_offline_bpe_registration'
+            self.assertNotIn(name,sys.modules)
+            try:
+                module=m.load_module(path,name)
+                self.assertIs(sys.modules[name],module)
+                self.assertEqual(module.FakeBPE().vocab,2048)
+                with self.assertRaisesRegex(RuntimeError,'MODULE_ALREADY_REGISTERED'):
+                    m.load_module(path,name)
+                self.assertIs(sys.modules[name],module)
+            finally:
+                sys.modules.pop(name,None)
+
+    def test_failed_dynamic_import_does_not_poison_sys_modules(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d:
+            path=Path(d)/'failing_module.py'
+            path.write_text('raise ValueError("synthetic import failure")\n',encoding='utf-8')
+            name='ttm_q1q2_offline_bpe_failing'
+            self.assertNotIn(name,sys.modules)
+            with self.assertRaisesRegex(ValueError,'synthetic import failure'):
+                m.load_module(path,name)
+            self.assertNotIn(name,sys.modules)
+
+    def test_dynamic_import_rejects_invalid_module_name(self):
+        with self.assertRaisesRegex(RuntimeError,'INVALID_DYNAMIC_MODULE_NAME'):
+            m.load_module(Path('ignored.py'),'../unsafe')
+
     def test_ids_and_capacity(self):
         self.assertEqual(m.MAX_REQUESTS,74)
         self.assertEqual(m.MAX_OUTPUT_TOKENS,3904)

@@ -127,10 +127,22 @@ def ngram_metrics(token_ids):
 
 
 def load_module(path: Path, module_name: str):
+    # dataclasses in Python 3.12 inspect sys.modules[cls.__module__] at import time.
+    # Register BEFORE exec_module; never replace an existing module or leave a
+    # half-imported module behind on failure.
+    require(re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*',module_name) is not None,
+            'INVALID_DYNAMIC_MODULE_NAME')
+    require(module_name not in sys.modules,'MODULE_ALREADY_REGISTERED')
     spec=importlib.util.spec_from_file_location(module_name,path)
     require(spec is not None and spec.loader is not None,'MODULE_LOAD_FAILED')
     mod=importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    sys.modules[module_name]=mod
+    try:
+        spec.loader.exec_module(mod)
+    except BaseException:
+        if sys.modules.get(module_name) is mod:
+            sys.modules.pop(module_name,None)
+        raise
     return mod
 
 
