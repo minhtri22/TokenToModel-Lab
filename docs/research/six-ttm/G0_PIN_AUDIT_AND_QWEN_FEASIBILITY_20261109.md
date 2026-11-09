@@ -34,7 +34,7 @@
 - Raw SHA-256 được tính lại = `81a1ad556160b935651bc9cfc2db28533c3d4efa647d191acc828e65e82c208d` = **MATCH** với lineage.
 - Independent-QA Git blob: `ff8018391025f7dc3b4526814c51ce1074097f05`; UTF-8 byte count = **3143**; SHA-256 tính lại = `b2ce666ae95a7b98ba7d75e92614370874e79f7380067ecf852c98894fb1da4b`.
 - Raw seed set: `96,97,98,99,100`.
-- Cổng nguyên gốc: IID median <=0.25 và tối thiểu 5/5 trong raw kiểm tra riêng theo ngưỡng <=0.25; HELDOUT seed <=0.30, tối thiểu 5/5. Không mở lại cổng hay thay đổi ngưỡng.
+- Quan sát từ raw: cả 5/5 seed có IID NRMSE <=0.25 và cả 5/5 seed có HELDOUT NRMSE <=0.30. Đây là **số lượng đạt thực tế**, không suy diễn số seed tối thiểu của tiền đăng ký từ raw; ngưỡng và verdict nguyên gốc giữ nguyên.
 
 | Biểu diễn | IID median tính từ 5 hàng raw | Held-out median tính từ 5 hàng raw | Số seed dưới ngưỡng IID / heldout |
 |---|---:|---:|---|
