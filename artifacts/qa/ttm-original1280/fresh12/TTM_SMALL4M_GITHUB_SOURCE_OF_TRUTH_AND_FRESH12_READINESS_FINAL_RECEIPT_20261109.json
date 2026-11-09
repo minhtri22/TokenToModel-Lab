@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.small4m.github_source_of_truth_and_fresh12_review_readiness.audit.v1",
+  "date": "2026-11-09",
+  "pr": 13,
+  "primary_source_of_truth": "GitHub branch research/ttm-small4m-q1q2-quality-single-batch-20261109",
+  "source_of_truth_index": "docs/pilot/ttm-small4m-source-of-truth/README.md",
+  "previous_completed_public_documents": {
+    "full_reports_imported_and_readback_verified": 4,
+    "scoring_csv_imported_and_readback_verified": 3,
+    "full_reports": [
+      "TTM_SMALL4M_1024_VS_1280_FINAL_BLIND_QUALITY_ADJUDICATION_20261109.md",
+      "TTM_SMALL4M_PROMPT_ADHERENCE_ROOT_CAUSE_READONLY_DIAGNOSTIC_20261109.md",
+      "TTM_SMALL4M_PROMPT_SERIALIZATION_ABLATION_FULL_REPORT_20261109.md",
+      "TTM_SMALL4M_POSTHOC_SEMANTIC_REVIEW_AND_DATA_DECISION_FULL_REPORT_20261109.md"
+    ],
+    "public_score_tables": 3,
+    "material_check": "PASS_7_OF_7_CONTENT_READBACK",
+    "original_binary_archive_policy": "private raw/checkpoints and original secret key blobs not uploaded to public repository; GitHub has source docs, SHA pins, scored data and receipts"
+  },
+  "fresh12": {
+    "status": "FROZEN_PREREG_DESIGN_ONLY",
+    "prompts": 12,
+    "pairs": 24,
+    "planned_generations": 48,
+    "actual_new_generations": 0,
+    "decoders": [
+      "greedy"
+    ],
+    "step_checkpoints": [
+      1024,
+      1280
+    ],
+    "allocation_balance": "12_A_TRIMMED_12_A_ORIGINAL_6_PER_CKPT",
+    "public_prereg": "artifacts/qa/ttm-original1280/fresh12/TTM_SMALL4M_FRESH12_PUBLIC_PREREG_GITHUB_CANONICAL_20261109.json",
+    "escrow": "artifacts/qa/ttm-original1280/fresh12/TTM_SMALL4M_FRESH12_ENCRYPTED_BLIND_SEED_ESCROW_20261109.json",
+    "independent_reviewer": "HOLD_NOT_IDENTIFIED",
+    "no_reviewer_scores": true
+  },
+  "qa": {
+    "author_static": "PASS_12_NAMED_STATIC_CHECKS",
+    "github_source_readback": "PASS_7_OF_7_REPORT_AND_SCORE_FILES",
+    "github_fresh12_readback": "PASS_15_OF_15",
+    "external_custodian": "NOT_PRESENT",
+    "science_evaluation": "NOT_EXECUTED"
+  },
+  "important_limitations": [
+    "Novelty verified against eight prior pilot prompts only; Q1/Q2 sealed and not reread",
+    "Public JSON allocation balance is an author commitment; private mapping is AES-GCM escrowed to prevent unblinding",
+    "No external reviewer has accepted yet",
+    "All private original ZIP blobs are not made public on GitHub due raw text, secret mappings, and private TRAIN/VAL"
+  ],
+  "governance": {
+    "main_sha256_commit": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "lineage_git_blob_sha": "15c67ada3b11c46e2d947bef8818599c7408733c",
+    "lineage_L0017_unchanged": true,
+    "pr13_draft_hold": true,
+    "no_training": true,
+    "no_inference": true,
+    "no_test": true,
+    "no_q1q2_reexecution": true
+  },
+  "next": "TTM_SMALL4M_FRESH12_INDEPENDENT_REVIEWER_ATTESTATION_THEN_SINGLE_BATCH_INFERENCE"
+}
