@@ -1,0 +1,48 @@
+{
+  "schema": "ttm.six.g1.trusted_runtime_candidate_qa.v1",
+  "date": "2026-11-09",
+  "base_implementation_head": "51636a3187ed9e22658b55de2c9a4060127ac30d",
+  "reviewed_research_head": "d5d0c5346a595557a76349f900d09be50bce289c",
+  "distinct_codex_review_head": "d478282e16a4728f064892564b949e671e13cdd2",
+  "qa_environment": "isolated Linux Python CPU (no real Windows execution)",
+  "qa_result": {
+    "status": "PASS_G1_TRUSTED_BOUNDARY_SIMULATION_ONLY",
+    "checks": 45,
+    "controller_only_rollback_detected": true,
+    "witness_only_rollback_detected": true,
+    "witness_ack_failure_prevents_synthetic_test_open": true,
+    "test_read_consumption_logged_before_open": true,
+    "hardlink_symlink_rejected": true,
+    "orphan_pack_and_orphan_staging_rejected": true,
+    "worker_workspace_cleanup_does_not_reset_controller": true,
+    "cpu_child_force_kill": true,
+    "production_owner_key_provisioned": false,
+    "real_test_bytes_read": false,
+    "science_executed": false,
+    "qwen_loaded": false,
+    "gpu_used": false
+  },
+  "files_sha256": {
+    "g1_trusted_runtime_witness_candidate.py": "82d98ea2267aec351b14d6228d2116128c83c3a732d0b8e6ae88e36b64f98410",
+    "test_g1_trusted_runtime_witness_candidate.py": "af1552f1d6aef75cbbfbf7c81f955431fe9a3d1ab82a7253a659eaf46d22f139",
+    "g1_win32_job_object_watchdog_candidate.py": "eee96d274a4ab425ba5705f571512cccb180e493a1a71f862a02b3178396a0ca",
+    "Run-G1-TrustedRuntime-WindowsReadOnly-PS51.ps1": "fec968baeb347ddc74f638597862bb09ef771603641e5ae6e7c4bb0f89011295",
+    "G1_OWNER_SCOPE_AND_METHODS_V1D_REVIEW_CANDIDATE_20261109.md": "e34c7b4b22325ddd387e6abb44215b4f80a63feccd6ead01264f461158204d5f"
+  },
+  "production_hard_gates": {
+    "owner_authority": "HOLD_NO_PRODUCTION_SIGNING_ROOT",
+    "split_broker": "HOLD_NO_DISTINCT_PRINCIPAL_ACL_PROOF",
+    "trusted_pack_ledger": "HOLD_SIMULATION_WRITER_ONLY",
+    "one_shot": "HOLD_NO_EXTERNAL_INDEPENDENT_MONOTONIC_WITNESS",
+    "gpu_watchdog": "HOLD_WINDOWS_JOB_OBJECT_NOT_EXECUTED_AND_T4_NOT_ATTESTED",
+    "scientific_methods": "HOLD_V1D_INDEPENDENT_ADJUDICATION_NOT_EXECUTED"
+  },
+  "windows_target": {
+    "remote_machine_online_observed": true,
+    "remote_project_registration": "UNAVAILABLE_REMOTE_PROJECT_KIND_CHANGED",
+    "powershell_script": "Run-G1-TrustedRuntime-WindowsReadOnly-PS51.ps1",
+    "on_target_qa": "NOT_EXECUTED"
+  },
+  "owner_science_authorization": "NOT_ISSUED",
+  "g1_science_lock": "HOLD"
+}
