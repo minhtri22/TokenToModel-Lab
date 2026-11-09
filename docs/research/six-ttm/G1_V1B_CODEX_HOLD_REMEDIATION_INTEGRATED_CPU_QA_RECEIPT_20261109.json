@@ -1,0 +1,98 @@
+{
+  "schema": "ttm.six.g1.codex_hold_v1b_integrated_cpu_negative_qa.v1",
+  "date": "2026-11-09",
+  "request": "TTM_SIX_XMODEL_G1_CODEX_HOLD_REMEDIATION_INTEGRATED_REDESIGN_AND_NEGATIVE_QA",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+  "source_pins": {
+    "guard": "d67b35cd8cba907904d0f23ccedd4b6b68d4850f",
+    "core": "94611c0449001230b2957487e152cd706f817516",
+    "extractor": "210816e3fba1bb25f4f7fbeebb6c3d0cbf76527d",
+    "negative_qa": "59b87c1c4370c635f1cbc2ecf8cabf5946d6bc0c",
+    "original_codex_review": "5f478a0a801c31e9c119b9691440fc17252b3846",
+    "original_core": "b3ea8c890c45e3e2d248ad850977b53f5782552e",
+    "original_extractor": "9b490c8ed65dc1ecc56d7d0217dc89f022807327",
+    "manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6"
+  },
+  "executed": {
+    "host": "assistant_isolated_CPU_container",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "cryptography": "46.0.4",
+    "exact_source_blobs_verified_via_GitHub_readback": true,
+    "qa_status": "PASS_G1_V1B_ADVERSARIAL_CPU_ONLY",
+    "negative_qa_checks": 37,
+    "guard_selftest": "V1B_GUARD_SOURCE_ONLY_NO_SCIENCE",
+    "core_synthetic": "PASS_SYNTHETIC_ONLY_NO_SCIENCE_6_CHECKS",
+    "extractor_synthetic": "PASS_EXTRACTOR_V1B_SYNTHETIC_ONLY_8_PROBES",
+    "full_loop": "PASS_FULL_LOOP_SYNTHETIC",
+    "full_loop_counts": {
+      "shuffled_train_pair_nulls": 1000,
+      "cka_null_permutations": 1000,
+      "paired_bootstrap_resamples": 2000
+    },
+    "full_loop_metrics": {
+      "aligned_macro_r2": 0.99938475818023,
+      "direct_macro_r2": 0.9995075220005318,
+      "oracle_macro_r2": 0.9997504193778932,
+      "permutation_p": 0.000999000999000999,
+      "cka_permutation_p": 0.000999000999000999
+    },
+    "negative_coverage": [
+      "unprovisioned production Ed25519 authority STOP",
+      "valid fixture signature verified with test-only public key",
+      "modified envelope payload signature rejected",
+      "self-review and missing author identity rejected",
+      "wrong run_id and expired authority rejected",
+      "TEST pre-freeze access blocked by split-scoped reader",
+      "TRAIN source read cannot open TEST split in tested API",
+      "symlink leaf and nested parent redirects rejected",
+      "second one-shot marker exclusive open rejected",
+      "atomic complete staging-then-hardlink commit and no-overwrite",
+      "empty/corrupt/stale/missing DEV freeze rejected",
+      "changed feature tensor with same IDs rejected by hash",
+      "invalid receipt status/run id rejected",
+      "misordered IDs and malformed NPZ headers rejected",
+      "63+1 TEST bootstrap degeneracy avoided via fixed full-TEST denominator",
+      "full TEST SST degenerate yields inconclusive",
+      "zero-variance CKA yields inconclusive",
+      "cumulative budget guards and source alpha tie-breaking"
+    ],
+    "negative_data_access": {
+      "raw_TinyStories": false,
+      "original_TTM_VAL_TEST": false,
+      "G1_private_TEST": false,
+      "Qwen_GPU": false,
+      "model_download": false,
+      "science_executed": false
+    }
+  },
+  "method_amendment_candidate": {
+    "bootstrap_change": "paired_squared_error_improvement_vs_TRAIN_mean_over_frozen_whole_TEST_SST",
+    "dev_sst_degenerate": "STOP_BEFORE_TEST",
+    "test_sst_degenerate": "INCONCLUSIVE_DEGENERATE_TEST",
+    "cka_variance_degenerate": "INCONCLUSIVE_GEOMETRY_DEGENERATE",
+    "negative_control": "1k_TRAIN_PAIR_SHUFFLES_DEV_GRID",
+    "orthogonal_rotation": "NEUTRAL_BASIS_DIAGNOSTIC_NOT_NEGATIVE_CONTROL",
+    "inference_scope": "SCOPED_FEASIBILITY_ONLY"
+  },
+  "open_hard_gates": {
+    "distinct_reviewer_reapproval": "NOT_COMPLETED",
+    "owner_science_scope": "NOT_GRANTED_PRIOR_SCOPE_METADATA_ONLY",
+    "authority_public_key": "NOT_PROVISIONED_PRODUCTION_FAIL_CLOSED",
+    "split_private_source_materializer": "NOT_DEPLOYED_TEST_BYTE_ISOLATION_NOT_YET_END_TO_END",
+    "signed_stage_ledger": "NOT_IMPLEMENTED_UNTRUSTED_RECEIPT_ALONE_INSUFFICIENT",
+    "durable_external_replay_ledger": "NOT_IMPLEMENTED_LOCAL_MARKER_DELETION_NOT_RESISTANT",
+    "OS_ACL_and_windows_reparse_qa": "NOT_EXECUTED_ON_OWNER_WINDOWS",
+    "GPU_hard_watchdog_and_aggregate_budget": "NOT_INDEPENDENTLY_QUALIFIED",
+    "real_T4_endurance_and_science_extraction": "NOT_EXECUTED"
+  },
+  "decision": {
+    "engineering_candidate_source": "CREATED_VERSIONED_GIT_PINNED",
+    "scoped_CPU_synthetic_QA": "PASS_AUTHOR_EXECUTED",
+    "original_g1_manifest_and_qwen_technical_one_shots": "PRESERVED_NO_RERUN",
+    "independent_codex_re_review": "PENDING",
+    "G1_science_authorization": "HOLD",
+    "science_executed": false
+  }
+}
