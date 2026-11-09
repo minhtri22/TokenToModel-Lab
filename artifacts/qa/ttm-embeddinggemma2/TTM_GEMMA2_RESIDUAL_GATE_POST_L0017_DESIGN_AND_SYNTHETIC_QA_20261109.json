@@ -1,0 +1,71 @@
+{
+  "schema": "ttm.gemma2.zero_init_residual_gate.post_l0017.synthetic_contract_qa_and_design_amendment.v1",
+  "date": "2026-11-09",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_ZERO_GATE_RESIDUAL_32_STEP_CPU_PROBE_DESIGN_AMENDMENT",
+  "source_ref_commit": "79355701e56ca6e7f34bd4f0585f4935184f2a00",
+  "parent_commit": "7ddad40a6b97eef1258a3d398ef799ccc95d59d4",
+  "decision": "DESIGN_READY_GATED_MECHANISM_EXPLORATORY_32_STEPS_NOT_EXECUTED",
+  "historical_science": "L0014 64-step negative result retained; L0015 1024 exploratory negative; L0016 2048 exploratory positive; L0017 320 held-out fixed-checkpoint PASS retained",
+  "model": "TTM original T4 step1024 2048x256 token embedding, untied head",
+  "architecture": "E_new(t)=E0(t)+tanh(a)*masked_delta(t); a is 256-dim zero-initialized trainable vector",
+  "branches": [
+    "B_frozen_untied_baseline",
+    "G_real_donor_residual_gate_only",
+    "R_permuted_donor_residual_gate_only"
+  ],
+  "scientific_execution": false,
+  "exploratory_proposed_contract": {
+    "cpu_only": true,
+    "optimizer_steps_each_for_G_R": 32,
+    "train_target_labels_per_step": 512,
+    "token_exposures_per_G_R": 16384,
+    "gate_trainable_parameters_each": 256,
+    "validation_stories": 256,
+    "testing_old_holdout_320": false,
+    "testing_old_historical_test_64": false,
+    "lr": 0.003,
+    "adamw_betas": [
+      0.9,
+      0.95
+    ],
+    "adamw_eps": 1e-8,
+    "weight_decay": 0,
+    "grad_clip": 1,
+    "shared_schedule_seed": 2026110902,
+    "permuted_donor_seed": 20261109,
+    "bootstrap_story_resamples": 1000,
+    "bootstrap_seed": 20261109,
+    "preregistered_pairs": [
+      "B-G",
+      "R-G"
+    ],
+    "positive_signal_rule": "B-G and R-G both have CI95 lower bound >0; exploratory only"
+  },
+  "synthetic_qa": {
+    "status": "PASS_37_OF_37",
+    "source_python_filename": "ttm_gemma2_zero_gate_synthetic_contract_qa_20261109.py",
+    "source_python_sha256": "4424627a67e7516bbddbf84d290d4528933563b421c50d2749460c2b658e4519",
+    "receipt_json_sha256": "30e600ac0eb7ad914f15fc02d9d5479f5904346050a0260c79ddf91c14dfa205",
+    "p02_exact_source_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "donor_and_ids": "SYNTHETIC_ONLY",
+    "tests": "zero-init exact B/G/R logits; only gate gradient/updates; unmapped fallback; EOS; negatives",
+    "cpu_only": true,
+    "note": "Python QA and full fixture receipt distributed as sandbox artifacts; this commit stores source SHA/summary but not QA script bytes"
+  },
+  "limits": [
+    "Gate mechanism can test donor-token association under frozen decoder, not causality of the earlier C2048 direct-swap effect",
+    "Old 256 VAL stories are previously seen, so only exploratory conclusions are allowed",
+    "One-shot 320 holdout has been consumed for L0017; cannot reuse for new blind confirmation",
+    "Source checkpoint for the gate is T4 step1024, not fixed C2048; avoid cross-budget performance claims",
+    "Donor permutation plus separately refit ridge does not fully match delta norm distributions or prove pretraining semantics"
+  ],
+  "exclusions": {
+    "gpu": false,
+    "training_on_real_data": false,
+    "test_data_read": false,
+    "new_holdout_scored": false,
+    "original_lineage_modified": false,
+    "main_modified": false,
+    "gguf_export": false
+  }
+}
