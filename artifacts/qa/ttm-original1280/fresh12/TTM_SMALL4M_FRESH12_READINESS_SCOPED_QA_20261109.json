@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.small4m.fresh12.readiness.scoped_QA.github_canonical.v1",
+  "date": "2026-11-09",
+  "scope": "static design and file provenance only; NO model inference, NO model training",
+  "prior_pilot_8_prompts_source_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e",
+  "tokenizer_verified_pairs_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+  "new_prompt_precheck": {
+    "count": 12,
+    "unique": 12,
+    "screened_against_prior_8": true,
+    "full_history_check": "NOT_PERFORMED_BECAUSE_Q1Q2_SEALED",
+    "clean_BPE_lengths_min": 21,
+    "clean_BPE_lengths_max": 27,
+    "baseline_BPE_lengths_min": 22,
+    "baseline_BPE_lengths_max": 28,
+    "encoding_roundtrip": "PASS_24_OF_24",
+    "every_baseline_trailing_token_ID32": true,
+    "every_clean_last_token_not_ID32": true,
+    "context_limit": 256,
+    "all_within_context": true
+  },
+  "blinding": {
+    "n_pairs": 24,
+    "n_generations_planned": 48,
+    "checkpoint1024_A_trimmed": 6,
+    "checkpoint1024_A_baseline": 6,
+    "checkpoint1280_A_trimmed": 6,
+    "checkpoint1280_A_baseline": 6,
+    "A_trimmed_total": 12,
+    "A_baseline_total": 12,
+    "within_prompt_order_inverted_between_checkpoints": true,
+    "private_blind_key_sha256": "ed22d6fc6d2075a7d7aedb1512aba9ae4034b95dd39fbe9c5c4a5c86a4aad9ed",
+    "key_publicly_released": false
+  },
+  "local_supporting_source_sha256": {
+    "public_prereg_json": "155767762c79c2e7ba6b93eb8c404251b138d8ced158110d2e88a5e08557ef73",
+    "review_template_csv": "645d43e71036a53afb6d3c40d2389bf98e59d588b2a2d6b944362268e42c432e",
+    "readiness_qa_json": "91acdc1152e437635cb62a7b8062834725f7172a4fb88e8cde4364a34e495d99"
+  },
+  "static_checks": "PASS_12_NAMED_CHECKS_AUTHOR_SIDE",
+  "independent_source_audit": "NOT_EXECUTED",
+  "independent_reviewers_on_PR13": 0,
+  "current_gate": "HOLD_INDEPENDENT_REVIEWER_NOT_IDENTIFIED",
+  "reason": "independent rater commitment needed for future blinded semantic-quality claim; no experimental claims in this stage",
+  "integrity": {
+    "github_source_truth": true,
+    "github_public": true,
+    "private_ab_mapping_not_uploaded": true,
+    "raw_corpus_and_checkpoints_not_uploaded": true,
+    "main_unchanged": true,
+    "pr13_draft_hold": true,
+    "lineage_l0017_unchanged": true
+  },
+  "next": "identify and attest independent rater, then execute single 48-output greedy inference batch per frozen contract; reviewer gets blinded display only"
+}
