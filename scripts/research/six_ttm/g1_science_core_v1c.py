@@ -7,7 +7,7 @@ requires no files. No scientific run without explicit permit and distinct review
 """
 from __future__ import annotations
 import argparse, hashlib, io, json, os, sys
-import g1_science_guard_v1b as guard
+import g1_science_guard_v1c as guard
 from pathlib import Path
 import numpy as np
 
