@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.six.g1.t1_original_manifest_owner_receipt_readback.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_SINGLE_EVIDENCE_PACK_T1_MANIFEST_QWEN17_SCIENCE_RUNNER_AND_EXTERNAL_REVIEW",
+  "provenance": {
+    "original_local_file": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t1_real_source_v1\\T1_STORY_SPLIT_IDS_NO_RAW_TEXT.json",
+    "owner_reported_execution": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File $dest",
+    "verifier_source_path": "scripts/research/six_ttm/Verify-G1-T1-Original-Manifest-ReadOnly-PS51.ps1",
+    "verifier_git_blob": "b15a58b9aaa4d8cc6c7813bdbf4e1d825554c24d",
+    "original_t1_result_source": "evidence/pilot/t1-real/T1_RESULT.json",
+    "original_t1_result_blob": "906861bc6a47faeb5f603bccabdb416ab1409b15",
+    "independent_gpu_or_windows_reexecution_by_assistant": false,
+    "receipt_received_as": "owner-supplied unmodified console JSON",
+    "raw_original_json_file_bytes_mounted_in_assistant": false
+  },
+  "receipt": {
+    "schema": "ttm.six.g1.t1_original_manifest_readonly_qa.v1",
+    "status": "PASS_T1_ORIGINAL_MANIFEST_BYTES_AND_2368_IDS",
+    "manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "manifest_size_bytes": 159689,
+    "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "train_count": 2048,
+    "val_count": 256,
+    "test_count": 64,
+    "unique_ids": 2368,
+    "g1_prefix_manifest_status": "NOT_GENERATED",
+    "qwen17_smoke_status": "NOT_EXECUTED_BY_THIS_SCRIPT",
+    "source_raw_story_bytes_read": false,
+    "ttm_train_val_test_story_text_read": false,
+    "writes_performed": false,
+    "science_executed": false,
+    "decision": "T1_ORIGINAL_BYTES_PASS_DOES_NOT_GRANT_G1_SCIENCE"
+  },
+  "adjudication": {
+    "owner_receipt_structure": "PASS",
+    "actual_original_T1_split_bytes_sha256": "PASS_OWNER_REPORTED_READONLY_PS51",
+    "t1_split_counts_and_unique_ids": "PASS_OWNER_REPORTED_READONLY_PS51",
+    "t1_manifest_has_only_sha_ids_not_story_row_indices": true,
+    "original_manifest_gate_previous": "HOLD_FULL_BYTES_UNREAD",
+    "original_manifest_gate_current": "PASS_OWNER_ATTESTED_EXACT_SHA",
+    "g1_128_64_64_prefix_manifest": "NOT_CREATED",
+    "g1_private_data_rights_scope": "AWAIT_EXPLICIT_OWNER_DECISION",
+    "g1_science_runner": "NOT_IMPLEMENTED_AND_NOT_AUDITED",
+    "qwen17_technical_smoke": "NOT_RECEIVED",
+    "external_scientific_reviewer": "NOT_RECEIVED",
+    "g1_science_permission": "HOLD",
+    "qwen06_technical_one_shot": "PASS_PRESERVED_NO_RERUN",
+    "no_ttm_main_or_pr12_or_lineage_updates": true
+  }
+}
