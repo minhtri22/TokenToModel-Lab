@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.t5.owner_preview.ps51_git_stderr_partial_worktree_recovery.v1",
+  "date": "2026-11-09",
+  "incident": {
+    "stage": "Invoke-TTMGit git worktree add -b research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "owner_error": "git.exe : Preparing worktree (new branch 'research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109'); NativeCommandError with ErrorActionPreference Stop",
+    "source_line": "$a=@(& $gitExe -C $root @Items 2>&1)",
+    "root_cause": "Windows PowerShell 5.1 converts native stderr progress into an ErrorRecord; redirecting 2>&1 with Stop raises despite git successful side effects",
+    "observed_after_error": {
+      "partial_worktree_path": "D:/WORK/RESEARCH/TokenToModel-Lab/worktrees/ttm-t5-kvflash-preview-20261109",
+      "worktree_directory_exists": true,
+      "worktree_gitfile": "gitdir: D:/WORK/RESEARCH/TokenToModel-Lab/.git/worktrees/ttm-t5-kvflash-preview-20261109",
+      "git_worktree_HEAD_ref": "refs/heads/research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+      "owner_local_branch_sha": "af9fd280973a0fcf4e4ce68f443d0f0bed787d0e",
+      "preview_receipt_folder": "NOT_PRESENT_AT_REMOTE_READBACK",
+      "preview_status": "NOT_EXECUTED",
+      "native_execution": "NOT_EXECUTED"
+    }
+  },
+  "remedy": {
+    "wrapper_path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1",
+    "wrapper_git_blob": "2f2944b93c6cf2731bbb9eeac1bd4ff860573f1e",
+    "inner_path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-KVFlash-OwnerPreflight-PS51.ps1",
+    "inner_git_blob": "15a464f3caf63f2b38754332b3bc3f20c2c56193",
+    "fixes": [
+      "Scoped ErrorActionPreference Continue around captured git.exe stderr; explicit EXITCODE test and restore preference in finally",
+      "Scoped native stderr handling for powershell.exe child Preview",
+      "Recover existing worktree only if branch matches exactly, working tree clean, local HEAD exactly matching ref",
+      "Fast-forward only after merge-base --is-ancestor; no reset, deletion, forced checkout, or rebase",
+      "Verify final exact ExpectedCommit and clean status after fast-forward",
+      "One-shot Preview marker guard retained"
+    ],
+    "author_source_checks": "PASS_24_OF_24",
+    "windows_ps51_parser": "NOT_EXECUTED_AFTER_REPAIR",
+    "windows_ps51_runtime": "NOT_EXECUTED_AFTER_REPAIR"
+  },
+  "governance": {
+    "source_of_truth": "GITHUB_T5_BRANCH",
+    "fresh_2x2_runs": "0/32",
+    "original_T5_strict": "FAIL_7_OF_8_PRESERVED",
+    "max_abs_acceptance": 0.001,
+    "checkpoint": "UNCHANGED",
+    "old_fixtures": "NOT_RERUN",
+    "train": "NO",
+    "test": "UNTOUCHED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR13": "HOLD"
+  },
+  "next": "Download exact revised wrapper at final SHA and verify Git blob; run PowerShell 5.1 AST parse before a single Preview; it must safely FF existing worktree and never run native inference. Return receipt or new failure."
+}
