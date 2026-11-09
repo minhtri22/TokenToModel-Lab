@@ -1,0 +1,128 @@
+{
+  "schema": "ttm.small4m.prompt_serialization.posthoc_ablation.scoped_qa_receipt.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SMALL4M_PROMPT_SERIALIZATION_CONTROLLED_ABLATION_PREREG_AND_ONE_SMALL_INFERENCE_BATCH",
+  "prereg_git_commit_before_inference": "fb5699857e435efb85c20e1be6baa7a206bb835e",
+  "prereg_json_sha256": "b32e8f322e1a067271690fe181aed7ba1ec4bc9735d527209db9174bdadc719a",
+  "original_raw_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e",
+  "new_clean_raw_sha256": "eaa98bb4b1da6079513d96a73a23ea33a30fe43df0e736806a9294fa47530021",
+  "original_checkpoint_sha256": {
+    "1024": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "1280": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+  },
+  "bpe_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "original_generations_reused": 32,
+  "new_generations_exact": 32,
+  "new_prompts": 0,
+  "existing_prompts": 8,
+  "conditions": {
+    "steps": [
+      1024,
+      1280
+    ],
+    "decoders": [
+      "greedy",
+      "sampled"
+    ],
+    "original_condition": "trailing ASCII space",
+    "new_condition": "exactly one trailing ASCII space deleted",
+    "seed_base": 20261109,
+    "max_new_tokens": 64,
+    "sampling": {
+      "temperature": 0.8,
+      "top_k": 40,
+      "top_p": 0.9
+    }
+  },
+  "primary_metric": "previously frozen exact distinctive word presence in continuation only",
+  "data": {
+    "original_anchor_hit_n": 0,
+    "new_anchor_hit_n": 3,
+    "n": 32,
+    "by_checkpoint": {
+      "1024": {
+        "old": 0,
+        "new": 2
+      },
+      "1280": {
+        "old": 0,
+        "new": 1
+      }
+    },
+    "by_decoder_and_checkpoint": [
+      {
+        "checkpoint": 1024,
+        "decoder": "greedy",
+        "original_anchor": 0,
+        "clean_anchor": 1,
+        "original_newline_first": 8,
+        "clean_newline_first": 0,
+        "original_early_eos": 0,
+        "clean_early_eos": 2
+      },
+      {
+        "checkpoint": 1024,
+        "decoder": "sampled",
+        "original_anchor": 0,
+        "clean_anchor": 1,
+        "original_newline_first": 7,
+        "clean_newline_first": 0,
+        "original_early_eos": 0,
+        "clean_early_eos": 1
+      },
+      {
+        "checkpoint": 1280,
+        "decoder": "greedy",
+        "original_anchor": 0,
+        "clean_anchor": 0,
+        "original_newline_first": 8,
+        "clean_newline_first": 0,
+        "original_early_eos": 0,
+        "clean_early_eos": 2
+      },
+      {
+        "checkpoint": 1280,
+        "decoder": "sampled",
+        "original_anchor": 0,
+        "clean_anchor": 1,
+        "original_newline_first": 6,
+        "clean_newline_first": 0,
+        "original_early_eos": 0,
+        "clean_early_eos": 1
+      }
+    ],
+    "original_newline_first_n": 29,
+    "clean_newline_first_n": 0,
+    "original_early_eos_n": 0,
+    "clean_early_eos_n": 6
+  },
+  "independent_scoped_QA": "PASS_42_OF_42_SOURCE_MATERIAL_AND_ARITHMETIC",
+  "qa_scope": "technical evidence and arithmetic; not independent human evaluation",
+  "verdict_lexical": "ABALATION_POSITIVE_LEXICAL",
+  "verdict_semantic": "NOT_ESTABLISHED",
+  "limitations": [
+    "posthoc reused 8 previously scored prompts",
+    "semantic continuation failed to maintain central character/object in the three anchor matches",
+    "one-shot small sample; no out-of-sample confirmatory comparison",
+    "early EOS 6/32 after trimming",
+    "no independent human blind scoring of new outputs"
+  ],
+  "evidence_zip": {
+    "filename": "TTM_SMALL4M_PROMPT_SERIALIZATION_ABLATION_20261109.zip",
+    "bytes": 24454,
+    "sha256": "a749ac778448027a3825c15dd16a1fd31a32c033737cdaa36ed5a7a741a5336e",
+    "manifest_sha256": "e38f2f1791fbc1e97a1397411ad50c000b9712fdd92149269866aa65ea9d9dec",
+    "integrity": "ZIP_TEST_PASS_ALL_MEMBERS_MATCH_MANIFEST"
+  },
+  "full_report_sha256": "6191895a7fb877ada637af8f3aa7381c0bcd2b2ef2d9aa1f309dc30711821444",
+  "governance": {
+    "training_steps": 0,
+    "test_reads": 0,
+    "q1q2_reads": 0,
+    "train_val_reads": 0,
+    "pr13": "HOLD",
+    "main": "UNCHANGED",
+    "lineage": "L0017_UNCHANGED"
+  }
+}
