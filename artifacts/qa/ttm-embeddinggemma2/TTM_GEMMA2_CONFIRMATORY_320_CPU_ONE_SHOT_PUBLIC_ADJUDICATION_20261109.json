@@ -1,0 +1,92 @@
+{
+  "schema": "ttm.gemma2.confirmatory320.independent_science_adjudication.public.v1",
+  "date": "2026-11-09",
+  "research_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "prior_branch_commit": "be7a8164cccf75dc5612731de80e8725ca5ed730",
+  "run_id": "ttm_small4m_gemma2_confirmatory_320_story_four_arm_cpu_once_20261109_v1",
+  "adjudication": "PASS_FIXED_CHECKPOINT_NEW_HOLDOUT_ALL_THREE_CONTRASTS",
+  "evidence_status": "INDEPENDENT_PRIVATE_PER_STORY_BOOTSTRAP_READBACK_PASS; SECONDARY_PUBLIC_RECEIPT_AND_PROTOCOL_CROSSCHECK_PASS",
+  "claim_sha256": "90dfa0b098897a090e0b711d15625c16d635d746e6ea46431e57d5f198ba72d0",
+  "result_sha256": "f087faad53286b57a68d64dc182d87c72c2e1934a39a00384fc50119b53f5a94",
+  "independent_readback_sha256_owner_stdout": "a6b7c52299280c480dd7d93ad09dadd86e31a89333babebaf4922a5fd831ca0b",
+  "private_per_story_sha256": "e79ee58524b3fcc26ea65038611e97010c753ab2daae2970066cb8b7c476bfd6",
+  "private_holdout_manifest_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+  "preexecution_go_receipt_sha256": "aa03c08b58aee49b46b049bceee8d735731235e19e3fed3a9725622b5d5dfdc8",
+  "one_shot_counts": {
+    "stories": 320,
+    "windows": 405,
+    "targets_per_arm": 75798,
+    "arms": 4,
+    "total_forward_calls": 1620
+  },
+  "nll_nats_per_target": {
+    "A": 3.3414141969769373,
+    "B": 3.358166448820946,
+    "C": 3.3086025043275265,
+    "D": 3.4265771698754617
+  },
+  "contrasts": {
+    "A_minus_C": {
+      "ci95_percentile": [
+        0.023797573406865953,
+        0.04171158209520519
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll_nats_per_token": 0.03281169264941086
+    },
+    "B_minus_C": {
+      "ci95_percentile": [
+        0.03966939628695726,
+        0.05919970700471879
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll_nats_per_token": 0.049563944493419554
+    },
+    "D_minus_C": {
+      "ci95_percentile": [
+        0.1080151847070484,
+        0.12747246906702245
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll_nats_per_token": 0.11797466554793494
+    }
+  },
+  "bootstrap": {
+    "unit": "story",
+    "paired": true,
+    "rounds": 2000,
+    "seed": 2026110901,
+    "ci": "two-sided percentile 95 percent",
+    "pass_condition": "ALL A-C B-C D-C lower 95pct bound strictly positive"
+  },
+  "source_frozen_bundle_sha256": "128f932b7e43882be1dcaac5bdca37118a78054b3c490ad3877e3838f5d6f3d3",
+  "source_frozen_runner_sha256": "081115658713ef6823b5f0a2b68959235f86b2beac780f90dd451bcae6e959a5",
+  "source_frozen_reviewer_sha256": "1f6fc134e7bc2a590f61b2c2c0409de701b65476bb8065ad9ad5425fc197532c",
+  "checkpoints_sha256": {
+    "A": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+    "B": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+    "C": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+    "D": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e"
+  },
+  "independent_controls": {
+    "claim_precedes_forward": "CHECKED_SOURCE_AND_CLAIM_RECEIPT",
+    "no_training": true,
+    "no_gpu": true,
+    "old_test_not_materialized": true,
+    "independent_scoring_no_model_forward": true,
+    "private_per_story_not_published": true,
+    "main_unchanged": true
+  },
+  "methodological_limitations": [
+    "Only compares four fixed checkpoints after one seed and a history of model selection on previous VALIDATION; not independent training replication",
+    "320 new holdout comes from same TinyStories VALID source family; 320x256 historical VALIDATION near check passed, but old 64 TEST near overlap was not checked",
+    "Whether EmbeddingGemma 2 pretrained on overlapping data cannot be established",
+    "A/B/C/D differ in parameter count and FLOPs; C-D donor permuted control does not isolate every causal mechanism",
+    "95% intervals per contrast are not simultaneous marginal 95% intervals; preregistered intersection-union rule is applied",
+    "Independent readback recomputed bootstrap from saved per-story losses, did not redo full model inference"
+  ],
+  "scientific_reexecution": false,
+  "model_scored_again_for_adjudication": false,
+  "lineage_action": "APPEND_ONLY_L0017",
+  "private_story_ids_or_text_exported": false
+}
