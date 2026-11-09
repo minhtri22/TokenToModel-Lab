@@ -1,0 +1,23 @@
+{
+  "schema": "ttm.t5.v5.manifest_schema.one_literal_repair.source_qa.v1",
+  "date": "2026-11-09",
+  "status": "PASS_SOURCE_REPAIR_STATIC_CHECKS_15_OF_15",
+  "test_count": 15,
+  "original_zip_sha256": "0c27593dd01c5e652709c03b6a0019533aa602e178d1e4251052bc69bf01ef33",
+  "manifest_sha256": "bc1bb30df9907c52df7e292b7a0c039d3c48b6944d122e0015f2131b378b53df",
+  "actual_schema": "ttm.t5.v5.timewait_guard.one_shot.source.manifest.v1",
+  "wrapper_schema_incorrect": "ttm.t5.final.minimal.compat.one_shot.source.manifest.v1",
+  "old_wrapper_sha256": "856a61d364f14523dce2572cde3185542733c46cfb9aeedbfaf80e1b82d46fdb",
+  "patched_wrapper_sha256": "238570d7c98e228d351dbe9ebcd6992fb018ba482d9d0078008d4ab8a2c5c8ad",
+  "patcher_sha256": "ed4139967179b8ab1d10caa5a4aeeb08e875e85b2f3a0ae0616c1b4689efc6c5",
+  "five_source_hashes": "PASS_5_OF_5",
+  "source_unchanged": true,
+  "exact_one_literal_replacement": true,
+  "original_wrapped_retained_as_backup": true,
+  "original_mock_qa": "PASS_47_OF_47_LINUX_OFFLINE",
+  "windows_ps51_patcher": "NOT_EXECUTED",
+  "native_v5_ollama": "NOT_EXECUTED",
+  "one_shot": "UNCLAIMED_AS_OF_READONLY_DIRECTORY_CHECK",
+  "v1_to_v4": "CONSUMED_NO_RERUN",
+  "t5_strict_parity": "FAIL_7_OF_8_PRESERVED"
+}
