@@ -1,0 +1,30 @@
+{
+  "schema": "ttm.causal6.source_staged_synthetic_qa_and_preclaim_hold.v1",
+  "date": "2026-11-09",
+  "source_parent": "7aa48d8532f1297e67e83c5d39f88213aaecdc08",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_CAUSAL6_SINGLE_INTEGRATED_SOURCE_H512_SEAL_AND_FREE_T4_PREFLIGHT_THEN_ONE_SHOT",
+  "status": "HOLD_PRECLAIM_H512_NOT_SEALED_AND_T4_NOT_VERIFIED",
+  "source_bundle_sha256": "6cd7a0dbb6e65894cdae91ff446d0d3d9c60b7ec09fec021384f7473286e0ecc",
+  "windows_stage_sha256": "544a48032438bbba9e3f00796a05fc4f473917fd2fdcb2baa983bd5378d20d75",
+  "source_sha256": {
+    "h512": "698cea87cae43aea65ae66b89de74e7a317658f4d677aa7d932f956dea893e4c",
+    "runner": "51b15ebde7587dcad9a880116ab4c2cc605132cb0ac54ea03af05c7d12bac612",
+    "reviewer": "e47ef303deb0f30028f14cd4809d44f3dec42c338bf6b99e9c028942d0d5d5ed"
+  },
+  "synthetic_checks": {
+    "h512": 5,
+    "training_schedule_bootstrap": 5,
+    "independent_readback": 3,
+    "source_compile": "PASS",
+    "notebook_compile": "PASS"
+  },
+  "real_source_parity": "NOT_EXECUTED",
+  "real_h512_sealed": false,
+  "real_t4_runtime_verified": false,
+  "science_claim": false,
+  "science_executed": false,
+  "lineage_changed": false,
+  "six_arm_exposures": 50331648,
+  "private_ids_or_weights_committed": false,
+  "next": "WINDOWS_STAGE_H512_SEAL_CPU_PARITY_THEN_OWNER_COLAB_FREE_T4_PRECLAIM"
+}
