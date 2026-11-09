@@ -302,6 +302,16 @@ def main():
         print(json.dumps(synthetic_qa(),sort_keys=True));return
     require(args.work is not None and args.permit is not None, 'WORK_PERMIT_REQUIRED')
     work=args.work.resolve(strict=True)
+    # No science output or one-shot TEST marker outside the private TTM scope.
+    if os.name == 'nt':
+        root=Path(r'D:\WORK\RESEARCH\TokenToModel-Lab').resolve(strict=True)
+        require(work.is_relative_to(root) and work.name=='ttm_six_g1_science_private',
+                'WORK_OUTSIDE_TTM_PRIVATE_SCOPE')
+    elif sys.platform.startswith('linux'):
+        require(work==Path('/content/ttm_six_g1_science_private'),
+                'COLAB_PRIVATE_WORK_REQUIRED')
+    else:
+        require(False,'UNSUPPORTED_EXECUTION_HOST')
     permit=json.loads(args.permit.read_text(encoding='utf-8'))
     permit_check(permit,phase=args.mode)
     manifest=manifest_check(work/'G1_PREFIX_IDS_128_64_64_PRIVATE_METADATA.json')
