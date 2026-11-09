@@ -1,0 +1,13 @@
+{
+    "origin_main_after":  "b57b44e7287f842e81050c1faee337f636333dd0",
+    "cleanup_performed":  false,
+    "lineage_blob":  "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+    "main_after":  "b57b44e7287f842e81050c1faee337f636333dd0",
+    "worktree_membership_unchanged":  true,
+    "status":  "PASS_EXACT_FAST_FORWARD",
+    "tracked_clean":  true,
+    "timestamp_utc":  "2026-11-09T06:34:11.0863785Z",
+    "schema":  "ttm.postmerge.local.main.ff.v1",
+    "preserved_untracked_count":  17635,
+    "main_before":  "1a9d8cba56564d6d36257fe95c34f2fd52c4f48a"
+}
