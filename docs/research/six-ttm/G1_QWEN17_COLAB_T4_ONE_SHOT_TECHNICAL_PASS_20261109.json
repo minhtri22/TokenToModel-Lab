@@ -1,0 +1,117 @@
+{
+  "schema": "ttm.six.g1.qwen17_colab_t4_preflight_and_one_shot_technical_smoke_owner_readback.v1",
+  "date": "2026-11-09",
+  "origin": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "evidence": "owner_pasted_colab_python_and_json_console",
+    "notebook": "notebooks/six_ttm/TTM_SIX_G1_QWEN17_INTEGRATED_READINESS_PREFLIGHT_ONESHOT_SMOKE_20261109.ipynb",
+    "notebook_git_blob": "3c807149ac16b1d08be3ba70ef57ff5ccf62c679",
+    "script": "scripts/research/six_ttm/g1_qwen17_zero_science_technical_readiness_v1.py",
+    "script_git_blob": "1a815a5572136a93cd9a292705b75a8a17002a97",
+    "assistant_independently_executed_colab": false,
+    "assistant_source_readback_verified": true,
+    "owner_previous_stop": "TORCH_PIN_MISMATCH:2.14.1+cpu",
+    "recovery": "owner_switched_to_Tesla_T4_GPU_runtime",
+    "new_runtime_observed_python": "3.13.16",
+    "previous_cpu_runtime_observed_python": "3.13.18"
+  },
+  "model": {
+    "id": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "expected_weights": {
+      "model-00001-of-00002.safetensors": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+      "model-00002-of-00002.safetensors": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9"
+    }
+  },
+  "preflight": {
+    "source_pin": "PASS",
+    "static_compile": "PASS",
+    "exit_code": 0,
+    "status": "PASS_PREFLIGHT_ONLY",
+    "python": "3.13.16",
+    "python_executable": "/usr/bin/python3",
+    "torch": "2.14.1+cu130",
+    "packages": {
+      "huggingface-hub": "1.33.0",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.23.3",
+      "transformers": "5.22.1"
+    },
+    "gpu": "Tesla T4",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "gpu_free_bytes": 15527116800,
+    "gpu_total_bytes": 15637086208,
+    "disk_free_bytes": 120839020544,
+    "science_executed": false
+  },
+  "smoke": {
+    "exit_code": 0,
+    "status": "PASS_TECHNICAL_ONLY",
+    "both_weight_shards_verified_before_load": true,
+    "observed_file_sha256": {
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "config.json": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "model-00001-of-00002.safetensors": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+      "model-00002-of-00002.safetensors": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9",
+      "model.safetensors.index.json": "0d660e94b165eb912669a5249dff44b83188c4777a07ddb9611fb78d91b0578d",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "hidden_state_count": 29,
+    "shape": [
+      1,
+      21,
+      2048
+    ],
+    "repeatability": "SAME_RUNTIME_EXACT_F32_HASH",
+    "selected_layer_hashes": {
+      "0": "74b93fb94eaa3b0a39b6ff716b60be1664f79abc0dbaddea3966aba9eed55630",
+      "14": "82d3608956aa1ceac18436e8cf64a3f6473b3db94f3ef11c713ea96302fe98ba",
+      "28": "3e745f91cf1ebf131c7b85946431c2e1e2fa578007d8f4e11ebe4305f9f26b17"
+    },
+    "max_gpu_reserved_bytes": 3495952384,
+    "gpu_name": "Tesla T4",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "training": false,
+    "science_executed": false
+  },
+  "one_shot": {
+    "marker": "G1_TARGET17_ONE_SHOT=CONSUMED_DO_NOT_RETRY",
+    "technical_smoke_consumed": true,
+    "must_not_repeat": true,
+    "prior_cpu_stop_not_a_consumed_smoke": true
+  },
+  "cross_gate_state": {
+    "t1_original_manifest": "PASS_OWNER_ATTESTED",
+    "g1_private_manifest": "PASS_128_64_64_SEALED",
+    "g1_private_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+    "g1_private_metadata_qa": "PASS_29_OF_29",
+    "qwen06_teacher_technical": "PASS_PRESERVED_NO_RERUN",
+    "qwen17_target_technical": "PASS_OWNER_ATTESTED_ONE_SHOT",
+    "qwen17_training": "NOT_EXECUTED",
+    "scientific_runner": "NOT_READY",
+    "prereg_v1a_dedup_and_row_mapping_amendment": "NEEDS_DISTINCT_REVIEW_AND_FREEZE",
+    "independent_scientific_review": "NOT_COMPLETED",
+    "g1_science_execution": "NOT_AUTHORIZED",
+    "g1_science_lock": "HOLD"
+  },
+  "limitations": [
+    "Owner Colab console receipts; assistant corroborated source pins and invariants but did not run Colab.",
+    "Layer fingerprint matches two inference passes in the same runtime only; not cross-runtime determinism.",
+    "Only synthetic input tested; no G1 private story text used, no scientific transfer measurement.",
+    "Do not change frozen prereg candidate in-place; any v1a amendment must be reviewed and versioned.",
+    "Existing TTM main, PR12, lineage and TTM-Small-4M training are out of scope."
+  ]
+}
