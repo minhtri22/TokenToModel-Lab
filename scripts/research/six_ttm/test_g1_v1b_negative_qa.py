@@ -70,6 +70,10 @@ with tempfile.TemporaryDirectory() as td:
     marker=root/'G1_TEST_READ_ONE_SHOT_CONSUMED.marker'
     with marker.open('x') as fd:fd.write('CONSUMED')
     expect('FileExistsError',lambda:marker.open('x'))
+    extractor_code=Path(extractor.__file__).read_text()
+    marker_ix=extractor_code.index("with marker.open('x',encoding='utf-8')")
+    prefix_ix=extractor_code.index('inputs=reconstruct(manifest,split,split_root')
+    assert marker_ix < prefix_ix;ok('TEST_EXTRACT_MARKER_BEFORE_PREFIX_READ')
     committed=root/'unique-committed.bin'
     digest=guard.commit_immutable_bytes(committed,b'complete-content',root)
     assert digest==guard.sha_bytes(b'complete-content') and committed.read_bytes()==b'complete-content';ok('ATOMIC_COMMIT_FULL_BYTES')
