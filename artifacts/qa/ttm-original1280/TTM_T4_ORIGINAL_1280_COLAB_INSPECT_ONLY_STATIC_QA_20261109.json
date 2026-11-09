@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.original_t4_1024to1280.colab.inspect_only.bootstrap_static_qa.v1",
+  "date": "2026-11-09",
+  "source_commit": "0b30376f4f4e377d277ba92ebb1dc82a07d2cf1c",
+  "main_frozen_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "pr_number": 13,
+  "notebook_git_blob": "9f82f18db46b401dc27e18037c3c47a6dd33c154",
+  "notebook_sha256": "5a7eea32507af6f11270d18ecae94a94544a6f4c9c11646ef1e9c4461ba25707",
+  "notebook_bytes": 5848,
+  "notebook_format_version": 4,
+  "total_cells": 4,
+  "code_cells": 2,
+  "executed_cells": 0,
+  "all_outputs_empty": true,
+  "runner_git_blob": "1f539aedd04d7097f2cb26b0220b14bd106c8b65",
+  "runner_sha256": "55cf8f9f686d911411ed3284ba6baf00b7a4ed1d7cc255e3f4fed1b9a2f5365c",
+  "offline_qa_cpu_tests": "PASS_22_OF_22_PRIOR",
+  "original_checkpoint_cpu_sha_readback": "PASS_PRIOR",
+  "download_source_exact_from_github_commit": true,
+  "pin_frozen_t4_sources_at_original_main": true,
+  "only_inspect_mode": true,
+  "training_execute_cell": false,
+  "new_science_lock_issued": false,
+  "cuda_used": false,
+  "colab_execution": "NOT_EXECUTED",
+  "data_paths_in_notebook": "USER_MUST_FILL_ONLY_FOR_INSPECT",
+  "limitations": [
+    "Colab file has not been executed on Tesla T4.",
+    "No owner-approved science lock or new experimental CLAIM exists.",
+    "Only CPU fixture QA and real parent CPU inspect were completed earlier."
+  ],
+  "merge_decision": "HOLD"
+}
