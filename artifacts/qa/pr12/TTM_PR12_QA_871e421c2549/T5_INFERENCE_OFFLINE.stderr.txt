@@ -1,0 +1,17 @@
+test_claim_is_exclusive (__main__.TestResume.test_claim_is_exclusive) ... ok
+test_frozen_model_tag (__main__.TestResume.test_frozen_model_tag) ... ok
+test_manifest_bad_shape (__main__.TestResume.test_manifest_bad_shape) ... ok
+test_manifest_no_layers (__main__.TestResume.test_manifest_no_layers) ... ok
+test_manifest_positive (__main__.TestResume.test_manifest_positive) ... ok
+test_manifest_wrong_digest (__main__.TestResume.test_manifest_wrong_digest) ... ok
+test_manifest_wrong_format (__main__.TestResume.test_manifest_wrong_format) ... ok
+test_manifest_wrong_size (__main__.TestResume.test_manifest_wrong_size) ... ok
+test_mock_generation_positive (__main__.TestResume.test_mock_generation_positive) ... ok
+test_new_evidence_dir_distinct (__main__.TestResume.test_new_evidence_dir_distinct) ... ok
+test_new_port_distinct (__main__.TestResume.test_new_port_distinct) ... ok
+test_no_ollama_create_or_training (__main__.TestResume.test_no_ollama_create_or_training) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.030s
+
+OK
