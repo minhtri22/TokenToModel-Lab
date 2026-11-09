@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.six.g1.qwen17_technical_colab_preflight_stop_readback.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_QWEN17_COLAB_PREFLIGHT_AND_SINGLE_TECHNICAL_SMOKE_READBACK",
+  "provenance": {
+    "source": "owner_pasted_colab_console_and_receipt_excerpt",
+    "notebook_path": "notebooks/six_ttm/TTM_SIX_G1_QWEN17_INTEGRATED_READINESS_PREFLIGHT_ONESHOT_SMOKE_20261109.ipynb",
+    "notebook_blob": "3c807149ac16b1d08be3ba70ef57ff5ccf62c679",
+    "script_path": "scripts/research/six_ttm/g1_qwen17_zero_science_technical_readiness_v1.py",
+    "script_blob": "1a815a5572136a93cd9a292705b75a8a17002a97",
+    "model": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "preflight_observation": {
+    "python": "3.13.18",
+    "python_executable": "/usr/bin/python3",
+    "source_blob_pin": "PASS",
+    "static_compile": "PASS",
+    "preflight_exit": 1,
+    "preflight_status": "STOP_FAIL_CLOSED",
+    "error_type": "RuntimeError",
+    "error": "TORCH_PIN_MISMATCH:2.14.1+cpu",
+    "torch_version_observed": "2.14.1+cpu",
+    "torch_version_required": "2.14.1+cu130",
+    "gpu_nvidia_driver_observed": "UNKNOWN_NOT_REACHED",
+    "cuda_runtime_available": "UNKNOWN_NOT_REACHED",
+    "gpu_model_observed": "UNKNOWN_NOT_REACHED",
+    "weight_download_started": false,
+    "science_executed": false
+  },
+  "smoke_guard_observation": {
+    "user_ran_second_cell": true,
+    "status": "STOP_PREFLIGHT_NOT_PASS",
+    "occurs_before_one_shot_marker_creation_in_pinned_source": true,
+    "weight_download_started": false,
+    "hidden_state_test_executed": false,
+    "one_shot_consumption": "NOT_CONSUMED_BY_OBSERVED_CONTROL_FLOW",
+    "smoke_receipt": "NOT_CREATED_IN_OBSERVED_EXECUTION"
+  },
+  "preserved_previous": {
+    "t1_manifest": "PASS",
+    "g1_private_128_64_64_manifest": "PASS_SEALED_SHA_6451be0c",
+    "private_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+    "g1_private_qa": "PASS_29_OF_29",
+    "qwen06": "PASS_TECHNICAL_NO_RERUN"
+  },
+  "next_technical_step": {
+    "scope": "READONLY_GPU_AND_TORCH_ENV_DIAGNOSTIC",
+    "actions_allowed": "diagnose_current_GPU_provisioning_and_installed_torch_build_only",
+    "no_model_download": true,
+    "no_dataset_access": true,
+    "no_science": true,
+    "no_pip_install_claimed": true,
+    "fresh_runtime_technical_recovery_if_environment_can_be_corrected": true
+  },
+  "decision": {
+    "preflight": "STOP_ENVIRONMENT_CPU_ONLY_TORCH",
+    "qwen17_technical": "HOLD_NOT_EXECUTED",
+    "g1_science": "HOLD",
+    "main_pr12_lineage_untouched": true,
+    "v1_stop_receipt_preserved": true
+  }
+}
