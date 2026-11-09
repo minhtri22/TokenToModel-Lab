@@ -1,0 +1,97 @@
+{
+  "schema": "ttm.gemma2.causal6.integrated_protocol_lock_and_resource_decision.v1",
+  "date": "2026-11-09",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_CAUSAL_6_ARM_INTEGRATED_CONTRACT_AND_RESOURCE_DECISION",
+  "branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "parent_commit": "f7456df57d206c7812a500470c17eb866b829428",
+  "decision": "GO_CONTRACT_LOCKED_RESOURCE_CONDITIONAL",
+  "science_executed": false,
+  "claim_created": false,
+  "source_runner_staged": false,
+  "new_h512_materialized": false,
+  "model_architecture": {
+    "vocab": 2048,
+    "hidden": 256,
+    "context": 256,
+    "blocks": 4,
+    "heads": 4
+  },
+  "arms": [
+    "RR-F",
+    "RP-F",
+    "RR-A",
+    "RP-A",
+    "OR-F",
+    "OP-F"
+  ],
+  "budget": {
+    "updates_each": 2048,
+    "valid_targets_each_update": 4096,
+    "exposures_each": 8388608,
+    "total_exposures": 50331648,
+    "microbatch_max_windows": 8,
+    "ready_every_updates": 256
+  },
+  "seeds": {
+    "torch": 2026110912,
+    "perm": 2026110913,
+    "train_schedule": 2026110914,
+    "bootstrap": 2026110915
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-8,
+    "weight_decay": 0.1,
+    "grad_clip_norm": 1
+  },
+  "input_hashes": {
+    "checkpoint": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "donor": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "train_val_pack": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "pack_manifest": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "T1_split": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "BPE_file": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "source_C2048_runner": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+    "previous_holdout_320_membership": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47"
+  },
+  "holdout": {
+    "new_stories": 512,
+    "source": "pinned TinyStories-valid",
+    "selection_rule": "SHA256(TTM_CAUSAL6_H512_V1_20261109 || NULL || story_sha256_hex)",
+    "exclude_consumed_320_exact_membership": true,
+    "near_duplicate_jaccard5_threshold": 0.85,
+    "historical_TEST_decoded": false,
+    "donor_pretraining_overlap_excluded": false
+  },
+  "statistical_primary": {
+    "contrast": "L(RP-F)-L(RR-F)",
+    "bootstrap": "paired-story token-weighted ratio-of-sums",
+    "draws": 2000,
+    "seed": 2026110915,
+    "criterion": "lower_95_percentile_CI_strictly_positive"
+  },
+  "statistical_secondary": [
+    "tau_A",
+    "tau_P"
+  ],
+  "resource": {
+    "platform": "Colab Free",
+    "gpu": "NVIDIA Tesla T4 16GiB",
+    "precision": "FP32",
+    "min_disk_free_gib": 4,
+    "sequential": true,
+    "paid_fallback": false,
+    "availability_guaranteed": false,
+    "drive_folder": "MyDrive/TTM/ttm-small-pilot/ttm_gemma2_causal6_2048x4096_free_t4_20261109_v1"
+  },
+  "width512_backlog": "DEFERRED_RESEARCH",
+  "application_backlog": "DEFERRED",
+  "main_unchanged": true,
+  "lineage_unchanged": true,
+  "next_operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_CAUSAL6_SINGLE_INTEGRATED_SOURCE_H512_SEAL_AND_FREE_T4_PREFLIGHT_THEN_ONE_SHOT"
+}
