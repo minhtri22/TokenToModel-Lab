@@ -1,0 +1,114 @@
+{
+  "schema": "ttm.gemma2.new_holdout.seal_readback_and_cpu_binding.qa.v1",
+  "date": "2026-11-09",
+  "source_repo": "minhtri22/TokenToModel-Lab",
+  "source_parent_commit": "02d5385732f13e0df265d87e09b8127add0292d3",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_NEW_HOLDOUT_WINDOWS_SOURCE_SEAL_READBACK_AND_INDEPENDENT_CPU_MODEL_BINDING_QA",
+  "owner_console": {
+    "holdout_seal": "MEMBERSHIP_SEALED_NOT_EVALUATED",
+    "story_count": 320,
+    "target_count": 75798,
+    "raw_source_preflight": "PASS_RAW_SPLIT_BPE_PINS",
+    "source_fixture_qa": "PASS_14_OF_14",
+    "scorer_fixture_qa": "PASS_12_OF_12"
+  },
+  "remote_windows_public_receipt_readback": {
+    "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_gemma2_new_holdout_membership_v1_20261109\\SOURCE_SEAL_PUBLIC.json",
+    "status": "PASS_PUBLIC_RECEIPT_FIELDS_MATCH_CONSOLE",
+    "private_file_present": true,
+    "private_bytes_sha256_independent": "NOT_VERIFIED_REMOTE_TEXT_READ_LIMIT",
+    "membership_private_sha256_declared": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "story_count": 320,
+    "target_count": 75798,
+    "full_train_stories_scanned_reported": 2119489,
+    "rejected_near_full_train_reported": 0,
+    "rejected_near_internal_reported": 0,
+    "science_executed": false,
+    "test_scored": false,
+    "gpu_used": false
+  },
+  "cpu_local_checkpoint_qa": {
+    "type": "READONLY_SYNTHETIC_INDEPENDENT_REPLICA_NOT_ORIGINAL_GPU_NUMERIC_PARITY",
+    "status": "PASS_SCOPED_FOUR_REAL_CHECKPOINT_SHA_STRICT_LOAD_AND_SYNTHETIC_FORWARD",
+    "environment": "isolated ChatGPT CPU Python; no corpus or test",
+    "same_model_architecture_expected": "P02 four blocks, 256 hidden, 2048 vocab, 256 context; C/D mapped donor input + ridge; A tied/B untied",
+    "checkpoint_sha256": {
+      "A": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+      "B": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+      "C": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+      "D": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e"
+    },
+    "valid_checkpoint": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    },
+    "model_state_dict_strict_load": {
+      "A": "PASS",
+      "B": "PASS",
+      "C": "PASS",
+      "D": "PASS"
+    },
+    "synthetic_forward": {
+      "A": "PASS",
+      "B": "PASS",
+      "C": "PASS",
+      "D": "PASS"
+    },
+    "causal_prefix_max_abs": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "output_tensor_shape": [
+      1,
+      8,
+      2048
+    ],
+    "synthetic_original_scorer_contract_integration": {
+      "A": "PASS",
+      "B": "PASS",
+      "C": "PASS",
+      "D": "PASS"
+    },
+    "distinct_parameter_count": {
+      "A": 3749376,
+      "B": 4273664,
+      "C": 4929024,
+      "D": 4929024
+    }
+  },
+  "extra_fixture_qa": {
+    "manifest_independent_synthetic": "PASS_8_OF_8",
+    "binder_synthetic_construction": "PASS_6_OF_6",
+    "note": "Additional tests outside frozen 14+12 baseline; not scientific new data"
+  },
+  "no_new_holdout_model_eval": true,
+  "no_real_train_val_or_test_scored": true,
+  "no_gpu_used": true,
+  "no_training_run": true,
+  "private_data_published": false,
+  "independent_script_files": {
+    "membership_readback": {
+      "name": "TTM_ttm_gemma2_holdout_independent_readback.py",
+      "sha256": "bb49af35a9b1ff04c58125ddc004538ad2067aef00701c0e09356fd03f692a40",
+      "status": "OFFLINE_FIXTURE_8_OF_8_PASS; WINDOWS_REAL_READBACK_PENDING"
+    },
+    "binder": {
+      "name": "TTM_ttm_gemma2_cpu_checkpoint_binding_qa.py",
+      "sha256": "016c2fdc8df2cab642b52f1c7111a5a6694944c8fd06e2cfd4d373d42a2dc438",
+      "status": "OFFLINE_REAL_CHECKPOINT_SYNTHETIC_PASS; exact GPU parity not established"
+    }
+  },
+  "limitations": [
+    "RemoteDesktop text reading truncates a large one-line private manifest; independent SHA of original private bytes not verified on Windows.",
+    "No independent replay of full TRAIN near-duplicate audit; zero rejection based on original seal runner receipt.",
+    "No near-duplicate comparison to historical VAL/TEST raw; old TEST not reopened.",
+    "Replica structural match not independent numerical parity with original GPU model implementation.",
+    "The user has not authorized scoring the new holdout; no model selection or validation occurred."
+  ],
+  "adjudication": "PASS_SCOPED_TECHNICAL_PUBLIC_SEAL_AND_FOUR_CHECKPOINT_SYNTHETIC_BINDING; HOLD_INDEPENDENT_PRIVATE_SEAL_READBACK_AND_FINAL_EVALUATOR_PARITY",
+  "lineage_changed": false
+}
