@@ -10,7 +10,7 @@
 
 Đánh giá kỹ thuật liệu `Qwen3-0.6B` được tải từ **revision và SHA-256 cố định** có thể xuất các trạng thái ẩn trên hai tiền tố tổng hợp mà không train, không dùng dữ liệu nghiên cứu, không lộ TEST, không gọi API bên ngoài để inference. Kiểm tra đúng số lớp, shape, dtype, mask, hữu hạn (finite), tính lặp trên cùng runtime, GPU peak, checksum. Thử nghiệm này **không** đo chuyển giao biểu diễn SIX, không đánh giá tính đúng ngữ nghĩa và không cấp quyền khoa học G1.
 
-Mã duy nhất: `scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py`, tệp được khóa sơ bộ tại commit `a7191d5611d959cd90ea345ecb055f5816a7be1c`; Git blob `dde9267b5a2d631365ce555e59fed403d0921657`.
+Mã duy nhất: `scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py`, tệp được khóa sơ bộ tại commit `016609c3465c768e749b351e4f7ec4088f2a1a5a`; Git blob `24318de7d0196944a0a9a6d6be9851099f18b85b`.
 
 ## 2. Nguồn và môi trường ứng viên (khóa trước smoke)
 
@@ -68,7 +68,7 @@ git clone --single-branch --branch research/ttm-six-cross-model-representation-t
 cd /content/ttm_six_g1_checkout
 git remote get-url origin
 git rev-parse HEAD
-git cat-file -p dde9267b5a2d631365ce555e59fed403d0921657 >/dev/null
+git cat-file -p 24318de7d0196944a0a9a6d6be9851099f18b85b >/dev/null
 ```
 
 Chọn đúng phiên bản các thư viện ở trên và đối chiếu với receipt; **không dùng lệnh nâng cấp toàn bộ PyTorch**. Khi môi trường tương thích:
@@ -82,7 +82,7 @@ Trước khi chạy, có thể xác minh chính xác tệp script so với commi
 ```bash
 cd /content/ttm_six_g1_checkout
 git rev-parse HEAD:scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py
-# Phải trả về dde9267b5a2d631365ce555e59fed403d0921657.
+# Phải trả về 24318de7d0196944a0a9a6d6be9851099f18b85b.
 ```
 
 **Quan trọng:** `git cat-file` ở trên kiểm tra *sự tồn tại* blob; `git rev-parse HEAD:path` mới kiểm chứng blob đang được dùng. `preflight` không tự cài thư viện. Bản mẫu này chưa chạy và chưa xác minh runtime thực tế. Nếu không có đúng phiên bản môi trường đã khóa, trả `HOLD_ENV` thay vì tự ép cài lại môi trường TTM-Small-4M.
@@ -93,12 +93,19 @@ git rev-parse HEAD:scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py
 |---|---|---|
 | Mốc SIX / provenance | G0 đã audit PASS có phạm vi | Không tự cấp phép |
 | Qwen weights SHA nguồn công bố | PINNED_EXPECTED | Không thay hash bytes Colab |
-| Script/nhánh/shape và negative path | CODE_COMMITTED, STATIC_REVIEW_PENDING | Chưa |
+| Script/nhánh/shape và negative path | CODE_COMMITTED, STATIC_SOURCE_INSPECTION_PASS_SCOPED | Chưa |
 | Runtime phiên bản/Colab T4 | CANDIDATE_PINNED_NOT_RECHECKED | Chưa |
 | Actual bytes SHA + hidden states | NOT_EXECUTED | Chưa |
 | Dữ liệu/rights/probe bank/G1 primary thresholds | PREREG_DRAFT_HOLD | Chưa |
 | Baseline TTM-Small-4M đã trained | G3_DEPENDENCY_NOT_READY | Không chặn G1 teacher |
 
-**Adjudication:** `G1_ZERO_SCIENCE_RUNNER_READY_FOR_STATIC_QA`, `G1_TECHNICAL_SMOKE_NOT_EXECUTED`, `G1_SCIENCE_LOCK=HOLD`. Không đánh đồng thiết kế, mã được commit với test PASS. Sau một lượt static QA và một smoke Colab đạt, thẩm định một lần hợp đồng khoa học G1, không phát sinh chuỗi cấp phép nhỏ riêng.
+**Adjudication:** `G1_ZERO_SCIENCE_RUNNER_STATIC_INSPECTION_PASS_SCOPED`, `G1_TECHNICAL_SMOKE_NOT_EXECUTED`, `G1_SCIENCE_LOCK=HOLD`. Không đánh đồng thiết kế, mã được commit với test PASS. Sau khi kiểm tra được cú pháp Python bằng công cụ độc lập và một smoke Colab đạt, thẩm định một lần hợp đồng khoa học G1, không phát sinh chuỗi cấp phép nhỏ riêng.
 
 **Bước thực hiện tiếp theo:** `TTM_SIX_XMODEL_G1_STATIC_QA_AND_COLAB_TECHNICAL_PREFLIGHT_EXECUTION` — chạy static QA độc lập và một preflight trên Colab; nếu PASS rồi mới quyết định tải model/chạy smoke; không train và không can thiệp PR #12.
+
+
+## 6. Bổ sung kiểm tra mã nguồn tại G1 (không thực thi Colab)
+
+Đọc lại blob `24318de7d0196944a0a9a6d6be9851099f18b85b` sau commit sửa trạng thái; 13/13 kiểm tra cấu trúc mã nguồn **PASS_SCOPED_CODE_INSPECTION**: revision/hash nguồn exact; pin Python/Torch/libs; cổng Colab trước khi ghi tệp; hai pha preflight/smoke; kiểm SHA trước model load; `torch.inference_mode()` không train; hidden state 29 lớp/shape/finite; logits finite; repeat-run hash; resource guards; không tự cài package; phân biệt PASS_PREFLIGHT_ONLY với PASS_TECHNICAL_ONLY; không ghi vào Windows/Google Drive.
+
+**Ranh giới kết luận:** Đây là kiểm tra chuỗi/mẫu nguồn đọc lại (source-pattern inspection), không thay cho `python -m py_compile`/unit test hoặc chạy thực tế trong Colab. Vì vậy `PYTHON_AST_COMPILE=NOT_EXECUTED`, `COLAB_PREFLIGHT=NOT_EXECUTED`, `COLAB_TECHNICAL_SMOKE=NOT_EXECUTED`. Không được tuyên bố hoàn tất QA runtime.
