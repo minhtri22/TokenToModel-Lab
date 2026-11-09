@@ -70,6 +70,11 @@ with tempfile.TemporaryDirectory() as td:
     marker=root/'G1_TEST_READ_ONE_SHOT_CONSUMED.marker'
     with marker.open('x') as fd:fd.write('CONSUMED')
     expect('FileExistsError',lambda:marker.open('x'))
+    committed=root/'unique-committed.bin'
+    digest=guard.commit_immutable_bytes(committed,b'complete-content',root)
+    assert digest==guard.sha_bytes(b'complete-content') and committed.read_bytes()==b'complete-content';ok('ATOMIC_COMMIT_FULL_BYTES')
+    expect('COMMIT_TARGET_EXISTS',lambda:guard.commit_immutable_bytes(committed,b'substitution',root))
+    assert committed.read_bytes()==b'complete-content';ok('ATOMIC_COMMIT_NO_OVERWRITE')
     # Freeze must contain structured selection, never a 0-byte presence-only gate.
     freeze={'schema':'ttm.six.g1.fit_dev_frozen_v1b',
             'manifest_sha256':guard.MANIFEST_SHA,'run_id':'g1-synthetic',
