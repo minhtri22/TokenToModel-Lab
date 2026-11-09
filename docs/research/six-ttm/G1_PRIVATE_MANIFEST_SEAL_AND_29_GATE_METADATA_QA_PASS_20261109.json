@@ -1,0 +1,106 @@
+{
+  "schema": "ttm.six.g1.private_manifest_seal_and_metadata_qa_owner_readback.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_PRIVATE_MANIFEST_SEAL_QA_READBACK_AND_QWEN17_TECHNICAL_GATE",
+  "provenance": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "execution_origin": "owner_pasted_Windows_PowerShell_5_1_console",
+    "secondary_evidence": "read_only_remote_desktop_G1_PREFIX_MANIFEST_READY.json",
+    "secondary_evidence_private_manifest_body_read": false,
+    "source_model": "roneneldan/TinyStories",
+    "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "source_train_sha256": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "t1_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "tokenizer_pin_sha256": "d44154ff98bfaea1c5c2ba77491d3abef8758cf95187280a7dddd304ad7ca0e0",
+    "runner_git_blob": "13e3dd5824a24af9cadec504add4fddbf570436f",
+    "producer_git_blob": "aee230060f8202907953e0eeab0ae5b1099a584e",
+    "metadata_validator_git_blob": "7dfc6bea2cee1773c20fee655691fc366a6a9ecd",
+    "owner_scope_acceptance_git_blob": "eee225fdcc17b4401e82cb47f3fded64d7dcfa40",
+    "manifest_private_local_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_six_g1_private_manifest_v1\\G1_PREFIX_IDS_128_64_64_PRIVATE_METADATA.json",
+    "ready_private_local_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_six_g1_private_manifest_v1\\G1_PREFIX_MANIFEST_READY.json"
+  },
+  "seal": {
+    "status": "PASS_G1_128_64_64_METADATA_SEALED",
+    "owner_marker": "G1_LOCAL_STEP=SEAL_COMPLETED",
+    "source_rows_scanned": 2119489,
+    "t1_train_content_ids": 2048,
+    "selected_t1_train_id_extra_raw_corpus_occurrences": 363,
+    "t1_train_content_ids_with_multiple_source_occurrences": 363,
+    "eligible_story_count_before_dedup": 2048,
+    "excluded_reasons": {
+      "DUPLICATE_NORMALIZED_STORY": 0,
+      "DUPLICATE_PREFIX": 23,
+      "NO_APPROVED_BOUNDARY": 0,
+      "PREFIX_TOO_SHORT": 0,
+      "TOKEN_COUNT_OUTSIDE_8_96": 0
+    },
+    "eligible_unique_prefix_count": 2025,
+    "g1_counts": {
+      "TRAIN": 128,
+      "DEV": 64,
+      "TEST": 64
+    },
+    "manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+    "manifest_size_bytes": 132241,
+    "original_TTM_VAL_TEST_story_text_accessed": false,
+    "raw_story_text_persisted": false,
+    "qwen_model_weights_downloaded": false,
+    "science_executed": false,
+    "g1_science_permit": "NOT_GRANTED"
+  },
+  "metadata_qa": {
+    "status": "PASS_G1_PRIVATE_METADATA_29_GATES",
+    "owner_marker": "G1_LOCAL_STEP=QA_COMPLETED",
+    "positive_gates": 29,
+    "gate_count": 29,
+    "all_checks": "PASS",
+    "negative_prefix_leak_detected": true,
+    "read_raw_story_text": false,
+    "writes_performed": false,
+    "science_executed": false,
+    "independent_source_implementation": true,
+    "independent_scientific_reviewer": false,
+    "g1_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+    "t1_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9"
+  },
+  "final_owner_readback": {
+    "status": "G1_FINAL_METADATA_SEAL_AND_QA=PASS",
+    "manifest_file_SHA256_matches_ready_receipt": true,
+    "science_lock": "HOLD"
+  },
+  "scientific_scope_limitations": {
+    "only_private_metadata_sealed": true,
+    "no_raw_train_dev_test_text_uploaded_to_github": true,
+    "no_science_train_eval_or_extraction": true,
+    "no_full_original_source_near_duplicate_proof_claimed": true,
+    "original_TTM_val_test_story_text_not_opened": true,
+    "first_occurrence_row_index_amendment_v1a_requires_distinct_reviewer_before_science": true,
+    "duplicate_prefix_dedup_amendment_v1a_requires_distinct_reviewer_before_science": true
+  },
+  "pending_gates": {
+    "qwen17_technical_preflight": "NOT_RECEIVED",
+    "qwen17_weight_shard_sha_and_synthetic_smoke": "NOT_RECEIVED",
+    "g1_scientific_runner_sealed_and_negative_leakage_qa": "PENDING",
+    "distinct_scientific_review": "PENDING",
+    "science_authorization": "HOLD"
+  },
+  "drive_receipt_discovery": {
+    "queries": [
+      "G1_TARGET17_PREFLIGHT_RECEIPT",
+      "G1_TARGET17_SMOKE_RECEIPT"
+    ],
+    "connected_accessible_matches": [
+      0,
+      0
+    ],
+    "interpretation": "NOT_FOUND_IN_CONNECTED_DRIVE_NOT_PROOF_OF_NO_PRIVATE_LOCAL_RECEIPT"
+  },
+  "governance": {
+    "do_not_rerun_T1_selftest_preflight_tokenizers_seal_or_metadata_qa": true,
+    "qwen06_one_shot_unchanged": true,
+    "main_untouched": true,
+    "pr12_untouched": true,
+    "lineage_md_untouched": true
+  }
+}
