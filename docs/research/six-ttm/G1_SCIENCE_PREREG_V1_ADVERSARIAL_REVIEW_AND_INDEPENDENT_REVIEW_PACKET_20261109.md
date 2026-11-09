@@ -8,15 +8,15 @@
 
 ## I. Gói nguồn dùng để kiểm định
 
-1. Hợp đồng định lượng machine-readable: `G1_SCIENCE_PREREG_V1_CONTRACT_CANDIDATE_20261109.json`; Git blob `5e6fe0245f60d1521e216e446b58663fa9bdb429`.
-2. Tài liệu diễn giải: `G1_SCIENCE_PREREG_V1_METHODS_AND_THRESHOLDS_20261109.md`; Git blob `8c7b8fc105b4f0fa8c83fbf44cfc62b6bfadd4a6`.
+1. Hợp đồng định lượng machine-readable: `G1_SCIENCE_PREREG_V1_CONTRACT_CANDIDATE_20261109.json`; Git blob `de049ba00331d90f3c7ae72ab3daf943c766ec82`.
+2. Tài liệu diễn giải: `G1_SCIENCE_PREREG_V1_METHODS_AND_THRESHOLDS_20261109.md`; Git blob `9dcbf31b2835e07922b2aaf66e5895c7d2f8b03b`.
 3. Technical Qwen0.6 PASS, receipt consistency: `G1_V3_COLAB_TECHNICAL_SMOKE_PASS_OWNER_RECEIPT_QA_AND_G1_GATE_20261109.md`, Git blob `b3ee99f44d96de34bf81e031ff24e4345d83f88c`.
 4. G0 source SIX provenance, including OW1 FAIL; `G0_PIN_AUDIT_AND_QWEN_FEASIBILITY_20261109.md`.
 5. TTM pilot T1 data manifest and source rights technical review, read-only from merged TTM `main`; tránh nhầm TEST của TTM với TEST G1.
 
 ## II. Đối chiếu cơ học tách khỏi nội dung narrative
 
-Một thuật toán kiểm toán đọc lại trực tiếp **JSON** và **Markdown** từ GitHub bằng công cụ riêng, đối chiếu **25/25** tiêu chí: schema, no-science, model revision/source SHA, 1.7B 2 shard/target SHA HOLD, source license/rights HOLD, TRAIN-only rule, split 128/64/64, cùng prefix theo SHA, 8 probes, không generation, lớp 28, baselines và null, alpha grid cùng DEV selection, 1.000 permutation, 2.000 bootstrap paired cho ΔR² vs TRAIN-mean, threshold/p-value, positive control, power limitation, VRAM guard, không chạm TTM và science permit HOLD. **25/25 PASS về cấu trúc** tức là tình trạng HOLD được khai báo đúng và thiết kế có đủ trường, *không* chứng minh thiếu sót đã được giải quyết.
+Một thuật toán kiểm toán đọc lại trực tiếp **JSON** và **Markdown** từ GitHub bằng công cụ riêng, đối chiếu **25/25** tiêu chí sau cập nhật numeric stability: schema, no-science, model revision/source SHA, 1.7B 2 shard/target SHA HOLD, source license/rights HOLD, TRAIN-only rule, split 128/64/64, cùng prefix theo SHA, 8 probes, không generation, lớp 28, baselines và null, alpha grid cùng DEV selection, 1.000 permutation, 2.000 bootstrap paired cho ΔR² vs TRAIN-mean, threshold/p-value, positive control, power limitation, VRAM guard, không chạm TTM và science permit HOLD. **25/25 PASS về cấu trúc** tức là tình trạng HOLD được khai báo đúng và thiết kế có đủ trường, *không* chứng minh thiếu sót đã được giải quyết.
 
 ## III. Kiểm tra phương pháp đối kháng và kết luận
 
@@ -40,7 +40,7 @@ Một thuật toán kiểm toán đọc lại trực tiếp **JSON** và **Markd
 
 ### Vấn đề cần kiểm định trước khi mở TEST
 
-Ngay cả khi quyền/teacher được giải quyết, *định nghĩa macro R² trên tám chiều* cần một kiểm tra ổn định số học: nếu một chiều score TRAIN có phương sai cực thấp hoặc `SST` của một chiều trên TEST bằng 0, không được lặng lẽ bỏ chiều đó sau xem kết quả. Phải bổ sung chính sách zero-variance cụ thể vào cả JSON, tài liệu và code **trước science**; đây là yêu cầu methodological QA, không phải dữ liệu thăm dò khoa học.
+**Finding numeric stability đã được sửa trước chạy khoa học:** JSON và Markdown cuối đã định nghĩa `macro_R2=(1/8)*Σ_j R2_j` (đủ cả 8 chiều), TRAIN population std của bất kỳ probe `<1e-5` ⇒ `INCONCLUSIVE_CONTROL_DEGENERATE_PRETEST` trước khi mở TEST; nếu TEST SST một chiều `<1e-8` ⇒ `INCONCLUSIVE_DEGENERATE_TEST`, không bỏ chiều/rerun. **Implementation runner vẫn chưa có**, nên independent source QA của policy này còn HOLD trước science.
 
 ### Quyết định thẩm định khoa học
 
