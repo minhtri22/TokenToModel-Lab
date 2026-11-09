@@ -48,12 +48,12 @@
 
 | Tệp | SHA-256 của hiện vật owner |
 |---|---|
-| [Unit test log](../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_UNITTEST_OWNER_20261109.log) | `2f063493c448723ae9fcfd2d2ca364bb0374dcdf1369558c9302669924c93590` |
-| [Benchmark JSON](../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_CPU_AB_OWNER_RUN.json) | `39275324dc56c2bbfb075e73991cf4383f48bdc38acdaf182c66178b42e113b0` |
-| [QA JSON](../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_INDEPENDENT_QA_OWNER_20261109.json) | `2525b423dac500c19810e4c66a301939bf0e4083ceeeb0a779509c41783b6591` |
-| [Owner receipt](../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_OWNER_RECEIPT_20261109.json) | `742247aaa64701d6e09964db8a0724c2980bccaf9ffe533402703dd8e7b327c6` |
+| [Unit test log](../../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_UNITTEST_OWNER_20261109.log) | `2f063493c448723ae9fcfd2d2ca364bb0374dcdf1369558c9302669924c93590` |
+| [Benchmark JSON](../../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_CPU_AB_OWNER_RUN.json) | `39275324dc56c2bbfb075e73991cf4383f48bdc38acdaf182c66178b42e113b0` |
+| [QA JSON](../../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_INDEPENDENT_QA_OWNER_20261109.json) | `2525b423dac500c19810e4c66a301939bf0e4083ceeeb0a779509c41783b6591` |
+| [Owner receipt](../../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_OWNER_RECEIPT_20261109.json) | `742247aaa64701d6e09964db8a0724c2980bccaf9ffe533402703dd8e7b327c6` |
 
-[Biên bản nguồn, SHA và QA](../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_OWNER_INDEPENDENT_READBACK_AND_ADJUDICATION_20261109.json) ghim các Git blob và chi tiết giới hạn. Trong trường hợp GitHub web tự trình bày thay đổi xuống dòng, dùng Git raw/blobs hoặc Git SHA để đối chiếu.
+[Biên bản nguồn, SHA và QA](../../artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_OWNER_INDEPENDENT_READBACK_AND_ADJUDICATION_20261109.json) ghim các Git blob và chi tiết giới hạn. Trong trường hợp GitHub web tự trình bày thay đổi xuống dòng, dùng Git raw/blobs hoặc Git SHA để đối chiếu.
 
 ## 6. Quyết định phạm vi và bước tiếp theo
 
