@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-11-09T07:41:56.557765+00:00",
+  "main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "max_calls": 74,
+  "max_output_tokens": 3904,
+  "model": "ttm-t5-f32-compat-only-v5final:latest",
+  "port": 12650,
+  "schema": "ttm.q1q2.one_shot.claim.v1"
+}

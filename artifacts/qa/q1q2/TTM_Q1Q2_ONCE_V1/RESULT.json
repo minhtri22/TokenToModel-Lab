@@ -1,0 +1,31 @@
+{
+  "complete_calls": 0,
+  "completed_tokens": 0,
+  "completed_utc": "2026-11-09T07:42:12.032722+00:00",
+  "duration_seconds": 15.469,
+  "failure": {
+    "message": "MODEL_STORE_MODIFIED_BEFORE_BATCH",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_Q1Q2_BOOTSTRAP_fe5f27807862\\ttm_q1q2_single_batch.py\", line 237, in run_batch\n    require(v5.folder_snapshot(OUT/'models')==snap,'MODEL_STORE_MODIFIED_BEFORE_BATCH')\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_Q1Q2_BOOTSTRAP_fe5f27807862\\ttm_q1q2_single_batch.py\", line 54, in require\n    die(message)\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_Q1Q2_BOOTSTRAP_fe5f27807862\\ttm_q1q2_single_batch.py\", line 49, in die\n    raise RuntimeError(message)\nRuntimeError: MODEL_STORE_MODIFIED_BEFORE_BATCH\n",
+    "type": "RuntimeError"
+  },
+  "model": "ttm-t5-f32-compat-only-v5final:latest",
+  "no_ollama_create": true,
+  "no_test_access": true,
+  "no_training": true,
+  "output_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_q1q2_ollama_once_v1",
+  "planned_calls": 74,
+  "runs": [],
+  "schema": "ttm.q1q2.single.native.batch.v1",
+  "server_pid": 22440,
+  "shutdown": {
+    "pid": 22440,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "shutdown_port": {
+    "benign_timewait_count": 2,
+    "decision": "PASS_NO_ACTIVE_SOCKET_AFTER_SHUTDOWN"
+  },
+  "source_main": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "status": "HOLD_PARTIAL_NO_AUTOMATIC_RERUN"
+}
