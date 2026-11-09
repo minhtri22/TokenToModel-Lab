@@ -1,0 +1,322 @@
+{
+  "schema": "ttm.small4m.fresh12.protocol_lock.github_source_of_truth.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SMALL4M_FRESH_12_PROMPT_BALANCED_BLIND_INFERENCE_PREREG_AND_REVIEW_READINESS",
+  "status": "PREREG_FROZEN_DESIGN_ONLY_HOLD_INDEPENDENT_REVIEWER_NO_INFERENCE",
+  "origin": "new authored pilot prompts, screened only against P01-P08 prior pilot, NOT checked against sealed Q1/Q2 source",
+  "prompt_records": [
+    {
+      "id": "F01",
+      "clean_text": "Mira carried a red cup to the kitchen, but it slipped from her hands before she could give it to Dad.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 27,
+      "baseline_tokens": 28,
+      "clean_utf8_sha256": "4db8601be8aded3b3cca659f9f27c0db486c0006736ab5c0a20b8a1ffefcfc6c"
+    },
+    {
+      "id": "F02",
+      "clean_text": "Toby promised to bring a green kite to his friend on the hill, but the wind grew strong.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 24,
+      "baseline_tokens": 25,
+      "clean_utf8_sha256": "1117000177b4c6b9eb4712eb1410f9f204a498e6beb711e9fe621b1bcaffc402"
+    },
+    {
+      "id": "F03",
+      "clean_text": "Nell saw a small turtle stuck beside the pond and looked for a safe way to help it.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 25,
+      "baseline_tokens": 26,
+      "clean_utf8_sha256": "cf9e89b102469e6253c229d63ae19dfd8951a7a14961fcdd0029a61cfe07b050"
+    },
+    {
+      "id": "F04",
+      "clean_text": "Ben put his last apple in a basket for his sister, then heard a noise behind the door.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 21,
+      "baseline_tokens": 22,
+      "clean_utf8_sha256": "2f9ec35801e23971fb0237c47127d78f8feac4a4dfa5ddf301009dcf8d2d3a9e"
+    },
+    {
+      "id": "F05",
+      "clean_text": "Rosa took a warm coat to her brother at the gate because rain was starting.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 22,
+      "baseline_tokens": 23,
+      "clean_utf8_sha256": "6c16fa26e1b1bfed11ad78088bbe0a118af1d3e437a8533df866bff986a787ba"
+    },
+    {
+      "id": "F06",
+      "clean_text": "A small dog named Kiki hid a wooden spoon under the bed, and Mia tried to find it.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 25,
+      "baseline_tokens": 26,
+      "clean_utf8_sha256": "642e0aab21a3d0b1d389e61fe1c1bead953641e139168f61c6e66769267e53e0"
+    },
+    {
+      "id": "F07",
+      "clean_text": "Leo drew a star on a paper card for Grandma but spilled water on the picture.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 22,
+      "baseline_tokens": 23,
+      "clean_utf8_sha256": "97b9b5f3b1be8a102b1c6a64b060478d96cdd054ac7c66d96c13130c934fa2d9"
+    },
+    {
+      "id": "F08",
+      "clean_text": "Tara found a broken toy train near the stairs and asked her brother to fix the wheel.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 22,
+      "baseline_tokens": 23,
+      "clean_utf8_sha256": "51d096f567ed332a6000da2d88978b732fa098775ec349825fcb8bdd67f4e08e"
+    },
+    {
+      "id": "F09",
+      "clean_text": "Owen made a paper boat for his sister, then watched it float toward the big rock.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 22,
+      "baseline_tokens": 23,
+      "clean_utf8_sha256": "218ee6bf432874d1fbd44e3421da0b5f10cfc842bc2ccec7b4e70e1bf5dc919a"
+    },
+    {
+      "id": "F10",
+      "clean_text": "A shy duck named Dodo wanted to join the other ducks at the pond but stayed behind a tree.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 23,
+      "baseline_tokens": 24,
+      "clean_utf8_sha256": "9c3b21b65bc3fc3b1fde51e8429655c48e766d68e13a438b0bd2db61147ef1e8"
+    },
+    {
+      "id": "F11",
+      "clean_text": "Ivy put three seeds in a blue pot and waited for her first flower to grow.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 21,
+      "baseline_tokens": 22,
+      "clean_utf8_sha256": "d5b24b67b402135612d5b758c1d93998d8b42f7eceef774b2a70299ac9abc6b9"
+    },
+    {
+      "id": "F12",
+      "clean_text": "Finn wanted to share his orange with a hungry bird, but the bird sat high in the tree.",
+      "baseline_text_rule": "exactly clean_text + one ASCII space U+0020",
+      "clean_tokens": 23,
+      "baseline_tokens": 24,
+      "clean_utf8_sha256": "c0d4b2b1564f46f47c31570002fc0143656a09cf51c22951fa5b50778c927d9f"
+    }
+  ],
+  "model": {
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "bpe_pairs_and_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+    "vocab": 2048,
+    "context": 256,
+    "embed": 256,
+    "layers": 4,
+    "heads": 4
+  },
+  "inference": {
+    "checkpoints": [
+      1024,
+      1280
+    ],
+    "n_prompts": 12,
+    "conditions": [
+      "BASELINE_FINAL_ASCII_SPACE",
+      "TRIMMED_NO_TRAILING_ASCII_SPACE"
+    ],
+    "decoder": "greedy_argmax",
+    "max_new_tokens": 64,
+    "stop_eos_id": 256,
+    "seed_rule": "20261109+integer suffix of F01..F12; exact same for all conditions/checkpoints",
+    "expected_generated_continuations": 48,
+    "expected_A_B_pairs": 24,
+    "fresh_generation_pre_run": "NOT_EXECUTED",
+    "no_training": true,
+    "read_test": false,
+    "read_q1q2": false
+  },
+  "assignment": {
+    "mapping_is_private_until_scores_frozen": true,
+    "method": "private HMAC-SHA256 randomized order of 12 prompt IDs selects 6 A=TRIMMED for checkpoint 1024; invert A/B for checkpoint 1280 for each prompt",
+    "counts": {
+      "total_pairs": 24,
+      "A_trimmed": 12,
+      "A_baseline": 12,
+      "checkpoint1024_A_trimmed": 6,
+      "checkpoint1024_A_baseline": 6,
+      "checkpoint1280_A_trimmed": 6,
+      "checkpoint1280_A_baseline": 6
+    },
+    "private_mapping_file_sha256": "ed22d6fc6d2075a7d7aedb1512aba9ae4034b95dd39fbe9c5c4a5c86a4aad9ed",
+    "public_schedule": [
+      {
+        "pair_id": "F01-C1024",
+        "prompt_id": "F01",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F01-C1280",
+        "prompt_id": "F01",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F02-C1024",
+        "prompt_id": "F02",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F02-C1280",
+        "prompt_id": "F02",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F03-C1024",
+        "prompt_id": "F03",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F03-C1280",
+        "prompt_id": "F03",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F04-C1024",
+        "prompt_id": "F04",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F04-C1280",
+        "prompt_id": "F04",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F05-C1024",
+        "prompt_id": "F05",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F05-C1280",
+        "prompt_id": "F05",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F06-C1024",
+        "prompt_id": "F06",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F06-C1280",
+        "prompt_id": "F06",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F07-C1024",
+        "prompt_id": "F07",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F07-C1280",
+        "prompt_id": "F07",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F08-C1024",
+        "prompt_id": "F08",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F08-C1280",
+        "prompt_id": "F08",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F09-C1024",
+        "prompt_id": "F09",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F09-C1280",
+        "prompt_id": "F09",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F10-C1024",
+        "prompt_id": "F10",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F10-C1280",
+        "prompt_id": "F10",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F11-C1024",
+        "prompt_id": "F11",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F11-C1280",
+        "prompt_id": "F11",
+        "checkpoint": 1280
+      },
+      {
+        "pair_id": "F12-C1024",
+        "prompt_id": "F12",
+        "checkpoint": 1024
+      },
+      {
+        "pair_id": "F12-C1280",
+        "prompt_id": "F12",
+        "checkpoint": 1280
+      }
+    ],
+    "private_mapping_escrow": "not committed to public GitHub or reviewer packet; SHA commitment here is canonical"
+  },
+  "rubric": {
+    "scoring": "each continuation 0..3 integer on adherence, coherence, consistency, score only generated content; disregard initial newline/whitespace presentation",
+    "adherence": {
+      "0": "No continuation of defining entities, object, or goal",
+      "1": "One isolated relevant detail but overall prompt task abandoned",
+      "2": "Several central elements retained with partially relevant causal continuation",
+      "3": "Main actors, objects and causal goal retained with appropriate continuation"
+    },
+    "coherence": {
+      "0": "Mostly broken fragments or unrelated dialogue",
+      "1": "Some interpretable sentences, little connected progression",
+      "2": "Mostly understandable related events",
+      "3": "Well-formed, progressing, understandable continuation"
+    },
+    "consistency": {
+      "0": "Sharp shifts or contradictions in actors/scene/reference",
+      "1": "Partial continuity with major lapses",
+      "2": "Mostly consistent referents and events with minor lapse",
+      "3": "Stable actors/setting/events across continuation"
+    }
+  },
+  "prereg_decision": {
+    "primary": "mean paired adherence delta (trimmed-minus-baseline, 0..3) across 24 pairs",
+    "improvement_candidate_requires": [
+      "mean adherence delta >= +0.5",
+      "trimmed strictly higher adherence in at least 16/24 pairs",
+      "adherence mean delta >=0 separately for each checkpoint",
+      "coherence and consistency each mean delta >= -0.25",
+      "12-prompt cluster-bootstrap CI95 lower >0",
+      "balanced 12/12 A/B and independently frozen reviewer scores before mapping reveal"
+    ],
+    "if_missing_reviewer": "HOLD_UNREVIEWED_NO_CONFIRMATORY_VERDICT",
+    "if_thresholds_fail": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED",
+    "robustness": "report by checkpoint and per-prompt cluster; 48 outputs are not independent samples because prompts repeat across checkpoints"
+  },
+  "review_integrity": {
+    "external_reviewer_status": "NOT_NOMINATED_OR_VERIFIED",
+    "GitHub_pr13_review_count_at_freeze": 0,
+    "reviewer_receives": "same prompt and normalized A/B continuation only; no checkpoint/condition labels, key, token IDs, probabilities, prior results",
+    "freeze_before_unblind": "independent reviewer signed scoring receipt and SHA256 recorded on GitHub, then independent key reveal; preserve raw outputs and displayed normalization separately",
+    "caution": "public GitHub prereg is discoverable and leading-newline effects can reveal condition; never call strictly double-blind"
+  },
+  "scope": {
+    "pr13": "HOLD_DRAFT",
+    "main": "UNCHANGED",
+    "lineage": "L0017_UNCHANGED",
+    "new_science": "NOT_EXECUTED"
+  }
+}
