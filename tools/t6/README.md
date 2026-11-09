@@ -14,33 +14,60 @@ Dùng cùng seed 60609, P02 synthetic CPU float32, context32, 2 layers/4 heads/6
 
 ## Chạy trên Windows 11 / Python 3.12 (không cần Colab)
 
-Các lệnh dưới đây chỉ đọc mã và ghi một JSON mới bên trong **chính worktree dự án**, không tạo file ở ổ C:\ root:
+**Quan trọng:** bộ kiểm thử nằm trên nhánh PR #15, **không** có sẵn ở checkout main cũ.
+Nếu chạy `python -m unittest discover -s tests/t6` từ main, bạn có thể gặp
+`ImportError: Start directory is not importable: 'tests/t6'`; đó là lỗi chọn
+checkout, **không phải thất bại của testcase T6**.
+
+Bộ chạy chính thức: [`run_windows_exact_head.ps1`](run_windows_exact_head.ps1). Nó:
+
+1. Kiểm tra thư mục dự án, URL GitHub origin, SHA chính xác của nhánh PR #15;
+2. Fetch và tạo detached worktree mới **bên trong root dự án**, dưới `.worktrees/ttm-t6-pr15-20261109` (không checkout/reset main);
+3. Dừng nếu worktree hoặc đầu ra không đúng / đã có, không ghi đè evidence;
+4. Chạy Python 3.12/PyTorch CPU, 16 unittest; chỉ khi PASS mới chạy 3 chế độ và QA độc lập 33/33;
+5. Ghi bốn hiện vật vào `artifacts/qa/t6/` của worktree: log unittest, kết quả benchmark Windows, QA và owner receipt với SHA256.
+
+**Bootstrap một lần từ PowerShell 5.1** (thay `<EXACT_PR15_HEAD_SHA>` bằng SHA-1
+40 ký tự của HEAD PR #15 hiện đã được chủ dự án chấp thuận, không dùng HEAD
+động không kiểm tra):
 
 ```powershell
 $ErrorActionPreference = 'Stop'
 $root = 'D:\WORK\RESEARCH\TokenToModel-Lab'
-$python = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
-if (-not (Test-Path -LiteralPath $root -PathType Container)) { throw 'TTM_PROJECT_ROOT_NOT_FOUND' }
-if (-not (Test-Path -LiteralPath $python -PathType Leaf)) { throw 'PYTHON312_NOT_FOUND' }
-Push-Location -LiteralPath $root
-try {
-    & $python -c "import sys,torch; assert sys.version_info[:2]==(3,12); print(torch.__version__)"
-    if ($LASTEXITCODE -ne 0) { throw 'PYTHON_OR_TORCH_CHECK_FAILED' }
-
-    & $python -m unittest discover -s tests/t6 -v
-    if ($LASTEXITCODE -ne 0) { throw 'T6_UNITTEST_FAILED' }
-
-    & $python tools/t6/cache_ab_benchmark_fixture.py `
-        --warmups 2 --repeats 5 --block-size 4 `
-        --output artifacts/qa/t6/TTM_T6_WINDOWS_CPU_AB_OWNER_RUN.json
-    if ($LASTEXITCODE -ne 0) { throw 'T6_CPU_AB_BENCHMARK_FAILED' }
+$expected = '<EXACT_PR15_HEAD_SHA>'
+$branch = 'feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109'
+$wt = Join-Path $root '.worktrees\ttm-t6-pr15-20261109'
+$remote = & git -C $root ls-remote origin ('refs/heads/' + $branch)
+if ($LASTEXITCODE -ne 0 -or -not $remote) { throw 'T6_REMOTE_LOOKUP_FAILED' }
+if (($remote -split '\s+')[0].ToLowerInvariant() -ne $expected.ToLowerInvariant()) { throw 'T6_REMOTE_HEAD_DRIFT' }
+& git -C $root fetch --no-tags origin ('refs/heads/' + $branch)
+if ($LASTEXITCODE -ne 0) { throw 'T6_FETCH_FAILED' }
+$actual = (& git -C $root rev-parse FETCH_HEAD).Trim()
+if ($actual -ne $expected) { throw 'T6_FETCH_SHA_MISMATCH' }
+if (-not (Test-Path -LiteralPath $wt)) {
+    New-Item -ItemType Directory -Path (Split-Path -Parent $wt) -Force | Out-Null
+    & git -C $root worktree add --detach $wt $expected
+    if ($LASTEXITCODE -ne 0) { throw 'T6_WORKTREE_CREATE_FAILED' }
 }
-finally { Pop-Location }
+& powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $wt 'tools\t6\run_windows_exact_head.ps1') -PinnedHead $expected
+if ($LASTEXITCODE -ne 0) { throw 'T6_WINDOWS_REPLAY_FAILED' }
 ```
 
-*Lưu ý:* Lệnh trên là script bàn giao, **chưa được chạy trên Windows** trong phiên tạo fixture. Nếu tên output đã tồn tại, runner fail-closed, không ghi đè. Không chạy lặp lại kết quả đã được chủ dự án tiêu thụ; đổi tên chỉ khi phép chạy mới được chủ sở hữu phê duyệt.
+Không dùng `git switch` trên root hoặc reset những nhánh khác. Không xóa worktree
+khi có evidence; việc dọn dẹp chỉ sau owner adjudication.
 
-Nếu chạy `independent_scoped_qa.py`, truyền chính xác `--report` và `--unittest-log` tương ứng; tool sẽ từ chối đường dẫn ngoài `artifacts/qa/t6` và không ghi đè JSON QA. Với luồng tích hợp, nên có biên bản CI/Windows chạy chính repo branch HEAD trước khi xem xét merge.
+**Đo có giới hạn:** warmups=2, repeats=5, block_size=4, synthetic tokens,
+không tính model load vào TTFT. Kết quả Windows so với Linux chỉ là hai môi trường
+tham khảo, **không được suy ra speedup CPU/GPU**. Trường `hardware.platform` và
+`measurement_contract.device` phải hiện chính xác Windows trong lượt replay.
+
+**Chú thích provenance sau sửa tài liệu:** báo cáo Linux và 16/16 + 33/33
+đã commit thuộc *runner gốc* Git blob `07693ea446e4747bd987570fc7f645cd4fabafff`.
+Runner trên nhánh hiện có Git blob mới
+`85795ada12f283c88dcd01091b54f604e57e2418`, chỉ sửa trường
+`measurement_contract.device` từ nhãn Linux hardcode sang nhãn OS đo
+thực tế. **Chưa tuyên bố đã chạy lại QA/bộ đo sau sửa nhãn;** Windows replay
+là lượt độc lập cần thực hiện đúng HEAD mới. Các nguồn P02/P05/P06 không đổi.
 
 ## Nguồn và kết quả đã commit
 
