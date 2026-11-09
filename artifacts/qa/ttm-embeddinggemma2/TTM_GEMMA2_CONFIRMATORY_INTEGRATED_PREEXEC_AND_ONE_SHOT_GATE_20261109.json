@@ -1,0 +1,93 @@
+{
+  "schema": "ttm.gemma2.confirmatory_preexecution.integrated_qa_and_one_shot_gate.v1",
+  "date": "2026-11-09",
+  "parent_commit": "e1a84125383174263ff39a2fb8c84b136d8d3410",
+  "decision": "HOLD_ONE_SHOT_SCIENTIFIC_EVALUATION_NOT_AUTHORIZED",
+  "scoped_cpu_qa": {
+    "window_mask_nll_bootstrap": {
+      "status": "PASS_118_OF_118_SYNTHETIC",
+      "fixture_stories": 7,
+      "fixture_targets": 1549,
+      "max_abs_token_nll": 5.987753226577297e-8,
+      "threshold": 0.00001,
+      "script_sha256": "786b002cb16139eb033c0b25c5b98b11135bf58baa144d03f8b48be4b30f2263",
+      "full_receipt_sha256": "0484f746029c60ef30d84b790877ef5ccb48df59aeaf67d34f6f0f4ac1527598"
+    },
+    "four_frozen_checkpoints": {
+      "status": "PASS_FOUR_ARM_SYNTHETIC_NLL",
+      "synthetic_targets_each": 293,
+      "max_abs_token_nll": 9.87854484435502e-7,
+      "threshold": 0.00001,
+      "script_sha256": "ae506a6da2bd674812b6a63a104e245a1f1ff679d407e0127c2f24287c7a30c6",
+      "full_receipt_sha256": "353e07fdabbad1cb4e8a58199ab2c3352acd395946db8a59b510cc6a2b0b2770"
+    },
+    "adversarial_boundary": {
+      "status": "EXPECTED_MISSING_GUARDS_CONFIRMED",
+      "unknown_new_holdout_story_id_accepted_if_label_supplied": true,
+      "duplicate_window_counted_twice": true,
+      "script_sha256": "e859334c02501b5132f2dff6cd003aab86d1e2117b9f1c541b036fae3754241c"
+    }
+  },
+  "frozen_sources": {
+    "core_gpu2048_sha256": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+    "frozen_independent_cpu_scorer_sha256": "de6ab9652bb690a6e967e752b9367f5755674a23a6c4b2fcb45941274612dfe1",
+    "t4_window_source_git_blob": "cdce219f2a2df27e25579f069238d4327c1d7d91"
+  },
+  "membership": {
+    "status": "PASS_SCOPED_INDEPENDENT_MANIFEST_READBACK",
+    "private_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "story_count": 320,
+    "target_count": 75798,
+    "prior_split_exact_overlap": 0,
+    "historical_test_bucket_membership": 0,
+    "full_train_near_audit": "SEAL_RUNNER_REPORTED_2119489_SCANNED_ZERO_REJECTIONS",
+    "prior_val_test_near_overlap": "NOT_VERIFIED"
+  },
+  "source_rights": {
+    "license": "CDLA-Sharing-1.0",
+    "internal_computational_use": "PASS_WITH_LICENSE_CONDITIONS",
+    "source_page": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "license_url": "https://cdla.dev/sharing-1-0/",
+    "publication_rights": "SEPARATE_REVIEW_REQUIRED"
+  },
+  "frozen_test_rule": {
+    "metric": "TOKEN_WEIGHTED_NLL",
+    "pairs": [
+      "A-C",
+      "B-C",
+      "D-C"
+    ],
+    "paired_story_bootstrap_samples": 2000,
+    "seed": 2026110901,
+    "ci": "two_sided_95_percent_percentile",
+    "success": "ALL_3_LOWER_BOUNDS_STRICTLY_POSITIVE",
+    "no_checkpoint_selection": true
+  },
+  "blocking_items": [
+    {
+      "id": "B1",
+      "status": "HOLD",
+      "reason": "No independent pre-forward validator of 320 sealed IDs, exact windows, story targets, duplicates and total 75798; low-level scorer accepts unknown synthetic ID and duplicate window."
+    },
+    {
+      "id": "B2",
+      "status": "HOLD",
+      "reason": "Near duplicate overlap with historical 256 VAL and 64 TEST not verified. Do not reopen TEST to resolve; use existing non-content attestation or explicit pre-execution scope adjudication."
+    }
+  ],
+  "caveats": [
+    "Data card is not independent proof of every story's rights",
+    "Donor pretrained data overlap unknown",
+    "Fixed checkpoint comparison only; not independent training replication",
+    "No CUDA kernel bitwise parity claim"
+  ],
+  "exclusions": {
+    "new_holdout_scored": false,
+    "test_text_accessed": false,
+    "training": false,
+    "gpu": false,
+    "lineage_changed": false,
+    "one_shot_claim_issued": false
+  },
+  "source_code_upload_status": "TEST_SCRIPTS_PROVIDED_AS_SEPARATE_SANDBOX_ARTIFACTS_WITH_SHA256_NOT_COMMITTED_IN_THIS_GITHUB_CHANGE"
+}
