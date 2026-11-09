@@ -147,11 +147,12 @@
       "source-only direct response probes diagnostic"
     ],
     "geometry": "linear centered CKA of primary layer hidden states on heldout paired rows vs 1000 shuffled pairings; retrieval@1 on target hidden nearest aligned source, leave duplicate stories excluded",
-    "data_usage": "TRAIN fit only; DEV select alpha; TEST untouched until every file, SHA, estimator, hypothesis and budget reviewed"
+    "data_usage": "TRAIN fit only; DEV select alpha; TEST untouched until every file, SHA, estimator, hypothesis and budget reviewed",
+    "null_fairness": "Each shuffled-fit negative control uses the same alpha grid and DEV-only selection as the aligned estimator. Frozen permutations of TRAIN pairing only. TEST features and target responses do not affect model or hyperparameter selection."
   },
   "stats": {
-    "primary": "macro across 8 functions: R2=1-SSE/SST using TRAIN-only mean as baseline on heldout TEST; report aligned functional R2, shuffle-null distribution and direct baseline",
-    "effect": "aligned R2 - 95th percentile of 1000 shuffled training mappings R2 on TEST",
+    "primary": "macro across 8 functions R2=1-SSE/SST, SST relative to TRAIN mean on heldout G1 TEST; source-aligned R2 compared with 1000 shuffled-fit null, ordinary direct ridge and TRAIN mean",
+    "effect": "observed aligned R2 - empirical 95th percentile of 1000 shuffled-fit null R2 scores on frozen TEST",
     "permutation_n": 1000,
     "bootstrap_resamples": 2000,
     "bootstrap_group": "story_id",
@@ -167,7 +168,9 @@
       "positive_control_target_r2_min": 0.2
     },
     "failed_science_inference": "FAIL only if positive control qualified and all gates valid and primary threshold not met; otherwise INCONCLUSIVE_UNDERPOWERED_OR_CONTROL_FAIL",
-    "multiplicity_note": "functional+geometry co-required conjunction, p <=0.01 each; probe-level effects exploratory only; cannot generalize from 64 TEST stories as universal functional invariance"
+    "multiplicity_note": "functional+geometry co-required conjunction, p <=0.01 each; probe-level effects exploratory only; cannot generalize from 64 TEST stories as universal functional invariance",
+    "bootstrap_effect": "per-story paired bootstrap 2000 resamples for Delta_R2_aligned_minus_TRAIN_mean on TEST; use identical story indices for aligned and mean; null percentile is calculated once from frozen permuted TRAIN fits, not recomputed inside each bootstrap",
+    "sample_size_power_model": "NOT_QUALIFIED: 64 TEST story clusters for scoped feasibility; no blanket >=80pct power claim; absence of evidence => INCONCLUSIVE not proof of zero transfer"
   },
   "execution": {
     "model_load_order": [
@@ -191,6 +194,9 @@
     "target_model_17_weights_real_sha_and_load_smoke": "HOLD",
     "positive_control_qualification": "SCIENCE_TEST_ONLY",
     "independent_human_or_distinct_agent_reviewer": "NOT_COMPLETED",
-    "g1_science_authorization": "NOT_GRANTED"
+    "g1_science_authorization": "NOT_GRANTED",
+    "sample_size_power_qualified": "NOT_QUALIFIED_SCOPED_FEASIBILITY_ONLY",
+    "positive_control_r2": "NOT_EXECUTED_EVALUATION_TIME_GATE",
+    "independent_review_completion": "PENDING_DISTINCT_REVIEWER_AFTER_STATIC_QA"
   }
 }
