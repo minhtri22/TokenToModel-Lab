@@ -1,0 +1,196 @@
+{
+  "schema": "ttm_six_g1_science_prereg_candidate_v1",
+  "date": "2026-11-09",
+  "status": "SCIENCE_DESIGN_FROZEN_CANDIDATE_READINESS_HOLD",
+  "science_authorized": false,
+  "science_executed": false,
+  "scope": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "source_six_repo": "minhtri22/CLDP",
+    "ttm_main_is_independent": true,
+    "ttm_main_at_review": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "pilot_pr12_merged_by_other_lane": true,
+    "ttm_main_train_val_test_read": false
+  },
+  "models": {
+    "source": {
+      "id": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "hidden_dim": 1024,
+      "hidden_count": 29,
+      "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+      "technical": "PASS_OWNER_RECEIPT_11_OF_11_SCOPED"
+    },
+    "target": {
+      "id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "hidden_dim": 2048,
+      "hidden_count_expected": 29,
+      "weight_files": [
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors",
+        "model.safetensors.index.json"
+      ],
+      "weight_sha256_by_file": null,
+      "technical": "NOT_TESTED_IN_COLAB"
+    },
+    "runtime_candidate": {
+      "python_major_minor": "3.13",
+      "observed_python": "3.13.16",
+      "torch": "2.14.1+cu130",
+      "transformers": "5.22.1",
+      "huggingface-hub": "1.33.0",
+      "tokenizers": "0.23.3",
+      "safetensors": "0.8.0",
+      "gpu": "Tesla T4",
+      "dtype": "float16",
+      "batch_size": 1,
+      "max_prompt_tokens_per_teacher": 96,
+      "gpu_peak_reserved_cap_gib": 12,
+      "minimum_free_gpu_gib": 11,
+      "minimum_free_disk_gib": 12,
+      "per_teacher_wall_minutes_cap": 60
+    }
+  },
+  "data": {
+    "source": "roneneldan/TinyStories",
+    "revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "declared_license": "cdla-sharing-1.0",
+    "origin_source_sha256_train": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "ttm_pilot_split_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "candidate_scope": "TTM_PILOT_TRAIN_ONLY_2048_STORIES",
+    "rights_explicit_g1_approval": false,
+    "manifest_bytes_verified_in_g1": false,
+    "g1_split_counts": {
+      "train": 128,
+      "dev": 64,
+      "test": 64
+    },
+    "g1_split_unit": "original_train_story_id",
+    "one_prefix_per_story": true,
+    "deterministic_order": "sort eligible source stories by SHA256(UTF8('TTM_SIX_G1_V1|'+str(source_row_index)+'|'+sha256(NFC_story_UTF8))) ascending, then first 128 TRAIN, next 64 DEV, next 64 TEST",
+    "eligibility": "first sentence-final punctuation boundary in normalized source text at unicode-codepoint offset [80,192]; otherwise first whitespace boundary from >=128 through 192; require at least 12 nonwhite chars; both Qwen tokenizations 8..96 tokens; else exclude and record why; no manual replacement",
+    "normalization": "Unicode NFC; CRLF/CR -> LF; leading/trailing whitespace strip; replace LF with single ASCII space; do not casefold",
+    "prefix_record": [
+      "source_row_index",
+      "source_story_sha256",
+      "normalized_prefix_utf8_sha256",
+      "prefix_end_unicode_codepoint_offset",
+      "g1_split",
+      "qwen06_token_count",
+      "qwen17_token_count"
+    ],
+    "no_raw_data_in_git": true,
+    "ttm_original_val_test_never_accessed": true,
+    "near_duplicate_policy": "group by canonical normalized story SHA; require zero exact overlap; source-wide near-dup guarantee not claimed"
+  },
+  "probe_bank": {
+    "count": 8,
+    "scoring": "for each model independently use tokenized prefix plus separately-tokenized continuation (no BPE boundary merge); sum causal continuation log-probabilities / positive UTF8 byte length; score A minus B; no chat template; add_special_tokens=False; no generation, no TEST-based tuning",
+    "pairs": [
+      [
+        " The child smiled.",
+        " The child cried."
+      ],
+      [
+        " Everyone felt safe.",
+        " Everyone felt afraid."
+      ],
+      [
+        " The toy was found.",
+        " The toy was lost."
+      ],
+      [
+        " She told the truth.",
+        " She told a lie."
+      ],
+      [
+        " He shared the toy.",
+        " He kept the toy."
+      ],
+      [
+        " They stayed home.",
+        " They went outside."
+      ],
+      [
+        " The door was open.",
+        " The door was closed."
+      ],
+      [
+        " The story ended happily.",
+        " The story ended sadly."
+      ]
+    ],
+    "probe_bank_sha256_pending_source_code": true,
+    "layers": {
+      "primary_hidden_state_index": 28,
+      "diagnostic_hidden_state_index": 14,
+      "pooling": "last-nonpadding-token",
+      "state_0": "negative_diagnostic_embedding_not_science_evidence"
+    }
+  },
+  "alignment": {
+    "primary": "train-only z-score per feature (epsilon 1e-6); multioutput ridge dual from source 1024 to target 2048; intercept via TRAIN centering; score decomposition target state to 8D teacher target functional responses with second TRAIN-only ridge; no finetuning Qwen",
+    "lambda_grid": [
+      1,
+      10,
+      100
+    ],
+    "lambda_selection": "DEV macro functional R2; ties choose larger lambda; no TEST selection",
+    "positive_control": "target hidden state to target response ridge",
+    "ordinary_baseline": "direct source hidden state to target response ridge same lambda grid and DEV selection",
+    "negative_controls": [
+      "TRAIN shuffled source-target pair mapping 1000 fixed permutations",
+      "TRAIN-mean function baseline",
+      "random orthogonal projection with dimensions matched",
+      "source-only direct response probes diagnostic"
+    ],
+    "geometry": "linear centered CKA of primary layer hidden states on heldout paired rows vs 1000 shuffled pairings; retrieval@1 on target hidden nearest aligned source, leave duplicate stories excluded",
+    "data_usage": "TRAIN fit only; DEV select alpha; TEST untouched until every file, SHA, estimator, hypothesis and budget reviewed"
+  },
+  "stats": {
+    "primary": "macro across 8 functions: R2=1-SSE/SST using TRAIN-only mean as baseline on heldout TEST; report aligned functional R2, shuffle-null distribution and direct baseline",
+    "effect": "aligned R2 - 95th percentile of 1000 shuffled training mappings R2 on TEST",
+    "permutation_n": 1000,
+    "bootstrap_resamples": 2000,
+    "bootstrap_group": "story_id",
+    "split_seed": 20261109,
+    "permutation_seed": 20261110,
+    "bootstrap_seed": 20261111,
+    "science_pass_threshold_candidate": {
+      "aligned_macro_r2_min": 0.1,
+      "effect_above_shuffle_p95_min": 0.1,
+      "permutation_p_max": 0.01,
+      "paired_bootstrap_95_lower_improvement_gt": 0,
+      "cka_permutation_p_max": 0.01,
+      "positive_control_target_r2_min": 0.2
+    },
+    "failed_science_inference": "FAIL only if positive control qualified and all gates valid and primary threshold not met; otherwise INCONCLUSIVE_UNDERPOWERED_OR_CONTROL_FAIL",
+    "multiplicity_note": "functional+geometry co-required conjunction, p <=0.01 each; probe-level effects exploratory only; cannot generalize from 64 TEST stories as universal functional invariance"
+  },
+  "execution": {
+    "model_load_order": [
+      "source_0_6",
+      "unload_gc_empty_cache",
+      "target_1_7",
+      "unload_gc_empty_cache"
+    ],
+    "max_total_gpu_minutes": 120,
+    "one_shot_science": true,
+    "stop_on_timeout_or_gpu_guard": true,
+    "no_optimize_models": true,
+    "no_test_until_final_lock": true,
+    "no_teacher_model_or_raw_corpus_in_public_git": true,
+    "receipts_append_only": true
+  },
+  "gates": {
+    "source_rights_g1_owner_approval": "HOLD",
+    "original_pilot_train_manifest_exact_readback": "HOLD",
+    "g1_subset_manifest_generated_and_sealed": "HOLD",
+    "target_model_17_weights_real_sha_and_load_smoke": "HOLD",
+    "positive_control_qualification": "SCIENCE_TEST_ONLY",
+    "independent_human_or_distinct_agent_reviewer": "NOT_COMPLETED",
+    "g1_science_authorization": "NOT_GRANTED"
+  }
+}
