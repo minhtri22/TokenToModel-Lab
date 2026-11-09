@@ -39,9 +39,9 @@ Người dùng trước đây đã phê duyệt **đọc TinyStories TRAIN để
 | Artifact | Git blob |
 |---|---|
 | `scripts/research/six_ttm/g1_science_core_v1.py` | `b3ea8c890c45e3e2d248ad850977b53f5782552e` |
-| `scripts/research/six_ttm/g1_science_private_feature_extractor_v1.py` | `f1557470ff66857e35ced71641b542685f6b3083` |
+| `scripts/research/six_ttm/g1_science_private_feature_extractor_v1.py` | `9b490c8ed65dc1ecc56d7d0217dc89f022807327` |
 | `scripts/research/six_ttm/g1_science_adversarial_qa_v1.py` | `e6a93ac8248665de78d970ef9d237de5a45d9d8c` |
-| `scripts/research/six_ttm/g1_science_preexecution_integrated_qa_v1.py` | `c022de4bdc2eae88b61d1ea2d578302c25c12445` |
+| `scripts/research/six_ttm/g1_science_preexecution_integrated_qa_v1.py` | `23d1c947a14f663b17c9d96cdbb33c26b9a9f9c2` |
 
 **Pre-execution runtime QA:** exact sources executed in isolated assistant Linux Python `3.13.5`, NumPy `2.3.5`; `PASS_SYNTHETIC_ONLY_NO_SCIENCE`, `PASS_ADVERSARIAL_SYNTHETIC_QA_NO_SCIENCE` (14 negative/contract checks), `PASS_EXTRACTOR_SYNTHETIC_ONLY_NO_FILES_OR_GPU`, `PASS_INTEGRATED_SYNTHETIC_QA_SOURCE_PINS` (3 exact blobs, orthogonal neutrality, second marker-open rejection). Full 1,000 shuffled/1,000 CKA/2,000 bootstrap *synthetic* paths PASS, no Qwen or private TEST. These are **author-built engineering tests**, not a distinct scientific review.
 
