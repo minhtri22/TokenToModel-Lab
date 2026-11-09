@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.six.g1.windows_v3_synthetic_selftest_owner_readback.v1",
+  "date": "2026-11-09",
+  "source": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "script_path": "scripts/research/six_ttm/Run-G1-PrivateManifest-PS51-v3.ps1",
+    "script_git_blob": "13e3dd5824a24af9cadec504add4fddbf570436f",
+    "source_commit": "784e873b0cb058ab6739d393b9cf7ade00b3bbbc",
+    "producer_git_blob": "aee230060f8202907953e0eeab0ae5b1099a584e",
+    "execution_provenance": "OWNER_PASTED_POWERSHELL_CONSOLE",
+    "independent_execution_by_assistant": false
+  },
+  "observed": {
+    "configured_origin": "https://github.com/minhtri22/tokentomodel-lab.git",
+    "effective_origin": "https://github.com/minhtri22/tokentomodel-lab.git",
+    "git_dual_origin": "PASS",
+    "local_python": "3.12.10",
+    "python_version_gate": "PASS",
+    "source_ast_parse": "PASS",
+    "synthetic_selftest_status": "PASS_SYNTHETIC_SELFTEST_NO_FILES_NO_SCIENCE",
+    "synthetic_test_cases": 7,
+    "no_gpu": true,
+    "selftest_writes": false,
+    "wrapper_marker": "G1_LOCAL_STEP=SELFTEST_COMPLETED",
+    "powershell_unhandled_error_after_execution": false
+  },
+  "decision": {
+    "v1_origin_stop": "PRESERVED",
+    "v2_python_argument_stop": "PRESERVED",
+    "v3_origin_and_version_and_synthetic_fixture": "PASS_OWNER_ATTESTED",
+    "v3_dynamic_python_selftest": "PASS_OWNER_ATTESTED",
+    "t1_original_manifest": "PASS_OWNER_ATTESTED_NO_REPEAT",
+    "qwen06_technical": "PASS_NO_REPEAT",
+    "g1_host_preflight": "NOT_EXECUTED",
+    "g1_qwen_tokenizer_pins": "NOT_EXECUTED",
+    "g1_private_manifest_128_64_64": "NOT_GENERATED",
+    "qwen17_colab_preflight_and_smoke": "NOT_ATTESTED",
+    "g1_rights_private_scope_approval": "NOT_RECORDED",
+    "science_execution": "NOT_EXECUTED",
+    "science_authorization": "HOLD"
+  },
+  "governance": {
+    "main_untouched_by_this_record": true,
+    "lineage_untouched": true,
+    "pr12_untouched": true,
+    "ttm_small4m_unaffected": true,
+    "private_data_never_published": true
+  }
+}
