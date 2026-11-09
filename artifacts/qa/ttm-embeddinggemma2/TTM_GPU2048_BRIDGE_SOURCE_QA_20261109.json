@@ -1,0 +1,56 @@
+{
+  "amendment_commit": "24d0b7b1d5eea590ba1cfa0d00f74ffcbdd6f72a",
+  "bridge_source_sha256": "1f3e01c6e1baf5fcab5d22e41b3c49d309b5dc5f8d2a4cf0fcf5c2fc45728ae6",
+  "date": "2026-11-09",
+  "existing_full_2048_runner_sha256": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+  "gpu_used": false,
+  "methodology_notes": [
+    "Bridge source was SHA-pinned to GitHub and byte-readback confirmed.",
+    "CPU fixture hardlinks original checkpoint bytes; READY metadata reconstructed from Drive-readback fields for isolation.",
+    "CPU-only next-step smoke uses 8 valid TRAIN labels, no GPU or VAL/TEST; not a science training run.",
+    "Full original four-ARM resume tests were not run on T4 and remain subject to first-runtime preflight.",
+    "No new RUN_ID CLAIM, checkpoint, RESULT, or scientific lineage entry was created."
+  ],
+  "new_full_schedule_sha256": "81e4834f991607e8c3143bb67ed4a9ade93faa5f9526f630dc79e85bb0e51a52",
+  "original_parent_claim_sha256": "d7e99b831dcb69688e4a1483732f174125f8e1a10d5e73cea5c4ef9efcfb3011",
+  "original_parent_result_sha256": "46a93c888063c27711541c067d168ded31bbf22f6c46ba6efe45051cdc9c0bec",
+  "parent_checkpoint_pins": {
+    "A": "95bb69de752bf051958f0d8e19a388528d2cc102f02258c88d756526a9406aa2",
+    "B": "8ecca1e181726965d4f6e76c8e725b612706d5242accd408a9386964939191d1",
+    "C": "cb77a5c2e435dd8cf1f61259f560a22964bc8c8c06889b0494cb961ed76bc9ac",
+    "D": "81003fa2fe194a7e22b30d1b3e330fc65ec0ae486a08511d17c367ec5c25f69f"
+  },
+  "parent_run_id": "ttm_small4m_gemma2_directswap_1024x4096_t4_gpu_20261109_v1",
+  "parent_schedule_sha256": "19ddc05128c188b86bda2f02de6389946944fe287c26abbf7d24cc5f9681e8f2",
+  "phase": "AMENDMENT_AND_SOURCE_QA",
+  "qa_script_sha256": {
+    "qa_bridge_cpu.py": "1255584497064005633064f26d42b363bec6bd55bfd5983bc0fc9b6025b4b573",
+    "qa_restore_cpu.py": "19625dd3c48adb20470c20e4b125692dd000f6b550cd607c6d390edaf5c328ef",
+    "qa_step1025_cpu_smoke.py": "3751823f8f7746ab49233866b73ff4ee1b16900e232548f5cafab33e208240b0"
+  },
+  "run_id": "ttm_small4m_gemma2_directswap_2048x4096_t4_gpu_20261109_v1",
+  "schema": "ttm.gemma2.directswap2048.checkpoint_bridge.source_qa.v1",
+  "scoped_completion": "AMENDMENT_AND_CPU_QA_COMPLETE_GPU_NOT_EXECUTED",
+  "status": "PASS_SCOPED_CPU_ENGINEERING_ONLY",
+  "test_read": false,
+  "tests": {
+    "actual_cpu_checkpoint_model_optimizer_restore_and_forward": {
+      "passed": 4,
+      "total": 4
+    },
+    "aggregate": {
+      "passed": 20,
+      "total": 20
+    },
+    "cpu_synthetic_next_optimizer_step_1025_A_and_C": {
+      "passed": 2,
+      "total": 2
+    },
+    "read_only_parent_scheduling_and_negative_contracts": {
+      "passed": 14,
+      "total": 14
+    }
+  },
+  "training_science_executed": false,
+  "validation_scored": false
+}
