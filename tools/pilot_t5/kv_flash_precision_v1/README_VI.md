@@ -1,3 +1,13 @@
+# CẬP NHẬT 2026-11-10 — Kết quả one-shot T5 đã phân xử
+
+**Kết quả mới nhất:** `NATIVE_32=EXECUTED_ONCE_PASS_PROTOCOL` · **`STRICT_LOGITS=FAIL_32_OF_32`** · `TOP1=PASS_32/32` · `EXACT_ROOT_CAUSE=UNRESOLVED`. Đây là kết quả khoa học âm tính hợp lệ: thay đổi riêng F16/F32 KV cache và Flash ON/OFF **không đủ** đạt strict parity `max_abs≤0.001`. Không chạy lại 32; giữ nguyên strict FAIL lịch sử 7/8. Chủ dự án chỉ yêu cầu **xem xét merge**, chưa cho phép merge main.
+
+**Nguồn thẩm định hiện hành:** [báo cáo khoa học FAIL và rà soát merge](../../../docs/pilot/TTM_T5_FROZEN_32_NATIVE_NEGATIVE_SCIENCE_ADJUDICATION_AND_MERGE_REVIEW_20261110.md), [biên bản phân xử 32](../../../artifacts/qa/ttm-t5-parity/TTM_T5_FROZEN_32_NATIVE_STRICT_PARITY_NEGATIVE_SCIENCE_ADJUDICATION_20261110.json), mục `L0013` trong `lineage.md` (append-only). Raw 32 JSONL và các log giữ ở `_tmp/ttm_t5_kvflash_frozen_new_32_native_one_shot_v1_20261110` trên Windows; SHA được pin trong biên bản.
+
+**Lưu ý khi review merge:** Phần README từ tiêu đề `DESIGN_ONLY` trở xuống là **ảnh chụp thiết kế gốc tại thời điểm đóng băng**, các chữ `chưa chạy/chưa biên dịch/OWNER APPROVAL NOT ISSUED` trong phần lịch sử **không còn là trạng thái hiện tại**. Các script preview/supplement gốc được bảo toàn để tái dựng lịch sử kỹ thuật, **không phải runner khuyến nghị**. Bộ chạy final one-shot đã tiêu thụ, không chạy lại. Trường `descriptive_contrasts` chỉ trừ số max-abs error giữa các arm, không phải 2×2 per-logit causal attribution.
+
+---
+
 # TTM-T5 KV F16/F32 × Flash ON/OFF — single synthetic discrimination (DESIGN_ONLY)
 
 **Ngày khóa:** 2026-11-09 · **Source of truth:** nhánh GitHub `research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109`. **Không phải giấy phép chạy native.** Mọi nội dung ở đây là mã ứng viên chưa được biên dịch hoặc chạy trên máy đích.
