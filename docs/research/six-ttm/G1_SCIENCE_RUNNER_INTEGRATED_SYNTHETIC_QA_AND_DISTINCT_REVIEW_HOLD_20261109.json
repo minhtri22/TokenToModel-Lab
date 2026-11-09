@@ -1,0 +1,101 @@
+{
+  "schema": "ttm.six.g1.science_runner_integrated_preexec_qa_and_distinct_review_decision.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_SCIENCE_RUNNER_IMPLEMENTATION_INTEGRATED_QA_AND_DISTINCT_PREEXECUTION_REVIEW",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+  "decision": "HOLD_DISTINCT_REVIEW_AND_PRIVATE_SCIENCE_SCOPE_NOT_GRANTED",
+  "technical_readiness": "PASS_PRESERVED",
+  "science_executed": false,
+  "scientific_TEST_opened": false,
+  "data_source_ttm_original_VAL_TEST_read": false,
+  "t1_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+  "g1_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+  "private_manifest_counts": {
+    "TRAIN": 128,
+    "DEV": 64,
+    "TEST": 64
+  },
+  "model_technical_gates": {
+    "qwen3_06": "PASS_OWNER_TECHNICAL_SMOKE_PRESERVED_NOT_REEXECUTED",
+    "qwen3_17": "PASS_OWNER_T4_ONE_SHOT_WEIGHT_SHA_AND_29_HIDDEN_STATES_NOT_REEXECUTED"
+  },
+  "source_pins": {
+    "original_prereg_candidate": "de049ba00331d90f3c7ae72ab3daf943c766ec82",
+    "original_methods": "9dcbf31b2835e07922b2aaf66e5895c7d2f8b03b",
+    "science_core": "b3ea8c890c45e3e2d248ad850977b53f5782552e",
+    "science_private_extractor": "9b490c8ed65dc1ecc56d7d0217dc89f022807327",
+    "adversarial_qa": "e6a93ac8248665de78d970ef9d237de5a45d9d8c",
+    "integrated_qa": "23d1c947a14f663b17c9d96cdbb33c26b9a9f9c2",
+    "v1a_amendment": "bd186413514541af46043aea605d22e0fbbbd394",
+    "distinct_reviewer_packet": "9c40047ddf9b97de0318d7543747e2ff96f3a918"
+  },
+  "implementation": {
+    "private_pinned_prefix_reconstruction": "SOURCE_IMPLEMENTED_NOT_SCIENCE_EXECUTED",
+    "teacher_sequential_loading_and_weights_sha": "SOURCE_IMPLEMENTED_NOT_SCIENCE_EXECUTED",
+    "continuation_probe_bank": "8_FIXED_PAIRS_SOURCE_IMPLEMENTED",
+    "continuation_semantics": "TOKENIZED_PREFIX_PLUS_TOKENIZED_CONTINUATION_IDS",
+    "no_model_finetuning": true,
+    "numeric_packs_schema": "ids_SHA256_s_1024_t_2048_r_8",
+    "train_dev_alpha_only": true,
+    "alpha_grid": [
+      1,
+      10,
+      100
+    ],
+    "shuffled_train_pair_nulls": 1000,
+    "cka_permutation_nulls": 1000,
+    "paired_bootstrap_resamples": 2000,
+    "positive_control": "TARGET_HIDDEN_TO_TARGET_FUNCTION_RIDGE",
+    "ordinary_direct_baseline": "SOURCE_HIDDEN_TO_TARGET_FUNCTION_RIDGE",
+    "neutral_rotation_diagnostic": "ORTHOGONAL_INVARIANCE_NOT_DESTRUCTIVE_NULL",
+    "train_target_response_std_gate": 0.00001,
+    "test_SST_min_per_probe": 1e-8,
+    "test_marker_before_numeric_test_read": true,
+    "test_extraction_requires_frozen_fit_dev": true,
+    "permit_gate_requires_distinct_reviewer_and_owner": true,
+    "private_work_scope_restricted": true
+  },
+  "dynamic_qa": {
+    "execution_environment": "assistant_isolated_container_python_3.13.5_numpy_2.3.5",
+    "exact_GitHub_source_blobs_matching_local_tested_files": true,
+    "results": [
+      "PASS_SYNTHETIC_ONLY_NO_SCIENCE_6_TESTS",
+      "PASS_ADVERSARIAL_SYNTHETIC_QA_NO_SCIENCE_14_CHECKS",
+      "PASS_EXTRACTOR_SYNTHETIC_ONLY_NO_FILES_OR_GPU_8_PROBES",
+      "PASS_INTEGRATED_SYNTHETIC_QA_SOURCE_PINS_3_BLOBS",
+      "PASS_FULL_LOOP_SYNTHETIC_1000_PERM_1000_CKA_2000_BOOT"
+    ],
+    "orthogonal_invariance_confirmed_synthetic": true,
+    "test_marker_second_exclusive_open_rejected": true,
+    "science_executed": false,
+    "private_G1_data_used": false,
+    "qwen_weight_downloaded": false,
+    "real_1024_2048_GPU_end_to_end_qa": "NOT_EXECUTED",
+    "synthetic_dim_in_full_loops": "source_dim_10_target_dim_15"
+  },
+  "review": {
+    "same_author_source_and_QA_is_not_distinct_peer_review": true,
+    "genuine_distinct_reviewer_adjudication": "NOT_COMPLETED",
+    "notion_agent_discovery": "ENTITLEMENT_REQUIRED_NO_REVIEWER_RUN",
+    "codex_external_distinct_reviewer": "NOT_INVOKED_CURRENT_TURN_TOKEN_NOT_AVAILABLE",
+    "peer_review_packet_ready": true,
+    "review_outcome": "PENDING"
+  },
+  "unresolved_material_conditions": [
+    "Distinct external reviewer must independently inspect exact code and v1a source mapping/dedup/null amendment and issue signed source-pinned verdict",
+    "Owner one-shot science scope must explicitly accept private raw source staging on Colab (if used) and private numeric teacher feature storage; prior acceptance covered only local hash-only manifest",
+    "Independent execution QA of science end-to-end on real GPU/data NOT yet executed; reviewer to judge resource/runtime and one-shot fail closed semantics",
+    "Positive-control oracle and true G1 transfer outcome only assessable after permitted one-shot TEST, not now"
+  ],
+  "governance": {
+    "science_permit_issued": false,
+    "manifest_recreated": false,
+    "qwen_technical_smokes_rerun": false,
+    "ttm_small4m_trained": false,
+    "main_modified": false,
+    "pr12_modified": false,
+    "lineage_md_modified": false
+  },
+  "next_single_gate": "G1_DISTINCT_PREEXECUTION_REVIEW_AND_OWNER_ONE_SHOT_SCIENCE_SCOPE_ADJUDICATION"
+}
