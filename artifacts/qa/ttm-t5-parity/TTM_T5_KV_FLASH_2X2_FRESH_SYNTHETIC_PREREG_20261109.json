@@ -1,0 +1,251 @@
+{
+  "schema": "ttm.t5.f32_kv_flash_single_synthetic_discrimination.prereg.v1",
+  "date": "2026-11-09",
+  "phase": "DESIGN_AND_OWNER_RUN_GATE_ONLY",
+  "github_source_of_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "base_main_sha": "b57b44e7287f842e81050c1faee337f636333dd0"
+  },
+  "hypothesis": "Precision loss from F16 KV cache and/or FlashAttention F32->F16 K/V conversion contributes to earliest attention residual drift and strict logits FAIL.",
+  "original_pins": {
+    "checkpoint_step": 1024,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "gguf_f32_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "p02_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "original_strict_full_logit_max_abs": 0.003362178805176086,
+    "original_8_fixtures_failures": 7,
+    "original_top1_match_count": 8,
+    "final_logits_acceptance_max_abs": 0.001,
+    "source_trace_path": "evidence/pilot/t5-trained/T5_F32_NUMERIC_LOCALIZATION_UNADJUDICATED.json",
+    "original_caller_cmake_source_dir": "C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108",
+    "original_probe_claimed_sha256": "62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2"
+  },
+  "caller_custody": {
+    "actual_original_type_k": "UNKNOWN",
+    "actual_original_type_v": "UNKNOWN",
+    "runtime_flash_used": "CONFIRMED_FLASH_ATTN_EXT_IN_ORIGINAL_NATIVE_LOG",
+    "original_caller_source_sha": "NOT_IN_WORKSPACE_UNVERIFIED",
+    "original_probe_binary_sha": "NOT_ATTESTED",
+    "source_attestation_requirement": "Owner must inspect exact native caller source from historical CMake source dir; record SHA, assignment evidence with line numbers, and build provenance. Do not infer actual k/v from defaults alone.",
+    "failure_mode": "HOLD_CALLER_PARAM_PROVENANCE"
+  },
+  "control_design": {
+    "scope": "one future owner-approved CPU native batch, no training, no TEST, no Q1/Q2, no old fixture rerun",
+    "checkpoint": "unchanged_1024",
+    "gguf": "unchanged_F32",
+    "llama_cpp": "unchanged_pinned",
+    "model_params": {
+      "n_gpu_layers": 0
+    },
+    "context": {
+      "n_ctx": 256,
+      "n_batch": 256,
+      "n_ubatch": 256,
+      "n_seq_max": 1,
+      "n_threads": 1,
+      "n_threads_batch": 1,
+      "offload_kqv": false,
+      "op_offload": false,
+      "seed": "no sampling, explicit fixed token IDs",
+      "reset": "fresh context per arm+fixture, no KV carryover"
+    },
+    "arms": [
+      {
+        "arm_id": "S0",
+        "kv_k": "F16",
+        "kv_v": "F16",
+        "flash": "ENABLED",
+        "role": "old_like_explicit_not_claimed_old_equal"
+      },
+      {
+        "arm_id": "S1",
+        "kv_k": "F32",
+        "kv_v": "F32",
+        "flash": "DISABLED",
+        "role": "full_F32_nonflash_reference_candidate"
+      },
+      {
+        "arm_id": "S2",
+        "kv_k": "F32",
+        "kv_v": "F32",
+        "flash": "ENABLED",
+        "role": "isolate_flash_KV_F32_input_can_still_cast_F16"
+      },
+      {
+        "arm_id": "S3",
+        "kv_k": "F16",
+        "kv_v": "F16",
+        "flash": "DISABLED",
+        "role": "isolate_cache_precision_at_nonflash"
+      }
+    ],
+    "fixture_generator": "u32 s=(20261109 + i*0x9e3779b9) mod 2^32; each token: s=(1664525*s+1013904223) mod 2^32, id=257+(s mod 1791); lengths [1,2,4,6,9,12,20,31]",
+    "new_fixtures": [
+      {
+        "fixture_id": "SYN01",
+        "ids": [
+          470
+        ]
+      },
+      {
+        "fixture_id": "SYN02",
+        "ids": [
+          710,
+          1726
+        ]
+      },
+      {
+        "fixture_id": "SYN03",
+        "ids": [
+          950,
+          1846,
+          772,
+          1032
+        ]
+      },
+      {
+        "fixture_id": "SYN04",
+        "ids": [
+          1190,
+          1966,
+          732,
+          1023,
+          595,
+          1479
+        ]
+      },
+      {
+        "fixture_id": "SYN05",
+        "ids": [
+          1430,
+          938,
+          1335,
+          1014,
+          1963,
+          1788,
+          743,
+          493,
+          1718
+        ]
+      },
+      {
+        "fixture_id": "SYN06",
+        "ids": [
+          1670,
+          1058,
+          1938,
+          1648,
+          897,
+          1454,
+          1090,
+          491,
+          348,
+          1754,
+          1712,
+          1635
+        ]
+      },
+      {
+        "fixture_id": "SYN07",
+        "ids": [
+          1910,
+          1821,
+          1898,
+          1639,
+          474,
+          1763,
+          794,
+          1637,
+          1412,
+          881,
+          1156,
+          648,
+          840,
+          616,
+          716,
+          1084,
+          1041,
+          578,
+          909,
+          363
+        ]
+      },
+      {
+        "fixture_id": "SYN08",
+        "ids": [
+          359,
+          1941,
+          710,
+          1630,
+          1199,
+          1429,
+          1141,
+          992,
+          685,
+          1799,
+          600,
+          304,
+          923,
+          733,
+          1558,
+          956,
+          1680,
+          1130,
+          1019,
+          1394,
+          1662,
+          523,
+          493,
+          1580,
+          476,
+          276,
+          987,
+          1435,
+          742,
+          1289,
+          1945
+        ]
+      }
+    ],
+    "read_old_test": false,
+    "read_old_eight_as_runtime_inputs": false,
+    "expected_runs": 32,
+    "expected_final_logits_per_run": 2048,
+    "parity_reference": "same F32 checkpoint on frozen P02 CPU model; exact same 8 new ID arrays and last-position logits; reference must have SHA provenance before unblinding numerical comparisons",
+    "primary_metrics": [
+      "per_fixture_arm_max_abs_logit_vs_P02_F32",
+      "per_fixture_arm_argmax_match",
+      "per_fixture_arm_first_attention_residual_max_abs_if_trace_available"
+    ],
+    "planned_factorial_contrasts": [
+      "S3(F16,OFF)-S1(F32,OFF): cache precision effect without flash",
+      "S2(F32,ON)-S1(F32,OFF): flash path effect when cache storage F32",
+      "S0(F16,ON)-S3(F16,OFF): flash path effect when cache storage F16",
+      "(S0-S3)-(S2-S1): interaction descriptive only"
+    ],
+    "caution": "FlashAttention can cast K/V to F16 even when cache storage is configured F32; resulting terms are implementation-path contrasts, not pure floating point-independent treatment effects.",
+    "decision_logic": {
+      "if_caller_unverified": "HOLD_NO_NATIVE_EXECUTION",
+      "if_runtime_or_binary_provenance_failed": "HOLD_NO_NATIVE_EXECUTION",
+      "if_all_arms_completed": "report all four arm errors with 0.001 fixed threshold, no historical relabeling",
+      "causal_candidate": "S1 shows materially reduced error and properly attested S0 captures original-like path; S2/S3 separate flash/cache contributions",
+      "if_S1_still_fail": "HOLD_EXACT_ROOTCAUSE; investigate attention matmul/projection/residual next",
+      "if_runtime_probe_not_done": "ROOT_CAUSE_NOT_PROVEN"
+    }
+  },
+  "governance": {
+    "old_eight_immutable": true,
+    "new_native_execution": false,
+    "new_training": false,
+    "test_untouched": true,
+    "original_7of8_fail_preserved": true,
+    "main_unchanged": true,
+    "lineage_unchanged": true,
+    "pr13_hold": true,
+    "owner_run_approval": "NOT_ISSUED",
+    "qa_scope": "DESIGN_STATIC_ONLY",
+    "no_auto_merging": true
+  }
+}
