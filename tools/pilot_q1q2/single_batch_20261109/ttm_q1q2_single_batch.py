@@ -41,7 +41,8 @@ MAX_SECONDS = 45*60
 MAX_OUTPUT_TOKENS = 3904
 MAX_REQUESTS = 74
 MODEL_FILES_CAP = 20
-PROMPT_LIMIT_TOKENS = 120
+PROMPT_LIMIT_TOKENS = 192
+Q2_PROMPT_LIMIT_TOKENS = 96
 
 
 def die(message: str):
@@ -182,7 +183,9 @@ def preflight():
     bpe=bpemod.BPE2048.from_manifest(read_json(BPE_DATA))
     require(len(bpe.tokens)==2048,'BPE_VOCAB_INVALID')
     for prompt in prompts.values():
-        require(len(bpe.encode(prompt))<=PROMPT_LIMIT_TOKENS,'PROMPT_BPE_TOO_LONG')
+        require(len(bpe.encode(prompt))<=PROMPT_LIMIT_TOKENS,'Q1_PROMPT_BPE_TOO_LONG')
+    for row in warm+q2:
+        require(len(bpe.encode(prompts[row['prompt_id']]))<=Q2_PROMPT_LIMIT_TOKENS,'Q2_PROMPT_BPE_TOO_LONG_FOR_128_CONTEXT')
     return v5,bpe,prompts,q1,warm,q2,snap
 
 

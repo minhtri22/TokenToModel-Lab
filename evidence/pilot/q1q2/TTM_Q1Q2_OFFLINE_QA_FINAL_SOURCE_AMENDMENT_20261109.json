@@ -1,0 +1,22 @@
+{
+  "schema": "ttm.q1q2.single_batch.final_source_amendment.offline_qa.v1",
+  "date": "2026-11-09",
+  "parent": "7b74a8d160f7c2222072dd9060f99f46d062fa0a",
+  "reason": "Correct token budget for context128 and cleanup only temporary bootstrap/clones after Github readback",
+  "source_sha256": {
+    "runner": "80a5fae1155e3680207318af0d218ce4050ad2e8f554db107cac31a0af4cd450",
+    "test": "e24ea51b34008b21f188e01c30cda16fe50beb9008dc2a4fd1831906aad0db57",
+    "powershell": "361d4f6452e59d446ecc661f3520191956b61d0c407cf6b07c700f5665b93473"
+  },
+  "offline": {
+    "python_compile": "PASS",
+    "unittest": "PASS_10_OF_10",
+    "platform": "Linux Python 3.13.5",
+    "windows_ps51_parse": "NOT_EXECUTED",
+    "windows_native": "NOT_EXECUTED"
+  },
+  "condition": "Q1 <=192 reencoded BPE prompt tokens, Q2 <=96 BPE prompt tokens for num_ctx=128 plus 32 predict; q1/q2 matrices remain immutable",
+  "cleanup": "Only Git publish/readback checkouts and bootstrap folder; preserve CLAIM/RESULT/raw/model copy; on failure skip cleanup",
+  "scientific_result": "NOT_EXECUTED",
+  "merge": "HOLD_PENDING_NATIVE"
+}

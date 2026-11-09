@@ -122,7 +122,23 @@ CheckSha (Join-Path $readback (($prefix+'/PUBLISHED_FILES_SHA256.json').Replace(
 Write-Host ('TTM_Q1Q2_GITHUB_READBACK=PASS_ALL_'+($manifest.Count+1)+'_EVIDENCE_FILES')
 Write-Host 'TTM_Q1Q2_ONE_SHOT_CONSUMED=TRUE'
 Write-Host 'TTM_Q1Q2_RAW_LOCAL=PRESERVED_UNTIL_INDEPENDENT_ADJUDICATION'
-Write-Host 'TTM_Q1Q2_CLEANUP=NO_DELETE_OF_RAW_OR_MODEL_STORE'
+# Cleanup is limited to this run's temporary Git clones/bootstrap; preserve one-shot
+# CLAIM, RESULT, raw outputs, and model store until scientific adjudication.
+if ($required) {
+    foreach ($temporary in @($readback,$stage,$src)) {
+        try {
+            NoReparse $temporary
+            Require ($temporary.StartsWith((Join-Path $root '_tmp')+'\',[StringComparison]::OrdinalIgnoreCase)) 'CLEANUP_PATH_OUTSIDE_PROJECT_TMP'
+            Remove-Item -LiteralPath $temporary -Recurse -Force -ErrorAction Stop
+            Write-Host ('TTM_Q1Q2_SCOPED_TEMP_CLEANED='+$temporary)
+        } catch {
+            Write-Host ('TTM_Q1Q2_CLEANUP_HOLD_PRESERVED='+$temporary+' ERROR='+$_.Exception.Message)
+        }
+    }
+} else {
+    Write-Host 'TTM_Q1Q2_CLEANUP=SKIPPED_PARTIAL_HOLD'
+}
+Write-Host 'TTM_Q1Q2_RAW_AND_MODEL_STORE=PRESERVED_UNTIL_SCIENCE_ADJUDICATION'
 if (-not $required) { Write-Host 'TTM_Q1Q2_MERGE_DECISION=HOLD_PARTIAL';exit 4 }
 Write-Host 'TTM_Q1Q2_MERGE_DECISION=HOLD_PENDING_SCIENCE_REVIEW'
 exit 0
