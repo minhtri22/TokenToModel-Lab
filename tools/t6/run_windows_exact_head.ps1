@@ -30,19 +30,33 @@ function SHA([string]$p) {
     return (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()
 }
 
+function Invoke-GitOneLine {
+    param(
+        [Parameter(Mandatory=$true)][string]$Name,
+        [Parameter(Mandatory=$true)][string]$WorkingDirectory,
+        [Parameter(Mandatory=$true)][string[]]$GitArguments
+    )
+    # PowerShell 5.1: Select-Object -First 1 can close a native process pipeline
+    # early and make git return -1 despite emitting the expected line.
+    $lines = @(& git -C $WorkingDirectory @GitArguments)
+    $nativeExit = $LASTEXITCODE
+    if ($nativeExit -ne 0) { throw ($Name + '_EXIT_' + $nativeExit) }
+    if ($lines.Count -ne 1 -or [string]::IsNullOrWhiteSpace([string]$lines[0])) {
+        throw ($Name + '_EXPECTED_EXACTLY_ONE_LINE')
+    }
+    return ([string]$lines[0]).Trim()
+}
+
 if (-not (Test-Path -LiteralPath $RepoRoot -PathType Container)) { throw 'PROJECT_ROOT_NOT_FOUND' }
 if (-not (Test-Path -LiteralPath $PythonExe -PathType Leaf)) { throw 'PYTHON312_NOT_FOUND' }
 $rootResolved = (Resolve-Path -LiteralPath $RepoRoot).Path
-$gitTop = (& git -C $RepoRoot rev-parse --show-toplevel | Select-Object -First 1)
-Assert-ExitCode 'GIT_ROOT'
+$gitTop = Invoke-GitOneLine -Name 'GIT_ROOT' -WorkingDirectory $RepoRoot -GitArguments @('rev-parse','--show-toplevel')
 if ((FullPath $gitTop.Replace('/', '\')) -ne (FullPath $rootResolved)) { throw 'WRONG_PROJECT_ROOT' }
-$remote = (& git -C $RepoRoot remote get-url origin | Select-Object -First 1).Trim()
-Assert-ExitCode 'ORIGIN'
+$remote = Invoke-GitOneLine -Name 'ORIGIN' -WorkingDirectory $RepoRoot -GitArguments @('remote','get-url','origin')
 if ($remote -notmatch '^(https://github\.com/|git@github\.com:|ssh://git@github\.com/)minhtri22/TokenToModel-Lab(\.git)?$') {
     throw 'ORIGIN_REPOSITORY_MISMATCH'
 }
-$remoteLine = (& git -C $RepoRoot ls-remote origin ('refs/heads/' + $branch) | Select-Object -First 1)
-Assert-ExitCode 'GIT_REMOTE_HEAD'
+$remoteLine = Invoke-GitOneLine -Name 'GIT_REMOTE_HEAD' -WorkingDirectory $RepoRoot -GitArguments @('ls-remote','origin',('refs/heads/' + $branch))
 if ([string]::IsNullOrWhiteSpace($remoteLine)) { throw 'REMOTE_T6_BRANCH_NOT_FOUND' }
 $remoteHead = ($remoteLine -split '\s+')[0].ToLowerInvariant()
 if ($remoteHead -ne $PinnedHead) { throw ('T6_HEAD_DRIFT expected=' + $PinnedHead + ' actual=' + $remoteHead) }
@@ -54,15 +68,13 @@ if (Test-Path -LiteralPath $parent) {
 }
 & git -C $RepoRoot fetch --no-tags origin ('refs/heads/' + $branch)
 Assert-ExitCode 'FETCH_EXACT_HEAD'
-$got = (& git -C $RepoRoot rev-parse FETCH_HEAD | Select-Object -First 1).Trim().ToLowerInvariant()
-Assert-ExitCode 'FETCH_HEAD'
+$got = (Invoke-GitOneLine -Name 'FETCH_HEAD' -WorkingDirectory $RepoRoot -GitArguments @('rev-parse','FETCH_HEAD')).ToLowerInvariant()
 if ($got -ne $PinnedHead) { throw 'FETCH_HEAD_CHANGED' }
 
 if (Test-Path -LiteralPath $worktree) {
     $wtAttr = (Get-Item -LiteralPath $worktree -Force).Attributes
     if (($wtAttr -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'WORKTREE_PATH_IS_LINK' }
-    $wtTop = (& git -C $worktree rev-parse --show-toplevel | Select-Object -First 1)
-    Assert-ExitCode 'EXISTING_WORKTREE'
+    $wtTop = Invoke-GitOneLine -Name 'EXISTING_WORKTREE' -WorkingDirectory $worktree -GitArguments @('rev-parse','--show-toplevel')
     if ((FullPath $wtTop.Replace('/', '\')) -ne (FullPath $worktree)) { throw 'EXISTING_PATH_NOT_WORKTREE' }
 } else {
     if (-not (Test-Path -LiteralPath $parent)) {
@@ -71,10 +83,11 @@ if (Test-Path -LiteralPath $worktree) {
     & git -C $RepoRoot worktree add --detach $worktree $PinnedHead
     Assert-ExitCode 'CREATE_WORKTREE'
 }
-$wtHead = (& git -C $worktree rev-parse HEAD | Select-Object -First 1).Trim().ToLowerInvariant()
-Assert-ExitCode 'WORKTREE_HEAD'
+$wtHead = (Invoke-GitOneLine -Name 'WORKTREE_HEAD' -WorkingDirectory $worktree -GitArguments @('rev-parse','HEAD')).ToLowerInvariant()
 if ($wtHead -ne $PinnedHead) { throw 'WORKTREE_HEAD_MISMATCH' }
-if ((& git -C $worktree status --porcelain)) { throw 'WORKTREE_NOT_CLEAN_BEFORE_RUN' }
+$worktreeStatus = @(& git -C $worktree status --porcelain)
+Assert-ExitCode 'WORKTREE_STATUS'
+if ($worktreeStatus.Count -ne 0) { throw 'WORKTREE_NOT_CLEAN_BEFORE_RUN' }
 
 foreach ($rel in @($unitRel, $benchRel, $qaRel, $receiptRel)) {
     if (Test-Path -LiteralPath (Join-Path $worktree $rel)) { throw ('ONE_SHOT_OUTPUT_ALREADY_EXISTS:' + $rel) }
@@ -98,7 +111,7 @@ $oldDontWrite = $env:PYTHONDONTWRITEBYTECODE
 $env:PYTHONDONTWRITEBYTECODE = '1'
 Push-Location -LiteralPath $worktree
 try {
-    & $PythonExe -B -c 'import sys,torch; assert sys.version_info[:2]==(3,12); print("PYTHON",sys.version.split()[0],"TORCH",torch.__version__)'
+    & $PythonExe -B -c 'import sys; import torch; assert sys.version_info[:2] == (3,12)'
     Assert-ExitCode 'PYTHON_TORCH_CHECK'
 
     # Capture unittest stderr without letting PowerShell 5.1 treat native stderr as a terminating error.
