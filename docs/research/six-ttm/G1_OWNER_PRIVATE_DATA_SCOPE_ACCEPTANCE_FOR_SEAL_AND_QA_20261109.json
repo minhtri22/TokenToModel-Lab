@@ -1,0 +1,60 @@
+{
+  "schema": "ttm.six.g1.owner_private_computational_data_scope_v1",
+  "date": "2026-11-09",
+  "owner_approval_source": "explicit current conversation user instruction",
+  "user_approved_scope": {
+    "original_source": "roneneldan/TinyStories",
+    "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "license_declared": "CDLA-Sharing-1.0",
+    "only_original_train_text_read": true,
+    "only_original_t1_train_sha_ids": 2048,
+    "g1_target_split": {
+      "TRAIN": 128,
+      "DEV": 64,
+      "TEST": 64
+    },
+    "private_data_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_six_g1_private_manifest_v1",
+    "persist_only_metadata_and_sha256": true,
+    "no_publication_raw_text_or_prefix_or_vectors": true,
+    "no_access_to_original_TTM_VAL_TEST_text": true,
+    "no_scientific_execution": true
+  },
+  "local_action_authorized": {
+    "runner": "scripts/research/six_ttm/Run-G1-PrivateManifest-PS51-v3.ps1",
+    "runner_blob": "13e3dd5824a24af9cadec504add4fddbf570436f",
+    "producer": "scripts/research/six_ttm/g1_private_manifest_train_only_v1a.py",
+    "producer_blob": "aee230060f8202907953e0eeab0ae5b1099a584e",
+    "validator": "scripts/research/six_ttm/g1_private_manifest_independent_readonly_qa_v1.py",
+    "validator_blob": "7dfc6bea2cee1773c20fee655691fc366a6a9ecd",
+    "authorized_operations": [
+      "-Mode Seal -OwnerAcceptPrivateScope",
+      "-Mode QA"
+    ],
+    "one_shot_no_overwrite": true,
+    "source_publication": false,
+    "science_authorization": false
+  },
+  "preserved_gates": {
+    "t1_manifest": "PASS_OWNER_ATTESTED",
+    "g1_selftest": "PASS_OWNER_ATTESTED",
+    "g1_preflight": "PASS_OWNER_ATTESTED",
+    "g1_tokenizers": "PASS_OWNER_ATTESTED_AND_READBACK",
+    "g1_tokenizer_pin_sha256_owner_reported": "d44154ff98bfaea1c5c2ba77491d3abef8758cf95187280a7dddd304ad7ca0e0",
+    "qwen3_06_technical": "PASS_PRESERVED_NO_REPLAY"
+  },
+  "pending_results": {
+    "g1_private_manifest_seal": "NOT_EXECUTED_IN_THIS_RECEIPT",
+    "g1_metadata_independent_qa": "NOT_EXECUTED_IN_THIS_RECEIPT",
+    "qwen17_gpu_smoke": "NOT_ATTESTED",
+    "science_runner_review": "PENDING",
+    "g1_science_lock": "HOLD"
+  },
+  "governance": {
+    "main_untouched": true,
+    "pr12_untouched": true,
+    "lineage_untouched": true,
+    "no_micropermit_cycle": true,
+    "scope_approval_not_a_license_opinion_or_publication_permission": true,
+    "no_assertion_of_execution_success": true
+  }
+}
