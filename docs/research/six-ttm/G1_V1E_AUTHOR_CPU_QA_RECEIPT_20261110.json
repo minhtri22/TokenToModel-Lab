@@ -1,0 +1,99 @@
+{
+  "schema": "ttm.six.g1.v1e.integration_candidate.cpu_qa.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SIX_G1_INTEGRATED_PREEXECUTION_PRODUCTION_GATES_AND_METHODS_CLOSURE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "base_implementation_commit": "81795e794550d6f8ff3515ce3332b7c053197b46",
+  "reviewer_previous_hold_commit": "efbbc1fddfd61e775d30a0481622312f8fb93c51",
+  "frozen_research_v1c_commit": "d5d0c5346a595557a76349f900d09be50bce289c",
+  "branch": "implementation/ttm-six-g1-production-gates-methods-v1e-20261110",
+  "files": [
+    {
+      "path": "g1_signed_boundary_contract_v1e_candidate.py",
+      "sha256": "19714d8ff8dea1ffe0842018e04fc977d96f746d5732a890656c0d04b4d7c411",
+      "git_blob_sha1": "e91fe583db1aa5b112aecd5b8d2830a5da17dd3e",
+      "bytes": 10888
+    },
+    {
+      "path": "test_g1_signed_boundary_v1e_negative.py",
+      "sha256": "02795fd784024cb08d0743fd8d404f8448026605fae2533d8627b31b756418bf",
+      "git_blob_sha1": "eb29fc00d1ac43db867492c2be07ff29bab003ff",
+      "bytes": 10155
+    },
+    {
+      "path": "g1_win32_job_failure_path_v1e_candidate.py",
+      "sha256": "eb5d1b71a991eb4ca46d801057806e2a580c6bcd2487080bfe3e2c15a6008309",
+      "git_blob_sha1": "ec5f3b5d633b8b0feb5ae98c2d8c8c9f45896eb7",
+      "bytes": 10513
+    },
+    {
+      "path": "test_g1_win32_job_failure_path_v1e_static.py",
+      "sha256": "111d34ef7f0e4eb4b608ca97760ae05442434e33368676072a40f057c214d2b3",
+      "git_blob_sha1": "961c738534ad0675af69b4ada0d7d781abe074b8",
+      "bytes": 2382
+    },
+    {
+      "path": "Run-G1-Win32FailureModes-PS51-V1E.ps1",
+      "sha256": "3cc1ee9f9991a17b6c890853f1f0c5d0f8f132400b5ca2a41adc40f89355ebd6",
+      "git_blob_sha1": "348205f54acd0134e233d0f79563f099a121bc1d",
+      "bytes": 4432
+    },
+    {
+      "path": "G1_METHODS_V1E_PRETEST_FROZEN_AMENDMENT_CANDIDATE_20261110.md",
+      "sha256": "2748adbb6a5bd18da4866846ea21e761dc8cfef318eb422e08c832174836db2f",
+      "git_blob_sha1": "d2737a9c2fb31d8398119622fe1ff78c295c8fa8",
+      "bytes": 8104
+    },
+    {
+      "path": "G1_V1E_INTEGRATED_PRODUCTION_GATE_STATUS_AND_CODEX_HANDOFF_20261110.md",
+      "sha256": "749a10312938872f5643dfcd65ed9dabdb62fa433c14946189a9b19cbec74b87",
+      "git_blob_sha1": "24cf0a66994ebb2b9364c2b7974ebde57b0430e8",
+      "bytes": 8825
+    }
+  ],
+  "author_qa": {
+    "environment": "isolated Linux CPU Python 3.13.5 cryptography 46.0.4 pytest 9.0.2",
+    "test_command": "python -m pytest -q --disable-warnings",
+    "signed_boundary": {
+      "passed": 53,
+      "failed": 0
+    },
+    "win32_static": {
+      "passed": 8,
+      "failed": 0
+    },
+    "total_passed": 61,
+    "total_failed": 0,
+    "science_executed": false,
+    "real_private_test_read": false,
+    "real_model_gpu_run": false,
+    "private_signing_keys_saved": false,
+    "test_signing_keys": "RANDOM_IN_MEMORY_ONLY"
+  },
+  "verified_fixes": [
+    "Ed25519 owner/writer/witness distinct-anchor verification on synthetic keys",
+    "SHA/manifest/split/seq/nonce/expiry mismatch rejection",
+    "fail-closed public key pins None and production launcher denied",
+    "Win32 suspended child owned-process cleanup source with two new fault-injection modes"
+  ],
+  "production_gate_status": {
+    "owner_authority": "HOLD_OWNER_KEY_NOT_PROVISIONED",
+    "split_broker_worker_sid": "NOT_TESTED",
+    "trusted_pack_writer": "NOT_TESTED",
+    "external_monotonic_witness": "NOT_TESTED",
+    "gpu_watchdog": "NOT_TESTED_V1E_FAULT_PATH_AND_T4",
+    "methods_v1e": "REVIEW_HOLD"
+  },
+  "win32_v1e_target_qa": "NOT_EXECUTED",
+  "methods_independent_adjudication": "PENDING",
+  "source_versioned": true,
+  "science_lock": "HOLD",
+  "owner_science_permit": "NOT_ISSUED",
+  "do_not_repeat": [
+    "v1c historical critical synthetic checks",
+    "author 29/29",
+    "Windows 45/45",
+    "Qwen technical one-shots"
+  ],
+  "qualifications": "CPU QA verifies locally authored synthetic logic and static Win32 code ONLY. Distinct OS principal and external administrative trust domains have NOT been provisioned. Not a production release."
+}
