@@ -27,7 +27,7 @@ def sha256(path:Path)->str:
 
 def git_blob(path:Path)->str:
     data=path.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(data)).encode()+b"\\0"+data).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(data)).encode()+b"\0"+data).hexdigest()
 
 def assert_inside(root:Path,path:Path)->Path:
     resolved=path.resolve(strict=True)
@@ -85,9 +85,9 @@ def main():
             if len(vals)!=2048 or not all(math.isfinite(x) for x in vals):
                 raise ValueError("BAD_REFERENCE_LOGITS")
             rows.append({"fixture_id":f["fixture_id"],"token_ids":ids,"logits":vals})
-    with output.open("x",encoding="utf-8",newline="\\n") as handle:
+    with output.open("x",encoding="utf-8",newline="\n") as handle:
         for row in rows:
-            handle.write(json.dumps(row,sort_keys=True,separators=(",",":"))+"\\n")
+            handle.write(json.dumps(row,sort_keys=True,separators=(",",":"))+"\n")
         handle.flush()
     print(json.dumps({"status":"REFERENCE_8_NEW_FIXTURES_COMPLETE","output":str(output),
                       "sha256":sha256(output),"n":len(rows),"torch":torch.__version__,
