@@ -51,11 +51,11 @@
     ],
     "threat_model": "single-user static workspace; not race-free against hostile concurrent replacement between check and use",
     "legacy_16_tests": "PRESERVED_SEPARATELY",
-    "new_negative_tests": "9_CREATED_NOT_YET_EXECUTED_ON_WINDOWS",
+    "new_negative_tests": "9_CREATED_INCLUDES_REAL_WINDOWS_JUNCTION_ON_BOTH_DIRECT_ENTRYPOINTS_NOT_YET_EXECUTED_ON_WINDOWS",
     "windows_benchmark": "PRESERVED_ORIGINAL_NO_RERUN"
   },
   "author_static_qa": {
-    "result": "PASS_18_OF_18_SOURCE_READBACK_ONLY",
+    "result": "PASS_19_OF_19_SOURCE_READBACK_ONLY",
     "checks": [
       "review_report_exact_paste",
       "review_status_hold",
@@ -74,13 +74,14 @@
       "P02_P05_P06_git_blob_unmodified",
       "main_unchanged",
       "lineage_unchanged",
-      "pr15_draft_hold"
+      "pr15_draft_hold",
+      "real_junction_test_calls_both_python_entrypoints"
     ],
     "source_blobs": {
       "path_containment": "4bc70ae4faef0b4ac69f34ba7f88f1a1396daa3b",
       "benchmark_runner": "47d5910c36f1d39adcd33949085d36838b527cd4",
       "independent_qa": "2388f79ed50410df24c2939e461e71270972d4ef",
-      "security_tests": "9c0b03addac940f7b29b764028c4b558ebc47d95"
+      "security_tests": "4f94c2bd6888c5914d7b4e1fb56731d28ca25f12"
     }
   },
   "open_gates": {
