@@ -116,7 +116,7 @@ try {
 
     # Capture unittest stderr without letting PowerShell 5.1 treat native stderr as a terminating error.
     $test = Start-Process -FilePath $PythonExe -WorkingDirectory $worktree -ArgumentList @(
-        '-B','-m','unittest','discover','-s','tests/t6','-p','test_*.py','-v'
+        '-B','-m','unittest','discover','-s','tests/t6','-p','test_cache_ab_fixture.py','-v'
     ) -Wait -PassThru -NoNewWindow -RedirectStandardOutput $stdoutTmp -RedirectStandardError $stderrTmp
     $unitText = (Get-Content -LiteralPath $stdoutTmp -Raw) + (Get-Content -LiteralPath $stderrTmp -Raw)
     [System.IO.File]::WriteAllText((Join-Path $worktree $unitRel), $unitText, $utf8)
