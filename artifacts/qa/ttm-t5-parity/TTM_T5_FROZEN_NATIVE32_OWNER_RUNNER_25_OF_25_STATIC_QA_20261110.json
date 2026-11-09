@@ -1,0 +1,48 @@
+{
+  "schema": "ttm.t5.kvflash.one_shot_native32_runner.static_qa.v1",
+  "date": "2026-11-10",
+  "scope": "SOURCE_ONLY_25_OF_25_NON_EXECUTION",
+  "original_frozen_design": "8_SYN_FIXTURES_X_4_ARMS_32_NATIVE_DECODES",
+  "runner": {
+    "path": "tools/pilot_t5/kv_flash_precision_v1/run_exact_one_frozen_32_native_batch.py",
+    "git_blob": "61c1cf9c31bc3514f4982509655990110aaf56ed",
+    "invocation_requires_exact_owner_flag": "--approve-one-frozen-batch I_APPROVE_ONE_TTM_T5_FROZEN_NEW_32_NATIVE_BATCH",
+    "executed": "NO",
+    "planned_single_llama_binary_call": "ONE_PROCESS_ONLY",
+    "time_limit_seconds": 600,
+    "one_shot_destination": "_tmp/ttm_t5_kvflash_frozen_new_32_native_one_shot_v1_20261110",
+    "overwrite_protection": "DESTINATION_MUST_NOT_EXIST",
+    "run_status_if_success": "ONE_FROZEN_32_NATIVE_BATCH_COMPLETED_UNADJUDICATED",
+    "run_status_if_failure": "HOLD_ONE_SHOT_FAILED_OR_PARTIAL_DO_NOT_RERUN"
+  },
+  "pinned_inputs": {
+    "historical_binary_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537",
+    "historical_recovery_receipt_sha256": "2648b84558a503de66a2e2a0e09094561123d64578eefa82b26bf85fcfdc1be2",
+    "original_gguf_f32_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "true_reference_8x2048_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "original_prereg_git_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36",
+    "original_local_worktree_head": "888adde84e0e4fbe8cbaae801ed4d9687e6b4bb8",
+    "pinned_auditor_git_blob": "18dc82d845f228ea4e5b349ac5cabf9f1110a252"
+  },
+  "qa": {
+    "source_checks_passed": 25,
+    "source_checks_total": 25,
+    "source_checked_without_native_execution": true,
+    "python_parse_on_user_windows": "NOT_EXECUTED",
+    "model_loaded": "NO",
+    "benchmark_executed": "NO",
+    "runtime_report": "NOT_APPLICABLE"
+  },
+  "governance": {
+    "owner_approval": "NOT_ISSUED",
+    "owner_run_gate": "TECHNICAL_READY_APPROVAL_REQUIRED",
+    "frozen_original_strict": "FAIL_7_OF_8_PRESERVED",
+    "absolute_logits_threshold": 0.001,
+    "training": "NO",
+    "TEST": "UNTOUCHED",
+    "Q1Q2": "UNTOUCHED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR13": "DRAFT_HOLD"
+  }
+}
