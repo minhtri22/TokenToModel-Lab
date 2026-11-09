@@ -125,9 +125,14 @@ class T6F01PathContainmentTests(unittest.TestCase):
             self.skipTest("mklink /J not available in this Windows session")
         try:
             self.assertTrue(link.is_junction(), "Windows Python 3.12 must detect actual junction")
+            escaped = self.rel + "/real_junction/t6_guard_out.json"
             with self.assertRaisesRegex(ValueError, "REPARSE"):
-                resolve_t6_artifact(ROOT, self.rel + "/real_junction/t6_guard_out.json",
-                                    for_write=True, suffix=".json")
+                resolve_t6_artifact(ROOT, escaped, for_write=True, suffix=".json")
+            with self.assertRaisesRegex(ValueError, "REPARSE"):
+                _ensure_safe_output(escaped)
+            with self.assertRaisesRegex(ValueError, "REPARSE"):
+                qa.main(["--report", escaped, "--unittest-log",
+                         self.target("no.log"), "--output", self.target("qa.json")])
             self.assertFalse((target / "t6_guard_out.json").exists())
         finally:
             # os.rmdir removes the junction itself, NOT any target directory contents.
