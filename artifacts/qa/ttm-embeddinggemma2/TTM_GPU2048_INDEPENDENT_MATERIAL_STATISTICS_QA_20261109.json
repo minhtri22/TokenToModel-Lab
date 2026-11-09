@@ -1,0 +1,83 @@
+{
+  "schema": "ttm.gemma2.gpu2048.independent_material_statistics_qa.v1",
+  "date": "2026-11-09",
+  "run_id": "ttm_small4m_gemma2_directswap_2048x4096_t4_gpu_20261109_v1",
+  "qa_verdict": "PASS_SCOPED_INDEPENDENT_MATERIAL_STATISTICS",
+  "science_verdict": "PASS_EXPLORATORY_VAL_SIGNAL_ONLY",
+  "confirmatory": "NOT_ESTABLISHED",
+  "code_source_commit": "24492886922c7ac92c30ffa7d74f2d41b606a916",
+  "bridge_source_sha256": "1f3e01c6e1baf5fcab5d22e41b3c49d309b5dc5f8d2a4cf0fcf5c2fc45728ae6",
+  "core_sha256": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+  "source_qa": "PASS_20_OF_20_PRIOR_TO_GPU",
+  "sha256_records": {
+    "claim": "79987e1f1cc1aefdec1aa869544f1b6e41d6ad757f6ade4e614359d7c4061626",
+    "result": "f0cf6edd8481197b87c1c9906a9f48664376ee5055d8994fd864126e4dcedf65",
+    "perstory": "8c64d166c45f03eb114400dddca7f5cf35d90bd336b8b5cc5c90708095f526c7",
+    "parentClaim": "d7e99b831dcb69688e4a1483732f174125f8e1a10d5e73cea5c4ef9efcfb3011",
+    "parentResult": "46a93c888063c27711541c067d168ded31bbf22f6c46ba6efe45051cdc9c0bec"
+  },
+  "parent_schedule_sha256": "19ddc05128c188b86bda2f02de6389946944fe287c26abbf7d24cc5f9681e8f2",
+  "full_schedule_sha256": "81e4834f991607e8c3143bb67ed4a9ade93faa5f9526f630dc79e85bb0e51a52",
+  "parent_schedule_1024_matches_prefix": true,
+  "targets_per_step": 4096,
+  "all_2048_target_counts_match": true,
+  "import_A_B_C_D": "PASS: checkpoint 1024 SHA pin, optimizer 1024 and RNG CPU/CUDA reported in each import receipt",
+  "checkpoint_sha256_recomputed_from_actual_bytes": {
+    "A": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+    "B": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+    "C": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+    "D": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e"
+  },
+  "checkpoint_bytes": {
+    "A": 45109595,
+    "B": 51402611,
+    "C": 52978949,
+    "D": 52978949
+  },
+  "ready_files": "PASS_4_OF_4: source, schedule, run, arm, step and SHA match",
+  "cpu_pytorch_payloads": "PASS_4_OF_4: step 2048, optimizer counters, finite 2048 loss values, CPU/CUDA RNG",
+  "optimizer_state_count": {
+    "A": 52,
+    "B": 53,
+    "C": 53,
+    "D": 53
+  },
+  "val_stories": 256,
+  "val_windows": 328,
+  "val_targets": 61122,
+  "nll_recomputed": {
+    "A": 3.313238012373695,
+    "B": 3.3280589053122256,
+    "C": 3.2703167311843555,
+    "D": 3.39209572024021
+  },
+  "nll_differences": {
+    "A_minus_C": 0.04292128118933958,
+    "B_minus_C": 0.05774217412787008,
+    "D_minus_C": 0.12177898905585449
+  },
+  "bootstrap": {
+    "method": "numpy.random.default_rng(20261109), paired resampling 256 stories 1000 times, quantiles 0.025 and 0.975",
+    "exact_reproduction": true,
+    "ci95": {
+      "A_minus_C": [
+        0.032713774782166354,
+        0.052938006270909096
+      ],
+      "B_minus_C": [
+        0.046504070683125454,
+        0.06938394060900237
+      ],
+      "D_minus_C": [
+        0.1105777101113907,
+        0.13401383732071032
+      ]
+    }
+  },
+  "test_read": false,
+  "limits": [
+    "Chỉ kiểm tra checkpoint vật chất và tính toán từ dữ liệu loss theo truyện, chưa tái suy luận từng token bằng bộ chấm điểm CPU độc lập",
+    "Lượt mở rộng phụ thuộc kết quả VALIDATION trước đó",
+    "Một seed, số bước/nhãn bằng nhau nhưng FLOPs khác, không phải lặp độc lập"
+  ]
+}
