@@ -1,0 +1,313 @@
+{
+  "schema": "ttm.gemma2.original_runner.cpu_synthetic_logits_independent_parity.qa.v1",
+  "work_item": "TTM_SMALL4M_EMBEDDINGGEMMA2_ORIGINAL_RUNNER_CPU_SYNTHETIC_NUMERIC_PARITY_QA",
+  "date": "2026-11-09",
+  "parent_commit": "2d70bf6704f32bf000fc46b86f7de8432e7d5e6a",
+  "status": "PASS_ORIGINAL_RUNNER_CPU_SYNTHETIC_LOGIT_PARITY",
+  "source": {
+    "google_drive_original_bundle_id": "1WYhjTWLio4pv4RdqPSQABn21A4kD75yF",
+    "original_1024_zip_sha256": "e544c645635a28fe140802421d03a7928a7f0446d2df33bbfe4ec129e3a6ea27",
+    "original_1024_runner_sha256": "00416c0ff5b2afdcca2780a20315dd2da0af93554cd2b32b6c94efb630dc5d3b",
+    "reconstructed_2048_runner_sha256": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+    "p02_exact_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "original_swap_sha256": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39",
+    "reconstruction": "Byte-for-byte exact patches from frozen TTM build_directswap2048_from_locked1024 source; exact 2048 digest verified"
+  },
+  "execution": {
+    "environment": "isolated ChatGPT CPU; Python 3.13.5; PyTorch 2.10.0+cpu",
+    "cpu_threads": 2,
+    "cuda_visible": false,
+    "model_forward": "original runner core.build_model vs independently authored IndependentP02",
+    "original_model_initializer": "A_2048_state_and_C_2048_donor_state_SURROGATE_INIT_ONLY_THEN_STRICT_OVERWRITE_ALL_STATE",
+    "all_checkpoint_sha256_and_sizes_verified": true,
+    "float_precision": "float32 model; float64 delta computation",
+    "tolerance": {
+      "atol": 0.00001,
+      "rtol": 0.00001
+    },
+    "synthetic_input_seed": 90201109,
+    "case_count_per_arm": 5,
+    "arm_count": 4,
+    "total_pairs": 20,
+    "all_pairs_passed": true,
+    "max_abs_error_all_arms": 0,
+    "max_tolerance_ratio_all_arms": 0
+  },
+  "arms": {
+    "A": {
+      "checkpoint_sha256": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+      "strict_load_original": "PASS",
+      "strict_load_independent": "PASS",
+      "synthetic_cases": [
+        {
+          "case": "special_eos_and_extremes",
+          "shape": [
+            1,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "two_stories_synthetic",
+          "shape": [
+            2,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_32",
+          "shape": [
+            2,
+            32,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_64",
+          "shape": [
+            1,
+            64,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "context_boundary_256",
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        }
+      ]
+    },
+    "B": {
+      "checkpoint_sha256": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+      "strict_load_original": "PASS",
+      "strict_load_independent": "PASS",
+      "synthetic_cases": [
+        {
+          "case": "special_eos_and_extremes",
+          "shape": [
+            1,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "two_stories_synthetic",
+          "shape": [
+            2,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_32",
+          "shape": [
+            2,
+            32,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_64",
+          "shape": [
+            1,
+            64,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "context_boundary_256",
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        }
+      ]
+    },
+    "C": {
+      "checkpoint_sha256": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+      "strict_load_original": "PASS",
+      "strict_load_independent": "PASS",
+      "synthetic_cases": [
+        {
+          "case": "special_eos_and_extremes",
+          "shape": [
+            1,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "two_stories_synthetic",
+          "shape": [
+            2,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_32",
+          "shape": [
+            2,
+            32,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_64",
+          "shape": [
+            1,
+            64,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "context_boundary_256",
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        }
+      ]
+    },
+    "D": {
+      "checkpoint_sha256": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e",
+      "strict_load_original": "PASS",
+      "strict_load_independent": "PASS",
+      "synthetic_cases": [
+        {
+          "case": "special_eos_and_extremes",
+          "shape": [
+            1,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "two_stories_synthetic",
+          "shape": [
+            2,
+            8,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_32",
+          "shape": [
+            2,
+            32,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "random_64",
+          "shape": [
+            1,
+            64,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        },
+        {
+          "case": "context_boundary_256",
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "status": "PASS",
+          "max_abs_logit_error": 0,
+          "max_tolerance_ratio": 0
+        }
+      ]
+    }
+  },
+  "negative_qa": {
+    "identical_pass": "PASS",
+    "perturbed_1e_minus_3_rejected": "PASS",
+    "shape_change_rejected": "PASS",
+    "nan_rejected": "PASS"
+  },
+  "local_artifacts": {
+    "reproducer_filename": "ttm_gemma2_original_runner_cpu_numeric_parity_qa.py",
+    "reproducer_sha256": "9d22bef56e0f15d9f3c256c4b10225b15744f3fd79de415311bf5fecf80f3487",
+    "full_local_report_filename": "TTM_GEMMA2_ORIGINAL_RUNNER_CPU_SYNTHETIC_NUMERIC_PARITY_QA_20261109.json",
+    "full_local_report_sha256": "7aed7de19d8ba9d9a8190fa89bd3f7d301cf64b1e57e910411f1a68d9c249cbd"
+  },
+  "exclusions": {
+    "dataset_read": false,
+    "holdout_320_scored": false,
+    "old_train_val_test_scored": false,
+    "model_optimizer_step": false,
+    "gpu_used": false,
+    "private_checkpoint_published": false,
+    "lineage_changed": false
+  },
+  "interpretation": "PASS_ONLY_SYNTHETIC_CPU_ORIGINAL_SOURCE_PARITY; NO_CUDA_KERNEL_PARITY_AND_NO_SCIENTIFIC_EFFECT_INFERENCE",
+  "remaining_gates": [
+    "CPU full evaluator window/masking parity with independently authored scorer",
+    "Independent reviewer checks source selection/rights scope and previous VAL/TEST near duplicates without opening historical TEST",
+    "New holdout science execution separately authorized one-shot, not in this operation"
+  ]
+}
