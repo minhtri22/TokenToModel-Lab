@@ -1,5 +1,42 @@
 # TTM-T6 — CPU No-cache / Dense KV / Paged KV A/B fixture
 
+## Cập nhật sau review Codex F-01 (HIGH) — 2026-11-09
+
+**Review nguồn:** [Codex distinct review](../../docs/t6/reviews/TTM_T6_PR15_CODEX_DISTINCT_REVIEW_20261109.md)
+kết luận `HOLD_REQUIRED_FIX_OR_EVIDENCE` vì hai entry point Python chưa
+chặn Windows junction/reparse point. F-02 (TTFT fairness, mô tả) và F-03
+(nhãn lịch sử README) không chặn merge theo review gốc.
+
+**Quyết định bản sửa của tác giả:** bổ sung
+[`path_containment.py`](path_containment.py) làm guard chung cho output
+benchmark và toàn bộ đường dẫn input/output QA, với kiểm tra
+`Path.is_junction()` (Python 3.12), `lstat` reparse attributes,
+`Path.resolve()` confinement, không tự tạo thư mục và không ghi đè.
+Các thay đổi không sửa mã P02/P05/P06, mô hình, sampling, cache, thời gian
+hay dữ liệu thí nghiệm. Lưu ý: guard này được thiết kế cho **worktree đơn
+người, không bảo đảm an toàn trước tiến trình đối kháng đồng thời đổi path
+giữa validation và open**.
+
+**Bộ negative QA F-01 mới** nằm ở
+[`tests/t6/test_f01_path_containment.py`](../../tests/t6/test_f01_path_containment.py);
+9 tests riêng, gồm một junction Windows thực bằng `mklink /J`. Nếu
+Windows không thể tạo junction, kết quả test bị SKIP phải ghi `HOLD`
+cho negative probe tương ứng, không được tự nhận đã PASS.
+
+- Kiểm tra mã/cache 16 bài gốc: `python -B -m unittest discover -s tests/t6 -p test_cache_ab_fixture.py -v`
+- Kiểm tra bảo vệ F-01: `python -B -m unittest discover -s tests/t6 -p test_f01_path_containment.py -v`
+- Bộ chạy Windows F-01 riêng: [`run_f01_windows_qa.ps1`](run_f01_windows_qa.ps1), tạo worktree QA mới **bên trong project root**, không đụng worktree chứa benchmark đã chạy.
+- **Không gọi lại** `run_windows_exact_head.ps1` để tái đo: bản one-shot
+Windows đã hoàn tất và bằng chứng gốc của commit
+`ff4d30ea294f148d5d060f1331cfbf6f4f6d44aa` vẫn nguyên byte.
+
+### Hướng dẫn lịch sử, không phải yêu cầu chạy lại
+
+Các lệnh bootstrap/replay Windows trong các phần dưới là **tư liệu lịch
+sử của lượt đo đã hoàn thành**. Không chạy lại cùng file đầu ra để chứng
+minh bản sửa F-01. Chỉ QA đường dẫn + kiểm tra P02/P05/P06 bằng suite
+kỹ thuật riêng, rồi chuyển HEAD mới cho Codex tái review.
+
 **Trạng thái:** `SYNTHETIC_CPU_FIXTURE_PASS_SCOPED`. Không mở P07/P08, không dùng model checkpoint T4, TEST, dữ liệu TRAIN/VAL hoặc GPU. GitHub là nguồn sự thật.
 
 ## Tại sao ba đường so sánh khác nhau?
