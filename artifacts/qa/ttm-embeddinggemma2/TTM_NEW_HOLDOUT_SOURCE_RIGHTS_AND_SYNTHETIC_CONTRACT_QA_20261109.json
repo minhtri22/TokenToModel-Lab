@@ -1,0 +1,68 @@
+{
+  "schema": "ttm.gemma2.new_holdout.source_rights_and_synthetic_contract_qa.v1",
+  "date": "2026-11-09",
+  "work_item": "TTM_SMALL4M_EMBEDDINGGEMMA2_NEW_HOLDOUT_SOURCE_RIGHTS_MEMBERSHIP_AND_EVALUATOR_CONTRACT_SEAL",
+  "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+  "source_raw_sha256_expected": {
+    "train": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "valid": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4"
+  },
+  "source_T1_split_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+  "tokenizer_T1_BPE_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "prior_independent_source_qa": "PASS_INDEPENDENT_T1_REAL_SOURCE_SPLIT_BPE_NATIVE_QA; near-duplicate scope only 2048/256/64 pilot",
+  "remote_windows_presence": "PASS_PRESENCE_ONLY: original train/valid files, T1 split and BPE manifests, T4 pack",
+  "fresh_current_machine_sha256": "NOT_RECHECKED_REMOTE_COMMAND_BLOCKED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+  "remote_shell": "BLOCKED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+  "license": "CDLA-Sharing-1.0",
+  "license_sources": [
+    "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "https://cdla.dev/sharing-1-0/"
+  ],
+  "license_review": "PASS_CARD_AND_LICENSE_TEXT_FOR_RESEARCH_COMPUTATIONAL_USE_WITH_CONDITIONS; publication/rights provenance not certified",
+  "dataset_rights_final": "HOLD_FINAL_OWNER_SOURCE_AND_RELEASE_SCOPE_REVIEW",
+  "historical_scanned": {
+    "train": 2119489,
+    "valid": 21990,
+    "valid_exact_full_train_collision": 6601,
+    "active_train": 2048,
+    "active_val": 256,
+    "active_test": 64
+  },
+  "source_membership_selected": 0,
+  "source_membership_status": "NOT_EXECUTED_HOLD",
+  "full_train_near_duplicate_audit": "NOT_EXECUTED",
+  "candidate_algorithm": "domain-separated hash rank, exclude all prior pilot IDs and legacy TEST bucket; 640 candidates; full TRAIN word5 Jaccard 0.85; select first 320 non-near",
+  "new_holdout_minimum": {
+    "stories": 320,
+    "target_labels": 50000
+  },
+  "target_capacity_current": "NOT_EXECUTED",
+  "scripts": {
+    "ttm_gemma2_holdout_seal.py": {
+      "sha256": "0f494cc4efbfdb6aa6e8f04825ec1dda929c836a1ac981463f24eb2bd8d9c8e4",
+      "git_blob": "ca1f0e56cabbc4a86e141b54c3df0a213757184d",
+      "synthetic_qa": {
+        "passed": 14,
+        "total": 14
+      }
+    },
+    "ttm_gemma2_independent_cpu_scorer.py": {
+      "sha256": "de6ab9652bb690a6e967e752b9367f5755674a23a6c4b2fcb45941274612dfe1",
+      "git_blob": "83e1b171597d5a43bb6d291733d5b689ab6883b1",
+      "synthetic_qa": {
+        "passed": 12,
+        "total": 12
+      }
+    }
+  },
+  "synthetic_qa_runtime": "Linux Python 3.13.5, torch 2.10.0+cpu; Windows Python 3.12 QA pending",
+  "synthetic_tests_passed": 26,
+  "synthetic_tests_total": 26,
+  "cpu_evaluator": "METRIC_AND_PER_STORY_CONTRACT_FIXTURE_PASS; REAL_A_B_C_D_MODEL_FACTORY_NOT_CONNECTED",
+  "gpu_used": false,
+  "model_science_executed": false,
+  "old_test_scored": false,
+  "checkpoint_used": false,
+  "seal_verdict": "PASS_SCOPED_SYNTHETIC_SOURCE_CONTRACT; HOLD_REAL_SOURCE_MEMBERSHIP_AND_EVALUATOR_BINDING",
+  "lineage_changed": false
+}
