@@ -89,9 +89,9 @@ def load_pack(path, split, manifest, source_dim=1024, target_dim=2048, *, run_id
     p=guard.ensure_regular_no_redirect(path,root)
     receipt_path=p.with_suffix('.receipt.json')
     guard.ensure_regular_no_redirect(receipt_path,root)
-    raw=p.read_bytes()
+    raw=guard.read_private_bytes(p,root)
     guard.require(guard.sha_bytes(raw)==trusted_pack_sha,'TRUSTED_PACK_SHA_MISMATCH')
-    receipt=json.loads(receipt_path.read_text('utf-8'))
+    receipt=json.loads(guard.read_private_bytes(receipt_path,root,max_size=131072).decode('utf-8'))
     return guard.parse_authenticated_pack(raw,receipt,split=split,manifest=manifest,
             run_id=run_id,source_dim=source_dim,target_dim=target_dim)
 
@@ -336,7 +336,7 @@ def main():
         return
     # Validate the FULL freeze and the exact DEV/SHUFFLE replay before opening TEST.
     require('fit_sha256' in admission,'FIT_HASH_MISSING_IN_SIGNED_ADMISSION')
-    frozen_bytes=guard.ensure_regular_no_redirect(freeze_path,work).read_bytes()
+    frozen_bytes=guard.read_private_bytes(freeze_path,work,max_size=131072)
     frozen=guard.validate_frozen_dev(frozen_bytes,admission['fit_sha256'],
                                     ledger['TRAIN'],ledger['DEV'],run_id=args.run_id)
     replay=prepare(train,dev)
