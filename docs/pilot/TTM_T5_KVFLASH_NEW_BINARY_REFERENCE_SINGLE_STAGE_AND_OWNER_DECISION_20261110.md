@@ -1,3 +1,16 @@
+## PHỤ LỤC KẾT QUẢ CẬP NHẬT 2026-11-10 — PYTORCH REFERENCE ĐÃ CHẠY THẬT
+
+- Original T4 step1024 `checkpoint.pt` (45,074,891 bytes) lấy từ Google Drive hiện vật nguồn, SHA256 `cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b` **PASS**. Chỉ tải về môi trường tính toán riêng, không commit checkpoint lên GitHub công khai.
+- Khớp nguyên bản P02 Git blob `9762343e06cf800b50574c2871ae1ed58537fb18`; checkpoint schema `ttm.t4.science.checkpoint.v1`, step1024, 3.749.376 parameters, trạng thái model strict load đúng; `torch 2.10.0+cpu`, `eval()/inference_mode()`.
+- **8 fixture SYN01–SYN08 đã sinh đủ 8 × 2.048 = 16.384 logits F32 thực** (KHÔNG training, không dùng TEST, không rerun 8 fixture lịch sử). Output raw `REFERENCE_F32_SYN01_SYN08.jsonl` **324.123 bytes**, SHA256 `d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c`.
+- Đã đối chiếu độc lập cấu trúc 8 dòng/16.384 giá trị hữu hạn, từng token ID, source/checkpoint/prereg provenance. Bộ ZIP (không chứa checkpoint) SHA256 `6f260c7f52f906a693245f75a51b02fa9641ce34502eb9f2a0aff3c949315ce4` trên [Google Drive](https://drive.google.com/file/d/10tDE8IAVv68Gl_Dgx-t8g119V9Jf8ss4/view). GitHub là **source of truth cho biên bản/sha/trạng thái**, Drive chỉ giữ bằng chứng raw riêng tư. [Receipt canonical](../artifacts/qa/ttm-t5-parity/TTM_T5_F32_NEW_SYNTHETIC_REAL_CPU_REFERENCE_8X2048_QA_AND_GITHUB_SOURCE_OF_TRUTH_20261110.json).
+- Windows candidate **chưa compile** (cổng thực thi RemoteDesktop từ chối); đã sửa đường build MSVC, thêm `--self-check`, và thêm `--existing-reference` cho stage Python3.12: chỉ nhập reference nói trên khi SHA khớp và verifier độc lập PASS, tránh đòi tải lại/checkpoint trong workspace; **không gọi native 32**.
+- **Phán quyết cập nhật**: `REFERENCE_F32=PASS_REAL_8X2048` · `STATIC_SOURCE_QA=PASS_37_OF_37` · `MSVC_BUILD=NOT_EXECUTED` · `COMPILED_CONSTANTS_QA=NOT_EXECUTED` · `NATIVE_2X2=0/32` · `OWNER_RUN=HOLD`.
+
+_Nội dung phần dưới được giữ nguyên như tài liệu thiết kế/bàn giao ban đầu tại thời điểm tạo. Các dòng trước đó nói `REFERENCE=NOT_EXECUTED` là trạng thái **trước phụ lục này**, không phải trạng thái hiện tại._
+
+---
+
 # TTM T5 — KV/Flash 2×2: chuẩn bị binary, logits tham chiếu và phán quyết owner
 
 **Ngày:** 2026-11-10 · **Task:** `TTM_T5_F32_KV_FLASH_2X2_NEW_BINARY_REFERENCE_STATIC_QA_THEN_OWNER_RUN_DECISION`.
