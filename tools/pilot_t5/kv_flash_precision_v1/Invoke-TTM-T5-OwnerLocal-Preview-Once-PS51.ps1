@@ -14,7 +14,8 @@ $root=[IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\')
 if ($root -ine 'D:\WORK\RESEARCH\TokenToModel-Lab') { throw 'PROJECT_ROOT_MISMATCH' }
 $branch='research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109'
 $work=Join-Path $root 'worktrees\ttm-t5-kvflash-preview-20261109'
-$shaCallerExpected='62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2'
+$shaCallerExpected='8a8324a10c67c6f868fe130d6ea7c535edb6364c8d04988600163e7b4a4b828e'
+$shaOldBinaryExpected='62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2'
 $historicSourceDir='C:\Users\minht\Downloads\TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108'
 $gguf=Join-Path $root '_tmp\ttm_t5_trained_f32_v1\TTM-Small4M-T4-step1024-F32.gguf'
 $oldExe=Join-Path $root '_tmp\ttm_t5_numeric_localization_v1\build\Release\ttm_t5_layer_probe.exe'
@@ -118,6 +119,7 @@ if(Test-Path -LiteralPath $historicSourceDir -PathType Container){
   }
 }
 $oldBinarySha=if(Test-Path -LiteralPath $oldExe -PathType Leaf){Sha $oldExe}else{'MISSING'}
+$oldBinaryShaMatch=($oldBinarySha -eq $shaOldBinaryExpected)
 $oldBuildSha=if(Test-Path -LiteralPath $oldCmake -PathType Leaf){Sha $oldCmake}else{'MISSING'}
 $oldLogSha=if(Test-Path -LiteralPath $oldLog -PathType Leaf){Sha $oldLog}else{'MISSING'}
 $ggufFound=(Test-Path -LiteralPath $gguf -PathType Leaf)
@@ -146,6 +148,7 @@ $summary=[ordered]@{
  branch=$branch; git_head=$wtHead; source_git_script_sha256=(Sha $preflight)
  original_caller_source=$caller; caller_cpp_candidates=$inventory
  original_caller_expected_sha256=$shaCallerExpected
+ old_probe_binary_expected_sha256=$shaOldBinaryExpected; old_probe_binary_sha256_match=$oldBinaryShaMatch
  old_probe_binary_sha256=$oldBinarySha; old_cmake_cache_sha256=$oldBuildSha; old_native_log_sha256=$oldLogSha
  gguf_path_present=$ggufFound; gguf_sha256=if($ggufFound){Sha $gguf}else{'MISSING'}
  frozen_checkpoint_new_reference='NOT_PROVIDED_PREVIEW_ONLY'
@@ -162,6 +165,7 @@ Write-Output ('CALLER_SOURCE_SHA_MATCH='+$parsed.checks.CallerSourceSHA)
 Write-Output ('CALLER_TYPE_K='+$parsed.caller.type_k)
 Write-Output ('CALLER_TYPE_V='+$parsed.caller.type_v)
 Write-Output ('HISTORICAL_BINARY_SHA256='+$oldBinarySha)
+Write-Output ('HISTORICAL_BINARY_SHA_MATCH='+$oldBinaryShaMatch)
 Write-Output ('NEW_BINARY=NOT_COMPILED')
 Write-Output ('NEW_REFERENCE=NOT_EXECUTED')
 Write-Output ('RESULT='+$marker)
