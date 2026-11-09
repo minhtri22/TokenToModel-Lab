@@ -124,7 +124,29 @@ if($checks.GGUFExact){$checks.GGUFExact=((Sha $GGUFFile) -eq $expected.GGUFsha25
 $checks.CheckpointExact=(InProject $CheckpointFile)
 if($checks.CheckpointExact){$checks.CheckpointExact=((Sha $CheckpointFile) -eq $expected.CheckpointSHA256)}
 $checks.ReferenceReady=(InProject $ReferenceFile)
-if($checks.ReferenceReady){$checks.ReferenceReady=((Get-Content -LiteralPath $ReferenceFile | Measure-Object -Line).Lines -eq 8)}
+if($checks.ReferenceReady){
+  # Size-only checks are insufficient: verify exact 8x2048 values, IDs, pins.
+  $py312='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
+  $refAudit=Join-Path $work 'tools\pilot_t5\kv_flash_precision_v1\verify_f32_reference_rows.py'
+  $preregPath=Join-Path $work $relativePrereg
+  if(-not (Test-Path -LiteralPath $py312 -PathType Leaf) -or -not (Test-Path -LiteralPath $refAudit -PathType Leaf)){
+    $checks.ReferenceReady=$false
+  } else {
+    $savedEap=$ErrorActionPreference
+    try {
+      $ErrorActionPreference='Continue'
+      $refAuditOutput=@(& $py312 $refAudit --prereg $preregPath --reference $ReferenceFile 2>&1)
+      $refAuditCode=$LASTEXITCODE
+    } finally {$ErrorActionPreference=$savedEap}
+    if($refAuditCode -ne 0){$checks.ReferenceReady=$false}
+    else {
+      try {
+        $parsedRef=(($refAuditOutput -join "`n") | ConvertFrom-Json)
+        $checks.ReferenceReady=($parsedRef.status -eq 'PASS_REFERENCE_8_OF_8_X_2048_F32_SCHEMA')
+      } catch {$checks.ReferenceReady=$false}
+    }
+  }
+}
 $checks.CandidateExecutablePinned=(InProject $CandidateExecutable)
 if($checks.CandidateExecutablePinned){
   $checks.CandidateExecutablePinned=($CandidateExeSHA256 -match '^[a-fA-F0-9]{64}$' -and (Sha $CandidateExecutable) -eq $CandidateExeSHA256.ToLowerInvariant())
