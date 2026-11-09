@@ -252,7 +252,7 @@ def main():
         pre,end=prefix(normalize(example))
         need(end==93 and len(PROBES)==8,'SYNTHETIC_PROTO')
         need(gitblob(__file__)!='','SYNTHETIC_BLOB')
-        print(json.dumps({'status':'PASS_EXTRACTOR_V1B_SYNTHETIC_ONLY',
+        print(json.dumps({'status':'PASS_EXTRACTOR_V1C_SYNTHETIC_ONLY',
                           'probes':8,'science_executed':False}));return
     need(args.split and args.private_root and args.permit and args.run_id,'ARGS_REQUIRED')
     root=args.private_root.resolve(strict=True)
