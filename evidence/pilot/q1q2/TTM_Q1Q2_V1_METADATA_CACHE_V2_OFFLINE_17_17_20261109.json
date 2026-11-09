@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.q1q2.v1.hold.v2.cache_only.source.qa.v1",
+  "date_utc": "2026-11-09",
+  "scope": "SOURCE_ONLY_OFFLINE_LINUX_PYTHON313_NO_NATIVE_OLLAMA",
+  "source_commit": "c13b20e2ac9e6707cabf75929a8b5d5f247fce51",
+  "root_cause_evidence_commit": "905023a85bf4a4d8aa5567bd026c9309d3de9be7",
+  "v1": {
+    "claim": "CONSUMED_PRESERVE",
+    "status": "HOLD_PARTIAL_NO_AUTOMATIC_RERUN",
+    "complete_calls": 0,
+    "completed_tokens": 0,
+    "failure": "MODEL_STORE_MODIFIED_BEFORE_BATCH",
+    "source_blobs_and_manifest": "PRESENT_BUT_HASHES_NOT_INDEPENDENTLY_READBACK_AFTER_NATIVE",
+    "observed_added_file": "metadata/sha256-5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5.json",
+    "observed_metadata_version": "0.40.14",
+    "newly_created_empty_directory": "manifests/",
+    "shutdown": "STOPPED_OWNED_TREE",
+    "shutdown_port": "PASS_NO_ACTIVE_SOCKET_AFTER_SHUTDOWN"
+  },
+  "v2": {
+    "run_id": "ttm_q1q2_ollama_once_v2",
+    "port": 12651,
+    "evidence_prefix": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2",
+    "unchanged_q1_generations": 48,
+    "unchanged_q2_warmups": 2,
+    "unchanged_q2_measurements": 24,
+    "max_output_tokens": 3904,
+    "source_sha256": {
+      "ttm_q1q2_single_batch.py": "d7515f375950f991216290d66780f360ac79aa9732620a1478e0cc769f22b29c",
+      "test_ttm_q1q2_offline.py": "b88afce3f3fd89cc0dff402d0561ac6107dd62c7d9700eb9ee3b9b33f72a082f",
+      "Invoke-TTM-Q1Q2-Single-Batch-PS51.ps1": "14c7c41fd903c9869cd2a2f38e1378819c3a99548e47b8fee6f3ae281beb39f0"
+    },
+    "git_blobs": {
+      "ttm_q1q2_single_batch.py": "487a6d08593dc6f56f68917ad0d3af40647f45ad",
+      "test_ttm_q1q2_offline.py": "10530681ef448c8fd62f1dbe18d241f67e51d2a5",
+      "Invoke-TTM-Q1Q2-Single-Batch-PS51.ps1": "bff0793f3e94ec4e324265cca5065bb288bd8f03"
+    },
+    "immutable_baseline": "Every pre-existing blob and model manifest must retain exact byte size+SHA256",
+    "only_allowed_additional_file": "metadata/sha256-5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5.json",
+    "metadata_requirements": "Ollama 0.40.14; GPT2 4 layers, context256, embedding256, 4 heads; BOS/EOS256",
+    "negative_tests": [
+      "changed_immutable_blob",
+      "unknown_added_file",
+      "wrong_metadata_architecture"
+    ],
+    "qa": {
+      "python_version": "3.13.5",
+      "platform": "Linux_x86_64",
+      "py_compile": "PASS_2_OF_2",
+      "unittest": "PASS_17_OF_17",
+      "failures": 0,
+      "errors": 0,
+      "byte_identity_with_github_blobs": "PASS_3_OF_3"
+    },
+    "windows_preclaim": "NOT_EXECUTED",
+    "native_inference": "NOT_EXECUTED",
+    "checkpoint_or_train_or_sealed_test": "NOT_ACCESSED",
+    "quality_go_revise_stop": "NOT_ADJUDICATED"
+  },
+  "merge_decision": "HOLD_PENDING_ONE_SHOT_V2_AND_QUALITY_REVIEW",
+  "lineage_md": "UNCHANGED"
+}
