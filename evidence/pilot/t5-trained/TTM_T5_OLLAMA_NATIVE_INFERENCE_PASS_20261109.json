@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.t5.ollama.compatibility.native.inference.adjudication.v1",
+  "date": "2026-11-09",
+  "provenance": {
+    "user_uploaded_result_filename": "RESULT(20261109-041918).json",
+    "user_uploaded_result_sha256": "2af9d32aabfc03e6240a499162ee901fae9b8afeb854f437c7ae10d623bd105d",
+    "user_console_result_sha256": "2af9d32aabfc03e6240a499162ee901fae9b8afeb854f437c7ae10d623bd105d",
+    "readback": "RemoteDesktop read-only: original RESULT.json, GENERATION_RAW_RESPONSE.json, IMPORTED_STORE_COPY_VERIFIED.json, READINESS_ATTEMPTS.jsonl",
+    "mode": "observed native Windows run, NOT offline mock"
+  },
+  "source_model": {
+    "name": "ttm-t5-f32-compat-only-v5final:latest",
+    "original_gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "import_provenance": "V5 previous run import PASS, manifest-v2 recorded; this run reused copied model store; no new create"
+  },
+  "native_inference": {
+    "status": "PASS_COMPATIBILITY_IMPORT_REUSED_AND_INFERENCE_CONFIRMED",
+    "port": 12649,
+    "server_pid": 21972,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "eval_count": 32,
+    "prompt_eval_count": 10,
+    "done": true,
+    "done_reason": "length",
+    "response": " was a big, a big tree. The bird was very happy to the tree. The bird was very happy.\nOne day, the bird saw a big"
+  },
+  "copied_model_store": {
+    "file_count": 5,
+    "sha256_tree_equal": true,
+    "original_v5_unmodified": true
+  },
+  "readiness": {
+    "decision": "READY_DUAL_ATTESTED_STATE_ZERO_UNKNOWN",
+    "http_status": 200,
+    "network_state_zero_was_not_claimed_listen": true
+  },
+  "shutdown": {
+    "pid": 21972,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "shutdown_port_adjudication": {
+    "benign_timewait_count": 4,
+    "decision": "PASS_NO_ACTIVE_SOCKET_AFTER_SHUTDOWN"
+  },
+  "interpretation": {
+    "gguf_import": "PASS_PREVIOUS_V5",
+    "native_inference": "PASS_32_TOKENS",
+    "end_to_end_ollama_compatibility": "PASS",
+    "semantic_quality": "NOT_ESTABLISHED_SIMPLE_REPETITIVE_OUTPUT",
+    "strict_numeric_parity": "FAIL_7_OF_8_PRESERVED",
+    "scientific_train_test": "NOT_EXECUTED"
+  },
+  "controls": {
+    "v1_v2_v3rc1_v4_v5_replay": "PROHIBITED_ALREADY_CONSUMED",
+    "inference_only_oneshot": "CONSUMED_NO_RERUN",
+    "lineage_md": "UNCHANGED",
+    "main": "UNCHANGED",
+    "pr_12": "DRAFT"
+  }
+}
