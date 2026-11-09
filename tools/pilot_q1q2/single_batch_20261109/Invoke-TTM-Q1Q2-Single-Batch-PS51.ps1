@@ -11,10 +11,10 @@ $branch='research/ttm-small4m-q1q2-quality-single-batch-20261109'
 $remote='https://github.com/minhtri22/TokenToModel-Lab.git'
 $py='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 $src=Join-Path $root ('_tmp\TTM_Q1Q2_BOOTSTRAP_'+$ExpectedHead.Substring(0,12))
-$out=Join-Path $root '_tmp\ttm_q1q2_ollama_once_v1'
+$out=Join-Path $root '_tmp\ttm_q1q2_ollama_once_v2'
 $stage=Join-Path $out 'github_publish_checkout'
 $readback=Join-Path $out 'github_readback_checkout'
-$prefix='artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V1'
+$prefix='artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2'
 $runner='ttm_q1q2_single_batch.py'
 $test='test_ttm_q1q2_offline.py'
 function Require([bool]$ok,[string]$why) { if (-not $ok) { throw $why } }

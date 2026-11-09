@@ -35,8 +35,8 @@ V5_CODE = ROOT/'tools'/'pilot_t5'/'v5_native_source_20261109'
 BPE_CODE = ROOT/'tools'/'pilot_t1t3'/'source_t2'/'ttm_gpt2_bpe2048.py'
 BPE_DATA = ROOT/'_tmp'/'ttm_t1_real_source_v1'/'T1_BPE2048_REAL_TRAIN_MANIFEST.json'
 V5_RUN = ROOT/'_tmp'/'ttm_t5_ollama_compat_only_single_v5final'
-OUT = ROOT/'_tmp'/'ttm_q1q2_ollama_once_v1'
-PORT = 12650
+OUT = ROOT/'_tmp'/'ttm_q1q2_ollama_once_v2'
+PORT = 12651
 MAX_SECONDS = 45*60
 MAX_OUTPUT_TOKENS = 3904
 MAX_REQUESTS = 74
@@ -208,6 +208,42 @@ def request_body(row,prompt):
     return {'model':TAG,'prompt':prompt,'stream':False,'raw':True,'keep_alive':'10m','options':options}
 
 
+def verify_runtime_store_delta(model_dir: Path, baseline: dict, current: dict):
+    """Allow only Ollama 0.40.14 GGUF metadata cache; never changed source blobs."""
+    require(isinstance(baseline,dict) and baseline,'EMPTY_MODEL_STORE_BASELINE')
+    require(isinstance(current,dict),'INVALID_MODEL_STORE_SNAPSHOT')
+    for relative, old in baseline.items():
+        require(current.get(relative)==old,'MODEL_STORE_IMMUTABLE_FILE_CHANGED:'+relative)
+    delta=set(current)-set(baseline)
+    sidecar_rel='metadata/sha256-'+MODEL_SHA+'.json'
+    require(delta<= {sidecar_rel},'UNEXPECTED_MODEL_STORE_FILE_ADDED:'+repr(sorted(delta)))
+    info={'status':'PASS_IMMUTABLE_BLOBS_WITH_OPTIONAL_METADATA',
+          'added_files':sorted(delta),'baseline_files':len(baseline)}
+    if delta:
+        sidecar=model_dir/'metadata'/('sha256-'+MODEL_SHA+'.json')
+        reject_reparse(sidecar)
+        require(sidecar.is_file() and 0<sidecar.stat().st_size<=4*1024*1024,
+                'MODEL_METADATA_SIDECAR_SIZE_INVALID')
+        require(current[sidecar_rel]=={'size':sidecar.stat().st_size,'sha256':digest(sidecar)},
+                'MODEL_METADATA_SIDECAR_SNAPSHOT_DRIFT')
+        metadata=read_json(sidecar)
+        kv=metadata.get('kv')
+        require(metadata.get('ollama_version')=='0.40.14' and isinstance(kv,dict),
+                'MODEL_METADATA_VERSION_OR_KV_INVALID')
+        expected={'general.architecture':'gpt2',
+                  'gpt2.block_count':4,
+                  'gpt2.context_length':256,
+                  'gpt2.embedding_length':256,
+                  'gpt2.attention.head_count':4,
+                  'tokenizer.ggml.bos_token_id':256,
+                  'tokenizer.ggml.eos_token_id':256}
+        require(all(kv.get(k)==v for k,v in expected.items()),
+                'MODEL_METADATA_ARCHITECTURE_MISMATCH')
+        info['sidecar_sha256']=digest(sidecar)
+        info['sidecar_bytes']=sidecar.stat().st_size
+    return info
+
+
 def run_batch():
     v5,bpe,prompts,q1,warm,q2,snap=preflight()
     start=time.monotonic()
@@ -234,7 +270,7 @@ def run_batch():
         v5.assert_owned_listener(proc,created)
         tags=v5.api_json(v5.API+'/api/tags',timeout=10)
         require(TAG.lower() in [x['name'].lower() for x in tags['models']],'MODEL_TAG_NOT_IN_COPIED_STORE')
-        require(v5.folder_snapshot(OUT/'models')==snap,'MODEL_STORE_MODIFIED_BEFORE_BATCH')
+        report['store_after_tags']=verify_runtime_store_delta(OUT/'models',snap,v5.folder_snapshot(OUT/'models'))
         for phase,rows in [('Q1',q1),('Q2_WARMUP',warm),('Q2',q2)]:
             for row in rows:
                 require(time.monotonic()-start<=MAX_SECONDS,'BATCH_TIME_BUDGET_EXHAUSTED')
@@ -257,7 +293,7 @@ def run_batch():
                 print('TTM_Q1Q2_CALL_PASS='+name+' tokens='+str(count),flush=True)
         require(report['complete_calls']==MAX_REQUESTS,'INCOMPLETE_TOTAL_CALLS')
         require(report['completed_tokens']<=MAX_OUTPUT_TOKENS,'TOTAL_OUTPUT_TOKENS_EXCEEDED')
-        require(v5.folder_snapshot(OUT/'models')==snap,'MODEL_STORE_CHANGED_AFTER_BATCH')
+        report['store_after_batch']=verify_runtime_store_delta(OUT/'models',snap,v5.folder_snapshot(OUT/'models'))
         report['status']='PASS_EXECUTED_SCOPED'
     except Exception as ex:
         report['status']='HOLD_PARTIAL_NO_AUTOMATIC_RERUN'

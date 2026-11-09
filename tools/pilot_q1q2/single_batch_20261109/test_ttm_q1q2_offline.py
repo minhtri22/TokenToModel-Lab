@@ -48,6 +48,54 @@ class Tests(TestCase):
         with self.assertRaisesRegex(RuntimeError,'INVALID_DYNAMIC_MODULE_NAME'):
             m.load_module(Path('ignored.py'),'../unsafe')
 
+    def test_ollama_metadata_cache_allowed_for_exact_gpt2_only(self):
+        from tempfile import TemporaryDirectory
+        import hashlib
+        with TemporaryDirectory() as d:
+            root=Path(d)
+            k='metadata/sha256-'+m.MODEL_SHA+'.json'
+            sidecar=root/k
+            sidecar.parent.mkdir(parents=True)
+            good={'ollama_version':'0.40.14','kv':{
+                'general.architecture':'gpt2','gpt2.block_count':4,
+                'gpt2.context_length':256,'gpt2.embedding_length':256,
+                'gpt2.attention.head_count':4,'tokenizer.ggml.bos_token_id':256,
+                'tokenizer.ggml.eos_token_id':256}}
+            sidecar.write_text(json.dumps(good),encoding='utf-8')
+            baseline={'blobs/source':{'size':10,'sha256':'a'*64}}
+            observed={**baseline,k:{'size':sidecar.stat().st_size,'sha256':m.digest(sidecar)}}
+            result=m.verify_runtime_store_delta(root,baseline,observed)
+            self.assertEqual(result['added_files'],[k])
+            self.assertEqual(result['sidecar_sha256'],m.digest(sidecar))
+            self.assertEqual(m.verify_runtime_store_delta(root,baseline,baseline)['added_files'],[])
+
+    def test_runtime_store_rejects_immutable_blob_change(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d:
+            baseline={'blobs/source':{'size':10,'sha256':'a'*64}}
+            modified={'blobs/source':{'size':11,'sha256':'b'*64}}
+            with self.assertRaisesRegex(RuntimeError,'MODEL_STORE_IMMUTABLE_FILE_CHANGED'):
+                m.verify_runtime_store_delta(Path(d),baseline,modified)
+
+    def test_runtime_store_rejects_arbitrary_added_file(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d:
+            baseline={'blobs/source':{'size':10,'sha256':'a'*64}}
+            with self.assertRaisesRegex(RuntimeError,'UNEXPECTED_MODEL_STORE_FILE_ADDED'):
+                m.verify_runtime_store_delta(Path(d),baseline,{**baseline,'evil.bin':{'size':1,'sha256':'b'*64}})
+
+    def test_runtime_store_rejects_tampered_metadata_architecture(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d:
+            root=Path(d); key='metadata/sha256-'+m.MODEL_SHA+'.json'
+            file=root/key;file.parent.mkdir(parents=True)
+            file.write_text(json.dumps({'ollama_version':'0.40.14','kv':{
+                'general.architecture':'other'}}),encoding='utf-8')
+            baseline={'blobs/source':{'size':10,'sha256':'a'*64}}
+            observed={**baseline,key:{'size':file.stat().st_size,'sha256':m.digest(file)}}
+            with self.assertRaisesRegex(RuntimeError,'MODEL_METADATA_ARCHITECTURE_MISMATCH'):
+                m.verify_runtime_store_delta(root,baseline,observed)
+
     def test_ids_and_capacity(self):
         self.assertEqual(m.MAX_REQUESTS,74)
         self.assertEqual(m.MAX_OUTPUT_TOKENS,3904)
