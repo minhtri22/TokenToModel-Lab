@@ -1,3 +1,5 @@
+> **Bổ sung sửa lỗi ngày 09-11-2026:** Lệnh Preview đầu tiên của owner thất bại `CallDepthOverflow` vì cả wrapper và preflight đều dùng hàm tên `Git` gọi lại `git` (PowerShell không phân biệt hoa/thường). Đã sửa thành `Invoke-TTMGit -Items/-GitArgs` với `git.exe` dạng Application. Blob wrapper đã sửa `6af5f236a4a8ef219b348c1becdefbcc2251ab0a`; blob preflight đã sửa `e79fc53233d9a3d46d3d297ac18320fb6ca6cccd`. Kết quả QA đọc nguồn PASS 18/18, PowerShell 5.1 thực thi chưa kiểm. Lượt lỗi dừng trước khi tạo Preview receipt/worktree theo kiểm tra từ xa, vì vậy không xem là Preview đã tiêu thụ. Xem `artifacts/qa/ttm-t5-parity/TTM_T5_PS51_CALL_DEPTH_OVERFLOW_REPAIR_STATIC_QA_20261109.json`.
+
 # TTM T5 — Owner-local Preview: handoff và trạng thái sẵn sàng 2×2 (2026-11-09)
 
 **Task** `TTM_T5_PRIOR_CALLER_OWNER_LOCAL_SOURCE_ATTESTATION_AND_NEW_2X2_SINGLE_RUN_READINESS`.
@@ -16,7 +18,7 @@
 
 ## B. Cách chạy *một lần duy nhất* trên máy của owner (PowerShell 5.1)
 
-**Source canonical của wrapper** (GitHub blob `d0f27dc3abb0bfac90a59579d7b0e64fa1dabbe7`):
+**Source canonical của wrapper** (GitHub blob `6af5f236a4a8ef219b348c1becdefbcc2251ab0a`):
 `tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1`.
 
 Đọc SHA cuối của nhánh T5 từ GitHub trong câu trả lời bàn giao (không đoán HEAD). Sau đó chạy:
@@ -30,7 +32,7 @@ $url = 'https://raw.githubusercontent.com/minhtri22/TokenToModel-Lab/' + $pin +
        '/tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1'
 Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $scriptPath
 $blob = (& git -C $root hash-object $scriptPath).Trim()
-if ($blob -ne 'd0f27dc3abb0bfac90a59579d7b0e64fa1dabbe7') {
+if ($blob -ne '6af5f236a4a8ef219b348c1becdefbcc2251ab0a') {
     throw 'WRAPPER_GITHUB_SOURCE_BLOB_MISMATCH'
 }
 & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $scriptPath -ExpectedCommit $pin -ProjectRoot $root
