@@ -287,14 +287,17 @@ def main():
         guard.validate_frozen_dev(freeze,exp,hashes.get('TRAIN'),hashes.get('DEV'),
                                   run_id=args.run_id)
         fit_valid=True
+    # Verify GPU/authority/freeze before consuming the source-opening right.
+    # For TEST: the marker is exclusive and durable BEFORE even a single byte
+    # is read from the pre-split TEST payload (not just before model loading).
+    torch=environment()
+    with marker.open('x',encoding='utf-8') as f:
+        f.write('EXTRACTION_CONSUMED_BEFORE_SPLIT_SOURCE_READ\n')
+        f.flush();os.fsync(f.fileno())
     # Real model must see split-scoped source ONLY; no TinyStories full-file path.
     split_root=work/'private_split_inputs'
     inputs=reconstruct(manifest,split,split_root,fit_frozen_validated=fit_valid)
     rows=manifest['splits'][split]
-    # No download or CUDA before authority, split isolation and freeze validation.
-    torch=environment()
-    with marker.open('x',encoding='utf-8') as f:
-        f.write('EXTRACTION_CONSUMED\n');f.flush();os.fsync(f.fileno())
     os.environ['HF_HOME']=str(work/'hf_home')
     os.environ['HF_HUB_CACHE']=str(work/'hf_home'/'hub')
     os.environ['HF_HUB_DISABLE_TELEMETRY']='1'
