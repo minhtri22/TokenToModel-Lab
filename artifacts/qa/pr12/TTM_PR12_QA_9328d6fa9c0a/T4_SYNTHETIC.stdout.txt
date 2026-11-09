@@ -1,0 +1,54 @@
+.........F..F                                                            [100%]
+================================== FAILURES ===================================
+_____________ test_capacity_notebook_no_science_and_source_pinned _____________
+
+    def test_capacity_notebook_no_science_and_source_pinned():
+        import ast
+>       n=json.loads((ROOT/'TTM_T4_Synthetic_Capacity_20261108_v1.ipynb').read_text())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools\pilot_t4\integrated\tests\test_t4_integrated.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\minht\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1028: in read_text
+    return f.read()
+           ^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <encodings.cp1252.IncrementalDecoder object at 0x000001EB1A311970>
+input = b'{\n  "nbformat": 4,\n  "nbformat_minor": 5,\n  "metadata": {\n    "colab": {\n      "name": "TTM_T4_Synthetic_Capaci...LETED_INDEPENDENT_READBACK_PENDING\')\\n",\n        "print(\'TTM_T4_SCIENCE_LOCK=HOLD\')\\n"\n      ]\n    }\n  ]\n}\n'
+final = True
+
+    def decode(self, input, final=False):
+>       return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 806: character maps to <undefined>
+
+C:\Users\minht\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py:23: UnicodeDecodeError
+_______________ test_science_notebook_fails_closed_before_drive _______________
+
+    def test_science_notebook_fails_closed_before_drive():
+        import ast
+>       nb=json.loads((ROOT/'TTM_T4_Science_FailClosed_20261108_v1.ipynb').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools\pilot_t4\integrated\tests\test_t4_integrated.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\minht\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1028: in read_text
+    return f.read()
+           ^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <encodings.cp1252.IncrementalDecoder object at 0x000001EB1AA6ABA0>
+input = b'{\n  "nbformat": 4,\n  "nbformat_minor": 5,\n  "metadata": {\n    "colab": {\n      "name": "TTM_T4_Science_FailClos...t()\\n",\n        "print(\'T4_SCIENCE_DRIVE_FLUSH_COMPLETE_EXTERNAL_READBACK_REQUIRED\')\\n"\n      ]\n    }\n  ]\n}\n'
+final = True
+
+    def decode(self, input, final=False):
+>       return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 577: character maps to <undefined>
+
+C:\Users\minht\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py:23: UnicodeDecodeError
+=========================== short test summary info ===========================
+FAILED tools/pilot_t4/integrated/tests/test_t4_integrated.py::test_capacity_notebook_no_science_and_source_pinned
+FAILED tools/pilot_t4/integrated/tests/test_t4_integrated.py::test_science_notebook_fails_closed_before_drive
+2 failed, 11 passed in 4.14s
