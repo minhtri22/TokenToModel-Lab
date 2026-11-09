@@ -335,7 +335,13 @@ def main():
     with (work/'G1_TEST_ONE_SHOT_CONSUMED.marker').open('x',encoding='utf-8') as fd:
         fd.write('TEST_ONE_SHOT_CONSUMED_BEFORE_OPEN\n')
     test_path=work/'G1_FEATURES_TEST.npz'
-    require(permit.get('test_pack_sha256')==sha_file(test_path), 'TEST_PACK_SHA_MISMATCH')
+    require((work/'G1_EXTRACT_TEST_ONE_SHOT_CONSUMED.marker').is_file(),
+            'TEST_EXTRACTION_MARKER_MISSING')
+    test_sha=sha_file(test_path)
+    # One permit is issued before extraction, so a future TEST pack SHA cannot
+    # be mandatory in that permit; if explicitly supplied it must match.
+    if permit.get('test_pack_sha256') is not None:
+        require(permit['test_pack_sha256']==test_sha, 'TEST_PACK_SHA_MISMATCH')
     test=load_pack(test_path,'TEST',manifest)
     report=evaluate(train,dev,test,frozen)
     report.update({'test_pack_sha256':sha_file(test_path),'fit_dev_sha256':sha_file(frozen_path),
