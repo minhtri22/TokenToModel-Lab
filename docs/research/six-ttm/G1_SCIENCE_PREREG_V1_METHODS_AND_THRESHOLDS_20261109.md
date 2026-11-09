@@ -88,6 +88,10 @@ Mỗi prefix `x` được chấm 8 cặp continuation dưới từng teacher b�
 
 Báo cáo **B-direct** đầy đủ: nếu mapping A yếu hơn đáng kể B, không được gọi lợi ích riêng của SIX, dù có PASS kỹ thuật/functional. Cần **hai cổng functional và geometric** cùng đạt; thống kê phụ có nhiều phép kiểm không tự nâng thành PASS. Không dùng ngưỡng G3 (NLL, 2%, A–E student) làm kết quả G1. Không có kết luận về ứng dụng công nghiệp.
 
+**Định nghĩa và cổng ổn định số học được đóng băng:** Với mỗi probe j, `R²_j=1 - [Σ_TEST(rhat_ij-r_ij)^2]/[Σ_TEST(r_ij-mu_TRAIN_j)^2]`, `macro_R2=mean_j R²_j` trên **đủ cả 8 chiều**, không loại chiều sau khi thấy TEST. Trước khi đọc TEST, nếu **bất kỳ** probe nào của teacher 1.7B có `population std_TRAIN <1e-5` thì kết luận `INCONCLUSIVE_CONTROL_DEGENERATE_PRETEST`, **không** thay probe hoặc bỏ chiều. Trên TEST mở một lần, nếu bất kỳ `SST_j <1e-8` thì `INCONCLUSIVE_DEGENERATE_TEST`, không dùng mẹo đổi mẫu/TEST. Các đặc trưng ẩn khác chuẩn hóa TRAIN-only, dùng denominator `max(std,1e-6)`. Các ngưỡng này là chọn trước science, không phải số đo thực nghiệm.
+
+**Giới hạn chồng lấn tiền huấn luyện:** Mẫu TEST của G1 chỉ được giữ riêng khỏi việc fit các ridge trong G1. Không có bằng chứng Qwen3 chưa từng thấy TinyStories lúc tiền huấn luyện, vì vậy không gọi đây là phép thử chống contamination ở cấp dữ liệu tiền huấn luyện mô hình lớn.
+
 **Hạn chế power:** `n_TEST=64` là một thử nghiệm feasibility nhỏ, chưa có mô hình power 80% được hiệu chuẩn từ effect-size độc lập. G1 chỉ là *scoped feasibility*, không phải kiểm định xác nhận tính phổ quát. Không được diễn giải `p>0.01` là chứng minh không chuyển được. Nếu thiếu power hoặc positive control không đủ → `INCONCLUSIVE`; chỉ adjudicate `FAIL_SCOPED` khi contract đủ điều kiện và âm tính có sức phân biệt. Bất kỳ tuyên bố confirmatory rộng hơn đều cần bổ sung nghiên cứu power trước khoa học và thẩm định riêng.
 
 ## 7. Điều kiện một lượt science admission (không chia nhỏ giấy phép)
