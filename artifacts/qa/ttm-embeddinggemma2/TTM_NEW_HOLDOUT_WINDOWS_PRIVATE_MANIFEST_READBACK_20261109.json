@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.gemma2.private_holdout.independent_windows_readback.adjudication.v1",
+  "date": "2026-11-09",
+  "parent_commit": "8759192ec928ec25739ba906bac7df60895e0404",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_PRIVATE_MEMBERSHIP_READBACK_AND_ORIGINAL_CPU_NUMERIC_PARITY_GATE",
+  "provenance": "Owner Windows 11 PowerShell console output; Python 3.12; original immutable SHA256-pinned local Python script",
+  "script_sha256": "bb49af35a9b1ff04c58125ddc004538ad2067aef00701c0e09356fd03f692a40",
+  "script_source_git_blob": "a9fd7419d69a11f7dca7572cd3311f7cd03b8949",
+  "fixture": {
+    "status": "PASS",
+    "passed": 8,
+    "total": 8,
+    "checks": [
+      "bad_rank_rejected",
+      "bad_source_rejected",
+      "baseline_fixture",
+      "duplicate_id_rejected",
+      "old_split_leak_rejected",
+      "old_test_bucket_rejected",
+      "old_test_scored_rejected",
+      "target_count_rejected"
+    ]
+  },
+  "real_membership_readback": {
+    "status": "PASS_SCOPED_MANIFEST_INDEPENDENT_READBACK",
+    "private_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "story_count": 320,
+    "target_count": 75798,
+    "old_test_bucket_membership": 0,
+    "exact_overlap_prior_split": 0,
+    "full_train_stories_scanned_reported": 2119489,
+    "note": "SHA256 independently checked over private file bytes; unique ID/order/metadata/old split exclusion independently checked locally. Full TRAIN near-duplicate scanning not independently repeated."
+  },
+  "cpu_checkpoint_binding_previous": {
+    "status": "PASS_SCOPED_SYNTHETIC_FOUR_REAL_CHECKPOINTS",
+    "original_numeric_parity": "NOT_EXECUTED"
+  },
+  "checkpoint_binding_source_git_blob": "59c58c72e5ad8c8a7c1445e7ef0cd9eabf137bba",
+  "evaluation": "NOT_EXECUTED",
+  "training": "NOT_EXECUTED",
+  "gpu": "NOT_USED",
+  "old_test_raw": "NOT_READ",
+  "lineage": "UNCHANGED",
+  "gaps": [
+    "Independent full TRAIN near-duplicate re-scan not performed",
+    "Near-duplicate scan to prior VALIDATION/TEST text not performed",
+    "Cannot establish donor pretraining exclusion",
+    "Original frozen core logits parity on synthetic tokens not yet executed"
+  ],
+  "final_gate": "PASS_SCOPED_PRIVATE_MANIFEST_INDEPENDENT_READBACK; HOLD_ORIGINAL_CPU_NUMERIC_PARITY_AND_REMAINING_CONTAMINATION_RISK"
+}
