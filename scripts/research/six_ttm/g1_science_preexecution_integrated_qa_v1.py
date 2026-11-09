@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parent
 PIN={'g1_science_core_v1.py':'b3ea8c890c45e3e2d248ad850977b53f5782552e',
-     'g1_science_private_feature_extractor_v1.py':'f1557470ff66857e35ced71641b542685f6b3083',
+     'g1_science_private_feature_extractor_v1.py':'9b490c8ed65dc1ecc56d7d0217dc89f022807327',
      'g1_science_adversarial_qa_v1.py':'e6a93ac8248665de78d970ef9d237de5a45d9d8c'}
 
 def blob(p):
