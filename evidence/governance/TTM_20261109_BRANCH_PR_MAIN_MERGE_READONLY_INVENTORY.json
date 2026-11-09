@@ -1,0 +1,95 @@
+{
+  "schema": "ttm.governance.branch_merge_review.readonly_inventory.v1",
+  "date": "2026-11-09",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "main_head": "1a9d8cba56564d6d36257fe95c34f2fd52c4f48a",
+  "pr12": {
+    "number": 12,
+    "draft": true,
+    "state": "open",
+    "base": "main",
+    "head": "76607c212b77e217ae881b40f60b8e7e6242041e",
+    "commits": 116,
+    "files_changed": 178,
+    "github_mergeable": true,
+    "check_runs_reported": 0,
+    "main_lineage_prefix_exact": true,
+    "science_entries_appended": [
+      "L0011",
+      "L0012"
+    ],
+    "merge_decision": "HOLD_SCOPE_AND_INDEPENDENT_QA"
+  },
+  "branches_total": 10,
+  "branches": [
+    {
+      "name": "archive/p01-d1-prereg-draft-20261108",
+      "disposition": "PRESERVE"
+    },
+    {
+      "name": "archive/p01-i0a-f0-static-side-20261108",
+      "disposition": "PRESERVE"
+    },
+    {
+      "name": "archive/p01-legacy-f1-wp30-lineage-20261108",
+      "disposition": "PRESERVE"
+    },
+    {
+      "name": "feature/p07-paged-attention-kernel-design-20261107",
+      "ahead_main": 9,
+      "behind_main": 3,
+      "disposition": "PAUSED_PRESERVE"
+    },
+    {
+      "name": "governance/train-first-colab-and-branch-consolidation-20261108",
+      "ahead_main": 0,
+      "behind_main": 1,
+      "disposition": "ANCESTOR_REVIEW_FOR_REF_RETIREMENT"
+    },
+    {
+      "name": "main",
+      "disposition": "BASELINE"
+    },
+    {
+      "name": "research/ttm-gemini-embedding2-gqa-pagedattention-feasibility-design-20261108",
+      "ahead_main": 34,
+      "behind_main": 0,
+      "disposition": "DEFER_SEPARATE_REVIEW"
+    },
+    {
+      "name": "research/ttm-six-cross-model-representation-transfer-20261109",
+      "ahead_main": 0,
+      "behind_main": 0,
+      "disposition": "SAME_SHA_REVIEW_FOR_REF_RETIREMENT"
+    },
+    {
+      "name": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+      "ahead_main": 118,
+      "behind_main": 0,
+      "against_pr12": {
+        "ahead": 5,
+        "behind": 3
+      },
+      "disposition": "DEFER_SEPARATE_REVIEW"
+    },
+    {
+      "name": "research/ttm-small-4m-colab-pilot-prereg-20261108",
+      "ahead_main": 116,
+      "behind_main": 0,
+      "disposition": "ACTIVE_PR12_DRAFT"
+    }
+  ],
+  "science_baseline": {
+    "model_parameters": 3749376,
+    "val_model_nll": 3.522338851682218,
+    "val_bigram_nll": 3.9972314169551506,
+    "val_nll_relative_improvement": 0.11880537195283955,
+    "test_model_nll": 3.483591073340649,
+    "test_bigram_nll": 3.97360374531842,
+    "test_nll_relative_improvement": 0.12331694436192563,
+    "ollama_gguf_import_and_32token_inference": "PASS",
+    "strict_logits": "FAIL_7_OF_8_PRESERVED"
+  },
+  "no_science_or_runtime_execution": true,
+  "no_branch_merge_or_delete": true
+}
