@@ -1,0 +1,234 @@
+{
+  "schema": "ttm.t5.kvflash.frozen32.independent_scoped_scientific_adjudication.v1",
+  "date": "2026-11-10",
+  "research_question": "Does KV cache F16 versus F32 and FlashAttention ON versus OFF suffice to restore strict last-logit parity with frozen P02 PyTorch checkpoint on new synthetic token-ID fixtures?",
+  "frozen_threshold_maxabs": 0.001,
+  "source": {
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "prereg_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36",
+    "owner_run_receipt_path": "_tmp/ttm_t5_kvflash_frozen_new_32_native_one_shot_v1_20261110/RUN_RECEIPT.json",
+    "owner_run_receipt_sha256": "fcaea7a629bd6dda7a4f35b60da686b73b02bc0e9e56ebe7c380d9b9e4c7db09",
+    "audit_path": "_tmp/ttm_t5_kvflash_frozen_new_32_native_one_shot_v1_20261110/AUDIT_FROZEN_NEW_32.json",
+    "independent_audit_SHA256": "8aca17561d6beca200fbc746854ab0186e5f3d75930737077111a86c475acc6c",
+    "native_JSONL_sha256_from_auditor": "544df628802591bcdda7ca9d6de4779d5e2872ee8b409c6710ede5bbf8ac19b8",
+    "reference_F32_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "original_compiled_exe_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537"
+  },
+  "methods": {
+    "scope": "One frozen 32-run 8 fixtures x 4 arms diagnostic. Each row full 2048 logits generated and validated by pinned auditor; no retraining, test, or original fixture replay.",
+    "secondary_independent_readback": "Parsed remote RUN_RECEIPT and AUDIT JSON; verified exact 32 unique pairs, strict flags vs 0.001, flash node counters, top1 totals and SHA linkages.",
+    "sha256_independently_recomputed": "RUN_RECEIPT and AUDIT exact SHA match when remote text view is restored to Windows CRLF with final CRLF",
+    "full_native_JSONL_independent_recompute": "NOT_POSSIBLE_WITH_REMOTE_TEXT_READER_TRUNCATING_SINGLE_2048_LOGIT_JSONL_LINES_AT_20000_CHARS",
+    "raw_full_JSONL_attestation": "FULL_NATIVE_FILE_WAS_PARSED_AND_SHA256_HASHED_BY_SEPARATE_FROZEN_AUDITOR_ON_WINDOWS; SECOND_READ_ONLY_PASS_FROM_SUMMARY_AND_RECEIPT",
+    "contrast_warning": "Existing descriptive_contrasts are differences between per-arm maximum absolute errors; they are not signed elementwise factorial causal effects and must not be interpreted as proof of a causal mechanism.",
+    "S0_S2_summary_caveat": "All eight paired S0/S2 max and mean absolute error metrics match exactly; this does not prove bitwise identity of the 2048 logits."
+  },
+  "checks": {
+    "exact_32_rows": true,
+    "exact_8x4_pairs": true,
+    "frozen_prereg": true,
+    "threshold_unchanged": true,
+    "no_strict_pass": true,
+    "all_top1_equal": true,
+    "flash_nodes_match": true,
+    "original_result_preserved": true,
+    "native_sha_linked": true,
+    "reference_sha_linked": true,
+    "audit_sha_linked": true,
+    "completed_one_shot": true,
+    "no_training_or_test": true
+  },
+  "arm_metrics": [
+    {
+      "arm": "S0",
+      "fixtures": 8,
+      "strict_pass": 0,
+      "strict_fail": 8,
+      "top1_equal": 8,
+      "average_max_abs": 0.0026427100250642605,
+      "worst_max_abs": 0.004443402304687538,
+      "average_mean_abs": 0.000636086549369387,
+      "flash_nodes_unique": [
+        4
+      ]
+    },
+    {
+      "arm": "S1",
+      "fixtures": 8,
+      "strict_pass": 0,
+      "strict_fail": 8,
+      "top1_equal": 8,
+      "average_max_abs": 0.001828403454185376,
+      "worst_max_abs": 0.0030384065014645856,
+      "average_mean_abs": 0.0004209361260961506,
+      "flash_nodes_unique": [
+        0
+      ]
+    },
+    {
+      "arm": "S2",
+      "fixtures": 8,
+      "strict_pass": 0,
+      "strict_fail": 8,
+      "top1_equal": 8,
+      "average_max_abs": 0.0026427100250642605,
+      "worst_max_abs": 0.004443402304687538,
+      "average_mean_abs": 0.000636086549369387,
+      "flash_nodes_unique": [
+        4
+      ]
+    },
+    {
+      "arm": "S3",
+      "fixtures": 8,
+      "strict_pass": 0,
+      "strict_fail": 8,
+      "top1_equal": 8,
+      "average_max_abs": 0.001828921903125618,
+      "worst_max_abs": 0.002688889020996399,
+      "average_mean_abs": 0.00041198801875054117,
+      "flash_nodes_unique": [
+        0
+      ]
+    }
+  ],
+  "fixture_metrics": [
+    {
+      "fixture_id": "SYN01",
+      "max_abs_by_arm": {
+        "S0": 0.0012463778538955687,
+        "S1": 0.0011472726641845732,
+        "S2": 0.0012463778538955687,
+        "S3": 0.0012463778538955687
+      },
+      "best_arm_by_max_abs": [
+        "S1"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN02",
+      "max_abs_by_arm": {
+        "S0": 0.0011172297700805522,
+        "S1": 0.0011364226194457983,
+        "S2": 0.0011172297700805522,
+        "S3": 0.001687999468994228
+      },
+      "best_arm_by_max_abs": [
+        "S0",
+        "S2"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN03",
+      "max_abs_by_arm": {
+        "S0": 0.0038251836987308607,
+        "S1": 0.0021333690209957012,
+        "S2": 0.0038251836987308607,
+        "S3": 0.002688889020996399
+      },
+      "best_arm_by_max_abs": [
+        "S1"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN04",
+      "max_abs_by_arm": {
+        "S0": 0.0016231534163818617,
+        "S1": 0.002109411848754794,
+        "S2": 0.0016231534163818617,
+        "S3": 0.0017154204473874834
+      },
+      "best_arm_by_max_abs": [
+        "S0",
+        "S2"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN05",
+      "max_abs_by_arm": {
+        "S0": 0.0032405817114256052,
+        "S1": 0.001979704538879412,
+        "S2": 0.0032405817114256052,
+        "S3": 0.002013679627685505
+      },
+      "best_arm_by_max_abs": [
+        "S1"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN06",
+      "max_abs_by_arm": {
+        "S0": 0.003183839625243934,
+        "S1": 0.001795296476440278,
+        "S2": 0.003183839625243934,
+        "S3": 0.0019219517027740385
+      },
+      "best_arm_by_max_abs": [
+        "S1"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN07",
+      "max_abs_by_arm": {
+        "S0": 0.0024619118200681633,
+        "S1": 0.0012873439633178663,
+        "S2": 0.0024619118200681633,
+        "S3": 0.0015203987707521627
+      },
+      "best_arm_by_max_abs": [
+        "S1"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    },
+    {
+      "fixture_id": "SYN08",
+      "max_abs_by_arm": {
+        "S0": 0.004443402304687538,
+        "S1": 0.0030384065014645856,
+        "S2": 0.004443402304687538,
+        "S3": 0.0018366583325195585
+      },
+      "best_arm_by_max_abs": [
+        "S3"
+      ],
+      "s0_s2_max_and_mean_identical": true
+    }
+  ],
+  "totals": {
+    "rows": 32,
+    "strict_pass": 0,
+    "strict_fail": 32,
+    "top1_equal": 32,
+    "flash_on_rows": 16,
+    "flash_off_rows": 16,
+    "max_abs_worst": 0.004443402304687538,
+    "S0_S2_same_aggregated_metrics_count": 8,
+    "historical_8_fixture_strict_fail": 7
+  },
+  "judgments": {
+    "experimental_execution": "PASS_32_OF_32_MEASURED_ROWS",
+    "strict_parity": "FAIL_32_OF_32_AT_FROZEN_THRESHOLD_0_001",
+    "only_changing_KV_and_FLASH_sufficient": "REJECTED_ON_THIS_FROZEN_SYNTHETIC_SET",
+    "KV_F16_or_Flash_as_partial_contributors": "NOT_EXCLUDED",
+    "exact_root_cause": "UNRESOLVED",
+    "original_historical_result": "FAIL_7_OF_8_PRESERVED",
+    "top1_stability": "PASS_32_OF_32",
+    "scientific_interpretation": "Negative diagnostic result is a valid scoped outcome, not an infrastructure failure.",
+    "unvalidated_claims": [
+      "Original 7/8 failure caused only by F16 KV cache",
+      "S0/S2 bitwise identical logits",
+      "All F32 implementations are strictly equivalent",
+      "No effects from different GELU, matmul, residual, softmax or backend algorithms"
+    ],
+    "merge_proposal": "DRAFT_PR_FOR_EVIDENCE_PRESERVATION; MERGE_MAIN_ONLY_AFTER_INDEPENDENT_SCOPE_REVIEW_AND_DOCUMENTATION_CLEANUP",
+    "original_main": "UNCHANGED",
+    "original_lineage": "APPEND_SCIENCE_FAIL_ENTRY_IN_T5_BRANCH_ONLY",
+    "PR13": "SEPARATE_DRAFT_HOLD"
+  }
+}
