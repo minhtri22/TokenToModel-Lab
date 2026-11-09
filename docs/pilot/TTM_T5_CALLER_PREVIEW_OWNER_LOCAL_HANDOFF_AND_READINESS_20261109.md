@@ -1,10 +1,12 @@
-> **Bổ sung sửa lỗi ngày 09-11-2026:** Lệnh Preview đầu tiên của owner thất bại `CallDepthOverflow` vì cả wrapper và preflight đều dùng hàm tên `Git` gọi lại `git` (PowerShell không phân biệt hoa/thường). Đã sửa thành `Invoke-TTMGit -Items/-GitArgs` với `git.exe` dạng Application. Blob wrapper đã sửa `6af5f236a4a8ef219b348c1becdefbcc2251ab0a`; blob preflight đã sửa `e79fc53233d9a3d46d3d297ac18320fb6ca6cccd`. Kết quả QA đọc nguồn PASS 18/18, PowerShell 5.1 thực thi chưa kiểm. Lượt lỗi dừng trước khi tạo Preview receipt/worktree theo kiểm tra từ xa, vì vậy không xem là Preview đã tiêu thụ. Xem `artifacts/qa/ttm-t5-parity/TTM_T5_PS51_CALL_DEPTH_OVERFLOW_REPAIR_STATIC_QA_20261109.json`.
+> **Bổ sung sửa lỗi ngày 09-11-2026:** Lệnh Preview đầu tiên của owner thất bại `CallDepthOverflow` vì cả wrapper và preflight đều dùng hàm tên `Git` gọi lại `git` (PowerShell không phân biệt hoa/thường). Đã sửa thành `Invoke-TTMGit -Items/-GitArgs` với `git.exe` dạng Application. Blob wrapper đã sửa `2f2944b93c6cf2731bbb9eeac1bd4ff860573f1e`; blob preflight đã sửa `e79fc53233d9a3d46d3d297ac18320fb6ca6cccd`. Kết quả QA đọc nguồn PASS 18/18, PowerShell 5.1 thực thi chưa kiểm. Lượt lỗi dừng trước khi tạo Preview receipt/worktree theo kiểm tra từ xa, vì vậy không xem là Preview đã tiêu thụ. Xem `artifacts/qa/ttm-t5-parity/TTM_T5_PS51_CALL_DEPTH_OVERFLOW_REPAIR_STATIC_QA_20261109.json`.
 
 # TTM T5 — Owner-local Preview: handoff và trạng thái sẵn sàng 2×2 (2026-11-09)
 
 **Task** `TTM_T5_PRIOR_CALLER_OWNER_LOCAL_SOURCE_ATTESTATION_AND_NEW_2X2_SINGLE_RUN_READINESS`.
 
 **Phán quyết hiện tại:** `REMOTE_PREVIEW=BLOCKED_MANAGED_JOB_ADMISSION`; `OWNER_LOCAL_PREVIEW=NOT_EXECUTED`; `CALLER_TYPE_K_V=UNKNOWN`; `NEW_BINARY=NOT_COMPILED`; `NEW_REFERENCE=NOT_EXECUTED`; `OWNER_RUN=HOLD`. Giữ `T5_STRICT=FAIL_7/8`, ngưỡng `0.001` và nguồn cũ.
+
+> **Bổ sung phục hồi worktree ngày 09-11-2026:** Lần chạy owner thứ hai dừng khi Git in `Preparing worktree (new branch ...)` lên stderr, do WinPS5.1 với `$ErrorActionPreference='Stop'` và `2>&1` coi đây là `NativeCommandError` dù Git đã tạo worktree. Đã đọc lại worktree `worktrees/ttm-t5-kvflash-preview-20261109`, tệp `.git` trỏ đúng nhánh; ref local lúc kiểm tra là `af9fd280973a0fcf4e4ce68f443d0f0bed787d0e`; thư mục receipt Preview chưa có. Không xóa/khởi tạo lại worktree. Wrapper mới dùng scoped Continue + kiểm `LASTEXITCODE`, kiểm sạch và cập nhật **chỉ fast-forward `--ff-only`** trước Preview. Cập nhật cả helper Git của preflight. Git blob wrapper hiện `2f2944b93c6cf2731bbb9eeac1bd4ff860573f1e`, preflight `15a464f3caf63f2b38754332b3bc3f20c2c56193`; QA tĩnh PASS 24/24, **PS5.1 runtime chưa kiểm sau sửa**. Biên bản: `artifacts/qa/ttm-t5-parity/TTM_T5_PS51_NATIVE_STDERR_PARTIAL_WORKTREE_SAFE_RECOVERY_QA_20261109.json`.
 
 ## A. Đã thực hiện thông qua kết nối Windows — đọc-only, không chạy model
 
@@ -18,7 +20,7 @@
 
 ## B. Cách chạy *một lần duy nhất* trên máy của owner (PowerShell 5.1)
 
-**Source canonical của wrapper** (GitHub blob `6af5f236a4a8ef219b348c1becdefbcc2251ab0a`):
+**Source canonical của wrapper** (GitHub blob `2f2944b93c6cf2731bbb9eeac1bd4ff860573f1e`):
 `tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1`.
 
 Đọc SHA cuối của nhánh T5 từ GitHub trong câu trả lời bàn giao (không đoán HEAD). Sau đó chạy:
@@ -32,7 +34,7 @@ $url = 'https://raw.githubusercontent.com/minhtri22/TokenToModel-Lab/' + $pin +
        '/tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1'
 Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $scriptPath
 $blob = (& git -C $root hash-object $scriptPath).Trim()
-if ($blob -ne '6af5f236a4a8ef219b348c1becdefbcc2251ab0a') {
+if ($blob -ne '2f2944b93c6cf2731bbb9eeac1bd4ff860573f1e') {
     throw 'WRAPPER_GITHUB_SOURCE_BLOB_MISMATCH'
 }
 & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $scriptPath -ExpectedCommit $pin -ProjectRoot $root
