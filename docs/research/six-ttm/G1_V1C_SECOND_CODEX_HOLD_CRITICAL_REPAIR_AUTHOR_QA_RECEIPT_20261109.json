@@ -1,0 +1,100 @@
+{
+  "schema": "ttm.six.g1.v1c.second_codex_hold_recovery_candidate.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_SECOND_CODEX_HOLD_CRITICAL_REPAIR_AND_SINGLE_INTEGRATED_REVIEW",
+  "origin": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "reviewed_v1b_head": "cd6998b2459039a35fcca390958687ddb0b15340",
+    "prior_reviewer_id": "codex-distinct-g1-v1b-20261109-01a1bfe5-23f5",
+    "prior_verdict": "HOLD",
+    "reviewer_observations": 71,
+    "reviewer_positive_controls": 54,
+    "reviewer_reproduced_defects": 17,
+    "review_original_location": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\G1_V1B_CODEX_DISTINCT_REREVIEW_20261109\\G1_V1B_CODEX_DISTINCT_REREVIEW_20261109.md",
+    "review_copy_git_path": "docs/research/six-ttm/G1_V1B_CODEX_SECOND_DISTINCT_REREVIEW_HOLD_OWNER_LOCAL_COPY_20261109.md",
+    "reviewer_harness_copy": "docs/research/six-ttm/G1_V1B_CODEX_REVIEWER_ADVERSARIAL_CPU_20261109.py",
+    "reviewer_log_copy": "docs/research/six-ttm/G1_V1B_CODEX_REVIEWER_ADVERSARIAL_CPU_20261109.log",
+    "copy_text_blob_sha_is_not_claimed_to_be_raw_local_sha256": true
+  },
+  "source_pins": {
+    "g1_science_guard_v1c.py": "4554a3e12911cbf0606a8be053660cad0c38f374",
+    "g1_science_core_v1c.py": "f591bd617feb007c20023a313ebc5f429471d8b2",
+    "g1_science_private_feature_extractor_v1c.py": "9bb28fe39999fba0bab5474e2644b11f7940c06a",
+    "test_g1_v1c_critical_qa.py": "01030f2aba4a7356d093664c628973a73b458475",
+    "test_g1_v1c_hard_gate_negative_qa.py": "9d824034124f210d9dd58c23954d4da66ba119c2"
+  },
+  "scientific_fixed_pins": {
+    "t1_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "g1_private_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+    "g1_split": {
+      "TRAIN": 128,
+      "DEV": 64,
+      "TEST": 64
+    },
+    "qwen06_technical": "PASS_PRESERVED_NO_REEXECUTION",
+    "qwen17_technical": "PASS_PRESERVED_ONE_SHOT_CONSUMED"
+  },
+  "author_synthetic_qa": {
+    "environment": "isolated_Linux_CPU_Python_3.13.5_numpy_2.3.5_cryptography_46.0.4",
+    "critical_qa": {
+      "status": "PASS_V1C_CRITICAL_SYNTHETIC_QA_NO_SCIENCE",
+      "checks": 7,
+      "freeze_schema_replay": "PASS",
+      "permutation_invariant_gram_pvalue": 1,
+      "informative_gram_pvalue": 0.000999000999000999,
+      "degenerate_cka": "INCONCLUSIVE",
+      "full_synthetic_counts": {
+        "shuffled_train_pairs": 1000,
+        "cka_nulls": 1000,
+        "paired_bootstraps": 2000
+      }
+    },
+    "hard_gate_qa": {
+      "status": "PASS_V1C_HARD_GATE_NEGATIVE_QA_NO_SCIENCE",
+      "checks": 22,
+      "owner_production_key_provisioned": false,
+      "synthetic_test_signing_key_generated_in_RAM": true,
+      "malformed_freeze_rejected": true,
+      "boolean_alpha_rejected": true,
+      "missing_GPU_budget_ledger_rejected": true,
+      "redirected_write_root_rejected_before_write": true,
+      "substituted_open_file_handle_rejected": true
+    },
+    "guard_selftest": "V1C_GUARD_SOURCE_ONLY_NO_SCIENCE",
+    "core_selftest": "PASS_SYNTHETIC_ONLY_NO_SCIENCE_6_TESTS",
+    "extractor_selftest": "PASS_EXTRACTOR_V1C_SYNTHETIC_ONLY_8_PROBES",
+    "private_test_read": false,
+    "model_weights_loaded": false,
+    "science_executed": false,
+    "authored_by_implementer_not_distinct_scientific_reviewer": true
+  },
+  "implemented_repairs": [
+    "CRITICAL_FREEZE_PREPARE_FINALIZE_SCHEMA_PARITY",
+    "CRITICAL_CKA_CENTERED_GRAM_SHARED_STATISTIC_ROUNDING_TIES_CONSERVATIVE",
+    "STRICT_DEV_FREEZE_KEY_TYPES_SEEDS_SHA_AND_SCORES",
+    "OWNER_ADMISSION_SCOPE_AND_SOURCE_FIELD_CONSTRAINTS_PRODUCTION_PIN_STILL_NONE",
+    "OPENED_FD_IDENTITY_CHECK",
+    "COMMIT_ROOT_REDIRECT_PREWRITE_CHECK",
+    "CUMULATIVE_BUDGET_LEDGER_REQUIRED"
+  ],
+  "remaining_gates": {
+    "owner_authority": "HOLD_UNPROVISIONED",
+    "trusted_split_broker": "HOLD_NOT_IMPLEMENTED",
+    "external_trusted_pack_writer_ledger": "HOLD",
+    "external_monotonic_one_shot": "HOLD",
+    "kill_capable_OS_GPU_watchdog": "HOLD",
+    "independent_statistical_review_v1c": "HOLD"
+  },
+  "governance": {
+    "science_authorized": false,
+    "owner_science_or_Colab_raw_source_staging_scope": "NOT_GRANTED",
+    "previous_v1b_code_mutated": false,
+    "original_T1_G1_manifests_mutated": false,
+    "Qwen_one_shots_rerun": false,
+    "main_PR12_lineage_TTMsmall4m_mutated": false,
+    "v1c_frozen_for_distinct_review": "SOURCE_PINS_RECORDED_CANDIDATE_ONLY",
+    "reviewer_outcome_current_v1c": "NOT_EXECUTED",
+    "decision": "HOLD_EXTERNAL_HARD_GATES_AND_DISTINCT_REVIEW_PENDING"
+  }
+}
