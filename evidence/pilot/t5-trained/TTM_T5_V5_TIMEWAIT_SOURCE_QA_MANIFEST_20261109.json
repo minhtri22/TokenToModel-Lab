@@ -1,0 +1,27 @@
+{
+  "schema": "ttm.t5.v5.timewait_guard.source_bundle.qa_manifest.v1",
+  "date": "2026-11-09",
+  "zip_filename": "TTM_T5_OLLAMA_V5_TIMEWAIT_GUARD_20261109.zip",
+  "zip_sha256": "0c27593dd01c5e652709c03b6a0019533aa602e178d1e4251052bc69bf01ef33",
+  "zip_bytes": 25767,
+  "source_files": {
+    "t5_final_minimal_smoke_v5.py": "e11e4b3a809fb5da3ea47d960236d2bd0cb721a780b9e3d4c790eb194cc4fdac",
+    "t5_native_tcp.py": "100ca44212c9f2ffb77c93aa11a90fa8f4a67d1b225efb16e888c58680d6f9b7",
+    "test_final_minimal_smoke_v5.py": "2414106778d9bb38c99d4fcd6ba77f0e1593bc0c439a7d4fb530fe741efa8fb2",
+    "Invoke-TTM-T5-Timewait-V5-PS51.ps1": "856a61d364f14523dce2572cde3185542733c46cfb9aeedbfaf80e1b82d46fdb",
+    "README_VI.md": "3124dd00ba1f13d0a017067bca9d807d6ce043327c79b77364853937a2dcdc2b",
+    "SOURCE_SHA256_MANIFEST.json": "bc1bb30df9907c52df7e292b7a0c039d3c48b6944d122e0015f2131b378b53df",
+    "INDEPENDENT_OFFLINE_QA_V5.json": "073f05307227e054b3a0b879acbb071993052a557e9c2f2a8cfe96bf8dc91acb"
+  },
+  "qa": {
+    "mock_tests": 47,
+    "passed": 47,
+    "failed": 0,
+    "linux_container_only": true,
+    "windows_native_not_executed": true
+  },
+  "runtime_ollama_v5": "NOT_EXECUTED",
+  "v4": "CONSUMED",
+  "science_parity": "FAIL_7_OF_8_PRESERVED",
+  "source_zip_committed_to_github": false
+}
