@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.six.g1.v1b.distinct_codex_rereview_dispatch.v1",
+  "date": "2026-11-09",
+  "origin": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+    "verified_before_dispatch_head": "d42ebb741d95338d64ae420dd86f3ab10ed591ad",
+    "main_preserved": "b57b44e7287f842e81050c1faee337f636333dd0"
+  },
+  "sources": {
+    "scripts/research/six_ttm/g1_science_guard_v1b.py": "d67b35cd8cba907904d0f23ccedd4b6b68d4850f",
+    "scripts/research/six_ttm/g1_science_core_v1b.py": "94611c0449001230b2957487e152cd706f817516",
+    "scripts/research/six_ttm/g1_science_private_feature_extractor_v1b.py": "2802c810d76b40e291188b2186439f53ccda0e13",
+    "scripts/research/six_ttm/test_g1_v1b_negative_qa.py": "7e4270732b4c2f81b1677b82647456067989750d"
+  },
+  "t1_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+  "g1_private_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6",
+  "qa_rerun": {
+    "performed_by": "same assistant in isolated CPU container, not independent Codex",
+    "environment": "Python 3.13.5, NumPy 2.3.5",
+    "status": "PASS_G1_V1B_ADVERSARIAL_CPU_ONLY",
+    "checks": 38,
+    "other_modes": [
+      "V1B_GUARD_SOURCE_ONLY_NO_SCIENCE",
+      "PASS_SYNTHETIC_ONLY_NO_SCIENCE",
+      "PASS_EXTRACTOR_V1B_SYNTHETIC_ONLY"
+    ],
+    "gpu_executed": false,
+    "private_data_read": false,
+    "science_executed": false
+  },
+  "review": {
+    "prior_distinct_review": "HOLD",
+    "v1b_codex_distinct_review": "NOT_EXECUTED",
+    "direct_codex_invocation": "UNAVAILABLE_NO_VALID_CURRENT_TURN_TOKEN",
+    "claim_review_sent_to_codex": false,
+    "reviewer_handoff": "docs/research/six-ttm/G1_V1B_CODEX_DISTINCT_REREVIEW_HANDOFF_SINGLE_HARD_GATE_20261109.md"
+  },
+  "hard_gates": {
+    "owner_key": "HOLD_UNPROVISIONED",
+    "split_broker": "HOLD_NOT_IMPLEMENTED_OR_ATTESTED",
+    "external_pack_receipt_ledger": "HOLD",
+    "external_one_shot_rollback_protection": "HOLD",
+    "OS_watchdog_ACL_gpu_resource_qa": "HOLD",
+    "scientific_amendment_v1b_distinct_review": "HOLD"
+  },
+  "limits": {
+    "technical_qwen_one_shots": "PRESERVED_NO_RERUN",
+    "t1_g1_manifest": "PRESERVED_NO_RESEAL",
+    "ttm_main_pr12_lineage_small4m": "UNCHANGED",
+    "science_authorized": false,
+    "science_lock": "HOLD",
+    "next": "SEND_PINNED_HANDOFF_TO_DISTINCT_CODEX_AND_REQUEST_SINGLE_PASS_HOLD_FAIL"
+  }
+}
