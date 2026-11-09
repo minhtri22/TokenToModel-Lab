@@ -1,0 +1,11 @@
+{
+  "schema": "ttm.small4m.fresh12.encrypted_ab_seed_escrow.aes256gcm.v1",
+  "algorithm": "AES-256-GCM",
+  "nonce_b64": "FJHA1Ku4+8oBMCgf",
+  "encrypted_seed_with_tag_b64": "caKCwszdf8TQwvLi3JP6Vb1nt8xFBxxxeIqn4whjbtz+r8O2T9ntjS27w9W5JNuZ",
+  "aad_utf8": "TTM_SMALL4M_FRESH12_A_B_ALLOCATION_SEED_V1",
+  "seed_sha256": "5efcfa520f604d21d96fb62d27987003c21fe991c51d5974cd6ff24a64ddc4c4",
+  "private_mapping_file_sha256": "ed22d6fc6d2075a7d7aedb1512aba9ae4034b95dd39fbe9c5c4a5c86a4aad9ed",
+  "description": "Decrypt seed only after independent reviewer CSV SHA sealed; regenerate HMAC-SHA256 priority on BALANCE:<Fxx> and swap checkpoint columns.",
+  "never_publish_decryption_key": true
+}
