@@ -1,0 +1,17 @@
+prompt_id,method,A_checkpoint,B_checkpoint,adherence_1024,adherence_1280,adherence_diff,coherence_1024,coherence_1280,coherence_diff,consistency_1024,consistency_1280,consistency_diff,total_1024,total_1280,total_diff,winner,notes
+P01,greedy,1280,1024,1,1,0,1,1,0,0,0,0,2,2,0,tie,"Both retain only a generic female reference, abandon the bell; apology loops and unstable new character."
+P01,sampled,1280,1024,1,1,0,0,1,1,0,0,0,1,2,1,1280,A has some local sequence but impossible words/abrupt speaker; B has mostly garbled dialogue.
+P02,greedy,1024,1280,0,0,0,0,2,2,0,2,2,0,4,4,1280,"A is broken apology dialogue; B has locally consistent mother, park and tree, but neither continues fox/bridge."
+P02,sampled,1280,1024,0,0,0,0,0,0,0,0,0,0,0,0,tie,Both abandon fox/bridge; invented characters/odd words make actions difficult to follow.
+P03,greedy,1280,1024,0,0,0,0,1,1,1,0,-1,1,1,0,tie,"A switches to play/dog/car; B repeats Tom dialogue, neither retains market, pears or grandmother."
+P03,sampled,1280,1024,0,0,0,1,1,0,1,0,-1,2,1,-1,1024,A has water/park fragments; B loosely keeps a mother-child conversation but changes names.
+P04,greedy,1024,1280,1,1,0,1,1,0,1,1,0,3,3,0,tie,Female protagonist is generic; both shift to park/tree and repeat tree phrases; hat/river lost.
+P04,sampled,1024,1280,1,1,0,0,1,1,0,1,1,1,3,2,1280,A has fragmentary new names and broken syntax; B is more intelligible but unrelated to hat/river.
+P05,greedy,1024,1280,0,0,0,1,1,0,1,2,1,2,3,1,1280,A repeats big tree; B repeats girl/friends but maintains them internally; neither has robot/sunflower.
+P05,sampled,1024,1280,0,0,0,1,1,0,1,1,0,2,2,0,tie,A has two named speakers and a noise; B has girl and mother; both abandon planting.
+P06,greedy,1280,1024,0,0,0,1,1,0,1,1,0,2,2,0,tie,Both are off-topic apology dialogue with repeated stock phrases; no clock repair.
+P06,sampled,1280,1024,0,1,1,0,1,1,0,2,2,0,4,4,1280,A vaguely continues with plural actors and toy car; B changes named referents and grammatical gender.
+P07,greedy,1024,1280,0,0,0,1,0,-1,1,1,0,2,1,-1,1024,"A has a named girl but not Lina; B is almost entirely tree repetitions, no map/book."
+P07,sampled,1024,1280,1,0,-1,0,1,1,0,0,0,1,1,0,tie,A mentions finding an unspecified item but loses old-book/map context; B makes new actors and incoherent conversation.
+P08,greedy,1024,1280,1,1,0,1,1,0,1,1,0,3,3,0,tie,Male pronoun vaguely carries an actor; both ignore rabbit/lantern/cabin and repeat friends/play.
+P08,sampled,1024,1280,0,0,0,0,1,1,0,0,0,0,1,1,1280,A has garbled tree/object references; B has some local phrases but incoherent new subjects.
