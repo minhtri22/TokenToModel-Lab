@@ -10,7 +10,7 @@
 
 Đánh giá kỹ thuật liệu `Qwen3-0.6B` được tải từ **revision và SHA-256 cố định** có thể xuất các trạng thái ẩn trên hai tiền tố tổng hợp mà không train, không dùng dữ liệu nghiên cứu, không lộ TEST, không gọi API bên ngoài để inference. Kiểm tra đúng số lớp, shape, dtype, mask, hữu hạn (finite), tính lặp trên cùng runtime, GPU peak, checksum. Thử nghiệm này **không** đo chuyển giao biểu diễn SIX, không đánh giá tính đúng ngữ nghĩa và không cấp quyền khoa học G1.
 
-Mã duy nhất: `scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py`, tệp được khóa sơ bộ tại commit `2de63206e49e6cf0bfbb4299d67a956f9c5d8ef1`; Git blob `b7899ef4e718a9e8041a8a07ae931a0faf7f8ed9`.
+Mã duy nhất: `scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py`, tệp được khóa sơ bộ tại commit `a7191d5611d959cd90ea345ecb055f5816a7be1c`; Git blob `dde9267b5a2d631365ce555e59fed403d0921657`.
 
 ## 2. Nguồn và môi trường ứng viên (khóa trước smoke)
 
@@ -68,7 +68,7 @@ git clone --single-branch --branch research/ttm-six-cross-model-representation-t
 cd /content/ttm_six_g1_checkout
 git remote get-url origin
 git rev-parse HEAD
-git cat-file -p b7899ef4e718a9e8041a8a07ae931a0faf7f8ed9 >/dev/null
+git cat-file -p dde9267b5a2d631365ce555e59fed403d0921657 >/dev/null
 ```
 
 Chọn đúng phiên bản các thư viện ở trên và đối chiếu với receipt; **không dùng lệnh nâng cấp toàn bộ PyTorch**. Khi môi trường tương thích:
@@ -82,7 +82,7 @@ Trước khi chạy, có thể xác minh chính xác tệp script so với commi
 ```bash
 cd /content/ttm_six_g1_checkout
 git rev-parse HEAD:scripts/research/six_ttm/g1_qwen06_zero_science_smoke.py
-# Phải trả về b7899ef4e718a9e8041a8a07ae931a0faf7f8ed9.
+# Phải trả về dde9267b5a2d631365ce555e59fed403d0921657.
 ```
 
 **Quan trọng:** `git cat-file` ở trên kiểm tra *sự tồn tại* blob; `git rev-parse HEAD:path` mới kiểm chứng blob đang được dùng. `preflight` không tự cài thư viện. Bản mẫu này chưa chạy và chưa xác minh runtime thực tế. Nếu không có đúng phiên bản môi trường đã khóa, trả `HOLD_ENV` thay vì tự ép cài lại môi trường TTM-Small-4M.
