@@ -1,0 +1,45 @@
+{
+  "schema": "ttm.q1q2.single_batch.offline.qa.v1",
+  "date": "2026-11-09",
+  "source_branch": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+  "code_files": [
+    {
+      "path": "tools/pilot_q1q2/single_batch_20261109/ttm_q1q2_single_batch.py",
+      "sha256": "4616121dcd141c4081e2e242e91a0bcef14eaefce3a72e2ea2d0abff1a264566"
+    },
+    {
+      "path": "tools/pilot_q1q2/single_batch_20261109/test_ttm_q1q2_offline.py",
+      "sha256": "e24ea51b34008b21f188e01c30cda16fe50beb9008dc2a4fd1831906aad0db57"
+    },
+    {
+      "path": "tools/pilot_q1q2/single_batch_20261109/Invoke-TTM-Q1Q2-Single-Batch-PS51.ps1",
+      "sha256": "cc2ebd4441c18830de1c5b2e52aee5d146e27363a0ebd9e704de882f55a1074c"
+    }
+  ],
+  "test_environment": {
+    "python": "3.13.5",
+    "platform": "container_linux",
+    "native_windows": false
+  },
+  "results": {
+    "python_compile": "PASS",
+    "unittest": "PASS_10_OF_10",
+    "fixture_hash": "NOT_EXECUTED_CONTAINER_FULL_MAIN_INPUTS_UNAVAILABLE",
+    "powershell_parse": "NOT_EXECUTED_WINDOWS_PS51",
+    "ollama_native": "NOT_EXECUTED"
+  },
+  "safeguards": [
+    "NO_OLLAMA_CREATE",
+    "NO_TRAIN_TEST_ACCESS",
+    "PORT_12650",
+    "74_TOTAL_REQUESTS",
+    "3904_TOKEN_CAP",
+    "45_MINUTE_WALL_BUDGET",
+    "ONE_SHOT_OUT_EXCLUSIVE",
+    "PUBLISH_PASS_OR_HOLD_READBACK",
+    "NO_AUTORETRY"
+  ],
+  "limitations": "Container unittest 10/10 does not establish Windows PowerShell 5.1 syntax, native Ollama ownership, actual quality, full QA for frozen inputs; run QA and Preview on Windows before Execute.",
+  "main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "pr13_parent": "2a619333d778413468dcd9150973fa7d8c5fc2e9"
+}
