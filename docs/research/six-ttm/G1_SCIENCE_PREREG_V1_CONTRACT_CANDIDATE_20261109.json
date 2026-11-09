@@ -170,7 +170,12 @@
     "failed_science_inference": "FAIL only if positive control qualified and all gates valid and primary threshold not met; otherwise INCONCLUSIVE_UNDERPOWERED_OR_CONTROL_FAIL",
     "multiplicity_note": "functional+geometry co-required conjunction, p <=0.01 each; probe-level effects exploratory only; cannot generalize from 64 TEST stories as universal functional invariance",
     "bootstrap_effect": "per-story paired bootstrap 2000 resamples for Delta_R2_aligned_minus_TRAIN_mean on TEST; use identical story indices for aligned and mean; null percentile is calculated once from frozen permuted TRAIN fits, not recomputed inside each bootstrap",
-    "sample_size_power_model": "NOT_QUALIFIED: 64 TEST story clusters for scoped feasibility; no blanket >=80pct power claim; absence of evidence => INCONCLUSIVE not proof of zero transfer"
+    "sample_size_power_model": "NOT_QUALIFIED: 64 TEST story clusters for scoped feasibility; no blanket >=80pct power claim; absence of evidence => INCONCLUSIVE not proof of zero transfer",
+    "macro_r2_exact": "For each of 8 probes R2_j=1-Σ_{test stories}(rhat_ij-r_ij)^2 / Σ_{test stories}(r_ij-mu_train_j)^2, using TRAIN-only mu and std; macro_R2=(1/8)Σ_j R2_j. Never drop dimensions posthoc.",
+    "train_function_std_gate": "Compute population std (ddof=0) for 8 raw target-teacher functional scores on TRAIN before TEST read; if any std<1e-5, STOP_INCONCLUSIVE_CONTROL_DEGENERATE before TEST; do not drop/tune probes",
+    "test_sst_gate": "On one-shot TEST after science lock, if any per-dimension SST<1e-8, verdict INCONCLUSIVE_DEGENERATE_TEST; do not exclude dimension or rerun",
+    "feature_scaling": "TRAIN-only feature mean and std; apply max(std,1e-6) denominator; target response std must independently clear train_function_std_gate",
+    "unknown_teacher_pretraining_overlap": "TTM TRAIN-only TEST is held out from G1 mapping fits; not guaranteed unseen by pretrained Qwen"
   },
   "execution": {
     "model_load_order": [
