@@ -23,6 +23,7 @@ P02_BLOB = "9762343e06cf800b50574c2871ae1ed58537fb18"
 PLAN_BLOB = "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
 CKPT_SHA = "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
 GGUF_SHA = "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5"
+VERIFIED_REAL_CPU_REFERENCE_SHA = "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c"
 GGUF_REL = "_tmp/ttm_t5_trained_f32_v1/TTM-Small4M-T4-step1024-F32.gguf"
 WORKTREE_REL = "worktrees/ttm-t5-kvflash-preview-20261109"
 LLAMA_REL = "_tmp/ttm_t2/llama.cpp"
@@ -70,7 +71,11 @@ def main():
     ap.add_argument("--expected-head",required=True)
     ap.add_argument("--checkpoint",type=Path,default=None,
                     help="Existing ORIGINAL T4 1024 .pt inside this project; optional for binary-only stage.")
+    ap.add_argument("--existing-reference",type=Path,default=None,
+                    help="Previously generated original-step1024 real F32 CPU logits within TTM root, pinned SHA")
     a=ap.parse_args()
+    if a.checkpoint is not None and a.existing_reference is not None:
+        raise ValueError("CHECKPOINT_AND_REFERENCE_MUTUALLY_EXCLUSIVE")
     if not (len(a.expected_head)==40 and all(x in "0123456789abcdef" for x in a.expected_head)):
         raise ValueError("EXPECTED_SHA_40_LOWERCASE_REQUIRED")
     root=a.project_root.resolve(strict=True)
@@ -181,7 +186,25 @@ def main():
         receipts["steps"]["compiled_constants"]="PASS_8_FIXTURES_4_ARMS_NO_MODEL"
         receipts["compiled_constants_sha256"]=sha(sc_file)
 
-        if a.checkpoint is None:
+        if a.existing_reference is not None:
+            original=within(root,a.existing_reference)
+            if sha(original)!=VERIFIED_REAL_CPU_REFERENCE_SHA:
+                raise ValueError("EXISTING_REAL_REFERENCE_SHA_PIN_MISMATCH")
+            ref=stage/"REFERENCE_F32_SYN01_SYN08.jsonl"
+            if ref.exists():raise FileExistsError("STAGE_REFERENCE_ALREADY_EXISTS")
+            shutil.copyfile(original,ref)
+            if sha(ref)!=VERIFIED_REAL_CPU_REFERENCE_SHA:
+                raise ValueError("COPIED_REFERENCE_SHA_MISMATCH")
+            check=run("16_imported_reference_schema_qa",[
+                python,source/"verify_f32_reference_rows.py",
+                "--prereg",prereg,"--reference",ref],timeout=45)
+            if json.loads(check).get("status")!="PASS_REFERENCE_8_OF_8_X_2048_F32_SCHEMA":
+                raise ValueError("IMPORTED_REFERENCE_NOT_INDEPENDENTLY_VALID")
+            receipts["reference"]="IMPORTED_REAL_P02_STEP1024_8X2048_SHA_VERIFIED"
+            receipts["reference_sha256"]=VERIFIED_REAL_CPU_REFERENCE_SHA
+            receipts["reference_path"]=str(ref)
+            receipts["status"]="STAGED_COMPILED_BINARY_AND_REAL_REFERENCE_QA_COMPLETE_NATIVE_HOLD"
+        elif a.checkpoint is None:
             receipts["reference"]="HOLD_CHECKPOINT_FILE_NOT_PROVIDED"
             receipts["status"]="HOLD_REFERENCE_MISSING_BINARY_QA_COMPLETE"
         else:
