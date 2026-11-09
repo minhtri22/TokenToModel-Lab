@@ -1,0 +1,9 @@
+{
+  "cuda": "13.0",
+  "gpu": "Tesla T4",
+  "report_sha256": "15e1e063beceda878db051eb6bbd49d9373ad4e1bf736883df2a585818676dc3",
+  "schema": "ttm.t4.synthetic.gpu.integration.env.v1",
+  "science_executed": false,
+  "synthetic_only": true,
+  "torch": "2.14.1+cu130"
+}

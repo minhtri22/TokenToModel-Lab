@@ -1,0 +1,18 @@
+{
+  "schema": "ttm.t5.ollama.v3rc1.release.manifest.v1",
+  "date": "2026-11-09",
+  "package_filename": "TTM_T5_OLLAMA_V3RC1_GUARDED_SMOKE_20261109.zip",
+  "source_v3_original_sha256": "9d7be21e5bc961a2fbcbe42c58790d8b2aac755e7d1e184eb7fd5d4c833f13cf",
+  "source_files": {
+    "t5_ollama_v3rc1.py": "54a60678e72ebb829395edb2aa23e12d23da1388e3204b2e629138abc8ab493b",
+    "test_v3rc1_independent.py": "cb154024d208bd8859f9a26ad3dacb60f7a0bf2b04b1253e76e9f1140112c75d",
+    "Invoke-TTM-T5-Ollama-V3RC1-PS51.ps1": "71eccba312b550291620dee1a6ab96d6dcd7cac287b59d70b8fa1a092e65980d",
+    "README_VI.md": "6eb094aa87899d971fe35e62a89faa3df02ae24e6a20904de94ad09f15a288fe",
+    "INDEPENDENT_OFFLINE_QA_RC1.json": "6ca8f77d72b5d07d5091a45856228adf804970086d50c36d5e68ea0646daf7c1"
+  },
+  "port": 12645,
+  "model": "ttm-t5-f32-compat-only-v3rc1:latest",
+  "one_shot_evidence_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_ollama_compat_only_single_v3rc1",
+  "release_scope": "COMPATIBILITY_ONLY_ONE_SHOT_GUARDED_NOT_EXECUTED",
+  "strict_parity": "FAIL_7_OF_8_PRESERVED"
+}

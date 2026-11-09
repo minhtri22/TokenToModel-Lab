@@ -1,0 +1,14 @@
+{
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+  "max_abs_logit_error": 0.003362178805176086,
+  "n_id_fixtures": 8,
+  "n_tokenizer_fixtures": 9,
+  "pinned_llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+  "schema": "ttm.t5.trained.gguf.cpu.llama.parity.v1",
+  "status": "FAIL_T5_TRAINED_LLAMA_F32_PARITY",
+  "test_set_accessed": false,
+  "tokenizer_mismatch_count": 2,
+  "top1_mismatch_count": 0,
+  "training_performed": false
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.t5.ollama.local.readonly.preflight.readback.v1",
+  "date": "2026-11-08",
+  "source": "user-supplied Windows PowerShell console output; no independent new native execution",
+  "scope": "ENGINEERING_READONLY_NOT_IMPORT_NOT_INFERENCE",
+  "observed": {
+    "python_executable": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "gguf": {
+      "file_name": "TTM-Small4M-T4-step1024-F32.gguf",
+      "sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+      "bytes": 15061376,
+      "header_version": 3,
+      "architecture": "gpt2",
+      "context_length": 256,
+      "metadata_count": 18,
+      "tensor_count": 52,
+      "tensor_type": "F32_ALL",
+      "vocab_count": 2048,
+      "merge_count": 1791,
+      "readonly_structure_status": "PASS"
+    },
+    "ollama": {
+      "executable": "C:\\Users\\minht\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+      "cli_version_output": "ollama version is 0.40.14",
+      "running_process_count": 2,
+      "port_11434_listener_via_get_nettcpconnection": "NO",
+      "http_api_version_at_127_0_0_1_11434": "0.40.14",
+      "import": "NOT_EXECUTED_READONLY",
+      "inference": "NOT_EXECUTED_READONLY"
+    },
+    "prior_t5_full_logits": "FAIL_PRESERVED",
+    "train_test_accessed": false
+  },
+  "adjudication": {
+    "readonly_gguf_structure": "PASS_SCOPED",
+    "ollama_cli_version_identified": "PASS",
+    "ollama_local_http_api_reachable_at_probe_time": "PASS",
+    "listener_port_snapshot": "CONFLICTS_WITH_HTTP_GET_SUCCESS_DO_NOT_DECLARE_SERVICE_DOWN",
+    "ollama_backend_actual_gguf_import": "NOT_TESTED",
+    "ollama_backend_inference": "NOT_TESTED",
+    "ollama_server_model_store_scope": "NOT_VERIFIED",
+    "compatibility_only_execution": "HOLD_UNTIL_WRITABLE_MODEL_STORE_WITHIN_PROJECT_CONFIRMED",
+    "frozen_full_logits": "FAIL_7_OF_8_PRESERVED",
+    "overall_status": "PASS_SCOPED_READONLY_PREFLIGHT_COMPATIBILITY_NOT_YET_PROVEN"
+  },
+  "no_new_training": true,
+  "no_new_test_access": true,
+  "no_ollama_import": true,
+  "no_ollama_inference": true,
+  "no_main_or_lineage_modifications": true
+}

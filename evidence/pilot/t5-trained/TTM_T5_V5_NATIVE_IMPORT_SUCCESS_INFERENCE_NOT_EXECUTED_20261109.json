@@ -1,0 +1,56 @@
+{
+  "schema": "ttm.t5.v5.native.import.success.inference.not_executed.adjudication.v1",
+  "recorded_date": "2026-11-09",
+  "provenance": "User console pasted text(20261109-040613).txt plus RemoteDesktop read-only inspection of RESULT.json, create.stderr.log, manifest-v2, MODELS_AFTER_CREATE.json, READINESS_ATTEMPTS.jsonl. Results are not from a new execution by assistant.",
+  "original_result_sha256_console": "78f77a5d6f9d2829c4914787a875ee44b49d864ad51aad616a06a21ce1ce219d",
+  "original_trace_sha256_console": "98ed62226a33e927aeea3c366d9d230c358edf7edebbadc3ec872c7728ee9fa3",
+  "v5_source_qa": "PASS_47_OF_47_REPORTED_WINDOWS",
+  "v5_wrapper_patch": "PASS_ONE_LITERAL_ONLY",
+  "native_v5_consumed": true,
+  "native_server": {
+    "pid": 33992,
+    "port": 12648,
+    "readiness": "READY_DUAL_ATTESTED_STATE_ZERO_UNKNOWN",
+    "http_status": 200,
+    "version": "0.40.14"
+  },
+  "import": {
+    "cli_return_code": 0,
+    "api_create_status": 200,
+    "create_stderr_success": true,
+    "manifest_path": "manifests-v2/ollama.com/library/ttm-t5-f32-compat-only-v5final/latest",
+    "manifest_sha256": "5966524c448e16c4de099f24c0dc334708ed63315322949fd8d684cc2aef8f14",
+    "model_layer_digest": "sha256:5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "model_layer_size": 15061376,
+    "format": "gguf",
+    "runner": "llamacpp",
+    "conclusion": "OLLAMA_IMPORT_ACCEPTED_AND_STORED"
+  },
+  "detection_failure": "Guard incorrectly searched only paths with prefix 'manifests/' while installed Ollama stores imported manifest under 'manifests-v2/'",
+  "inference": "NOT_EXECUTED",
+  "inference_compatibility": "NOT_ESTABLISHED",
+  "shutdown": {
+    "pid": 33992,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "shutdown_port": {
+    "benign_timewait_count": 3,
+    "decision": "PASS_NO_ACTIVE_SOCKET_AFTER_SHUTDOWN"
+  },
+  "freeze": {
+    "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "strict_logits": "FAIL_7_OF_8_PRESERVED",
+    "v1_v2_v3rc1_v4_v5": "CONSUMED_NO_RERUN",
+    "lineage": "UNCHANGED"
+  },
+  "successor": {
+    "mode": "INFERENCE_ONLY_FROM_COPIED_PRESERVED_V5_STORE",
+    "port": 12649,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "source_bundle_sha256": "b07fc89d751710025d113a2e64249db260de7a351f18a75eb8a4a8c437f16379",
+    "offline_qa": "PASS_12_OF_12_MOCK_ONLY",
+    "real_execution": "NOT_EXECUTED",
+    "new_run_dir": "_tmp/ttm_t5_v5_imported_model_inference_only_v1"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bigram_model_h1_smoke_only": true,
+  "checkpoint_sha256": "c975354732dd34f52df722345619cdc0a8d4492453272cb46aeb61e929addb31",
+  "gpu_used": false,
+  "microbatch_windows": 8,
+  "model_exact": true,
+  "optimizer_exact": true,
+  "ready_last": true,
+  "sampler_exact": true,
+  "schema": "ttm.t4.synthetic.cpu.trainer.integration.v1",
+  "science_executed": false,
+  "science_lock_denial": true,
+  "source_p02_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+  "status": "PASS_CPU_SYNTHETIC_DYNAMIC_WINDOW_CHECKPOINT_EVAL",
+  "step2_loss_exact": true,
+  "synthetic_window_mean_targets": 192.1860465116279,
+  "synthetic_windows_shape": [
+    43,
+    256
+  ],
+  "targets_per_step": 4096,
+  "tiny_stories_used": false,
+  "val_scored_targets": 1432,
+  "windows_step1": 23,
+  "windows_step2": 20
+}

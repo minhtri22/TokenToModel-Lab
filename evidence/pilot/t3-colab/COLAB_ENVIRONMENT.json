@@ -1,0 +1,10 @@
+{
+  "cuda": "13.0",
+  "gpu_name": "Tesla T4",
+  "original_checkpoint_sha256": "3546105cb736084956c8d4bea6950fe931b658845ed29a5791c6669b40f67382",
+  "pip_freeze_sha256": "a6eebfff272109bc4732b72d4bb1a0892d73e3db37c8f35d3afd7f32dcff0b80",
+  "report_sha256": "27431e5f2df96bb566a972191c5bed5e25e5f4e04e590e19d2957c479abb3e4a",
+  "schema": "ttm.t3.original_checkpoint.recovery.environment.v1",
+  "science_executed": false,
+  "torch": "2.14.1+cu130"
+}

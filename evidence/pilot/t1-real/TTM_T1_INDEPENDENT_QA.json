@@ -1,0 +1,40 @@
+{
+  "bpe_manifest_sha256": "6da22cf79c3a6cfd08d80a768eb1074125a753164ccf62a164e79545956e94c6",
+  "bpe_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "bpe_source_commitment_sha256": "c102639cdb032f699a2585ddee84865ded408118d70587fc73a13e1ce8533058",
+  "dataset_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+  "gguf_f32_sha256": "68c0684d75fe12965427c93f34052172d59b480a74f52804648a4751ed5c8747",
+  "gpu_used": false,
+  "limitations": [
+    "Does not prove near-dedup against all unused TRAIN stories",
+    "Does not rerun native llama.cpp or retrain BPE",
+    "Does not authorize Colab T4 science"
+  ],
+  "max_abs_logit_error": 0.0008438229900207261,
+  "native_logit_cases": 10,
+  "native_receipt_sha256": "04ade9824c4f63f0f3a169bb918cd78bd4c4133965168e4aec5bd85f83868ea3",
+  "native_tokenizer_cases": 20,
+  "near_duplicate_scope": "ACTIVE_PILOT_2048_TRAIN_256_VAL_64_TEST_ONLY",
+  "raw_sha256": {
+    "TinyStories-train.txt": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "TinyStories-valid.txt": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4"
+  },
+  "science_executed": false,
+  "source_stats_verified": {
+    "near_dropped_candidates_test": 0,
+    "near_dropped_candidates_val": 0,
+    "near_threshold_word5_jaccard": 0.85,
+    "selected_test": 64,
+    "selected_train": 2048,
+    "selected_val": 256,
+    "train_exact_duplicates": 320241,
+    "train_stories_scanned": 2119489,
+    "valid_collision_with_full_raw_train": 6601,
+    "valid_exact_duplicates": 0,
+    "valid_stories_scanned": 21990
+  },
+  "split_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+  "status": "PASS_INDEPENDENT_T1_REAL_SOURCE_SPLIT_BPE_NATIVE_QA",
+  "t1_result_sha256": "a9947931a84bd83e3f2d08cafd3075d6152398d1ffc123e03ef4c5186d72d68f",
+  "train_near_rejected_by_independent_audit": 0
+}

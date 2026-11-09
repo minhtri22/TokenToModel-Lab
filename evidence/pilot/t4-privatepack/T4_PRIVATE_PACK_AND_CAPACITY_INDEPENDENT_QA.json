@@ -1,0 +1,100 @@
+{
+  "capacity_options": [
+    {
+      "estimated_seconds_full_1024_steps": 56.62,
+      "measured_max_step_s": 0.02726955699998257,
+      "measured_peak_vram_ratio": 0.020385326253232357,
+      "microbatch_windows": 8,
+      "precision": "fp16",
+      "provisionally_fits_90min_gpu_compute": true,
+      "synthetic_fixed_accumulation_only": 2
+    },
+    {
+      "estimated_seconds_full_1024_steps": 106.91,
+      "measured_max_step_s": 0.05148910299999443,
+      "measured_peak_vram_ratio": 0.013545512839318869,
+      "microbatch_windows": 4,
+      "precision": "fp16",
+      "provisionally_fits_90min_gpu_compute": true,
+      "synthetic_fixed_accumulation_only": 4
+    },
+    {
+      "estimated_seconds_full_1024_steps": 190.72,
+      "measured_max_step_s": 0.09185155000000123,
+      "measured_peak_vram_ratio": 0.009924435149599963,
+      "microbatch_windows": 2,
+      "precision": "fp32",
+      "provisionally_fits_90min_gpu_compute": true,
+      "synthetic_fixed_accumulation_only": 8
+    },
+    {
+      "estimated_seconds_full_1024_steps": 236.19,
+      "measured_max_step_s": 0.11375069100000701,
+      "measured_peak_vram_ratio": 0.00952209318407564,
+      "microbatch_windows": 2,
+      "precision": "fp16",
+      "provisionally_fits_90min_gpu_compute": true,
+      "synthetic_fixed_accumulation_only": 8
+    }
+  ],
+  "colab_synthetic_capacity_sha256": "c55a568496a888bc3abc95c0231a5ed17d3a6f366361571b6f89a4457d09f1ee",
+  "est_windows_per_step_rounded_up": 23,
+  "estimated_mean_windows_per_4096_target_step": 22.120456684601443,
+  "mean_exposure_reuse": 8.417446170580408,
+  "note": "Real science uses dynamic exact-target accumulation; synthetic gradient_accumulation=2 is NOT a frozen real-data value.",
+  "npz_bytes": 1186107,
+  "npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "private_pack_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+  "raw_train_or_val_tokens_exposed": false,
+  "safety_factor_including_extra_10pct": 1.5207813970663493,
+  "schema": "ttm.t4.independent.privatepack.capacity.qa.v1",
+  "science_executed": false,
+  "science_lock": "HOLD",
+  "selected_technical_candidate": {
+    "estimated_seconds_full_1024_steps": 56.62,
+    "measured_max_step_s": 0.02726955699998257,
+    "measured_peak_vram_ratio": 0.020385326253232357,
+    "microbatch_windows": 8,
+    "precision": "fp16",
+    "provisionally_fits_90min_gpu_compute": true,
+    "synthetic_fixed_accumulation_only": 2
+  },
+  "status": "PASS_INDEPENDENT_PRIVATE_PACK_INTEGRITY_AND_PROVISIONAL_CAPACITY",
+  "target_exposures_planned": 4194304,
+  "test_tokenization": 0,
+  "train": {
+    "exact_next_token_shift": true,
+    "full_context_window_fraction": 0.24228911185432925,
+    "loss_padding_and_vocab": true,
+    "max_valid_targets_per_window": 256,
+    "mean_valid_targets_per_window": 185.1679672984021,
+    "min_valid_targets_per_window": 1,
+    "stories": 2048,
+    "story_terminal_eos": true,
+    "valid_next_token_targets": 498287,
+    "windows": 2691,
+    "within_story_window_continuity": true
+  },
+  "training_positions_unique": 498287,
+  "unproven": [
+    "No actual 1024-step GPU real training",
+    "No end-to-end trainer GPU synthetic Drive integration on real window shape",
+    "No complete VAL/checkpoint/Drive timing measurement",
+    "No scientific permit or H1 evidence",
+    "No global near-duplicate clearance against unselected source corpus"
+  ],
+  "val": {
+    "exact_next_token_shift": true,
+    "full_context_window_fraction": 0.21951219512195122,
+    "loss_padding_and_vocab": true,
+    "max_valid_targets_per_window": 256,
+    "mean_valid_targets_per_window": 186.34756097560975,
+    "min_valid_targets_per_window": 2,
+    "stories": 256,
+    "story_terminal_eos": true,
+    "valid_next_token_targets": 61122,
+    "windows": 328,
+    "within_story_window_continuity": true
+  },
+  "window_inflation_from_full256": 1.3825285427875902
+}

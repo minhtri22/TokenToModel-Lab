@@ -1,0 +1,52 @@
+test_create_fail_stops_before_generate (__main__.TestMockedFullSmoke.test_create_fail_stops_before_generate) ... ok
+test_full_mock_pipeline_after_shutdown_pid0_timewait (__main__.TestMockedFullSmoke.test_full_mock_pipeline_after_shutdown_pid0_timewait) ... ok
+test_missing_manifest_stops_before_generate (__main__.TestMockedFullSmoke.test_missing_manifest_stops_before_generate) ... ok
+test_no_done_rejected (__main__.TestMockedFullSmoke.test_no_done_rejected) ... ok
+test_positive_mock_full_pipeline (__main__.TestMockedFullSmoke.test_positive_mock_full_pipeline) ... ok
+test_tag_not_visible_stops_before_generate (__main__.TestMockedFullSmoke.test_tag_not_visible_stops_before_generate) ... ok
+test_token_over_32_rejected (__main__.TestMockedFullSmoke.test_token_over_32_rejected) ... ok
+test_wrong_model_rejected (__main__.TestMockedFullSmoke.test_wrong_model_rejected) ... ok
+test_identity_query_ignores_timewait_pid_zero (__main__.TestNativeTimeWaitRegression.test_identity_query_ignores_timewait_pid_zero) ... ok
+test_listen_with_remote_endpoint_holds (__main__.TestNativeTimeWaitRegression.test_listen_with_remote_endpoint_holds) ... ok
+test_pid_foreign_listener_never_ignored (__main__.TestNativeTimeWaitRegression.test_pid_foreign_listener_never_ignored) ... ok
+test_pid_zero_non_timewait_rejected (__main__.TestNativeTimeWaitRegression.test_pid_zero_non_timewait_rejected) ... ok
+test_pid_zero_timewait_nonloopback_rejected (__main__.TestNativeTimeWaitRegression.test_pid_zero_timewait_nonloopback_rejected) ... ok
+test_pid_zero_timewait_wrong_remote_rejected (__main__.TestNativeTimeWaitRegression.test_pid_zero_timewait_wrong_remote_rejected) ... ok
+test_shutdown_active_listener_still_holds (__main__.TestNativeTimeWaitRegression.test_shutdown_active_listener_still_holds) ... ok
+test_shutdown_pid_zero_non_timewait_holds (__main__.TestNativeTimeWaitRegression.test_shutdown_pid_zero_non_timewait_holds) ... ok
+test_shutdown_timewait_is_benign_not_server_running (__main__.TestNativeTimeWaitRegression.test_shutdown_timewait_is_benign_not_server_running) ... ok
+test_timewait_after_http_with_stable_owner_readiness_passes (__main__.TestNativeTimeWaitRegression.test_timewait_after_http_with_stable_owner_readiness_passes) ... ok
+test_timewait_pid_zero_keeps_owner (__main__.TestNativeTimeWaitRegression.test_timewait_pid_zero_keeps_owner) ... ok
+test_changed_creation_rejected (__main__.TestReleaseGuard.test_changed_creation_rejected) ... ok
+test_child_path_filter_never_mutates_parent (__main__.TestReleaseGuard.test_child_path_filter_never_mutates_parent) ... ok
+test_cli_contract_does_not_start_server (__main__.TestReleaseGuard.test_cli_contract_does_not_start_server) ... ok
+test_evidence_dir_creation_exclusive (__main__.TestReleaseGuard.test_evidence_dir_creation_exclusive) ... ok
+test_exact_gguf_and_ollama_pins (__main__.TestReleaseGuard.test_exact_gguf_and_ollama_pins) ... ok
+test_execute_calls_exactly_once (__main__.TestReleaseGuard.test_execute_calls_exactly_once) ... ok
+test_execute_hold_has_nonzero_exit (__main__.TestReleaseGuard.test_execute_hold_has_nonzero_exit) ... ok
+test_failure_preserves_artifacts (__main__.TestReleaseGuard.test_failure_preserves_artifacts) ... ok
+test_http_200_alone_not_sufficient (__main__.TestReleaseGuard.test_http_200_alone_not_sufficient) ... ok
+test_http_dual_attestation_success (__main__.TestReleaseGuard.test_http_dual_attestation_success) ... ok
+test_http_owner_changed (__main__.TestReleaseGuard.test_http_owner_changed) ... ok
+test_http_socket_state_changed (__main__.TestReleaseGuard.test_http_socket_state_changed) ... ok
+test_http_wrong_version (__main__.TestReleaseGuard.test_http_wrong_version) ... ok
+test_local_http_proxy_bypass (__main__.TestReleaseGuard.test_local_http_proxy_bypass) ... ok
+test_loopback_wildcard_rejected (__main__.TestReleaseGuard.test_loopback_wildcard_rejected) ... ok
+test_native_parser_0_remains_unknown (__main__.TestReleaseGuard.test_native_parser_0_remains_unknown) ... ok
+test_native_parser_bad_count_rejected (__main__.TestReleaseGuard.test_native_parser_bad_count_rejected) ... ok
+test_native_parser_ipv6 (__main__.TestReleaseGuard.test_native_parser_ipv6) ... ok
+test_no_global_service_commands (__main__.TestReleaseGuard.test_no_global_service_commands) ... ok
+test_port_and_model_dedicated (__main__.TestReleaseGuard.test_port_and_model_dedicated) ... ok
+test_preview_fail_closed_on_bad_pin (__main__.TestReleaseGuard.test_preview_fail_closed_on_bad_pin) ... ok
+test_preview_uses_pin_but_never_create_claim (__main__.TestReleaseGuard.test_preview_uses_pin_but_never_create_claim) ... ok
+test_state_two_exact_loopback_ok (__main__.TestReleaseGuard.test_state_two_exact_loopback_ok) ... ok
+test_state_zero_nonzero_remote_rejected (__main__.TestReleaseGuard.test_state_zero_nonzero_remote_rejected) ... ok
+test_trace_exclusive_no_overwrite (__main__.TestReleaseGuard.test_trace_exclusive_no_overwrite) ... ok
+test_trace_ready_persisted (__main__.TestReleaseGuard.test_trace_ready_persisted) ... ok
+test_unknown_tcp_state_not_claimed_listen (__main__.TestReleaseGuard.test_unknown_tcp_state_not_claimed_listen) ... ok
+test_wrong_pid_rejected (__main__.TestReleaseGuard.test_wrong_pid_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.173s
+
+OK

@@ -1,0 +1,69 @@
+{
+  "branch": "research/ttm-small-4m-colab-pilot-prereg-20261108",
+  "date_utc": "2026-11-09T06:06:12.650627+00:00",
+  "exact_head": "88d90f88d8971a9bc5ff94b1777624f10764abf9",
+  "main": "1a9d8cba56564d6d36257fe95c34f2fd52c4f48a",
+  "merge_decision": "HOLD_OWNER_RIGHTS_AND_FINAL_REVIEW",
+  "ollama_or_network_smoke_executed": false,
+  "parity": "FAIL_7_OF_8_PRESERVED",
+  "prior_one_shots_replayed": false,
+  "schema": "ttm.pr12.github_truth.integrated_windows_qa.v1",
+  "science_train_or_test_executed": false,
+  "source_pins_verified": 15,
+  "static": {
+    "json_parsed": 22,
+    "notebooks_without_outputs": 5,
+    "python_ast": 34
+  },
+  "status": "PASS_SCOPED",
+  "suites": [
+    {
+      "exit_code": 0,
+      "name": "T1T3_SYNTHETIC",
+      "outcome": "PASS",
+      "stderr_sha256": "1a445c5bc5f81c29e43d3f3d7aefc74857df5da4f0966fbc87a00e7b2c23d97b",
+      "stdout_sha256": "90bbf855ddb1b6b870780e3cc342a535167f0dded3d54a55c71fb2ee0872ccfb",
+      "timeout_seconds": 120
+    },
+    {
+      "exit_code": 0,
+      "name": "T2_SYNTHETIC",
+      "outcome": "PASS",
+      "stderr_sha256": "7353d08d2171b75409b4d4be96fbd4407fb3eb7af495904b9eab9b9e96ac5d5f",
+      "stdout_sha256": "c05894737b8401459c0beb8664fbc72e8f1b93ccc51b040f42a53623b8a42680",
+      "timeout_seconds": 150
+    },
+    {
+      "exit_code": 0,
+      "name": "T4_SYNTHETIC",
+      "outcome": "PASS",
+      "stderr_sha256": "8c8703f1e32846a92ea22cbf4ffc43304d5ecdaffb4fac0f67ff497a477a9e75",
+      "stdout_sha256": "c0d8e0e6949beb2eaf7a924bbd1c0a384781a792a172188254cf02cdf26cbe0a",
+      "timeout_seconds": 180
+    },
+    {
+      "exit_code": 0,
+      "name": "T5_V5_OFFLINE",
+      "outcome": "PASS",
+      "stderr_sha256": "e1ca77f335f089f8e67bbb236085a4acffa7b18ae8c873666af0e21091d54ed8",
+      "stdout_sha256": "852ea298ae4476bec037db302d1a37bf64ec9b92a851b9ea93dc95173f84844c",
+      "timeout_seconds": 50
+    },
+    {
+      "exit_code": 0,
+      "name": "T5_INFERENCE_OFFLINE",
+      "outcome": "PASS",
+      "stderr_sha256": "069d817e1eb0fde59974117a673cd5465974f45cd108ec24f7c4ac3de63e5c54",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 50
+    },
+    {
+      "exit_code": 0,
+      "name": "Q1Q2_FROZEN",
+      "outcome": "PASS",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0ddef14c31c5e36b9b8e4084c346dc0163f5fc55ee0e419618856f6c6c142e49",
+      "timeout_seconds": 40
+    }
+  ]
+}

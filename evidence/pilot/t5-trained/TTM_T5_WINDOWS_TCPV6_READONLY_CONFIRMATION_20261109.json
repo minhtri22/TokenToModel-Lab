@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.t5.windows.tcpv6.readonly.confirmation.v1",
+  "date": "2026-11-09",
+  "source": "USER_SUPPLIED_POWERSHELL_CONSOLE",
+  "measured_existing_ollama_port": 11434,
+  "netstat_tcp_matching_rows": 0,
+  "netstat_tcpv6_matching_rows": 0,
+  "windows_tcp_table": {
+    "local_address": "::",
+    "local_port": 11434,
+    "owning_pid": 14464,
+    "state": "NOT_DISPLAYED_IN_SUPPLIED_CONSOLE",
+    "process_name": "ollama.exe",
+    "executable_path": "C:\\Users\\minht\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+  },
+  "previous_same_service_observation": {
+    "tcp_connect_ipv4_loopback": "PASS",
+    "http_status": 200,
+    "api_version": "0.40.14"
+  },
+  "observations": [
+    "Both netstat TCP and TCPv6 filters report zero matching rows.",
+    "Get-NetTCPConnection identifies process PID 14464.",
+    "The State property was blank in the formatted console output.",
+    "The process path matches installed Ollama, but no pinned exe hash was measured in this readback.",
+    "IPv6 :: wildcard is not loopback ::1."
+  ],
+  "adjudication": {
+    "netstat_filter_single_cause": "REJECTED",
+    "netstat_as_sole_ownership_authority": "NOT_RELIABLE_IN_THIS_ENVIRONMENT",
+    "exact_reason_netstat_empty": "NOT_ISOLATED",
+    "state_listen_value": "NOT_OBSERVED",
+    "root_cause_for_consumed_v2_12644": "NOT_PROVEN",
+    "original_v1": "CONSUMED_NO_RERUN",
+    "original_v2": "CONSUMED_NO_RERUN",
+    "ollama_import": "NOT_EXECUTED",
+    "ollama_inference": "NOT_EXECUTED",
+    "frozen_t5_logits": "FAIL_7_OF_8_PRESERVED"
+  },
+  "changes_performed_by_readonly_diagnostic": [],
+  "next": "INTEGRATED_SOURCE_ONLY_GET_NETTCPCONNECTION_OWNERSHIP_GUARD_WITH_NEGATIVE_QA_NO_NEW_SMOKE"
+}

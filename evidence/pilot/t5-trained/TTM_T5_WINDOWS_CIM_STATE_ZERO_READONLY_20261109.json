@@ -1,0 +1,32 @@
+{
+  "schema": "ttm.t5.windows.cim.state0.readonly_observation.v1",
+  "observed_date": "2026-11-09",
+  "source": "USER_SUPPLIED_POWERSHELL_CONSOLE",
+  "reference_port": 11434,
+  "windows_cim_tcp_rows": 1,
+  "local_address": "::",
+  "owning_pid": 14464,
+  "process_identity_from_prior_readback": "C:\\Users\\minht\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+  "state_property_display": "",
+  "state_cim_raw_value": 0,
+  "state_cim_raw_type": "System.Byte",
+  "listen_filter_query": "Get-NetTCPConnection -LocalPort 11434 -State Listen",
+  "listen_filter_result": "NO_MATCHING_MSFT_NETTCPCONNECTION",
+  "reference_http_from_prior_readback": {
+    "url": "http://127.0.0.1:11434/api/version",
+    "http_status": 200,
+    "api_version": "0.40.14"
+  },
+  "adjudication": {
+    "state_0_is_listen": false,
+    "documented_tcp_listen_code": 2,
+    "cim_state_for_ownership_guard": "UNVERIFIED_UNUSABLE_ON_REFERENCE_PORT",
+    "native_ipv4_ipv6_iphelper_probe": "SOURCE_ONLY_PREPARED_NOT_RUN_WINDOWS",
+    "native_qa": "PASS_22_OF_22_ASSISTANT_OFFLINE_ONLY",
+    "native_zip_sha256": "a684caf1417a6c50931ebeef6e0b3d1b6334d115e4db63514b3df9ad795ab202",
+    "model_compatibility": "NOT_ESTABLISHED",
+    "v1_v2_v3rc1": "CONSUMED_NO_RERUN",
+    "science": "T5_STRICT_F32_PARITY_FAIL_7_OF_8_PRESERVED",
+    "new_smoke_authorized": false
+  }
+}

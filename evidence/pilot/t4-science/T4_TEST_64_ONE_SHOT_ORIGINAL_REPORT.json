@@ -1,0 +1,36 @@
+{
+  "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "model_changed": false,
+  "no_parameter_selection_from_test": true,
+  "run_id": "ttm_t4_test_64_step1024_one_shot_20261108_v1",
+  "schema": "ttm.t4.test.oneshot.science.v1",
+  "source_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "split_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+  "status": "COMPLETED_TEST_ONE_SHOT_UNADJUDICATED",
+  "test_ids_commitment_sha256": "e96a3f30d2c491ce60b7cf78c7a820eb3aea3166b57114cc15bb462f70b1b552",
+  "test_metrics": {
+    "absolute_nll_gain": 0.4900126719777709,
+    "alpha": 0.1,
+    "bootstrap_95pct_gain_ci": [
+      0.45801078384645544,
+      0.5216391152410562
+    ],
+    "bootstrap_rounds": 1000,
+    "bootstrap_seed": 20261109,
+    "bootstrap_stories": 64,
+    "eval_set": "SEALED_TEST_64",
+    "interpretation": "ONE_SHOT_HOLDOUT_DESCRIPTIVE; NO_TUNING; H1_PRIMARY_ALREADY_VAL",
+    "primary_bigram_val_nll": 3.97360374531842,
+    "primary_model_val_nll": 3.483591073340649,
+    "relative_nll_improvement": 0.12331694436192563,
+    "schema": "ttm.t4.h1.val.storybootstrap.v1",
+    "scored_val_targets": 14669,
+    "test_descriptive_same_thresholds_met": true,
+    "test_stories": 64,
+    "test_unigram_nll": 5.990914186352912,
+    "test_windows": 76,
+    "warning": "VALIDATION-only technical computation; must be frozen before T4; TEST sealed"
+  },
+  "test_tokens_saved": false,
+  "train_steps_performed": 0
+}

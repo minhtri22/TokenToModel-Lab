@@ -1,0 +1,44 @@
+{
+  "schema": "ttm.t5.dual_attest.source_only.bundle_qa_manifest.v1",
+  "date": "2026-11-09",
+  "bundle_filename": "TTM_T5_DUAL_ATTEST_SOURCE_ONLY_20261109.zip",
+  "bundle_size_bytes": 29382,
+  "bundle_sha256": "aae661218b7e38e25c4880afe87339d0eae8f5e0e80d92547dcf4fb812969a61",
+  "bundle_git_blob_sha1": "279e6aa49a4037cf43ffb3c9a0d7b6e9adb444ef",
+  "source_files_sha256": {
+    "t5_native_tcp.py": "100ca44212c9f2ffb77c93aa11a90fa8f4a67d1b225efb16e888c58680d6f9b7",
+    "t5_dual_attest_rc2_candidate.py": "2bace0df98b277436a59f174aef7946023db3840df2d82abc30d331318aee0d0",
+    "test_independent_dual_attest.py": "783ab689f1e4ad8edda471318b7775b528e723c05c06400dbd0712282e92b0e2",
+    "Invoke-TTM-T5-Dual-Attest-SourceOnly-PS51.ps1": "1bf3b7f0d388fb03ffbeb0175a01d7c3919b0531a461fa226cf6b1be15c19328",
+    "README_VI.md": "8593bf25e41ea851f1ad363d349f4147f69383a8ec8cd80f569dd9b3d0fbfeda",
+    "ADJUDICATION_VI.md": "79354d5ab09ed94bf353d62230db21677cd141637a555eabe54f93f09b3a4e5e",
+    "INDEPENDENT_OFFLINE_QA.json": "d6ebbc7d84108fb7ff7518dc17f93302f9e8fdea35b68b26ec95f28307e0cb1b"
+  },
+  "source_manifest_sha256": "9cb8ebf0221eecec2620714589a72714f9978d334a3348d9bb5b2752ce91e43f",
+  "offline_qa": {
+    "status": "PASS_OFFLINE_MOCKED_114_OF_114",
+    "test_count": 114,
+    "groups": {
+      "TestNativeParser": 21,
+      "TestPureOwnership": 36,
+      "TestDualHttpAndTrace": 28,
+      "TestRuntimeLockAndContracts": 21,
+      "TestMockedCompatibilityPipeline": 8
+    },
+    "failures": 0,
+    "errors": 0,
+    "real_windows_native_executed": false,
+    "real_ollama_executed": false,
+    "model_import_executed": false,
+    "inference_executed": false
+  },
+  "scope": {
+    "port": 12646,
+    "model": "ttm-t5-f32-compat-only-dual-rc2:latest",
+    "execution_lock": "ACTIVE_SOURCE_ONLY",
+    "prior_one_shots": "V1_V2_RC1_CONSUMED_NO_RERUN",
+    "t5_strict_logits": "FAIL_7_OF_8_PRESERVED"
+  },
+  "adjudication": "PASS_SCOPED_SOURCE_ONLY_NO_RUNTIME_PERMIT",
+  "next_step": "TTM_T5_DUAL_ATTEST_WINDOWS_STATIC_QA_READBACK_AND_ONE_GUARDED_RELEASE_DECISION"
+}

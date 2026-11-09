@@ -1,0 +1,72 @@
+{
+  "schema": "ttm.t5.v4final.native_smoke.timewait_readback.adjudication.v1",
+  "date": "2026-11-09",
+  "source": "User-uploaded V4 RESULT.json and READINESS_ATTEMPTS.jsonl",
+  "result_sha256": "657ecf58647ca8a9c7a6af2d484fcfab6efa5972e902468cb5879c2873c6f576",
+  "trace_sha256": "8b5ba1be205c28ea24ede83ddf99e1e20cbc38d0b1d7cb12a1d81595ba7ba2ce",
+  "v4_one_shot": "CONSUMED_NO_RERUN",
+  "ollama": {
+    "version": "0.40.14",
+    "port": 12647,
+    "pid": 34192,
+    "http_version_status": "PASS_HTTP_200_EXACT_VERSION_ON_ATTEMPT_4",
+    "model_store_after_run_empty": true,
+    "create": "NOT_EXECUTED",
+    "generate": "NOT_EXECUTED"
+  },
+  "trace": {
+    "attempts": 4,
+    "decisions": [
+      "WAIT_NO_CANDIDATE_SOCKET",
+      "WAIT_HTTP_NO_200",
+      "WAIT_HTTP_NO_200",
+      "HOLD_OWNER_CHANGED_AFTER_HTTP"
+    ],
+    "last_http": {
+      "api_version": "0.40.14",
+      "attempted": true,
+      "error_code": null,
+      "error_type": null,
+      "http_status": 200
+    },
+    "prior_candidate_pid": 34192,
+    "post_candidate_pid": 34192,
+    "extra_transient": {
+      "pid": 0,
+      "state_code": 11,
+      "meaning": "MIB_TCP_STATE_TIME_WAIT",
+      "remote_port": 53457
+    },
+    "postcheck_classification": "HOLD_TCP_ROW_MALFORMED"
+  },
+  "shutdown": {
+    "stop_status": "STOPPED_OWNED_TREE",
+    "exit_code": 0,
+    "remaining_rows": [
+      {
+        "address_family": "IPv4",
+        "local_address": "127.0.0.1",
+        "local_port": 12647,
+        "pid": 0,
+        "remote_address": "127.0.0.1",
+        "remote_port": 53457,
+        "state_code": 11,
+        "state_verified_listen": false
+      }
+    ],
+    "final_status": "HOLD_ANY_TARGET_PORT_ROWS_REMAIN_AFTER_SHUTDOWN"
+  },
+  "source_integrity": "GGUF, executable and frozen failure SHA256 unchanged as recorded in RESULT",
+  "scientific_t5_parity": "FAIL_7_OF_8_PRESERVED",
+  "reason": "Ownership classifier wrongly requires positive PID for all target-port rows and identity lookup requires singleton PID across all rows, including PID0 TIME_WAIT. Shutdown incorrectly equates any remaining target-port TCP row to a live server.",
+  "v5_patch": "Narrow PID0 TIME_WAIT loopback exception for closed connection records; still reject foreign listener/pid/wildcard; shutdown accepts only benign PID0 TIME_WAIT; 47 mock tests PASS on assistant container",
+  "v5_bundle": {
+    "name": "TTM_T5_OLLAMA_V5_TIMEWAIT_GUARD_20261109.zip",
+    "sha256": "0c27593dd01c5e652709c03b6a0019533aa602e178d1e4251052bc69bf01ef33",
+    "test_count": 47,
+    "windows_native_run": "NOT_EXECUTED",
+    "dedicated_port": 12648,
+    "model_tag": "ttm-t5-f32-compat-only-v5final:latest"
+  },
+  "next": "TTM_T5_V5_TIMEWAIT_GUARDED_ONE_SHOT_WINDOWS_RUN_AND_MODEL_COMPATIBILITY_ADJUDICATION"
+}

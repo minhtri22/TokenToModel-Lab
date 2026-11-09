@@ -1,0 +1,22 @@
+{
+  "hashes": {
+    "T1_BPE2048_REAL_TRAIN_MANIFEST.json": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "T1_STORY_SPLIT_IDS_NO_RAW_TEXT.json": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9"
+  },
+  "science_executed": false,
+  "stats": {
+    "near_dropped_candidates_test": 0,
+    "near_dropped_candidates_val": 0,
+    "near_threshold_word5_jaccard": 0.85,
+    "selected_test": 64,
+    "selected_train": 2048,
+    "selected_val": 256,
+    "train_exact_duplicates": 320241,
+    "train_stories_scanned": 2119489,
+    "valid_collision_with_full_raw_train": 6601,
+    "valid_exact_duplicates": 0,
+    "valid_stories_scanned": 21990
+  },
+  "status": "READY_FOR_INDEPENDENT_NO_LEAKAGE_QA",
+  "train_only": true
+}

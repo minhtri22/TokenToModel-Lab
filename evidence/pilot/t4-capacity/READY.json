@@ -1,0 +1,9 @@
+{
+  "capacity_status": "PASS_PROVISIONAL_CAPACITY_ONLY",
+  "env_sha256": "9784f2c48e91f053ceb423f8dd77bd2af1c8f202c1d733bc4bf4dfb589a18802",
+  "no_science": true,
+  "pip_freeze_sha256": "a6eebfff272109bc4732b72d4bb1a0892d73e3db37c8f35d3afd7f32dcff0b80",
+  "report_bytes": 4017,
+  "report_sha256": "c55a568496a888bc3abc95c0231a5ed17d3a6f366361571b6f89a4457d09f1ee",
+  "schema": "ttm.t4.capacity.ready.last.v1"
+}

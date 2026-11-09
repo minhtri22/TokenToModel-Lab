@@ -1,0 +1,24 @@
+{
+    "schema":  "ttm.t1.ipv4.exact-source-acquisition.v1",
+    "source_repo":  "roneneldan/TinyStories",
+    "revision":  "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "files":  [
+                  {
+                      "name":  "TinyStories-valid.txt",
+                      "sha256":  "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4",
+                      "size_bytes":  19447282
+                  },
+                  {
+                      "name":  "TinyStories-train.txt",
+                      "sha256":  "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+                      "size_bytes":  1924281556
+                  }
+              ],
+    "transport":  "curl.exe --ipv4 HTTPS with certificate verification, redirect HTTPS only",
+    "pr_head":  "574f4a2b623a406f29cf6fcedc982ece74f75019",
+    "source_verified":  true,
+    "t1_split_executed":  false,
+    "t1_train_bpe_executed":  false,
+    "t3_colab_executed":  false,
+    "science_executed":  false
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "ttm.t5.v5.inference_resume.source.manifest.v1",
+  "date": "2026-11-09",
+  "source_sha256": {
+    "ttm_t5_v5_imported_resume_inference.py": "9e9c44fc99d744269bd757b0ce24b695353a8b407db979e8cf292abc2a89aa28",
+    "test_resume_inference_offline.py": "a2f624e2712b4aa763218e2475eb652f5bfdd00761f0520bf9538d810cfb456f"
+  },
+  "offline_qa": "PASS_12_OF_12_MOCK_NO_OLLAMA",
+  "v5_original": "CONSUMED_IMMUTABLE",
+  "new_execution": "SINGLE_INFERENCE_ONLY_PREVIEW_THEN_EXPLICIT_SMOKE"
+}

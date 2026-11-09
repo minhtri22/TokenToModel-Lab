@@ -1,0 +1,120 @@
+{
+  "schema": "ttm.t5.ollama.readiness.v2.windows.staticqa.readback.v1",
+  "date": "2026-11-08",
+  "source_type": "USER_SUPPLIED_WINDOWS_CONSOLE_OUTPUT",
+  "evidence_level": "CONSOLE_READBACK_NOT_INDEPENDENT_REMOTE_EXECUTION",
+  "zip_sha256": "9da06fad41cd45a03f9221aade5de1fd6ef8446879276eebeebbebcbd9f71bbf",
+  "source_sha256": "de80194c4576ea8749fce0ec1367ee65a9d520f563ab70063006d5a6506def6f",
+  "checker_sha256": "1d5da70808a9d63844b1a9ce66ba25864f27bee47b5c040d93795cebe4a7acae",
+  "sha_checks": {
+    "zip": "PASS",
+    "source": "PASS"
+  },
+  "test_count": 23,
+  "test_failures": 0,
+  "test_errors": 0,
+  "runtime_seconds_reported": 0.132,
+  "tests": [
+    {
+      "name": "test_does_not_start_ollama_anywhere_in_qa",
+      "status": "ok"
+    },
+    {
+      "name": "test_http_503_observed",
+      "status": "ok"
+    },
+    {
+      "name": "test_http_error_is_not_silenced",
+      "status": "ok"
+    },
+    {
+      "name": "test_http_non_json_observed",
+      "status": "ok"
+    },
+    {
+      "name": "test_http_probe_invalid_result_logged",
+      "status": "ok"
+    },
+    {
+      "name": "test_inconsistent_netstat_rows_are_rejected",
+      "status": "ok"
+    },
+    {
+      "name": "test_no_listener_does_not_probe_http",
+      "status": "ok"
+    },
+    {
+      "name": "test_nonloopback_listener_holds",
+      "status": "ok"
+    },
+    {
+      "name": "test_process_exit_no_http_or_netstat",
+      "status": "ok"
+    },
+    {
+      "name": "test_ready_only_exact_pid_and_http_version",
+      "status": "ok"
+    },
+    {
+      "name": "test_success_trace_and_explicit_fallback",
+      "status": "ok"
+    },
+    {
+      "name": "test_timeout_persists_all_attempts_and_no_success",
+      "status": "ok"
+    },
+    {
+      "name": "test_trace_is_exclusive_no_overwrite",
+      "status": "ok"
+    },
+    {
+      "name": "test_trace_persisted_then_stops_wrong_pid",
+      "status": "ok"
+    },
+    {
+      "name": "test_unexpected_probe_error_is_logged_as_category",
+      "status": "ok"
+    },
+    {
+      "name": "test_version_mismatch_observed",
+      "status": "ok"
+    },
+    {
+      "name": "test_wrong_pid_skips_http",
+      "status": "ok"
+    },
+    {
+      "name": "test_ast_and_scope_pins",
+      "status": "ok"
+    },
+    {
+      "name": "test_direct_http_proxy_disabled_and_version_captured",
+      "status": "ok"
+    },
+    {
+      "name": "test_dll_path_warning_only_no_mutation",
+      "status": "ok"
+    },
+    {
+      "name": "test_original_consumed_result_not_written",
+      "status": "ok"
+    },
+    {
+      "name": "test_win_netstat_fail_closed",
+      "status": "ok"
+    },
+    {
+      "name": "test_win_netstat_parse_and_ignore_global_port",
+      "status": "ok"
+    }
+  ],
+  "windows_static_qa": "PASS_23_OF_23",
+  "crosscheck_offline": "PASS_23_OF_23_ON_ASSISTANT_CONTAINER",
+  "offline_sha256_zip_and_four_sources": "PASS",
+  "v1_one_shot": "CONSUMED_UNCHANGED",
+  "v2_one_shot": "NOT_YET_CLAIMED_OR_EXECUTED",
+  "ollama_execution": "NOT_EXECUTED",
+  "frozen_t5_strict_logits": "FAIL_7_OF_8_PRESERVED",
+  "scientific_train_test": "NOT_EXECUTED",
+  "main_lineage_unchanged_by_this_readback": true
+}

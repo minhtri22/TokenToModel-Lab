@@ -1,0 +1,7 @@
+{
+  "known_ggml_dll_dir": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t2\\build\\bin\\Release",
+  "known_ggml_dll_dir_in_path": true,
+  "path_mutated": false,
+  "proxy_env_variable_names_present": [],
+  "status": "WARN_ENVIRONMENT_RISK_NOT_CAUSAL_PROOF"
+}

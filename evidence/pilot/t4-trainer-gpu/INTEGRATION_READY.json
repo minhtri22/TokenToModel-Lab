@@ -1,0 +1,9 @@
+{
+  "env_sha256": "c0a1d927550cb62995e8d267c3f57230c5e98e0877473b464e64ff7d5f57704e",
+  "original_step1_checkpoint_sha256": "7c9f790a8ee2b44057f1111167f8fcf0da041a42680531e505844799c68cb961",
+  "original_step1_ready_sha256": "99035af596baf892eaa2e793aef6013b539ef26c95911fab4eed97c0368d5a5e",
+  "report_sha256": "15e1e063beceda878db051eb6bbd49d9373ad4e1bf736883df2a585818676dc3",
+  "schema": "ttm.t4.synthetic.gpu.integration.ready.last.v1",
+  "science_executed": false,
+  "status": "PASS_SYNTHETIC_T4_TRAINER_GPU_DRIVE_RESUME"
+}

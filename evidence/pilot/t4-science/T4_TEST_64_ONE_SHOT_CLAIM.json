@@ -1,0 +1,10 @@
+{
+  "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "no_reexecution_even_after_failure": true,
+  "raw_valid_sha256": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4",
+  "run_id": "ttm_t4_test_64_step1024_one_shot_20261108_v1",
+  "schema": "ttm.t4.test.oneshot.claim.v1",
+  "science_training_performed": false,
+  "split_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9"
+}

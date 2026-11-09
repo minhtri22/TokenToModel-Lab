@@ -1,0 +1,75 @@
+{
+  "failure": {
+    "message": "READINESS_HOLD_OWNER_CHANGED_AFTER_HTTP",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_T5_FINAL_MINIMAL_OLLAMA_COMPATIBILITY_SMOKE_20261109\\t5_final_minimal_smoke.py\", line 529, in execute\n    report[\"readiness\"] = observe_readiness_with_trace(proc, OUT)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_T5_FINAL_MINIMAL_OLLAMA_COMPATIBILITY_SMOKE_20261109\\t5_final_minimal_smoke.py\", line 335, in observe_readiness_with_trace\n    raise RuntimeError(\"READINESS_\"+sample[\"decision\"])\nRuntimeError: READINESS_HOLD_OWNER_CHANGED_AFTER_HTTP\n",
+    "type": "RuntimeError"
+  },
+  "finished_utc": "2026-11-09T03:28:02.653290+00:00",
+  "frozen_parity": "FAIL_7_OF_8_PRESERVED",
+  "host": "127.0.0.1:12647",
+  "max_new_tokens": 32,
+  "model": "ttm-t5-f32-compat-only-v4final:latest",
+  "models_after_run": {},
+  "num_ctx": 256,
+  "schema": "ttm.t5.ollama.compatibility.project-local.one-shot.v4final",
+  "science_train_or_test_executed": false,
+  "server_pid": 34192,
+  "shutdown": {
+    "pid": 34192,
+    "stop_status": "STOPPED_OWNED_TREE",
+    "taskkill_exit_code": 0
+  },
+  "shutdown_tcp_table": {
+    "families_queried": [
+      "IPv4",
+      "IPv6"
+    ],
+    "port": 12647,
+    "processes": [],
+    "rows": [
+      {
+        "address_family": "IPv4",
+        "local_address": "127.0.0.1",
+        "local_port": 12647,
+        "pid": 0,
+        "remote_address": "127.0.0.1",
+        "remote_port": 53457,
+        "state_code": 11,
+        "state_verified_listen": false
+      }
+    ],
+    "schema": "ttm.t5.native.tcptable.dual.v1"
+  },
+  "source_after": {
+    "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "ollama_exe_sha256": "14e0fff0449ce3c3a7fe9db8b8b32089274db5f835d4c99f5af7c32dcbf08981",
+    "original_fail_sha256": "c61f73216764b8582a5c996e85c59feb55b13496ec0117deb713d9b1843ec8e8",
+    "v5b_fail_sha256": "ac699d4e750037f88bbab776bb42a38079cd82b0a1c2f72385127ac5a36d9375"
+  },
+  "source_before": {
+    "gguf": {
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_trained_f32_v1\\TTM-Small4M-T4-step1024-F32.gguf",
+      "sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+      "size": 15061376
+    },
+    "ollama_exe": {
+      "path": "C:\\Users\\minht\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+      "sha256": "14e0fff0449ce3c3a7fe9db8b8b32089274db5f835d4c99f5af7c32dcbf08981",
+      "version": "ollama version is 0.40.14"
+    },
+    "original_fail": {
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_trained_f32_v1\\T5_TRAINED_LLAMA_CPP_PARITY.json",
+      "sha256": "c61f73216764b8582a5c996e85c59feb55b13496ec0117deb713d9b1843ec8e8"
+    },
+    "v5b_fail": {
+      "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_trained_f32_v1\\T5_LLAMA_UTF8_V5B_ROOTCAUSE_DIAGNOSTIC_V1.json",
+      "sha256": "ac699d4e750037f88bbab776bb42a38079cd82b0a1c2f72385127ac5a36d9375"
+    }
+  },
+  "stages": {
+    "server_started": "2026-11-09T03:27:52.107094+00:00"
+  },
+  "start_utc": "2026-11-09T03:27:52.057883+00:00",
+  "status": "HOLD_ANY_TARGET_PORT_ROWS_REMAIN_AFTER_SHUTDOWN",
+  "store": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_ollama_compat_only_single_v4final\\models"
+}

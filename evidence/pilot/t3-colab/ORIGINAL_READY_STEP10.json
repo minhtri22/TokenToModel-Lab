@@ -1,0 +1,17 @@
+{
+  "bytes": 45069785,
+  "checkpoint_includes": [
+    "model",
+    "optimizer",
+    "scheduler",
+    "rng",
+    "sampler",
+    "cursor"
+  ],
+  "filename": "checkpoint_step10.pt",
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "schema": "ttm.t3.ready.last.v1",
+  "sha256": "3546105cb736084956c8d4bea6950fe931b658845ed29a5791c6669b40f67382",
+  "step": 10,
+  "synthetic_only": true
+}

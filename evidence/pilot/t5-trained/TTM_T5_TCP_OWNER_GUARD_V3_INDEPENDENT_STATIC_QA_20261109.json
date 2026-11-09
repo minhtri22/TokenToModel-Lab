@@ -1,0 +1,27 @@
+{
+  "schema": "ttm.t5.tcp.guard.v3.independent.static.qa.v1",
+  "date": "2026-11-09",
+  "status": "PASS_SCOPED_INDEPENDENT_OFFLINE_60_OF_60",
+  "test_cases": 60,
+  "failures": 0,
+  "errors": 0,
+  "source_sha256": {
+    "t5_ollama_smoke_v3_candidate.py": "9d7be21e5bc961a2fbcbe42c58790d8b2aac755e7d1e184eb7fd5d4c833f13cf",
+    "test_independent_tcp_owner_guard_v3.py": "c23e5513714c62f71c39d6287ae82afe4af3f111604c4ef7809a0b0170f01370",
+    "README_VI.md": "3da5eb077ebe2627278de33f3e5a802f34bb995d423b2d415a59d98ce7741684",
+    "Check-TTM-T5-TCP-Guard-V3-PS51.ps1": "17024e783b7989a86d3ed733323a0fd2fafc0630edb5ea35043704b1a8b325ee"
+  },
+  "sha_manifest": "4daeb5d60206bd62d0b3b03b4309694f9c811eee58b9f0b118532a8c226c4021",
+  "python_ast": "PASS",
+  "powershell_51_native_parse": "NOT_EXECUTED",
+  "windows_tcp_table_live": "NOT_EXECUTED",
+  "ollama_serve_create_generate": "NOT_EXECUTED",
+  "v3_execution_lock": "ACTIVE",
+  "v1v2_one_shots": "CONSUMED_NO_RERUN",
+  "original_t5_parity": "FAIL_7_OF_8_PRESERVED",
+  "notes": [
+    "Independent Python unittest fake adapters; no Windows TCP table called",
+    "POSITIVE and NEGATIVE protocol state/PID/HTTP cases, trace and no-replay gates",
+    "No scientific result or Ollama runtime compatibility established"
+  ]
+}

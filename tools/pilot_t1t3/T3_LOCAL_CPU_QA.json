@@ -1,0 +1,22 @@
+{
+  "checkpoint_bytes": 45067099,
+  "checkpoint_ready_last": true,
+  "checkpoint_sha256": "7aec610f77a3d50079706e5bbbda11a63b81801b45b2255a6ea322b6a531afda",
+  "device": "cpu",
+  "gpu_science_used": false,
+  "max_abs_loss_diff": 0.0,
+  "max_abs_optimizer_diff": 0.0,
+  "max_abs_weight_diff": 0.0,
+  "mode": "SYNTHETIC_ONLY_NO_SCIENCE",
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "pass": true,
+  "python_rng_state_restored": true,
+  "ready_readback": true,
+  "sampler_state_exact": true,
+  "scheduler_exact": true,
+  "schema": "ttm.t3.resume.parity.report.v1",
+  "status": "PASS_SYNTHETIC_RESUME",
+  "step_checkpoint": 10,
+  "steps_contiguous": 20,
+  "torch": "2.10.0+cpu"
+}

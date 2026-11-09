@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.t5.windows.network.observation.readonly.v1",
+  "captured_console_date": "2026-11-09",
+  "source": "USER_SUPPLIED_WINDOWS_POWERSHELL_CONSOLE",
+  "preexisting_service_port": 11434,
+  "netstat_command": "netstat.exe -ano -p TCP",
+  "netstat_matching_rows": 0,
+  "get_nettcpconnection": {
+    "local_address": "::",
+    "local_port": 11434,
+    "state": "NOT_VISIBLE_IN_CONSOLE_TABLE",
+    "owning_process": 14464,
+    "returned_rows": 1
+  },
+  "tcp_connect_ipv4_loopback": "PASS",
+  "http_probe": {
+    "method": "GET",
+    "url": "http://127.0.0.1:11434/api/version",
+    "proxy_disabled": true,
+    "http_status": 200,
+    "body": {
+      "version": "0.40.14"
+    }
+  },
+  "no_create": true,
+  "no_generate": true,
+  "no_server_started_by_diagnostic": true,
+  "no_change_service": true,
+  "conclusions": {
+    "existing_ollama_api_reachable": "PASS",
+    "tcpv4_only_netstat_missed_socket": "OBSERVED",
+    "tcpv6_filter_miss": "PLAUSIBLE_NEEDS_TCPV6_READBACK",
+    "dedicated_port_12644_same_root_cause": "NOT_ESTABLISHED",
+    "process_14464_executable_identity": "NOT_VERIFIED",
+    "local_address_double_colon": "IPV6_UNSPECIFIED_WILDCARD_NOT_LOOPBACK_PROOF",
+    "t5_v1_one_shot": "CONSUMED_NO_RERUN",
+    "t5_v2_one_shot": "CONSUMED_NO_RERUN",
+    "ollama_gguf_import": "NOT_EXECUTED",
+    "ollama_inference": "NOT_EXECUTED",
+    "strict_logits": "FAIL_7_OF_8_PRESERVED"
+  },
+  "next_step": "TTM_T5_NETWORK_TCPV6_PORT_IDENTITY_READONLY_CONFIRMATION_NO_NEW_SMOKE"
+}

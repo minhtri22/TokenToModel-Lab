@@ -1,0 +1,31 @@
+{
+  "bigram_nll": 3.9972314169551506,
+  "bootstrap_95pct_ci": [
+    0.4581867476104475,
+    0.49406158185105853
+  ],
+  "bootstrap_rounds": 1000,
+  "bootstrap_seed": 20261109,
+  "checkpoint_state_step": 1024,
+  "differences_vs_original": {
+    "bigram": 0.0,
+    "ci_hi": 2.9884158314619214e-08,
+    "ci_lo": 3.3919963671191766e-08,
+    "model": 5.191831409234737e-09
+  },
+  "gain_nll": 0.47489256527293255,
+  "h1_primary_formula_pass": true,
+  "independent_recompute_agrees": true,
+  "model_nll": 3.522338851682218,
+  "relative_improvement": 0.11880537195283955,
+  "schema": "ttm.t4.science.h1.independent.cpu.recompute.v1",
+  "source_sha256": {
+    "checkpoint_1024": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "p02": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "private_data": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "test_accessed": false,
+  "train_updates_performed": 0,
+  "val_scored_targets": 61122,
+  "val_stories": 256
+}
