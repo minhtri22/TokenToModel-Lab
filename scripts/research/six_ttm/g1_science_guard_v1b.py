@@ -5,7 +5,7 @@ This module is review-candidate code; all real science is DENIED until an extern
 provisioned Ed25519 authority key fingerprint is frozen in a later reviewed release.
 """
 from __future__ import annotations
-import hashlib, io, json, os, stat, struct, time, zipfile
+import hashlib, io, json, os, stat, struct, time, uuid, zipfile
 from pathlib import Path
 import numpy as np
 
@@ -122,6 +122,38 @@ def read_private_bytes(path, root, max_size=MAX_PACK_BYTES):
         return payload
     finally:
         os.close(fd)
+
+
+
+def commit_immutable_bytes(path, data, root):
+    """Write-complete then atomically publish via exclusive hardlink; never overwrite.
+
+    An interrupted staging file remains for forensic review. A failed stage is
+    terminal under the one-shot marker, not a permit for automatic replay.
+    """
+    p=Path(path).absolute();priv=Path(root).absolute()
+    require(priv in p.parents and p.parent.is_dir(),'COMMIT_OUTSIDE_SCOPE')
+    # Verify every parent is not a symlink or Windows junction.
+    cur=priv
+    for part in p.relative_to(priv).parts[:-1]:
+        cur=cur/part
+        require(not cur.is_symlink() and
+                not getattr(os.path,'isjunction',lambda _:False)(cur),
+                'COMMIT_PARENT_REDIRECT')
+    require(not p.exists() and not p.is_symlink(),'COMMIT_TARGET_EXISTS')
+    stage=p.with_name(p.name+'.staging.'+uuid.uuid4().hex)
+    require(not stage.exists(),'COMMIT_STAGE_EXISTS')
+    with stage.open('xb') as f:
+        f.write(data);f.flush();os.fsync(f.fileno())
+    try:
+        # os.link raises FileExistsError and never silently replaces a target.
+        os.link(stage,p,follow_symlinks=False)
+    except (OSError,NotImplementedError):
+        stop('COMMIT_ATOMIC_LINK_FAILED')
+    stage.unlink()
+    require(sha_bytes(read_private_bytes(p,root,max_size=max(len(data),1)+1))
+            ==sha_bytes(data),'COMMIT_POST_SHA')
+    return sha_bytes(data)
 
 
 def _check_array_headers(data, split, source_dim=1024, target_dim=2048):
