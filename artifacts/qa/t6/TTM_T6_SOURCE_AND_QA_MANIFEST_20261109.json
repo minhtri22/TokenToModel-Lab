@@ -94,5 +94,24 @@
     "lineage": "UNCHANGED",
     "merge": "HOLD_DRAFT_PR_REVIEW"
   },
-  "note": "All eight benchmark/test/report files were byte-exact verified by Git blob on this branch; no model source code was edited. GitHub is canonical, temporary Library relay was deleted."
+  "note": "All eight benchmark/test/report files were byte-exact verified by Git blob on this branch; no model source code was edited. GitHub is canonical, temporary Library relay was deleted.",
+  "amendment_20261109_windows_preflight": {
+    "reason": "Local Windows attempted unittest from repository root where tests/t6 was absent; no T6 tests or benchmark ran. Corrected instructions require exact HEAD detached worktree.",
+    "windows_attempt": {
+      "python": "3.12",
+      "torch": "2.11.0+cpu",
+      "unit": "NOT_EXECUTED_START_DIRECTORY_NOT_IMPORTABLE",
+      "benchmark": "NOT_EXECUTED",
+      "evidence_report": "NOT_CREATED"
+    },
+    "original_offhost_source_blob": "07693ea446e4747bd987570fc7f645cd4fabafff",
+    "current_runner_source_blob": "85795ada12f283c88dcd01091b54f604e57e2418",
+    "actual_change": "measurement_contract.device now reports platform.platform() + CPU (measurement host), without changing numerical kernels or evaluation math",
+    "reproducibility": "Existing offhost measurements and 16/16 plus 33/33 receipts remain pinned to original runner blob. No claims those checks have been rerun after metadata correction.",
+    "source_p02_p05_p06_unchanged": true,
+    "windows_replay": "NOT_YET_EXECUTED_AFTER_FIX",
+    "script": "tools/t6/run_windows_exact_head.ps1",
+    "script_source": "GitHub exact PR HEAD; pin HEAD and verify remote before user executes",
+    "outcome": "HOLD_WINDOWS_EXACT_HEAD_REPLAY_AND_DISTINCT_REVIEW"
+  }
 }
