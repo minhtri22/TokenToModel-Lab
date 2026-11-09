@@ -1,0 +1,119 @@
+{
+  "actual_decision": "HOLD_CONFIRMATORY_CPU_ONE_SHOT_UNMET_HISTORICAL_VAL_TEST_NEAR_DUPLICATE_GATE",
+  "adjudication_notes": [
+    "Scientific confirmatory GO is not defensible under frozen original near-duplicate admission criterion without an authorized prior non-content witness.",
+    "An owner-selected protocol amendment may explicitly downgrade the claim to a distinct-ID checkpoint comparison with residual similarity risk, but no such amendment is approved and this would not satisfy original strict confirmation gate.",
+    "Do not reopen TEST text, modify 320 members, retrain, inspect model NLL, or consume a one-shot claim as a substitute for source evidence."
+  ],
+  "basis_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "basis_parent_commit": "fa34b28db3804e17eb255d7908476dd2c2f89581",
+  "date": "2026-11-09",
+  "gate_items": {
+    "B1_ACTUAL_REAL_PLAN_PRE_FIRST_FORWARD": "DEFER_TO_SEPARATE_AUTHORIZED_SCIENCE_RUN_AND_ENFORCE_AT_START",
+    "B1_IMPLEMENT_PRE_FORWARD_BINDING": "PASS_SCOPED_SYNTHETIC",
+    "B2_HISTORICAL_VAL_TEST_NEAR_METHOD": "HOLD_PREREG_ATTESTATION_MISSING",
+    "SCIENTIFIC_ONE_SHOT": "HOLD_NOT_ISSUED",
+    "SOURCE_INTERNAL_LICENSE": "PASS_WITH_CONDITIONS"
+  },
+  "historical_contamination": {
+    "donor_pretraining_overlap": "UNKNOWN_NO_CLAIM",
+    "frozen_selection_unchanged": true,
+    "historical_TEST_raw_opened": false,
+    "new_vs_full_raw_TRAIN_near_audit": "PASS_RECEIPT_REPORTED_2119489_STORIES_ZERO_REJECTED_NOT_INDEPENDENTLY_RERUN",
+    "new_vs_historical_TEST_bucket": "PASS_ZERO",
+    "new_vs_old_TEST_near": "UNKNOWN_NO_ATTESTATION_NO_RAW_TEST_REOPEN",
+    "new_vs_old_TRAIN_VAL_TEST_exact": "PASS_ZERO_ID_OVERLAP",
+    "new_vs_old_VAL_near": "UNKNOWN_NO_ATTESTATION",
+    "original_T1_near_check_scope": "T1 old VAL near checked against selected TRAIN; old TEST near checked against selected TRAIN and old VAL; does not check NEW vs old VAL/TEST",
+    "reason": "SHA256 disjointness and test-bucket disjointness do not imply word-5 Jaccard <0.85. Preregistered source condition requires near-duplicate audit against prior pilot VAL/TEST.",
+    "source_selection": "PINNED_TINYSTORIES_VALID_TXT"
+  },
+  "invariants": {
+    "TRAIN_VAL_TEST_scored": false,
+    "checkpoint_loaded": false,
+    "gpu_used": false,
+    "lineage_edited": false,
+    "new_320_scored": false,
+    "one_shot_claim_issued": false,
+    "private_ids_or_text_committed": false,
+    "training_run": false
+  },
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_SINGLE_BATCH_PRE_FORWARD_BINDING_AND_CONTAMINATION_SCOPE_ADJUDICATION",
+  "pre_forward_binding": {
+    "authorizes_science": "NO",
+    "checker_requirements": [
+      "SHA256 exact private manifest and original T1 split",
+      "frozen source/raw and BPE pins",
+      "story list exact order and cardinality",
+      "each raw new story SHA256 matches sealed story ID",
+      "BPE original frozen source and file checks",
+      "per-story token counts and total target counts",
+      "EOS=256, context=256, mask=-100",
+      "entire x/y window content and ordering",
+      "no missing, extra or duplicate windows",
+      "validation of full plan occurs before any scoring callback"
+    ],
+    "frozen_private_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "frozen_story_count": 320,
+    "frozen_target_count": 75798,
+    "old_test_bucket_membership": 0,
+    "previous_private_readback": "PASS_SCOPED_MANIFEST_INDEPENDENT_READBACK",
+    "prior_split_exact_overlap": 0,
+    "real_320_window_plan_validated": "NO_NOT_MATERIALIZED",
+    "real_score_forward": "NOT_EXECUTED",
+    "status": "PASS_IMPLEMENTED_SYNTHETIC_ONLY",
+    "test_full_scale_synthetic_stories": 320,
+    "test_full_scale_synthetic_targets": 75798
+  },
+  "preregistration_unchanged": {
+    "bootstrap_resamples": 2000,
+    "bootstrap_seed": 2026110901,
+    "checkpoints": {
+      "A": "ed7419f6421f4d82590c11ed8003b7df45aca9e86678ac2e1bdbeb62d8cd0081",
+      "B": "a4bb239a4952f2670966e6aacf89b10374ecce9ac2f4b8ba22003ed1589c024c",
+      "C": "ba04731f3d9f90a61e5d0819ca6f22a86775ff9784a94fe128128d205b7ca44d",
+      "D": "db5bebe2182d4f479028b260e0f70497d67d6f6dfac845d95708cb9c9f78f41e"
+    },
+    "criterion": "ALL_THREE_TWO_SIDED_95_PERCENT_CI_LOWER_BOUNDS_STRICTLY_GT_ZERO",
+    "metric": "TOKEN_WEIGHTED_NLL",
+    "no_checkpoint_selection": true,
+    "no_second_sealed_selection": true,
+    "paired_differences": [
+      "A_minus_C",
+      "B_minus_C",
+      "D_minus_C"
+    ],
+    "same_320_stories": true
+  },
+  "rights": {
+    "dataset": "roneneldan/TinyStories",
+    "dataset_card_license": "cdla-sharing-1.0",
+    "dataset_individual_provenance": "NOT_INDEPENDENTLY_ESTABLISHED",
+    "dataset_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "internal_computational_use": "PERMITTED_SUBJECT_TO_LICENSE_CONDITIONS",
+    "license_text": "https://cdla.dev/sharing-1-0/",
+    "public_republication_of_data": "NOT_AUTHORIZED_BY_THIS_GATE",
+    "source_card": "https://huggingface.co/datasets/roneneldan/TinyStories"
+  },
+  "schema": "ttm.gemma2.single_batch_pre_forward_binding_contamination_scope_adjudication.v1",
+  "synthetic_qa": {
+    "distinct_sha_near_jaccard_counterexample": 0.900990099009901,
+    "forward_calls_when_rejecting_invalid_synthetic_plan": 0,
+    "independent": {
+      "frozen_T4_reference_git_blob": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+      "passed": 172,
+      "receipt_sha256": "3d6aac51f54f3cdd69d1fbfbdf74e0154a1db55474593cb3415f1f6d58435b7f",
+      "script_sha256": "f95360e71880be5a14de2a668193f9fdfc67e2c51ae562b9ee0ac684d5677ba1",
+      "status": "PASS_INDEPENDENT_SYNTHETIC_BOUNDARY_QA",
+      "total": 172
+    },
+    "primary": {
+      "passed": 135,
+      "receipt_sha256": "b0823d235ddc930b04a8f788651422cd6cd9ca9651513a83e80714e51b3924e0",
+      "script_sha256": "c92f827f7b462d42c53302b157038f0110d735ac41c4e4c2690f47356559e584",
+      "status": "PASS_SYNTHETIC_PRE_FORWARD_BINDING",
+      "total": 135
+    },
+    "real_corpus_access": false
+  }
+}
