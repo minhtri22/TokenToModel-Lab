@@ -127,7 +127,7 @@ def main():
         torch,env=environment()
         report["environment"]=env
         if phase=="smoke": run_smoke(torch,report)
-        report["status"]="PASS_TECHNICAL_ONLY"
+        report["status"]="PASS_PREFLIGHT_ONLY" if phase=="preflight" else "PASS_TECHNICAL_ONLY"
         rc=0
     except Exception as exc:
         report.update({"status":"STOP_FAIL_CLOSED","error_type":type(exc).__name__,
