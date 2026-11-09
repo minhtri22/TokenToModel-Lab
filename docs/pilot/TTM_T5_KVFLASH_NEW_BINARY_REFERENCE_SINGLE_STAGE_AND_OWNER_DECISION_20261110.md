@@ -35,7 +35,7 @@ $url = "https://raw.githubusercontent.com/minhtri22/TokenToModel-Lab/$pin/tools/
 Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $script
 $gitExe = (Get-Command git.exe -CommandType Application).Source
 $blob = (& $gitExe -C $root hash-object $script).Trim()
-if ($LASTEXITCODE -ne 0 -or $blob -ne 'EXPECTED_STAGE_SOURCE_GIT_BLOB') { throw 'STAGE_SCRIPT_SOURCE_PIN_MISMATCH' }
+if ($LASTEXITCODE -ne 0 -or $blob -ne 'e8ef03caa966a910e322cdeaeb8a0d08835a9a8f') { throw 'STAGE_SCRIPT_SOURCE_PIN_MISMATCH' }
 & $py -m py_compile $script
 if ($LASTEXITCODE -ne 0) { throw 'PY312_SOURCE_PARSE_FAIL' }
 # Nếu đã có .pt bước 1024 đúng SHA trong project, thêm:
