@@ -27,6 +27,7 @@ if str(ROOT) not in sys.path:
 from src.p02.transformer_core import GPT, P02Config
 from src.p05.dense_kv_cache import DenseKVCache, dense_forward_tokens
 from src.p06.paged_kv_manager import PagedKVCache, paged_forward_tokens
+from tools.t6.path_containment import resolve_t6_artifact
 
 PINNED_GIT_BLOBS = {
     "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
@@ -320,19 +321,11 @@ def dual_request_memory(model: GPT, *, block_size: int = 4) -> dict[str, Any]:
 
 
 def _ensure_safe_output(relative: str) -> Path:
-    if not relative or Path(relative).is_absolute() or "\\" in relative:
-        raise ValueError("output must be a relative repository path")
-    # Strict target under project-controlled QA output subtree; no symlinks.
-    p = Path(relative)
-    if ".." in p.parts or p.parts[:3] != ("artifacts", "qa", "t6") or p.suffix.lower() != ".json":
-        raise ValueError("output must be artifacts/qa/t6/<name>.json")
-    if any((ROOT / Path(*p.parts[:i])).is_symlink() for i in range(1, len(p.parts) + 1)):
-        raise ValueError("symlink traversal forbidden")
-    dest = ROOT / p
-    if dest.exists():
-        raise FileExistsError("one-shot output exists; never overwrite a measurement")
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    return dest
+    """F-01: guard direct Python entry point against junction/reparse traversal.
+
+    No directory creation or benchmark execution before this validation.
+    """
+    return resolve_t6_artifact(ROOT, relative, for_write=True, suffix=".json")
 
 
 def main(argv: list[str] | None = None) -> int:
