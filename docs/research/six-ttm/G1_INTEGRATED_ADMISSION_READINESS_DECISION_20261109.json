@@ -1,0 +1,88 @@
+{
+  "schema": "ttm_six_g1_integrated_admission_readiness_decision_v1",
+  "date": "2026-11-09",
+  "task": "TTM_SIX_XMODEL_G1_INTEGRATED_ADMISSION_READINESS_DATA_RIGHTS_QWEN17_AND_INDEPENDENT_ADJUDICATION",
+  "branch": "research/ttm-six-cross-model-representation-transfer-20261109",
+  "predecision_head": "dd3a08ca9e31860d78d1f6c0b32f12c7346f3ade",
+  "scientific_permission": "NOT_GRANTED",
+  "final_science_gate": "HOLD_MATERIAL_PREREQUISITES",
+  "no_scientific_execution": true,
+  "no_main_changes": true,
+  "no_pilot_pr12_changes": true,
+  "no_lineage_changes": true,
+  "source_provenance": {
+    "tiny_stories_model_repo": "roneneldan/TinyStories",
+    "source_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "license_declared": "CDLA-Sharing-1.0",
+    "license_url": "https://cdla.dev/sharing-1-0/",
+    "right_to_computational_use_on_license_terms": "DOCUMENTATION_PASS",
+    "owner_acceptance_of_G1_research_and_private_feature_handling": "NOT_RECORDED",
+    "public_distribution_of_raw_stories_or_enhanced_data": "NOT_APPROVED",
+    "publication_of_derived_features": "LEGAL_CLASSIFICATION_AND_PRIVACY_REVIEW_HOLD",
+    "train_source_file_sha256": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "ttm_T1_split_manifest_expected_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "ttm_T1_independent_qa_git_blob": "3b5613fdabc00f44b7524ac9dad486b1be5c3b00",
+    "source_train_story_count_in_T1_evidence": 2048,
+    "ttm_original_val_test_excluded": true,
+    "actual_T1_manifest_bytes_read_in_G1": false,
+    "actual_G1_128_64_64_prefix_manifest_generated": false,
+    "splits_protocol_design": "PREREG_CANDIDATE_ONLY",
+    "source_and_train_manifest_gate": "HOLD_BYTES_AND_OWNER_ACCEPTANCE"
+  },
+  "models": {
+    "qwen06": {
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+      "technical": "PASS_OWNER_COLAB_RECEIPT_SCOPED_NO_REPEAT",
+      "github_report_git_blob": "b3ee99f44d96de34bf81e031ff24e4345d83f88c"
+    },
+    "qwen17": {
+      "model": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "provider_source_hashes": {
+        "model-00001-of-00002.safetensors": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+        "model-00002-of-00002.safetensors": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9"
+      },
+      "provider_hash_sources": [
+        "https://huggingface.co/Qwen/Qwen3-1.7B/blob/8d4744f9e13072f4920c326350fa81eedb74eae9/model-00001-of-00002.safetensors",
+        "https://huggingface.co/Qwen/Qwen3-1.7B/blob/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e/model-00002-of-00002.safetensors"
+      ],
+      "actual_downloaded_file_sha256": null,
+      "model_technical_smoke": "NOT_EXECUTED",
+      "script_path": "scripts/research/six_ttm/g1_qwen17_zero_science_technical_readiness_v1.py",
+      "script_git_blob": "1a815a5572136a93cd9a292705b75a8a17002a97",
+      "notebook_path": "notebooks/six_ttm/TTM_SIX_G1_QWEN17_INTEGRATED_READINESS_PREFLIGHT_ONESHOT_SMOKE_20261109.ipynb",
+      "notebook_git_blob": "3c807149ac16b1d08be3ba70ef57ff5ccf62c679",
+      "source_structure_static_review": "PASS_16_OF_16",
+      "actual_colab_python_compile": "NOT_EXECUTED",
+      "technical_one_shot_allowed_after_preflight": "TECHNICAL_ONLY_NOT_SCIENCE"
+    }
+  },
+  "prereg": {
+    "machine_contract_path": "docs/research/six-ttm/G1_SCIENCE_PREREG_V1_CONTRACT_CANDIDATE_20261109.json",
+    "machine_contract_blob": "de049ba00331d90f3c7ae72ab3daf943c766ec82",
+    "methodology_blob": "9dcbf31b2835e07922b2aaf66e5895c7d2f8b03b",
+    "structural_source_review": "PASS_25_OF_25",
+    "independent_scientific_reviewer": "NOT_APPOINTED_OR_REPORTED",
+    "independent_adjudication": "NOT_PERFORMED",
+    "test_only_after_sealed_data": "MUST_HOLD",
+    "science_runner_exact_source_QA": "NOT_COMPLETED",
+    "scope_of_claim": "LIMITED_CONTINUATION_PREFERENCE_FUNCTIONAL_PROBE_TRANSFER_ONLY",
+    "confirmatory_80pct_power": "NOT_ESTABLISHED_FOR_64_TEST"
+  },
+  "governance": {
+    "one_scientific_decision": "HOLD",
+    "material_blockers": [
+      "RECORD_OWNER_G1_DATA_RIGHTS_ACCEPTANCE_AND_PRIVATE_STORAGE_POLICY",
+      "READBACK_EXACT_T1_TRAIN_MANIFEST_BYTES_AND_SEAL_G1_128_64_64_SPLIT",
+      "VERIFY_ACTUAL_QWEN17_WEIGHT_SHARD_HASHES_AND_TECHNICAL_GPU_SMOKE",
+      "FREEZE_G1_SCIENTIFIC_RUNNER_WITH_TRAIN_DEV_TEST_LEAKAGE_NEGATIVE_QA",
+      "OBTAIN_DISTINCT_INDEPENDENT_SCIENCE_REVIEW_AND_OWNER_ONE_SHOT_PERMIT"
+    ],
+    "no_separate_micro_permit_cycle": true,
+    "preserve_existing_stop_fail_and_technical_pass": true,
+    "ttm_small4m_pilot_unchanged": true,
+    "g3_not_opened_by_this_decision": true
+  }
+}
