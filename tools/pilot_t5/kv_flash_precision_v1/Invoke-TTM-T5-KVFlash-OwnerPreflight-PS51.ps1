@@ -23,7 +23,8 @@ $expected = @{
   PreregGitBlob='3b12cc1883ab20e2d9e3a92e6907586c1b4cad36'
   CheckpointSHA256='cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
   GGUFsha256='5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5'
-  OriginalProbeClaimSHA256='62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2'
+  OriginalProbeBinarySHA256='62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2'
+  OriginalCallerCppSHA256='8a8324a10c67c6f868fe130d6ea7c535edb6364c8d04988600163e7b4a4b828e'
   LlamaCommit='372dc5ca157276beb6c67b2e92477e8d662e964a'
   SourceDir='C:\Users\minht\Downloads\TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108'
 }
@@ -100,7 +101,7 @@ if($OriginalCallerSource) {
   if(-not (Test-Path -LiteralPath $source -PathType Leaf)){throw 'CALLER_FILE_NOT_FOUND'}
   $callerEvidence.source=$source
   $callerEvidence.sha256=Sha $source
-  $checks.CallerSourceSHA=($callerEvidence.sha256 -eq $expected.OriginalProbeClaimSHA256)
+  $checks.CallerSourceSHA=($callerEvidence.sha256 -eq $expected.OriginalCallerCppSHA256)
   $raw=[IO.File]::ReadAllText($source)
   $withoutBlock=[regex]::Replace($raw,'(?s)/\*.*?\*/','')
   $withoutComments=[regex]::Replace($withoutBlock,'(?m)//[^\r\n]*','')
