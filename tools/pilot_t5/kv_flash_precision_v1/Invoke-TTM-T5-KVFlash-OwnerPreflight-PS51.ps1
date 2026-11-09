@@ -35,10 +35,23 @@ if (-not (($work -eq $root) -or $work.StartsWith(($root+'\'),[StringComparison]:
 }
 if (-not (Test-Path -LiteralPath (Join-Path $work '.git'))) {throw 'WORKTREE_GIT_METADATA_NOT_FOUND'}
 function Sha($p) { return (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() }
-function Invoke-TTMGit([string[]]$GitArgs) {
-    $v=& $gitExe -C $work @GitArgs 2>&1
-    if($LASTEXITCODE -ne 0){throw "GIT_COMMAND_FAILED:$($GitArgs -join ' ') $v"}
-    return ($v | Out-String).Trim()
+function Invoke-TTMGit {
+    param(
+        [Parameter(Mandatory=$true)][string[]]$GitArgs,
+        [string]$RepoPath = $work
+    )
+    # Windows PowerShell 5.1 promotes successful native stderr progress to
+    # NativeCommandError when caller sets ErrorActionPreference=Stop.
+    $savedEap=$ErrorActionPreference
+    try {
+        $ErrorActionPreference='Continue'
+        $v=@(& $gitExe -C $RepoPath @GitArgs 2>&1)
+        $rc=$LASTEXITCODE
+    } finally {
+        $ErrorActionPreference=$savedEap
+    }
+    if($rc -ne 0){throw ("GIT_COMMAND_FAILED exit="+$rc+" argv="+($GitArgs -join ' ')+" output="+($v -join ' '))}
+    return (($v | ForEach-Object { [string]$_ }) -join "`n").Trim()
 }
 function InProject([string]$p) {
     if (-not $p -or -not (Test-Path -LiteralPath $p -PathType Leaf)) {return $false}
