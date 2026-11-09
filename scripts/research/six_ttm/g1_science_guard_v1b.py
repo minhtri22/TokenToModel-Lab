@@ -81,21 +81,47 @@ def verify_signed_permit(envelope, expected, *, authority_pin=OWNER_ED25519_PUBL
 
 
 def ensure_regular_no_redirect(path, private_root):
-    """Symlink/redirect avoidance on all existing components; assumes OS ACL is enforced.
+    """Reject each symlink / Windows junction component inside private scope.
 
-    It cannot prevent a malicious same-user filesystem actor racing an open; caller
-    must use immutable private ACLs and file-handle verification on the target host.
+    Caller must use read_private_bytes for handle-bounded reads. OS ACL must
+    prevent an untrusted same-user actor from swapping parent directories.
     """
     p=Path(path).absolute(); root=Path(private_root).absolute()
     require(p == root or root in p.parents, 'PATH_OUTSIDE_PRIVATE_ROOT')
-    for item in [root,*list(reversed(p.relative_to(root).parents))[:-1], p]:
+    cur=root
+    chain=[root]
+    for name in p.relative_to(root).parts:
+        cur=cur/name
+        chain.append(cur)
+    for item in chain:
         if item.exists() or item.is_symlink():
-            require(not item.is_symlink(), 'PATH_SYMLINK')
+            require(not item.is_symlink() and
+                    not getattr(os.path, 'isjunction', lambda x: False)(item),
+                    'PATH_SYMLINK')
             st=item.lstat()
-            require(not (st.st_mode & getattr(stat,'S_IFLNK',0)) == stat.S_IFLNK,
-                    'PATH_REPARSE_OR_LINK')
-    require(p.is_file(), 'PATH_NOT_REGULAR_FILE')
+            require(not stat.S_ISLNK(st.st_mode), 'PATH_REPARSE_OR_LINK')
+    require(p.is_file() and stat.S_ISREG(p.stat().st_mode),
+            'PATH_NOT_REGULAR_FILE')
     return p
+
+
+def read_private_bytes(path, root, max_size=MAX_PACK_BYTES):
+    """Read one verified OS file handle once, without a second path open."""
+    p=ensure_regular_no_redirect(path,root)
+    flags=os.O_RDONLY|getattr(os, 'O_BINARY', 0)
+    if hasattr(os, 'O_NOFOLLOW'):
+        flags |= os.O_NOFOLLOW
+    fd=os.open(str(p),flags)
+    try:
+        st=os.fstat(fd)
+        require(stat.S_ISREG(st.st_mode) and st.st_size<=max_size,
+                'PACK_FD_TYPE_OR_SIZE')
+        with os.fdopen(fd,'rb',closefd=False) as f:
+            payload=f.read(max_size+1)
+        require(len(payload)<=max_size,'PACK_READ_OVERSIZE')
+        return payload
+    finally:
+        os.close(fd)
 
 
 def _check_array_headers(data, split, source_dim=1024, target_dim=2048):
@@ -185,8 +211,7 @@ def open_split_payload(split, freeze_validated, split_source_root):
     require(split in COUNTS,'SPLIT_INVALID')
     require(split!='TEST' or freeze_validated,'TEST_PREMATURE_SOURCE_ACCESS')
     path=Path(split_source_root)/('G1_PREFIX_'+split+'.json')
-    ensure_regular_no_redirect(path,split_source_root)
-    return path.read_bytes()
+    return read_private_bytes(path,split_source_root,max_size=2*1024*1024)
 
 
 class Budget:
