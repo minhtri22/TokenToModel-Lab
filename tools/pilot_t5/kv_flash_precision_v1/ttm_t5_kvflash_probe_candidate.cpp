@@ -13,6 +13,7 @@
 #include <limits>
 #include <stdexcept>
 #include <string>
+#include <string>
 #include <utility>
 #include <vector>
 
@@ -55,6 +56,29 @@ static void emit_json_array(std::ostream &out,const std::vector<llama_token>& v)
     out<<"]";
 }
 int main(int argc, char **argv) {
+    // This mode is safe to run in build QA: NO llama backend/model/inference.
+    // It demonstrates the compiled constants and frozen fixture IDs.
+    if (argc==2 && std::string(argv[1])=="--self-check") {
+        if(fixtures.size()!=8 || (sizeof(arms)/sizeof(arms[0]))!=4) return 20;
+        std::cout<<"{\\\"schema\\\":\\\"ttm.t5.kvflash.compiled_constants.v1\\\",";
+        std::cout<<"\\\"model_loaded\\\":false,\\\"native_inference\\\":false,";
+        std::cout<<"\\\"fixtures\\\":[";
+        for(size_t i=0;i<fixtures.size();++i){
+            if(i)std::cout<<",";
+            std::cout<<"{\\\"fixture_id\\\":\\\""<<fixtures[i].name<<"\\\",\\\"token_ids\\\":";
+            emit_json_array(std::cout,fixtures[i].ids);
+            std::cout<<"}";
+        }
+        std::cout<<"],\\\"arms\\\":[";
+        for(size_t i=0;i<(sizeof(arms)/sizeof(arms[0]));++i){
+            if(i)std::cout<<",";
+            std::cout<<"{\\\"id\\\":\\\""<<arms[i].name<<"\\\",\\\"kv\\\":\\\""
+                <<(arms[i].kv==GGML_TYPE_F16?"F16":"F32")<<"\\\",\\\"flash\\\":\\\""
+                <<(arms[i].enabled?"ENABLED":"DISABLED")<<"\\\"}";
+        }
+        std::cout<<"]}\n";
+        return 0;
+    }
     if (argc!=4) {
         std::cerr<<"usage: ttm_t5_kvflash_probe.exe <project_root> <pinned_gguf> <output.jsonl>\n";
         return 2;
