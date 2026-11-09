@@ -329,8 +329,7 @@ def main():
                        'dev_pack_sha256':ledger['DEV'],
                        'manifest_sha256':MANIFEST_SHA,
                        'run_id':args.run_id})
-        with freeze_path.open('xb') as f:
-            f.write(jbytes(frozen));f.flush();os.fsync(f.fileno())
+        guard.commit_immutable_bytes(freeze_path,jbytes(frozen),work)
         print(json.dumps({'status':'PASS_FIT_DEV_ONLY_TEST_UNOPENED',
                           'fit_sha256':sha_file(freeze_path),'test_touched':False}))
         return
@@ -353,8 +352,7 @@ def main():
     report=evaluate(train,dev,test,frozen)
     report.update({'test_pack_sha256':ledger['TEST'],'fit_dev_sha256':admission['fit_sha256'],
                    'manifest_sha256':MANIFEST_SHA,'test_one_shot_consumed':True})
-    with (work/'G1_SCIENCE_RESULT_PRIVATE.json').open('xb') as f:
-        f.write(jbytes(report));f.flush();os.fsync(f.fileno())
+    guard.commit_immutable_bytes(work/'G1_SCIENCE_RESULT_PRIVATE.json',jbytes(report),work)
     print(json.dumps({'status':'TERMINAL_SCIENCE_ONE_SHOT',
                       'report_sha256':sha_file(work/'G1_SCIENCE_RESULT_PRIVATE.json'),
                       'verdict':report['verdict'],'test_one_shot_consumed':True}))
@@ -363,6 +361,8 @@ def main():
 if __name__=='__main__':
     try:main()
     except Exception as exc:
+        # No potentially identifying private-path or tensor values in stderr.
         print(json.dumps({'status':'STOP_G1_FAIL_CLOSED','error_type':type(exc).__name__,
-                          'error':str(exc)[:500],'science_not_claimed':True}),file=sys.stderr)
+                          'error_code':'SANITIZED_STOP_DETAILS_IN_PRIVATE_LOG_ONLY',
+                          'science_not_claimed':True}),file=sys.stderr)
         raise SystemExit(1)
