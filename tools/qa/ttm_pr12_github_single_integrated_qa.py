@@ -3,7 +3,7 @@
 No Ollama serve/create/generate, no Colab, no TRAIN/TEST decoding, no merge.
 Run only after retrieving this exact file from GitHub and SHA checking it.
 """
-import argparse, ast, datetime, hashlib, json, os, pathlib, re, shutil, subprocess, sys, urllib.request
+import argparse, ast, datetime, hashlib, json, os, pathlib, re, shutil, stat, subprocess, sys, urllib.request
 
 ROOT = pathlib.Path(r"D:\WORK\RESEARCH\TokenToModel-Lab")
 REPO = "minhtri22/TokenToModel-Lab"
@@ -105,11 +105,32 @@ def safe_cleanup(path, parent):
             require(not item.is_symlink(), "CLEANUP_REPARSE_POINT")
             if hasattr(os.path, "isjunction"):
                 require(not os.path.isjunction(item), "CLEANUP_JUNCTION")
-    shutil.rmtree(path)
+    def retry_readonly(operation, failing_path, exception):
+        if not isinstance(exception[1], PermissionError):
+            raise exception[1]
+        candidate = pathlib.Path(failing_path)
+        require(candidate.is_relative_to(path), "CLEANUP_RETRY_OUTSIDE_CLAIM")
+        require(not candidate.is_symlink(), "CLEANUP_REPARSE_POINT")
+        if hasattr(os.path, "isjunction"):
+            require(not os.path.isjunction(candidate), "CLEANUP_JUNCTION")
+        os.chmod(candidate, stat.S_IWRITE | stat.S_IREAD)
+        operation(failing_path)
+    shutil.rmtree(path, onerror=retry_readonly)
+
+def verify_runtime_deps_before_claim():
+    require(sys.version_info >= (3, 11), "QA_PYTHON_TOO_OLD_BEFORE_CLAIM")
+    for module in ("pytest", "numpy", "torch", "regex"):
+        try:
+            __import__(module)
+        except Exception as exc:
+            raise RuntimeError("QA_PYTHON_DEPENDENCY_MISSING_BEFORE_CLAIM:" +
+                               module + ":" + type(exc).__name__) from exc
 
 def run(expected, cleanup):
     verify_root()
     require(remote_head() == expected, "REMOTE_HEAD_CHANGED")
+    verify_runtime_deps_before_claim()
+    print("TTM_PR12_QA_PYTHON_DEPENDENCIES=PASS_BEFORE_CLAIM", flush=True)
     parent = ROOT / "_tmp"
     require(parent.is_dir() and not parent.is_symlink(), "PROJECT_TMP_MISSING_OR_LINK")
     run_dir = parent / ("TTM_PR12_QA_" + expected[:12])
@@ -177,9 +198,16 @@ def run(expected, cleanup):
     print("TTM_PR12_QA_RESULT=" + receipt["status"])
     print("TTM_PR12_MERGE_DECISION=" + receipt["merge_decision"])
     print("TTM_PR12_EVIDENCE_GITHUB_READBACK=PASS_ALL_13_FILES")
-    if cleanup:
-        safe_cleanup(run_dir, parent)
-        print("TTM_PR12_EPHEMERAL_CLEANUP=PASS_SCOPED_ONLY")
+    if cleanup and receipt["status"] == "PASS_SCOPED":
+        try:
+            safe_cleanup(run_dir, parent)
+            print("TTM_PR12_EPHEMERAL_CLEANUP=PASS_SCOPED_ONLY")
+        except Exception as exc:
+            print("TTM_PR12_EPHEMERAL_CLEANUP=HOLD_PRESERVE_EVIDENCE:" +
+                  type(exc).__name__ + ":" + str(exc)[:240])
+            return 5
+    elif cleanup:
+        print("TTM_PR12_EPHEMERAL_CLEANUP=SKIPPED_QA_HOLD_PRESERVE_CLAIM")
     else:
         print("TTM_PR12_EPHEMERAL_CLEANUP=NOT_REQUESTED")
     return 0 if receipt["status"] == "PASS_SCOPED" else 4
