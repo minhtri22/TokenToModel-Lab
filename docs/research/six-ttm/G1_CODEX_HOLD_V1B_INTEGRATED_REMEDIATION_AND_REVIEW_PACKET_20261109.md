@@ -14,14 +14,14 @@ Prior Codex verdict `HOLD` stored byte-exact at `docs/research/six-ttm/G1_CODEX_
 |---|---|
 | `scripts/research/six_ttm/g1_science_guard_v1b.py` | `d67b35cd8cba907904d0f23ccedd4b6b68d4850f` |
 | `scripts/research/six_ttm/g1_science_core_v1b.py` | `94611c0449001230b2957487e152cd706f817516` |
-| `scripts/research/six_ttm/g1_science_private_feature_extractor_v1b.py` | `210816e3fba1bb25f4f7fbeebb6c3d0cbf76527d` |
-| `scripts/research/six_ttm/test_g1_v1b_negative_qa.py` | `59b87c1c4370c635f1cbc2ecf8cabf5946d6bc0c` |
+| `scripts/research/six_ttm/g1_science_private_feature_extractor_v1b.py` | `2802c810d76b40e291188b2186439f53ccda0e13` |
+| `scripts/research/six_ttm/test_g1_v1b_negative_qa.py` | `7e4270732b4c2f81b1677b82647456067989750d` |
 
 Private G1 128/64/64 manifest SHA-256: `6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6`. T1 source manifest SHA-256: `9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9`.
 
 ## 2. Implemented scoped repairs (not claims of independent proof)
 
-**Source split isolation:** v1b extractor no longer invokes the historical full-TinyStories scanner during science. It reads only a separate `G1_PREFIX_<SPLIT>.json` under the private split-root, requires matching IDs/prefix hashes and rejects TEST access until a complete DEV freeze is validated. The original v1 full-source parser remains historical and is not an approved science path. A separate owner-authorized split materializer/broker is still absent (see HOLD below).
+**Source split isolation:** v1b extractor no longer invokes the historical full-TinyStories scanner during science. It reads only a separate `G1_PREFIX_<SPLIT>.json` under the private split-root, requires matching IDs/prefix hashes and rejects TEST access until a complete DEV freeze is validated. The exclusive, fsynced TEST extraction marker is now created before the first split-specific TEST prefix byte read. The original v1 full-source parser remains historical and is not an approved science path. A separate owner-authorized split materializer/broker is still absent (see HOLD below).
 
 **Authority:** v1b checks an Ed25519 signature over canonical owner admission including reviewer identity, distinct code author, phase, run ID, workspace, manifest hash and reviewed source/amendment blob pins. Any forged/missing/expired permit fails in synthetic QA. Production `OWNER_ED25519_PUBLIC_SHA256_PIN=None` intentionally denies *all* science. No owner key has been provisioned; no manual override is allowed. Test keys in QA do not establish an owner approval.
 
@@ -43,7 +43,7 @@ python g1_science_core_v1b.py --mode synthetic-qa
 python g1_science_private_feature_extractor_v1b.py --mode synthetic-qa
 ```
 
-`PASS_G1_V1B_ADVERSARIAL_CPU_ONLY`, **37 checks**, including: unsigned or modified permit rejection; different reviewer and code author; denied early TEST read; nested symlink rejection; 0-byte/stale DEV freeze rejection; same IDs but different tensor SHA rejection; malformed ZIP; atomic commit no-overwrite; marker second-open rejection; 63+1 bootstrap finite; full TEST SST terminal; zero-var CKA terminal; mocked budget overruns.
+`PASS_G1_V1B_ADVERSARIAL_CPU_ONLY`, **38 checks**, including: unsigned or modified permit rejection; different reviewer and code author; denied early TEST read; nested symlink rejection; 0-byte/stale DEV freeze rejection; same IDs but different tensor SHA rejection; malformed ZIP; atomic commit no-overwrite; marker second-open rejection; 63+1 bootstrap finite; full TEST SST terminal; zero-var CKA terminal; mocked budget overruns.
 
 Full synthetic algorithm loop: 1,000 TRAIN shuffles / 1,000 CKA permutations / 2,000 bootstrap resamples PASS (synthetic hidden dimensions 7/11). The complete author QA evidence is `docs/research/six-ttm/G1_V1B_CODEX_HOLD_REMEDIATION_INTEGRATED_CPU_QA_RECEIPT_20261109.json`. The reviewer MUST run independent tests rather than equating these author assertions with peer review.
 
