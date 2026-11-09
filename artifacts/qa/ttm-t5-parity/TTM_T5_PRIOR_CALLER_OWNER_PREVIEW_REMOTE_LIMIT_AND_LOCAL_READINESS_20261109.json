@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.t5.owner_local_caller_attestation_preview_attempt.scoped_receipt.v1",
+  "date": "2026-11-09",
+  "task": "TTM_T5_PRIOR_CALLER_OWNER_LOCAL_SOURCE_ATTESTATION_AND_NEW_2X2_SINGLE_RUN_READINESS",
+  "observed": {
+    "github_branch_before_attempt": "d5aa22f85f24a697440d7777becc8f1e240f2f2d",
+    "original_caller_cmake_source_dir": "C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108",
+    "cmake_records": [
+      "ttm_t5_layer_probe_SOURCE_DIR:STATIC=C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108",
+      "CMAKE_HOME_DIRECTORY:INTERNAL=C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108"
+    ],
+    "old_executable": "_tmp/ttm_t5_numeric_localization_v1/build/Release/ttm_t5_layer_probe.exe",
+    "old_executable_exists": true,
+    "old_executable_sha256": "NOT_MEASURED_REMOTE_READONLY_TOOL_NO_BINARY_HASH",
+    "original_caller_cpp_sha256": "NOT_MEASURED_OUTSIDE_REMOTE_WORKSPACE",
+    "original_caller_type_k": "UNKNOWN",
+    "original_caller_type_v": "UNKNOWN",
+    "original_log_flash_attention": "FLASH_ATTN_EXT_FOUND",
+    "branch_checkout_on_windows": "NOT_PRESENT_AT_TIME_OF_PREVIEW_ATTEMPT"
+  },
+  "remote_execution": {
+    "command": "git --version",
+    "backend": "RemoteDesktop.run_command",
+    "outcome": "BLOCKED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+    "no_process_started": true,
+    "owner_preview_invoked": false,
+    "reason_original_caller_not_read": "OUTSIDE_ALLOWED_REMOTEDESKTOP_WORKSPACE",
+    "shell_preview_status": "NOT_EXECUTED"
+  },
+  "workaround": {
+    "script": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1",
+    "script_git_blob": "d0f27dc3abb0bfac90a59579d7b0e64fa1dabbe7",
+    "static_guard_checks": "PASS_12_OF_12_AUTHOR_READBACK_NOT_WINDOWS_PARSE",
+    "user_run_one_shot": true,
+    "script_does_not_execute_native": true,
+    "evidence_marker_in_project": "_tmp/ttm_t5_f32_kvflash_owner_gate_20261109/OWNER_LOCAL_PREVIEW_SINGLE_20261109.json",
+    "owner_local_preview_result": "NOT_RECEIVED"
+  },
+  "readiness": {
+    "frozen_prereg": "PASS_FROZEN_8_NEW_SYNTHETIC_FIXTURES_X_4_ARMS",
+    "original_caller_sha": "PENDING",
+    "original_kv_settings": "UNKNOWN",
+    "old_executable_binary_provenance": "PENDING",
+    "new_candidate_executable": "UNCOMPILED",
+    "new_reference_logits": "NOT_EXECUTED",
+    "owner_approval": "NOT_ISSUED",
+    "owner_run_gate": "HOLD",
+    "native_2x2_runs": "0_OF_32",
+    "training": "NO",
+    "test": "UNTOUCHED",
+    "original_strict": "FAIL_7_OF_8_PRESERVED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "pr13": "HOLD_DRAFT"
+  },
+  "next": "Run exact one-shot owner-local PowerShell Preview and return the project-local JSON receipt; then review source/binary/reference as one combined gate before any 32-run native execution."
+}
