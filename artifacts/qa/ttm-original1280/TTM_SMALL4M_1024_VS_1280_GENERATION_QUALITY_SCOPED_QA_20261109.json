@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.small4m.original1024_vs1280.controlled_generation.source_and_artifact_receipt.v1",
+  "date": "2026-11-09",
+  "pr": 13,
+  "scope": "ORIGINAL_T4_ONLY_NO_TRAIN_NO_TEST_NO_Q1Q2",
+  "checkpoints_sha256": {
+    "1024": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "1280": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+  },
+  "token_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+  "n_prompts": 8,
+  "n_methods": 2,
+  "n_models": 2,
+  "n_outputs": 32,
+  "methods": {
+    "greedy": {
+      "temperature": 0
+    },
+    "sampled": {
+      "temperature": 0.8,
+      "top_k": 40,
+      "top_p": 0.9
+    }
+  },
+  "max_new_tokens": 64,
+  "seed_base": 20261109,
+  "qa": "PASS_19_OF_19_SCOPED_ARTIFACT_CONTRACT",
+  "anchor_hits": {
+    "greedy_1024": 0,
+    "greedy_1280": 0,
+    "sampled_1024": 0,
+    "sampled_1280": 0
+  },
+  "repeated_trigram_fraction": {
+    "greedy_1024": 0.3588709677419355,
+    "greedy_1280": 0.3245967741935484,
+    "sampled_1024": 0.046370967741935484,
+    "sampled_1280": 0.038306451612903226
+  },
+  "quality_verdict": "NOT_ESTABLISHED_PEND_BLIND_HUMAN_RUBRIC",
+  "status": "EXECUTED_DESCRIPTIVE_SCOPED",
+  "drive_archive_url": "https://drive.google.com/file/d/1k0HwoT5ZCmVgGodpGAC0sri3F9fO3pD-/view",
+  "drive_archive_sha256_local": "db7e327fa4a9a2badc9f7d0b79f8276ae4925513cee3750b6bd04dde45fc535c",
+  "drive_archive_bytes": 21959,
+  "drive_readback_size_verified": true,
+  "drive_readback_sha_verified": false,
+  "raw_file_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e",
+  "qa_file_sha256": "24afcf5f15c03a491b72e43571bfb9ccaf7804cc616dacbb582a6f01184f5ad9",
+  "not_science_confirmatory": true,
+  "original_lineage_append": false,
+  "pr_merge_decision": "HOLD"
+}
