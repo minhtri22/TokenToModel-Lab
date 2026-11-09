@@ -59,6 +59,8 @@ Assert-ExitCode 'FETCH_HEAD'
 if ($got -ne $PinnedHead) { throw 'FETCH_HEAD_CHANGED' }
 
 if (Test-Path -LiteralPath $worktree) {
+    $wtAttr = (Get-Item -LiteralPath $worktree -Force).Attributes
+    if (($wtAttr -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'WORKTREE_PATH_IS_LINK' }
     $wtTop = (& git -C $worktree rev-parse --show-toplevel | Select-Object -First 1)
     Assert-ExitCode 'EXISTING_WORKTREE'
     if ((FullPath $wtTop.Replace('/', '\')) -ne (FullPath $worktree)) { throw 'EXISTING_PATH_NOT_WORKTREE' }
@@ -81,6 +83,13 @@ if (-not (Test-Path -LiteralPath (Join-Path $worktree 'tests\t6\test_cache_ab_fi
     throw 'T6_TEST_FILE_MISSING_AT_PINNED_HEAD'
 }
 
+foreach ($sub in @('artifacts','artifacts/qa','artifacts/qa/t6')) {
+    $subPath = Join-Path $worktree $sub
+    if (Test-Path -LiteralPath $subPath) {
+        $subAttr = (Get-Item -LiteralPath $subPath -Force).Attributes
+        if (($subAttr -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw ('EVIDENCE_PATH_IS_LINK:' + $sub) }
+    }
+}
 New-Item -ItemType Directory -Path $qaDir -Force | Out-Null
 $stdoutTmp = Join-Path $qaDir 'TTM_T6_WINDOWS_UNIT_STDOUT_TEMP.txt'
 $stderrTmp = Join-Path $qaDir 'TTM_T6_WINDOWS_UNIT_STDERR_TEMP.txt'
