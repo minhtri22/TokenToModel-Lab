@@ -1,0 +1,109 @@
+{
+  "schema": "ttm.small4m.posthoc_semantic_review_and_data_decision.scoped_adjudication.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SMALL4M_POSTHOC_ABLATION_SEMANTIC_REVIEW_AND_NEXT_DATA_DECISION",
+  "pr": 13,
+  "source": {
+    "original_generation_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e",
+    "trimmed_generation_sha256": "eaa98bb4b1da6079513d96a73a23ea33a30fe43df0e736806a9294fa47530021",
+    "source_prereg_commit": "fb5699857e435efb85c20e1be6baa7a206bb835e",
+    "original_step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+  },
+  "freeze": {
+    "pre_unblind_commit": "2424f4d91365db142e9665a9c686978387e2dbc4",
+    "frozen_scores_sha256": "748acd55fa064f70c68af1f08fdda78b2e1c370969a8549b9da9eaf0f752037a",
+    "rubric_sha256": "61705dac08df2c4458eb37e1fd9530d75a2efa11bec0a85f7f63640a5aaabad3",
+    "blind_input_sha256": "fec7427b75fcf52eeb82e563f9571a31d463724e299d7119c6c33f3087a2827d",
+    "blind_key_sha256": "4776006bb0d58eff8c532ff21f43dd1d7a9fc78b78745fd73daa8271e0ffd8af"
+  },
+  "scoring": {
+    "n_pairs": 32,
+    "n_outputs": 64,
+    "n_axes": 3,
+    "n_frozen_scores": 192,
+    "scoring_axes": [
+      "adherence",
+      "coherence",
+      "consistency"
+    ],
+    "scale_min": 0,
+    "scale_max": 3,
+    "rater": "SINGLE_AI_NOT_HUMAN_INDEPENDENT",
+    "mean_original": {
+      "adherence": 0,
+      "coherence": 0.28125,
+      "consistency": 0.1875,
+      "total": 0.46875
+    },
+    "mean_trimmed": {
+      "adherence": 0.09375,
+      "coherence": 0.65625,
+      "consistency": 0.4375,
+      "total": 1.1875
+    },
+    "mean_delta": {
+      "adherence": 0.09375,
+      "coherence": 0.375,
+      "consistency": 0.25,
+      "total": 0.71875
+    },
+    "wins_trimmed": 17,
+    "wins_original": 7,
+    "ties": 8,
+    "by_checkpoint_delta_total": {
+      "1024": 1,
+      "1280": 0.4375
+    },
+    "by_decoder_delta_total": {
+      "greedy": 0.75,
+      "sampled": 0.6875
+    },
+    "prompt_cluster_bootstrap_descriptive_ci95_total": [
+      0.3125,
+      1.1875
+    ],
+    "sensitivity_exclude_prior_labeled_prompt_P02_P05": {
+      "n_pairs": 24,
+      "mean_delta_total": 0.958333
+    }
+  },
+  "methodological_audit": {
+    "material_arithmetic_checks": "PASS_16_OF_16",
+    "blinding_balance": "FAIL_24_A_TRIMMED_8_A_ORIGINAL",
+    "mean_column_A_total": 1.125,
+    "mean_column_B_total": 0.53125,
+    "mean_delta_when_trimmed_A": 0.875,
+    "mean_delta_when_original_A": 0.25,
+    "visible_leading_newline_cue": true,
+    "prior_labeled_examples_seen_in_conversation": true,
+    "independent_human_rater": false,
+    "scientific_confirmatory_eligibility": "NO"
+  },
+  "materials": {
+    "unblinded_scores_csv_sha256": "e6a9c5e640210e1636f7b45fa467f30db31761795587f459c491dfea12645600",
+    "results_json_sha256": "0107b762e390bca7400f2b9617d49d873ac6ba5fe6c8bd88685898b6a3e44701",
+    "final_report_md_sha256": "8b887fdc11fe632b72bcd12a84f86a20704f1f6449e622dd3e7e15ace0895e5b",
+    "archive_sha256": "b7ddd93ee8c02adffb9db4d7b63ecfdc3d76298050dfbfa64617520627934c7c",
+    "archive_bytes": 42323,
+    "archive_manifest_sha256": "5fac5f3d9f97050def0980346b3e401c41ab5b183adb8104bf17d23d3ef77416",
+    "archive_contains": "raw original and trimmed 32 generations, blinded items/key, rubric, frozen scores, unblinded scores, source and audit scripts, no checkpoints/corpus"
+  },
+  "decision": {
+    "semantic_gain": "INDICATIVE_NOT_CONFIRMED",
+    "protocol_integrity": "DESIGN_IMBALANCE_HOLD",
+    "data_change": "HOLD_NO_DATA_REWRITE",
+    "new_training": "NO",
+    "next": "TTM_SMALL4M_FRESH_12_PROMPT_BALANCED_BLIND_INFERENCE_PREREG_AND_REVIEW_READINESS",
+    "new_sci_lineage_entry": false
+  },
+  "governance": {
+    "new_training_steps": 0,
+    "new_generations": 0,
+    "test_untouched": true,
+    "q1q2_unchanged": true,
+    "pr13_merge": "HOLD",
+    "main": "UNCHANGED",
+    "lineage": "L0017_UNCHANGED"
+  }
+}
