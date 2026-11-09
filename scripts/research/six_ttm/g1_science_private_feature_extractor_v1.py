@@ -234,6 +234,15 @@ def main():
                           'probes':8,'science_executed':False}));return
     need(args.split and args.private_root and args.source and args.permit,'ARGS_REQUIRED')
     root=args.private_root.resolve(strict=True)
+    # Restrict future science writes to approved TTM root (Windows) or
+    # /content's dedicated private workspace (Colab); never arbitrary paths.
+    if os.name=='nt':
+        ttm=Path(r'D:\WORK\RESEARCH\TokenToModel-Lab').resolve(strict=True)
+        need(root.is_relative_to(ttm),'PROJECT_SCOPE_WINDOWS')
+    elif sys.platform.startswith('linux'):
+        need(root==Path('/content').resolve(strict=True),'COLAB_PROJECT_SCOPE')
+    else:
+        need(False,'UNSUPPORTED_HOST')
     source=args.source.resolve(strict=True)
     need(source.is_relative_to(root),'SOURCE_OUTSIDE_PRIVATE_ROOT')
     work=root/'ttm_six_g1_science_private'
