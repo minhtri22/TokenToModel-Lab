@@ -1,0 +1,13 @@
+{
+  "cuda_checked": false,
+  "files": {
+    "README_VI.md": "7dc57a42fb5cbeebf306004855c06d253f8e81c80b7636cd5a66d75653e05775",
+    "TTM_CAUSAL6_FREE_T4_ONE_SHOT_COLAB_20261109.ipynb": "8349f5e13006ad3af5336745e34333ee0fb5a272e9a24c45b3bf6a016b1f88c7",
+    "ttm_causal6_colab_free_t4_one_shot.py": "51b15ebde7587dcad9a880116ab4c2cc605132cb0ac54ea03af05c7d12bac612",
+    "ttm_causal6_h512_seal.py": "698cea87cae43aea65ae66b89de74e7a317658f4d677aa7d932f956dea893e4c",
+    "ttm_causal6_independent_readback.py": "e47ef303deb0f30028f14cd4809d44f3dec42c338bf6b99e9c028942d0d5d5ed"
+  },
+  "h512_sealed": false,
+  "schema": "ttm.causal6.public_source_bundle_manifest.v1",
+  "science_executed": false
+}
