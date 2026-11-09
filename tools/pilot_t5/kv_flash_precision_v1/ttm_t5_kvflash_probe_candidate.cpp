@@ -60,21 +60,19 @@ int main(int argc, char **argv) {
     // It demonstrates the compiled constants and frozen fixture IDs.
     if (argc==2 && std::string(argv[1])=="--self-check") {
         if(fixtures.size()!=8 || (sizeof(arms)/sizeof(arms[0]))!=4) return 20;
-        std::cout<<"{\\\"schema\\\":\\\"ttm.t5.kvflash.compiled_constants.v1\\\",";
-        std::cout<<"\\\"model_loaded\\\":false,\\\"native_inference\\\":false,";
-        std::cout<<"\\\"fixtures\\\":[";
+        std::cout<<R"({"schema":"ttm.t5.kvflash.compiled_constants.v1","model_loaded":false,"native_inference":false,"fixtures":[)";
         for(size_t i=0;i<fixtures.size();++i){
             if(i)std::cout<<",";
-            std::cout<<"{\\\"fixture_id\\\":\\\""<<fixtures[i].name<<"\\\",\\\"token_ids\\\":";
+            std::cout<<R"({"fixture_id":")"<<fixtures[i].name<<R"(","token_ids":)";
             emit_json_array(std::cout,fixtures[i].ids);
             std::cout<<"}";
         }
-        std::cout<<"],\\\"arms\\\":[";
+        std::cout<<R"(],"arms":[)";
         for(size_t i=0;i<(sizeof(arms)/sizeof(arms[0]));++i){
             if(i)std::cout<<",";
-            std::cout<<"{\\\"id\\\":\\\""<<arms[i].name<<"\\\",\\\"kv\\\":\\\""
-                <<(arms[i].kv==GGML_TYPE_F16?"F16":"F32")<<"\\\",\\\"flash\\\":\\\""
-                <<(arms[i].enabled?"ENABLED":"DISABLED")<<"\\\"}";
+            std::cout<<R"({"id":")"<<arms[i].name<<R"(","kv":")"
+                <<(arms[i].kv==GGML_TYPE_F16?"F16":"F32")<<R"(","flash":")"
+                <<(arms[i].enabled?"ENABLED":"DISABLED")<<R"("})";
         }
         std::cout<<"]}\n";
         return 0;
