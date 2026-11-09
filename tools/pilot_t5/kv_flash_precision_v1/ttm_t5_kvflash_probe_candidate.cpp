@@ -60,14 +60,16 @@ int main(int argc, char **argv) {
         return 2;
     }
     llama_model *model=nullptr;
+    bool backend_initialized=false;
     try {
         const fs::path root=fs::canonical(argv[1]);
         const fs::path gguf=fs::canonical(argv[2]);
         const fs::path out=fs::absolute(argv[3]);
         const fs::path parent=fs::canonical(out.parent_path());
-        if(!is_under(root,gguf)||!is_under(root,parent)||fs::exists(out)) throw std::runtime_error("PATH_SCOPE_OR_OUTPUT_EXISTS");
+        if(!is_under(root,gguf)||!is_under(root,parent)||fs::symlink_status(out).type()!=fs::file_type::not_found) throw std::runtime_error("PATH_SCOPE_OR_OUTPUT_EXISTS");
         if (fixtures.size()!=8) throw std::runtime_error("FIXTURE_COUNT");
         llama_backend_init();
+        backend_initialized=true;
         llama_model_params model_params=llama_model_default_params();
         model_params.n_gpu_layers=0;
         model=llama_model_load_from_file(gguf.string().c_str(),model_params);
@@ -138,12 +140,13 @@ int main(int argc, char **argv) {
         file.close();
         llama_model_free(model);
         llama_backend_free();
+        backend_initialized=false;
         std::cout<<"T5_NEW_SYNTHETIC_2X2_NATIVE_RUN=COMPLETE_ROWS_32\n";
         return 0;
     } catch (const std::exception& e) {
         std::cerr<<"T5_FAIL_CLOSED:"<<e.what()<<"\n";
         if(model)llama_model_free(model);
-        llama_backend_free();
+        if(backend_initialized)llama_backend_free();
         return 3;
     }
 }
