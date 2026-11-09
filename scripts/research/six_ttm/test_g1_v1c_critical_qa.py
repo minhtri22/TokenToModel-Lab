@@ -4,7 +4,7 @@ import hashlib
 import json
 import numpy as np
 import g1_science_core_v1c as c
-import g1_science_guard_v1b as g
+import g1_science_guard_v1c as g
 
 rng=np.random.default_rng(420)
 W=rng.normal(size=(9,14))/4
