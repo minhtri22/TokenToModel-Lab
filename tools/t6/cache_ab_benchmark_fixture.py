@@ -381,7 +381,7 @@ def main(argv: list[str] | None = None) -> int:
                                  "correctness_atol": ABS_TOL, "correctness_rtol": REL_TOL,
                                  "rss": "process RSS sampled snapshots, NOT per-path peak or exclusive allocation",
                                  "kv_memory": "exact cache tensor physical allocation, active reservation and logical bytes; model weight bytes separate",
-                                 "device": "off-host Linux CPU, not user Windows dev machine",
+                                 "device": platform.platform() + " CPU (measurement host)",
                                  "no_performance_claim": True},
         "workloads": results, "two_request_memory": dual,
         "non_claims": ["No T4 checkpoint or real-token model quality", "Not P07/P08 GPU capability",
