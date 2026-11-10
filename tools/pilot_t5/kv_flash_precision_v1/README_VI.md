@@ -1,3 +1,13 @@
+# OWNER_OVERRIDE_2026_11_10 — MERGE HOLD CHỜ XÁC ĐỊNH NGUYÊN NHÂN VÀ STRICT PASS
+
+**Quyết định có hiệu lực mới nhất của owner:** `PR16=DRAFT_HOLD` · `MERGE=BLOCKED` cho tới khi **nguồn sai số được chứng minh bằng can thiệp nhân quả** và **một kiểm định strict logits mới đạt PASS ở ngưỡng 0,001**. QA nguồn PASS, top-1 PASS và Git mergeable **không đủ** để merge.
+
+**Đã xác minh tĩnh:** `nn.GELU()` PyTorch P02 (erf) không trùng lựa chọn `LLM_FFN_GELU`/ `ggml_gelu` của GPT-2 GGML; nhưng trace lịch sử đã có khác biệt trước GELU tại `ffn_inp-0`, do vậy chưa được quy cho một nguyên nhân duy nhất. Trạng thái `ROOT_CAUSE=UNRESOLVED`.
+
+**Quyết định MERGE của biên bản review trước chỉ có giá trị lịch sử, đã bị owner phủ quyết**. Xem [bản khóa mới](../../../docs/pilot/TTM_T5_PR16_OWNER_HOLD_EXACT_CAUSAL_ROOT_STRICT_PASS_PROTOCOL_20261110.md). Không chạy lại 8 fixture cũ hoặc 32 phép đo mới đã tiêu thụ; giữ nguyên FAIL 7/8 và FAIL 32/32 cùng `lineage.md` L0013.
+
+---
+
 # CẬP NHẬT 2026-11-10 — Kết quả one-shot T5 đã phân xử
 
 **Kết quả mới nhất:** `NATIVE_32=EXECUTED_ONCE_PASS_PROTOCOL` · **`STRICT_LOGITS=FAIL_32_OF_32`** · `TOP1=PASS_32/32` · `EXACT_ROOT_CAUSE=UNRESOLVED`. Đây là kết quả khoa học âm tính hợp lệ: thay đổi riêng F16/F32 KV cache và Flash ON/OFF **không đủ** đạt strict parity `max_abs≤0.001`. Không chạy lại 32; giữ nguyên strict FAIL lịch sử 7/8. Chủ dự án chỉ yêu cầu **xem xét merge**, chưa cho phép merge main.
