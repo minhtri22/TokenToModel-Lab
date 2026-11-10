@@ -1,0 +1,80 @@
+test_01_fixture_is_train_only (__main__.FixtureTests.test_01_fixture_is_train_only) ... ok
+test_02_fixture_has_40_stories (__main__.FixtureTests.test_02_fixture_has_40_stories) ... ok
+test_03_fixture_has_64_windows (__main__.FixtureTests.test_03_fixture_has_64_windows) ... ok
+test_04_first_windows_exact (__main__.FixtureTests.test_04_first_windows_exact) ... ok
+test_05_later_windows_exact (__main__.FixtureTests.test_05_later_windows_exact) ... ok
+test_06_valid_lengths_bounded (__main__.FixtureTests.test_06_valid_lengths_bounded) ... ok
+test_07_at_least_one_full_length_candidate (__main__.FixtureTests.test_07_at_least_one_full_length_candidate) ... ok
+test_08_padding_targets_ignored (__main__.FixtureTests.test_08_padding_targets_ignored) ... ok
+test_09_label_shift_valid (__main__.FixtureTests.test_09_label_shift_valid) ... ok
+test_10_window_ids_unique (__main__.FixtureTests.test_10_window_ids_unique) ... ok
+test_11_validation_accepts_fixture (__main__.FixtureTests.test_11_validation_accepts_fixture) ... ok
+test_12_reject_val_source (__main__.FixtureTests.test_12_reject_val_source) ... ok
+test_13_reject_test_source (__main__.FixtureTests.test_13_reject_test_source) ... ok
+test_14_reject_fake_duplicate_id (__main__.FixtureTests.test_14_reject_fake_duplicate_id) ... ok
+test_15_reject_corrupted_label_shift (__main__.FixtureTests.test_15_reject_corrupted_label_shift) ... ok
+test_16_reject_corrupted_padding_mask (__main__.FixtureTests.test_16_reject_corrupted_padding_mask) ... ok
+test_17_reject_out_of_vocab_x (__main__.FixtureTests.test_17_reject_out_of_vocab_x) ... ok
+test_18_reject_unaligned_story_offset (__main__.FixtureTests.test_18_reject_unaligned_story_offset) ... ok
+test_19_reject_multiple_first_windows_same_story (__main__.FixtureTests.test_19_reject_multiple_first_windows_same_story) ... ok
+test_20_reject_empty_window_source (__main__.FixtureTests.test_20_reject_empty_window_source) ... ok
+test_58_status_synthetic_only (__main__.FullIntegratedTests.test_58_status_synthetic_only) ... ok
+test_59_completed_128_steps (__main__.FullIntegratedTests.test_59_completed_128_steps) ... ok
+test_60_per_step_all_4096 (__main__.FullIntegratedTests.test_60_per_step_all_4096) ... ok
+test_61_per_arm_exact_exposure (__main__.FullIntegratedTests.test_61_per_arm_exact_exposure) ... ok
+test_62_total_four_arm_exposures (__main__.FullIntegratedTests.test_62_total_four_arm_exposures) ... ok
+test_63_forward_count_equal (__main__.FullIntegratedTests.test_63_forward_count_equal) ... ok
+test_64_forward_slots_equal (__main__.FullIntegratedTests.test_64_forward_slots_equal) ... ok
+test_65_plan_A_C_digest_equal (__main__.FullIntegratedTests.test_65_plan_A_C_digest_equal) ... ok
+test_66_plan_B_D_digest_equal (__main__.FullIntegratedTests.test_66_plan_B_D_digest_equal) ... ok
+test_67_data_change_nontrivial (__main__.FullIntegratedTests.test_67_data_change_nontrivial) ... ok
+test_68_B_D_all_drawn_windows_first (__main__.FullIntegratedTests.test_68_B_D_all_drawn_windows_first) ... ok
+test_69_A_C_same_first_count (__main__.FullIntegratedTests.test_69_A_C_same_first_count) ... ok
+test_70_no_real_pack_or_training (__main__.FullIntegratedTests.test_70_no_real_pack_or_training) ... ok
+test_71_no_science_inference (__main__.FullIntegratedTests.test_71_no_science_inference) ... ok
+test_72_explicit_uncertainty_about_real_data (__main__.FullIntegratedTests.test_72_explicit_uncertainty_about_real_data) ... ok
+test_43_uniform_matches_pytorch_reference (__main__.LossTests.test_43_uniform_matches_pytorch_reference) ... /mnt/data/ttm_2x2_synthetic_20261110/test_ttm_2x2_equal_budget_synthetic.py:174: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  self.assertAlmostEqual(float(actual),float(ref),places=6)
+ok
+test_44_weighted_matches_independent_logsumexp (__main__.LossTests.test_44_weighted_matches_independent_logsumexp) ... ok
+test_45_weighted_emphasis_changes_nonuniform_loss (__main__.LossTests.test_45_weighted_emphasis_changes_nonuniform_loss) ... ok
+test_46_all_constant_ce_loss_is_normalized (__main__.LossTests.test_46_all_constant_ce_loss_is_normalized) ... ok
+test_47_pad_has_zero_gradient_uniform (__main__.LossTests.test_47_pad_has_zero_gradient_uniform) ... ok
+test_48_pad_has_zero_gradient_weighted (__main__.LossTests.test_48_pad_has_zero_gradient_weighted) ... ok
+test_49_suffix_gradient_three_times_prefix_for_uniform_logits (__main__.LossTests.test_49_suffix_gradient_three_times_prefix_for_uniform_logits) ... ok
+test_50_uniform_gradient_nonzero_on_valid_tokens (__main__.LossTests.test_50_uniform_gradient_nonzero_on_valid_tokens) ... ok
+test_51_step_normalization_not_microbatch_average (__main__.LossTests.test_51_step_normalization_not_microbatch_average) ... ok
+test_52_single_microbatch_equals_reference (__main__.LossTests.test_52_single_microbatch_equals_reference) ... ok
+test_53_reject_loss_no_valid_labels (__main__.LossTests.test_53_reject_loss_no_valid_labels) ... ok
+test_54_reject_invalid_label_id (__main__.LossTests.test_54_reject_invalid_label_id) ... ok
+test_55_reject_nonfinite_logits (__main__.LossTests.test_55_reject_nonfinite_logits) ... ok
+test_56_reject_wrong_loss_shape (__main__.LossTests.test_56_reject_wrong_loss_shape) ... ok
+test_57_reject_negative_nonpadding_label (__main__.LossTests.test_57_reject_negative_nonpadding_label) ... ok
+test_21_baseline_4096_valid_targets (__main__.SamplerTests.test_21_baseline_4096_valid_targets) ... ok
+test_22_baseline_random_replay (__main__.SamplerTests.test_22_baseline_random_replay) ... ok
+test_23_baseline_residual_does_not_overcount (__main__.SamplerTests.test_23_baseline_residual_does_not_overcount) ... ok
+test_24_replacement_first_only (__main__.SamplerTests.test_24_replacement_first_only) ... ok
+test_25_replacement_exact_vector_counts (__main__.SamplerTests.test_25_replacement_exact_vector_counts) ... ok
+test_26_replacement_exact_forward_count (__main__.SamplerTests.test_26_replacement_exact_forward_count) ... ok
+test_27_replacement_deterministic (__main__.SamplerTests.test_27_replacement_deterministic) ... ok
+test_28_replacement_has_actual_selection_effect (__main__.SamplerTests.test_28_replacement_has_actual_selection_effect) ... ok
+test_29_layout_A_equals_C (__main__.SamplerTests.test_29_layout_A_equals_C) ... ok
+test_30_layout_B_equals_D (__main__.SamplerTests.test_30_layout_B_equals_D) ... ok
+test_31_all_four_budget_equal (__main__.SamplerTests.test_31_all_four_budget_equal) ... ok
+test_32_all_microbatch_counts_equal (__main__.SamplerTests.test_32_all_microbatch_counts_equal) ... ok
+test_33_hash_same_for_A_and_C (__main__.SamplerTests.test_33_hash_same_for_A_and_C) ... ok
+test_34_loss_labels_are_truncated (__main__.SamplerTests.test_34_loss_labels_are_truncated) ... ok
+test_35_reject_missing_candidate_count (__main__.SamplerTests.test_35_reject_missing_candidate_count) ... ok
+test_36_reject_late_window_as_first_only (__main__.SamplerTests.test_36_reject_late_window_as_first_only) ... ok
+test_37_reject_total_budget_shortfall (__main__.SamplerTests.test_37_reject_total_budget_shortfall) ... ok
+test_38_reject_source_index_outside_pack (__main__.SamplerTests.test_38_reject_source_index_outside_pack) ... ok
+test_39_reject_draw_longer_than_window_count (__main__.SamplerTests.test_39_reject_draw_longer_than_window_count) ... ok
+test_40_reject_count_changed_even_if_4096_total (__main__.SamplerTests.test_40_reject_count_changed_even_if_4096_total) ... ok
+test_41_reject_negative_step_index (__main__.SamplerTests.test_41_reject_negative_step_index) ... ok
+test_42_reject_val_in_replacement_pack (__main__.SamplerTests.test_42_reject_val_in_replacement_pack) ... ok
+
+----------------------------------------------------------------------
+Ran 72 tests in 1.039s
+
+OK
