@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.r3a.python_full_replay_scoped_adjudication.v1",
+  "date": "2026-11-11",
+  "task": "TTM_R3A_INDEPENDENT_PYTHON_FULL_REPLAY_AND_OWNER_ADJUDICATION",
+  "branch": "research/ttm-r3a-adversarial-independent-review-20261111",
+  "source": {
+    "pinned_data_commit": "81327724c08771682622bebb8648fefd55a4fa9a",
+    "review_initial_head": "694378e1d295a4db1c48040a37bf9a5774b2d989",
+    "original_reviewer_script": "tools/research/semantic_state_r3/r3a_alias_backward_heuristic.py",
+    "reviewer_script_git_blob": "5c11164cb66371e443a788c94e7e93fb86c55264",
+    "reviewer_script_sha256": "c7681baa75e0aa1fcf86059c700230a88dcab14831321de19fb4f1dfe115d880",
+    "model_input_sha256": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+    "oracle_sha256": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08"
+  },
+  "execution": {
+    "runtime": "Linux CPU Python 3.13.5",
+    "exact_original_script_git_blob_check": "PASS",
+    "input_data_sha256": "PASS",
+    "smoke": "PASS_4_OF_4",
+    "python_full_replay": "PASS_384_OF_384",
+    "by_family_split": {
+      "T1_DEV": "64/64",
+      "T1_CHALLENGE": "64/64",
+      "T2_DEV": "64/64",
+      "T2_CHALLENGE": "64/64",
+      "T3_DEV": "64/64",
+      "T3_CHALLENGE": "64/64"
+    },
+    "missed": 0,
+    "report_json_blob": "293373aa53b0e920dc592c3f0b17c7978576d3fe",
+    "report_json_sha256": "b9a92901d32ea5d7809f574882642eec3360e012eed51335cc54d615a7d74aae",
+    "integrity_checks": "PASS_16_OF_16",
+    "integrity_report_blob": "0c9648bfd0a0552a6f88674bc43171cba2b258c2",
+    "integrity_report_sha256": "af4c1dc74130cdec930755899660163d860705ce32d28a9279475060286ed29b",
+    "oracle_use": "SCORING_ONLY",
+    "no_state_simulation": true,
+    "no_causal_graph": true,
+    "original_TTM_neural_inference": false,
+    "original_TTM_training": false
+  },
+  "adjudication": {
+    "original_r3a_source_validator_QA": "PRESERVED_PASS_SCOPED",
+    "shallow_heuristic_full_python": "REPRODUCED_384_OF_384",
+    "science_discrimination": "FAIL_SCOPED",
+    "owner_scoped_research_decision": "R3A_DEMO_ONLY_ARCHIVE_ANTI_SHORTCUT_DIAGNOSTIC",
+    "action": "KEEP_PUBLIC_R3A_FOR_DEMO_AND_QA_NOT_BLIND_FINAL",
+    "another_R3A_shortcut_patch": "DO_NOT_START_UNLESS_NEW_FORMAL_RESEARCH_QUESTION",
+    "O0": "HOLD_BASELINE_PRESERVED",
+    "O1": "DEFER",
+    "T4": "NOT_AUTHORIZED",
+    "owner_explicit_science_permit": "NOT_GRANTED",
+    "note": "Study design recommendation and scoped adjudication, not a user-issued GPU authorization."
+  },
+  "lineage_and_repo": {
+    "main": "NOT_WRITTEN",
+    "pr13": "DRAFT_UNMERGED_NOT_WRITTEN",
+    "original_review_branch_history": "APPEND_ONLY_NO_REWRITE",
+    "lineage_md": "NOT_WRITTEN",
+    "test_q1q2": "UNTOUCHED"
+  },
+  "next": "TTM_O0_ONLY_SMALL_NEURAL_FEASIBILITY_NEW_DIAGNOSTIC_CORPUS_DESIGN_AND_SINGLE_OWNER_GO_NO_GO"
+}
