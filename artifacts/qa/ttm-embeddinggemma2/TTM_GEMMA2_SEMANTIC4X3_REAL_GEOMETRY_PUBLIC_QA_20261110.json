@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.gemma2.semantic4x3.real_cpu_geometry_public_qa.v1",
+  "source_data_pins": {
+    "base": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "donor": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3"
+  },
+  "spectral_null_candidate": {
+    "covariance_error": 3.4057751734509777e-15,
+    "projector_fit_audit_norm_rmse": {
+      "pt_real": 0.9611655803317869,
+      "pt_perm": 1.1351760969531894,
+      "null_real": 1.1472331950744696,
+      "null_perm": 1.1324723739298463
+    },
+    "decision": "REJECT_GEOMETRY_UNBALANCED"
+  },
+  "dual_matched_residual_null": {
+    "projection_max_abs_fp64": 2.498001805406602e-16,
+    "projection_max_abs_fp32": 9.685754776000977e-8,
+    "covariance_relative_error": 2.0376303738981888e-15,
+    "column_mean_max_abs_error": 9.020562075079397e-17,
+    "init_RMSE_E0_real_and_null": 0.025309482462339637,
+    "real_row_norm_quantiles": [
+      0.9992818630746404,
+      0.9995095109617792,
+      0.9997285845630245
+    ],
+    "null_row_norm_quantiles": [
+      0.9469455130531583,
+      0.9926925144798382,
+      1.0403819562688206
+    ],
+    "decision": "PASS_SCOPED_PROJECTED_AND_COVARIANCE_MATCHED"
+  },
+  "source_cpu_fixture": "PASS_SYNTHETIC_6_CHECKS",
+  "h768_source_fixture": "PASS_SYNTHETIC_4_CHECKS",
+  "h768_real_seal": "NOT_EXECUTED",
+  "model_forward_calls": 0,
+  "training_executed": false,
+  "GPU_used": false,
+  "private_matrices_or_story_ids_disclosed": false
+}

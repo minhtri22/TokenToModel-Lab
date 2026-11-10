@@ -1,0 +1,170 @@
+{
+  "schema": "ttm.embeddinggemma2.semantic4x3.integrated_prereg_v2.v1",
+  "date": "2026-11-10",
+  "status": "FROZEN_PRECLAIM_CONDITIONAL_RESOURCE_HOLD",
+  "science_run_authorized": false,
+  "claim_created": false,
+  "science_training_executed": false,
+  "supersedes": "ttm.gemma2.donor_semantics_projector_alignment.multiseed_design_only.v1",
+  "scientific_scope": "donor residual token structure beyond already real-fitted Ridge projector, not all pretrained donor semantics",
+  "source_pins": {
+    "donor_candidate_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "ttm_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "causal6_runner_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+    "T4_TRAIN_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "T4_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "tiny_valid_sha256": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4",
+    "tiny_train_sha256": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "tiny_hf_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "t1_split_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "t1_bpe_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "old320_membership_sha256": "bedc3671256a66f605fbeb9f98bbd27149b456019d3d8bc5bbc89ebca6d09b47",
+    "old512_membership_sha256": "544c30b470f5e8718ba35fe016b0f52cac95e559020eae2806e1ff7291a03661"
+  },
+  "arms": [
+    {
+      "id": "PT-REAL",
+      "donor": "real",
+      "assignment": "real"
+    },
+    {
+      "id": "PT-PERM",
+      "donor": "real",
+      "assignment": "perm"
+    },
+    {
+      "id": "NULL-REAL",
+      "donor": "matched_null",
+      "assignment": "real"
+    },
+    {
+      "id": "NULL-PERM",
+      "donor": "matched_null",
+      "assignment": "perm"
+    }
+  ],
+  "projector": {
+    "initial": "shared_original_ridge_512_to_256_no_refit",
+    "pretrain_fitted_real_rows": 1917,
+    "trainable_after_start": true,
+    "null_algorithm": "preserve ZX=XP^T and column covariance using residual complement Stiefel rotation",
+    "real_CUDA_step0_logit_parity": "NOT_EXECUTED",
+    "cpu_FP32_projected_max_abs": 9.685754776000977e-8,
+    "cpu_FP64_cov_relative_error": 2.0376303738981888e-15,
+    "limits": [
+      "row_norms_differ",
+      "not all pretrained semantics isolated"
+    ]
+  },
+  "seeds": [
+    {
+      "replicate": "S1",
+      "model": 2026111101,
+      "null": 2026111111,
+      "perm": 2026111112,
+      "schedule": 2026111113
+    },
+    {
+      "replicate": "S2",
+      "model": 2026111102,
+      "null": 2026111121,
+      "perm": 2026111122,
+      "schedule": 2026111123
+    },
+    {
+      "replicate": "S3",
+      "model": 2026111103,
+      "null": 2026111131,
+      "perm": 2026111132,
+      "schedule": 2026111133
+    }
+  ],
+  "train": {
+    "steps_per_arm": 2048,
+    "labels_per_step": 4096,
+    "arms": 12,
+    "total_train_exposures": 100663296,
+    "fp32": true,
+    "optimizer": "AdamW",
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-8,
+    "weight_decay": 0.1,
+    "clip": 1,
+    "micro_max_windows": 8,
+    "sampler": "same TRAIN schedule per replicate across four arms; frozen RNG before claim",
+    "ready_interval_steps": 256,
+    "optimizer_rng_sampler_state_required": true
+  },
+  "holdout": {
+    "label": "H768_NEW",
+    "stories": 768,
+    "source": "TinyStories-valid.txt pinned",
+    "domain_ascii_nul": "TTM_GEMMA2_SEMANTIC4X3_H768_V1_20261110\\0",
+    "rank": "SHA256(domain || lowercase raw story SHA256 hex)",
+    "select_first_k_eligible": 768,
+    "exclude_exact": [
+      "T1 TRAIN",
+      "T1 VAL",
+      "T1 TEST",
+      "L0017 H320",
+      "L0019 H512"
+    ],
+    "near_jaccard_threshold": 0.85,
+    "near_compare": [
+      "selected H768 internal",
+      "T1 TRAIN2048",
+      "T1 VAL256"
+    ],
+    "historical_TEST_H320_H512_text_read": false,
+    "seal_status": "NOT_EXECUTED",
+    "target_count": null,
+    "window_count": null,
+    "membership_sha256": null,
+    "one_shot_selection_no_replacement": true
+  },
+  "estimands": {
+    "delta_pre": "L(PT-PERM)-L(PT-REAL)",
+    "delta_null": "L(NULL-PERM)-L(NULL-REAL)",
+    "tau_residual": "delta_pre-delta_null",
+    "gamma_real": "L(NULL-REAL)-L(PT-REAL)",
+    "bootstrap": {
+      "draws": 2000,
+      "story_paired": true,
+      "seed": 2026111199,
+      "seed_aggregate": "arithmetic_mean_across_three_frozen_training_replicates",
+      "population_over_training_seeds_claim": false
+    },
+    "proposed_pass": "all three tau_residual>0 and all three gamma_real>0 and 95% percentile CI lower(mean tau_residual)>0 and lower(mean gamma_real)>0, with all independent source data and checkpoint gates valid"
+  },
+  "resource": {
+    "colab_plan": "Free",
+    "gpu": "single Tesla T4",
+    "cuda_allocated_now": "UNKNOWN",
+    "gpu_min_total_gib": 14,
+    "smoke_allocated_peak_lt_gib": 12,
+    "checkpoints_bytes_projection": 5082944736,
+    "checkpoint_gib_projection": 4.733861178159714,
+    "drive_min_free_gib": 6,
+    "current_drive_free_gib": null,
+    "decision": "HOLD_REAL_RESOURCE_NOT_ATTESTED",
+    "claim_guard": "MUST_BE_ABSENT_BEFORE_RUN"
+  },
+  "evidence": {
+    "spectral_null_fixture": "PASS_REAL_BUT_RIDGE_GEOMETRY_IMBALANCED",
+    "null_dual_matched_real_cpu": "PASS",
+    "h768_source_fixture": "PASS_4_CHECKS",
+    "no_model_forward": true,
+    "no_GPU": true,
+    "no_science_training": true
+  },
+  "governance": {
+    "main_unchanged": true,
+    "lineage_append_now": false,
+    "GGUF_deferred": true,
+    "application_deferred": true
+  }
+}
