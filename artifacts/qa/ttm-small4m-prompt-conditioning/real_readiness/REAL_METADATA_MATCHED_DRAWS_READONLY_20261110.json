@@ -1,0 +1,1074 @@
+{
+  "date": "2026-11-10",
+  "equality": {
+    "A_equals_C_exact_schedule": true,
+    "B_equals_D_exact_schedule": true,
+    "all_first_window_candidates_available": true,
+    "per_step_scored_counts_and_forward_shapes_matched": true
+  },
+  "limitations": [
+    "PRIVATE raw train tokens or indices NEVER exported",
+    "Only metadata-level matching verified; not model training or GPU",
+    "Checkpoint used only to read exact sampler and optimizer states; no weight modification",
+    "Actual labeled target window and loss semantics still need CPU runner preflight"
+  ],
+  "per_step_public_summary": [
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1025,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1026,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1027,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1028,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1029,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1030,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1031,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1032,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1033,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1034,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1035,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1036,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1037,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1038,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1039,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1040,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1041,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1042,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1043,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1044,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1045,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1046,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1047,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1048,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1049,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1050,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1051,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1052,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1053,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 4864,
+      "step": 1054,
+      "targets": 4096,
+      "window_draws": 19
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1055,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1056,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1057,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 4864,
+      "step": 1058,
+      "targets": 4096,
+      "window_draws": 19
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1059,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1060,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1061,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 4864,
+      "step": 1062,
+      "targets": 4096,
+      "window_draws": 19
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5120,
+      "step": 1063,
+      "targets": 4096,
+      "window_draws": 20
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1064,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1065,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1066,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1067,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1068,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1069,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1070,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1071,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1072,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1073,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1074,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1075,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1076,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1077,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1078,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1079,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1080,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6912,
+      "step": 1081,
+      "targets": 4096,
+      "window_draws": 27
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1082,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1083,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1084,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1085,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1086,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1087,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1088,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1089,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1090,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1091,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1092,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1093,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1094,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1095,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1096,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1097,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1098,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1099,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1100,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1101,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1102,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1103,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1104,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1105,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1106,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1107,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1108,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1109,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1110,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1111,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1112,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1113,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1114,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1115,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1116,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1117,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1118,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1119,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1120,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1121,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1122,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1123,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5120,
+      "step": 1124,
+      "targets": 4096,
+      "window_draws": 20
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1125,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1126,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1127,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1128,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1129,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1130,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1131,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1132,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6912,
+      "step": 1133,
+      "targets": 4096,
+      "window_draws": 27
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1134,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1135,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1136,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1137,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1138,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1139,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1140,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1141,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1142,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1143,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5888,
+      "step": 1144,
+      "targets": 4096,
+      "window_draws": 23
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6144,
+      "step": 1145,
+      "targets": 4096,
+      "window_draws": 24
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1146,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6656,
+      "step": 1147,
+      "targets": 4096,
+      "window_draws": 26
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5632,
+      "step": 1148,
+      "targets": 4096,
+      "window_draws": 22
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 6400,
+      "step": 1149,
+      "targets": 4096,
+      "window_draws": 25
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1150,
+      "targets": 4096,
+      "window_draws": 21
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5120,
+      "step": 1151,
+      "targets": 4096,
+      "window_draws": 20
+    },
+    {
+      "counts_matched": true,
+      "first_candidate_available_for_all": true,
+      "forward_slots": 5376,
+      "step": 1152,
+      "targets": 4096,
+      "window_draws": 21
+    }
+  ],
+  "private_inputs_sha256": {
+    "pack_manifest": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "step1024_checkpoint": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "train_val_npz": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "public_safe_counts": {
+    "distinct_first_window_target_counts": 151,
+    "distinct_train_stories_drawn_in_A_C": 1493,
+    "distinct_train_stories_drawn_in_B_D": 1363,
+    "first_story_draws_in_A_C": 2225,
+    "first_story_draws_in_B_D": 2928,
+    "first_story_windows": 2048,
+    "first_windows_with_256_targets": 560,
+    "forward_slots_per_arm": 749568,
+    "forward_window_draws_per_arm": 2928,
+    "max_first_window_targets": 256,
+    "replaced_draws_in_B_D": 2926,
+    "steps_per_arm": 128,
+    "target_exposures_per_arm": 524288,
+    "train_stories": 2048,
+    "train_targets_unique": 498287,
+    "train_windows": 2691,
+    "val_stories": 256,
+    "val_targets": 61122,
+    "val_windows": 328
+  },
+  "schedule_digests": {
+    "A_C": "b4082178bac4c7830645661f31b2ba16a5743d324ac46000b5f9dffc289f4fe3",
+    "B_D": "162688091ea4f2331d86205761109216a16991b00f6b0849576524c81b18692a",
+    "shared_target_count_vector": "2595b89ddc236e1cfb982eb3ee5bde25a9887b5af19095497cc30d86f46a7ea8"
+  },
+  "schema": "ttm.small4m.real_train_metadata_matched_draws.readonly.v1",
+  "status": "PASS_REAL_METADATA_COUNT_MATCHED_128_STEPS_SOURCE_ONLY"
+}
