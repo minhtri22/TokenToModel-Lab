@@ -53,7 +53,10 @@ def root_member(root,p,regular=False):
 def call(label,argv,cwd,log,timeout,env=None):
     if log.exists():raise FileExistsError("STAGE_LOG_EXISTS:"+label)
     try:
-        p=subprocess.run([str(x) for x in argv],cwd=str(cwd),env=env,
+        bounded_env=dict(os.environ if env is None else env)
+        bounded_env["TEMP"]=str(cwd)
+        bounded_env["TMP"]=str(cwd)
+        p=subprocess.run([str(x) for x in argv],cwd=str(cwd),env=bounded_env,
              capture_output=True,text=True,errors="replace",
              check=False,timeout=timeout)
     except subprocess.TimeoutExpired as e:
