@@ -85,7 +85,12 @@ def run_one(model,ids,fixture,out):
             v_precision_delta=(x+blk.attn.proj(attn_out)-alt_residual).abs()
             v_precision_max=float(v_precision_delta.max())
             v_precision_mean=float(v_precision_delta.mean())
+        # Compare independent WO matmul, then fused-bias output vs GGML.
+        wo_mm=F.linear(attn_out,blk.attn.proj.weight,bias=None)
         wo=blk.attn.proj(attn_out)
+        if il==0:
+            dump(out,fixture,"attn_wo_mm-0",wo_mm.squeeze(0))
+            dump(out,fixture,"attn_wo_out-0",wo.squeeze(0))
         residual=x+wo
         if il==0:dump(out,fixture,"ffn_inp-0",residual.squeeze(0))
         norm2=blk.ln2(residual)
