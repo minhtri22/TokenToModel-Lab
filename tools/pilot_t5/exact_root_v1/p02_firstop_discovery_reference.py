@@ -27,7 +27,7 @@ def sha(path):
 
 def gitblob(path):
     b=path.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 
 def member(root,path):
     resolved=path.resolve(strict=True)
@@ -44,7 +44,7 @@ def dump(dst,fixture,stage,value):
     dst.write(json.dumps({
         "fixture_id":fixture,"stage":stage,"dtype":"F32",
         "torch_shape":shape,"values":value.reshape(-1).tolist()
-    },separators=(",",":"),allow_nan=False)+"\\n")
+    },separators=(",",":"),allow_nan=False)+"\n")
 
 def run_one(model,ids,fixture,out):
     import torch
@@ -153,7 +153,7 @@ def main():
     if sum(p.numel() for p in model.parameters())!=3749376:
         raise ValueError("PARAM_COUNT_CHANGED")
     summaries=[]
-    with torch.inference_mode(),output.open("x",encoding="utf-8",newline="\\n") as stream:
+    with torch.inference_mode(),output.open("x",encoding="utf-8",newline="\n") as stream:
         for case in candidates:
             print("CPU_DISCOVERY_REFERENCE="+case["fixture_id"],flush=True)
             summaries.append(run_one(model,case["token_ids"],case["fixture_id"],stream))
