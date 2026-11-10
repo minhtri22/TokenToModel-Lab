@@ -1,0 +1,86 @@
+{
+  "schema": "ttm.t5.pr16.owner_override.exact_causal_root_and_strict_pass_merge_gate.v1",
+  "date": "2026-11-10",
+  "owner_text": "Chưa merge, cần Xác định chính xác nguyên nhân sai số, chỉ merge khi PASS",
+  "previous_merger_adjudication": "SUPERSEDED_BY_EXPLICIT_OWNER_DECISION_NO_DELETION_OR_REWRITE",
+  "current": {
+    "PR16": "DRAFT_HOLD",
+    "actual_merged": false,
+    "main": "UNCHANGED",
+    "science_existing": "STRICT_PARITY_FAIL_32_OF_32",
+    "historical_science": "STRICT_PARITY_FAIL_7_OF_8_PRESERVED",
+    "root_cause": "NOT_YET_DEMONSTRATED",
+    "Git_mergeable": "NOT_A_MERGE_SCIENCE_GATE",
+    "second_pass_QA": "PASS_20_SOURCE_AND_16_EVIDENCE_BUT_NOT_SUFFICIENT",
+    "no_new_native_or_training_executed": true
+  },
+  "provenance": {
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "origin_head_at_owner_decision": "8b4583cdc12bfd1b906d108486ed784d84393d87",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "GGUF_F32_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "original_F32_reference_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "existing_frozen32_native_sha256": "544df628802591bcdda7ca9d6de4779d5e2872ee8b409c6710ede5bbf8ac19b8",
+    "original_prereg_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
+  },
+  "source_findings": {
+    "P02_path": "src/p02/transformer_core.py",
+    "P02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "P02_GELU": "nn.GELU() default approximate none (erf)",
+    "llama_gpt2_path": "src/models/gpt2.cpp",
+    "llama_gpt2_blob": "711a148a28bd1aa2c1dccf2e3b21803aac4a4185",
+    "llama_gpt2_MLP": "LLM_FFN_GELU",
+    "llama_graph_path": "src/llama-graph.cpp",
+    "llama_graph_blob": "9f99ba83e4d7aff29ec82c74f605df913144a021",
+    "llama_graph_MLP": "LLM_FFN_GELU selects ggml_gelu; separate LLM_FFN_GELU_ERF selects ggml_gelu_erf",
+    "structural_activation_mismatch": "PROVEN_SOURCE_OPERATOR_VARIANT_MISMATCH",
+    "numeric_effect_on_trained_checkpoint": "NOT_ISOLATED",
+    "old_first_sensitive_stage": "ffn_inp-0 before first GELU for every historical fixture",
+    "old_inpL_error": "EXACT_ZERO_FOR_ALL_8_HISTORICAL",
+    "old_first_sensitive_delta_range": [
+      0.0000622868537902832,
+      0.00020968914031982422
+    ],
+    "implication": "GELU mismatch alone cannot explain original earliest attention+residual divergence",
+    "S1_F32_FlashOFF_science": "FAIL_8_OF_8",
+    "implication_S1": "Changing only KV cache and Flash is insufficient to repair parity",
+    "root_cause": "UNKNOWN_MULTIPLE_POSSIBLE_COMPUTATIONAL_DIFFERENCES"
+  },
+  "no_more_one_shot_replays": {
+    "old_eight_historical": "NO",
+    "frozen_S0_S3_32": "NO",
+    "training": "NO",
+    "TEST_Q1Q2": "NO",
+    "original_pinned_source_mutation": "NO"
+  },
+  "new_integrated_root_cause_task": {
+    "name": "TTM_T5_EXACT_ROOT_CAUSE_FIRST_DIVERGENT_OPERATOR_AND_CORRECTIVE_ABLATION_INTEGRATED",
+    "stage1": "Pin new synthetic one-token and >=2-token fixtures not in consumed sets; use existing checkpoint+GGUF SHA and pinned llama cpp with F32 KV Flash OFF, one-shot local stage snapshots",
+    "stage2": "Capture and independently match Torch vs GGML: token/position input, first LayerNorm, QKV, V, attention weights and WV, WO projection, first residual ffn_inp, FFN GELU input/output, final norm and logits",
+    "stage3": "Isolate GELU_erf vs ggml_gelu on identical captured tensor; optionally isolate matmul FMA and GELU in separate pinned candidate, without rewriting frozen original",
+    "stage4": "Causal mechanism accepted only if exact first operator discrepancy reproduced and targeted correction reduces/removes it on new fixtures; signed per-element error and source build SHA required",
+    "stage5": "Pre-register independent held-out validation, apply correction to production-candidate integration and assess strict max_abs <=0.001 without changing baseline threshold or original historical results"
+  },
+  "merge_gate": {
+    "decision": "HOLD",
+    "required": [
+      "EXACT_ROOT_CAUSE_DEMONSTRATED_BY_LAYER_LEVEL_SIGNED_TENSOR_COMPARISON",
+      "SOURCE_CODE_CORRECTION_AND_CAUSAL_ABLATION_PASS",
+      "NEW_INDEPENDENT_PRE_REGISTERED_STRICT_LOGITS_PARITY_PASS_AT_0_001",
+      "INDEPENDENT_QA_PASS_SOURCE_BINARY_PROVENANCE",
+      "OWNER_EXPLICIT_FINAL_MERGE_APPROVAL"
+    ],
+    "not_sufficient": [
+      "GIT_MERGEABLE",
+      "SOURCE_20_20",
+      "AUDIT_16_16",
+      "TOP1_32_32",
+      "ARM_S1_LOWER_ERROR",
+      "STANDALONE_GELU_SOURCE_MISMATCH_WITHOUT_TRACED_CORRECTION"
+    ],
+    "original_FAIL_preserved": true,
+    "original_lineage_append_only": true,
+    "PR13_14_15_unchanged": true
+  }
+}
