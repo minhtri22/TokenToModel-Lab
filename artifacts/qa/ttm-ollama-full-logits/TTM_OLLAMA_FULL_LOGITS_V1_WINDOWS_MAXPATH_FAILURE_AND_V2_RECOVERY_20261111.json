@@ -1,0 +1,41 @@
+{
+  "schema": "ttm.ollama.full_logits.v2_short_path_recovery.v1",
+  "date": "2026-11-11",
+  "owner_original_stage": "_tmp/ttm_ollama_full_logits_candidate_build_20261111",
+  "original_stage_receipt_sha256": "b7f0750541b872f0806ff5a4ab9a5cc9952f08830607fc6fa90bb29e4a944cb4",
+  "remote_log_readback": {
+    "command": "git worktree add --detach <original-long-stage>/llama 39febd2adb947b70da35e95f9351b3bf58ad170a",
+    "error": "Filename too long",
+    "files": [
+      "tools/ui/src/lib/components/app/models/discover/ModelsDiscoverDetails/ModelsDiscoverDetailsDownloadOptions/ModelsDiscoverDetailsDownloadOptionsDraftDownloadButton.svelte",
+      "tools/ui/src/lib/components/app/models/discover/ModelsDiscoverDetails/ModelsDiscoverDetailsDownloadOptions/ModelsDiscoverDetailsDownloadOptionsQuantDownloadButton.svelte"
+    ],
+    "exit_code": 128,
+    "checkout_progress": "100% before fatal reset index",
+    "original_llama_stage_directory_present": false,
+    "old_stage_kept": true
+  },
+  "path_recovery": {
+    "old_example_length": 262,
+    "new_example_length": 218,
+    "new_stage": "_tmp/fl2",
+    "git_checkout": "git -c core.longpaths=true -C original_llama worktree add --detach ...",
+    "old_git_source_untouched": true
+  },
+  "hook_repair": {
+    "source_only_v1_already_pass": "git apply --check",
+    "discovery": "Previously uncompiled hook used undefined local identifier vocab in server-context.cpp.",
+    "v2_replacement": "llama_model_get_vocab(llama_get_model(slot.ctx_tgt))",
+    "needs_native_compile": true
+  },
+  "unchanged": {
+    "reference_sha256": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+    "reference_seal_sha256": "571a1a654bad1b97de066d6fb3b690e910ecc71777deb4b16b7b15968f444939",
+    "t5_v5": "PASS_SCOPED_UNCHANGED",
+    "main_sha": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "training": false,
+    "TEST": false,
+    "ollama_inference": false
+  },
+  "status": "ROOT_CAUSE_CONFIRMED_RECOVERY_SOURCE_PREPARED_BUILD_NOT_EXECUTED"
+}
