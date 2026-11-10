@@ -75,8 +75,14 @@ def command(argv, cwd: Path, *, timeout: int = 45, log: Path | None = None, env=
         raise RuntimeError("COMMAND_FAILURE_LOG:" + log.name + ":" + str(p.returncode))
     return sha(log)
 
-def git_hash(git: str, repo: Path, f: Path) -> str:
-    return command([git,"-C",repo,"hash-object","--no-filters",f],cwd=repo,timeout=30)
+def git_hash(git: str, repo: Path, f: Path, *, raw: bool = False) -> str:
+    # Git blob IDs of tracked source normalize line endings. The four frozen
+    # materialized v5 source pins were recorded with --no-filters (raw bytes).
+    args=[git,"-C",repo,"hash-object"]
+    if raw:
+        args.append("--no-filters")
+    args.append(str(f))
+    return command(args,cwd=repo,timeout=30)
 
 def verify_reference(root: Path):
     base = contained(root,root/"_tmp/ttm_ollama_full_logits_reference_fl01_fl04_20261111")
@@ -150,7 +156,7 @@ def main() -> None:
         raise ValueError("V5_LLAMA_SOURCE_REVISION_CHANGED")
     for name,digest in PATCHED_SOURCE_BLOBS.items():
         src=existing_file(root,original_llama/name)
-        if git_hash(git,original_llama,src)!=digest:
+        if git_hash(git,original_llama,src,raw=True)!=digest:
             raise ValueError("V5_MATERIALIZED_SOURCE_BLOB_MISMATCH:"+name)
     patch=existing_file(root,work/"tools/ollama_full_logits_v1/ttm_ollama_full_logits_b11963_hook.patch")
     v5_package=contained(root,root/"_tmp/t5-ollama-custom-v5/package")
@@ -182,7 +188,7 @@ def main() -> None:
         for name,blob in PATCHED_SOURCE_BLOBS.items():
             dst=cand_llama/name
             shutil.copyfile(original_llama/name,dst)
-            if git_hash(git,cand_llama,dst)!=blob:
+            if git_hash(git,cand_llama,dst,raw=True)!=blob:
                 raise ValueError("NEW_COPY_HASH_MISMATCH:"+name)
         ctx=cand_llama/"tools/server/server-context.cpp"
         if git_hash(git,cand_llama,ctx)!=ORIGINAL_CONTEXT_BLOB:
@@ -207,6 +213,10 @@ def main() -> None:
             pkg=stage/"package"
             shutil.copytree(v5_package,pkg)
             env=dict(os.environ)
+            # These environment overrides can silently redirect CMake to a
+            # different llama.cpp tree or skip the Ollama compatibility shim.
+            env.pop("OLLAMA_LLAMA_CPP_SOURCE",None)
+            env.pop("FETCHCONTENT_SOURCE_DIR_LLAMA_CPP",None)
             temp=stage/"scratch"
             temp.mkdir()
             env.update({"TMP":str(temp),"TEMP":str(temp),"TMPDIR":str(temp)})
@@ -224,6 +234,18 @@ def main() -> None:
                   "-DGGML_VULKAN=OFF","-DGGML_HIP=OFF","-DGGML_SYCL=OFF"]
             snap["cmake_configure_log_sha256"]=command(
                  argv,stage,timeout=240,log=stage/"04_cmake_configure.log",env=env)
+            cache=(build/"CMakeCache.txt").read_text("utf-8",errors="replace")
+            found = {}
+            for ln in cache.splitlines():
+                if ln.startswith(("FETCHCONTENT_SOURCE_DIR_LLAMA_CPP:", "OLLAMA_LLAMA_CPP_SKIP_COMPAT_PATCH:")):
+                    k,_,v=ln.partition("=")
+                    found[k.split(":")[0]]=v
+            effective=found.get("FETCHCONTENT_SOURCE_DIR_LLAMA_CPP","")
+            if os.path.normcase(os.path.normpath(effective)) != os.path.normcase(os.path.normpath(str(cand_llama))):
+                raise ValueError("CMAKE_SOURCE_TREE_NOT_FROZEN_CANDIDATE")
+            if found.get("OLLAMA_LLAMA_CPP_SKIP_COMPAT_PATCH") != "ON":
+                raise ValueError("CMAKE_COMPAT_HOOK_LINKAGE_NOT_PINNED")
+            snap["cmake_effective_llama_source"]=effective
             snap["cmake_build_log_sha256"]=command(
                 [cmake,"--build",build,"--config","Release","--parallel","4"],
                 stage,timeout=1800,log=stage/"05_cmake_build.log",env=env)
