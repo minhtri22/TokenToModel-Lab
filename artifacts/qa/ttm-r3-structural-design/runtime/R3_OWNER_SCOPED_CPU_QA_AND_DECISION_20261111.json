@@ -1,0 +1,133 @@
+{
+  "schema": "ttm.r3.public_toy.single_integrated_cpu_qa_and_owner_scoped_decision.v1",
+  "date": "2026-11-11",
+  "scope": "SYNTHETIC_PUBLIC_TOY_ONLY_NO_MODEL_TRAINING_INFERENCE_GPU",
+  "task": "TTM_R3_STRICT_INPUT_VALIDATOR_AND_STRUCTURAL_GRAPH_TOY_IMPLEMENTATION_SINGLE_CPU_QA",
+  "source": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-r3-structural-state-tracing-design-20261111",
+    "branch_parent_design_commit": "bf0ead9daca66be9f75522d7404469b5a8cb593a",
+    "source_dir": "tools/research/semantic_state_r3/",
+    "evidence_dir": "artifacts/qa/ttm-r3-structural-design/runtime/",
+    "manifest_file": "R3_SOURCE_QA_MANIFEST.json",
+    "manifest_sha256": "554dec4049421257de07230ce3821ec2ca0a1979708ba43f0f7e44723e108a1c",
+    "original_codex_review_commit": "dbf2c5389358e3989c1cb4a691bb981c32ecaf45"
+  },
+  "provenance": {
+    "r3_generator": {
+      "path": "tools/research/semantic_state_r3/r3_generator.py",
+      "sha256": "8f8296ba2009f5b13b8c23bdb15a90519b524f39fb8c2884493b6ae63719a404",
+      "git_blob": "a1e20ae5e70210251a2d39861a7358c1a7ac1d39"
+    },
+    "r3_checker": {
+      "path": "tools/research/semantic_state_r3/r3_independent_checker.py",
+      "sha256": "7acde2388149065e862f9561e36130747d7c597d86615d4ce0e390152d373984",
+      "git_blob": "507af48770fdb29aa2f4da93b561f3d6b6c4ac95"
+    },
+    "cpu_tests": {
+      "path": "tools/research/semantic_state_r3/r3_single_cpu_qa.py",
+      "sha256": "9c6bb8da606bd5df9d31d134810dcdee352e03017e241d3e67e91b2a1576c96e",
+      "git_blob": "eb96fd1ac445b432ad2e63c4d1965b70f9eea4c3"
+    },
+    "oracle": {
+      "path": "artifacts/qa/ttm-r3-structural-design/runtime/R3_PUBLIC_ORACLE.json",
+      "sha256": "bd9fb15d3f3850823e083269a61df90eaddaea3e61b8b73e9f40b4ec74c7ce47",
+      "git_blob": "f7dc397be3be6cf2f14eba11cedbefa505a96dd7",
+      "bytes": 296768
+    },
+    "model_input": {
+      "path": "artifacts/qa/ttm-r3-structural-design/runtime/R3_MODEL_INPUT_ONLY.json",
+      "sha256": "4fa0ad45acdfecb2143a984127e6ad0c50126c203996148d60843eb1214cd50a",
+      "git_blob": "b67628fe8ddd96e027e86a2f71b904cfee968143",
+      "bytes": 103879
+    },
+    "checker_report": {
+      "path": "artifacts/qa/ttm-r3-structural-design/runtime/R3_CHECKER_REPORT.json",
+      "sha256": "ed9c149d525b503d8cfe93b7716246797c3218ebbf420bfe852a1c8d7ebab088",
+      "git_blob": "29115ec8c65959fd410c6a6d9e4361664d61270e"
+    },
+    "cpu_log": {
+      "path": "artifacts/qa/ttm-r3-structural-design/runtime/R3_CPU_TEST_LOG_FINAL.txt",
+      "sha256": "0927768f7b156056d018b8df5b6180e7452ef08dbb2d73766144649ac36516e9",
+      "git_blob": "793308e5d88cde36c5613b748b9cf4c5795614aa"
+    }
+  },
+  "results": {
+    "generator_determinism": "PASS_BYTE_EXACT_REPLAY",
+    "schema_model_root_exact_fields": [
+      "schema",
+      "records"
+    ],
+    "model_record_exact_fields": [
+      "story",
+      "question"
+    ],
+    "raw_duplicate_json_keys_rejected": true,
+    "oracular_source_events_not_used_for_predictions": true,
+    "raw_json_oracle_labels_public": true,
+    "R3_public_sealed_final": false,
+    "candidate_groups": 96,
+    "families": {
+      "T1_MULTI_HOP_HOLDER": 32,
+      "T2_GOAL_DELEGATION_CANCEL": 32,
+      "T3_ALIAS_CROSS_ENTITY": 32
+    },
+    "cells_per_group": 4,
+    "total_public_inputs": 384,
+    "independent_source_separated_parser_valid": 384,
+    "counterfactual_target_flips": 96,
+    "counterfactual_distractor_invariants": 96,
+    "graph_motifs_dev": 3,
+    "graph_motifs_challenge": 3,
+    "graph_motifs_cross_split": 0,
+    "stories_cross_split_exact": 0,
+    "baseline_keyed_direct_correct": 64,
+    "baseline_last_line_mention_correct": 172,
+    "strict_cpu_tests_passed": 70,
+    "explicit_negative_cases_rejected": 42,
+    "author_selftest_not_certified_external_independence": true,
+    "negative_cases_include": [
+      "root_answer_vector",
+      "root_oracle",
+      "root_split",
+      "root_unknown",
+      "record_answer",
+      "record_source_events",
+      "record_split",
+      "record_id",
+      "duplicate_raw_json_keys",
+      "false_sealed_declaration",
+      "wrong_counts",
+      "corrupted_answers",
+      "illegal_handoff",
+      "illegal_cancel",
+      "unresolved_alias",
+      "redefined_alias",
+      "cross_split_graph_motif",
+      "missing_counterfactual_cell"
+    ],
+    "preexisting_R2A_validator_fail_preserved": true
+  },
+  "limitations": [
+    "Generated R3 public oracle labels and model-input reside in same public repository; this is NOT a blind neural FINAL.",
+    "Graph signatures are coarse design-defined motifs: zero intersection is not proof of robust graph isomorphism split or neural generalization.",
+    "R3 source-separated checker and unit tests were authored in this session, not reviewed by a separate Codex agent.",
+    "Rule-based interpreter solving 384/384 does not prove need for an explicit trained state memory.",
+    "R3 training, O0/O1 neural inference, masked human scoring and GPU are not performed."
+  ],
+  "owner_scoped_decision": {
+    "public_toy_source_and_validator": "PASS_SCOPED",
+    "strict_input_hardening": "PASS_FOR_CHECKED_PUBLIC_R3_SCHEMA",
+    "structural_toy_discrimination": "PASS_SCOPED_VS_DIRECT_ASSIGNMENT_SHORTCUT",
+    "neural_semantic_gain": "NOT_TESTED",
+    "O0": "PRESERVE_EXISTING_2X2_HOLD",
+    "O1": "DEFER_NO_TRAINING_AUTHORIZED",
+    "science_training": "HOLD_NOT_AUTHORIZED",
+    "permitted_next_work": "TARGETED_INTERNAL_CODEX_SOURCE_REVIEW_AND_PROSPECTIVE_R3_O0_BASELINE_DESIGN_ONLY",
+    "reviewer": "OPTIONAL_CODEX_AI_INTERNAL_NO_EXTERNAL_VALIDATION",
+    "original_TEST_Q1Q2": "UNTOUCHED",
+    "original_PR13": "DRAFT_HOLD_NO_MERGE",
+    "original_lineage": "NO_WRITES"
+  },
+  "next": "TTM_R3_CODEX_SCOPED_ADVERSARIAL_QA_AND_O0_BASELINE_NEURAL_PILOT_DESIGN_SINGLE_OWNER_DECISION"
+}
