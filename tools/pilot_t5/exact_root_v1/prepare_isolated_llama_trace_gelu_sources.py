@@ -45,7 +45,7 @@ WO_REPLACEMENT="""    // TTM independent numeric probe; no mathematical changes.
 """
 
 def blob(b:bytes)->str:
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 
 def sha_file(p:Path)->str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -103,13 +103,13 @@ def main():
             patched=prefix[:pos]+WO_REPLACEMENT+prefix[pos+len(WO_END):]+suffix
             if patched.count('cb(cur, "attn_wo_mm", il)')!=1:
                 raise ValueError("TRACE_PATCH_COUNT_BAD")
-            graph.write_text(patched,"utf-8",newline="\\n")
+            graph.write_text(patched,"utf-8",newline="\n")
             if gelu:
                 p=tree/GPT2
                 g=p.read_text("utf-8")
                 anchor="LLM_FFN_GELU, LLM_FFN_SEQ, il);"
                 if g.count(anchor)!=1:raise ValueError("GPT2_GELU_ANCHOR_CHANGED")
-                p.write_text(g.replace(anchor,"LLM_FFN_GELU_ERF, LLM_FFN_SEQ, il);"),"utf-8",newline="\\n")
+                p.write_text(g.replace(anchor,"LLM_FFN_GELU_ERF, LLM_FFN_SEQ, il);"),"utf-8",newline="\n")
             current_gpt2=tree/GPT2
             current_graph=tree/GRAPH
             receipt[label]={"source_root":str(tree),
@@ -126,9 +126,9 @@ def main():
         receipt["failure"]=type(exc).__name__+":"+str(exc)
     finally:
         output=dest/"SOURCE_ISOLATION_RECEIPT.json"
-        with output.open("x",encoding="utf-8",newline="\\n") as f:
+        with output.open("x",encoding="utf-8",newline="\n") as f:
             json.dump(receipt,f,ensure_ascii=False,sort_keys=True,indent=2)
-            f.write("\\n")
+            f.write("\n")
         print("SOURCE_ISOLATION_STATUS="+receipt["status"],flush=True)
         print("SOURCE_ISOLATION_RECEIPT="+str(output),flush=True)
         print("SOURCE_ISOLATION_SHA256="+sha_file(output),flush=True)
