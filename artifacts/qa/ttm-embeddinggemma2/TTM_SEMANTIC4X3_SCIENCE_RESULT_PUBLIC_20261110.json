@@ -1,0 +1,79 @@
+{
+  "arms_per_seed": 4,
+  "bootstrap_draws": 2000,
+  "bootstrap_scope": "CONDITIONAL_ON_3_FIXED_TRAINING_SEEDS",
+  "bootstrap_seed": 2026111199,
+  "candidate_verdict": "PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE",
+  "claim_sha256": "5c76c4da3d1d1c0532f04a7ff557fd0f8e46279e7e1590dd34cf7801368b47a2",
+  "co_primary": {
+    "gamma_real": {
+      "ci95_percentile": [
+        0.0026581794515664957,
+        0.006716623930602704
+      ],
+      "mean_delta_nll": 0.004611088298351975,
+      "seed_all_positive": true
+    },
+    "tau_residual": {
+      "ci95_percentile": [
+        0.008006140400569671,
+        0.014223537326267178
+      ],
+      "mean_delta_nll": 0.011002512359983604,
+      "seed_all_positive": true
+    }
+  },
+  "contrasts_by_seed": {
+    "S1": {
+      "delta_NULL": 0.06775701222068858,
+      "delta_PRE": 0.08531236315561667,
+      "gamma_real": 0.004474960274369483,
+      "tau_residual": 0.01755535093492809
+    },
+    "S2": {
+      "delta_NULL": 0.059341110959251916,
+      "delta_PRE": 0.074744953919765,
+      "gamma_real": 0.007673971600167345,
+      "tau_residual": 0.01540384296051309
+    },
+    "S3": {
+      "delta_NULL": 0.0827058444286644,
+      "delta_PRE": 0.08275418761317402,
+      "gamma_real": 0.0016843330205190972,
+      "tau_residual": 4.834318450962886e-05
+    }
+  },
+  "h768_membership_sha256": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+  "h768_stories": 768,
+  "h768_targets": 186655,
+  "h768_windows": 1000,
+  "historical_TEST_H320_H512_not_scored": true,
+  "nll_nats_per_target": {
+    "S1": {
+      "NULL-PERM": 3.338712293580376,
+      "NULL-REAL": 3.2709552813596874,
+      "PT-PERM": 3.3517926842409347,
+      "PT-REAL": 3.266480321085318
+    },
+    "S2": {
+      "NULL-PERM": 3.333333859303542,
+      "NULL-REAL": 3.2739927483442903,
+      "PT-PERM": 3.341063730663888,
+      "PT-REAL": 3.266318776744123
+    },
+    "S3": {
+      "NULL-PERM": 3.3475936562628403,
+      "NULL-REAL": 3.2648878118341758,
+      "PT-PERM": 3.345957666426831,
+      "PT-REAL": 3.2632034788136566
+    }
+  },
+  "private_per_story_sha256": "e51f9b840cd6d9b324257efdda56b781663d488cf47cfc92ced4101de93ebcf2",
+  "schema": "ttm.semantic4x3.result.public.v1",
+  "seed_count": 3,
+  "source_runner_sha256": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
+  "status": "COMPLETED_PENDING_INDEPENDENT_ADJUDICATION",
+  "steps_per_arm": 2048,
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "targets_per_step": 4096
+}
