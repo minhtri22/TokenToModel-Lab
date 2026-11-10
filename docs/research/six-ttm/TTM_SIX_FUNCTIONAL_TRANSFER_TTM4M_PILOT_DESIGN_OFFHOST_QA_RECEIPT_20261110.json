@@ -1,0 +1,69 @@
+{
+  "schema": "ttm.six.ttm4m.functional_transfer_pilot_design_readonly_qa.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SIX_G1_EXPLORE_NO_SIGNAL_ARCHIVE_AND_TTM_FUNCTIONAL_TRANSFER_PILOT_DESIGN",
+  "status": "PASS_READONLY_CACHED_PUBLIC_QWEN_DESIGN_QA_1_POSITIVE_3_NEGATIVE",
+  "source_data": "Previously submitted exploratory Real-Qwen ZIP only; no model inference performed",
+  "inputs": {
+    "zip_sha256": "6f98560117219cf3cecc37fb87ff562a784fe82238d9b2d831cbda7634488d9f",
+    "qwen_source_sha256": "9688deb1d1157c93fb7090e5b1c12ea4bc56ed0dedadb0597d84ceb4e68e82eb",
+    "qwen_manifest_sha256": "ae86b8e847e74c97b7f69d88a08f133902173bc4c4df104f413447c1cd6fa40d",
+    "author_preflight_script_sha256": "d0d4e6dca984fb527be2fa2f08a16a0bea5b983e98d5a570111c257ce21da395",
+    "author_negative_qa_script_sha256": "87920c834acf87185a3f48724a757f645fd00a05b2943636a8b2f17e8b88b61f"
+  },
+  "positive_checks": [
+    "Zip CRC and exact five-member allowlist",
+    "GitHub-pinned source SHA256",
+    "AST-only reconstruction of 16 scenes x4 templates",
+    "48 TRAIN,16 DEV and disjoint 12/4 groups",
+    "64 distinct prompt SHA256",
+    "Exact manifest SHA256",
+    "Result scope fields no G1 TEST",
+    "64x1024 and 64x2048 finite tensors",
+    "64x2 finite probe scores",
+    "Nondegenerate TRAIN-only probe and template-residual variance"
+  ],
+  "negative_checks_expected_stop": [
+    "Tampered pinned Qwen source code",
+    "Manifest receipt SHA swap",
+    "Nonfinite target probe"
+  ],
+  "dataset": {
+    "train_rows": 48,
+    "dev_rows": 16,
+    "test_rows": 0,
+    "train_groups": 12,
+    "dev_groups": 4
+  },
+  "metrics": {
+    "train_raw_probe_std": [
+      0.11393597102943397,
+      0.07184151709091123
+    ],
+    "train_template_residual_probe_std": [
+      0.08503595075932988,
+      0.06065191699034513
+    ],
+    "DEV_teacher_global_mean_MAE": 0.06755050653737271,
+    "DEV_teacher_template_only_MAE": 0.05202296104592581
+  },
+  "evidence_assurance": "AUTHOR_OFFHOST_READONLY_DESIGN_QA_NOT_INDEPENDENT_SCIENCE_ADJUDICATION",
+  "g1_original": {
+    "status": "FEASIBILITY_HOLD_ARCHIVED",
+    "science_lock": "HOLD",
+    "private_test_opened": false
+  },
+  "new_pilot": {
+    "training_executed": false,
+    "checkpoint_raw_sha_reverified": false,
+    "run_authorization": "NOT_ISSUED",
+    "gpu_used": false
+  },
+  "limits": [
+    "Checkpoint step1280 verified by previous independent QA receipt but bytes not rehashed in current task",
+    "Current existing Qwen DEV already observed in original exploratory; not a fresh held-out scientific test",
+    "Preflight scripts generated in chat workspace; this GitHub receipt does not claim scripts are yet committed",
+    "No TTM three-arm trainer implemented",
+    "No p-values or confirmatory inference"
+  ]
+}
