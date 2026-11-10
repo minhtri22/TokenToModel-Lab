@@ -1,0 +1,93 @@
+{
+  "schema": "ttm.r2a.complete_evidence_and_codex_handoff.owner_governance_receipt.v1",
+  "date": "2026-11-10",
+  "scope": "INTERNAL_DESK_SYNTHETIC_ONLY",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-semantic-state-goal-toy-r2-20261110",
+  "source_branch_head_before_receipt": "cf15707ca0165baa914a8e4d0fb61ac6922d425a",
+  "exact_source_of_truth": {
+    "complete_manifest": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_COMPLETE_GITHUB_CUSTODY_MANIFEST_20261110.json",
+    "model_input": {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_MODEL_INPUT_ONLY.json",
+      "sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+      "git_blob": "581c55ad2b67bd0887def85abe4363cf7413e647",
+      "records": 384
+    },
+    "oracle": {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_ORACLE_DATASET.json",
+      "sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e",
+      "git_blob": "b1c087b618c871d99a4d6da39358c6ac57f8d4ee",
+      "counterfactual_records": 256,
+      "query_swap_probes": 128
+    },
+    "scripts_checker_QA": "ALL_ZIP_COMPONENTS_ON_GITHUB_BYTE_EXACT",
+    "test_output": "36_OF_36_PASS_NEW_RECHECK",
+    "author_adversarial_shortcuts": "QUESTION_AND_LAST_RELEVANT_KEY_RULE_256_OF_256_NOT_NEURAL_LEARNING",
+    "refs_verified": [
+      {
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_COMPLETE_GITHUB_CUSTODY_MANIFEST_20261110.json",
+        "git_blob": "ef57be3eecb099c0b1894208b3638581587f6524",
+        "pass": true
+      },
+      {
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_ORACLE_DATASET.json",
+        "git_blob": "b1c087b618c871d99a4d6da39358c6ac57f8d4ee",
+        "pass": true
+      },
+      {
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_MODEL_INPUT_ONLY.json",
+        "git_blob": "581c55ad2b67bd0887def85abe4363cf7413e647",
+        "pass": true
+      },
+      {
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_RECHECK_36_TEST_LOG_20261110.txt",
+        "git_blob": "788c0490ab75a2a1e2ace53300fa45b9637b8119",
+        "pass": true
+      },
+      {
+        "path": "docs/research/TTM_R2A_O0_O1_FAIR_SUPERVISION_AND_COMPUTE_COMPARISON_DESIGN_20261110.md",
+        "git_blob": "e3b1f30cc7ed97d6176f6691363361a908a21b19",
+        "pass": true
+      },
+      {
+        "path": "docs/research/TTM_R2A_CODEX_ADVERSARIAL_REVIEW_HANDOFF_20261110.md",
+        "git_blob": "cd0d9caa1977414384c2ebbb76cb1b76404ba2e2",
+        "pass": true
+      }
+    ]
+  },
+  "decision": {
+    "codex_R2_original_review": "COMPLETED_WITH_HIGH_POSITION_SHORTCUT_FINDING",
+    "codex_R2A_review": "PENDING_NOT_INVOKED",
+    "codex_R2A_handoff": "READY_ON_GITHUB",
+    "fair_supervision_matrix": "FIVE_ARM_DESIGN_CANDIDATE_NOT_IMPLEMENTED",
+    "O0": "PRESERVE_EXISTING_2X2_HOLD",
+    "O1": "DEFER_PENDING_CODEX_AND_R3_DESIGN",
+    "no_training": true,
+    "no_GPU": true,
+    "no_checkpoint_reads": true,
+    "no_original_TEST_Q1Q2": true,
+    "public_R2A_not_science_blind_final": true,
+    "external_independent_validation": "NOT_CLAIMED"
+  },
+  "other_repo_refs": {
+    "main_head": "d4ec548727ba85625d1bf2684d85ec9e6867572b",
+    "pr13_head": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "pr13_draft": true,
+    "pr13_merged": false,
+    "prior_2x2_head": "ed2cfcd3b8676e1a6a959d2f90aade35269ee117",
+    "main_lineage_last": "L0014",
+    "R2A_lineage_last": "L0012",
+    "PR13_lineage_last": "L0017",
+    "lineage_changed_by_this_task": false
+  },
+  "author_checks": {
+    "github_full_package": "PASS_10_OF_10_EXACT_BLOB",
+    "github_readback_deps": "PASS_6_OF_6",
+    "model_source_recheck": "PASS_36_OF_36",
+    "author_matrix_static": "PASS_7_OF_7",
+    "author_index_and_review_qa": "PASS_12_OF_12",
+    "scientific_effectiveness": "NOT_TESTED"
+  },
+  "next": "TTM_R2A_CODEX_REVIEW_ADJUDICATE_THEN_R3_STRUCTURAL_STATE_TRACING_SCIENCE_DESIGN_OR_KEEP_O0"
+}
