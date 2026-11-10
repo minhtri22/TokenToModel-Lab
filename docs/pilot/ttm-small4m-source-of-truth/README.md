@@ -50,3 +50,19 @@ Trạng thái: `SOURCE_OF_TRUTH=GITHUB_PR13` · `FRESH12_PREREG=FROZEN` · `REVI
 - [QA packet](../../../artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_EXECUTOR_PACKET_QA_20261110.json) và [kiểm toán 37/37](../../../artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_AUTHOR_SIDE_SEPARATE_AUDIT_20261110.json) — kỹ thuật vật liệu, không phải science PASS hay review con người.
 
 **Trạng thái hiện hành:** `FRESH12_RUN=EXECUTED_48/48` · `REVIEWER_PACKET=READY_24_PAIRS` · `SCORING=0/144` · `UNBLIND=NO` · `PR13=HOLD` · `MAIN=UNCHANGED` · `LINEAGE=L0017_UNCHANGED`. Các biên bản prereg cũ ghi `NOT_EXECUTED` là snapshot trước chạy, không bị chỉnh sửa hồi tố.
+
+
+## E. FRESH12 — giải mù có kiểm soát của owner (2026-11-10)
+
+**Đã giải mù sau khi Codex AI chấm và niêm phong 144/144 điểm**, theo biên nhận [REVIEW_COMPLETE_BEFORE_UNBLIND](https://github.com/minhtri22/TokenToModel-Lab/pull/13#issuecomment-6758016818). Không huấn luyện hay sinh mẫu mới.
+
+- [Báo cáo giải mù và kết luận theo ngưỡng tiền đăng ký](TTM_FRESH12_OWNER_CONTROLLED_UNBLIND_AND_SCOPED_QUALITY_ADJUDICATION_20261110.md)
+- [Phiếu điểm AI 144 ô, nguyên byte từ nhánh reviewer](../../../artifacts/qa/ttm-original1280/fresh12/reviewer/TTM_FRESH12_CODEX_AI_SCORES_R01_R24_20261110.csv) SHA256 `d56f8f062d1a7ef2addd391b524cf555dc81d8eca5406a78daee3a7935c6a29c`
+- [Biên nhận khóa điểm trước giải mù, nguyên byte](../../../artifacts/qa/ttm-original1280/fresh12/reviewer/TTM_FRESH12_CODEX_AI_SCORE_LOCK_RECEIPT_20261110.md) SHA256 `081fbb773f545aef2921557fbf9a313ff6bd7dfdbbe036d250a0ae161f65e73e`
+- [Kết quả tổng hợp và 8 cổng tiền đăng ký](../../../artifacts/qa/ttm-original1280/fresh12/adjudication/FRESH12_OWNER_PUBLIC_SCOPED_ADJUDICATION_20261110.json) SHA256 `74c0967b1e56a43ac3a7bd2f393fea689a50820605f85d96e2f9aff538e471c3`
+- [Kiểm tra tính toàn vẹn giải mù 108/108](../../../artifacts/qa/ttm-original1280/fresh12/adjudication/FRESH12_UNBLIND_INTEGRITY_CHECKS_20261110.json)
+- [Kiểm toán số học thứ hai 66/66](../../../artifacts/qa/ttm-original1280/fresh12/adjudication/FRESH12_SECOND_PASS_ARITHMETIC_AUDIT_20261110.json)
+
+**Phán quyết:** `NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED`. Bám prompt trung bình baseline/trimmed cùng `0.291667/3`; delta `0`, trimmed thắng adherence `4/24`, baseline thắng `4/24`, còn `16/24` hòa. Gating **4 PASS/4 FAIL**, không đủ ứng viên cải thiện. Đây không phải đánh giá độc lập bởi con người. Khóa AES và mapping R-ID ↔ điều kiện từng cặp **không ở repository GitHub public**; ciphertext vẫn được ghim trong escrow. `MAIN=UNCHANGED`, `PR13=DRAFT_HOLD`, `LINEAGE=L0017_UNCHANGED`.
+
+**Bước thực hiện tiếp theo:** `TTM_SMALL4M_PROMPT_CONDITIONING_TRAIN_OBJECTIVE_ROOT_CAUSE_AND_EQUAL_BUDGET_ABLATION_DESIGN` (DESIGN ONLY; không sửa TRAIN hoặc chạy GPU).
