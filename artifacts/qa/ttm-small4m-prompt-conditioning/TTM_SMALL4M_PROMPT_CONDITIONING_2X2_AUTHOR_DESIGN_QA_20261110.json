@@ -10,8 +10,19 @@
     "main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
     "pr13_source_head": "8399406cfca7855626a20e031d1cfb3c767d606f",
     "pr13_negative_result_git_blob": "3a88e28e4d9b07b30e3ea4baecbf55402b8e9ca3",
-    "design_doc_git_blob": "ed7bfb5a06f71e0b55724d54baa417f78654ff87",
-    "machine_spec_git_blob": "288b880dfba0396416caccb016df1ff16ffca637"
+    "design_doc_git_blob": "fc341edf65c90a8c921ba2f84009e27c5fef215b",
+    "machine_spec_git_blob": "6f8553e7054078d449bad6b2979c3b07d392eb48",
+    "main_lineage": {
+      "last_marker": "L0012",
+      "git_blob_sha": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+      "unmodified": true
+    },
+    "pr13_lineage": {
+      "last_marker": "L0017",
+      "git_blob_sha": "15c67ada3b11c46e2d947bef8818599c7408733c",
+      "unmodified": true
+    },
+    "lineage_note": "New design branch inherited main L0012. PR #13 separately contains L0017; no lineage merge or modification performed."
   },
   "original_source_git_blobs": {
     "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
