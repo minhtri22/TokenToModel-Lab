@@ -1,0 +1,45 @@
+{
+  "schema": "ttm.t5.firstop.partial_v2_recovery.static_QA_source_pins_and_owner_handoff.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_D01D02_EXISTING_A_REAUDIT_V2_AND_ONLY_UNRUN_B_GELU_ERF_ONCE",
+  "source_static_gate": "PASS_36_OF_36",
+  "dynamic_python_v2_unit_tests": "NOT_EXECUTED_ON_OWNER_WINDOWS",
+  "dynamic_audit_saved_A": "NOT_EXECUTED",
+  "dynamic_new_B_build": "NOT_EXECUTED",
+  "dynamic_new_B_native": "NOT_EXECUTED",
+  "old_immutable_receipt_sha256": "e2cbc797e133a7e4fc4d949293dd9bd847b881e18b39f3c72bcfa9debfbc8e96",
+  "observed_original_software_error": "FIRSTOP_AUDIT_FAIL_CLOSED:FINAL_STAGE_SHAPE_NOT_ALIGNED:result_norm",
+  "observed_original_native": "PASS_2_OF_2_TRACE_ONLY_ONCE",
+  "source": {
+    "original_auditor_V1_git_blob": "cf6a39f5e763b428fefd0d4c1bd5d0683cd78997",
+    "repaired_auditor_V2_git_blob": "c523c470f8ec69b4938992f44b16a4127c3d08ae",
+    "V2_test_git_blob": "4b93a12784647701b578309bd925c04bc61c2674",
+    "B_probe_Cpp_git_blob": "bd7d408885703a80055c2baf296a44f3006462b7",
+    "B_probe_CMake_git_blob": "066fef8e2a248efcaf25c71443bebd13cfb27be6",
+    "V2_recovery_runner_git_blob": "34bfcf1d1ca0803bfd9b05beafd5214dc7ad8fe9",
+    "owner_PS51_bootstrap_git_blob": "875b8910c4908c52f4269a3268e00a4ff68f3766"
+  },
+  "protocol": {
+    "V2_change_exact": "Accept PyTorch final [w] or [1,w] vs GGML [w,1,1,1] when w=256/2048; no other shape automatic coercions",
+    "native_call_A_reuse": "EXISTING_ONLY_NO_REPEAT",
+    "native_call_B_new": "EXACT_TWO_FRESH_DISCOVERY_LOGITS_ONCE_ONLY_AFTER_A_AUDIT_PASS",
+    "genuine_ERF_node_provenance": "B trace records actual_node_name=ffn_gelu_erf-0 and canonical stage ffn_gelu-0; require exactly two actual nodes",
+    "unit_QA": "Eight no-model tests check positive and negative strict shape mappings; Python syntax parse on owner before execution",
+    "sealed_confirmatory": "C01_C04_NOT_ACCESSED",
+    "original_8_32": "NO_REPLAY",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "pr16": "DRAFT_HOLD"
+  },
+  "forensic": {
+    "D01_ffn_inp_max_abs": 1.046062774734402e-7,
+    "D02_QK_max_abs": 0.0000014256408693569256,
+    "D02_softmax_max_abs": 1.196781158618876e-7,
+    "actual_scientific_root": "NOT_PROVEN",
+    "note": "Partial remote signed readback, not the new independent auditor final report"
+  },
+  "success_condition": "New V2 recovery receipt audited both A and unrun B with distinct source/exe SHA, signed stage deltas, strict results, no TEST/train; remains UNADJUDICATED until independent review.",
+  "fail_condition": "If any precheck, QA, CMake, runtime, trace or auditor gate fails, write HOLD and do not repeat or erase previous evidence.",
+  "merge_gate": "HOLD_UNTIL_EXACT_CAUSAL_PROOF_AND_INDEPENDENT_STRICT_PASS_0_001",
+  "action_state": "OWNER_POWERSHELL_NOT_YET_EXECUTED"
+}
