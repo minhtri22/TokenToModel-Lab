@@ -31,6 +31,9 @@ class FrozenCaptureQA(unittest.TestCase):
                  "fixture_id":"FL01","token_ids":[97,98,99],"n_vocab":2048,"logits":[0.0]*2047}
             f.write_text(json.dumps(row)+"\n")
             with self.assertRaisesRegex(ValueError,"WRONG_SIZE"):m.check_rows(f,1)
+    def test_cleanup_required_for_success(self):
+        self.assertIn("OWNED_OLLAMA_PARENT_STILL_RUNNING",SOURCE)
+        self.assertIn("OWNED_PROCESS_TREE_CLEANUP_COMMAND_FAILED",SOURCE)
     def test_no_replay_or_delete(self):
         self.assertNotIn("shutil.rmtree",SOURCE)
         self.assertIn("STAGE_ALREADY_EXISTS_NO_REPLAY",SOURCE)

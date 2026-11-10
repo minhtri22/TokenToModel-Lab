@@ -239,6 +239,11 @@ def main():
                 try:proc.wait(timeout=25)
                 except subprocess.TimeoutExpired:evidence["cleanup_hold"]="PARENT_NOT_REAPED"
                 evidence["parent_exitcode"]=proc.poll()
+                if evidence["parent_exitcode"] is None:
+                    raise RuntimeError("OWNED_OLLAMA_PARENT_STILL_RUNNING")
+                if ("owned_cleanup_returncode" in evidence
+                    and evidence["owned_cleanup_returncode"]!=0):
+                    raise RuntimeError("OWNED_PROCESS_TREE_CLEANUP_COMMAND_FAILED")
     except Exception as exc:
         evidence["status"]="HOLD_PARTIAL_CAPTURE_NO_REPLAY"
         evidence["failure"]=type(exc).__name__+":"+str(exc)
