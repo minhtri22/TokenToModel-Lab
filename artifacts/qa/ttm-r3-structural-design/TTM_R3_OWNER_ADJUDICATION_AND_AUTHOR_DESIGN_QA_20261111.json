@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.r3.owner_adjudication_and_design_author_qa_receipt.v1",
+  "date": "2026-11-11",
+  "task": "TTM_R2A_CODEX_REVIEW_ADJUDICATE_THEN_R3_STRUCTURAL_STATE_TRACING_SCIENCE_DESIGN_OR_KEEP_O0",
+  "status": "PASS_20_OF_20_AUTHOR_SOURCE_DESIGN_QA__NO_SCIENCE_EXECUTION",
+  "reviewer_context": "Codex AI internal adversarial review from separate prior session, not fresh independent R3 review",
+  "source_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-r3-structural-state-tracing-design-20261111",
+    "branch_parent_commit": "dbf2c5389358e3989c1cb4a691bb981c32ecaf45",
+    "main_at_readback": "d4ec548727ba85625d1bf2684d85ec9e6867572b",
+    "PR13_draft_head": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "original_R2A_head": "c85b2ab504953bd667f09909f3495c4772fd1b2e",
+    "source_blobs": {
+      "codex_report": "41dc4153070efe2113f13d3b089208891aeec5fb",
+      "codex_qa_receipt": "ebac0525be5dcff65bdd3e125229476f83d46f12",
+      "codex_adversarial_script": "7b622049bfd8fdb0f72866adcaf8283ef819fb65",
+      "original_R2A_checker": "1a6edc434e30cfd66820c0d021c0b085124e1847",
+      "owner_adjudication": "a3aa4faf71e40829cea7951505c757fc39fa7bf4",
+      "r3_formal_design": "74d94fb13bab16ff57ad13e730e46c0315488efb",
+      "r3_machine_spec": "8433ca1180be2aff80007efed94a3a2bbb04baa0"
+    },
+    "lineages": {
+      "main": {
+        "marker": "L0014",
+        "blob": "259adcd9fa7197c197d424ced9a7e5887e378663",
+        "unchanged": true
+      },
+      "branch": {
+        "marker": "L0012",
+        "blob": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+        "unchanged": true
+      },
+      "pr13": {
+        "marker": "L0017",
+        "blob": "15c67ada3b11c46e2d947bef8818599c7408733c",
+        "unchanged": true
+      }
+    }
+  },
+  "checks": [
+    "owner_adjudication_readback",
+    "codex_evidence_referenced",
+    "source_review_blob",
+    "source_original_checker_blob",
+    "formal_r3_readback",
+    "machine_schema",
+    "seven_issues",
+    "four_bypasses",
+    "counterfactual_four_cells",
+    "full_6_arm_fairness",
+    "no_pure_architecture_claim",
+    "strict_root_validator_requirement",
+    "no_fake_runtime",
+    "no_science",
+    "main_source_ref_known",
+    "pr13_draft",
+    "branch_lineage_preserved",
+    "main_lineage_preserved",
+    "pr13_lineage_preserved",
+    "oracle_exposed_prohibited"
+  ],
+  "confirmed_codex_review": {
+    "source_git_blobs_pass": 10,
+    "original_author_cpu_pass": 36,
+    "mutation_total": 11,
+    "mutation_rejected_correctly": 7,
+    "mutation_accepted_wrongly": 4,
+    "r2a_input_schema": "FAIL_SCOPED",
+    "existing_canonical_input": "NO_LEAK_DEMONSTRATED",
+    "r2a_toy_valid_scoped": true,
+    "o1_effect": "NOT_TESTED"
+  },
+  "r3_design": {
+    "status": "DESIGN_COMPLETE_CANDIDATE_NOT_FROZEN_SCIENCE",
+    "candidate_groups": 96,
+    "candidate_inputs": 384,
+    "generated_inputs": 0,
+    "prospective_arms": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "strict_validator_status": "NOT_IMPLEMENTED",
+    "runtime_cpu_QA": "NOT_EXECUTED",
+    "structural_graph_split": "PROPOSED_UNPROVEN_FEASIBILITY",
+    "owner_training_authorization": "NOT_GRANTED",
+    "main_model_checkpoint": "UNCHANGED"
+  },
+  "adjudication": "DESIGN_R3_BEFORE_O1",
+  "governance": {
+    "O0": "PRESERVE_HOLD",
+    "O1": "DEFER",
+    "TRAINING": "NOT_EXECUTED",
+    "GPU": "NOT_EXECUTED",
+    "TEST_Q1Q2": "UNTOUCHED",
+    "PR13": "DRAFT_UNMERGED",
+    "MAIN": "NOT_WRITTEN",
+    "LINEAGE": "NOT_WRITTEN"
+  },
+  "next": "TTM_R3_STRICT_INPUT_VALIDATOR_AND_STRUCTURAL_GRAPH_TOY_IMPLEMENTATION_SINGLE_CPU_QA"
+}
