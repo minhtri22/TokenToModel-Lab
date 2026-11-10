@@ -1,0 +1,161 @@
+{
+  "schema": "ttm.small4m.prompt_conditioning.equal_budget_2x2.design_candidate.v1",
+  "created_date": "2026-11-10",
+  "task": "TTM_SMALL4M_PROMPT_CONDITIONING_TRAIN_OBJECTIVE_ROOT_CAUSE_AND_EQUAL_BUDGET_ABLATION_DESIGN",
+  "status": "DESIGN_ONLY_NOT_OWNER_APPROVED_SCIENCE_NOT_EXECUTED",
+  "source_truth": {
+    "owner_repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "main_base_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "frozen_pr13_head": "8399406cfca7855626a20e031d1cfb3c767d606f"
+  },
+  "pins": {
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "t4_data_pack_git_blob": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "t4_train_source_git_blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "t4_eval_git_blob": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "historical_continuation_source_git_blob": "1f539aedd04d7097f2cb26b0220b14bd106c8b65",
+    "parent_step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "historical_step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "private_train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "original_bpe_pairs_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+    "original_train_stories": 2048,
+    "original_train_windows": 2691,
+    "original_unique_next_targets": 498287,
+    "model_trainable_parameter_count": 3749376
+  },
+  "factors": {
+    "data": {
+      "control": "ORIGINAL_REPLAY_SAMPLER_WINDOWS",
+      "experimental": "FIRST_STORY_WINDOW_COUNT_MATCHED_REPLACEMENT",
+      "rules": [
+        "TRAIN only; all source windows from pinned pack",
+        "for each baseline draw with n scored targets, substitute first-story window with available_count >= n",
+        "same draw count, same n counts, same 256-slot tensor shape, same microbatch grouping",
+        "deterministic SHA256 keyed chooser from step,drawing index,candidate; source identity and repetition metrics logged",
+        "if any matching count unavailable, abort before science; no fallback using invalid targets"
+      ]
+    },
+    "objective": {
+      "control": "UNIFORM_VALID_TOKEN_CROSS_ENTROPY",
+      "experimental": "SUFFIX_POSITION_WEIGHTED_CROSS_ENTROPY",
+      "start_index_in_window": 32,
+      "prefix_weight": 1,
+      "suffix_weight": 3,
+      "normalization": "sum(valid_weight*CE)/sum(valid_weight) for entire optimizer step; pad=-100 ignored",
+      "all_valid_labels_nonzero_weight": true
+    }
+  },
+  "arms": [
+    {
+      "id": "A",
+      "data": "ORIGINAL_REPLAY_SAMPLER_WINDOWS",
+      "objective": "UNIFORM_VALID_TOKEN_CROSS_ENTROPY",
+      "hypothesis": "baseline continuation with original CE"
+    },
+    {
+      "id": "B",
+      "data": "FIRST_STORY_WINDOW_COUNT_MATCHED_REPLACEMENT",
+      "objective": "UNIFORM_VALID_TOKEN_CROSS_ENTROPY",
+      "hypothesis": "first-story data selection effect"
+    },
+    {
+      "id": "C",
+      "data": "ORIGINAL_REPLAY_SAMPLER_WINDOWS",
+      "objective": "SUFFIX_POSITION_WEIGHTED_CROSS_ENTROPY",
+      "hypothesis": "position-biased suffix loss effect"
+    },
+    {
+      "id": "D",
+      "data": "FIRST_STORY_WINDOW_COUNT_MATCHED_REPLACEMENT",
+      "objective": "SUFFIX_POSITION_WEIGHTED_CROSS_ENTROPY",
+      "hypothesis": "data-loss factorial interaction"
+    }
+  ],
+  "budget": {
+    "optimizer_steps_per_arm": 128,
+    "step_start_exclusive": 1024,
+    "step_end_inclusive": 1152,
+    "valid_target_labels_per_optimizer_step": 4096,
+    "valid_target_exposures_per_arm": 524288,
+    "total_four_arm_exposures": 2097152,
+    "raw_context_slots_per_window": 256,
+    "same_forward_window_count_and_target_counts_per_step_required": true,
+    "same_microbatch_windows": 8,
+    "precision": "fp16",
+    "device_preference": "free_colab_T4",
+    "restore_parent_full_model_adamw_scheduler_sampler_rng_scaler_state": true,
+    "lr_at_parent": 0.00003,
+    "identical_source_checkpoint_across_all_arms": true,
+    "historical_step1280_not_used_as_fairness_control": true,
+    "exact_gpu_seconds_equal": "NOT_CLAIMED_RECORD_AND_COMPARE_ACTUAL"
+  },
+  "compare": {
+    "paired_data_effect": [
+      "B-A",
+      "D-C"
+    ],
+    "paired_loss_effect": [
+      "C-A",
+      "D-B"
+    ],
+    "interaction_formula": "(D-B)-(C-A)",
+    "training_effect_scope": "fine-tuning continuation from locked step1024; not from-scratch training, not P10",
+    "model_architecture_same": true,
+    "B_and_D_inputs_same": true,
+    "A_and_C_inputs_same": true,
+    "number_of_resumed_historical_runs_reexecuted": 0
+  },
+  "eval_candidate": {
+    "dev_prompts_new": 12,
+    "blind_final_prompts_new": 24,
+    "old_fresh12_prompts_reused_as_final": false,
+    "consumed_q1q2_prompts_reused_as_final": false,
+    "decoding": "greedy_argmax",
+    "max_new_tokens": 64,
+    "prompt_end": "no trailing ASCII space",
+    "four_way_blinding": "balanced Latin square 4 arms x 24 final prompts, 6 per displayed position per arm",
+    "primary": "mean_prompt_adherence_0_to_3_on_24_prompt_clusters_vs_A",
+    "secondary": [
+      "coherence_0_to_3",
+      "consistency_0_to_3",
+      "actor_object_goal_retention",
+      "early_EOS",
+      "3gram_repetition",
+      "VAL_NLL_on_frozen_256_stories"
+    ],
+    "candidate_gate_draft": {
+      "adherence_mean_delta_ge": 0.5,
+      "strict_prompt_wins_vs_A_ge": 16,
+      "cluster_bootstrap_95pct_lower_gt": 0,
+      "max_relative_val_nll_regression_vs_A": 0.05,
+      "max_absolute_coherence_decline": 0.25,
+      "max_absolute_consistency_decline": 0.25
+    },
+    "condition": "all candidate thresholds require owner freeze before science; no TEST/Q1Q2 access",
+    "reviewer": "separate scorer; Codex AI scoped acceptable for exploratory, cannot claim certified human independence",
+    "human_external_replication": "required for strong confirmatory claims",
+    "original_T4_TEST": "SEALED_UNTOUCHED"
+  },
+  "blocked_preconditions": {
+    "data_rights": "REVIEW_REQUIRED_PRIOR_AUTHORIZATION_NOT_AUTOMATICALLY_REUSED",
+    "original_input_checkpoint_and_metadata": "SHA_READBACK_REQUIRED_BEFORE_SCIENCE",
+    "matched_draw_schedule": "NOT_IMPLEMENTED",
+    "masked_loss_negative_fixture": "NOT_IMPLEMENTED",
+    "frozen_new_prompts_and_rater": "NOT_CREATED",
+    "synthetic_offline_qa": "NOT_EXECUTED",
+    "owner_science_authorization": "NOT_GRANTED",
+    "new_train_steps": "ZERO",
+    "new_model_outputs": "ZERO"
+  },
+  "governance": {
+    "main_unchanged": true,
+    "pr13_stays_draft": true,
+    "lineage_L0017_unchanged": true,
+    "test_untouched": true,
+    "q1q2_untouched": true,
+    "public_repo_no_raw_private_data": true,
+    "phase_P09_P10_not_opened": true
+  },
+  "next": "TTM_SMALL4M_2X2_EQUAL_BUDGET_TRAIN_SAMPLER_LOSS_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE"
+}
