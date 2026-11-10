@@ -1,0 +1,113 @@
+{
+  "schema": "ttm.six.g1.v1e.codex_distinct_local_review.v1",
+  "verdict": "HOLD",
+  "timestamp_local": "2026-11-10",
+  "repo_origin": "https://github.com/minhtri22/TokenToModel-Lab.git",
+  "pinned_commit": "1efca4ca080572dcd22bbe658701b221ca46f7dd",
+  "implementation_remote_branch_head_at_review": "1788a47b319dc4054672d110d1b8c33adc45f4a0",
+  "main_head": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "pinned_git_blob_matches": 8,
+  "pinned_git_blob_count": 8,
+  "pinned_files": [
+    {
+      "filename": "g1_signed_boundary_contract_v1e_candidate.py",
+      "git_blob_sha1": "e91fe583db1aa5b112aecd5b8d2830a5da17dd3e",
+      "raw_sha256": "19714d8ff8dea1ffe0842018e04fc977d96f746d5732a890656c0d04b4d7c411",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "test_g1_signed_boundary_v1e_negative.py",
+      "git_blob_sha1": "eb29fc00d1ac43db867492c2be07ff29bab003ff",
+      "raw_sha256": "02795fd784024cb08d0743fd8d404f8448026605fae2533d8627b31b756418bf",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "g1_win32_job_failure_path_v1e_candidate.py",
+      "git_blob_sha1": "ec5f3b5d633b8b0feb5ae98c2d8c8c9f45896eb7",
+      "raw_sha256": "eb5d1b71a991eb4ca46d801057806e2a580c6bcd2487080bfe3e2c15a6008309",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "test_g1_win32_job_failure_path_v1e_static.py",
+      "git_blob_sha1": "961c738534ad0675af69b4ada0d7d781abe074b8",
+      "raw_sha256": "111d34ef7f0e4eb4b608ca97760ae05442434e33368676072a40f057c214d2b3",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "Run-G1-Win32FailureModes-PS51-V1E.ps1",
+      "git_blob_sha1": "348205f54acd0134e233d0f79563f099a121bc1d",
+      "raw_sha256": "3cc1ee9f9991a17b6c890853f1f0c5d0f8f132400b5ca2a41adc40f89355ebd6",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "G1_METHODS_V1E_PRETEST_FROZEN_AMENDMENT_CANDIDATE_20261110.md",
+      "git_blob_sha1": "d2737a9c2fb31d8398119622fe1ff78c295c8fa8",
+      "raw_sha256": "2748adbb6a5bd18da4866846ea21e761dc8cfef318eb422e08c832174836db2f",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "G1_V1E_INTEGRATED_PRODUCTION_GATE_STATUS_AND_CODEX_HANDOFF_20261110.md",
+      "git_blob_sha1": "24cf0a66994ebb2b9364c2b7974ebde57b0430e8",
+      "raw_sha256": "749a10312938872f5643dfcd65ed9dabdb62fa433c14946189a9b19cbec74b87",
+      "match_pinned_git_commit_and_zip": true
+    },
+    {
+      "filename": "G1_V1E_AUTHOR_CPU_QA_RECEIPT_20261110.json",
+      "git_blob_sha1": "1fd2be1c3bb39a784f7cda4d0f988b7619b136d5",
+      "raw_sha256": "24a71820bccff9fa42ffe3e5846877470e4d62fa0a99489af8a55db96d366c89",
+      "match_pinned_git_commit_and_zip": true
+    }
+  ],
+  "source_zip_sha256": "fad5992bac357367c67ee7448209e02247f9566fe6c01a09d69efae2a2b1d55f",
+  "owner_wrapper_sha256": "9dbfa1eab3242f3d4bb5ef4254eea9b072007b0c5ca4ab628a13b358f8b4a1bc",
+  "owner_win32_receipt_sha256": "abd96217121dbd442f4b7eae5e5b49a08d761f51518a01bcc60ea43672159924",
+  "owner_win32_evidence_sha256": {
+    "G1_WIN32_V1E_PRIVATE_RECEIPT.json": "abd96217121dbd442f4b7eae5e5b49a08d761f51518a01bcc60ea43672159924",
+    "SHA256_RECEIPT.txt": "96c97307d7436fe4d586351e7aa4f774d0e017bc99b31af6aaeb4849b6d3f205",
+    "harmless-assign-fault-qa.log": "1e5a6162c8f361053c102a115b52f646e7b0b969302faccb91548644600f6cd3",
+    "harmless-assign-fault-qa.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "harmless-resume-fault-qa.log": "823e77a6b8376415d9df06ff29856fd22a932da57594f0490f5edea36a89e685",
+    "harmless-resume-fault-qa.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "owner_win32_receipt_verified_cases": [
+    "harmless-assign-fault-qa",
+    "harmless-resume-fault-qa"
+  ],
+  "owner_win32_qa_log_validation": "PASS_SCOPED_RECEIPT_AND_RAW_LOG_SHA",
+  "owner_win32_direct_new_execution_by_reviewer": "NOT_TESTED",
+  "independent_cpu_adversarial": {
+    "cases": 13,
+    "expected_observed": 13,
+    "finding_bogus_launcher_amendment_sha_accepted": true,
+    "finding_same_nonce_replay_accepted": true,
+    "synthetic_keys_only": true
+  },
+  "independent_cka_sim": {
+    "seed": 20261110,
+    "N": 64,
+    "n_groups": 8,
+    "replicates_per_group": 8,
+    "permutations": 1000,
+    "datasets_per_condition": 32,
+    "iid_null_false_positive_count": 1,
+    "paired_signal_detected_count": 32,
+    "group_independent_null_row_permutation_false_positive_count": 32,
+    "group_independent_null_group_permutation_false_positive_count": 0,
+    "zero_gram": "INCONCLUSIVE"
+  },
+  "gate_status": {
+    "owner_authority": "FAIL_EXACT_EXTERNAL_LAUNCHER_METHOD_PIN_CHECK_IN_CANDIDATE",
+    "split_broker": "NOT_TESTED_PRODUCTION",
+    "trusted_pack_writer": "NOT_TESTED_PRODUCTION",
+    "external_monotonic_witness": "NOT_TESTED_PRODUCTION",
+    "gpu_os_watchdog": "NOT_TESTED_PRODUCTION",
+    "scientific_methods": "NOT_TESTED_REAL_T1_LINEAGE_AND_POWER"
+  },
+  "author_cpu_qa": "AUTHOR_PASS_61_OF_61_HISTORICAL_UNRERUN",
+  "previous_v1c_critical_checks": "HISTORICAL_REVIEW_PASS_UNRERUN",
+  "science_executed": false,
+  "private_test_opened": false,
+  "owner_science_permit": "NOT_ISSUED",
+  "g1_science_lock": "HOLD",
+  "github_push": "NOT_PERFORMED"
+}
