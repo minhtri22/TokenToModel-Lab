@@ -1,0 +1,104 @@
+{
+  "schema": "ttm.r2a.position_counterbalanced_key_binding.single_cpu_qa.manifest.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SMALL4M_R2_POSITION_COUNTERBALANCED_KEY_BINDING_TOY_AMENDMENT_AND_SINGLE_CPU_QA",
+  "scope": "SYNTHETIC_TOY_ONLY_NO_NEURAL_TRAINING_OR_INFERENCE",
+  "github": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-semantic-state-goal-toy-r2-20261110",
+    "base_frozen_r2": "b1325d61bac07587d07ac7b48b9ad47e4284f1a9"
+  },
+  "source_files": [
+    {
+      "path": "tools/research/semantic_state_r2/r2a_generator.py",
+      "git_blob": "78d0ce42468ae4c29e44b6488feafba8b2a31215",
+      "sha256": "e9f7df99d09a2aa449173db1358449515772b9c54778d75f775eae04f5447326"
+    },
+    {
+      "path": "tools/research/semantic_state_r2/r2a_independent_checker.py",
+      "git_blob": "1a6edc434e30cfd66820c0d021c0b085124e1847",
+      "sha256": "5224707f32688d1582ab80939e844902848f896fdb52596d136904a0ec34d191"
+    },
+    {
+      "path": "tools/research/semantic_state_r2/r2a_single_cpu_qa.py",
+      "git_blob": "6263e4bc56a6cb2747ed11f70fe7a37544973c3f",
+      "sha256": "96fb5e494c75230331238f7b03361c61e9de58e197efd2dce76d17d4b229bc8e"
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_INDEPENDENT_QA_20261110.json",
+      "git_blob": "7c8c448636648e53049d022c145b59535f40540a",
+      "sha256": "76920a16525b4feaa2bed9e49abbea620b91cc3982fae93d0f353a76b326a967"
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_CPU_TEST_LOG_FINAL_20261110.txt",
+      "git_blob": "409fbf9756f77021e4ccb957d6300aa2f1f76006",
+      "sha256": "6efc7fa9f1517f082b5b881942ae99a54224f8308204d496d093b648c1867159"
+    }
+  ],
+  "generated_artifacts": {
+    "oracle_dataset": {
+      "filename": "R2A_ORACLE_DATASET.json",
+      "bytes": 183830,
+      "sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e",
+      "contains_answers": true,
+      "contains_source_events": true,
+      "github_materialization": "DETERMINISTIC_REGENERATE_FROM_EXACT_GIT_BLOB"
+    },
+    "model_input_only": {
+      "filename": "R2A_MODEL_INPUT_ONLY.json",
+      "bytes": 60734,
+      "sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+      "allowed_fields": [
+        "story",
+        "question"
+      ],
+      "github_materialization": "DETERMINISTIC_REGENERATE_FROM_EXACT_GIT_BLOB"
+    }
+  },
+  "run": {
+    "cpu_tests": "PASS_36_OF_36_FINAL",
+    "positive_tests": 17,
+    "negative_mutation_tests": 19,
+    "independent_visible_text_oracle": 256,
+    "model_visible_rows": 384,
+    "wordbag_upper_bound_of_paired": 128,
+    "pair_total": 128,
+    "paired_records": 256,
+    "query_switch_probes": 128,
+    "first_run_note": "Initial draft assertion test_36 expected absence of literal TEST in disclaimer 'not sealed TEST'; corrected assertion only, then reran final full suite; no generator/checker/dataset changes.",
+    "position_only_third_sentence_correct": 80,
+    "position_only_last_sentence_correct": 128,
+    "key_aware_last_relevant_rule_correct": 256,
+    "interpretation": "Toy design no longer has fixed third-sentence shortcut; yet a simple key-aware last-event rule solves it, and neural/architecture benefit remains untested."
+  },
+  "reviewer": {
+    "reviewer": "Codex AI internal review of original R2 ONLY",
+    "original_report_owner_claimed_sha256": "194edaf52ee94ea9dddd8e9cba2056c0110d3612e3db771ec515642694bcf54e",
+    "github_imported_review_git_blob": "6f8ce9c6d0b1c892468d3fcccb2f41691f9f23fb",
+    "byte_identity_to_windows_original": "NOT_ASSERTED_TEXT_EOL_MAY_DIFFER",
+    "r2a_review": "NOT_EXECUTED"
+  },
+  "governance": {
+    "gpu_used": false,
+    "checkpoint_loaded": false,
+    "ttm_inference": false,
+    "new_training": false,
+    "test_q1q2_access": false,
+    "main_written": false,
+    "pr13_written": false,
+    "lineage_written": false,
+    "o0": "PRESERVE_2X2_HOLD",
+    "o1": "DEFER_PENDING_FAIR_SUPERVISION_DESIGN"
+  },
+  "reproduce": {
+    "python": "3.12+",
+    "steps": [
+      "python r2a_generator.py --oracle R2A_ORACLE_DATASET.json --model-input R2A_MODEL_INPUT_ONLY.json",
+      "python r2a_independent_checker.py --oracle R2A_ORACLE_DATASET.json --model-input R2A_MODEL_INPUT_ONLY.json --output R2A_INDEPENDENT_QA.json",
+      "python r2a_single_cpu_qa.py",
+      "verify SHA256 of generated JSON and source against this manifest"
+    ],
+    "expected_run_directory": "an empty temporary directory INSIDE D:\\WORK\\RESEARCH\\TokenToModel-Lab; keep all worktrees in project root"
+  },
+  "next": "TTM_SMALL4M_R2A_CODEX_SCOPED_ADVERSARIAL_REVIEW_AND_O0_VS_O1_FAIR_SUPERVISION_DESIGN"
+}
