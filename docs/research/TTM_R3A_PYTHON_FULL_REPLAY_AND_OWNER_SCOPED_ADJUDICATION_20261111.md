@@ -18,8 +18,8 @@
 **Cách tính:** `predict(row)` đọc `story/question`, lập alias mapping rồi đọc event lines từ cuối về đầu, khớp regexp cho handoff/goal change/cancel/delegation/SET. Không replay dynamic state, không xác minh event precondition, không xây causal graph. Đáp án `oracle` được sử dụng **chỉ tại phase scoring**.
 
 **Receipt nguyên byte trên GitHub:**
-- [Python full 384-row result](../artifacts/qa/ttm-r3-structural-design/r3a/review_20261111/TTM_R3A_PYTHON_FULL_REPLAY_20261111.json) — Git blob `293373aa53b0e920dc592c3f0b17c7978576d3fe`, SHA-256 `b9a92901d32ea5d7809f574882642eec3360e012eed51335cc54d615a7d74aae`.
-- [16/16 integrity and negative checks](../artifacts/qa/ttm-r3-structural-design/r3a/review_20261111/TTM_R3A_PYTHON_FULL_REPLAY_INTEGRITY_QA_20261111.json) — Git blob `0c9648bfd0a0552a6f88674bc43171cba2b258c2`, SHA-256 `af4c1dc74130cdec930755899660163d860705ce32d28a9279475060286ed29b`.
+- [Python full 384-row result](../../artifacts/qa/ttm-r3-structural-design/r3a/review_20261111/TTM_R3A_PYTHON_FULL_REPLAY_20261111.json) — Git blob `293373aa53b0e920dc592c3f0b17c7978576d3fe`, SHA-256 `b9a92901d32ea5d7809f574882642eec3360e012eed51335cc54d615a7d74aae`.
+- [16/16 integrity and negative checks](../../artifacts/qa/ttm-r3-structural-design/r3a/review_20261111/TTM_R3A_PYTHON_FULL_REPLAY_INTEGRITY_QA_20261111.json) — Git blob `0c9648bfd0a0552a6f88674bc43171cba2b258c2`, SHA-256 `af4c1dc74130cdec930755899660163d860705ce32d28a9279475060286ed29b`.
 
 **Để replay trên máy có clone repository chứa exact pinned commit** (đường output tự chọn trong thư mục dự án; script từ chối overwrite):
 ```powershell
