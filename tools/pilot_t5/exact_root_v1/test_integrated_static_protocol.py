@@ -20,7 +20,7 @@ FILENAMES=[
 
 def blob(path):
     b=path.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 
 class TestExactRootContract(unittest.TestCase):
     @classmethod
