@@ -129,6 +129,10 @@ def main():
         rel="tools/pilot_t5/exact_root_v1"
         prereg=root_member(root,source_work/"artifacts/qa/ttm-t5-parity/TTM_T5_EXACT_FIRST_OP_NEW_FIXTURES_INTEGRATED_PREREG_20261110.json",True)
         if gitblob(prereg)!=PREREG_BLOB:raise ValueError("PREREG_GIT_BLOB_MISMATCH")
+        qa_script=root_member(root,source_work/rel/"test_integrated_static_protocol.py",True)
+        call("04b_static_16_readonly_QA",
+            [sys.executable,qa_script],stage,stage/"04b_static_16_readonly_QA.log",40)
+        receipt["static_qa"]="PASS_16_OF_16_PROTOCOL_TESTS"
         plan=json.loads(prereg.read_text("utf-8"))
         if [x["fixture_id"] for x in plan["fixtures"] if x["partition"]=="discovery"]!=["D01","D02"]:
             raise ValueError("DISCOVERY_NOT_EXACT")
