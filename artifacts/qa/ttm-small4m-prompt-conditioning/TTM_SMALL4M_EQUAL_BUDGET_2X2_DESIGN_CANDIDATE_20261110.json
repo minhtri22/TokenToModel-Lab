@@ -151,11 +151,21 @@
   "governance": {
     "main_unchanged": true,
     "pr13_stays_draft": true,
-    "lineage_L0017_unchanged": true,
     "test_untouched": true,
     "q1q2_untouched": true,
     "public_repo_no_raw_private_data": true,
-    "phase_P09_P10_not_opened": true
+    "phase_P09_P10_not_opened": true,
+    "main_lineage": {
+      "last_marker": "L0012",
+      "git_blob_sha": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+      "unchanged": true
+    },
+    "pr13_lineage": {
+      "last_marker": "L0017",
+      "git_blob_sha": "15c67ada3b11c46e2d947bef8818599c7408733c",
+      "unchanged": true
+    },
+    "lineage_inherited_from_main_not_pr13": true
   },
   "next": "TTM_SMALL4M_2X2_EQUAL_BUDGET_TRAIN_SAMPLER_LOSS_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE"
 }
