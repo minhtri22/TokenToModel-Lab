@@ -22,6 +22,7 @@ REF_ZIP_SHA="e5d522bd5234c46af77dbb85990779bd09e25d35be587538cec577ee486c5996"
 C_CPP_BLOB="f14f4e8eaecba273a5fe314d04e8498c40c76655"
 C_CMAKE_BLOB="9e829fbdc0415582a81e9d64c2b3da689cfd6b12"
 CHECKER_BLOB="b38c09278588c3e8bf40208cbbacf8448bfdd97e"
+TEST_BLOB="afad6dde4cbebddb469c71b3e7de45c2f08ef0e7"
 PIN_B_SOURCE={
     "src/llama-graph.cpp":"df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c",
     "src/models/gpt2.cpp":"59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e"}
@@ -89,8 +90,9 @@ def main():
     cpp=member(root,source/"ttm_t5_c01c04_gelu_erf_confirmatory_probe.cpp")
     cm=member(root,source/"CMakeLists.txt")
     chk=member(root,source/"independent_strict_c01c04_checker.py")
+    tests=member(root,source/"test_confirmatory_static_and_negative_cases.py")
     if (blob(cpp)!=C_CPP_BLOB or blob(cm)!=C_CMAKE_BLOB or
-        blob(chk)!=CHECKER_BLOB):
+        blob(chk)!=CHECKER_BLOB or blob(tests)!=TEST_BLOB):
         raise ValueError("CANDIDATE_CPP_CMAKE_AUDITOR_SOURCE_SHA_CHANGED")
     zip_path=member(root,opts.reference_zip)
     gguf=member(root,root/GGUF)
@@ -134,7 +136,7 @@ def main():
       "inputs_sha256":{"P02_true_reference_zip":REF_ZIP_SHA,
         "GGUF_F32":GGUF_SHA,"discovery_receipt":RECOVERY_RECEIPT_SHA},
       "candidate_source_blobs":{"cpp":C_CPP_BLOB,"cmake":C_CMAKE_BLOB,
-        "checker":CHECKER_BLOB},
+        "checker":CHECKER_BLOB,"tests":TEST_BLOB},
       "llama_src_sha256":PIN_B_SOURCE,
       "DLLs_sha256":dlls,
       "old_D_8_32_reexecuted":False,"TEST_or_Q1Q2":False,
@@ -142,6 +144,9 @@ def main():
       "PR16":"DRAFT_HOLD","threshold":0.001,
       "confirmatory_attempted_once":False}
     try:
+        command("00_independent_static_12_negative_QA",
+            [sys.executable,"-B",tests],out,timeout=35)
+        receipt["static_negative_QA"]="PASS_12_OF_12"
         build=out/"probe_build"
         command("01_configure_C_candidate",
             ["cmake.exe","-S",source,"-B",build,"-G","Visual Studio 17 2022","-A","x64",
