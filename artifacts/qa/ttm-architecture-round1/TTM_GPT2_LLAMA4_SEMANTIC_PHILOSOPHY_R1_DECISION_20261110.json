@@ -1,0 +1,153 @@
+{
+  "schema": "ttm.architecture.philosophy.comparative_round_1.v1",
+  "date": "2026-11-10",
+  "research_level": "DESK_RESEARCH_ONLY_NOT_SCIENCE",
+  "task": "TTM_GPT2_LLAMA4_PHILOSOPHICAL_ARCHITECTURE_COMPARATIVE_R1",
+  "source_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-gpt2-llama4-philosophy-architecture-round1-20261110",
+    "main_base": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "preserved_2x2_head": "ed2cfcd3b8676e1a6a959d2f90aade35269ee117",
+    "preserved_pr13_head": "8399406cfca7855626a20e031d1cfb3c767d606f"
+  },
+  "source_git_blobs": {
+    "openai/gpt-2/src/model.py": "230b83cc2ac7582b4a22e9db3c2d8916dfe2ea9a",
+    "minhtri22/TokenToModel-Lab/src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "minhtri22/TokenToModel-Lab/tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "meta-llama/llama-models/models/llama4/MODEL_CARD.md": "80e624a8f7415bd533070277cc6b9f3c5215625b",
+    "meta-llama/llama-models/models/llama4/LICENSE": "ce807287a1cd38e1ed0f8e5eaaa925292e3f6903"
+  },
+  "facts": {
+    "ttm": {
+      "model_kind": "dense causal decoder-only GPT2-like",
+      "param_count": 3749376,
+      "vocab": 2048,
+      "context": 256,
+      "layers": 4,
+      "heads": 4,
+      "embd": 256,
+      "position": "learned_absolute",
+      "training": "next-token CE"
+    },
+    "gpt2_small": {
+      "param_count_approx": 124000000,
+      "layers": 12,
+      "heads": 12,
+      "embd": 768,
+      "context": 1024,
+      "position": "learned_absolute"
+    },
+    "llama4_scout": {
+      "total_params_billions": 109,
+      "active_params_billions": 17,
+      "experts": 16,
+      "context_tokens": 10000000,
+      "license": "Llama4 Community License"
+    },
+    "llama4_maverick": {
+      "total_params_billions": 400,
+      "active_params_billions": 17,
+      "experts": 128,
+      "context_tokens": 1000000,
+      "license": "Llama4 Community License"
+    },
+    "fresh12": {
+      "zero_adherence_outputs": 35,
+      "total_outputs": 48,
+      "mean_trim_delta": 0,
+      "result": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED"
+    }
+  },
+  "philosophical_lenses": [
+    {
+      "id": "MEANING_USE",
+      "theory": "Wittgenstein meaning as use",
+      "operational_hypothesis": "intention/task-relative responses are more useful than token frequency alone",
+      "measure": "goal-conditioned continuation counterfactual"
+    },
+    {
+      "id": "DYNAMIC_SEMANTICS",
+      "theory": "Kamp/Heim discourse representation",
+      "operational_hypothesis": "explicit entity-event state update can improve narrative coherence",
+      "measure": "entity/state tracking and consistency under state-changing actions"
+    },
+    {
+      "id": "PLANS_GOALS",
+      "theory": "Schank and Abelson scripts plans goals",
+      "operational_hypothesis": "goal and plan variables improve relevant next actions",
+      "measure": "matched goal-switch intervention"
+    },
+    {
+      "id": "GROUNDING_LIMIT",
+      "theory": "Harnad symbol grounding",
+      "operational_hypothesis": "textual consistency does not prove intrinsic understanding",
+      "measure": "bounded claim only; no consciousness or full semantic grounding claims"
+    }
+  ],
+  "architecture_candidates": [
+    {
+      "id": "O0",
+      "label": "current 2x2 data-selection x suffix-CE",
+      "priority": "KEEP_AS_COMPARATOR",
+      "new_training_authorized": false
+    },
+    {
+      "id": "O1",
+      "label": "GPT2-like P02 plus auxiliary entity-goal-state objective",
+      "priority": "R2_FEASIBILITY_FIRST",
+      "new_training_authorized": false
+    },
+    {
+      "id": "O2",
+      "label": "P02 plus small recurrent relational state slots",
+      "priority": "R2_AFTER_O1",
+      "new_training_authorized": false
+    },
+    {
+      "id": "O3",
+      "label": "RoPE RMSNorm SwiGLU GQA independently",
+      "priority": "LOWER_FOR_SEMANTIC_OBJECTIVE",
+      "new_training_authorized": false
+    },
+    {
+      "id": "O4",
+      "label": "4M total parameter mini MoE",
+      "priority": "DEFER_UNPROVEN_AT_SMALL_SCALE",
+      "new_training_authorized": false
+    }
+  ],
+  "minimum_credible_fairness": [
+    "matched total trainable parameters or explicitly report mismatch",
+    "same training token exposure and source rights",
+    "same tokenizer, checkpoint ancestry when possible, and never pretend rebuilt architecture shares trained parent",
+    "same information budget; oracle state labels are additional supervision and need separate credit",
+    "new untouched evaluation prompts and independent scoring relative to the design participants",
+    "paired counterfactual goal ownership and actor identity tests",
+    "source-only synthetic first; no T4 or FRESH12 replay until new science approval"
+  ],
+  "next": "TTM_SMALL4M_SEMANTIC_STATE_GOAL_FORMAL_HYPOTHESIS_AND_NO_TRAINING_TOY_FEASIBILITY",
+  "decision": {
+    "preserve_existing_2x2": "YES_HOLD_NO_GPU",
+    "start_codex_reviewer_handoff_now": false,
+    "start_philosophy_to_formal_toy_R2": true,
+    "need_external_reviewer_for_exploratory_internal_round": false,
+    "independence_claim": "OWNER_WEB_CODEX_INTERNAL_ONLY_NO_EXTERNAL_VALIDATION",
+    "go_colab": false,
+    "reason": "First formalize measurable entity goal continuity before deciding whether to train 2x2 alone or compare additional semantic-state arm."
+  },
+  "science_executed": {
+    "gpu_steps": 0,
+    "cpu_training_steps": 0,
+    "new_model_generations": 0,
+    "TEST_reads": 0,
+    "Q1Q2_reads": 0
+  },
+  "governance": {
+    "main_unmodified": true,
+    "pr13_unmodified": true,
+    "prior_2x2_branch_unmodified": true,
+    "lineage_main": "L0012_UNMODIFIED",
+    "lineage_pr13": "L0017_UNMODIFIED",
+    "github_source_truth": true
+  }
+}
