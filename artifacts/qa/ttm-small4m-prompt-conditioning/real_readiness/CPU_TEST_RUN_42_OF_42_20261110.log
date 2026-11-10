@@ -1,0 +1,47 @@
+test_33_uniform_loss_finite (__main__.Loss.test_33_uniform_loss_finite) ... ok
+test_34_weighted_loss_finite (__main__.Loss.test_34_weighted_loss_finite) ... ok
+test_35_uniform_expected (__main__.Loss.test_35_uniform_expected) ... ok
+test_36_weighted_expected (__main__.Loss.test_36_weighted_expected) ... ok
+test_37_pad_has_zero_gradient (__main__.Loss.test_37_pad_has_zero_gradient) ... ok
+test_38_valid_gradient_nonzero (__main__.Loss.test_38_valid_gradient_nonzero) ... ok
+test_39_weighted_suffix_has_more_gradient (__main__.Loss.test_39_weighted_suffix_has_more_gradient) ... ok
+test_40_invalid_label_rejected (__main__.Loss.test_40_invalid_label_rejected) ... ok
+test_41_nonfinite_logit_rejected (__main__.Loss.test_41_nonfinite_logit_rejected) ... ok
+test_42_all_pad_denominator_rejected (__main__.Loss.test_42_all_pad_denominator_rejected) ... ok
+test_01_pack_sha (__main__.T.test_01_pack_sha) ... ok
+test_02_manifest_sha (__main__.T.test_02_manifest_sha) ... ok
+test_03_checkpoint_sha (__main__.T.test_03_checkpoint_sha) ... ok
+test_04_real_train_windows (__main__.T.test_04_real_train_windows) ... ok
+test_05_first_story_count (__main__.T.test_05_first_story_count) ... ok
+test_06_val_metadata (__main__.T.test_06_val_metadata) ... ok
+test_07_matched_targets (__main__.T.test_07_matched_targets) ... ok
+test_08_equal_draws (__main__.T.test_08_equal_draws) ... ok
+test_09_equal_token_slots (__main__.T.test_09_equal_token_slots) ... ok
+test_10_all_first_candidates (__main__.T.test_10_all_first_candidates) ... ok
+test_11_nonidentical_selected_data (__main__.T.test_11_nonidentical_selected_data) ... ok
+test_12_no_raw_token_export (__main__.T.test_12_no_raw_token_export) ... ok
+test_13_source_p02_pin (__main__.T.test_13_source_p02_pin) ... ok
+test_14_parent_optimizer_state (__main__.T.test_14_parent_optimizer_state) ... ok
+test_15_parent_scaler (__main__.T.test_15_parent_scaler) ... ok
+test_16_parent_sampler (__main__.T.test_16_parent_sampler) ... ok
+test_17_p02_config (__main__.T.test_17_p02_config) ... ok
+test_18_model_parameter_count (__main__.T.test_18_model_parameter_count) ... ok
+test_19_cpu_parent_restore (__main__.T.test_19_cpu_parent_restore) ... ok
+test_20_no_owner_lock_fail_closed (__main__.T.test_20_no_owner_lock_fail_closed) ... ok
+test_21_wrong_owner_lock_hash (__main__.T.test_21_wrong_owner_lock_hash) ... ok
+test_22_wrong_p02_source_sha (__main__.T.test_22_wrong_p02_source_sha) ... ok
+test_23_nonexistent_input (__main__.T.test_23_nonexistent_input) ... ok
+test_24_wrong_manifest (__main__.T.test_24_wrong_manifest) ... ok
+test_25_ranked_choice_determinism (__main__.T.test_25_ranked_choice_determinism) ... ok
+test_26_ranked_choice_order_invariant (__main__.T.test_26_ranked_choice_order_invariant) ... ok
+test_27_four_arms (__main__.T.test_27_four_arms) ... ok
+test_28_science_not_called_in_cpu_mode (__main__.T.test_28_science_not_called_in_cpu_mode) ... ok
+test_29_eval_prompts_count (__main__.T.test_29_eval_prompts_count) ... ok
+test_30_eval_prompts_unique (__main__.T.test_30_eval_prompts_unique) ... ok
+test_31_eval_bpe_lengths (__main__.T.test_31_eval_bpe_lengths) ... ok
+test_32_live_val_not_test (__main__.T.test_32_live_val_not_test) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.817s
+
+OK
