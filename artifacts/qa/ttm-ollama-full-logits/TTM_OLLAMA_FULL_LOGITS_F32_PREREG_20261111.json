@@ -1,0 +1,120 @@
+{
+  "schema": "ttm.ollama.full_logits.independent_prereg.v1",
+  "date": "2026-11-11",
+  "phase": "PREREGISTRATION_BEFORE_NEW_INFERENCE",
+  "research_branch": "research/ttm-t5-ollama-full-logits-20261111",
+  "base_main_commit": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "independent_of": "T5_WINDOWS_F32 scoped v5 closeout; does not reopen T5",
+  "reference_v5": {
+    "sha256": "d63ba32e85c8472cc432b97eec2c9d98ee77224baed9eb7447c34bf5fe83a0b8",
+    "status": "PASS_SCOPED",
+    "full_logits": "NOT_EXECUTED"
+  },
+  "model": {
+    "vocab_size": 2048,
+    "architecture": "P02 GPT2 GELU_ERF TTM-Small4M",
+    "step": 1024,
+    "gguf_f32_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "p02_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+  },
+  "source": {
+    "ollama_commit": "9a3e8177767245acc62b735eba7d5d8a553606d0",
+    "llama_cpp_commit": "39febd2adb947b70da35e95f9351b3bf58ad170a",
+    "server_context_original_git_blob": "2bd1ab9ec00ca581c70bac014f7ca6d3d2bae0ae",
+    "gelu_erf_patch_sha256": "47ef4854094d6b9db648cde7067a3d243b10ce632f0b58397e986110a7f62de2",
+    "runner_instrumentation": "dedicated candidate build only, no modification to frozen v5"
+  },
+  "runtime": {
+    "platform": "Windows CPU x64",
+    "num_gpu": 0,
+    "num_thread": 1,
+    "num_ctx": 256,
+    "num_parallel": 1,
+    "kv_k": "F32",
+    "kv_v": "F32",
+    "flash_attention": false,
+    "raw": true,
+    "stream": false,
+    "temperature": 0,
+    "seed": 42,
+    "num_predict": 1,
+    "additional_speculation": false
+  },
+  "fixtures": [
+    {
+      "fixture_id": "FL01",
+      "prompt": "abc",
+      "token_ids": [
+        97,
+        98,
+        99
+      ]
+    },
+    {
+      "fixture_id": "FL02",
+      "prompt": "hello",
+      "token_ids": [
+        257,
+        304,
+        111
+      ]
+    },
+    {
+      "fixture_id": "FL03",
+      "prompt": "a\nb",
+      "token_ids": [
+        97,
+        10,
+        98
+      ]
+    },
+    {
+      "fixture_id": "FL04",
+      "prompt": "Xin chào",
+      "token_ids": [
+        88,
+        267,
+        628,
+        195,
+        160,
+        111
+      ]
+    }
+  ],
+  "measurement": {
+    "position": "last prompt token, next-token logits, before any sampler or softmax",
+    "logits_per_row": 2048,
+    "rows": 4,
+    "total_values": 8192,
+    "precision": "raw F32",
+    "absolute_error_threshold": 0.001,
+    "required_top1_agreement": "4/4",
+    "max_abs_operator": "max(abs(ollama[i]-p02[i]))",
+    "no_finite_values": "TECHNICAL_HOLD",
+    "value_comparisons": "direct same-index signed raw logits, no normalization, no offset shifting"
+  },
+  "evidence": {
+    "reference": "NEW P02 CPU F32 output for exactly FL01-FL04; lock checksum before seeing Ollama outputs",
+    "candidate": "runner from CHILD process spawned by pinned Ollama, with explicit raw tensor hook and logged observed prompt token IDs",
+    "provenance": "binary, DLLs, GGUF SHA256; spawned runner PID, parent Ollama PID, args, process path, server port, effective KV/Flash log",
+    "report": "independent parser on exact JSONL pairs, plus separate provenance adjudication"
+  },
+  "decisions": {
+    "numeric_pass": "4/4 finite, 2048 each, exact IDs, max_abs<=0.001 each AND top1 equal each",
+    "numeric_fail": "all provenance and structural checks valid but at least one numerical comparison fails",
+    "technical_hold": "absent child-process proof, changed sources, tokens mismatch, missing rows, wrong model or runtime, sampler-processed-only values, malformed/nonfinite values",
+    "end_to_end_pass": "numeric pass AND independent Ollama-child provenance attestation",
+    "t5_v5_status": "UNCHANGED"
+  },
+  "governance": {
+    "reuse_existing_v5_binary": false,
+    "no_training": true,
+    "no_TEST_Q1Q2": true,
+    "no_new_T5_science_reclassification": true,
+    "no_auto_merge": true,
+    "no_lineage_append_until_scientific_adjudication": true,
+    "no_external_writes": true,
+    "workspace": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "source_staging_only_until_preflight_pass": true
+  }
+}

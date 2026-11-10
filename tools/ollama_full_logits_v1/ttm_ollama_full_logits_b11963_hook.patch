@@ -1,0 +1,67 @@
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -33,6 +33,9 @@
+ #include <filesystem>
+ #include <random>
+ #include <utility>
+ #include <fstream>
++#include <cstdlib>
++#include <cmath>
++#include <stdexcept>
+ 
+ // fix problem with std::min and std::max
+@@ -4870,6 +4873,39 @@
+             // shifted according to the current sub-batch
+             const int tok_idx = slot.i_batch - off;
+ 
++            // TTM opt-in isolated full-logits capture: before sampler/softmax.
++            // Never enable in a shared Ollama process; test only one request at a time.
++            if (slot.stats.n_gen == 0) {
++                const char * ttm_path = std::getenv("TTM_OLLAMA_FULL_LOGITS_OUTPUT");
++                if (ttm_path != nullptr && ttm_path[0] != '\0') {
++                    const auto ttm_ids = slot.prompt.tokens.get_text_tokens();
++                    const std::vector<std::pair<const char *, std::vector<llama_token>>> ttm_expected = {
++                        {"FL01", {97, 98, 99}},
++                        {"FL02", {257, 304, 111}},
++                        {"FL03", {97, 10, 98}},
++                        {"FL04", {88, 267, 628, 195, 160, 111}},
++                    };
++                    std::string ttm_fixture;
++                    for (const auto & entry : ttm_expected) {
++                        if (ttm_ids == entry.second) {
++                            ttm_fixture = entry.first;
++                            break;
++                        }
++                    }
++                    if (ttm_fixture.empty() || llama_vocab_n_tokens(vocab) != 2048) {
++                        throw std::runtime_error("TTM_FULL_LOGITS_INPUT_OR_VOCAB_MISMATCH");
++                    }
++                    const float * ttm_raw = llama_get_logits_ith(slot.ctx_tgt, tok_idx);
++                    if (ttm_raw == nullptr) {
++                        throw std::runtime_error("TTM_FULL_LOGITS_NULL");
++                    }
++                    for (int ttm_i = 0; ttm_i < 2048; ++ttm_i) {
++                        if (!std::isfinite(ttm_raw[ttm_i])) {
++                            throw std::runtime_error("TTM_FULL_LOGITS_NONFINITE");
++                        }
++                    }
++                    json ttm_row = {
++                        {"schema", "ttm.ollama.full_logits.runner_pre_sample.v1"},
++                        {"fixture_id", ttm_fixture},
++                        {"token_ids", ttm_ids},
++                        {"phase", "PRE_SAMPLING_RAW_F32"},
++                        {"n_vocab", 2048},
++                        {"logits", std::vector<float>(ttm_raw, ttm_raw + 2048)},
++                    };
++                    std::ofstream ttm_out(ttm_path, std::ios::app | std::ios::binary);
++                    if (!ttm_out) throw std::runtime_error("TTM_FULL_LOGITS_OPEN_FAILED");
++                    ttm_out << ttm_row.dump() << '\n';
++                    ttm_out.flush();
++                    if (!ttm_out) throw std::runtime_error("TTM_FULL_LOGITS_FLUSH_FAILED");
++                }
++            }
++
+             llama_token id;
+             {
+                 scoped_timer timer(t_sampl, n_sampl);
