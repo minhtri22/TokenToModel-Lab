@@ -1,3 +1,15 @@
+# C01–C04 2026-11-10 — SỬA LỖI CÚ PHÁP TRƯỚC NATIVE, CHƯA TIÊU THỤ ONE-SHOT
+
+**Không chạy lại launcher V1** `Invoke-TTM-T5-C01C04-GELU-ERF-Confirmatory-Once-PS51.ps1`: checker trong V1 mắc `SyntaxError: unmatched ')'` tại dòng 99 và đã dừng trước mọi phép native C01–C04. Source lock V1 và lỗi được giữ nguyên; `main`, TEST và `lineage.md` không đổi. Sửa chính xác dấu ngoặc và pin SHA trong source mới.
+
+**Dùng duy nhất** `tools/pilot_t5/exact_root_v1/confirmatory_v1/Invoke-TTM-T5-C01C04-Confirmatory-SourceRecovery-V2-PS51.ps1`. V2 kiểm đủ 5 blob V1, chép ba file không thay đổi vào một source lock V2 mới, tải hai file sửa đúng Git SHA, kiểm cú pháp và chạy 12 negative tests **trước khi** tạo thư mục thực thi native one-shot. Chỉ chạy C01–C04 trên nguồn đã khóa khi toàn bộ các cổng trước native PASS.
+
+[Biên bản kỹ thuật fail-closed và phục hồi V2](../../../artifacts/qa/ttm-t5-parity/TTM_T5_C01_C04_PRE_NATIVE_SYNTAX_FAIL_CLOSED_AND_SOURCE_RECOVERY_V2_20261110.json).
+
+**`C_CONFIRMATORY_NATIVE=NOT_EXECUTED` · `MERGE=HOLD` · `PR16=DRAFT`**.
+
+---
+
 # TTM T5 — CẬP NHẬT DISCOVERY GELU_ERF 2026-11-10
 
 **Kết quả mới nhất:** `GELU_ERF_CAUSAL_DISCOVERY=PASS_2_OF_2`, trên fixture mới D01/D02. Trước GELU các thống kê tensor không đổi giữa đối chứng A và B; A có chênh lệch đầu tiên >1e-5 tại `ffn_gelu-0`; B chỉ thay toán tử thành `GELU_ERF`, giảm max-abs logits D01 626×, D02 320× và đạt strict `≤0.001` 2/2. **Chưa có confirmatory native C01–C04**, vì vậy **`PR16=DRAFT_HOLD`, `MERGE=BLOCKED`**. Không được coi discovery PASS là PASS trên các 8 fixture lịch sử hoặc 32 phép đo cũ, đều giữ nguyên FAIL.
