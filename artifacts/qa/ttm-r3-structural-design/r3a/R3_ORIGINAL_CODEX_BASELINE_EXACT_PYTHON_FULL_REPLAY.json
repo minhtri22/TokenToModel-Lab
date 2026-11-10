@@ -1,0 +1,38 @@
+{
+  "status": "HEURISTIC_100_PERCENT",
+  "correct": 384,
+  "total": 384,
+  "method": "backward latest direct assignment, no alias/delegate/cancel/state replay",
+  "by_family_split": {
+    "T1_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T1_DEV": {
+      "correct": 64,
+      "total": 64
+    },
+    "T2_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T2_DEV": {
+      "correct": 64,
+      "total": 64
+    },
+    "T3_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T3_DEV": {
+      "correct": 64,
+      "total": 64
+    }
+  },
+  "source_of_prediction": {
+    "initial_goal": 64,
+    "last_goal_change": 64,
+    "last_handoff": 256
+  },
+  "errors": []
+}
