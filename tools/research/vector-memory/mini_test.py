@@ -72,7 +72,7 @@ def main():
         out=[[],[],[],[]]
         for j in range(0,len(vx),8):
             x=vx[j:j+8];pos=vp[j:j+8];rows=torch.arange(len(x))
-            baseline=model(x)[rows,pos]
+            baseline=model(x)[0][rows,pos]
             ext=F.linear(hidden(table[x]),table)[rows,pos]
             assert torch.equal(baseline,ext)
             emb=table[x]
