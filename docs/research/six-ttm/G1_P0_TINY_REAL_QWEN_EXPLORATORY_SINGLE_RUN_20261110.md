@@ -34,7 +34,7 @@ url = "https://raw.githubusercontent.com/minhtri22/TokenToModel-Lab/ea774dda50c6
 script = pathlib.Path("/content/g1_real_qwen_tiny_poc.py")
 urlretrieve(url, script)
 blob = script.read_bytes()
-blob_sha1 = hashlib.sha1(b"blob " + str(len(blob)).encode() + b"\\0" + blob).hexdigest()
+blob_sha1 = hashlib.sha1(b"blob " + str(len(blob)).encode() + bytes([0]) + blob).hexdigest()
 assert blob_sha1 == "cefc05f482dd6b488a1b7889275e6104d0a44684", "SOURCE_SHA_MISMATCH"
 
 subprocess.check_call([sys.executable, str(script), "--mode", "selftest"])
@@ -42,7 +42,7 @@ subprocess.check_call([sys.executable, str(script), "--mode", "run",
                        "--output", "/content/g1_p0_real_qwen_receipt.json"])
 ```
 
-**Lưu ý:** Python literal `b"\\0"` trong mã trên cần biểu diễn đúng một byte NUL. Nếu copy markdown mà phát sinh lỗi escape, dùng `bytes([0])` thay thế. Không dùng mã động từ branch `main`. Có thể tải JSON bằng Colab Files hoặc tự sao chép lên Drive; không lưu private test.
+**Lưu ý:** Tạo Git blob prefix bằng `bytes([0])` để xác minh SHA-1 chính xác; không dùng mã động từ branch `main`. Có thể tải JSON bằng Colab Files hoặc tự sao chép lên Drive; không lưu private test.
 
 ## Phán quyết ngay sau receipt
 
