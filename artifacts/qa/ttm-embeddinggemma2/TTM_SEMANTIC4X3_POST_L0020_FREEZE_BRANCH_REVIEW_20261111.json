@@ -1,0 +1,145 @@
+{
+  "schema": "ttm.semantic4x3.post_adjudication.freeze_and_branch_closure_review.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SEMANTIC4X3_POST_ADJUDICATION_FREEZE_AND_BRANCH_CLOSURE_REVIEW",
+  "original_evidence_head": "5b27d797f255d0253de0e4818fe0ebf9549d9ee7",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "research_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "main_head_at_review": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "scientific_status": "CLOSED_SCIENCE_WITH_PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE",
+  "independent_qa_status": "PASS_INDEPENDENT_12_ARM_STORY_BOOTSTRAP_READBACK",
+  "run": {
+    "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+    "seeds": 3,
+    "arms": 12,
+    "optimizer_steps": 24576,
+    "checkpoint_READY": 96,
+    "h768_stories": 768,
+    "h768_targets": 186655,
+    "source_runner_sha256": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676"
+  },
+  "co_primary": {
+    "gamma_real": {
+      "ci95_percentile": [
+        0.0026581794515664957,
+        0.006716623930602704
+      ],
+      "mean_delta_nll": 0.004611088298351975,
+      "seed_all_positive": true
+    },
+    "tau_residual": {
+      "ci95_percentile": [
+        0.008006140400569671,
+        0.014223537326267178
+      ],
+      "mean_delta_nll": 0.011002512359983604,
+      "seed_all_positive": true
+    }
+  },
+  "fixed_seed_contrasts": {
+    "S1": {
+      "delta_NULL": 0.06775701222068858,
+      "delta_PRE": 0.08531236315561667,
+      "gamma_real": 0.004474960274369483,
+      "tau_residual": 0.01755535093492809
+    },
+    "S2": {
+      "delta_NULL": 0.059341110959251916,
+      "delta_PRE": 0.074744953919765,
+      "gamma_real": 0.007673971600167345,
+      "tau_residual": 0.015403842960513087
+    },
+    "S3": {
+      "delta_NULL": 0.0827058444286644,
+      "delta_PRE": 0.08275418761317402,
+      "gamma_real": 0.0016843330205190972,
+      "tau_residual": 0.00004834318450962216
+    }
+  },
+  "pinned_blob_sha1": {
+    "lineage": "3bd60e32e28cc358740953df5bd0ad180862a9fc",
+    "prereg": "d2627ad9086c9a34a8bf99af7b44ef529cb1861c",
+    "pre_claim_resume_amendment": "3eac8d5346fe60182298294a033fc258953c167c",
+    "final_report": "fb62de5ac869dee311b47aca6017cd6ee6167ef6",
+    "adjudication": "23ec04b6fecb014e75066610a0807b92463d56a5",
+    "independent_readback": "8f9ca359e33304bef299472603f52c522009c0d9",
+    "public_result": "5db0da79bf2de5bdce0e7e1853edb82d069d8c08",
+    "public_claim": "7056c17ba6d357e2c34799dedf58f64d0b3afa1c",
+    "runner_source": "4e1fecc1f83c0ec5ba0566201f1114703e9f81c8",
+    "independent_checker_source": "df3781940e51bbe6caa23fd974f88847561b35e6"
+  },
+  "evidence_sha256": {
+    "study_claim": "5c76c4da3d1d1c0532f04a7ff557fd0f8e46279e7e1590dd34cf7801368b47a2",
+    "result": "d60f8e206b20b30a5b83f324427fa0b206a9d00174661419abf2185401022610",
+    "per_story_private": "e51f9b840cd6d9b324257efdda56b781663d488cf47cfc92ced4101de93ebcf2",
+    "independent_readback": "386ec3bdab72cecc31455998951cc2afbb51bd7e3d9023cbc65027d5dd80a513"
+  },
+  "private_material": "PRIVATE_ON_OWNER_GOOGLE_DRIVE; not uploaded or altered by freeze",
+  "verification_count": 20,
+  "verification_gates": [
+    "BRANCH_HEAD_EXACT",
+    "MAIN_HEAD_EXACT",
+    "COMPARE_SCOPE",
+    "PR_NOT_EXIST",
+    "LINEAGE_SHA",
+    "LINEAGE_L0019_L0020_ONCE",
+    "PREREG_BLOB",
+    "RESUME_AMENDMENT_BLOB",
+    "REPORT_BLOB",
+    "FINAL_VERDICT_BLOB",
+    "REVIEW_BLOB",
+    "RESULT_BLOB",
+    "CLAIM_BLOB",
+    "RUNNER_SOURCE_GITBLOB",
+    "REVIEWER_SOURCE_GITBLOB",
+    "VERDICT_AND_REVIEW",
+    "INDEPENDENT_96_READY_ZERO_FORWARD",
+    "REVIEW_SHA256",
+    "BUDGET_H768",
+    "CO_PRIMARY_POSITIVE"
+  ],
+  "branch_review": {
+    "merge_base_commit": "a167d41ff9ad46eb82d2137e796c2249bfa89fc8",
+    "status": "diverged",
+    "ahead_commits": 71,
+    "behind_commits": 160,
+    "compared_files": 132,
+    "prs_from_branch": 0,
+    "scientific_workstream": "CLOSE",
+    "physical_git_branch": "PRESERVE_READ_ONLY_NOT_DELETED",
+    "github_integration": "HOLD_NO_AUTOMATIC_MERGE",
+    "reason": "Research branch diverged widely from main; 71 ahead, 160 behind, 132 changed files. Requires curated integration/scope review before optional PR.",
+    "stale_readme_detected": "tools/embeddinggemma2_swap/semantic4x3_v2/README_VI.md still documents PRECLAIM state; archival note, not scientific discrepancy",
+    "merge_executed": false,
+    "branch_deleted": false,
+    "main_modified": false
+  },
+  "recommended_next_science": {
+    "priority_1": "OOD_SOURCE_RIGHTS_AND_PREREG_DESIGN_ONLY",
+    "priority_1_justification": "All L0017-L0020 holdouts originate from same TinyStories family, so transport/robustness is unmeasured. A new, licensed, immutable out-of-domain holdout can test fixed 12 checkpoint behaviors with no retraining once separately approved.",
+    "priority_1_new_gpu_runs_authorized": false,
+    "priority_1_source_selected": false,
+    "priority_1_science_executed": false,
+    "priority_2": "RESIDUAL_DONOR_SEMANTIC_CAUSAL_ISOLATION_DESIGN_ONLY",
+    "priority_2_justification": "Dual-matched null preserves step0 projected input and global covariance but not token-row norms/higher moments. Positive residual effect cannot be uniquely attributed to pretrained semantics; S3 is nearly zero.",
+    "stop_rule": "If no legally usable, model-suitable OOD source passes pre-registration audit, HOLD OOD and proceed to source-only semantic-isolation proposal; do not opportunistically select a dataset after seeing NLL."
+  },
+  "limits": [
+    "No OOD test yet",
+    "No semantic-only identification",
+    "Bootstrap conditional on 3 fixed seeds; S3 tau near zero",
+    "Unknown donor pretraining overlap",
+    "Historical holdout exact-ID exclusion only; near duplicate not fully audited"
+  ],
+  "governance": {
+    "append_lineage_now": false,
+    "no_new_scientific_result": false,
+    "no_new_qa_execution": false,
+    "no_training_or_inference": true,
+    "no_gpu": true,
+    "no_GGUF": true,
+    "no_application": true,
+    "no_PR_or_merge": true,
+    "no_source_code_edit": true
+  }
+}
