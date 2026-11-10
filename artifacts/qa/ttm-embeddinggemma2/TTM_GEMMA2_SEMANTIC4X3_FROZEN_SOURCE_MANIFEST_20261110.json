@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.gemma2.semantic4x3_v2.frozen_preclaim_source_manifest.v1",
+  "date": "2026-11-10",
+  "status": "CPU_FIXTURE_PASS_REAL_DONOR_NULL_GEOMETRY_PASS_H768_REAL_NOT_EXECUTED",
+  "sources": [
+    {
+      "path": "tools/embeddinggemma2_swap/semantic4x3_v2/ttm_semantic4x3_balanced_null_cpu_qa.py",
+      "git_blob_sha1": "2f6def64a54f29df2c215cdfb3f66e7dc71adba3",
+      "sha256": "0d71f38da356056be50a18d36f589774190178fd321e6d2e3970413d96238a2d"
+    },
+    {
+      "path": "tools/embeddinggemma2_swap/semantic4x3_v2/ttm_semantic4x3_h768_one_shot_source_seal.py",
+      "git_blob_sha1": "ac11b9c7cb7403d5dc222dbfcda866d43f705e29",
+      "sha256": "40197872225dde9cc17b0c098ade1918017b3e25d79d159ec92918a0c7de3ce6"
+    }
+  ],
+  "checks": {
+    "syntax_python": "PASS_2_OF_2",
+    "cpu_null_fixture": "PASS_SYNTHETIC_6_CHECKS",
+    "cpu_null_real_source": "PASS_REAL_TENSOR_DUAL_MATCHED_NULL_CPU",
+    "H768_selector_fixture": "PASS_SYNTHETIC_4_CHECKS",
+    "H768_selector_real": "NOT_EXECUTED",
+    "donor_source_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "base_source_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "old_h512_helper_blob": "d893571c23d50d15d1078f1923a467648f33ee52",
+    "null_FP32_max_abs_after_ridge": 9.685754776000977e-8,
+    "null_global_covariance_Fro_relative_error": 2.0376303738981888e-15,
+    "resource_current_drive_gib": "UNKNOWN",
+    "GPU_T4_now": "UNKNOWN"
+  },
+  "governance": {
+    "science_claim_created": false,
+    "training_executed": false,
+    "lineage_unchanged": true,
+    "main_unchanged": true,
+    "private_matrices_not_published": true
+  },
+  "runs": {
+    "example_null_QA": [
+      "python",
+      "-B",
+      "ttm_semantic4x3_balanced_null_cpu_qa.py",
+      "--mode",
+      "fixture"
+    ],
+    "example_h768_QA": [
+      "python",
+      "-B",
+      "ttm_semantic4x3_h768_one_shot_source_seal.py",
+      "--mode",
+      "fixture"
+    ]
+  },
+  "release_state": "REQUIRES_NEW_OWNER_SCIENCE_EXECUTION_DECISION_AFTER_H768_SEAL_AND_RESOURCE_PREFLIGHT"
+}
