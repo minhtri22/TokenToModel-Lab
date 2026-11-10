@@ -1,0 +1,35 @@
+{
+  "GPU_calls": 0,
+  "claim_limit": "Toy source/parser feasibility only; no TTM inference, neural learning, O1 benefit or genuine blind FINAL",
+  "distractor_invariants": 96,
+  "family_split_group_counts": {
+    "T1_CHALLENGE": 16,
+    "T1_DEV": 16,
+    "T2_CHALLENGE": 16,
+    "T2_DEV": 16,
+    "T3_CHALLENGE": 16,
+    "T3_DEV": 16
+  },
+  "four_cells_per_group": 4,
+  "graph_motifs_CHALLENGE": 3,
+  "graph_motifs_DEV": 3,
+  "graph_motifs_cross_split": 0,
+  "groups": 96,
+  "groups_by_family": {
+    "T1": 32,
+    "T2": 32,
+    "T3": 32
+  },
+  "independent_visible_text_rule_interpreter_correct": 384,
+  "labels_public": true,
+  "last_line_value_mention_correct": 172,
+  "model_input_sha256": "4fa0ad45acdfecb2143a984127e6ad0c50126c203996148d60843eb1214cd50a",
+  "model_inputs": 384,
+  "oracle_sha256": "bd9fb15d3f3850823e083269a61df90eaddaea3e61b8b73e9f40b4ec74c7ce47",
+  "original_TTM_training_steps": 0,
+  "sealed_final": false,
+  "shallow_keyed_direct_baseline_correct": 64,
+  "status": "PASS_PUBLIC_R3_TOY_ORACLE_AND_STRICT_INPUT_ONLY",
+  "story_overlap_cross_split": 0,
+  "target_counterfactual_changes": 96
+}
