@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.t5.confirmatory.P02_F32_reference_frozen_before_new_native.v1",
+  "date": "2026-11-10",
+  "original_prereg_git_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+  "P02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "checkpoint_step": 1024,
+  "torch_version": "2.10.0+cpu",
+  "architecture_parameters": 3749376,
+  "fixture_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04"
+  ],
+  "lengths": {
+    "C01": 2,
+    "C02": 4,
+    "C03": 11,
+    "C04": 17
+  },
+  "logits_per_fixture": 2048,
+  "reference_jsonl_filename": "TTM_T5_C01_C04_P02_FP32_FROZEN_REFERENCE_20261110.jsonl",
+  "reference_zip_filename": "TTM_T5_C01_C04_P02_FP32_FROZEN_REFERENCE_20261110.zip",
+  "reference_sha256": "dbebd9e5261ad4857b72ff16cf9383ce243dab9ca72ade5332e8325ea2c48e25",
+  "reference_zip_sha256": "e5d522bd5234c46af77dbb85990779bd09e25d35be587538cec577ee486c5996",
+  "reference_jsonl_bytes": 160390,
+  "reference_zip_bytes": 72854,
+  "reference_generation_script_sha256": "UNPINNED_CONTAINER_INTERNAL_ONLY",
+  "receipt_sha256": "b1d0755a289b243c43775fc08afdc8d26c6bad8a7f751fe9557332ef924b4be5",
+  "strict_max_abs_threshold": 0.001,
+  "privacy": {
+    "raw_reference_withheld_from_public_GitHub": true,
+    "delivered_user_zip": true
+  },
+  "frozen_candidate_facts": {
+    "first_divergent_operator": "ffn_gelu-0",
+    "patch": "GPT2 LLM_FFN_GELU -> LLM_FFN_GELU_ERF, same pre-GELU tensor",
+    "native_discovery_A": "D01_FAIL_D02_PASS",
+    "native_discovery_B": "D01_PASS_D02_PASS",
+    "native_confirmatory": "NOT_EXECUTED"
+  },
+  "training": false,
+  "GGML_confirmatory_executed": false,
+  "candidate_selection_from_C_labels": false,
+  "old_8_and_32_replayed": false,
+  "pr16": "DRAFT_HOLD",
+  "main": "UNCHANGED",
+  "lineage": "UNCHANGED",
+  "note": "Exact four public pre-registered C IDs selected before the GELU candidate patch was frozen, and their P02 FP32 reference logits generated after the candidate's successful D01/D02 exploration. The four confirmatory native runs remain sealed and unexecuted."
+}

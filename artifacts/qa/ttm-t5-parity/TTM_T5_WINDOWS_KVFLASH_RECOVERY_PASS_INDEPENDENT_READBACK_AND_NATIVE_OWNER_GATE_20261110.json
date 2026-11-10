@@ -1,0 +1,139 @@
+{
+  "schema": "ttm.t5.kvflash.owner_loader_recovery.independent_readback_and_technical_gate.v1",
+  "recorded_date": "2026-11-10",
+  "scope": "FROZEN_TTM_SMALL4M_T5_F32_KV_FLASH_2X2_NEW_SYNTHETIC",
+  "source_of_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "original_source_commit": "888adde84e0e4fbe8cbaae801ed4d9687e6b4bb8",
+    "original_llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "original_prereg_git_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
+  },
+  "windows_recovery": {
+    "folder": "_tmp/ttm_t5_kvflash_loader_recovery_v1_20261110",
+    "receipt_filename": "RECOVERY_RECEIPT.json",
+    "receipt_sha256_owner_reported": "2648b84558a503de66a2e2a0e09094561123d64578eefa82b26bf85fcfdc1be2",
+    "receipt_sha256_independently_recomputed": "2648b84558a503de66a2e2a0e09094561123d64578eefa82b26bf85fcfdc1be2",
+    "independent_sha_recomputation_note": "RemoteDesktop text reader normalizes source CRLF and omits trailing CRLF; reconstructed original Windows CRLF bytes before SHA256; exact match to owner report.",
+    "receipt_status": "PASS_BINARY_SELF_CHECK_AND_REAL_REFERENCE_QA_NATIVE_32_HOLD",
+    "old_stage_receipt_sha256": "235f20131ffd9cfc76738da5956206b2e49ced30b8219864a3d3ce2b4ddb38a7",
+    "old_failed_stage_status": "HOLD_STAGE_FAILED_CLOSED_PRESERVED",
+    "compiled_binary_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537",
+    "old_13_synthetic_tests": "PASS_13_OF_13_LOG_ALREADY_VERIFIED",
+    "correct_runtime_dll_dir": "_tmp/ttm_t2/build/bin/Release",
+    "dll_sha256": {
+      "llama.dll": "fff1f9ef4fc40c0946bf9be229d9eddeb06060b05496527272b64cd9ec0f9859",
+      "ggml.dll": "a47e350ea98666a781208d11d2d820e14c6ae82b9bb7c5c15193342030528f9f",
+      "ggml-base.dll": "d8c7b4c509748292670e9720c2676c918262a1ce4782cbb34627c595298541f3",
+      "ggml-cpu.dll": "fae303eda4b1a8c93aaf61be330696662752a817204be88944454d0255e2c434"
+    },
+    "compiled_self_check": {
+      "log": "01_compiled_self_check.log",
+      "exit_code": 0,
+      "mode": "--self-check",
+      "model_loaded": false,
+      "native_inference": false,
+      "JSON_schema": "ttm.t5.kvflash.compiled_constants.v1",
+      "fixture_ids": [
+        "SYN01",
+        "SYN02",
+        "SYN03",
+        "SYN04",
+        "SYN05",
+        "SYN06",
+        "SYN07",
+        "SYN08"
+      ],
+      "fixture_lengths": [
+        1,
+        2,
+        4,
+        6,
+        9,
+        12,
+        20,
+        31
+      ],
+      "arms": [
+        {
+          "id": "S0",
+          "kv": "F16",
+          "flash": "ENABLED"
+        },
+        {
+          "id": "S1",
+          "kv": "F32",
+          "flash": "DISABLED"
+        },
+        {
+          "id": "S2",
+          "kv": "F32",
+          "flash": "ENABLED"
+        },
+        {
+          "id": "S3",
+          "kv": "F16",
+          "flash": "DISABLED"
+        }
+      ],
+      "self_check_JSON_sha256": "de245afdb0c9dc9bc40ce0f5818b746411f882d9e74ad413c24779cd9525d98b"
+    },
+    "compiled_constants_audit": {
+      "log": "02_compiled_constants.log",
+      "exit_code": 0,
+      "status": "PASS_COMPILED_CONSTANTS_SCOPED",
+      "fixtures": 8,
+      "arms": 4,
+      "native_decode_executed": false
+    },
+    "real_reference_audit": {
+      "log": "03_independent_reference.log",
+      "exit_code": 0,
+      "status": "PASS_REFERENCE_8_OF_8_X_2048_F32_SCHEMA",
+      "rows": 8,
+      "columns": 2048,
+      "source_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+      "native_executed": false
+    },
+    "original_synthetic_tests": {
+      "log": "_tmp/ttm_t5_kvflash_binary_reference_stage_v1_20261110/11_synthetic_python_qa.log",
+      "exit_code": 0,
+      "tests": 13,
+      "all_pass": true
+    }
+  },
+  "independent_readback": {
+    "used_remote_text_read_for_receipt_and_three_logs": true,
+    "independently_recalculated_receipt_sha256": true,
+    "independently_compared_compiled_fixture_arm_mapping_to_github_prereg": true,
+    "no_native_science_execution": true,
+    "no_new_model_generation": true,
+    "no_restart_of_failed_stage": true
+  },
+  "technical_gate": {
+    "frozen_prereg": "PASS",
+    "compiled_binary_exact_sha": "PASS",
+    "prior_synthetic_QA_13": "PASS",
+    "dll_loader_self_check": "PASS",
+    "compiled_constants_vs_prereg": "PASS",
+    "real_P02_reference_8x2048": "PASS",
+    "reference_independent_schema": "PASS",
+    "original_strict": "FAIL_7_OF_8_PRESERVED",
+    "strict_threshold": 0.001,
+    "batch_32_science": "NOT_EXECUTED",
+    "verdict": "TECHNICALLY_READY_FOR_ONE_OWNER_APPROVED_NEW_32_RUN_BATCH",
+    "owner_approval": "NOT_ISSUED_IN_THIS_TURN",
+    "do_not_claim": "Exact F16 causal root cause, 32/32 PASS, historical parity repaired, independent human science review."
+  },
+  "governance": {
+    "original_eight_reused": false,
+    "TRAIN": false,
+    "TEST": false,
+    "Q1Q2": false,
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR13": "DRAFT_HOLD",
+    "one_shot_no_rerun": true
+  },
+  "next": "Single owner approval for one new 8 fixture x 4 arms native decode batch using exact already-compiled SHA binary and four DLL SHA pins; then run 32 once and perform separate frozen audit; no changes to old evidence."
+}

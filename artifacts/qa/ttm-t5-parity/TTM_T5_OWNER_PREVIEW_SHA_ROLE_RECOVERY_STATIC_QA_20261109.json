@@ -1,0 +1,65 @@
+{
+  "schema": "ttm.t5.caller_source_executable_sha_role_recovery.static_QA.v1",
+  "date": "2026-11-09",
+  "task": "TTM_T5_CALLER_SOURCE_BINARY_SUPPLEMENT_OWNER_READBACK_THEN_NATIVE_READINESS",
+  "source_of_truth": "GitHub research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+  "checks": {
+    "frozen_preview_receipt_SHA": true,
+    "caller_cpp_SHA_recovered": true,
+    "historic_binary_SHA_recovered": true,
+    "source_binary_pins_separated": true,
+    "conflated_claim_removed": true,
+    "preview_receipt_append_only": true,
+    "supplement_new_filename": true,
+    "one_shot_supplement_prevents_overwrite": true,
+    "no_model_execution": true,
+    "no_preview_rerun": true,
+    "no_source_copy": true,
+    "old_binary_only_hashed": true,
+    "static_KV_not_runtime_proven": true,
+    "build_linkage_not_claimed": true,
+    "compact_receipt_and_metadata": true,
+    "doc_records_HOLD_and_mismatch": true,
+    "legacy_SHA_origin_proven": true,
+    "no_training_or_TEST": true,
+    "original_handoff_correction_pointer": true,
+    "github_six_files_readback": true
+  },
+  "qa": "PASS_20_OF_20_STATIC_GITHUB_SOURCE_AND_RECEIPT",
+  "github_blobs": [
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-Caller-Source-Binary-Supplement-PS51.ps1",
+      "git_blob": "286731a8a56d80f978383fcb5eb21f1e3a61fd2f"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1",
+      "git_blob": "6e0ad2ba95e2f6bd8db40fe01702000d7e188d82"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-KVFlash-OwnerPreflight-PS51.ps1",
+      "git_blob": "06176dc384a2536b96389dcec8832dad59f7a92f"
+    },
+    {
+      "path": "docs/pilot/TTM_T5_OWNER_PREVIEW_SOURCE_BINARY_SHA_CORRECTION_AND_SUPPLEMENT_20261109.md",
+      "git_blob": "94a955702112e7c304f2818da7f934135f1c69c0"
+    },
+    {
+      "path": "artifacts/qa/ttm-t5-parity/TTM_T5_OWNER_PREVIEW_SOURCE_BINARY_SHA_ROLE_CORRECTION_20261109.json",
+      "git_blob": "edb1d947406a0bceff2443bef7a1d5f666ac1049"
+    },
+    {
+      "path": "docs/pilot/TTM_T5_CALLER_PREVIEW_OWNER_LOCAL_HANDOFF_AND_READINESS_20261109.md",
+      "git_blob": "bb0f10e5b7f810d0067965c5e52517d314651d8b"
+    }
+  ],
+  "windows_runtime_status": "NOT_EXECUTED_FOR_SUPPLEMENT",
+  "source_contents_from_downloads": "NOT_ACCESSIBLE_TO_REMOTE_AGENT_OWNER_LOCAL_ONLY",
+  "preview_receipt_status": "COMPLETED_HOLD_ALREADY_CONSUMED_NOT_TO_RERUN",
+  "original_strict": "FAIL_7_OF_8_PRESERVED",
+  "native_2x2": "0_OF_32",
+  "main": "UNCHANGED",
+  "lineage": "UNCHANGED",
+  "PR13": "HOLD",
+  "warning": "Owner-observed source SHA and binary SHA are distinct. This does not by itself independently certify that the exact CPP was compiled into the old EXE.",
+  "next": "Owner runs single read-only supplemental attestation; returns new receipt with static caller type_k/type_v lines and SHA256"
+}

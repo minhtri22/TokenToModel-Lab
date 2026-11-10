@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.t5.f16_v_projection.synthetic_only.v1",
+  "date": "2026-11-09",
+  "torch_version": "2.10.0+cpu",
+  "hardware": "container CPU",
+  "scope": "SYNTHETIC_DEMONSTRATION_NOT_TRAINED_PARITY",
+  "method": "torch.manual_seed(20261109+i), value=randn(256)*0.3, projection=randn(256,256)*0.04, compare projection @ value vs projection @ (value.float16->float32)",
+  "rows": [
+    {
+      "synthetic_id": 0,
+      "v_cast_max_abs": 0.00024121999740600586,
+      "output_projection_max_abs": 0.00011894106864929199
+    },
+    {
+      "synthetic_id": 1,
+      "v_cast_max_abs": 0.0002402663230895996,
+      "output_projection_max_abs": 0.00010658800601959229
+    },
+    {
+      "synthetic_id": 2,
+      "v_cast_max_abs": 0.00022834539413452148,
+      "output_projection_max_abs": 0.00012120604515075684
+    },
+    {
+      "synthetic_id": 3,
+      "v_cast_max_abs": 0.00024360418319702148,
+      "output_projection_max_abs": 0.00013374537229537964
+    },
+    {
+      "synthetic_id": 4,
+      "v_cast_max_abs": 0.00022298097610473633,
+      "output_projection_max_abs": 0.00010910630226135254
+    },
+    {
+      "synthetic_id": 5,
+      "v_cast_max_abs": 0.0002409815788269043,
+      "output_projection_max_abs": 0.00011221319437026978
+    },
+    {
+      "synthetic_id": 6,
+      "v_cast_max_abs": 0.00023955106735229492,
+      "output_projection_max_abs": 0.00016493350267410278
+    },
+    {
+      "synthetic_id": 7,
+      "v_cast_max_abs": 0.00023365020751953125,
+      "output_projection_max_abs": 0.00012007355690002441
+    }
+  ],
+  "max_projected_error": 0.00016493350267410278,
+  "n_samples": 8,
+  "new_native_execution": false,
+  "no_model_checkpoint_access": true,
+  "test_access": false,
+  "new_training_steps": 0,
+  "conclusion": "F16 rounding at an attention V -> output projection can generate error in the same order as frozen ffn_inp-0 errors; this DOES NOT establish T5's exact cause."
+}

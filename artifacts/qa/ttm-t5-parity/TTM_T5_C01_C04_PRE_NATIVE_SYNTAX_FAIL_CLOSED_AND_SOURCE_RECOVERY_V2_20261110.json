@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.t5.C01_C04.confirmatory_pre_native_syntax_failure_and_verified_V2_source_recovery.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_C01_C04_GELU_ERF_PRE_NATIVE_SYNTAX_CORRECTION",
+  "owner_error": {
+    "failure": "PYTHON_CONFIRMATORY_PARSE_FAILED_C_NO_NATIVE",
+    "python_error": "SyntaxError: unmatched ')'",
+    "original_file": "tools/pilot_t5/exact_root_v1/confirmatory_v1/independent_strict_c01c04_checker.py",
+    "original_line": 99,
+    "original_bad_git_blob": "b38c09278588c3e8bf40208cbbacf8448bfdd97e",
+    "exact_fault": "Trailing `)` after receipt dictionary ending `\"merge\":\"HOLD_PENDING_INDEPENDENT_REVIEW\"})`",
+    "original_bootstrap_sha": "7e8aef35a8a11aa1d426002b00786182027e64d7",
+    "all_five_original_bundled_source_sha": "PASS_ON_OWNER_WINDOWS",
+    "before_science": true,
+    "state": "FAIL_CLOSED_PRE_NATIVE",
+    "source_download_path": "_tmp/ttm_t5_c01c04_source_lock_20261110",
+    "source_download_preserved": true,
+    "one_shot_native_started": false,
+    "confirmatory_evidence_dir_observed": "ABSENT_VIA_CONNECTED_WINDOWS_LIST",
+    "confirms_no_C01_C04_native_output": true
+  },
+  "corrective_changes": {
+    "checker_exact_change": "Replace only erroneous trailing `})` with `}` for receipt dictionary",
+    "checker_corrected_git_blob": "cef0e214bb178f7e5059c5ada0200e75b3970936",
+    "runner_only_checker_blob_pin_changed": true,
+    "runner_new_git_blob": "aca05ce2791385a69fcd7d933fd5079e4088358b",
+    "previously_frozen_CPP_blob": "f14f4e8eaecba273a5fe314d04e8498c40c76655",
+    "previously_frozen_CMake_blob": "9e829fbdc0415582a81e9d64c2b3da689cfd6b12",
+    "previously_frozen_tests_blob": "afad6dde4cbebddb469c71b3e7de45c2f08ef0e7",
+    "reference_zip_sha256": "e5d522bd5234c46af77dbb85990779bd09e25d35be587538cec577ee486c5996",
+    "reference_zip_integrity": "PASS_HASH_AND_CRC_IN_CONTAINER",
+    "new_PS51_source_recovery_path": "tools/pilot_t5/exact_root_v1/confirmatory_v1/Invoke-TTM-T5-C01C04-Confirmatory-SourceRecovery-V2-PS51.ps1",
+    "new_PS51_source_recovery_git_blob": "614f274affdd06c9d9f837a387a24b4b4a9731cd",
+    "new_local_source_directory": "_tmp/ttm_t5_c01c04_source_lock_syntaxfix_v2_20261110",
+    "original_local_source_directory": "_tmp/ttm_t5_c01c04_source_lock_20261110",
+    "files_in_original_directory_overwritten": false,
+    "new_C01_C04_native_execution": "NOT_EXECUTED",
+    "strict_threshold": 0.001,
+    "freeze_fixture_C01_C04": true
+  },
+  "QA": {
+    "corrected_python_source_AST": "PASS_IN_CONTAINER_GIT_BLOB_MATCH",
+    "independent_negative_source_tests_1_through_10": "PASS_10_OF_10_EXECUTED_IN_CONTAINER",
+    "source_and_runner_static_crosschecks": "PASS_19_OF_19",
+    "all_12_Windows_tests": "NOT_EXECUTED_YET_NEW_WRAPPER_RUNS_BEFORE_NATIVE",
+    "Windows_PowerShell51_v2_parser": "NOT_EXECUTED_YET",
+    "original_git_branch_PR16": "DRAFT_HOLD_NOT_MERGED",
+    "github_main_unchanged": true,
+    "original_lineage_unchanged": true,
+    "old_8_and_32_native_replayed": false,
+    "D01_D02_replayed": false,
+    "training": false,
+    "TEST_Q1Q2": false
+  },
+  "decision": {
+    "current_state": "TECHNICAL_SYNTAX_FAIL_CLOSED_RECOVERABLE_WITH_NEW_SOURCE_LOCK",
+    "science": "C01_C04_CONFIRMATORY_NOT_EXECUTED",
+    "merge": "HOLD_UNTIL_STRICT_PASS_4_OF_4_AND_CAUSAL_ADJUDICATION_AND_OWNER",
+    "original_failed_source": "PRESERVE_AS_GIT_HISTORY_AND_LOCAL_OLD_SOURCE",
+    "next": "Use new exact HEAD pin and SHA-verified V2 PowerShell bootstrap; validate source and 12 tests before creating first C01-C04 native stage. No repeat if stage exists."
+  }
+}

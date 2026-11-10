@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.t5.f32.kv_flash_precision_2x2_design_readiness_static.qa.v1",
+  "date": "2026-11-09",
+  "task": "TTM_T5_F32_KV_FLASH_PRECISION_SINGLE_SYNTHETIC_DISCRIMINATION_DESIGN_AND_OWNER_RUN_GATE",
+  "verdict": "PASS_33_OF_33_SCOPED_SOURCE_CHECKS_WITH_OWNER_EXECUTION_HOLD",
+  "checks_number": 33,
+  "checks_pass": 33,
+  "checks_fail": 0,
+  "checks_scope": [
+    "new prereg frozen; exact original T4 checkpoint, GGUF F32, P02 and llama source pins",
+    "new 8 synthetic token-ID fixtures disjoint from historical 8 exact arrays",
+    "2x2 four-arm factorial S0..S3 and expected 32 new native decodes, 2048 logits each",
+    "candidate source exposes fixed F16/F32 KV types and flash on/off flags, CPU single-thread",
+    "native flash op callback and fresh context for every arm+fixture",
+    "C++ output fail-closed on path symlink, existing file and nonfinite logits",
+    "P02 PyTorch reference exact SHA and no training/TEST",
+    "native results adjudicator fixed threshold 0.001, 8 reference and 32 native rows, actual flash counter",
+    "13 positive/negative mock-data test cases authored (NOT_EXECUTED)",
+    "PowerShell 5.1 owner gate requires C++ caller hash, source params, GGUF/checkpoint pins, owner approval, hashed candidate executable",
+    "old CMake source location found outside RemoteDesktop workspace; historical native log confirms FLASH_ATTN_EXT",
+    "main unchanged and PR13 draft unchanged"
+  ],
+  "provenance": {
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "base_main": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "prereg_git_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36",
+    "native_cpp_blob": "fccc9c6e538c9056adb97feb143cb5572810a0e4",
+    "cmake_blob": "dbb5faed323578f0d652354b66d830f3ff0000be",
+    "torch_reference_blob": "b12c856d2fe15249ff5c927149809d51357c56ab",
+    "result_auditor_blob": "18dc82d845f228ea4e5b349ac5cabf9f1110a252",
+    "negative_qa_blob": "102b656d32c88b622b2b09c956df674fe24fbd5e",
+    "owner_preflight_blob": "3dd193500edae67cd15b743e433cfb6f6ccf4aa7",
+    "readme_blob": "edc2bbd373ea6cecec3c9903e5632e7133ac5543",
+    "llama_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "old_caller_build_source": "C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108",
+    "old_caller_candidate_sha_claimed": "62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2"
+  },
+  "unperformed": {
+    "original_caller_source_verified": false,
+    "original_caller_exact_type_k_v": "UNKNOWN",
+    "source_cpp_compiled": false,
+    "powershell_5_1_native_parse_qa": false,
+    "python_unit_tests_executed": false,
+    "pytorch_reference_new_generated": false,
+    "native_2x2_execution": false,
+    "new_scientific_claim": false,
+    "owner_approval": false
+  },
+  "gate": {
+    "required": [
+      "original source caller file SHA and type_k/type_v source/build attestation",
+      "Windows PowerShell syntax and Python 13-case QA",
+      "exact P02/checkpoint and GGUF input hash",
+      "llama source commit and binary provenance",
+      "new reference 8 fixtures and hash",
+      "compiled candidate binary SHA from same GitHub source",
+      "owner single-batch approval"
+    ],
+    "current": "HOLD_NO_OWNER_NATIVE_RUN",
+    "reason": "original caller source outside permitted RemoteDesktop workspace; no native build/run or owner authorization in this step",
+    "mandatory_scope": "Only one future new synthetic 8x4 batch, no historical fixture replay"
+  },
+  "preserved": {
+    "strict_logit_fail_7_of_8": true,
+    "max_abs_last_original": 0.003362178805176086,
+    "threshold": 0.001,
+    "model_weights_unchanged": true,
+    "p02_source_unchanged": true,
+    "llama_source_unchanged": true,
+    "test_untouched": true,
+    "q1q2_untouched": true,
+    "new_training": false,
+    "main_unchanged": true,
+    "lineage_unchanged": true,
+    "pr13_hold": true
+  }
+}

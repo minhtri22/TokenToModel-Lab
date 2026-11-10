@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.t5.firstop.v2_owner_recovery.final_scoped_source_and_evidence_QA.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_FIRSTOP_PARTIAL_V2_SOURCE_QA_THEN_OWNER_RECOVERY",
+  "source_scoped_review": "PASS_43_OF_43",
+  "source_review_kind": "STATIC_GITHUB_SOURCE_CROSSCHECK_ONLY",
+  "Windows_PowerShell51_parser": "NOT_EXECUTED_YET",
+  "Python_v2_unit_tests_8": "NOT_EXECUTED_YET",
+  "Cpp_B_new_build": "NOT_EXECUTED",
+  "native_B_GELU_ERF": "NOT_EXECUTED",
+  "native_A_trace_only": "ALREADY_EXECUTED_ONCE_PASS_2_OF_2_NO_REPLAY",
+  "v2_A_reaudit": "NOT_EXECUTED",
+  "original_stage_readback": {
+    "old_receipt_sha256": "e2cbc797e133a7e4fc4d949293dd9bd847b881e18b39f3c72bcfa9debfbc8e96",
+    "old_receipt_status": "HOLD_DISCOVERY_FAILED_OR_PARTIAL_NO_RERUN",
+    "old_native_A_exit": 0,
+    "old_native_A_marker": "T5_FIRST_OP_DISCOVERY_COMPLETE_ROWS_2",
+    "old_audit_failure": "FIRSTOP_AUDIT_FAIL_CLOSED:FINAL_STAGE_SHAPE_NOT_ALIGNED:result_norm",
+    "root_classification": "AUDITOR_FINAL_SINGLETON_BATCH_SHAPE_BUG_NOT_NATIVE_DECODE_FAILURE",
+    "original_raw_files": "PRESERVED_IN_OWNER_LOCAL_STAGE"
+  },
+  "exact_source_blobs": {
+    "auditor_v2": "c523c470f8ec69b4938992f44b16a4127c3d08ae",
+    "unit_tests_v2": "4b93a12784647701b578309bd925c04bc61c2674",
+    "B_cpp": "bd7d408885703a80055c2baf296a44f3006462b7",
+    "B_cmake": "066fef8e2a248efcaf25c71443bebd13cfb27be6",
+    "recovery_runner": "34bfcf1d1ca0803bfd9b05beafd5214dc7ad8fe9",
+    "owner_bootstrap_PS51": "349bbd7869bec1ed477d3e29c9d9526b0c2238fc"
+  },
+  "gates": {
+    "A_reaudit_data_only": true,
+    "B_only_first_time_native": true,
+    "GELU_ERF_true_node_attestation": "REQUIRE_2_ACTUAL_ffn_gelu_erf-0_NODES",
+    "no_old_fixture_replay": true,
+    "no_original_32_replay": true,
+    "no_C01_C04_confirmatory": true,
+    "no_training": true,
+    "no_TEST_Q1Q2": true,
+    "no_main_merge": true,
+    "no_lineage_write": true,
+    "no_retry_or_overwrite": true
+  },
+  "observed_partial_science": {
+    "D01_pre_GELU_ffn_inp_max_abs": 1.046062774734402e-7,
+    "D02_QK_raw_max_abs": 0.0000014256408693569256,
+    "D02_QK_softmax_max_abs": 1.196781158618876e-7,
+    "exact_causal_root": "UNPROVEN",
+    "strict_new_confirmatory": "NOT_EXECUTED"
+  },
+  "final_state": "READY_FOR_OWNER_LOCAL_V2_RECOVERY_NOT_A_SCIENCE_PASS",
+  "PR16": "DRAFT_HOLD",
+  "main": "UNCHANGED",
+  "lineage": "UNCHANGED",
+  "next": "Owner runs exact SHA-pinned PS51 wrapper once; assistant readback receipt and independently adjudicates A vs B tensor per-element deltas, not merge."
+}

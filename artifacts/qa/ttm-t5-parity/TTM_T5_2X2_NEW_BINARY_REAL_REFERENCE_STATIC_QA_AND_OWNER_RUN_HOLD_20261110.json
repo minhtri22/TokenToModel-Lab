@@ -1,0 +1,112 @@
+{
+  "schema": "ttm.t5.f32_kvflash.single_stage_readiness.adjudication.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_F32_KV_FLASH_2X2_NEW_BINARY_REFERENCE_STATIC_QA_THEN_OWNER_RUN_DECISION",
+  "source_of_truth_branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+  "frozen_design": "8_NEW_SYNTHETIC_IDS_X_4_ARMS_32_NATIVE_DECODES",
+  "original_strict_logits": "FAIL_7_OF_8_PRESERVED",
+  "strict_threshold": 0.001,
+  "staged_source_files": [
+    {
+      "path": "artifacts/qa/ttm-t5-parity/TTM_T5_KV_FLASH_2X2_FRESH_SYNTHETIC_PREREG_20261109.json",
+      "git_blob_sha1": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/ttm_t5_kvflash_probe_candidate.cpp",
+      "git_blob_sha1": "bb0e1726e77c92696ffbbb92aa6e6b9aa49ee490"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/CMakeLists.txt",
+      "git_blob_sha1": "6f16397d6b6f4ce4a2b299588d5bc6ec83a62861"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/f32_p02_reference_candidate.py",
+      "git_blob_sha1": "5e7c5eb2a9f7caf31577b6a1454fc7163918813b"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/check_compiled_constants.py",
+      "git_blob_sha1": "2148e674033cf3838e2abb0b1050d3f25700d03b"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/verify_f32_reference_rows.py",
+      "git_blob_sha1": "ee16cb05ec438b44c2f83836ef0af7f3edf3280e"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/test_kvflash_protocol.py",
+      "git_blob_sha1": "102b656d32c88b622b2b09c956df674fe24fbd5e"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/audit_new_native_results.py",
+      "git_blob_sha1": "18dc82d845f228ea4e5b349ac5cabf9f1110a252"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/stage_binary_and_f32_reference.py",
+      "git_blob_sha1": "da7644c099f7f81ffcc4672472e53f5827b2666a"
+    },
+    {
+      "path": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-KVFlash-OwnerPreflight-PS51.ps1",
+      "git_blob_sha1": "05b8acc9b7a7015a7f802d16d3ba4c17a492f879"
+    },
+    {
+      "path": "artifacts/qa/ttm-t5-parity/TTM_T5_F32_NEW_SYNTHETIC_REAL_CPU_REFERENCE_8X2048_QA_AND_GITHUB_SOURCE_OF_TRUTH_20261110.json",
+      "git_blob_sha1": "2658e3e1c627675b86e1431d5d7fb55053133aba"
+    },
+    {
+      "path": "docs/pilot/TTM_T5_KVFLASH_NEW_BINARY_REFERENCE_SINGLE_STAGE_AND_OWNER_DECISION_20261110.md",
+      "git_blob_sha1": "7294b866790d541a9f52e7c2577fc44c0ca28386"
+    }
+  ],
+  "static_qa": "PASS_37_OF_37_AUTHOR_SOURCE_PROTOCOL_ASSERTIONS",
+  "readback": "PASS_10_OF_10_POST_REFERENCE_SOURCE_ASSERTIONS",
+  "real_cpu_reference": {
+    "status": "PASS_REAL_8_X_2048_LOGITS",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_P02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "reference_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "independent_schema_QA": "PASS_8_OF_8_EXACT_IDS_2048_FINITE",
+    "raw_archive_sha256": "6f260c7f52f906a693245f75a51b02fa9641ce34502eb9f2a0aff3c949315ce4",
+    "archive_in_private_drive": "https://drive.google.com/file/d/10tDE8IAVv68Gl_Dgx-t8g119V9Jf8ss4/view",
+    "reference_raw_checkpoint_not_in_public_git": true,
+    "no_training": true,
+    "test_untouched": true
+  },
+  "ms_windows": {
+    "pinned_llama_cpp_source_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "original_import_library_source": "_tmp/ttm_t2/build/upstream_llama",
+    "candidate_cpp_git_blob": "bb0e1726e77c92696ffbbb92aa6e6b9aa49ee490",
+    "candidate_cmake_git_blob": "6f16397d6b6f4ce4a2b299588d5bc6ec83a62861",
+    "candidate_compiled": "NOT_EXECUTED",
+    "compiled_binary_sha256": "NOT_AVAILABLE",
+    "compiled_no_model_selfcheck": "NOT_EXECUTED",
+    "synthetic_13_python_test_suite": "NOT_EXECUTED_ON_WINDOWS",
+    "native_2x2": "0/32_NOT_EXECUTED"
+  },
+  "execution_gate": {
+    "decision": "HOLD_MSVC_BINARY_QA_AND_OWNER_32_RUN_APPROVAL",
+    "reference_gate": "PASS_REAL_CPU",
+    "next_required_single_batch": "Build MSVC candidate from GitHub exact source, run 13 synthetic protocol tests and compiled no-model self-check, import exact SHA verified reference, emit STAGE_RECEIPT; then adjudicate before 32 native.",
+    "windows_stage_script": "tools/pilot_t5/kv_flash_precision_v1/stage_binary_and_f32_reference.py",
+    "supports_imported_reference": true,
+    "reference_import_pin": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "tests_already_executed_native": false,
+    "owner_approval_for_32": "NOT_ISSUED",
+    "original_8_fixture_rerun": false,
+    "test_read": false,
+    "q1q2_read": false,
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "pr13": "DRAFT_HOLD"
+  },
+  "checks": {
+    "all_files_readback": true,
+    "prereg_unchanged": true,
+    "reference_real_sha": true,
+    "stage_can_import_reference": true,
+    "stage_never_calls_32": true,
+    "full_reference_verify": true,
+    "cmake_library_root": true,
+    "cpp_no_model_selfcheck": true,
+    "qa_note_reference": true,
+    "raw_evidence_drive": true
+  }
+}

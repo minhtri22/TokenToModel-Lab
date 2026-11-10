@@ -1,0 +1,150 @@
+{
+  "schema": "ttm.t5.C01_C04.heldout_independent_science_adjudication.v1",
+  "date": "2026-11-10",
+  "target": "TTM_T5_C01_C04_LOCKED_GELU_ERF_CONFIRMATORY_ONE_SHOT_AND_INDEPENDENT_ADJUDICATION",
+  "scientific_verdict": "PASS_HELDOUT_STRICT_LOGIT_PARITY_4_OF_4_SCOPED_GELU_ERF",
+  "scientific_scope": "Four new preregistered synthetic C01-C04 sequences, trained step1024 P02 FP32 vs frozen F32 GGUF with GPT2 GELU_ERF, CPU MSVC, KV F32 Flash OFF; no inference about old failed batches without rerun",
+  "definition": {
+    "threshold_max_abs": 0.001,
+    "logits_per_fixture": 2048,
+    "fixture_count": 4,
+    "native_decodes": 4,
+    "logits_comparisons": 8192,
+    "all_top1_same": true,
+    "all_four_real_gelu_erf_nodes_attested": true,
+    "max_abs_worst": 0.000005725019530444797,
+    "max_abs_margin_factor": 174.6718932017873
+  },
+  "independent_reviewer": {
+    "method": "Read owner-local receipt, independent audit JSON, original native/stdout logs, checker log, 12-test log through connected read-only Windows; then compare GitHub original prereg, reference source record, exact source blobs, PR16/main/lineage. No inference or training run during review.",
+    "crosschecks": {
+      "source_prereg_and_source_pins": "PASS_14_OF_14",
+      "receipt_vs_native_log_and_independent_auditor": "PASS",
+      "all_four_finite_2048_logits_and_exact_fixture_ids": "PASS_BY_INDEPENDENT_CHECKER",
+      "exact_batch_on_windows": "PASS_EXIT_0"
+    },
+    "limitations": [
+      "Read-only remote file reader truncates long per-row 2048-logit JSONL. The full 8192-value comparison is independently performed by the frozen Windows checker; this review independently verifies its signed peak/aggregate results against receipt and logs but does not claim a second 8192-element byte-by-byte replay.",
+      "Scoped causal identification from D01/D02 intervention; held-out C01-C04 tests patched system only, not original baseline in C01-C04.",
+      "Does not relabel any previous negative scientific outcomes."
+    ]
+  },
+  "source_pins": {
+    "original_P02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "original_checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_GGUF_F32_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "preregistered_C01_C04_git_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+    "P02_reference_zip_sha256": "e5d522bd5234c46af77dbb85990779bd09e25d35be587538cec577ee486c5996",
+    "P02_reference_raw_jsonl_sha256": "dbebd9e5261ad4857b72ff16cf9383ce243dab9ca72ade5332e8325ea2c48e25",
+    "C_CPP_git_blob": "f14f4e8eaecba273a5fe314d04e8498c40c76655",
+    "C_CMake_git_blob": "9e829fbdc0415582a81e9d64c2b3da689cfd6b12",
+    "C_checker_CORRECTED_git_blob": "cef0e214bb178f7e5059c5ada0200e75b3970936",
+    "C_runner_CORRECTED_git_blob": "aca05ce2791385a69fcd7d933fd5079e4088358b",
+    "C_12_negative_tests_git_blob": "afad6dde4cbebddb469c71b3e7de45c2f08ef0e7",
+    "C_compiled_EXE_sha256": "aa55f398617e8160013e3d1d8494986160d150f5052e44b39c8885f6f47a5df4",
+    "B_pinned_gpt2_source_sha256": "59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e",
+    "B_pinned_graph_source_sha256": "df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c",
+    "B_runtime_DLLs_sha256": {
+      "llama.dll": "93c6f488acc4e3a8ac9ad656cc3c462f1cc53ccb6bdac07ea48b2f64e917253d",
+      "ggml.dll": "2b0c7354fd1036a12d1c495aeff1c435e44273280b254e5800d12dcfafd073ca",
+      "ggml-base.dll": "edc32ece78986aec6859d276744a65f89c6eec46e68fffeb266d015463c029ac",
+      "ggml-cpu.dll": "86c9b9becd030f372c68bb02fdbf4ffa26794bdabec5f4b88172e50f22b3adca"
+    }
+  },
+  "windows_evidence": {
+    "original_source_lock_with_SyntaxError": "PRESERVED",
+    "original_pre_native_parse_failure": "PRESERVED_FAIL_CLOSED_NO_SCIENCE",
+    "recovered_new_source_lock": "_tmp/ttm_t5_c01c04_source_lock_syntaxfix_v2_20261110",
+    "runtime_evidence_root": "_tmp/ttm_t5_c01c04_gelu_erf_confirmatory_one_shot_20261110",
+    "receipt": "CONFIRMATORY_ONCE_RECEIPT.json",
+    "receipt_sha256": "95ed3c419e42df493dc314abeb42e47afa1bf72fcb90d2c7246ff4c55d645e88",
+    "checker_report": "C01_C04_INDEPENDENT_STRICT_AUDIT.json",
+    "checker_report_sha256": "1d5e050e9aefbeb5720a5f86986ecbcffe2a51a8c7605d07c85467553b8b8887",
+    "raw_native_jsonl_sha256": "9b674719010eb04ce14865104613de953030fed6febb653faa9b6bdc52f02027",
+    "native_trace_jsonl_sha256": "2df54a8340db5272f4144372266c090c24f74d04ac063b149516cd4b01affe99",
+    "runtime_markers": {
+      "owner_receipt_status": "CONFIRMATORY_COMPLETED_UNADJUDICATED",
+      "owner_receipt_declared_science": "STRICT_PASS_4_OF_4",
+      "owner_receipt_sha256": "95ed3c419e42df493dc314abeb42e47afa1bf72fcb90d2c7246ff4c55d645e88",
+      "on_windows_negative_tests": "PASS_12_OF_12",
+      "on_windows_compile_and_selfcheck": "PASS_EXIT_0",
+      "on_windows_native": "PASS_FOUR_ONCE_EXIT_0_T5_GELU_ERF_CONFIRMATORY_COMPLETE_ROWS_4",
+      "on_windows_auditor": "PASS_EXIT_0",
+      "on_windows_reference_archived": "REFERENCE_SHA_GATED_PRE_NATIVE",
+      "independent_source_pins": "PASS_14_OF_14",
+      "independent_receipt_vs_audit": "CONSISTENT",
+      "lineage_original_L0013": "PRESERVED",
+      "PR16_changed_files": 83,
+      "PR16_all_changed_paths": "T5_ONLY_AND_APPEND_ONLY_LINEAGE"
+    },
+    "old_D01_D02_and_old_eight_and_32_reexecuted": false,
+    "tests_Q1Q2_accessed": false,
+    "trained_again": false
+  },
+  "results": [
+    {
+      "fixture": "C01",
+      "tokens": 2,
+      "max_abs": 0.000002811279296466296,
+      "mean_abs": 3.7707615114711453e-7,
+      "peak_logit_index": 1962,
+      "signed_peak": -0.000002811279296466296,
+      "top1_equal": true,
+      "strict_pass": true
+    },
+    {
+      "fixture": "C02",
+      "tokens": 4,
+      "max_abs": 0.00000476921142578135,
+      "mean_abs": 5.703664071268952e-7,
+      "peak_logit_index": 239,
+      "signed_peak": -0.00000476921142578135,
+      "top1_equal": true,
+      "strict_pass": true
+    },
+    {
+      "fixture": "C03",
+      "tokens": 11,
+      "max_abs": 0.000003819118651549047,
+      "mean_abs": 4.76530050931387e-7,
+      "peak_logit_index": 5,
+      "signed_peak": -0.000003819118651549047,
+      "top1_equal": true,
+      "strict_pass": true
+    },
+    {
+      "fixture": "C04",
+      "tokens": 17,
+      "max_abs": 0.000005725019530444797,
+      "mean_abs": 8.023426315134825e-7,
+      "peak_logit_index": 160,
+      "signed_peak": -0.000005725019530444797,
+      "top1_equal": true,
+      "strict_pass": true
+    }
+  ],
+  "root_cause_interpretation": {
+    "D01_D02_signed_first_divergence": "ffn_gelu-0 originally, with pre-GELU stage statistics unchanged in original vs only-GELU_ERF-patched llama build",
+    "D01_D02_after_patch": "max_abs_output 0.000002861..0.000002866, strict 2/2",
+    "C01_C04_after_patch": "max_abs_output 0.000002811..0.000005725, strict 4/4",
+    "verdict": "CAUSE_SUPPORTED_FOR_SCOPED_P02_GPT2_GELU_IMPLEMENTATION_MISMATCH; NO_CLAIM_OLD_8_OR_32_RETESTED",
+    "no_claim_kernel_bitwise_identity": true
+  },
+  "historic_preservation": {
+    "original_8_fixture_strict": "FAIL_7_OF_8_PRESERVED",
+    "frozen_prior_32_strict": "FAIL_32_OF_32_PRESERVED",
+    "L0013_negative_verdict": "PRESERVED_APPEND_ONLY",
+    "experimental_HOLD_stage_receipts": "PRESERVED"
+  },
+  "governance": {
+    "PR16": "DRAFT_HOLD_PENDING_OWNER_FINAL_MERGE_REVIEW",
+    "PR16_review_scope_files": 83,
+    "PR16_archival_tools_include_superseded_versions": true,
+    "new_science_GATE": "PASS_4_OF_4",
+    "merge_executed": false,
+    "GitHub_main": "UNCHANGED",
+    "commit_scope": "TTM_T5_RESEARCH_BRANCH_ONLY",
+    "lineage_next": "APPEND_L0014_SCIENCE_PASS_NO_REWRITE",
+    "needed_before_merge": "Independent source hygiene review of 83-file PR and owner decision; do not automatically merge despite scoped science PASS"
+  }
+}

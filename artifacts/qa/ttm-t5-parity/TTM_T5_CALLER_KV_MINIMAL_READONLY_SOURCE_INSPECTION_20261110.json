@@ -1,0 +1,84 @@
+{
+  "schema": "ttm.t5.owner_local_caller_kv_static_inspection.adjudication.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_CALLER_KV_MINIMAL_READONLY_INSPECTION",
+  "source_of_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "base_main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a"
+  },
+  "owner_local_inspection": {
+    "method": "PS51 Select-String -LiteralPath source -Pattern llama_context_default_params, \\.type_k\\b, \\.type_v\\b, \\.flash_attn_type\\b, llama_init_from_model",
+    "file": "C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108/ttm_t5_layer_probe.cpp",
+    "file_exists": true,
+    "file_size_bytes": 5233,
+    "owner_observed_cpp_sha256_from_completed_preview": "8a8324a10c67c6f868fe130d6ea7c535edb6364c8d04988600163e7b4a4b828e",
+    "matched_lines": [
+      {
+        "line": 98,
+        "text": "auto cp=llama_context_default_params();"
+      },
+      {
+        "line": 101,
+        "text": "llama_context *ctx=llama_init_from_model(model,cp);"
+      }
+    ],
+    "explicit_type_k_assignment_found": false,
+    "explicit_type_v_assignment_found": false,
+    "explicit_flash_attn_assignment_found": false,
+    "note": "User supplied grep output only; full caller source is not readable via restricted remote connector. This does not exclude indirect pointer mutation, macro effects, or uninspected lines."
+  },
+  "pinned_llama_defaults": {
+    "path": "src/llama-context.cpp",
+    "git_blob_sha": "a450d8257c87706655022d962d1cc846adb2fb45",
+    "line_type_k": 4274,
+    "type_k": "GGML_TYPE_F16",
+    "line_type_v": 4275,
+    "type_v": "GGML_TYPE_F16",
+    "line_flash_attn_type": 4263,
+    "flash_attn_type": "LLAMA_FLASH_ATTN_TYPE_AUTO",
+    "exact_version": "372dc5ca157276beb6c67b2e92477e8d662e964a"
+  },
+  "runtime_evidence": {
+    "historical_native_log": "_tmp/ttm_t5_numeric_localization_v1/fixture_0/native_run.log",
+    "flash_attn_ext_used": "CONFIRMED_IN_PREVIOUS_READBACK",
+    "gguf_weights": "F32",
+    "historical_debug_probe_executable_sha256": "62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2",
+    "source_to_executable_build_lineage": "NOT_INDEPENDENTLY_PROVEN"
+  },
+  "evaluation": {
+    "source_config_inference": "DEFAULT_F16_K_AND_V_WITH_FLASH_AUTO_STRONGLY_SUPPORTED_SCOPED",
+    "observed_flash_execution": "CONFIRMED",
+    "source_path_causal_root_cause": "NOT_PROVEN",
+    "caller_runtime_type_k_v": "INFERRED_FROM_SOURCE_AND_PINNED_DEFAULT_NOT_DIRECTLY_ATTESTED",
+    "older_kv_unknown_status": "REFINED_NOT_OVERWRITTEN",
+    "source_to_binary_linkage": "HOLD",
+    "old_strict_logits": "FAIL_7_OF_8_PRESERVED",
+    "old_logit_threshold": 0.001,
+    "frozen_2x2_arms": [
+      "S0_F16_FLASH_ON",
+      "S1_F32_FLASH_OFF",
+      "S2_F32_FLASH_ON",
+      "S3_F16_FLASH_OFF"
+    ],
+    "new_2x2_runs": "0_OF_32",
+    "new_reference_logits": "NOT_EXECUTED",
+    "new_binary": "NOT_COMPILED",
+    "owner_run_approval": "NOT_ISSUED",
+    "mode": "STATIC_READONLY_ONLY",
+    "no_old_eight_replay": true,
+    "no_training": true,
+    "test_untouched": true,
+    "q1q2_untouched": true,
+    "main_unchanged": true,
+    "lineage_unchanged": true,
+    "pr13_hold": true
+  },
+  "source_script_policy": {
+    "prior_owner_supplement": "INTERRUPTED_OR_STALLED_NO_RECEIPT",
+    "action": "DO_NOT_REEXECUTE_SUPERSEDED_BY_MINIMAL_SELECT_STRING_READONLY_PROBE",
+    "no_supplement_receipt_claimed": true
+  },
+  "next": "Reconcile this static assessment with original build provenance, then determine owner approval and readiness to compile new candidate and new PyTorch reference before any fresh 32 native decodes. No re-run of consumed 8 fixtures."
+}

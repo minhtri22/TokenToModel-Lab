@@ -1,0 +1,99 @@
+{
+  "schema": "ttm.t5.exact_firstop.gelu_erf.scoped_causal_discovery.independent_adjudication.v1",
+  "date": "2026-11-10",
+  "research_phase": "DISCOVERY_ONLY_D01_D02",
+  "task": "TTM_T5_D01D02_EXISTING_A_REAUDIT_V2_AND_ONLY_UNRUN_B_GELU_ERF_ONCE",
+  "status": "PASS_SCOPED_GELU_OPERATOR_CAUSAL_ABLATION_D01_D02",
+  "exact_causal_statement": "On two preregistered discovery fixtures with fixed checkpoint and F32 GGUF, replacing the GPT2 GGML FFN approximate GELU operator with GELU_ERF (same other source/data and F32 KV Flash OFF) removes the first above-1e-5 GELU stage divergence, reduces subsequent final 2048 logits maxabs by 320-626x and meets frozen 0.001 for both. Not validated on C01-C04 or all old 32.",
+  "data_origin": {
+    "owner_recovery_receipt_sha256": "1f01b2991d0faae4e93c7faff8ab59cf53268f68c36085460949ff3402669bf1",
+    "Windows_project_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_exact_root_discovery_recovery_v2_20261110",
+    "original_failed_stage_receipt_sha256": "e2cbc797e133a7e4fc4d949293dd9bd847b881e18b39f3c72bcfa9debfbc8e96",
+    "auditor_git_blob": "c523c470f8ec69b4938992f44b16a4127c3d08ae",
+    "v2_unit_tests": "PASS_8_OF_8_WINDOWS",
+    "reference_P02_trace_SHA256": "9cc5fc2db1f95e7e863a285eb279b28b7a383b81a4f890d7ec0f79b788b995e0",
+    "original_GGUF_SHA256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "prereg_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+    "A_existing_native_logits_sha256": "6fc86a4d5e576ec7331378f254d65c3c67c2b7c2a9a5099f347680316be0a59e",
+    "A_existing_native_trace_sha256": "471c769207859281295f2c8fe935a6b0c3be6fe9d63fc0edf771e50b38f6b604",
+    "A_independent_V2_audit_sha256": "a24be0043337dc9f78a6cef0714a2fa977f823481599d238553ccb90ebe2a07f",
+    "B_new_native_logits_sha256": "3a5fc77af619bef83c56c7fab753a7179eca9c049f2e0076ca6399abcca9b4c0",
+    "B_new_native_trace_sha256": "770ddeb12d2059b804b2bb600e59e8c0710abe01d50914696c1dcb614e4e42e5",
+    "B_independent_audit_sha256": "ca99f1c01eb5e3c9467e05a98eeded43a84294cba4480e187ef2fb4713762ea7",
+    "B_new_exe_sha256": "61534651ec37baf622a76616aa60d152143411b4c1683790d8f1f312c28e4fb4",
+    "B_llama_source_gpt2_sha256": "59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e",
+    "B_llama_source_graph_sha256": "df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c",
+    "B_actual_ERF_graph_nodes": 2
+  },
+  "QA": {
+    "readback_scoped": "PASS_18_OF_18",
+    "unit_shape": "PASS_8_OF_8",
+    "native_A": "PASS_2_OF_2_OLD_ONCE_NO_REPLAY",
+    "native_B": "PASS_2_OF_2_NEW_ONCE",
+    "original_old_A_auditor_shape_FAILURE": "PRESERVED_NOT_REWRITTEN",
+    "same_reference_for_A_B": true,
+    "before_GELU_all_summary_metrics_unchanged": true,
+    "both_reports_use_threshold": 0.001,
+    "both_outputs_top1_equal": true,
+    "root_stage_v1": "ffn_gelu-0",
+    "root_stage_v2": "NO_STAGE_ABOVE_1E_MINUS_5_ON_THE_TWO_DISCOVERY_FIXTURES",
+    "original_8_32_replay": false,
+    "confirmatory_C01_C04": "NOT_EXECUTED",
+    "training": false,
+    "TEST": false
+  },
+  "fixtures": [
+    {
+      "fixture_id": "D01",
+      "n_tokens": 1,
+      "A_original_GELU": {
+        "first_over_1e_minus_5": "ffn_gelu-0",
+        "pre_GELU_ffn_up_maxabs": 4.769604492471657e-7,
+        "GELU_maxabs": 0.0006881361239319261,
+        "final_2048_maxabs": 0.0017909962548827707,
+        "strict_pass": false
+      },
+      "B_GELU_ERF": {
+        "first_over_1e_minus_5": null,
+        "pre_GELU_ffn_up_maxabs": 4.769604492471657e-7,
+        "GELU_maxabs": 3.5804132081374007e-7,
+        "final_2048_maxabs": 0.0000028611425779700994,
+        "strict_pass": true
+      },
+      "GELU_stage_maxabs_reduction_factor": 1921.9461104879224,
+      "final_maxabs_reduction_factor": 625.9723890283833
+    },
+    {
+      "fixture_id": "D02",
+      "n_tokens": 5,
+      "A_original_GELU": {
+        "first_over_1e_minus_5": "ffn_gelu-0",
+        "pre_GELU_ffn_up_maxabs": 5.921289063515189e-7,
+        "GELU_maxabs": 0.0009428212710571593,
+        "final_2048_maxabs": 0.0009164512287567136,
+        "strict_pass": true
+      },
+      "B_GELU_ERF": {
+        "first_over_1e_minus_5": null,
+        "pre_GELU_ffn_up_maxabs": 5.921289063515189e-7,
+        "GELU_maxabs": 5.942962646443561e-7,
+        "final_2048_maxabs": 0.000002865800780682548,
+        "strict_pass": true
+      },
+      "GELU_stage_maxabs_reduction_factor": 1586.4499360792222,
+      "final_maxabs_reduction_factor": 319.78888237250123
+    }
+  ],
+  "scope_limitations": {
+    "no_claim_universal_exact_root": "Not yet proven the exact root for every earlier strict FAIL or other sequence lengths.",
+    "original_native_32_strict": "FAIL_32_OF_32_PRESERVED",
+    "original_historical_strict": "FAIL_7_OF_8_PRESERVED",
+    "A_D02_already_strict_pass": true,
+    "ref_trace_independent_full_logits": "Frozen Windows auditor checked 2048 elements and their signatures; readback independently validated complete per-stage summaries, not an additional independent rehash of long raw files.",
+    "candidate_patch_scope": "One GPT2 source-operator selection LLM_FFN_GELU to LLM_FFN_GELU_ERF; source clone already frozen/pinned and runtime real ERF node observed",
+    "confirmation_needed": "Run C01..C04 once, source/binary/reference pinned, independent checker, require each maxabs <=0.001.",
+    "merge": "HOLD",
+    "PR16": "DRAFT"
+  },
+  "next_task": "TTM_T5_C01_C04_LOCKED_CONFIRMATORY_GELU_ERF_BUILD_REF_STRICT_INDEPENDENT_QA_ONCE"
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "ttm.t5.discovery_partial_windows_failure.forensic_and_finite_v2_continuation.v1",
+  "date": "2026-11-10",
+  "owner_one_shot": {
+    "receipt": "_tmp/ttm_t5_exact_root_discovery_run_v1_20261110/DISCOVERY_RUN_RECEIPT.json",
+    "receipt_sha256": "e2cbc797e133a7e4fc4d949293dd9bd847b881e18b39f3c72bcfa9debfbc8e96",
+    "status": "HOLD_DISCOVERY_FAILED_OR_PARTIAL_NO_RERUN",
+    "exact_failure": "RuntimeError:trace_only_12_independent_signed_audit_FAILED_EXIT_2_READ_LOG",
+    "old_one_shot_consumed": true,
+    "old_13_test_status": "PASS_16_OF_16_PROTOCOL_TESTS",
+    "source_isolation_receipt_sha256": "e6462e8cc7731ce99a057b045ced88154cd1d6b8bda6a925c6fe19155e0b3522",
+    "source_isolation_status": "PASS_TWO_ISOLATED_SOURCE_VARIANTS_READY_FOR_BUILD"
+  },
+  "stages": {
+    "A_trace_only": {
+      "cmake_libs": "PASS",
+      "probe_compiled": "PASS",
+      "self_check": "PASS_2_FIXTURES_F32_FLASH_OFF_NO_MODEL",
+      "native_decodes": "PASS_2_OF_2_NEW_D01_D02_EXECUTED_ONCE",
+      "runtime_exit": 0,
+      "stdout_marker": "T5_FIRST_OP_DISCOVERY_COMPLETE_ROWS_2",
+      "native_path": "_tmp/ttm_t5_exact_root_discovery_run_v1_20261110/trace_only/D01_D02_F32_OFF_NATIVE.jsonl",
+      "native_trace_path": "_tmp/ttm_t5_exact_root_discovery_run_v1_20261110/trace_only/D01_D02_F32_OFF_NATIVE.jsonl.trace.jsonl",
+      "original_independent_audit": "FAIL_EXIT_2",
+      "original_audit_error": "FIRSTOP_AUDIT_FAIL_CLOSED:FINAL_STAGE_SHAPE_NOT_ALIGNED:result_norm",
+      "original_auditor_git_blob": "cf6a39f5e763b428fefd0d4c1bd5d0683cd78997",
+      "immutable": true,
+      "replay": "FORBIDDEN"
+    },
+    "B_trace_gelu_erf": {
+      "isolated_Cpp_source_SHA256": "59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e",
+      "isolated_graph_source_SHA256": "df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c",
+      "built": false,
+      "executed": false,
+      "source_isolated": true,
+      "callback_difference": "Original graph stage ffn_gelu-0 becomes ffn_gelu_erf-0 in B; requires special provenance-preserving canonical name for same-input audit"
+    }
+  },
+  "diagnosed_shape_contract": {
+    "stage": "result_norm",
+    "P02_true_shape": [
+      1,
+      256
+    ],
+    "GGML_actual_ne": [
+      256,
+      1,
+      1,
+      1
+    ],
+    "count_equal": true,
+    "flatten_order": "identical for a final singleton-batch vector",
+    "next_stage": "result_output",
+    "P02_true_output_shape": [
+      1,
+      2048
+    ],
+    "GGML_actual_output_ne": [
+      2048,
+      1,
+      1,
+      1
+    ],
+    "fix_scope": "Accept final shape torch [1,w] or [w] ONLY when GGML [w,1,1,1]; never flatten arbitrary shapes",
+    "status": "SOURCE_BUG_CONFIRMED_FROM_ACTUAL_WINDOWS_TENSOR_HEADERS",
+    "science_root_cause": "NOT_PROVEN_BY_SHAPE_BUG"
+  },
+  "independent_partial_readback": {
+    "method": "Second-pass remote read_file of full short D01 tensor records, signed native minus original P02; long D02 lines truncated, so no false full D02 tensor parity claim",
+    "D01": [
+      {
+        "stage": "inpL",
+        "max_abs": 4.999332545163604e-11
+      },
+      {
+        "stage": "attn_norm-0",
+        "max_abs": 2.430212400206244e-7
+      },
+      {
+        "stage": "wqkv_b-0",
+        "max_abs": 2.3876342769568737e-7
+      },
+      {
+        "stage": "kqv_out-0",
+        "max_abs": 2.0821494292611042e-7
+      },
+      {
+        "stage": "attn_wo_mm-0",
+        "max_abs": 1.0384841919730547e-7
+      },
+      {
+        "stage": "attn_wo_out-0",
+        "max_abs": 1.041339721674639e-7
+      },
+      {
+        "stage": "ffn_inp-0",
+        "max_abs": 1.046062774734402e-7
+      }
+    ],
+    "D02": {
+      "QK_raw_max_abs": 0.0000014256408693569256,
+      "QK_softmax_max_abs": 1.196781158618876e-7,
+      "QK_GGML_key_dimension_padded_to": 256,
+      "QK_logical_key_dimension": 5
+    },
+    "first_divergent_operator": "UNDETERMINED_FROM_PARTIAL_REMOTE_READBACK"
+  },
+  "recovery_plan": {
+    "v2_auditor_path": "tools/pilot_t5/exact_root_v1/independent_firstop_signed_tensor_audit_v2.py",
+    "v2_shape_test_path": "tools/pilot_t5/exact_root_v1/test_firstop_v2_shape_recovery.py",
+    "v2_auditor_git_blob": "c523c470f8ec69b4938992f44b16a4127c3d08ae",
+    "v2_shape_tests_git_blob": "4b93a12784647701b578309bd925c04bc61c2674",
+    "B_cpp_probe_path": "tools/pilot_t5/exact_root_v1/gelu_erf_probe/ttm_t5_firstop_trace_probe.cpp",
+    "B_cpp_probe_git_blob": "bd7d408885703a80055c2baf296a44f3006462b7",
+    "B_cmake_probe_git_blob": "066fef8e2a248efcaf25c71443bebd13cfb27be6",
+    "workflow": "Reaudit frozen A files with v2 only; if passes, compile and execute ONLY the previously unexecuted isolated B GELU_ERF source once, attest true ERF graph node and independently audit.",
+    "new_output_dir": "_tmp/ttm_t5_exact_root_discovery_recovery_v2_20261110",
+    "run_once_and_no_retry": true,
+    "confirmatory_C01_C04": "NOT_ACCESSED",
+    "original_native_trace_and_receipt": "MUST_REMAIN_IMMUTABLE",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR16": "DRAFT_HOLD",
+    "exact_numeric_root_cause": "NOT_PROVEN"
+  }
+}

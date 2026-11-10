@@ -1,0 +1,71 @@
+{
+  "schema": "ttm.t5.kvflash.win_stage_missing_dll_root_cause_and_append_only_recovery.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_KVFLASH_WINDOWS_STAGE_RECEIPT_READBACK_AND_SINGLE_NATIVE_RUN_DECISION",
+  "owner_stage": {
+    "path": "_tmp/ttm_t5_kvflash_binary_reference_stage_v1_20261110/STAGE_RECEIPT.json",
+    "sha256": "235f20131ffd9cfc76738da5956206b2e49ced30b8219864a3d3ce2b4ddb38a7",
+    "expected_source_head": "888adde84e0e4fbe8cbaae801ed4d9687e6b4bb8",
+    "status": "HOLD_STAGE_FAILED_CLOSED",
+    "observed_failure": "14_compiled_no_model_self_check.log:EXIT_3221225781",
+    "windows_status_hex": "0xC0000135",
+    "windows_status_meaning": "STATUS_DLL_NOT_FOUND",
+    "compile_status": "COMPILED",
+    "compiled_executable_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537",
+    "synthetic_python_qa": "PASS_13_OF_13",
+    "cmake_configure_exit_code": 0,
+    "cmake_build_exit_code": 0,
+    "original_stage_immutable": true,
+    "reference_import": "NOT_EXECUTED_DURING_FAILED_WINDOWS_STAGE",
+    "native_2x2": "0_OF_32_NOT_EXECUTED"
+  },
+  "root_cause": {
+    "classification": "WRONG_DLL_SEARCH_DIRECTORY_IN_PARENT_STAGE_PYTHON_ENV_PATH",
+    "old_env_path_candidates": [
+      "_tmp/ttm_t2/build/upstream_llama/bin/Release",
+      "_tmp/ttm_t2/build/upstream_llama/src/Release",
+      "_tmp/ttm_t2/build/upstream_llama/ggml/src/Release"
+    ],
+    "verified_correct_dir": "_tmp/ttm_t2/build/bin/Release",
+    "files_confirmed_through_remote_directory_listing": [
+      "llama.dll",
+      "ggml.dll",
+      "ggml-base.dll",
+      "ggml-cpu.dll"
+    ],
+    "why_compile_passes": "MSVC linker uses import .lib in upstream_llama/src and ggml/src; Windows loader needs runtime .dll in different parent build/bin/Release.",
+    "confidence": "HIGH_FOR_LOADER_PATH_ROOT_CAUSE",
+    "remaining_uncertainty": "Corrected loader-path process has not yet been executed. Additional missing runtime DLL is possible, so successful execution is not yet claimed."
+  },
+  "recovery": {
+    "script_path": "tools/pilot_t5/kv_flash_precision_v1/recover_compiled_no_model_selfcheck_and_reference.py",
+    "one_shot_new_output_dir": "_tmp/ttm_t5_kvflash_loader_recovery_v1_20261110",
+    "no_recompile": true,
+    "no_original_stage_replay": true,
+    "no_old_eight_replay": true,
+    "no_32_native_decode": true,
+    "worktree_expected_head": "888adde84e0e4fbe8cbaae801ed4d9687e6b4bb8",
+    "binary_exact_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537",
+    "imported_reference_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "new_steps": [
+      "Verify existing old failed stage, binary, 13 tests, source SHA, 4 DLL existence",
+      "PATH += exact _tmp/ttm_t2/build/bin/Release; run existing binary with --self-check only",
+      "Check compiled 8 frozen synthetic fixtures and 4 arms against original prereg",
+      "Verify real CPU F32 8x2048 JSONL reference as previously generated",
+      "Append new immutable receipt, hold before 32 native"
+    ],
+    "runtime_state": "NOT_EXECUTED",
+    "owner_approval_for_32_native": "NOT_ISSUED"
+  },
+  "controls": {
+    "strict_logits_original": "FAIL_7_OF_8_PRESERVED",
+    "threshold_maxabs": 0.001,
+    "training": false,
+    "test_untouched": true,
+    "q1q2_untouched": true,
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR13": "DRAFT_HOLD"
+  },
+  "readiness": "HOLD_ONLY_LOADER_RECOVERY_NOT_YET_COMPLETED"
+}

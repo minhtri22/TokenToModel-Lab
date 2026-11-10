@@ -1,0 +1,108 @@
+{
+  "schema": "ttm.t5.kvflash.original_p02_1024.f32_ref_real_cpu_and_source_stage.readback.v1",
+  "date": "2026-11-10",
+  "scope": "ONE_REFERENCE_BATCH_SAME_FROZEN_NEW_SYN01_SYN08_IDS; NO_NATIVE_2X2; NO_TRAINING_OR_TEST",
+  "source_of_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "checkpoint_source_google_drive": "https://drive.google.com/file/d/1F4kaaaC7w3MVPyPFoFa4BpGyWu0LLLme/view",
+    "checkpoint_step": 1024,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "prereg_git_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
+  },
+  "reference": {
+    "status": "REAL_CPU_F32_REFERENCE_COMPLETED_8_OF_8",
+    "torch": "2.10.0+cpu",
+    "model_params": 3749376,
+    "input": "8 NEW SYN01..SYN08 frozen token arrays from F32 KV/Flash prereg",
+    "n_rows": 8,
+    "n_logits_per_row": 2048,
+    "total_logits": 16384,
+    "reference_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "reference_bytes": 324123,
+    "fixture_lengths": [
+      1,
+      2,
+      4,
+      6,
+      9,
+      12,
+      20,
+      31
+    ],
+    "top1_token_ids": [
+      46,
+      302,
+      265,
+      1108,
+      265,
+      792,
+      426,
+      456
+    ],
+    "row_level_provenance": {
+      "checkpoint_sha256": true,
+      "p02_git_blob": true,
+      "prereg_git_blob": true
+    },
+    "source_checkpoint_sha256_verified_on_download": true,
+    "source_P02_git_blob_verified": true,
+    "checkpoint_schema": "ttm.t4.science.checkpoint.v1",
+    "checkpoint_step": 1024,
+    "config": "P02Config(2048 vocab,256 context,256 embed,4 layers,4 heads,layernorm)",
+    "state_dict_loaded_strictly": true,
+    "cpu_model_eval_and_inference_mode": true,
+    "filename": "REFERENCE_F32_SYN01_SYN08.jsonl"
+  },
+  "qa": {
+    "exact_fixture_regeneration_verified_against_GitHub_prereg": "PASS_8_OF_8_EXACT",
+    "independent_reference_structure": "PASS_8_OF_8_2048_FINITE_LOGITS",
+    "reference_output_sha256_independently_rechecked": true,
+    "zip_integrity": "PASS_ZIP_TEST",
+    "model_run_repeat": "NO",
+    "reviewer_independence": "INDEPENDENT_PROGRAMMATIC_QA_NOT_EXTERNAL_HUMAN",
+    "scope": "CPU_REAL_MODEL_REFERENCE_QA_ONLY"
+  },
+  "evidence_custody": {
+    "archive_name": "TTM_T5_REAL_F32_REFERENCE_SYN01_SYN08_20261110.zip",
+    "archive_sha256": "6f260c7f52f906a693245f75a51b02fa9641ce34502eb9f2a0aff3c949315ce4",
+    "archive_bytes": 153495,
+    "archive_contains": [
+      "REFERENCE_F32_SYN01_SYN08.jsonl",
+      "REFERENCE_REAL_CHECKPOINT_RECEIPT.json",
+      "REFERENCE_INDEPENDENT_READBACK_QA.json",
+      "generate_reference.py",
+      "independent_reference_audit.py"
+    ],
+    "archive_contains_checkpoint": false,
+    "drive_file_id": "10tDE8IAVv68Gl_Dgx-t8g119V9Jf8ss4",
+    "drive_url": "https://drive.google.com/file/d/10tDE8IAVv68Gl_Dgx-t8g119V9Jf8ss4/view",
+    "drive_upload_readback_size": 153495,
+    "drive_upload_readback_sha256": "6f260c7f52f906a693245f75a51b02fa9641ce34502eb9f2a0aff3c949315ce4",
+    "raw_output_governance": "Drive private raw evidence, GitHub authoritative protocol/receipt/checksum/reviewer decision"
+  },
+  "binary": {
+    "candidate_cpp_git_blob": "bb0e1726e77c92696ffbbb92aa6e6b9aa49ee490",
+    "cmake_git_blob": "6f16397d6b6f4ce4a2b299588d5bc6ec83a62861",
+    "stage_py_git_blob": "da7644c099f7f81ffcc4672472e53f5827b2666a",
+    "status": "NOT_COMPILED_ON_WINDOWS",
+    "msvc_native_build_qa": "NOT_EXECUTED",
+    "compiled_self_check": "NOT_EXECUTED",
+    "native_32_batch": "NOT_EXECUTED"
+  },
+  "decision": {
+    "status": "HOLD_FOR_MSVC_BINARY_AND_OWNER_APPROVAL",
+    "old_eight_strict": "FAIL_7_OF_8_PRESERVED",
+    "strict_threshold": 0.001,
+    "new_binary": "NOT_YET_BUILT",
+    "new_reference": "PASS_REAL_CPU",
+    "owner_32_run_approval": "NOT_ISSUED",
+    "new_training": false,
+    "test_untouched": true,
+    "old_fixtures_not_rerun": true,
+    "main_unchanged": true,
+    "lineage_unchanged": true,
+    "pr13_hold": true
+  }
+}

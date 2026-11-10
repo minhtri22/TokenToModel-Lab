@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.t5.exact_root.discovery_real_cpu_reference_and_same_input_ablation.v1",
+  "date": "2026-11-10",
+  "scope": "ONLY_FRESH_DISCOVERY_D01_D02; CONFIRMATORY_C01_C04_UNOPENED",
+  "source": {
+    "P02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_step": 1024,
+    "torch": "2.10.0+cpu",
+    "prereg_git_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+    "project": "minhtri22/TokenToModel-Lab",
+    "parameter_count": 3749376
+  },
+  "real_cpu": {
+    "reference_tensor_trace_file": "TTM_T5_D01D02_P02_TRUE_SIGNED_TRACE_20261110.jsonl",
+    "reference_tensor_trace_sha256": "9cc5fc2db1f95e7e863a285eb279b28b7a383b81a4f890d7ec0f79b788b995e0",
+    "reference_tensor_trace_bytes": 1014684,
+    "reference_tensor_trace_rows": 42,
+    "reference_zip_sha256": "8e289485e9af2ae3de3aa8d8e19150b4d062dad395189540483ecb424be4bc10",
+    "reference_zip_bytes": 435513,
+    "manual_p02_forward_exact_bitwise_match": true,
+    "first_op_new_fixture_values": [
+      {
+        "fixture_id": "D01",
+        "ids": [
+          1281
+        ],
+        "erf_vs_tanh_full_logit_max_abs": 0.001018524169921875,
+        "erf_vs_tanh_mean_abs": 0.00021975275012664497,
+        "block0_same_input_gelu_max_abs": 0.0002331063151359558,
+        "block0_f16_rounding_V_ffn_inp_max_abs": 0.00007592141628265381,
+        "top1_equal": true
+      },
+      {
+        "fixture_id": "D02",
+        "ids": [
+          1406,
+          971,
+          566,
+          1092,
+          1587
+        ],
+        "erf_vs_tanh_full_logit_max_abs": 0.0012111663818359375,
+        "erf_vs_tanh_mean_abs": 0.00025853459374047816,
+        "block0_same_input_gelu_max_abs": 0.0002321004867553711,
+        "block0_f16_rounding_V_ffn_inp_max_abs": 0.00006455183029174805,
+        "top1_equal": true
+      }
+    ],
+    "raw_local_experiment_script_sha256": "1cb9e74eae3fb083b91d3a1b81c7793cefe5d1c28af2af7ff3a0a5ce754b2a3b",
+    "raw_local_trace_script_sha256": "NOT_YET_PINNED_TO_GITHUB",
+    "status": "PASS_TRUE_TRAINED_CHECKPOINT_P02_DISCOVERY_REFERENCE_AND_INTERNAL_MATH_ABLATION",
+    "confirmation": "NOT_EXECUTED",
+    "native_GGML": "NOT_EXECUTED",
+    "strict_parity_vs_llama": "NOT_MEASURED",
+    "mechanism_interpretation": "GELU approximate-vs-erf alone creates >0.001 final logit differences in P02 on D01,D02; F16-V rounding causes pre-GELU changes ~6.5-7.6e-5. These mechanisms are real P02 tensor effects, not proof of llama root cause."
+  },
+  "qa": {
+    "P02_original_git_sha_verified": true,
+    "checkpoint_sha_verified": true,
+    "all_trace_42_tensors_finite": true,
+    "manual_forward_matches_bitwise": true,
+    "reference_output_zip_created": true,
+    "old_eight_native_rerun": false,
+    "old_32_native_rerun": false,
+    "test_Q1Q2_read": false,
+    "training": false
+  },
+  "decision": {
+    "root_cause": "UNPROVEN_WAIT_GGML_SAME_INPUT_TENSOR",
+    "owner_merge": "HOLD",
+    "PR16": "DRAFT",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED"
+  },
+  "next": "Build separate source-pinned llama KV trace-only + GELU_ERF variant, collect D01/D02 same-input native tensors once, independent signed elementwise compare; only then freeze corrective candidate and access C01-C04."
+}

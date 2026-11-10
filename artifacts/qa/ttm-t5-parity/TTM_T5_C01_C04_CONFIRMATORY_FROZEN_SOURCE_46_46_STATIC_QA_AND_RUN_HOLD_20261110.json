@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.t5.C01_C04.confirmatory_source_static_and_true_reference_ready.v1",
+  "date": "2026-11-10",
+  "research_state": {
+    "discovery": "PASS_CAUSAL_GELU_ERF_2_OF_2",
+    "confirmatory_P02_reference": "PASS_SOURCE_AND_FROZEN_4_OF_4_FP32",
+    "confirmatory_cpp_source": "FROZEN_SOURCE_ONLY",
+    "independent_checker": "FROZEN_SOURCE_ONLY",
+    "static_scoped_assertions": "PASS_46_OF_46",
+    "Windows_python_negative_QA_12": "NOT_EXECUTED",
+    "Windows_CPP_compilation": "NOT_EXECUTED",
+    "C01_C04_native_runs": "NOT_EXECUTED",
+    "strict_confirmatory": "NOT_EXECUTED",
+    "exact_root_cause_wider_generality": "UNPROVEN_PENDING_C01_C04",
+    "PR16": "DRAFT_HOLD",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED"
+  },
+  "sources": {
+    "original_prereg_git_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+    "P02_source_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "isolated_B_gpt2_sha256": "59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e",
+    "isolated_B_graph_sha256": "df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c",
+    "C_probe_cpp_git_blob": "f14f4e8eaecba273a5fe314d04e8498c40c76655",
+    "C_probe_cmake_git_blob": "9e829fbdc0415582a81e9d64c2b3da689cfd6b12",
+    "C_checker_git_blob": "b38c09278588c3e8bf40208cbbacf8448bfdd97e",
+    "C_12_tests_git_blob": "afad6dde4cbebddb469c71b3e7de45c2f08ef0e7",
+    "C_one_shot_runner_git_blob": "f92acb80692ca365aafbb67a059dd5c531fa5fa0",
+    "C_PS51_owner_wrapper_git_blob": "7e8aef35a8a11aa1d426002b00786182027e64d7"
+  },
+  "true_P02_FP32_reference": {
+    "output_zip": "TTM_T5_C01_C04_P02_FP32_FROZEN_REFERENCE_20261110.zip",
+    "zip_sha256": "e5d522bd5234c46af77dbb85990779bd09e25d35be587538cec577ee486c5996",
+    "JSONL_sha256": "dbebd9e5261ad4857b72ff16cf9383ce243dab9ca72ade5332e8325ea2c48e25",
+    "four_fixtures": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ],
+    "lengths": [
+      2,
+      4,
+      11,
+      17
+    ],
+    "logits_per_fixture": 2048,
+    "all_finite": true,
+    "CPU_torch": "2.10.0+cpu",
+    "model_weights_original": true,
+    "public_GitHub_raw_uploaded": false
+  },
+  "protocol": {
+    "only_C01_C04_four_fixtures": true,
+    "patch": "GPT2 GELU -> GELU_ERF, original pinned source B; C++ candidate changes only fixture IDs/row count",
+    "pinned_original_F32_GGUF_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "KV": "F32",
+    "Flash": "OFF",
+    "CPU": true,
+    "threads": 1,
+    "strict_max_abs_acceptance": 0.001,
+    "strict_pass_requirement": "4_OF_4",
+    "old_8_32_D01_D02_replay": "FORBIDDEN",
+    "one_shot_no_retry_or_overwrite": true,
+    "source_CPP_and_DLL_SHA_gate": true,
+    "true_GELU_ERF_node_each_fixture_required": true,
+    "independent_raw_2048_comparison": true,
+    "no_training_or_TEST": true,
+    "output_receipt": "_tmp/ttm_t5_c01c04_gelu_erf_confirmatory_one_shot_20261110/CONFIRMATORY_ONCE_RECEIPT.json",
+    "merge_only_after": "NEW_STRICT_PASS_4_OF_4_AND_INDEPENDENT_ADJUDICATION_AND_OWNER_APPROVAL"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "ttm.t5.ps51.owner_preview.call_depth_overflow.root_cause_and_repair.v1",
+  "date": "2026-11-09",
+  "task": "TTM_T5_PRIOR_CALLER_OWNER_LOCAL_SOURCE_ATTESTATION_AND_NEW_2X2_SINGLE_RUN_READINESS",
+  "incident": {
+    "owner_command_failed": "The script failed due to call depth overflow",
+    "location": "Invoke-TTM-T5-OwnerLocal-Preview-Once-PS51.ps1",
+    "mechanism": "PowerShell resolves commands case-insensitively. function Git(...) shadowed unqualified git in its own body, recursively reentering until CallDepthOverflow; same defect existed in nested OwnerPreflight script.",
+    "script_initial_blob": "d0f27dc3abb0bfac90a59579d7b0e64fa1dabbe7",
+    "nested_initial_blob": "3dd193500edae67cd15b743e433cfb6f6ccf4aa7",
+    "observed_scope": "Failed in wrapper before Git fetch/Preview; remote read-only listed no new owner-preview worktree or receipt folder at check time.",
+    "old_preview_consumed": false,
+    "new_native_2x2_executed": false
+  },
+  "repair": {
+    "wrapper_blob": "6af5f236a4a8ef219b348c1becdefbcc2251ab0a",
+    "preflight_blob": "e79fc53233d9a3d46d3d297ac18320fb6ca6cccd",
+    "changes": [
+      "rename PowerShell functions Git -> Invoke-TTMGit",
+      "pass -Items/-GitArgs array by name, rather than positional splat",
+      "resolve git.exe executable once using Get-Command -CommandType Application",
+      "use & $gitExe for every process invocation including show-ref/rev-parse"
+    ],
+    "static_QA": "PASS_18_OF_18",
+    "windows_powershell_parser": "NOT_EXECUTED_IN_TOOL_SESSION",
+    "windows_dynamic_qa": "NOT_EXECUTED",
+    "github_source_of_truth": true
+  },
+  "preserved": {
+    "original_strict_7_of_8": "FAIL_PRESERVED",
+    "original_threshold": 0.001,
+    "training": false,
+    "test": false,
+    "q1q2": false,
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "pr13": "HOLD",
+    "native_32_batch": "NOT_EXECUTED"
+  },
+  "next": "Owner downloads updated wrapper at final GitHub 40-hex commit, verifies Git blob 6af5f236a4a8ef219b348c1becdefbcc2251ab0a, parses script using PowerShell 5.1 AST and performs one owner-local Preview only; return JSON receipt or any new fail-closed error."
+}

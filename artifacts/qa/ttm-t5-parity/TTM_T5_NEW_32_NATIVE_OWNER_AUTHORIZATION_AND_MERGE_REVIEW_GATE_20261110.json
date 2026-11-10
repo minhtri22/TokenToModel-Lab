@@ -1,0 +1,47 @@
+{
+  "schema": "ttm.t5.frozen_new_32_native.owner_authorization.v1",
+  "date": "2026-11-10",
+  "owner_instruction": "đồng ý chạy 32, xem xét việc merge",
+  "owner_approval": {
+    "status": "GRANTED",
+    "scope": "ONE NEW 32-NATIVE-BATCH, 8 SYN01..SYN08 x 4 frozen S0-S3",
+    "strict_threshold": 0.001,
+    "prior_8_fixtures": "NO_REEXECUTION",
+    "trained_checkpoint": "UNCHANGED",
+    "GGUF": "UNCHANGED_F32",
+    "TEST": "UNTOUCHED",
+    "Q1Q2": "UNTOUCHED",
+    "training": "NO",
+    "main": "UNCHANGED_UNTIL_POST_RUN_ADJUDICATION",
+    "lineage": "UNCHANGED_UNTIL_SCIENTIFIC_ADJUDICATION",
+    "one_shot_no_rerun": true,
+    "authorization_is_not_merge_approval": true
+  },
+  "source_pins": {
+    "technical_recovery_receipt_sha256": "2648b84558a503de66a2e2a0e09094561123d64578eefa82b26bf85fcfdc1be2",
+    "binary_sha256": "0da91785a0882dd1b5a04cce4dc050886b54e0fe0f17e66f66802638b3760537",
+    "reference_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "native_runner": "tools/pilot_t5/kv_flash_precision_v1/run_exact_one_frozen_32_native_batch.py",
+    "native_runner_git_blob_sha1": "61c1cf9c31bc3514f4982509655990110aaf56ed",
+    "native_auditor_git_blob_sha1": "18dc82d845f228ea4e5b349ac5cabf9f1110a252",
+    "original_prereg_git_blob_sha1": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36"
+  },
+  "current_execution_status": {
+    "remote_mcp_project_registration": "DENIED_REMOTE_PROJECT_KIND_CHANGED",
+    "owner_local_command": "NOT_EXECUTED_IN_THIS_TURN",
+    "fresh_32_runs": "0_OF_32_AT_OBSERVED_READBACK",
+    "run_dir_exists_at_observed_readback": false,
+    "backend_status": "MANAGED_TASK_NOT_ADMITTED",
+    "decision": "OWNER_APPROVED_EXECUTION_PENDING_LOCAL_PS51"
+  },
+  "merge_review": {
+    "user_requested": "CONSIDER_MERGE_NOT_UNCONDITIONAL_MERGE",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "compare_main": "AHEAD_63_BEHIND_0",
+    "diff_files": "41_ADDED",
+    "existing_main_files_modified": 0,
+    "PR13": "SEPARATE_DRAFT_HOLD",
+    "disposition": "HOLD_MERGE_PENDING_ONE_SHOT_RESULT_AND_INDEPENDENT_QA",
+    "reason": "Technical readiness and owner approval do not establish 32 native output or causal root cause. The branch includes superseded experimental tools and failed-but-preserved QA documents; review integration scope before merge."
+  }
+}

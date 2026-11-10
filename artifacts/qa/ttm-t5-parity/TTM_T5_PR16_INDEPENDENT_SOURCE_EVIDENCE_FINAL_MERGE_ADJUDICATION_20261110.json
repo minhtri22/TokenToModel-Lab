@@ -1,0 +1,106 @@
+{
+  "schema": "ttm.t5.pr16.final_scoped_independent_review_and_merge_adjudication.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_PR16_INDEPENDENT_SOURCE_EVIDENCE_REVIEW_AND_FINAL_MERGE_ADJUDICATION",
+  "reviewer_type": "ASSISTANT_SECOND_PASS_SOURCE_EVIDENCE_NOT_EXTERNAL_HUMAN",
+  "pr16": {
+    "reviewed_head": "0194b81ddff679a9c6eb6c7e15526234b21d0371",
+    "main_base": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "ahead": 69,
+    "behind": 0,
+    "changed_files": 46,
+    "added_files": 45,
+    "modified_existing": [
+      "lineage.md"
+    ],
+    "mergeable_at_review": true,
+    "draft": true
+  },
+  "source_qa": {
+    "status": "PASS_20_OF_20",
+    "cpp_blob": "bb0e1726e77c92696ffbbb92aa6e6b9aa49ee490",
+    "auditor_blob": "18dc82d845f228ea4e5b349ac5cabf9f1110a252",
+    "runner_blob": "61c1cf9c31bc3514f4982509655990110aaf56ed",
+    "checkpoint_reference_source_blob": "5e7c5eb2a9f7caf31577b6a1454fc7163918813b",
+    "prereg_blob": "3b12cc1883ab20e2d9e3a92e6907586c1b4cad36",
+    "frozen_8x4_cpp_fixture_and_arm_mapping": true,
+    "per_pair_new_context": true,
+    "explicit_K_and_V_precision_plus_Flash_modes": true,
+    "native_full_2048_finite_logits": true,
+    "actual_graph_Flash_node_attestation": true,
+    "fixed_strict_max_abs_threshold": 0.001,
+    "prior_synthetic_unittest": "PASS_13_OF_13_WINDOWS_ALREADY_EXECUTED",
+    "contrasts_only_scalar_max_error_differences": true,
+    "stale_preview_and_stage_scripts": "HISTORIC_README_SUPERSEDING_NOTE_PRESENT; NOT_RECYCLED_OR_RERUN"
+  },
+  "evidence_qa": {
+    "status": "PASS_16_OF_16",
+    "native_protocol": "PASS_32_OF_32",
+    "science_strict": "FAIL_32_OF_32",
+    "top1": "PASS_32_OF_32",
+    "pass_counts": {
+      "S0": 0,
+      "S1": 0,
+      "S2": 0,
+      "S3": 0
+    },
+    "run_receipt_sha256": "fcaea7a629bd6dda7a4f35b60da686b73b02bc0e9e56ebe7c380d9b9e4c7db09",
+    "independent_audit_sha256": "8aca17561d6beca200fbc746854ab0186e5f3d75930737077111a86c475acc6c",
+    "native_raw_sha256_attested_by_windows_auditor": "544df628802591bcdda7ca9d6de4779d5e2872ee8b409c6710ede5bbf8ac19b8",
+    "reference_raw_sha256": "d6f367269df610a4e1c93edbff9a4dcffb7f0e0b6bd5f77247c5c90394de176c",
+    "reference_zip_SHA256_independent": "6f260c7f52f906a693245f75a51b02fa9641ce34502eb9f2a0aff3c949315ce4",
+    "reference_8_rows_2048_finite_all": true,
+    "prior_original_strict": "FAIL_7_OF_8_PRESERVED",
+    "lineage": "ONLY_APPEND_L0013_SCIENTIFIC_NEGATIVE",
+    "no_TEST_or_training_or_old_fixture_rerun": true,
+    "runtime_log_sample_KV_flash": [
+      {
+        "arm": "S0",
+        "K": "f16",
+        "V": "f16",
+        "flash": "enabled"
+      },
+      {
+        "arm": "S1",
+        "K": "f32",
+        "V": "f32",
+        "flash": "disabled"
+      },
+      {
+        "arm": "S2",
+        "K": "f32",
+        "V": "f32",
+        "flash": "enabled"
+      },
+      {
+        "arm": "S3",
+        "K": "f16",
+        "V": "f16",
+        "flash": "disabled"
+      }
+    ]
+  },
+  "limits": {
+    "long_native_raw_32x2048_lines": "SECOND_FULL_READBACK_NOT_POSSIBLE_DUE_REMOTE_TEXT_TRUNCATION",
+    "full_raw_processed": "PINNED_WINDOWS_AUDITOR_ORIGINAL_SOURCE",
+    "raw_native_storage": "OWNER_WINDOWS_PROJECT__tmp_ONLY; BACKUP_BEFORE_CLEANUP_RECOMMENDED",
+    "GitHub_CI_check_runs": 0,
+    "external_review_submissions": 0,
+    "external_human_independent_QA": false,
+    "exact_root_cause": "UNRESOLVED",
+    "descriptive_contrasts": "DIFFERENCES_OF_SCALAR_MAX_ABS_ERRORS_NOT_SIGNED_PER_LOGIT_CAUSAL_EFFECT"
+  },
+  "final_decision": {
+    "verdict": "MERGE",
+    "scope": "SCOPED_NEGATIVE_SCIENCE_AND_HISTORICAL_DIAGNOSTIC_EVIDENCE_ONLY",
+    "main_mutated": false,
+    "actual_merge": "NOT_EXECUTED_NO_EXPLICIT_MERGE_INSTRUCTION",
+    "reasons": "Source 20/20 and second-pass evidence 16/16 checks pass; exactly one frozen native 32-run and full on-device independent auditor; valid scientific FAIL must be preserved; isolated branch changes.",
+    "unrelated_PRs": [
+      "13",
+      "14",
+      "15"
+    ],
+    "next": "Owner can explicitly authorize exact-head PR16 merge; preserve native raw evidence before any cleanup and verify postmerge main and local Git safely."
+  }
+}

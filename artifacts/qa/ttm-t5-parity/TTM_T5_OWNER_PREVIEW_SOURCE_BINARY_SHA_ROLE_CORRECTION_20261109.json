@@ -1,0 +1,81 @@
+{
+  "schema": "ttm.t5.original_caller_source_vs_binary_sha_correction_and_owner_preview_readback.v1",
+  "date": "2026-11-09",
+  "source_of_truth": "GitHub branch research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+  "original_preview": {
+    "owner_reported_sha256": "80be696c6e834a6028e1e3c4325c1eb624af65e69566a871019e83b089232d63",
+    "readback_via_remote_workspace": "YES_MATCHING_SCHEMA_AND_OWNER_REPORTED_FIELDS_NOT_INDEPENDENT_BYTE_SHA_RECALCULATION",
+    "path": "_tmp/ttm_t5_f32_kvflash_owner_gate_20261109/OWNER_LOCAL_PREVIEW_SINGLE_20261109.json",
+    "subreceipt": "_tmp/ttm_t5_f32_kvflash_owner_gate_20261109/TTM_T5_KVFLASH_Preview_20261109_154621_0013101.json",
+    "subreceipt_SHA256_from_preview": "cccf26c91f8e22c6f05b0edab2741b076ea04c45dc0aa24f5f0c8eb8bf5d5a71",
+    "preview_status": "HOLD_OWNER_RUN_GATE",
+    "preflight_checked_true": [
+      "Branch",
+      "CleanTracked",
+      "P02GitBlob",
+      "PreregGitBlob",
+      "LlamaCommit",
+      "OldBuildRecord",
+      "OldFlashRuntimeLog",
+      "OldCMakeSourceDir",
+      "GGUFExact"
+    ],
+    "preflight_checked_false": [
+      "CallerSourceSHA",
+      "CallerSourceParams",
+      "CheckpointExact",
+      "ReferenceReady",
+      "CandidateExecutablePinned",
+      "CallerOwnerAttested",
+      "OwnerApproval"
+    ],
+    "native_execution": "NOT_EXECUTED",
+    "training": "NO",
+    "test": "UNTOUCHED"
+  },
+  "provenance_error": {
+    "original_field": "OriginalProbeClaimSHA256",
+    "old_value_sha256": "62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2",
+    "legacy_evidence_origin": [
+      "evidence/pilot/t5-trained/T5_F32_NUMERIC_LOCALIZATION_UNADJUDICATED.json: native_debug_probe_sha256",
+      "docs/pilot/TTM_T5_F32_NUMERIC_LOCALIZATION_INDEPENDENT_ADJUDICATION_20261108.md: debug probe SHA256"
+    ],
+    "classification": "HISTORICAL_DEBUG_PROBE_EXECUTABLE_SHA256_NOT_CPP_SOURCE_SHA256",
+    "owner_local_cpp": "C:/Users/minht/Downloads/TTM_T5_F32_NUMERIC_LOCALIZATION_PS51_PRECLAIM_RECOVERY_V2_20261108/ttm_t5_layer_probe.cpp",
+    "cpp_sha256_reported_by_owner_local_preview": "8a8324a10c67c6f868fe130d6ea7c535edb6364c8d04988600163e7b4a4b828e",
+    "cpp_unique_candidate_in_original_preview": 1,
+    "historical_exe": "_tmp/ttm_t5_numeric_localization_v1/build/Release/ttm_t5_layer_probe.exe",
+    "executable_sha256_reported_by_owner_local_preview": "62fda558309502fdef9c736243b9a6194262fe0b5667949a0872fbe5c33e4de2",
+    "conclusion": "SOURCE_SHA_CHECK_FALSE_IS_ARTIFACT_TYPE_MISCLASSIFICATION_NOT_PROOF_OF_CPP_TAMPER",
+    "proof_limit": "OWNER_OBSERVED_SOURCE_SHA_NOT_DIRECTLY_READABLE_BY_REMOTE_AGENT; COMPILATION_SOURCE_TO_BINARY_CHAIN_NOT_INDEPENDENTLY_ATTESTED"
+  },
+  "changes": {
+    "preflight_pins_split": "OriginalCallerCppSHA256 distinct from OriginalProbeBinarySHA256",
+    "wrapper_source_scan": "compares cpp candidates to observed cpp SHA, old executable to old executable SHA",
+    "existing_preview": "APPEND_ONLY_PRESERVED_NOT_RERUN",
+    "supplement_script": "tools/pilot_t5/kv_flash_precision_v1/Invoke-TTM-T5-Caller-Source-Binary-Supplement-PS51.ps1",
+    "supplement_output": "_tmp/ttm_t5_f32_kvflash_owner_gate_20261109/OWNER_LOCAL_SOURCE_BINARY_SUPPLEMENT_V1_20261109.json",
+    "source_content_and_kv_semantics": "PENDING_ONE_OWNER_LOCAL_STATIC_INSPECTION"
+  },
+  "remaining_gate": {
+    "caller_type_k": "UNKNOWN",
+    "caller_type_v": "UNKNOWN",
+    "GGUF_f32": "PASS_EXACT_SHA_5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "old_probe_binary_sha": "MATCHES_HISTORIC_PROBE_HASH_BUT_BUILD_CHAIN_NOT_ATTESTED",
+    "checkpoint_reference": "NOT_PROVIDED_IN_PREVIEW",
+    "candidate_executable": "UNCOMPILED",
+    "synthetic_native_2x2": "0_OF_32",
+    "owner_permission": "NOT_ISSUED",
+    "status": "HOLD_OWNER_RUN_GATE"
+  },
+  "immutable": {
+    "strict_logits_original": "FAIL_7_OF_8",
+    "final_max_abs_threshold": 0.001,
+    "phase_p07": "PAUSED_PRESERVE",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "PR13": "HOLD",
+    "training": "NO",
+    "test": "UNTOUCHED"
+  }
+}
