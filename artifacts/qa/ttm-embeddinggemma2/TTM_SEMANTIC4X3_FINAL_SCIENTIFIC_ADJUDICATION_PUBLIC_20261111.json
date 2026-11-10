@@ -1,0 +1,145 @@
+{
+  "schema": "ttm.semantic4x3.scientific_final_adjudication.public.v1",
+  "adjudication_date": "2026-11-11",
+  "operation": "TTM_SEMANTIC4X3_FROZEN_INDEPENDENT_96_READY_READBACK_THEN_L0020_ADJUDICATION",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "verdict": "PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE",
+  "independent_qa": "PASS_INDEPENDENT_12_ARM_STORY_BOOTSTRAP_READBACK",
+  "prereg_decision": "Both co-primary mean effects have paired-story CI95 lower>0 and all three fixed-seed effects positive, with all 12 arms and 96 READY audit PASS",
+  "run": {
+    "seeds": 3,
+    "arms_per_seed": 4,
+    "arms_total": 12,
+    "steps_per_arm": 2048,
+    "total_steps": 24576,
+    "targets_per_step": 4096,
+    "total_train_label_exposures": 100663296,
+    "hardware": "Tesla T4",
+    "dtype": "FP32",
+    "training_complete": true
+  },
+  "holdout": {
+    "stories": 768,
+    "windows": 1000,
+    "targets": 186655,
+    "membership_sha256": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+    "scored_after_all_final_READY": true,
+    "no_historical_TEST_H320_H512_read": true
+  },
+  "runner_sha256": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
+  "evidence_sha256": {
+    "study_claim": "5c76c4da3d1d1c0532f04a7ff557fd0f8e46279e7e1590dd34cf7801368b47a2",
+    "result": "d60f8e206b20b30a5b83f324427fa0b206a9d00174661419abf2185401022610",
+    "per_story_private": "e51f9b840cd6d9b324257efdda56b781663d488cf47cfc92ced4101de93ebcf2",
+    "independent_readback": "386ec3bdab72cecc31455998951cc2afbb51bd7e3d9023cbc65027d5dd80a513"
+  },
+  "checkpoint_validation": {
+    "ready_metadata_count": 96,
+    "journal_start_done_gates_checked_by_frozen_reviewer": true,
+    "final_checkpoint_binary_sha256_verified_by_frozen_reviewer": true,
+    "final_checkpoint_binary_sha256_independently_rehashed_in_prior_scoped_qa": true,
+    "final_digests": {
+      "S1/NULL-PERM": "9365403b0a2f4499405f348639d8ebd37e9d8997d0d10894ef23d0d57dbddb21",
+      "S1/NULL-REAL": "59bb203f5ba2a02e56778200d21ec26c2898bed12a2644d9c860ae06aaffe9fb",
+      "S1/PT-PERM": "dd62bf4695ec9dd4175817c1e3c663389b1282ead560a267f02c7d97a54960fb",
+      "S1/PT-REAL": "cf3e6863215555b639fd4d3582f77f2b997c05dc5269cd411342bf660632cf46",
+      "S2/NULL-PERM": "a2740d762abdf760483f460716464631caf68f577491946de6d264b206a4aa5f",
+      "S2/NULL-REAL": "10ad0ffa8ffd58bee5276374562140e9e3bf580695a5a2e4f4d4bfc08ea42b25",
+      "S2/PT-PERM": "f1dba5a83772d2346222083039012f928917351ba48bdf843f8d4814dc24b60a",
+      "S2/PT-REAL": "1ea877b7c62e0b17fc757881a54cd1a4bd829128c0e406543723e871c6f432f1",
+      "S3/NULL-PERM": "ac6fe6ed4510eb6212609c1e913d6102782a78dcb4cfc2aa7743f6151ef07235",
+      "S3/NULL-REAL": "b58a17f65d6ec949095a0d3d1ac3a91f26d3c71c7246a1ea64d2a4d224341c1e",
+      "S3/PT-PERM": "c51a947f1d075e90a5199130e79a671c5257714d66a511fc2d9e78bbc7eac89d",
+      "S3/PT-REAL": "272fd3987d5f5505807662ab62153ede927d76f1c87333affa98df8c6f55fb93"
+    }
+  },
+  "nll_nats_per_target": {
+    "S1": {
+      "NULL-PERM": 3.338712293580376,
+      "NULL-REAL": 3.2709552813596874,
+      "PT-PERM": 3.3517926842409347,
+      "PT-REAL": 3.266480321085318
+    },
+    "S2": {
+      "NULL-PERM": 3.333333859303542,
+      "NULL-REAL": 3.2739927483442903,
+      "PT-PERM": 3.341063730663888,
+      "PT-REAL": 3.266318776744123
+    },
+    "S3": {
+      "NULL-PERM": 3.3475936562628403,
+      "NULL-REAL": 3.2648878118341758,
+      "PT-PERM": 3.345957666426831,
+      "PT-REAL": 3.2632034788136566
+    }
+  },
+  "contrasts_by_seed": {
+    "S1": {
+      "delta_NULL": 0.06775701222068858,
+      "delta_PRE": 0.08531236315561667,
+      "gamma_real": 0.004474960274369483,
+      "tau_residual": 0.01755535093492809
+    },
+    "S2": {
+      "delta_NULL": 0.059341110959251916,
+      "delta_PRE": 0.074744953919765,
+      "gamma_real": 0.007673971600167345,
+      "tau_residual": 0.015403842960513087
+    },
+    "S3": {
+      "delta_NULL": 0.0827058444286644,
+      "delta_PRE": 0.08275418761317402,
+      "gamma_real": 0.0016843330205190972,
+      "tau_residual": 0.00004834318450962216
+    }
+  },
+  "co_primary": {
+    "gamma_real": {
+      "ci95_percentile": [
+        0.0026581794515664957,
+        0.006716623930602704
+      ],
+      "mean_delta_nll": 0.004611088298351975,
+      "seed_all_positive": true
+    },
+    "tau_residual": {
+      "ci95_percentile": [
+        0.008006140400569671,
+        0.014223537326267178
+      ],
+      "mean_delta_nll": 0.011002512359983604,
+      "seed_all_positive": true
+    }
+  },
+  "bootstrap": {
+    "method": "paired story resampling with common 768 indices for all 12 arms, token-weighted loss ratio per arm",
+    "draws": 2000,
+    "seed": 2026111199,
+    "confidence": "percentile 95%",
+    "scope": "conditional on 3 fixed adaptation seeds"
+  },
+  "reviewer": {
+    "model_forward_calls": 0,
+    "training_reexecuted": false,
+    "checker_frozen": true,
+    "independent_numeric_recalculated_by_adjudicator": true,
+    "independent_readback_sha256": "386ec3bdab72cecc31455998951cc2afbb51bd7e3d9023cbc65027d5dd80a513"
+  },
+  "limitations": [
+    "Scoped donor residual structure beyond initial frozen Ridge projection, not pure pretrained semantics",
+    "Only three fixed training seeds; S3 tau_residual=0.00004834318450962886 is near zero",
+    "Same-domain TinyStories-valid H768; historical sets only exact-ID exclusion, no near-duplicate text comparison to those holds",
+    "Donor pretraining overlap not established; same pretrained donor and same TTM checkpoint in all seeds",
+    "Null row norms/higher-order geometry not perfectly matched; cannot assert all donor semantics or geometry identified",
+    "No population-over-seed 95% interval and no out-of-domain claim; no external application or GGUF inference approved"
+  ],
+  "post_state": {
+    "science_reexecution": false,
+    "claim_not_recreated": true,
+    "private_per_story_not_published": true,
+    "checkpoint_weights_not_published": true,
+    "append_lineage": "L0020_ONLY",
+    "application": "DEFERRED",
+    "GGUF": "DEFERRED"
+  }
+}
