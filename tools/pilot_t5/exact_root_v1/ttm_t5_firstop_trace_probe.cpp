@@ -43,6 +43,7 @@ static bool selected(const std::string &s) {
         "inpL","attn_norm-0","wqkv_b-0",
         "Qcur-0","Kcur-0","Vcur-0",
         "kq-0","kq_soft_max-0","kqv-0","kqv_out-0",
+        "attn_wo_mm-0","attn_wo_out-0",
         "ffn_inp-0","ffn_norm-0","ffn_up_b-0",
         "ffn_gelu-0","ffn_out-0","result_norm","result_output"
     };
@@ -196,7 +197,7 @@ int main(int argc, char **argv) {
                 const int rc=llama_decode(ctx,batch);
                 if(rc!=0){llama_batch_free(batch);llama_free(ctx);throw std::runtime_error("DECODE_FAILED:"+arm.name+":"+fixture.name);}
                 if(!counts.failure.empty()){llama_batch_free(batch);llama_free(ctx);throw std::runtime_error(counts.failure);}
-                for(const auto &required: std::array<const char*,8>{"inpL","attn_norm-0","wqkv_b-0","kqv-0","ffn_inp-0","ffn_up_b-0","ffn_gelu-0","result_output"}){
+                for(const auto &required: std::array<const char*,10>{"inpL","attn_norm-0","wqkv_b-0","kqv-0","attn_wo_mm-0","attn_wo_out-0","ffn_inp-0","ffn_up_b-0","ffn_gelu-0","result_output"}){
                     if(counts.captured.count(required)==0){llama_batch_free(batch);llama_free(ctx);throw std::runtime_error(std::string("REQUIRED_TRACE_STAGE_MISSING:")+required);}
                 }
                 float *logits=llama_get_logits_ith(ctx,-1);
