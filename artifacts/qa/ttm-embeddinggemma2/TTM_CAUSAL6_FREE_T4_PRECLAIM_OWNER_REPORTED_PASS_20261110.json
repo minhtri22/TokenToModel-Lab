@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.causal6.preclaim.t4_owner_console_pass_public.v1",
+  "date": "2026-11-10",
+  "run_id": "ttm_small4m_gemma2_causal6_2048x4096_free_t4_20261109_v1",
+  "status": "PASS_NO_SCIENCE_CONSUMED",
+  "evidence_origin": "Owner-pasted Google Colab preflight stdout in conversation; no direct connection to Colab runtime in this tool.",
+  "resource": {
+    "device": "Tesla T4",
+    "device_count": 1,
+    "cuda": "13.0",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.4.6",
+    "owner_drive_free_attested_gib": 6,
+    "gpu_synthetic_peak_bytes": 303281152
+  },
+  "source_validation": {
+    "local_runner_restored_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+    "h512_public_seal_sha256": "d9ce40f37da7acf2b4b12fd657cdedb366754b2bb29b4b86de144230240f1b03",
+    "source_parity_C2048": "PASS_EXACT_STATE_AND_SYNTHETIC_LOGITS"
+  },
+  "diagnostics": {
+    "preflight_exit_code": 0,
+    "stderr_empty": true,
+    "run_output_dir_absent_at_time_of_last_report": true,
+    "one_shot_claim_consumed": false,
+    "science_training_executed": false
+  },
+  "decision": "GO_SCOPE_COLAB_T4_ONE_SHOT_EXECUTE_WITH_EXISTING_LOCKED_RUN_ID",
+  "science_claim_created_by_this_commit": false,
+  "source_code_changed": false,
+  "lineage_changed": false,
+  "next_operation": "RUN_CAUSAL6_SIX_ARM_SCIENCE_ONCE_AND_INDEPENDENT_READBACK"
+}
