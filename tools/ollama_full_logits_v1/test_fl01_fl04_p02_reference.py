@@ -13,7 +13,7 @@ class FrozenReferenceTests(unittest.TestCase):
         self.rows = []
         for fid, ids in FIX.items():
             self.rows.append({
-                "fixture_id": fid, "token_ids": ids,
+                "fixture_id": fid, "token_ids": list(ids),
                 "source": "P02_F32_STEP1024_GELU_ERF",
                 "checkpoint_sha256": CKPT,
                 "p02_git_blob": P02,

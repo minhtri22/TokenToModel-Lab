@@ -36,8 +36,11 @@ $ckptSHA = (Get-FileHash -LiteralPath $checkpoint -Algorithm SHA256).Hash.ToLowe
 if ($ckptSHA -ne 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b') {
     throw 'STEP1024_CHECKPOINT_SHA_MISMATCH'
 }
-& $Python312 -B -c 'import sys, torch; assert sys.version_info[:2] == (3,12); print("TORCH_VERSION=" + torch.__version__)'
+# Avoid nested double quotes in Windows PowerShell 5.1 native command argument passing.
+# torch.__version__ is printed directly so no quoted string literal reaches python -c.
+& $Python312 -B -c 'import sys, torch; assert sys.version_info[:2] == (3,12); print(torch.__version__)'
 if ($LASTEXITCODE -ne 0) { throw 'PYTHON312_TORCH_NOT_READY' }
+Write-Output 'PYTHON312_TORCH_IMPORT=PASS'
 $tools = Join-Path $work 'tools\ollama_full_logits_v1'
 $tests = Join-Path $tools 'test_fl01_fl04_p02_reference.py'
 $producer = Join-Path $tools 'produce_fl01_fl04_p02_reference.py'

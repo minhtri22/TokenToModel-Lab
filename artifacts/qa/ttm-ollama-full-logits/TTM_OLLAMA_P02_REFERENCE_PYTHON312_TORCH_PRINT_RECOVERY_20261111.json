@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.ollama.full_logits.p02_reference_preflight_recovery.v1",
+  "date": "2026-11-11",
+  "original_branch_commit": "7dd58d0844372ed8f79d1acf4ce697caebd63bd1",
+  "owner_reported": {
+    "branch_pin": "PASS",
+    "checkpoint_found_inside_project": "PASS",
+    "checkpoint_path": "_tmp/ttm_causal6_source_h512_stage_20261109/input/checkpoint.pt",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "failure": "PYTHON312_TORCH_NOT_READY",
+    "exception": "TypeError: bad operand type for unary +: 'TorchVersion'",
+    "reference_stage_directory_created": false,
+    "ollama_inference": "NOT_EXECUTED"
+  },
+  "root_cause": "PowerShell 5.1 native argument quoting stripped nested quotes from Python -c version print; unary + applied to torch TorchVersion object.",
+  "repair": {
+    "scope": "two files; version print without embedded quotes; negative test fixture IDs deep copy",
+    "runtime_logic_changed": false,
+    "reference_generator_changed": false,
+    "prereg_changed": false,
+    "checkpoint_changed": false,
+    "numerical_threshold_changed": false
+  },
+  "review": {
+    "source_anchor_replacement": "PASS_EXACT",
+    "new_windows_execution": "NOT_EXECUTED",
+    "actual_reference_produced": "NOT_EXECUTED",
+    "main": "UNCHANGED",
+    "T5_WINDOWS_F32": "PASS_SCOPED_UNCHANGED",
+    "OLLAMA_FULL_LOGITS": "NOT_EXECUTED"
+  },
+  "next": "Owner ff-only branch update, run isolated P02 FL01-FL04 producer once, seal SHA; do not rerun prior source-only QA."
+}
