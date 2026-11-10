@@ -1,0 +1,332 @@
+{
+  "phase": "DONE",
+  "status": "PASS",
+  "tokenizer": [
+    {
+      "index": 0,
+      "text": "a",
+      "utf8_hex": "61",
+      "expected_ids": [
+        97
+      ],
+      "actual_ids": [
+        97
+      ],
+      "decoded_expected_ids": "a",
+      "decoded_actual_ids": "a",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 1,
+      "text": "ab",
+      "utf8_hex": "6162",
+      "expected_ids": [
+        97,
+        98
+      ],
+      "actual_ids": [
+        97,
+        98
+      ],
+      "decoded_expected_ids": "ab",
+      "decoded_actual_ids": "ab",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 2,
+      "text": "abc",
+      "utf8_hex": "616263",
+      "expected_ids": [
+        97,
+        98,
+        99
+      ],
+      "actual_ids": [
+        97,
+        98,
+        99
+      ],
+      "decoded_expected_ids": "abc",
+      "decoded_actual_ids": "abc",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 3,
+      "text": "aaaaaaaaa",
+      "utf8_hex": "616161616161616161",
+      "expected_ids": [
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97
+      ],
+      "actual_ids": [
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97,
+        97
+      ],
+      "decoded_expected_ids": "aaaaaaaaa",
+      "decoded_actual_ids": "aaaaaaaaa",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 4,
+      "text": "hello",
+      "utf8_hex": "68656c6c6f",
+      "expected_ids": [
+        257,
+        304,
+        111
+      ],
+      "actual_ids": [
+        257,
+        304,
+        111
+      ],
+      "decoded_expected_ids": "hello",
+      "decoded_actual_ids": "hello",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 5,
+      "text": "café",
+      "utf8_hex": "636166c3a9",
+      "expected_ids": [
+        99,
+        1659,
+        195,
+        169
+      ],
+      "actual_ids": [
+        99,
+        1659,
+        195,
+        169
+      ],
+      "decoded_expected_ids": "café",
+      "decoded_actual_ids": "café",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 6,
+      "text": "a b",
+      "utf8_hex": "612062",
+      "expected_ids": [
+        97,
+        268
+      ],
+      "actual_ids": [
+        97,
+        268
+      ],
+      "decoded_expected_ids": "a b",
+      "decoded_actual_ids": "a b",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 7,
+      "text": "a\nb",
+      "utf8_hex": "610a62",
+      "expected_ids": [
+        97,
+        10,
+        98
+      ],
+      "actual_ids": [
+        97,
+        10,
+        98
+      ],
+      "decoded_expected_ids": "a\nb",
+      "decoded_actual_ids": "a\nb",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    },
+    {
+      "index": 8,
+      "text": "Xin chào",
+      "utf8_hex": "58696e206368c3a06f",
+      "expected_ids": [
+        88,
+        267,
+        628,
+        195,
+        160,
+        111
+      ],
+      "actual_ids": [
+        88,
+        267,
+        628,
+        195,
+        160,
+        111
+      ],
+      "decoded_expected_ids": "Xin chào",
+      "decoded_actual_ids": "Xin chào",
+      "encode_pass": true,
+      "decode_pass": true,
+      "round_trip_pass": true
+    }
+  ],
+  "model_load": "PASS",
+  "tokenizer_status": "PASS_9_OF_9",
+  "http_completion": "PASS",
+  "ollama": "NOT_EXECUTED",
+  "v1_receipt_sha256": "79c507690d14d348643695f3425568481ad7c5db473e03894ede22a41fef74b2",
+  "build": "REUSED_V1",
+  "source": {
+    "commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "original_blob": "711a148a28bd1aa2c1dccf2e3b21803aac4a4185",
+    "patched_blob": "599f178135ca2fe48a1c7760898a58886c1263b9"
+  },
+  "binary_sha256": "794076b8d0a25aec63b072325064f3edbca4a2d7363d49850df41e749a12b74f",
+  "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+  "argv": [
+    "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_isolated_llama_gelu_erf_cpu_qa_v1\\build\\bin\\Release\\llama-server.exe",
+    "-m",
+    "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_trained_f32_v1\\TTM-Small4M-T4-step1024-F32.gguf",
+    "-ngl",
+    "0",
+    "-t",
+    "1",
+    "-c",
+    "256",
+    "-np",
+    "1",
+    "-ctk",
+    "f32",
+    "-ctv",
+    "f32",
+    "-fa",
+    "off",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "18085",
+    "--no-webui",
+    "--no-agent"
+  ],
+  "completion": {
+    "index": 0,
+    "content": ".",
+    "tokens": [
+      46,
+      256
+    ],
+    "id_slot": 0,
+    "stop": true,
+    "model": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t5_trained_f32_v1\\TTM-Small4M-T4-step1024-F32.gguf",
+    "tokens_predicted": 2,
+    "tokens_evaluated": 6,
+    "generation_settings": {
+      "seed": 42,
+      "temperature": 0.0,
+      "dynatemp_range": 0.0,
+      "dynatemp_exponent": 1.0,
+      "top_k": 40,
+      "top_p": 0.949999988079071,
+      "min_p": 0.05000000074505806,
+      "top_n_sigma": -1.0,
+      "xtc_probability": 0.0,
+      "xtc_threshold": 0.10000000149011612,
+      "typical_p": 1.0,
+      "repeat_last_n": 64,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "dry_multiplier": 0.0,
+      "dry_base": 1.75,
+      "dry_allowed_length": 2,
+      "dry_penalty_last_n": 64,
+      "dry_sequence_breakers": [
+        "\n",
+        ":",
+        "\"",
+        "*"
+      ],
+      "mirostat": 0,
+      "mirostat_tau": 5.0,
+      "mirostat_eta": 0.10000000149011612,
+      "adaptive_target": -1.0,
+      "adaptive_decay": 0.8999999761581421,
+      "stop": [],
+      "max_tokens": 8,
+      "n_predict": 8,
+      "n_keep": 0,
+      "n_discard": 0,
+      "ignore_eos": false,
+      "stream": false,
+      "logit_bias": [],
+      "n_probs": 0,
+      "min_keep": 0,
+      "grammar": "",
+      "grammar_lazy": false,
+      "grammar_triggers": [],
+      "preserved_tokens": [],
+      "chat_format": "Content-only",
+      "reasoning_format": "deepseek",
+      "reasoning_in_content": false,
+      "generation_prompt": "",
+      "samplers": [
+        "penalties",
+        "dry",
+        "top_n_sigma",
+        "top_k",
+        "typ_p",
+        "top_p",
+        "min_p",
+        "xtc",
+        "temperature"
+      ],
+      "speculative.types": "none",
+      "timings_per_token": false,
+      "post_sampling_probs": false,
+      "backend_sampling": false,
+      "lora": []
+    },
+    "prompt": "Xin chào",
+    "has_new_line": false,
+    "truncated": false,
+    "stop_type": "eos",
+    "stopping_word": "",
+    "tokens_cached": 7,
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 6,
+      "prompt_ms": 3.862,
+      "prompt_per_token_ms": 0.6436666666666667,
+      "prompt_per_second": 1553.5991714137754,
+      "predicted_n": 2,
+      "predicted_ms": 2.788,
+      "predicted_per_token_ms": 2.788,
+      "predicted_per_second": 358.6800573888092
+    }
+  }
+}
