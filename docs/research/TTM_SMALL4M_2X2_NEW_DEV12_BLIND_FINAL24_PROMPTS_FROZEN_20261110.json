@@ -1,0 +1,503 @@
+{
+  "date": "2026-11-10",
+  "decode": {
+    "max_new_tokens": 64,
+    "mode": "greedy",
+    "same_p02_tokenizer_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+    "trailing_ascii_space": false
+  },
+  "exclusions": [
+    "P01-P08 historical evaluation (not reopened)",
+    "F01-F12 FRESH12",
+    "sealed Q1Q2 and original T4 TEST not accessed"
+  ],
+  "novelty_checks": {
+    "all_new_36_unique": true,
+    "exact_text_overlap_with_locally_frozen_FRESH12": 0,
+    "prior_P01_P08_Q1Q2_TEST_exhaustive_overlap": "NOT_CHECKED_SEALED"
+  },
+  "prompts": [
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 30,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D01",
+      "prompt": "Asha found a silver bell under the table and wanted to return it to the baker before the shop closed.",
+      "split": "DEV",
+      "utf8_sha256": "221b48a99684c210052aea1d27edcb7c329ddb6e4c8e3486f82224695a812f40"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 31,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D02",
+      "prompt": "Bruno built a little bridge from sticks so his younger sister could cross a puddle without wet shoes.",
+      "split": "DEV",
+      "utf8_sha256": "ff6f510357eedc1097c80402a4715039ea5bd1d1dbdc5b7da9c9633fa7dbd2ab"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 32,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D03",
+      "prompt": "Celia tied a blue ribbon to her basket, but a sudden breeze carried it into a tall hedge.",
+      "split": "DEV",
+      "utf8_sha256": "44c7fa3378e01a24721d241e0612b6c00cd471d1dda7c8c753f9a1a380dd770d"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 26,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D04",
+      "prompt": "Diego promised to feed the fish in the glass bowl before the family left for the market.",
+      "split": "DEV",
+      "utf8_sha256": "2745e517ebc58db27977e057dfa724288fa5df2c68fed47bb596ab46e4317e05"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D05",
+      "prompt": "Elin saw a lost mitten beside the snowy path and searched for the child who had dropped it.",
+      "split": "DEV",
+      "utf8_sha256": "936157b14d154953fe1f1396f56cd8af19d5cb3d2b6396cfd610af5b29c8f748"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 30,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D06",
+      "prompt": "Farah put a tiny candle into a lantern to help her uncle find the garden gate after sunset.",
+      "split": "DEV",
+      "utf8_sha256": "2109ba23051016d90375048ceac7bd1c0f3d44f3f2457cb73c395e8df932840b"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 32,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D07",
+      "prompt": "Greta picked two yellow plums for her father, then noticed one had fallen beneath the wooden bench.",
+      "split": "DEV",
+      "utf8_sha256": "5af4ffa1c3f1a2823c794b878f6f8d936eecc62608e4658b4d5a8216d6071f99"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 28,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D08",
+      "prompt": "Hugo made a cardboard crown for his little cousin, but its paper star came loose at the party.",
+      "split": "DEV",
+      "utf8_sha256": "0d0e227a83327a5112f38d424951b92c24aa5669a41fa3f3ba265073f67f8484"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 26,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D09",
+      "prompt": "Isla carried a jar of honey for the picnic when she heard a buzzing sound near the flowers.",
+      "split": "DEV",
+      "utf8_sha256": "e2cd77126968efbf488a9be5908fa4a9e3ec0551dc44ac57d309d24f9906160a"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 29,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D10",
+      "prompt": "Jasper found a blue marble by the fountain and tried to give it back to the boy in the red hat.",
+      "split": "DEV",
+      "utf8_sha256": "1c9d09d8c4dc21fb85f5c69ef7aa440484d1028fcfb1167edfe30ace519c0ebf"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 34,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D11",
+      "prompt": "Kora tucked a warm scarf into a parcel for her aunt, then realized she had forgotten the address.",
+      "split": "DEV",
+      "utf8_sha256": "f1cecb2f757ef644ad2eb3cf284852a54e71f0bbec3f84859602fb198d105b9b"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 33,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "D12",
+      "prompt": "Luis took a wooden ladder to rescue a kitten that was stranded on the low roof of the shed.",
+      "split": "DEV",
+      "utf8_sha256": "7a8b1f4d38a643e6ba7a9760fd1a5355fdca6aec5536e732ef32b98f83108ba7"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 31,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q01",
+      "prompt": "Mina left a bowl of oats on the porch for the hungry pony and went to fetch more clean water.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "4b28c4f176e68cc3aef959082c87590c6e215eab3b2ebb4a931b2b315396f9cb"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 33,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q02",
+      "prompt": "Niko held a paper map upside down while guiding his brother toward the small cabin beside the lake.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "44a7bc4bf4d06832ccbb49e4234b761a3d457405075fdf0674fe59fbe6e65861"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 29,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q03",
+      "prompt": "Orla planted a white bean beside the fence and promised her grandpa to water it each morning.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "e240ceeda92f013784beb524fa4c62f1b3795554bfc1a5aa21947d393216a025"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 23,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q04",
+      "prompt": "Petra dropped a copper coin into the sand and asked her friend to help find it before dark.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "0193b2aa0472262fb1c9b7fb96609deb2568da0d3a2f0fb91de55a9c0e510c43"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 25,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q05",
+      "prompt": "Quinn saw a blue feather on the bridge and followed a quiet bird toward the willow tree.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "f8fde9bf4c9e41150b042908908b097127061251a82f24758eb0270ca0b44073"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 25,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q06",
+      "prompt": "Ravi brought a broken music box to the carpenter because he wanted it to play for his sister again.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "1e382f73a738160a31ff6b876594e0b90ea43c586a3ff4ee3a8afdb639f38073"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 23,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q07",
+      "prompt": "Sela put a yellow scarf around a cold snowman and noticed that its wooden nose was missing.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "eaf055e3bfdeb05952046433245c4ca3c38c827dd53baff7818df7d55b75989f"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 30,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q08",
+      "prompt": "Theo set out three cups of milk for the kittens, but the smallest kitten hid under the old chair.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "5333dd04043dc3116606bbc1d69934fc341d8860b49f9b247e7f87abe8b135f7"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 32,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q09",
+      "prompt": "Uma found a folded letter inside a green book and planned to deliver it to the neighbor next door.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "7ed210207b7cba72264230bb2b5dfa5483c7b588212d0d08167cb442850e53bb"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 28,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q10",
+      "prompt": "Vera carried a basket of peaches to her uncle, but a small wheel on her cart came off.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "86b4817a5f9234687061081c585f60efca064a6eddadb417b8d08b1f96f48c34"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 25,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q11",
+      "prompt": "Willa drew a bright moon on a birthday card for her brother when the purple pen stopped working.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "3f6277b3ea6c144fc32fddc85a3593bf2ec485517dcb390c35b2dddcbac9ec61"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q12",
+      "prompt": "Xavi spotted a little frog beside the road and wanted to move it safely back to the wet grass.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "2bb9c55c0c750181aba8545ac04bc3de60c2445ce837150bf5ef4f13733ea1d6"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q13",
+      "prompt": "Yara used a red rope to pull her toy boat away from the reeds at the edge of the pond.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "d629c78e16ecea537b74a8a21393f1f5d27310543cb4531b79b371a77733348e"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 34,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q14",
+      "prompt": "Zed found a wooden whistle in the attic and asked his father whether it belonged to the old shepherd.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "703a14b6e2c630a7547863bbf9bceefa4bd755e3885321d0eb396106bf5c6dc6"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 28,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q15",
+      "prompt": "Ada filled a small sack with flour for the baker, but a hole opened in the bottom of the bag.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "ed63943052918161c44bf7eb99c79aaacad8fe954478b1ccc901e77942cd8e61"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 31,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q16",
+      "prompt": "Basil found three buttons beside the sewing box and tried to match them to his sister’s coat.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "98ec2b551c0ca1c8eac8fd308fa33538a00c4fec7d2a775501cf063c6f8570e6"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 31,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q17",
+      "prompt": "Cora waited beside the clock tower with a parcel meant for the gardener, who was running late.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "e0e02154984f30dabf1b0e1b2229a6b7951e9c7564a8109323e89d0ba321caea"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 29,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q18",
+      "prompt": "Deni carried a glass of lemonade to his friend, then slipped on the wet stones near the steps.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "10336d8972341d80b6254cb2085ea1a6999c46118152b87d4d63dc7a8dfd3853"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q19",
+      "prompt": "Esme put a tiny brass key in her pocket and searched for the matching lock on the garden chest.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "bc0c2822de995b47c98dc3348de2802205e944bfd64e2078456bfc9a566d8bba"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q20",
+      "prompt": "Faye watched the ducklings leave their nest and hurried to close the gate near the busy lane.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "933a1ebe9d5b1217bb415f9ad40296315e14d8d68c3cb2da687b95eebfc21080"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 30,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q21",
+      "prompt": "Gio had one candle left for the cake, so he asked his grandmother where to find the matchbox.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "9795227121b5c9f756f6bcbfdf889f786285d9223d840a4efd2e448c27a8c839"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 30,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q22",
+      "prompt": "Hana placed a green leaf on the injured butterfly and carried it toward the shade of a bush.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "736a254bef31d171f9507f4609c4340b204d3b3de4b9f7eb247f58cc72e5f254"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 35,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q23",
+      "prompt": "Iris borrowed a little shovel to dig a hole for her rosebush, but the soil was full of stones.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "30e03091e0a1ca67cc7e68e5299e4926e14dc437539be020179208a6541678f2"
+    },
+    {
+      "authorship": "newly authored for TTM follow-on 2x2 design; no third party excerpts",
+      "bpe_token_count": 27,
+      "expected_roles": [
+        "actor",
+        "object",
+        "goal"
+      ],
+      "id": "Q24",
+      "prompt": "Jude brought a purple blanket to the cold puppy and made a dry bed beside the kitchen stove.",
+      "split": "BLIND_FINAL",
+      "utf8_sha256": "cf19ea197744af487b70af64ddfe94d0a0cbfe95107c36cf1461e2f6b4e2ad11"
+    }
+  ],
+  "review": {
+    "four_arm_blind_order": "Latin square 24 prompt clusters, 6 appearances in each display position for each arm",
+    "human_independent_reviewer_assigned": false,
+    "reviewer_never_receives_arm_or_condition_key": true,
+    "rubric_axes": [
+      "adherence_0to3",
+      "coherence_0to3",
+      "consistency_0to3"
+    ],
+    "scoped_codex_ai_reviewer_assigned_for_this_new_trial": false
+  },
+  "schema": "ttm.small4m.2x2.new_eval_prompts.freeze_candidate.v1",
+  "source": "authored_for_new_pilot_not_from_original_TINYSTORIES_TEST",
+  "state": "FROZEN_BEFORE_FUTURE_SCIENCE_NO_SCIENCE_EXECUTED"
+}
