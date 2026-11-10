@@ -1,0 +1,20 @@
+{
+  "schema": "ttm.ollama.full_logits.v2_build_owner_remote_readback.v1",
+  "date": "2026-11-11",
+  "method": "Windows read-only RemoteDesktop STAGE_RECEIPT.json",
+  "status": "BUILD_PASS_ISOLATED_NO_OLLAMA_INFERENCE",
+  "build_receipt_sha256": "86f2aa3ffc5dbedfc67de009721009577d11645d8aad0f025bda32ef8460b122",
+  "runner_sha256": "818fec27008b0a8555ecbae09c8c95e6a076d2b2fa4c26377b8bdb248232210a",
+  "ollama_cli_sha256": "7544d36e5bb4c9cfddbd48a400ea4f1919de8fcea80510e1847627ec92909e43",
+  "effective_cmake_source": "D:/WORK/RESEARCH/TokenToModel-Lab/_tmp/fl2/llama",
+  "hook_source_git_blob": "8f5982a0d7de92de0e3b4d5aeec5211951437b33",
+  "cmake_configure_log_sha256": "98ee90c667674edfb0274fcdc76634e8a205557526bccf92adf1d982eefe5e70",
+  "cmake_build_log_sha256": "2789f8de8ab5d8258fef7bd700762da5883f1188776b90b21072a764bba1b96b",
+  "cmake_install_log_sha256": "045aae7f6d2541fbc7925f61ae148094da34540650d79731aa681852810c319a",
+  "reference_sha256": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+  "seal_sha256": "571a1a654bad1b97de066d6fb3b690e910ecc71777deb4b16b7b15968f444939",
+  "ollama_logits_inference": "NOT_EXECUTED",
+  "T5_WINDOWS_F32": "PASS_SCOPED_UNCHANGED",
+  "main_sha": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "limitations": "Build receipt independently read on Windows but executable binary digest not independently recomputed by remote; new runner verifies all pinned SHA before inference."
+}
