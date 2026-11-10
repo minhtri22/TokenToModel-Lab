@@ -1,0 +1,139 @@
+{
+  "schema": "ttm.gemma2.ood256.checkpoint_scorer_preexec_integrated_qa.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_OOD_12_FROZEN_CHECKPOINT_SHA_SCORER_COMPATIBILITY_PREEXEC_GATE",
+  "branch": "research/ttm-small4m-embeddinggemma2-ood-design-20261111",
+  "model_lineage": "TTM_SMALL_4M_EMBEDDINGGEMMA2_EXPERIMENT_ONLY_NOT_TTM_MAIN",
+  "base_frozen_commit": "13820a972c99c2670e8ab32ee01eb51763479aae",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "verdict": "PASS_SCOPED_STATIC_AND_SYNTHETIC",
+  "source_lineage_L0020": "PRESERVED",
+  "source_adjudication_git_blob": "23ec04b6fecb014e75066610a0807b92463d56a5",
+  "checkpoint_verification": {
+    "source": "Google Drive 12 step_2048/checkpoint.pt raw files streamed individually; SHA256 computed from each binary in isolated CPU container",
+    "total_required": 12,
+    "files_located_in_Drive": 12,
+    "checkpoint_raw_bytes_hashed": 12,
+    "sha_match_frozen_L0020": 12,
+    "checkpoint_size_bytes_each": 52947597,
+    "metadata_cpu_loaded_weights_only": 12,
+    "model_forward_calls": 0,
+    "torch_device": "cpu",
+    "matched_frozen_sha256": {
+      "S1/NULL-PERM": "9365403b0a2f4499405f348639d8ebd37e9d8997d0d10894ef23d0d57dbddb21",
+      "S1/NULL-REAL": "59bb203f5ba2a02e56778200d21ec26c2898bed12a2644d9c860ae06aaffe9fb",
+      "S1/PT-PERM": "dd62bf4695ec9dd4175817c1e3c663389b1282ead560a267f02c7d97a54960fb",
+      "S1/PT-REAL": "cf3e6863215555b639fd4d3582f77f2b997c05dc5269cd411342bf660632cf46",
+      "S2/NULL-PERM": "a2740d762abdf760483f460716464631caf68f577491946de6d264b206a4aa5f",
+      "S2/NULL-REAL": "10ad0ffa8ffd58bee5276374562140e9e3bf580695a5a2e4f4d4bfc08ea42b25",
+      "S2/PT-PERM": "f1dba5a83772d2346222083039012f928917351ba48bdf843f8d4814dc24b60a",
+      "S2/PT-REAL": "1ea877b7c62e0b17fc757881a54cd1a4bd829128c0e406543723e871c6f432f1",
+      "S3/NULL-PERM": "ac6fe6ed4510eb6212609c1e913d6102782a78dcb4cfc2aa7743f6151ef07235",
+      "S3/NULL-REAL": "b58a17f65d6ec949095a0d3d1ac3a91f26d3c71c7246a1ea64d2a4d224341c1e",
+      "S3/PT-PERM": "c51a947f1d075e90a5199130e79a671c5257714d66a511fc2d9e78bbc7eac89d",
+      "S3/PT-REAL": "272fd3987d5f5505807662ab62153ede927d76f1c87333affa98df8c6f55fb93"
+    },
+    "state_dict_shape_checked_count": 12,
+    "state_dict_tensor_count": 56,
+    "required_state_shapes": {
+      "tok.valid": [
+        2048
+      ],
+      "tok.fallback": [
+        2048,
+        256
+      ],
+      "tok.source.weight": [
+        2048,
+        512
+      ],
+      "tok.proj.weight": [
+        256,
+        512
+      ],
+      "pos.weight": [
+        256,
+        256
+      ],
+      "head.weight": [
+        2048,
+        256
+      ]
+    },
+    "study_seed_arm_step_checked": 12,
+    "train_loss_records_per_arm": 2048,
+    "ready_metadata_located": 12,
+    "ready_metadata_read": 12,
+    "ready_sha_seed_arm_step_match": 12,
+    "ready_source_runner_sha256": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
+    "source_archive_exists_in_owner_Drive": true,
+    "checkpoint_contents_published": false
+  },
+  "scorer_interface": {
+    "source_path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/ttm_ood256_scorer_interface_cpu_fixture.py",
+    "git_blob_sha1": "0ec741687827ba85e4f435d83a9b12207894ed07",
+    "sha256": "38c322e297b315480f9f8aa933752f346b7ed42b022f9d3fcdd94c24d72c5dcf",
+    "local_source_git_blob_match": true,
+    "python_compile": "PASS",
+    "synthetic_cpu_qa": "PASS_6",
+    "static_real_checkpoint_header_fixture": "PASS_1_OF_1",
+    "code_real_model_forward_calls": 0,
+    "synthetic_input": "two windows uniform precomputed logits",
+    "synthetic_logit_dimensions": [
+      2,
+      256,
+      2048
+    ],
+    "synthetic_NLL_formula": "512*log(2048)",
+    "output_per_document_sum_shape": [
+      256
+    ],
+    "real_logit_scoring_executed": false,
+    "frozen_old_H768_scorer_direct_compatibility": "FAIL_STATIC_SHAPE_MISMATCH_768_VS_256__DO_NOT_REUSE_DIRECTLY",
+    "ood_specific_interface": "PASS_SYNTHETIC_ONLY",
+    "future_runtime_model_binding": "NOT_EXECUTED_REQUIRES_OWNER_PERMIT"
+  },
+  "ood_seal": {
+    "source": "Windows RemoteDesktop public seal readback + earlier independent CPU source QA logs",
+    "source_256": true,
+    "status": "SEALED_SOURCE_ONLY_NOT_SCORED",
+    "public_seal_sha256": "0091b56b27c68f1bb724b63181097434d6c7c5922e5cc1de929423b5b0c45438",
+    "public_seal_canonical_content_rehashed_and_matches_prior": true,
+    "private_membership_sha256_pinned": "627c99db8b39b6479fdb074a82b0ab7eea0367dde49bf0072c29ff410ecdcd5f",
+    "private_windows_sha256_pinned": "3ec7655c512c5d13d4c0d04d1ddbae80b8ea0106aee82064e8dd806786d8336a",
+    "current_private_byte_rehash": "NOT_EXECUTED_REMOTE_BINARY_READER_UNAVAILABLE",
+    "previously_verified_source_and_independent_QA": "PASS_CPU_SOURCE_ONLY_AND_PASS_SCOPED_NO_FORWARD",
+    "selected_documents": 256,
+    "windows": 512,
+    "labels": 131072,
+    "context": 256,
+    "vocab": 2048,
+    "historical_TinyStories_near_duplicates_limit": "TRAIN_2048_AND_VAL_256_ONLY; pretraining_overlap_UNKNOWN",
+    "no_reseal_no_rerank_no_dataset_change": true
+  },
+  "governance": {
+    "gpu_calls": 0,
+    "model_forward_calls": 0,
+    "training_executed": false,
+    "ood_inference_executed": false,
+    "science_claim_created": false,
+    "owner_scoring_permission": "NOT_ISSUED",
+    "original_L0020_untouched": true,
+    "append_lineage": false,
+    "main_modified": false,
+    "branch_merge_executed": false,
+    "private_material_published": false
+  },
+  "owner_decision": {
+    "ready_for_single_owner_decision": true,
+    "proposed_next_operation": "TTM_GEMMA2_OOD_12ARM_INFERENCE_ONLY_ONE_SHOT_OWNER_PERMIT_AND_FROZEN_SCORER_SOURCE_QA",
+    "must_before_actual_model_forward": [
+      "verify OOD private membership and windows current byte SHA256 against pinned public seal",
+      "verify frozen 12 checkpoint hashes and strict model source binding, using previously approved checkpoints only",
+      "freeze OOD-specific science scorer and independent QA, never call H768-specific scorer directly",
+      "owner explicit approve inference-only execution"
+    ],
+    "constraints": "No retrain, no checkpoint/data re-selection, no NLL seen before owner permit, no GGUF/application",
+    "inference_permission": "NOT_AUTHORIZED"
+  }
+}
