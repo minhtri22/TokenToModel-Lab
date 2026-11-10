@@ -1,0 +1,285 @@
+{
+  "schema": "ttm.o0_only.new_diagnostic_neural_feasibility.design_candidate.v1",
+  "date": "2026-11-11",
+  "task": "TTM_O0_ONLY_SMALL_NEURAL_FEASIBILITY_NEW_DIAGNOSTIC_CORPUS_DESIGN_AND_SINGLE_OWNER_GO_NO_GO",
+  "status": "DESIGN_COMPLETE_CANDIDATE_NOT_PREREG_FREEZE",
+  "repository": {
+    "full_name": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-o0-only-neural-feasibility-diagnostic-design-20261111",
+    "base_commit": "815541c6f8ed2e275d12ae67780b9a95228e490f",
+    "research_scope": "NON_MAIN_NO_MERGE_NO_LINEAGE_WRITE"
+  },
+  "lineage_of_evidence": {
+    "R3A_public_demo": "FAIL_SCOPED_384_OF_384_SHALLOW_HEURISTIC",
+    "review_script_git_blob": "5c11164cb66371e443a788c94e7e93fb86c55264",
+    "review_replay_receipt_git_blob": "293373aa53b0e920dc592c3f0b17c7978576d3fe",
+    "R3A_model_sha256": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+    "R3A_oracle_sha256": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08",
+    "R3A_used_for_new_science_eval": false,
+    "prior_FRESH12_used_for_new_science_eval": false,
+    "original_TTM_TEST_Q1Q2": "UNTOUCHED"
+  },
+  "O0_backbone": {
+    "P02_model_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "A2_train_source_git_blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "t4_data_source_git_blob": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "t4_eval_source_git_blob": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "t4_capacity_source_git_blob": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "model_parameters": 3749376,
+    "config": {
+      "vocab_size": 2048,
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "norm_type": "layernorm"
+    },
+    "checkpoint_step": 1024,
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "tokenizer_frozen": true,
+    "tokenizer_source": "T1_T2_TRAIN_ONLY_BPE_2048",
+    "tokenizer_manifest_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "older_train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "prohibited": [
+      "modify checkpoint1024 in place",
+      "use historical step1280 as same-run trained control",
+      "change architecture",
+      "add auxiliary state head",
+      "change tokenizer",
+      "merge PR13",
+      "read original TTM TEST or Q1Q2"
+    ]
+  },
+  "new_diagnostic_corpus_candidate": {
+    "name": "TTM-O0-DIAG-N1",
+    "source": "original synthetically generated short text via a new rule grammar to be implemented later",
+    "source_rights": "owner-controlled self-authored synthetic; no external corpus material; no independent legal reviewer required for internal study",
+    "not_copy_or_transform_R2_R2A_R3_R3A_rows": true,
+    "status": "NOT_GENERATED",
+    "four_event_families": [
+      {
+        "id": "N1",
+        "name": "alias-chain-with-target-binding-change",
+        "dependency": "early alias binding alters final holder despite same later handoff sentence"
+      },
+      {
+        "id": "N2",
+        "name": "delegation-cancel-redelegate",
+        "dependency": "goal persists, revokes, transfers; NONE and goal token both scored"
+      },
+      {
+        "id": "N3",
+        "name": "scoped-role-with-explicit-rule",
+        "dependency": "locally scoped reference changes queried entity without changing final direct token string"
+      },
+      {
+        "id": "N4",
+        "name": "multi-object-counterfactual",
+        "dependency": "intervention on one object changes target and leaves distractor invariant"
+      }
+    ],
+    "group_size": 4,
+    "cells": [
+      "A_TARGET",
+      "A_DISTRACTOR",
+      "B_TARGET",
+      "B_DISTRACTOR"
+    ],
+    "splits": [
+      {
+        "id": "TRAIN",
+        "groups": 1024,
+        "records": 4096,
+        "family_groups_each": 256,
+        "visibility": "TRAIN_LABELS_AVAILABLE_TO_TRAIN"
+      },
+      {
+        "id": "DEV_IID",
+        "groups": 64,
+        "records": 256,
+        "family_groups_each": 16,
+        "visibility": "DEV_LABELS_ONLY_AFTER_TRAIN_ENDED"
+      },
+      {
+        "id": "DEV_STRUCT",
+        "groups": 64,
+        "records": 256,
+        "family_groups_each": 16,
+        "visibility": "DEV_LABELS_ONLY_AFTER_TRAIN_ENDED"
+      },
+      {
+        "id": "BLIND_FINAL_STRUCT",
+        "groups": 128,
+        "records": 512,
+        "family_groups_each": 32,
+        "visibility": "ENCRYPTED_ESCROW_NO_PUBLIC_PLAINTEXT_LABELS"
+      }
+    ],
+    "total_groups": 1280,
+    "total_records": 5120,
+    "motif_policy": "query-rooted typed dependency DAG canonicalized without names/aliases/templates; TRAIN and DEV_STRUCT and BLIND_FINAL_STRUCT motif IDs disjoint; DEV_IID shares TRAIN motif family but never exact groups or text",
+    "strict_group_split": true,
+    "exact_novelty_against_R3A": true,
+    "near_duplicate_audit": "token5gram+template_similarity_and_event_canonical_hash",
+    "length_balancing": "same event-line-count and BPE-token-length bins across split and family; group order randomly blinded separately from model-only rows; reporting mandatory",
+    "counterfactual_requirements": [
+      "four cells are valid under preconditions, one target intervention causes target answer flip and distractor answer invariant",
+      "at least 25 percent of four-cell groups require earlier binding/goal event even with same last two visible event lines across A and B",
+      "at least 25 percent examples have answer NONE or non-immediately visible answer, balanced between IID and structural groups",
+      "precondition-invalid or ambiguous cases explicitly rejected, not silently given normal answers",
+      "the target/distractor query and group membership must not be visible to model as metadata"
+    ],
+    "text_input_contract": {
+      "model_uses_only": [
+        "story",
+        "question"
+      ],
+      "model_json_root_allowlist": [
+        "schema",
+        "records"
+      ],
+      "record_fields_exact": [
+        "story",
+        "question"
+      ],
+      "no_answer_or_oracle_or_split_or_ids_in_inference_input": true,
+      "duplicate_raw_json_keys_rejected": true,
+      "max_prompt_tokens": 224,
+      "context_limit": 256,
+      "max_answer_tokens": 16,
+      "expected_training_surface": "Story:\\n<story>\\nQuestion: <question>\\nAnswer: <answer>\\n",
+      "expected_evaluation_prompt": "Story:\\n<story>\\nQuestion: <question>\\nAnswer:",
+      "text_token_budget_measured_with_exact_frozen_BPE_before_science": true,
+      "if_context_overflow": "HOLD_REDESIGN_BEFORE_FREEZE_NO_TRUNCATION",
+      "answer_normalization": "exact string in closed label set; no partial credit; EOS and extra-generation behaviors reported"
+    },
+    "sealed_final_protocol": {
+      "new_private_seed_not_on_public_GitHub": true,
+      "public_commit_contains": "ciphertext_or_commitment_sha256_and_metadata_only",
+      "final_plaintext_and_key": "owner_private_outside_public_repository",
+      "checksum_before_gpu": true,
+      "blinded_model_names_and_id_map_separate": true,
+      "final_decrypt_after_all_model_outputs_and_scores_locked": true,
+      "no_test_Q1Q2": true,
+      "source_script_may_be_public_but_private_final_seed_must_not_be_published": true
+    }
+  },
+  "O0_only_pilot_candidate": {
+    "arms": [
+      {
+        "id": "Z",
+        "name": "FROZEN_STEP1024",
+        "train_steps": 0,
+        "architecture": "P02_FROZEN_BASELINE"
+      },
+      {
+        "id": "A",
+        "name": "O0_CONTINUED_128_STEP",
+        "train_steps": 128,
+        "architecture": "P02_UNCHANGED"
+      }
+    ],
+    "learning_claim": "learning-after-controlled-task-data-exposure vs same frozen parent; NOT architecture-vs-O1 and NOT from-scratch generalization",
+    "only_one_new_training_arm": true,
+    "new_optimizer": "AdamW_REINITIALIZED_NOT_HISTORICAL_RESUME",
+    "initial_weights": "copy exact step1024 weights, do not mutate frozen parent",
+    "optimizer": {
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-8,
+      "weight_decay": 0.1,
+      "gradient_clip_norm": 1
+    },
+    "scheduler": "constant 1e-4 after no warmup (candidate; freeze before any GPU)",
+    "seed_candidate": 20261111,
+    "optimizer_steps": 128,
+    "real_target_labels_per_step": 4096,
+    "total_scored_target_exposures": 524288,
+    "loss": "ordinary causal next-token cross-entropy on all non-pad story/question/answer tokens; no auxiliary state labels; answer-only NLL EVAL-only",
+    "microbatch_windows_candidate": 4,
+    "precision_preference": "fp16 if new read-only capacity preflight supports; otherwise HOLD no silent fallback",
+    "train_source": "new synthetic TRAIN rows only; original TTM TRAIN/VAL cannot be augmented or overwritten",
+    "sequence_construction": "per-example, EOS-separated; no cross-group story concatenation; no answer leak in inference prompt",
+    "checkpoint_points": [
+      64,
+      128
+    ],
+    "eval_checkpoint": "128_FINAL_ONLY",
+    "checkpoint_ready_last": true,
+    "resume_policy": "exact new run ID, model+optimizer+scheduler+sampler+CPU_CUDA_numpy_python_RNG+GradScaler with SHA readback; a resumed run continues same step accounting, never replay lost step",
+    "compute_claim": "NO_MEASURED_T4_WALLTIME_OR_FLOPS_YET",
+    "device": "one future Colab Free T4 if permitted, not performed",
+    "public_debug_inputs_allowed": true,
+    "original_frozen_TinyStories_VAL_regression_guard": "relative val NLL degradation ≤5% vs checkpoint1024; eval only, no TEST",
+    "original_frozen_TinyStories_VAL_use": "VAL-only read if approved; never used for new training or hyperparameter changes"
+  },
+  "evaluation": {
+    "primary": "BLIND_FINAL_STRUCT exact answer accuracy difference in percentage points A minus Z; pair groups are resampling unit",
+    "primary_cluster_unit": "counterfactual_group",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261111,
+    "scoped_success_threshold": {
+      "mean_accuracy_delta_pp_min": 10,
+      "bootstrap_CI95_lower_delta_pp_strictly_gt": 0,
+      "new_model_accuracy_vs_best_predeclared_shallow_baseline_pp_min": 5,
+      "original_TinyStories_VAL_NLL_relative_regression_max": 0.05
+    },
+    "DEV_go_to_final_filter": {
+      "one_time_assessment_after_step128": true,
+      "DEV_STRUCT_mean_accuracy_delta_vs_frozen_pp_min": 5,
+      "must_exceed_best_predeclared_shallow_baseline_for_strong_state_claim": false,
+      "if_DEV_filter_fails": "HOLD_FINAL_UNOPENED_NO_RETRAIN"
+    },
+    "secondary": [
+      "all-four-cells per group exact accuracy",
+      "paired counterfactual flip consistency",
+      "distractor invariance",
+      "accuracy by dependency length, family, NONE, alias, event count and token length",
+      "answer-only NLL per group",
+      "greedy decode 16 tokens, EOS and invalid answer rate",
+      "general symbolic interpreter upper bound (expected 100% on valid fixture)",
+      "length-only, last-write backward regex, alias-aware regex, ngram, order-free and answer-prior baselines"
+    ],
+    "anti_shortcut_policy": "pre-register heuristics and record true success; if any trivial baseline matches oracle 100% corpus remains useful for O0 task-learning but cannot establish state-specific neural inductive bias; no post-hoc toy patch",
+    "guard_against_overclaim": [
+      "single seed and one checkpoint permit exploratory signal only, not independent neural science confirmation",
+      "without O1 arm cannot compare architecture; no proof about intrinsic semantic understanding",
+      "current public R3A only serves negative control and unit tests, not new blind holdout",
+      "no iterative tuning on DEV/FINAL after seeing outcomes"
+    ]
+  },
+  "one_owner_go_no_go": {
+    "provisional_decision": "HOLD_T4_NOT_AUTHORIZED__GO_SOURCE_ONLY_INTEGRATED_CPU_PREFLIGHT",
+    "reason": [
+      "new source grammar/dataset is not yet implemented or SHA pinned",
+      "sealed new FINAL with private seed and escrow has not been prepared",
+      "exact BPE length compliance and graph-split feasibility are not measured",
+      "GPU budget not calibrated for this new data/optimizer and exact-resume not executed for this pilot",
+      "one-shot candidate threshold is proposed but not yet owner frozen"
+    ],
+    "bundled_required_before_one_future_go_review": [
+      "one source+checker+heuristic+metadata CPU QA on NEW corpus; preserve QA and failures",
+      "pin TRAIN/DEV and private FINAL encrypted commitment and check no leakage across group and motif",
+      "verify original checkpoint/tokenizer source hashes and new O0 runner+exact resume on CPU",
+      "one T4 capacity/readiness receipt; owner science lock after aggregate review"
+    ],
+    "no_fresh_codex_review_required_for_source_only": true,
+    "owner_external_human_reviewer_required": false,
+    "no_new_GPU_or_training_permission": true
+  },
+  "status_ledger": {
+    "new_corpus_generated": false,
+    "source_static_review_completed": false,
+    "neural_inference_executed": false,
+    "optimizer_updates_executed": 0,
+    "GPU_calls": 0,
+    "original_TTM_TEST_Q1Q2_reads": 0,
+    "PR13": "DRAFT_HOLD",
+    "lineage": "UNMODIFIED",
+    "main": "NOT_WRITTEN"
+  },
+  "next": "TTM_O0_NEW_DIAGNOSTIC_CORPUS_GENERATOR_STRICT_CHECKER_SHORTCUT_AUDIT_AND_ONE_CPU_PREFLIGHT_SINGLE_OWNER_DECISION"
+}
