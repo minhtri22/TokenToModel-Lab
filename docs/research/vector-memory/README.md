@@ -54,3 +54,9 @@ $python = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 ```
 
 Không sao chép bộ TRAIN/VAL có thể giải mã vào repo Git; chỉ đưa SHA, chỉ số tổng hợp và mã chạy lên nhánh nghiên cứu. Việc xuất bản hoặc ứng dụng về sau cần đánh giá mới, không suy từ thử nghiệm này.
+
+## Pilot TRAIN-only Adapter vs Exact Lookup (2026-11-11)
+
+- Phán quyết: **NO_SCOPED_EXPLORATORY**, adapter có memory không cải thiện NLL so với checkpoint gốc hoặc memory đảo trên subset 128 VAL targets.
+- [Báo cáo và giới hạn](ADAPTER_TRAIN_ONLY_PILOT_20261111.md); JSON aggregate tại `artifacts/research/vector-memory/TTM_ADAPTER_TRAIN_ONLY_PILOT_20261111.json` và entry `lineage.md` L0017.
+- Chỉ nghiên cứu; không merge vào main.

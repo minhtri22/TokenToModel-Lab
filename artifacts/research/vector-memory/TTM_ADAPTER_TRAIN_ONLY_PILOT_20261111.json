@@ -1,0 +1,122 @@
+{
+  "arms": {
+    "A_original": {
+      "n_val_targets": 128,
+      "nll_nats": 3.637324333190918,
+      "ppl": 37.99005126953125,
+      "top1_accuracy": 0.2890625,
+      "top1_agreement_with_original": 1.0
+    },
+    "B_exact": {
+      "n_val_targets": 128,
+      "nll_nats": 3.637324333190918,
+      "ppl": 37.99005126953125,
+      "top1_accuracy": 0.2890625,
+      "top1_agreement_with_original": 1.0
+    },
+    "C_memory_adapter": {
+      "n_val_targets": 128,
+      "nll_nats": 3.7390940189361572,
+      "ppl": 42.05986785888672,
+      "top1_accuracy": 0.2265625,
+      "top1_agreement_with_original": 0.734375
+    },
+    "D_shuffled_memory": {
+      "n_val_targets": 128,
+      "nll_nats": 3.715827465057373,
+      "ppl": 41.09257507324219,
+      "top1_accuracy": 0.28125,
+      "top1_agreement_with_original": 0.7734375
+    },
+    "E_no_memory_adapter": {
+      "n_val_targets": 128,
+      "nll_nats": 3.7595713138580322,
+      "ppl": 42.93001937866211,
+      "top1_accuracy": 0.21875,
+      "top1_agreement_with_original": 0.6953125
+    }
+  },
+  "comparisons": {
+    "A_B_bit_exact_logits": true,
+    "A_minus_C_mean_gain": -0.10176968574523926,
+    "A_minus_C_paired_story_bootstrap_95pct_interval": [
+      -0.18466201573610305,
+      -0.01309211621992291
+    ],
+    "C_minus_A_nll": 0.10176968574523926,
+    "C_minus_D_nll": 0.02326655387878418,
+    "C_minus_E_nll": -0.020477294921875,
+    "retrieved_next_token_top1_hit_rate": 0.1484375
+  },
+  "criterion": "C_memory_adapter NLL strictly lower than A_original,D_shuffled_memory,E_no_memory_adapter by >1e-4 (post hoc exploratory screening, not significance)",
+  "design": {
+    "adapter": "joint [query-hidden, memory] 512->32->256 residual at last observed token embedding before all 4 frozen Attention/MLP blocks",
+    "adapter_batch": 16,
+    "adapter_lr": 0.002,
+    "adapter_steps": 64,
+    "backbone_frozen": true,
+    "bank_selection_index_sha256": "4b8546f6d9c22df481d4b9be6a9e0d97691179bde21cb48d38e44e580eb60922",
+    "bank_training_overlap_story_count": 0,
+    "bank_values": "TRAIN next-token embedding",
+    "context": 64,
+    "control_D": "trained memory adapter fed permuted TRAIN memory values at VAL",
+    "control_E": "same parameter-count adapter trained on TRAIN with no memory",
+    "fit_selection_index_sha256": "107b4cf070da567e30c59b7940c9723bd067b269251c3240867ae43593205bf7",
+    "k": 4,
+    "memory_bank": 512,
+    "retrieval": "cosine top-k on frozen original P02 hidden of observed prefix only",
+    "retrieved_from_val": false,
+    "seed": 20261111,
+    "temperature": 0.05,
+    "train_adapter": 512,
+    "val_selection_index_sha256": "fb9d072fbb817cc8cc5a90367f2175d7b789d29a2140a660fbf2803332fa584f",
+    "val_stories": 128,
+    "val_unique_stories": 128
+  },
+  "environment": {
+    "device": "cpu",
+    "python": "3.13.5",
+    "threads": 2,
+    "torch": "2.10.0+cpu"
+  },
+  "experiment": "TTM_VECTOR_MEMORY_TRAIN_ONLY_ADAPTER_VS_EXACT_LOOKUP_SMALL_PILOT",
+  "integrity": {
+    "A_B_bit_exact": true,
+    "checkpoint_frozen_unchanged": true,
+    "test_not_accessed": true,
+    "train_bank_disjoint": true,
+    "val_targets_excluded_from_training": true
+  },
+  "limitations": [
+    "Single small sample one prediction per story, context len 64",
+    "No semantic guarantees for frozen hidden cosine nearest neighbor",
+    "Training-only adapter and no-memory comparison controls are small; exact externalization does not imply knowledge removed globally",
+    "TinyStories source distribution; no unseen-domain/OOD evaluation",
+    "VAL selection used for evaluation only; this is exploratory, no formal confirmation or architecture adoption"
+  ],
+  "scope": "CPU_EXPLORATORY_NOT_CONFIRMATORY; one fixed VAL subset used for final and deterministic replay; no TEST",
+  "sources": {
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "checkpoint_step": 1280,
+    "p02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "training": "TinyStories TRAIN only; no TEST used; raw stories and reversible token windows not exported"
+  },
+  "training": {
+    "C_memory_adapter": {
+      "batch_size": 16,
+      "num_trainable_parameters": 24865,
+      "optimizer_steps": 64,
+      "train_loss_first16": 3.4671802520751953,
+      "train_loss_last16": 2.7485494017601013
+    },
+    "E_no_memory_adapter": {
+      "batch_size": 16,
+      "num_trainable_parameters": 24865,
+      "optimizer_steps": 64,
+      "train_loss_first16": 3.386059269309044,
+      "train_loss_last16": 2.757926434278488
+    }
+  },
+  "verdict": "NO_SCOPED_EXPLORATORY"
+}

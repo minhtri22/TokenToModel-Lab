@@ -1,0 +1,27 @@
+{
+  "all_checks_pass": true,
+  "audit": "EXPLORATORY_RESULT_REPLAY_AND_CONSISTENCY",
+  "checks": {
+    "backbone_unchanged": true,
+    "exact_lookup_logits_bit_exact": true,
+    "exact_lookup_same_accuracy": true,
+    "exact_lookup_same_nll": true,
+    "no_improvement_over_original": true,
+    "no_improvement_over_shuffle": true,
+    "private_no_token_sequences": true,
+    "replay_bytes_identical": true,
+    "replay_values_identical": true,
+    "same_adapter_parameters": true,
+    "test_not_accessed": true,
+    "train_and_memory_different_stories": true,
+    "train_bank_disjoint": true,
+    "val_not_used_in_training": true,
+    "val_sample_128": true,
+    "verdict_no": true
+  },
+  "experiment": "TTM_VECTOR_MEMORY_TRAIN_ONLY_ADAPTER_VS_EXACT_LOOKUP_SMALL_PILOT",
+  "limitations": "Audit checks exact replay and JSON consistency; not independent science or independent code implementation.",
+  "pilot_result_sha256": "0c9f8b2c325e313a8bd4a0f39693b40991e003b4ae7ae7c8dc7c390325396a3b",
+  "replay_result_sha256": "0c9f8b2c325e313a8bd4a0f39693b40991e003b4ae7ae7c8dc7c390325396a3b",
+  "runner_sha256": "fc76d51d046aacf47ed97bb4491337128302762e1fdf3f8bc8b5606b9df84f3c"
+}
