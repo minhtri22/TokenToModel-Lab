@@ -4,6 +4,7 @@
 **Ngày:** 2026-11-10 · **Mức hoàn thành:** `DESIGN_ONLY_NOT_SCIENCE_PREREG_APPROVED`  
 **Repository:** `minhtri22/TokenToModel-Lab` · **nhánh nghiên cứu riêng từ main** `research/ttm-small4m-prompt-conditioning-objective-design-20261110`  
 **Main ghim (đọc thực tế):** `b57b44e7287f842e81050c1faee337f636333dd0`  
+**Lineage gốc của nhánh thiết kế:** Git blob `971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9` (**main đến L0012**). PR #13 có lineage riêng Git blob `15c67ada3b11c46e2d947bef8818599c7408733c` (**đến L0017**); hai lịch sử đều bất biến, không khẳng định đã hợp nhất.  
 **PR #13 đánh giá FRESH12 (đọc thực tế):** `8399406cfca7855626a20e031d1cfb3c767d606f` — OPEN / DRAFT / UNMERGED.
 
 **Trạng thái cổng:** Chỉ thiết kế trên GitHub. Không chạy huấn luyện, không tạo dữ liệu TRAIN mới, không sửa tokenizer/architecture/checkpoint, không sinh thêm văn bản, không đọc TEST/Q1Q2, không chỉnh `main`/`lineage.md`. Đây **chưa phải** tiền đăng ký huấn luyện được chủ dự án phê duyệt; thông số candidate cần source QA, quyền nguồn, reviewer và quyết định tài nguyên riêng trước khoa học.
@@ -105,4 +106,4 @@ Nếu dùng synthetic fixture đầu vào nhiều cửa sổ, kiểm negative: t
 
 **Bước thực hiện tiếp theo:** `TTM_SMALL4M_2X2_EQUAL_BUDGET_TRAIN_SAMPLER_LOSS_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE`. Triển khai và kiểm định riêng **synthetic source-only** cho kế hoạch rút cửa sổ/masking/weighted loss/đối chiếu bytes và test negative; xác nhận quyền nguồn, ngưỡng và người chấm. Sau khi các cổng đủ PASS và chủ dự án phê duyệt mới được nghĩ tới **một** lượt Colab Free T4 mới theo run IDs hoàn toàn khác.
 
-**Trạng thái:** `DESIGN_ONLY` · `NEW_TRAINING=NO` · `NEW_INFERENCE=NO` · `TRAIN_DATA=UNCHANGED` · `TEST_Q1Q2=UNTOUCHED` · `PR13=HOLD_DRAFT` · `MAIN=UNCHANGED` · `LINEAGE=L0017_UNCHANGED`.
+**Trạng thái:** `DESIGN_ONLY` · `NEW_TRAINING=NO` · `NEW_INFERENCE=NO` · `TRAIN_DATA=UNCHANGED` · `TEST_Q1Q2=UNTOUCHED` · `PR13=HOLD_DRAFT` · `MAIN=UNCHANGED` · `MAIN_LINEAGE=L0012_UNCHANGED` · `PR13_LINEAGE=L0017_UNCHANGED`.
