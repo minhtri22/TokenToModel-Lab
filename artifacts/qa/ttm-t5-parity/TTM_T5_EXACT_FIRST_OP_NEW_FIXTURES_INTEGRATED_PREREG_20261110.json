@@ -1,0 +1,174 @@
+{
+  "schema": "ttm.t5.exact_root_first_op_corrective_ablation.prereg.v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_EXACT_ROOT_CAUSE_FIRST_DIVERGENT_OPERATOR_AND_CORRECTIVE_ABLATION_INTEGRATED",
+  "governance": {
+    "single_integrated_contract": true,
+    "discovery_and_confirmatory_separated": true,
+    "no_rerun_previous_8_historical": true,
+    "no_rerun_previous_32_one_shot": true,
+    "test_Q1Q2_untouched": true,
+    "training": false,
+    "original_lineage_append_only": true,
+    "original_main_untouched": true,
+    "PR16_merge": "HOLD_UNTIL_NEW_STRICT_PASS_AND_CAUSAL_PROOF",
+    "owner_approval": "INTEGRATED_DIAGNOSTIC_USER_REQUEST_2026_11_10",
+    "confirmatory_requires_frozen_patch_and_independent_checker": true
+  },
+  "source_pins": {
+    "project": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-t5-f32-strict-logit-parity-diagnostic-20261109",
+    "original_P02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "checkpoint_1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_F32_GGUF_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "llama_cpp_commit": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "old_native32_sha256": "544df628802591bcdda7ca9d6de4779d5e2872ee8b409c6710ede5bbf8ac19b8",
+    "previously_approved_strict_threshold": 0.001,
+    "trained_P02_config": {
+      "vocab_size": 2048,
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "norm_type": "layernorm"
+    }
+  },
+  "fixture_generation": {
+    "algorithm": "LCG_U32 for each fixture i: s=(20261110+imul(i+1,2654435761))>>>0; repeatedly s=(imul(s,1664525)+1013904223)>>>0; token=257+(s%1791)",
+    "partition_visibility": "confirmatory IDs fixed but NOT used for any candidate selection or run until patch frozen"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "D01",
+      "partition": "discovery",
+      "token_ids": [
+        1281
+      ]
+    },
+    {
+      "fixture_id": "D02",
+      "partition": "discovery",
+      "token_ids": [
+        1406,
+        971,
+        566,
+        1092,
+        1587
+      ]
+    },
+    {
+      "fixture_id": "C01",
+      "partition": "confirmatory",
+      "token_ids": [
+        1531,
+        1448
+      ]
+    },
+    {
+      "fixture_id": "C02",
+      "partition": "confirmatory",
+      "token_ids": [
+        1656,
+        1282,
+        646,
+        1827
+      ]
+    },
+    {
+      "fixture_id": "C03",
+      "partition": "confirmatory",
+      "token_ids": [
+        1781,
+        1116,
+        686,
+        656,
+        1421,
+        1258,
+        1286,
+        2029,
+        1493,
+        1645,
+        485
+      ]
+    },
+    {
+      "fixture_id": "C04",
+      "partition": "confirmatory",
+      "token_ids": [
+        1906,
+        950,
+        726,
+        1919,
+        386,
+        2019,
+        849,
+        482,
+        889,
+        1037,
+        1758,
+        785,
+        1969,
+        754,
+        1900,
+        1892,
+        727
+      ]
+    }
+  ],
+  "baseline": {
+    "CPU_only": true,
+    "threads": 1,
+    "KV": "F32",
+    "Flash": "OFF",
+    "new_context_each_fixture": true,
+    "reference": "P02 checkpoint1024 exact GELU erf",
+    "GGUF": "ORIGINAL_F32_FROZEN",
+    "original_llama_backend_unmodified": true,
+    "observed_tensor_labels": [
+      "inpL",
+      "attn_norm-0",
+      "wqkv_b-0",
+      "kq-0",
+      "kq_soft_max-0",
+      "kqv-0",
+      "kqv_out-0",
+      "ffn_inp-0",
+      "ffn_norm-0",
+      "ffn_up_b-0",
+      "ffn_gelu-0",
+      "ffn_out-0",
+      "result_norm",
+      "result_output"
+    ],
+    "tensor_validation": "Log tensor type, ne/nb, shape semantics; contiguous F32 only for direct snapshots; compare matching full tensors with signed elementwise delta. Never silently transpose or compare incompatible shape.",
+    "first_stage_sensitivity": "1e-5_DIAGNOSTIC_ONLY_NOT_PASS_THRESHOLD",
+    "attention_1_token_note": "D01 one-token causal softmax is trivial, first divergence localizes V projection/matmul/WO/residual before FFN",
+    "attention_multi_note": "D02 five-token must include QK scores/causal mask/softmax/WV and WO before first residual"
+  },
+  "variants": {
+    "baseline": "Pinned llama GPT2 LLM_FFN_GELU, F32 KV, flash disabled",
+    "isolated_candidate_gelu_erf": "Single source edit in separate project-local checkout: change GPT2 build_ffn LLM_FFN_GELU to LLM_FFN_GELU_ERF; no other source changes; new binary hash",
+    "isolated_candidate_matmul": "Only after frozen first-divergence evidence, separate math precision/order intervention with signed per-element predicted effects; preserve GELU baseline unless factorial comparison explicitly preregistered",
+    "correction_lock": "Candidate source diff and SHA frozen before first confirmatory input is processed"
+  },
+  "proof": {
+    "exact_causal_root_requirements": [
+      "First divergent operation identified on D01 and D02 with same-input signed tensors",
+      "Source mapping of operand precision and operation order confirmed",
+      "Targeted intervention reduces first-stage delta as preregistered",
+      "Reverse/intervention control reproduces mismatch",
+      "No post-hoc retuning with confirmatory fixture outputs"
+    ],
+    "strict_acceptance": "All C01-C04 must have 2048 finite logits and max_abs_vs_original_P02 <= 0.001; equality for every fixture; top1 alone insufficient",
+    "confirmatory_should_not_claim_pass_if": "No actual new C++ candidate binary; source pin mismatch; fixture leakage; reviewer cannot establish provenance; any strict failure",
+    "historical_datasets": "Never relabel original 7/8 or 32/32 strict fails; PASS applies only to novel fixed confirmatory set"
+  },
+  "execution_status": {
+    "source_design": "PREREG_FROZEN",
+    "native_discovery": "NOT_EXECUTED",
+    "native_corrected_ablation": "NOT_EXECUTED",
+    "confirmatory": "NOT_EXECUTED",
+    "qa": "PENDING",
+    "cause": "NOT_PROVEN"
+  }
+}
