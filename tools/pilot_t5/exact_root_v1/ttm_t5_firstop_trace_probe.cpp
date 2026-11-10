@@ -70,10 +70,10 @@ static bool trace_cb(ggml_tensor *t, bool ask, void *ud) {
     try {
         std::vector<unsigned char> blob(bytes);
         ggml_backend_tensor_get(t, blob.data(), 0, bytes);
-        *state->sink << "{\\\"fixture_id\\\":\\\""<<state->fixture
-                     <<"\\\",\\\"stage\\\":\\\""<<name<<"\\\",\\\"dtype\\\":\\\"F32\\\",\\\"ne\\\":[";
+        *state->sink << "{\"fixture_id\":\""<<state->fixture
+                     <<"\",\"stage\":\""<<name<<"\",\"dtype\":\"F32\",\"ne\":[";
         for(int d=0;d<4;d++){if(d)*state->sink<<",";*state->sink<<t->ne[d];}
-        *state->sink<<"],\\\"values\\\":[";
+        *state->sink<<"],\"values\":[";
         size_t index=0;
         for(int64_t i3=0;i3<t->ne[3];i3++)
         for(int64_t i2=0;i2<t->ne[2];i2++)
@@ -93,7 +93,7 @@ static bool trace_cb(ggml_tensor *t, bool ask, void *ud) {
             if(index++)*state->sink<<",";
             *state->sink<<value;
         }
-        *state->sink<<"]}\\n";
+        *state->sink<<"]}\n";
         state->captured.insert(name);
         if(!*state->sink){
             state->failure="TRACE_FILE_IO_ERROR";return false;
