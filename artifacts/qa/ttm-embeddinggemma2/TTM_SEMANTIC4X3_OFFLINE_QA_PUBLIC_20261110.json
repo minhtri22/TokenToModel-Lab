@@ -1,0 +1,71 @@
+{
+  "c2048_base_source_parity": "PASS_EXACT_STATE_AND_SYNTHETIC_LOGITS",
+  "claim_created": false,
+  "core_private_source_pins_checked": 7,
+  "cuda_smoke": "NOT_EXECUTED",
+  "date": "2026-11-10",
+  "donor_null_real_tensor_three_seeds": {
+    "S1": {
+      "global_covariance_relative_fro": 2.0524964007868008e-15,
+      "null_sha256": "ca81227858e24c13314696697e57d3112b44877ac69fee256904044884dc899d",
+      "permutation_sha256": "e14a81f2417d5d05107093a9dddfe06e07f592eba22f8bf68b9533ac4d1b62f8",
+      "projection_max_abs_fp32": 1.043081283569336e-07,
+      "schedule_sha256": "35080993e5c0d21cd12235fd5133a1169a19c57bb86e3e07301a2af3e77aa6c6"
+    },
+    "S2": {
+      "global_covariance_relative_fro": 2.0547452561839984e-15,
+      "null_sha256": "846dfdba3ec25e2fc450d7ea1d75e89722d13461410e591a4cc3f35d3348ffd3",
+      "permutation_sha256": "73410599744aeb228d682f2422096f68b8a669e5c393a459bed19c11a469de61",
+      "projection_max_abs_fp32": 1.1175870895385742e-07,
+      "schedule_sha256": "9ec59ae161c2dd40eed7c8f14cdb39da73020a8a38f41274329854df9385fc5b"
+    },
+    "S3": {
+      "global_covariance_relative_fro": 2.055115356781702e-15,
+      "null_sha256": "e3e3928fe8ef03a9f02df0ae3d73da9ed8d00c10d5c44c9ec3f8acfb578f3cac",
+      "permutation_sha256": "1bcbd4e15137f94793cdf9738194953dcb9dcc002ddb9729f947de0ab0b7ee3d",
+      "projection_max_abs_fp32": 1.1920928955078125e-07,
+      "schedule_sha256": "688c0b8f08432e2ed89e74b6c55dd504695acfa47c90dbf224841dc95b9f8c0a"
+    }
+  },
+  "free_t4_gpu_preflight": "NOT_EXECUTED",
+  "frozen_h768_public_sha256": "9725b1254cde81b77e23b85ab479a08cafc14af0a7a536c7722ca87c7f2a5aa0",
+  "frozen_null_source_sha256": "0d71f38da356056be50a18d36f589774190178fd321e6d2e3970413d96238a2d",
+  "google_drive_live_storage_quota": "NOT_EXECUTED",
+  "h768_privates_to_be_verified_in_colab": true,
+  "h768_real_private_npz_read_in_this_QA": false,
+  "h768_scored": false,
+  "independent_reviewer_fixture": "PASS_6_CHECKS",
+  "lineage_action": "UNCHANGED_L0019",
+  "model_construction_12_arms": "PASS_SOURCE_PARITY_AND_TRAINABLE_PARAMETER_COUNT",
+  "negative_gates": [
+    "reject unauthorised science before source and claim",
+    "exclusive claim collision rejected",
+    "post-train scorer rejects absent 12 FINAL READY",
+    "unfinished chunk cannot replay",
+    "secondary gate cannot override co-primary fail",
+    "independent reviewer detects mutated CI",
+    "H768 scorer not called by preflight"
+  ],
+  "operation": "TTM_GEMMA2_SEMANTIC4X3_12_ARM_INTEGRATED_RUNNER_SOURCE_QA_AND_COLAB_FREE_T4_PREFLIGHT",
+  "pytest_offline": "PASS_11_OF_11",
+  "readme_boundary": "No inference science; only original C2048 synthetic logits checked during CPU source QA",
+  "runner_synthetic_fixture": "PASS_8_CHECKS",
+  "runtime": {
+    "gpu": false,
+    "numpy": "2.3.5",
+    "python": "3.13.5",
+    "scipy": "1.17.0",
+    "torch": "2.10.0+cpu"
+  },
+  "schedule_3_seeds": "PASS_2048_PACKETS_4096_LABELS_EACH_DISTINCT_SHA",
+  "schema": "ttm.semantic4x3.integrated_runner.cpu_source_qa.public.v1",
+  "science_authorisation": "NOT_GRANTED",
+  "source_commit_parent": "82d7cf4078aae2fa28c00dd1bb5a3f7ed6cc7041",
+  "source_sha256": {
+    "test_semantic4x3_offline_qa.py": "b8706bf157a646332b5effb2cc0296156c9b37749b3a5842a0e2ccaf1f2bfef6",
+    "ttm_semantic4x3_independent_readback.py": "51732bd62cfd13bf8956f11ee862b939d0dc78a62c58cd3d655dc05b566764e2",
+    "ttm_semantic4x3_runner.py": "9a824e453195cafc530e2289d3b8a87e354faf8905ca73b2f29b79144d657a8d"
+  },
+  "status": "PASS_SCOPED_OFFLINE_SOURCE_AND_SYNTHETIC_QA_GPU_PRECLAIM_NOT_EXECUTED",
+  "train_executed": false
+}

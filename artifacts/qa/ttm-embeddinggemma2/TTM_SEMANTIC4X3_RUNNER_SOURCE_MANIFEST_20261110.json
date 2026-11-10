@@ -1,0 +1,37 @@
+{
+  "CAUSAL6_pinned_source_modules": {
+    "T4_PRIVATE_PACK_MANIFEST.json": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "T4_PRIVATE_TRAIN_VAL_WINDOWS.npz": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "candidate_initialization.pt": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "checkpoint.pt": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "p02_exact.py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "ttm_directswap2048_gpu_once.py": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+    "ttm_embeddinggemma2_swap.py": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39"
+  },
+  "H768_private_pins": {
+    "H768_MEMBERSHIP_PRIVATE.json": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+    "H768_PUBLIC_SEAL.json": "9725b1254cde81b77e23b85ab479a08cafc14af0a7a536c7722ca87c7f2a5aa0",
+    "H768_WINDOWS_PRIVATE.npz": "1eb5b54b4bb7744e23fffd0fd755d5c91853a773dcc0d2219f777b47ba6a53df"
+  },
+  "claim_created": false,
+  "date": "2026-11-10",
+  "gpu_used": false,
+  "null_helper_sha256": "0d71f38da356056be50a18d36f589774190178fd321e6d2e3970413d96238a2d",
+  "offline_qa_sha256": "b8706bf157a646332b5effb2cc0296156c9b37749b3a5842a0e2ccaf1f2bfef6",
+  "parent_commit": "82d7cf4078aae2fa28c00dd1bb5a3f7ed6cc7041",
+  "reviewer_sha256": "51732bd62cfd13bf8956f11ee862b939d0dc78a62c58cd3d655dc05b566764e2",
+  "runner_sha256": "9a824e453195cafc530e2289d3b8a87e354faf8905ca73b2f29b79144d657a8d",
+  "schema": "ttm.semantic4x3.runner.source_manifest.v1",
+  "science_executed": false,
+  "scope": {
+    "H768_stories": 768,
+    "H768_targets": 186655,
+    "H768_windows": 1000,
+    "arms_per_seed": 4,
+    "seed_count": 3,
+    "steps_per_arm": 2048,
+    "target_exposures_total": 100663296,
+    "targets_per_step": 4096
+  },
+  "status": "STAGED_QA_PASS_OWNER_SCIENCE_PERMISSION_NOT_GRANTED"
+}
