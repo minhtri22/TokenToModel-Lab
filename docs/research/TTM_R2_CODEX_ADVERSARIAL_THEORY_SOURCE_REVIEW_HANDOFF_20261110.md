@@ -8,11 +8,11 @@
 
 Repository: https://github.com/minhtri22/TokenToModel-Lab  
 Branch: `research/ttm-small4m-semantic-state-goal-toy-r2-20261110`.  
-Source-of-truth R2: [formal hypothesis / decision](../../../docs/research/TTM_SMALL4M_R2_SEMANTIC_STATE_GOAL_FORMAL_HYPOTHESIS_TOY_FEASIBILITY_20261110.md).  
-Executable ground-truth mirror: [r2_runtime_integration_executed.py](../../../tools/research/semantic_state_r2/r2_runtime_integration_executed.py), Git blob `4d78819e9ee7c602b7fd461a346819abd42bda1e`.  
-Negative test: [negative_test_runner.py](../../../tools/research/semantic_state_r2/negative_test_runner.py), Git blob `965def98940984bb5f073aa275102336f9e2bad6`.  
-Separate source candidates: [generator](../../../tools/research/semantic_state_r2/r2_semantic_toy_generator.py) and [independent checker](../../../tools/research/semantic_state_r2/r2_independent_visible_text_checker.py).  
-R1 motivation: [GPT-2/TTM/Llama4 philosophical architecture survey](../../../docs/research/TTM_ARCHITECTURE_ROUND1_GPT2_LLAMA4_PHILOSOPHICAL_SEMANTIC_ALTERNATIVES_20261110.md).
+Source-of-truth R2: [formal hypothesis / decision](TTM_SMALL4M_R2_SEMANTIC_STATE_GOAL_FORMAL_HYPOTHESIS_TOY_FEASIBILITY_20261110.md).  
+Executable ground-truth mirror: [r2_runtime_integration_executed.py](../../tools/research/semantic_state_r2/r2_runtime_integration_executed.py), Git blob `4d78819e9ee7c602b7fd461a346819abd42bda1e`.  
+Negative test: [negative_test_runner.py](../../tools/research/semantic_state_r2/negative_test_runner.py), Git blob `965def98940984bb5f073aa275102336f9e2bad6`.  
+Separate source candidates: [generator](../../tools/research/semantic_state_r2/r2_semantic_toy_generator.py) and [independent checker](../../tools/research/semantic_state_r2/r2_independent_visible_text_checker.py).  
+R1 motivation: [GPT-2/TTM/Llama4 philosophical architecture survey](TTM_ARCHITECTURE_ROUND1_GPT2_LLAMA4_PHILOSOPHICAL_SEMANTIC_ALTERNATIVES_20261110.md).
 
 ## 2. Nhiệm vụ phản biện: ưu tiên phát hiện lỗi
 
