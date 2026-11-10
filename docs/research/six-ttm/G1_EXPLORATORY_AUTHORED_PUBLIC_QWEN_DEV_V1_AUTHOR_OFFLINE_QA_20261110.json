@@ -1,0 +1,54 @@
+{
+  "schema": "ttm.six.g1.exploratory_public_dev_author_cpu_qa.v1",
+  "date": "2026-11-10",
+  "original_g1": {
+    "status": "FEASIBILITY_HOLD_ARCHIVED",
+    "science_lock": "HOLD",
+    "private_TEST_opened": false,
+    "owner_original_science_permit": "NOT_ISSUED",
+    "phase_B": "NOT_STARTED"
+  },
+  "new_experiment_id": "TTM_SIX_G1_EXPLORE_AUTHORED_PUBLIC_QWEN_DEV_V1",
+  "scope": "REAL_QWEN_EXPLORATORY_DEV_ONLY_NEW_FICTIONAL_PROMPTS",
+  "source_sha256": "9688deb1d1157c93fb7090e5b1c12ea4bc56ed0dedadb0597d84ceb4e68e82eb",
+  "source_git_blob_sha1": "c82ff40c0187677e6753db3beb56e7c93ea7d1b3",
+  "notebook_sha256": "8ef0db4f6ae5759256b42cdaf1db8611e97e178269308ba055a230244b36ae39",
+  "notebook_git_blob_sha1": "28baf380bfc0944d9d2d19167a2d8bc17bcab755",
+  "source_branch": "research/ttm-six-g1-exploratory-public-dev-20261110",
+  "source_paths": {
+    "python": "scripts/research/six_ttm/g1_explore_public_qwen_dev_v1.py",
+    "colab": "notebooks/six_ttm/TTM_SIX_G1_EXPLORE_REAL_QWEN_T4_DEV_ONLY_20261110.ipynb",
+    "contract": "docs/research/six-ttm/G1_ORIGINAL_HOLD_ARCHIVE_AND_EXPLORATORY_SCOPE_AMENDMENT_20261110.md"
+  },
+  "author_cpu_qa": {
+    "command": "python g1_explore_public_qwen_dev_v1.py --mode qa && python -m py_compile g1_explore_public_qwen_dev_v1.py",
+    "status": "PASS_SYNTHETIC_CPU_NO_MODELS_NO_TEST",
+    "groups_total": 16,
+    "train_groups": 12,
+    "dev_groups": 4,
+    "train_rows": 48,
+    "dev_rows": 16,
+    "test_rows": 0,
+    "metrics_synthetic_finite": true,
+    "environment": "Python 3.13 CPU NumPy 2.3.5"
+  },
+  "real_model_experiment": {
+    "status": "NOT_EXECUTED",
+    "reason": "No user Colab T4 runtime accessible to this assistant; execution must occur in interactive Colab",
+    "models": [
+      "Qwen/Qwen3-0.6B",
+      "Qwen/Qwen3-1.7B"
+    ],
+    "weight_sha256_verified_on_colab": false,
+    "real_dev_metrics": "NOT_AVAILABLE"
+  },
+  "data_protection": {
+    "synthetic_authored_prompts_only": true,
+    "g1_sealed_manifest_used": false,
+    "real_private_test_used": false,
+    "google_drive_mounted": false,
+    "external_witness_required_for_THIS_separate_exploration": false,
+    "science_original_reauthorized": false
+  },
+  "no_lineage_append": true
+}
