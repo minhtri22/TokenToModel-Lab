@@ -1,0 +1,41 @@
+test_01_256_records (__main__.TestR2A.test_01_256_records) ... ok
+test_02_128_pairs (__main__.TestR2A.test_02_128_pairs) ... ok
+test_03_128_query_switches (__main__.TestR2A.test_03_128_query_switches) ... ok
+test_04_safe_input (__main__.TestR2A.test_04_safe_input) ... ok
+test_05_deterministic_bytes (__main__.TestR2A.test_05_deterministic_bytes) ... ok
+test_06_independent_answer (__main__.TestR2A.test_06_independent_answer) ... ok
+test_07_query_switch (__main__.TestR2A.test_07_query_switch) ... ok
+test_08_bow_upper_bound (__main__.TestR2A.test_08_bow_upper_bound) ... ok
+test_09_balanced_last_position (__main__.TestR2A.test_09_balanced_last_position) ... ok
+test_10_third_sentence_shortcut_fails (__main__.TestR2A.test_10_third_sentence_shortcut_fails) ... ok
+test_11_last_sentence_shortcut_fails (__main__.TestR2A.test_11_last_sentence_shortcut_fails) ... ok
+test_12_last_relevant_is_trivial_rule (__main__.TestR2A.test_12_last_relevant_is_trivial_rule) ... ok
+test_13_new_dev_challenge_templates (__main__.TestR2A.test_13_new_dev_challenge_templates) ... ok
+test_14_model_input_is_strict_projection (__main__.TestR2A.test_14_model_input_is_strict_projection) ... ok
+test_15_no_TTM_dependency (__main__.TestR2A.test_15_no_TTM_dependency) ... ok
+test_16_wrong_answer (__main__.TestR2A.test_16_wrong_answer) ... ok
+test_17_wrong_counts (__main__.TestR2A.test_17_wrong_counts) ... ok
+test_18_missing_pair_row (__main__.TestR2A.test_18_missing_pair_row) ... ok
+test_19_missing_probe (__main__.TestR2A.test_19_missing_probe) ... ok
+test_20_model_leaks_answer (__main__.TestR2A.test_20_model_leaks_answer) ... ok
+test_21_model_projection_tamper (__main__.TestR2A.test_21_model_projection_tamper) ... ok
+test_22_source_event_tamper (__main__.TestR2A.test_22_source_event_tamper) ... ok
+test_23_invalid_story_grammar (__main__.TestR2A.test_23_invalid_story_grammar) ... ok
+test_24_invalid_question (__main__.TestR2A.test_24_invalid_question) ... ok
+test_25_wrong_split (__main__.TestR2A.test_25_wrong_split) ... ok
+test_26_bad_query_family (__main__.TestR2A.test_26_bad_query_family) ... ok
+test_27_duplicate_id (__main__.TestR2A.test_27_duplicate_id) ... ok
+test_28_model_record_drop (__main__.TestR2A.test_28_model_record_drop) ... ok
+test_29_bad_probe_question (__main__.TestR2A.test_29_bad_probe_question) ... ok
+test_30_bad_probe_answer (__main__.TestR2A.test_30_bad_probe_answer) ... ok
+test_31_bad_seed (__main__.TestR2A.test_31_bad_seed) ... ok
+test_32_counterfactual_wrong_variant (__main__.TestR2A.test_32_counterfactual_wrong_variant) ... ok
+test_33_modified_story_metadata_only (__main__.TestR2A.test_33_modified_story_metadata_only) ... ok
+test_34_wrong_family_split_count (__main__.TestR2A.test_34_wrong_family_split_count) ... ok
+test_35_no_label_in_prediction (__main__.TestR2A.test_35_no_label_in_prediction) ... ok
+test_36_public_holdout_not_sealed (__main__.TestR2A.test_36_public_holdout_not_sealed) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.171s
+
+OK
