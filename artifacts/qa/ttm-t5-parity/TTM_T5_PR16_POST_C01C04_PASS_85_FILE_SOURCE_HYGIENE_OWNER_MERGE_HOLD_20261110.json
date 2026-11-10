@@ -1,9 +1,9 @@
 {
   "schema": "ttm.t5.PR16.scoped_science_pass_final_source_hygiene_and_merge_decision.v1",
   "date": "2026-11-10",
-  "source_count": 85,
+  "source_count": 86,
   "source_categories": {
-    "qa_receipts": 30,
+    "qa_receipts": 31,
     "docs": 16,
     "lineage": 1,
     "discovery_source": 13,
@@ -34,10 +34,11 @@
   "merge": {
     "PR16": "DRAFT",
     "status": "HOLD_OWNER_FINAL_APPROVAL_AND_ARCHIVE_CURATION",
-    "reason": "Scoped scientific gate PASS, but 85-file research PR includes superseded one-shot and historical failure tooling; final owner selection of research evidence merge versus runtime fix integration is required.",
+    "reason": "Scoped scientific gate PASS, but 86-file research PR includes superseded one-shot and historical failure tooling; final owner selection of research evidence merge versus runtime fix integration is required.",
     "performed": false,
     "main_changed": false
   },
-  "no_new_native": false,
-  "new_execution_in_review": false
+  "no_new_native": true,
+  "new_execution_in_review": false,
+  "source_scope_note": "PR16 file count refreshed after adding this QA record; all changed paths remain within T5 evidence/docs/tools and append-only lineage."
 }
