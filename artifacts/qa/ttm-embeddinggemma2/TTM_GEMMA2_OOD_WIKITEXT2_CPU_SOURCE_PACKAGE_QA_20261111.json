@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.gemma2.ood.wikitext2.cpu_source_package_qa.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_OOD_WIKITEXT2_PINNED_CORPUS_T1_BPE_CPU_FEASIBILITY_AND_PRIVATE_MEMBERSHIP_SEAL",
+  "branch": "research/ttm-small4m-embeddinggemma2-ood-design-20261111",
+  "integration_target": "TTM_SMALL_4M_EMBEDDINGGEMMA2_EXPERIMENTAL_LINE_ONLY",
+  "frozen_l0020_parent": "13820a972c99c2670e8ab32ee01eb51763479aae",
+  "status": "PASS_SOURCE_PACKAGE_FIXTURE_ONLY_HOLD_REAL_CPU",
+  "source": {
+    "runner_path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/ttm_ood_wikitext2_cpu_seal.py",
+    "runner_git_blob_sha1": "5e3e5860460aea928754e9bfb239a836877117cd",
+    "runner_sha256": "a874fb75e4007b67a41c0287fa942bbbe4d23ac71a1386194050b14ec18fc200",
+    "runner_commit": "ec2532b8ef81d06083f3b9e00d10a3bbb874ae23",
+    "checker_path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/ttm_ood_wikitext2_independent_readback.py",
+    "checker_git_blob_sha1": "f9bd559b082012a179fa7b8974ffbff78169f864",
+    "checker_sha256": "8678669c32288d015f8d713392042b0bb89306c6acdc8c01768907e9349b9b0e",
+    "checker_commit": "7707b88fde6dbfa42397db537d85deba5c43f8d7",
+    "powershell_launcher_path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/Run-TTM-GEMMA2-OOD-WikiText2-CPU-Once-PS51.ps1",
+    "powershell_launcher_git_blob_sha1": "3f6c1366a518c3cba58cd82d473ebdb0af2348c6",
+    "powershell_launcher_sha256": "6a823236baaeef67240d5bb356915c5b80481e8ce155f7d32d1d15bbf2d1449f",
+    "launcher_commit": "775ee2824e869daf16f4e9061e43d4e8b91c6b31"
+  },
+  "real_local_workspace": {
+    "root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "staged_launcher": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\Run-TTM-GEMMA2-OOD-WikiText2-CPU-Once-PS51.ps1",
+    "staged_launcher_readback": "PASS_TEXT_LF_NORMALIZED",
+    "staged_launcher_byte_exact": "NOT_ATTESTED_TRAILING_LF_REMOVED_BY_REMOTE_WRITE_INTERFACE",
+    "t1_private_manifest_presence": "PASS_PRESENCE_ONLY",
+    "h320_h512_h768_private_membership_presence": "PASS_PRESENCE_ONLY",
+    "direct_windows_execution": "BLOCKED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+    "existing_remote_project_kind": "NON_GIT",
+    "reason_no_remote_task": "managed task workspace is outside TTM project; project boundary must be preserved",
+    "runner_executed_on_windows": false
+  },
+  "tested_in_isolated_container": {
+    "python_source_py_compile": "PASS",
+    "independent_checker_py_compile": "PASS",
+    "synthetic_fixture": "PASS_4_OF_4",
+    "real_t1_private_manifest_read": false,
+    "real_wikitext_parquet_downloaded": false,
+    "model_forward_calls": 0,
+    "training_executed": false,
+    "GPU": false
+  },
+  "dataset": {
+    "revision": "6231e49f19a707241d6b84d9cff60a3a86b85a85",
+    "supplier_published_parquet_sha256": "49280f3dd993cbdfd322186194133d5d1935f81e1c91064c239f2a70ebb02701",
+    "supplier_sha_confirmed_on_HF_page": true,
+    "runtime_sha_readback": "NOT_EXECUTED",
+    "license_review": "PUBLIC_METADATA_CC_BY_SA_3_0_GFDL_AND_CARD_SENTENCE_CC_BY_SA_4_0; PRIVATE_COMPUTATION_ONLY_WITH_REUSE_OBLIGATIONS"
+  },
+  "real_cpu_gates": {
+    "source_file_sha_readback": "NOT_EXECUTED",
+    "parquet_36718_rows": "NOT_EXECUTED",
+    "article_parser_real": "NOT_EXECUTED",
+    "t1_manifest_SHA_and_BPE_real": "NOT_EXECUTED",
+    "eligible_256_documents": "NOT_EXECUTED",
+    "median_fragmentation_le_4": "NOT_EXECUTED",
+    "historical_exact_and_near_dedup": "NOT_EXECUTED",
+    "document_private_seal": "NOT_EXECUTED",
+    "scored_labels_131072": "NOT_EXECUTED",
+    "independent_real_readback": "NOT_EXECUTED",
+    "ood_science_admission": "HOLD",
+    "model_forward_calls": 0
+  },
+  "governance": {
+    "no_lineage_append": true,
+    "original_L0020_untouched": true,
+    "no_main_merge": true,
+    "no_training": true,
+    "no_inference": true,
+    "no_GGUF": true,
+    "no_claim": true,
+    "private_data_not_uploaded": true
+  },
+  "next": "Owner PowerShell single integrated CPU run of the staged pinned launcher; bring back public seal SHA and readback markers before any scoring authorization."
+}
