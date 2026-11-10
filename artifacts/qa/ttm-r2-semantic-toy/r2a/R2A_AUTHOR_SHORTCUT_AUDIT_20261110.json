@@ -1,0 +1,27 @@
+{
+  "bag_only_best_possible_paired_correct": 128,
+  "counterfactual_records": 256,
+  "limitations": [
+    "The trivial key-aware recency algorithm solves R2A without persistent latent state.",
+    "The public oracle dataset permits exact input-to-label lookup and cannot be a blinded heldout set.",
+    "Only author-side visible-text audit; no Codex reviewer actually executed.",
+    "No neural model tested; no extrapolation to unseen event transition types."
+  ],
+  "mechanical_key_aware_last_update_correct_of_256": 256,
+  "model_input_records": 384,
+  "model_input_sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+  "no_question_best_possible_query_swap_correct": 128,
+  "oracle_sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e",
+  "positional_value_only_correct_of_256": {
+    "first_in_query_key": 0,
+    "first_in_story": 0,
+    "last_in_query_key": 256,
+    "sentence_1": 0,
+    "sentence_2": 48,
+    "sentence_3": 80,
+    "sentence_4": 128
+  },
+  "query_swap_probes": 128,
+  "scientific_disposition": "O1_DEFER_KEEP_O0_HOLD; REQUIRE_CODEX_ADVERSARIAL_REVIEW",
+  "status": "PASS_SCOPED_AUTHOR_AUDIT_NOT_CODEX"
+}
