@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.t5.custom_ollama.isolated_smoke.closeout.v1",
+  "date": "2026-11-11",
+  "milestone": "TTM_T5_CUSTOM_OLLAMA_CPU_BUILD_AND_ISOLATED_SMOKE",
+  "status": "CLOSED",
+  "verdict": "PASS_SCOPED",
+  "technical_reference": {
+    "commit": "8895b293cf7c838892315c133ef12582c8188137",
+    "path": "artifacts/qa/ttm-t5-parity/TTM_T5_CUSTOM_OLLAMA_CPU_QA_V5_RECEIPT_20261111.json",
+    "git_blob": "6a6e856aba0da94036978cf4d271e44183a16ba5",
+    "sha256": "d63ba32e85c8472cc432b97eec2c9d98ee77224baed9eb7447c34bf5fe83a0b8",
+    "cpu_baseline_sha256": "af35a3e6a086d5c542d6c5751a54716dab2d2c56475335c09b370fe1e742bed1"
+  },
+  "scope": {
+    "platform": "Windows CPU x64 Release",
+    "ollama_version": "0.40.14",
+    "ollama_commit": "9a3e8177767245acc62b735eba7d5d8a553606d0",
+    "llama_cpp_commit": "39febd2adb947b70da35e95f9351b3bf58ad170a",
+    "gguf_dtype": "F32",
+    "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "kv_cache": {
+      "k": "f32",
+      "v": "f32"
+    },
+    "flash_attention": false,
+    "model_load": "PASS",
+    "tokenizer": {
+      "passed": 9,
+      "total": 9
+    },
+    "generation": {
+      "passed": 1,
+      "total": 1,
+      "prompt": "Xin chào",
+      "native": {
+        "content": ".",
+        "tokens": [
+          46,
+          256
+        ],
+        "stop_type": "eos"
+      },
+      "ollama": {
+        "response": ".",
+        "done_reason": "stop"
+      }
+    }
+  },
+  "ollama_full_logits": {
+    "status": "NOT_EXECUTED",
+    "scope": "SEPARATE_TEST"
+  }
+}

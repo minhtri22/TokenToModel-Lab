@@ -1,0 +1,13 @@
+diff --git a/src/models/gpt2.cpp b/src/models/gpt2.cpp
+index d6ca64744f492733612d3854e869e42ce1d52774..430eed46a557f5004fb8a72e86f3152b06d95b6a 100644
+--- a/src/models/gpt2.cpp
++++ b/src/models/gpt2.cpp
+@@ -118,7 +118,7 @@ llama_model_gpt2::graph::graph(const llama_model & model, const llm_graph_params
+                     NULL,                      NULL,                        NULL,
+                     model.layers[il].ffn_down, model.layers[il].ffn_down_b, NULL,
+                     NULL,
+-                    LLM_FFN_GELU, LLM_FFN_SEQ, il);
++                    LLM_FFN_GELU_ERF, LLM_FFN_SEQ, il);
+             cb(cur, "ffn_out", il);
+         }
+ 

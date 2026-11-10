@@ -1,0 +1,215 @@
+{
+  "schema": "ttm.t5.ollama.v5.technical_regression_reference.v1",
+  "date": "2026-11-11",
+  "status": "REFERENCE_LOCKED",
+  "evidence_readback": "PASS",
+  "reference": {
+    "commit": "8895b293cf7c838892315c133ef12582c8188137",
+    "path": "artifacts/qa/ttm-t5-parity/TTM_T5_CUSTOM_OLLAMA_CPU_QA_V5_RECEIPT_20261111.json",
+    "git_blob": "6a6e856aba0da94036978cf4d271e44183a16ba5",
+    "sha256": "d63ba32e85c8472cc432b97eec2c9d98ee77224baed9eb7447c34bf5fe83a0b8",
+    "cpu_baseline_sha256": "af35a3e6a086d5c542d6c5751a54716dab2d2c56475335c09b370fe1e742bed1"
+  },
+  "cpu_reference": {
+    "commit": "d9625c87adb3ede28ad647905b004bbd9c0dbef9",
+    "sha256": "af35a3e6a086d5c542d6c5751a54716dab2d2c56475335c09b370fe1e742bed1"
+  },
+  "source": {
+    "ollama": "9a3e8177767245acc62b735eba7d5d8a553606d0",
+    "llama_cpp": "39febd2adb947b70da35e95f9351b3bf58ad170a",
+    "gelu_patch_sha256": "47ef4854094d6b9db648cde7067a3d243b10ce632f0b58397e986110a7f62de2",
+    "compat_patches": {
+      "001-llama-cpp-hooks.patch": "6610052094be088cc8f2452b4dc7960be7e1f42f",
+      "002-metal-unary-cast-constexpr.patch": "bba2edda7843f8b3d5c74c198e0f29f5108c0660"
+    },
+    "materialized_blobs": {
+      "src/llama-model-loader.cpp": "30a5bbf403ab9bc81d9c307ca402b7510c1cdf5c",
+      "tools/mtmd/clip.cpp": "b7d13fbbe2ec8cd4f8aa2e9c93a96dbfdb4f8c10",
+      "ggml/src/ggml-metal/kernels/unary.metal": "873b59e089857460c56377055465c8e1e160916d",
+      "src/models/gpt2.cpp": "430eed46a557f5004fb8a72e86f3152b06d95b6a"
+    }
+  },
+  "identity": {
+    "version": "0.40.14",
+    "platform": "Windows CPU x64 Release",
+    "gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "payload_sha256": {
+      "lib\\ollama\\concrt140.dll": "2405355f0a58067b258f8df33c327e3a3d716eaac5a3a5aebb757842d85bd376",
+      "lib\\ollama\\CPP_HTTPLIB_LICENSE": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+      "lib\\ollama\\ggml-base.dll": "978035b076a7f42f2c75cf551ed9d2a543957462d996116a0df09fc2f9bb9dcc",
+      "lib\\ollama\\ggml-cpu.dll": "5edf9397eb266d7b3628e14e9fb80ddd883b6c317560e859acddc456d55068de",
+      "lib\\ollama\\ggml.dll": "4d7af4c7a80c22b23b0a4859c998ddd602bb93b2efc34354c65fd097e2621766",
+      "lib\\ollama\\llama-common.dll": "25d57620377e85e596ea201bd3304edd6c713e9047f2844be07de2251d722f0b",
+      "lib\\ollama\\llama-quantize-impl.dll": "9765b9fe31ac38e9b1ad7240024016ac75f3a7567d71bf527ba60e78760ba3aa",
+      "lib\\ollama\\llama-quantize.exe": "d88584df2c20871b035221e28ce4718d297c175f1aede934194177cbc46b5e4c",
+      "lib\\ollama\\llama-server-impl.dll": "87cc391de780e4690990bbab62e28cbb644a582184012b166542e3b0b4860709",
+      "lib\\ollama\\llama-server.exe": "13ea04b48551a5476920197fee4ff98b5b17b6277f84306fcc4f2422de046879",
+      "lib\\ollama\\llama.dll": "93d17e625fc79400a1d01b80091eff5f373072d172920f17032002807d92a6d4",
+      "lib\\ollama\\LLAMA_CPP_LICENSE": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "lib\\ollama\\LLAMA_CPP_VENDORS_LICENSE": "7547ae6372a35e7382898dd9f5519ebc16e93095f69c2466b5b74b617c33d4da",
+      "lib\\ollama\\msvcp140.dll": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "lib\\ollama\\msvcp140_1.dll": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "lib\\ollama\\msvcp140_2.dll": "3ea06f0ee098b4823cb79599df3780e7f23cce52c19aac31d2a0d47efe33a5e9",
+      "lib\\ollama\\msvcp140_atomic_wait.dll": "640b2aefced484d0368eea5bdd06addd0658a3a70a49256e560d6923b404a479",
+      "lib\\ollama\\msvcp140_codecvt_ids.dll": "f2069a52880ec885ee7f0511186100eb7fada0411a2b4948fafea7735b878a18",
+      "lib\\ollama\\mtmd.dll": "bd4e3adb85ee8417dc6a80f5d70c5fcf4bc5a43380126d291fdc2db9bf27b6a8",
+      "lib\\ollama\\vccorlib140.dll": "19839407c3fdbc824e5bce189bf68ddf8097f12ec28b757797ffa0415c144ddd",
+      "lib\\ollama\\vcruntime140.dll": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "lib\\ollama\\vcruntime140_1.dll": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "lib\\ollama\\vcruntime140_threads.dll": "219915cf20822f34d5e7c1fdd4e21ae7f3396881096c51036225fb8f84b47afa",
+      "ollama.exe": "7544d36e5bb4c9cfddbd48a400ea4f1919de8fcea80510e1847627ec92909e43"
+    }
+  },
+  "effective_runtime": {
+    "num_gpu": 0,
+    "num_thread": 1,
+    "num_ctx": 256,
+    "num_parallel": 1,
+    "kv_cache_k": "f32",
+    "kv_cache_v": "f32",
+    "flash_attention": false,
+    "runner_batch": 512,
+    "runner_micro_batch": 512
+  },
+  "regression": {
+    "new_runtime_status": "NOT_EXECUTED",
+    "test_order": [
+      "payload_and_model_identity",
+      "effective_runner_settings_and_model_load",
+      "tokenizer_9_of_9",
+      "single_generation"
+    ],
+    "tokenizer": {
+      "add_special": false,
+      "parse_special": false,
+      "fixtures": [
+        {
+          "index": 0,
+          "text": "a",
+          "tokens": [
+            97
+          ],
+          "decoded": "a"
+        },
+        {
+          "index": 1,
+          "text": "ab",
+          "tokens": [
+            97,
+            98
+          ],
+          "decoded": "ab"
+        },
+        {
+          "index": 2,
+          "text": "abc",
+          "tokens": [
+            97,
+            98,
+            99
+          ],
+          "decoded": "abc"
+        },
+        {
+          "index": 3,
+          "text": "aaaaaaaaa",
+          "tokens": [
+            97,
+            97,
+            97,
+            97,
+            97,
+            97,
+            97,
+            97,
+            97
+          ],
+          "decoded": "aaaaaaaaa"
+        },
+        {
+          "index": 4,
+          "text": "hello",
+          "tokens": [
+            257,
+            304,
+            111
+          ],
+          "decoded": "hello"
+        },
+        {
+          "index": 5,
+          "text": "café",
+          "tokens": [
+            99,
+            1659,
+            195,
+            169
+          ],
+          "decoded": "café"
+        },
+        {
+          "index": 6,
+          "text": "a b",
+          "tokens": [
+            97,
+            268
+          ],
+          "decoded": "a b"
+        },
+        {
+          "index": 7,
+          "text": "a\nb",
+          "tokens": [
+            97,
+            10,
+            98
+          ],
+          "decoded": "a\nb"
+        },
+        {
+          "index": 8,
+          "text": "Xin chào",
+          "tokens": [
+            88,
+            267,
+            628,
+            195,
+            160,
+            111
+          ],
+          "decoded": "Xin chào"
+        }
+      ]
+    },
+    "single_generation": {
+      "prompt": "Xin chào",
+      "raw": true,
+      "stream": false,
+      "temperature": 0,
+      "seed": 42,
+      "max_tokens": 8,
+      "expected_runner": {
+        "content": ".",
+        "tokens": [
+          46,
+          256
+        ],
+        "stop_type": "eos",
+        "truncated": false
+      },
+      "expected_ollama": {
+        "response": ".",
+        "done": true,
+        "done_reason": "stop"
+      }
+    },
+    "classification": "Nếu binary, DLL, GGUF hoặc cấu hình thực chạy đổi, ghi rõ sai khác và báo kết quả theo build ứng viên. Mốc v5 cố định làm đối chứng."
+  },
+  "full_logits": {
+    "status": "NOT_EXECUTED",
+    "scope": "SEPARATE_TEST",
+    "api_limitation": "Logprobs công khai là log xác suất của token được chọn và tối đa 20 ứng viên. Cần lấy tensor logits thô trước sampling trong runner thuộc tiến trình con của Ollama.",
+    "next_gate": "Khóa corpus token ID, vị trí đánh giá, nguồn đối chứng và ngưỡng trước khi chạy. Tách rõ phép đo runner do Ollama khởi chạy khỏi phép đo llama.cpp độc lập.",
+    "previous_native_science_commit": "df126b2d4beaee865faa24d8a7e9720bb59693aa"
+  }
+}
