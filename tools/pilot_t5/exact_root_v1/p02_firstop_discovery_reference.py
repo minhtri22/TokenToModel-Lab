@@ -65,16 +65,26 @@ def run_one(model,ids,fixture,out):
             # GGML Qcur is token-major, then head, then head_dim.
             for stage,data in (("Qcur-0",q),("Kcur-0",k),("Vcur-0",v)):
                 dump(out,fixture,stage,data.transpose(1,2).squeeze(0))
-        score=q @ k.transpose(-2,-1) / math.sqrt(blk.attn.head_dim)
+        raw_score=q @ k.transpose(-2,-1)
+        score=raw_score / math.sqrt(blk.attn.head_dim)
         mask=torch.ones(len(ids),len(ids),dtype=torch.bool).tril()
         weights=score.masked_fill(~mask,-torch.inf).softmax(dim=-1)
         if il==0:
-            dump(out,fixture,"kq-0",score.squeeze(0))
+            dump(out,fixture,"kq-0",raw_score.squeeze(0))
             dump(out,fixture,"kq_soft_max-0",weights.squeeze(0))
         wv=weights@v
         if il==0:dump(out,fixture,"kqv-0",wv.squeeze(0))
         attn_out=wv.transpose(1,2).contiguous().reshape(1,len(ids),256)
-        if il==0:dump(out,fixture,"kqv_out-0",attn_out.squeeze(0))
+        if il==0:
+            dump(out,fixture,"kqv_out-0",attn_out.squeeze(0))
+            v_half_rounded=v.to(torch.float16).to(torch.float32)
+            alt_wv=weights @ v_half_rounded
+            alt_y=alt_wv.transpose(1,2).contiguous().reshape(1,len(ids),256)
+            alt_residual=x+blk.attn.proj(alt_y)
+            # Original same-input V-F16 rounding mechanism, not actual GGML.
+            v_precision_delta=(x+blk.attn.proj(attn_out)-alt_residual).abs()
+            v_precision_max=float(v_precision_delta.max())
+            v_precision_mean=float(v_precision_delta.mean())
         wo=blk.attn.proj(attn_out)
         residual=x+wo
         if il==0:dump(out,fixture,"ffn_inp-0",residual.squeeze(0))
@@ -106,7 +116,7 @@ def run_one(model,ids,fixture,out):
     corrected=corrected[:,-1,:]
     dump(out,fixture,"result_output_gelu_tanh_allblocks",corrected)
     diff=(baseline-corrected).abs()
-    return {"fixture_id":fixture,"n_ids":len(ids),"gelu_tanh_vs_erf_max_abs":float(diff.max()),"gelu_tanh_vs_erf_mean_abs":float(diff.mean()),"top1_equal":bool(torch.argmax(baseline)==torch.argmax(corrected)), "actual_p02_erf_baseline":True}
+    return {"fixture_id":fixture,"n_ids":len(ids),"gelu_tanh_vs_erf_max_abs":float(diff.max()),"gelu_tanh_vs_erf_mean_abs":float(diff.mean()),"top1_equal":bool(torch.argmax(baseline)==torch.argmax(corrected)), "block0_v_to_f16_then_f32_ffn_inp_max_abs":v_precision_max,"block0_v_to_f16_then_f32_ffn_inp_mean_abs":v_precision_mean,"actual_p02_erf_baseline":True}
 
 def main():
     ap=argparse.ArgumentParser()
