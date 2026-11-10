@@ -1,0 +1,17 @@
+{
+  "GPU_training": "NOT_EXECUTED",
+  "NONE_target_answers": 32,
+  "four_cell_counterfactuals": 96,
+  "groups": 96,
+  "model_input_shuffled": true,
+  "model_inputs": 384,
+  "model_sha256": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+  "neural_evaluation": "NOT_EXECUTED",
+  "oracle_correct": 384,
+  "oracle_sha256": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08",
+  "public_labels": true,
+  "query_dependent_motif_cross_split": 0,
+  "query_dependent_motifs_CHALLENGE": 133,
+  "query_dependent_motifs_DEV": 128,
+  "status": "PASS_R3A_PUBLIC_TOY_SOURCE_AND_VALIDATOR_ONLY"
+}
