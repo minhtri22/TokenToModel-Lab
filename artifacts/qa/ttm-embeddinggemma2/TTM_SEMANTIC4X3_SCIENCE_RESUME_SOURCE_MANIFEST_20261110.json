@@ -8,7 +8,7 @@
     "runner": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
     "independent_reader": "51732bd62cfd13bf8956f11ee862b939d0dc78a62c58cd3d655dc05b566764e2",
     "null_helper": "0d71f38da356056be50a18d36f589774190178fd321e6d2e3970413d96238a2d",
-    "notebook": "72deb03c0e21487a3b65fce58ea43a98963ef589d8eb3bfa80230df8a154b6e7",
+    "notebook": "daf66f1f16a4ff756f3602e794bdf5a0bc16641f71c3fa278fd4a7ec588a5d41",
     "source_zip": "67f07792446387b6c27ba5c334509b4ac11d3a3e7faf74ea44f329715eeae035"
   },
   "private_data": {
@@ -64,5 +64,6 @@
     "lineage_unchanged": true,
     "main_unchanged": true,
     "GGUF_deferred": true
-  }
+  },
+  "notebook_resume_authentication": "AUTHENTICATE_DRIVE_QUOTA_BOTH_FRESH_AND_RESUMED_RUNTIME"
 }
