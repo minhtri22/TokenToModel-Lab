@@ -42,7 +42,7 @@ def sha(p):
 
 def gitblob(p):
     b=p.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 
 def root_member(root,p,regular=False):
     x=p.resolve(strict=True)
@@ -57,11 +57,11 @@ def call(label,argv,cwd,log,timeout,env=None):
              capture_output=True,text=True,errors="replace",
              check=False,timeout=timeout)
     except subprocess.TimeoutExpired as e:
-        log.write_text("TIMED_OUT_NO_RETRY:"+repr(e)+"\\n",encoding="utf-8")
+        log.write_text("TIMED_OUT_NO_RETRY:"+repr(e)+"\n",encoding="utf-8")
         raise RuntimeError(label+"_TIMEOUT_DO_NOT_RERUN") from e
     log.write_text("ARGS="+json.dumps([str(x) for x in argv])+
-         "\\nEXIT_CODE="+str(p.returncode)+"\\nSTDOUT:\\n"+p.stdout+
-         "\\nSTDERR:\\n"+p.stderr+"\\n",encoding="utf-8")
+         "\nEXIT_CODE="+str(p.returncode)+"\nSTDOUT:\n"+p.stdout+
+         "\nSTDERR:\n"+p.stderr+"\n",encoding="utf-8")
     if p.returncode:
         raise RuntimeError(label+"_FAILED_EXIT_"+str(p.returncode)+"_READ_LOG")
     print("T5_STAGE="+label,flush=True)
@@ -223,9 +223,9 @@ def main():
         receipt["failure"]=type(e).__name__+":"+str(e)
     finally:
         output=stage/"DISCOVERY_RUN_RECEIPT.json"
-        with output.open("x",encoding="utf-8",newline="\\n") as fp:
+        with output.open("x",encoding="utf-8",newline="\n") as fp:
             json.dump(receipt,fp,sort_keys=True,indent=2,ensure_ascii=False)
-            fp.write("\\n")
+            fp.write("\n")
         print("DISCOVERY_STATUS="+receipt["status"],flush=True)
         print("DISCOVERY_RECEIPT="+str(output),flush=True)
         print("DISCOVERY_RECEIPT_SHA256="+sha(output),flush=True)
