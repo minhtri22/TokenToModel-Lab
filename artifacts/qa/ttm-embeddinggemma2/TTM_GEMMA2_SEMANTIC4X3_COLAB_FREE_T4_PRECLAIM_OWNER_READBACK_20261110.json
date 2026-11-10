@@ -1,0 +1,69 @@
+{
+  "schema": "ttm.semantic4x3.owner_colab_preclaim_and_direct_drive_readback.public.v1",
+  "date": "2026-11-10",
+  "operation": "TTM_SEMANTIC4X3_COLAB_FREE_T4_PRECLAIM_REAL_SOURCE_QA_OWNER_DECISION",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "evidence_provenance": "Colab stdout/stderr and Drive screenshot reported by owner; Drive file metadata and ZIP payload independently read and three uncompressed inner-file hashes verified by assistant.",
+  "result": "PASS_NO_SCIENCE_CONSUMED",
+  "code_commit_pin": "081ea478c7b6fed2748002e0637c041d4fdc21d8",
+  "source_branch_head_before_this_receipt": "465fb6ec694ebb60610359f4012823318699667e",
+  "runner_sha256": "9a824e453195cafc530e2289d3b8a87e354faf8905ca73b2f29b79144d657a8d",
+  "source_manifest_git_blob": "da649d846e1ff9628fd4543996dc637751a6555e",
+  "drive": {
+    "folder": "ttm-small-pilot",
+    "public_source_zip_uploaded": true,
+    "preflight_notebook_uploaded": true,
+    "private_h768_zip_uploaded": true,
+    "private_h768_zip_size_bytes": 426988,
+    "h768_zip_decompressed_verified": true,
+    "nested_entry_count": 3,
+    "nested_entry_sha256": {
+      "H768_PUBLIC_SEAL.json": "9725b1254cde81b77e23b85ab479a08cafc14af0a7a536c7722ca87c7f2a5aa0",
+      "H768_MEMBERSHIP_PRIVATE.json": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+      "H768_WINDOWS_PRIVATE.npz": "1eb5b54b4bb7744e23fffd0fd755d5c91853a773dcc0d2219f777b47ba6a53df"
+    },
+    "private_h768_story_ids_published": false
+  },
+  "colab": {
+    "environment": {
+      "device": "Tesla T4",
+      "device_count": 1,
+      "cuda": "13.0",
+      "torch": "2.14.1+cu130",
+      "numpy": "2.4.6",
+      "visible_vram_bytes": 15637086208
+    },
+    "synthetic_gpu_peak_bytes": 303281152,
+    "h768_stories": 768,
+    "h768_windows": 1000,
+    "h768_targets": 186655,
+    "source_parity": "PASS_EXACT_STATE_AND_SYNTHETIC_LOGITS",
+    "synthetic_fixtures": [
+      "RUNNER_PASS_8_CHECKS",
+      "INDEPENDENT_PASS_6_CHECKS",
+      "NULL_PASS_6_CHECKS"
+    ],
+    "schedule_sha256": {
+      "S1": "35080993e5c0d21cd12235fd5133a1169a19c57bb86e3e07301a2af3e77aa6c6",
+      "S2": "9ec59ae161c2dd40eed7c8f14cdb39da73020a8a38f41274329854df9385fc5b",
+      "S3": "688c0b8f08432e2ed89e74b6c55dd504695acfa47c90dbf224841dc95b9f8c0a"
+    },
+    "synthetic_fixture_schedule_sha256": "20ae3f2868cc341a412cd0b0e178b1235706e2a84a9180e982db0dc13980326c",
+    "preflight_exit_code": 0,
+    "preclaim_status": "PASS_NO_SCIENCE_CONSUMED",
+    "stderr_note": "Two non-fatal httplib2 per-request timeout warnings; preflight exit code 0.",
+    "code_rechecked_before_claim": true,
+    "direct_drive_quota_gate_in_runner": true,
+    "drive_free_numeric_value_reported": false
+  },
+  "governance": {
+    "no_claim_created": true,
+    "no_science_training_executed": true,
+    "no_h768_scored": true,
+    "owner_science_approval_granted": false,
+    "lineage_unchanged": true,
+    "main_unchanged": true
+  },
+  "limitation": "A passing technical preflight does not ensure 12-arm 24576-step science will fit one Colab Free session. Interrupted chunk cannot be replayed automatically under frozen runner; require explicit adjudication and original evidence rather than a new run.",
+  "next": "OWNER_SCOPED_SCIENCE_EXECUTION_DECISION_THEN_EXPLICIT_EXECUTE_CELL_IF_APPROVED"
+}
