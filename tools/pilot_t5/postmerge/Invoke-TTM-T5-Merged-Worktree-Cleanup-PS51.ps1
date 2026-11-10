@@ -109,16 +109,16 @@ try {
     }
     foreach($key in $checks.Keys){
         $pair=$checks[$key]
-        $record.provenance[$key]=ExactSHA (Join-Path $Root $pair[0]) $pair[1]
+        $record['provenance'][$key]=ExactSHA (Join-Path $Root $pair[0]) $pair[1]
     }
     $variant=Join-Path $Root '_tmp\ttm_t5_exact_root_v1_20261110\trace_gelu_erf\src\models\gpt2.cpp'
     if(-not (Test-Path -LiteralPath $variant -PathType Leaf)){
         throw 'PATCHED_LLAMA_SOURCE_NOT_FOUND'
     }
-    $record.target_head=$wtHead
-    $record.target_branch=$wtBranch
-    $record.remote_main=$remoteHead
-    $record.status='PASS_AUDIT_ALL_GATES'
+    $record['target_head']=$wtHead
+    $record['target_branch']=$wtBranch
+    $record['remote_main']=$remoteHead
+    $record['status']='PASS_AUDIT_ALL_GATES'
     Write-Host 'T5_WORKTREE_PREFLIGHT=PASS'
     Write-Host ('T5_EVIDENCE_PIN=PASS_'+$checks.Count+'_OF_'+$checks.Count)
     if($ApplyCleanup) {
@@ -126,16 +126,16 @@ try {
         if(Test-Path -LiteralPath $target){
             throw 'GIT_REMOVE_RETURNED_BUT_WORKTREE_STILL_EXISTS'
         }
-        $record.worktree_removed=$true
-        $record.status='PASS_CLEAN_MERGED_WORKTREE_REMOVED'
+        $record['worktree_removed']=$true
+        $record['status']='PASS_CLEAN_MERGED_WORKTREE_REMOVED'
         Write-Host 'T5_WORKTREE_CLEANUP=PASS_REMOVED'
         Write-Host 'T5_LOCAL_REMOTE_BRANCH_REFS=RETAINED_FOR_LINEAGE'
     } else {
         Write-Host 'T5_WORKTREE_CLEANUP=AUDIT_ONLY'
     }
 } catch {
-    $record.status='HOLD_NO_FORCE_NO_RETRY'
-    $record.error=$_.Exception.Message
+    $record['status']='HOLD_NO_FORCE_NO_RETRY'
+    $record['error']=$_.Exception.Message
 } finally {
     $record | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $receipt -Encoding UTF8
     $hash=(Get-FileHash -LiteralPath $receipt -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -143,6 +143,6 @@ try {
     Write-Host ('T5_CLEANUP_RECEIPT='+$receipt)
     Write-Host ('T5_CLEANUP_RECEIPT_SHA256='+$hash)
 }
-if($record.status -eq 'HOLD_NO_FORCE_NO_RETRY'){
-    throw ('T5_CLEANUP_FAIL_CLOSED: '+$record.error)
+if($record['status'] -eq 'HOLD_NO_FORCE_NO_RETRY'){
+    throw ('T5_CLEANUP_FAIL_CLOSED: '+$record['error'])
 }
