@@ -43,7 +43,7 @@ def sha(path):
 
 def blob(path):
     b=path.read_bytes()
-    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest()
+    return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 
 def read_jsonl(path,maxrows):
     rows=[]
@@ -178,9 +178,9 @@ def main():
        "confirmatory_not_accessed":True,"historical_8_32_not_replayed":True,
        "root_cause":"REQUIRES_TARGETED_ABLATION_AND_CONFIRMATORY_PASS",
        "no_training":True,"no_TEST":True}
-    with a.output.open("x",encoding="utf-8",newline="\\n") as f:
+    with a.output.open("x",encoding="utf-8",newline="\n") as f:
         json.dump(output_record,f,sort_keys=True,ensure_ascii=False,indent=2)
-        f.write("\\n")
+        f.write("\n")
     print(json.dumps({"status":output_record["status"],
        "first_op":{k:v["first_over_1e_minus_5"] for k,v in all_rows.items()},
        "strict":{k:v["strict_max_abs"] for k,v in all_rows.items()},
