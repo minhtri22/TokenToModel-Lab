@@ -1,0 +1,174 @@
+{
+  "adjudication": {
+    "FAIR_SUPERVISION": "HOLD_DESIGN_ONLY",
+    "NEURAL_GAIN": "NOT_TESTED",
+    "R2A_INPUT_SCHEMA": "FAIL_SCOPED",
+    "R2A_VALID_SCOPED": "PASS_WITH_VALIDATOR_HARDENING_REQUIRED",
+    "recommended_owner_decision": "DESIGN_R3_BEFORE_O1"
+  },
+  "independent_review_script_sha256": "e622954dc1d988d270a74a716a8de6ea438df86caa6b3f4fe83d2beeb9d0a5f0",
+  "independent_visible_text": {
+    "A_B_adjacent_pairs": 128,
+    "A_Q_duplicate_stories": 128,
+    "blind_science_final": false,
+    "counterfactual_groups": 128,
+    "paired_bag_of_words_max_correct_of_256": 128,
+    "prediction_scores_of_384": {
+      "first_relevant": 0,
+      "last_story": 192,
+      "latest_relevant": 384,
+      "third_story": 124
+    },
+    "public_answer_labels": true,
+    "query_swap_probes": 128,
+    "query_swap_uses_only_A": 128,
+    "rows": 384,
+    "six_query_position_patterns_per_family_split": true
+  },
+  "integrity": {
+    "files": [
+      {
+        "bytes": 7426,
+        "git_blob": "78d0ce42468ae4c29e44b6488feafba8b2a31215",
+        "path": "tools/research/semantic_state_r2/r2a_generator.py",
+        "sha256": "e9f7df99d09a2aa449173db1358449515772b9c54778d75f775eae04f5447326"
+      },
+      {
+        "bytes": 9638,
+        "git_blob": "1a6edc434e30cfd66820c0d021c0b085124e1847",
+        "path": "tools/research/semantic_state_r2/r2a_independent_checker.py",
+        "sha256": "5224707f32688d1582ab80939e844902848f896fdb52596d136904a0ec34d191"
+      },
+      {
+        "bytes": 4913,
+        "git_blob": "6263e4bc56a6cb2747ed11f70fe7a37544973c3f",
+        "path": "tools/research/semantic_state_r2/r2a_single_cpu_qa.py",
+        "sha256": "96fb5e494c75230331238f7b03361c61e9de58e197efd2dce76d17d4b229bc8e"
+      },
+      {
+        "bytes": 183830,
+        "git_blob": "b1c087b618c871d99a4d6da39358c6ac57f8d4ee",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_ORACLE_DATASET.json",
+        "sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e"
+      },
+      {
+        "bytes": 60734,
+        "git_blob": "581c55ad2b67bd0887def85abe4363cf7413e647",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_MODEL_INPUT_ONLY.json",
+        "sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d"
+      },
+      {
+        "bytes": 1005,
+        "git_blob": "7c8c448636648e53049d022c145b59535f40540a",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_INDEPENDENT_QA_20261110.json",
+        "sha256": "76920a16525b4feaa2bed9e49abbea620b91cc3982fae93d0f353a76b326a967"
+      },
+      {
+        "bytes": 3025,
+        "git_blob": "409fbf9756f77021e4ccb957d6300aa2f1f76006",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_CPU_TEST_LOG_FINAL_20261110.txt",
+        "sha256": "6efc7fa9f1517f082b5b881942ae99a54224f8308204d496d093b648c1867159"
+      },
+      {
+        "bytes": 3733,
+        "git_blob": "7e58396444d7539a9ec638c5bcb72c6394fdd7ea",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_INITIAL_TEST_LOG_20261110.txt",
+        "sha256": "35998d6e31690a86ec1d43a0bc2d7a85ebf5e1371e72e9ba5029c29eb33cb8d0"
+      },
+      {
+        "bytes": 5337,
+        "git_blob": "0172001add17be83b51bb17a6cea5ec2d78e5d22",
+        "path": "tools/research/semantic_state_r2/r2a_author_shortcut_audit_20261110.py",
+        "sha256": "2969641085d7e0ac7c33ef4e5958f8b8148c9eb44eb24a97d7b38640da408cbb"
+      },
+      {
+        "bytes": 1174,
+        "git_blob": "c72317609f0c52b4aae5af0a3a609a0abeb026a9",
+        "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_AUTHOR_SHORTCUT_AUDIT_20261110.json",
+        "sha256": "f83a2b9eff883826effc88d8c6a7212154be86b7628f4391abfda1d873aaadea"
+      }
+    ],
+    "files_verified": 10,
+    "model_input_sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+    "oracle_sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e"
+  },
+  "pinned_head": "c85b2ab504953bd667f09909f3495c4772fd1b2e",
+  "reviewer": "CODEX_AI_INTERNAL",
+  "schema": "ttm.r2a.codex_ai_internal_adversarial_review.v1",
+  "scope": "PUBLIC_R2A_CPU_ONLY_NO_NEURAL_NO_GPU",
+  "validator_bypasses": [
+    "MODEL_ROOT_ANSWER_VECTOR",
+    "MODEL_ROOT_ORACLE",
+    "MODEL_ROOT_SPLIT_METADATA",
+    "ORACLE_DECLARATION_FALSE_SEALED"
+  ],
+  "validator_mutations": [
+    {
+      "accepted_by_original_checker": true,
+      "case": "MODEL_ROOT_ANSWER_VECTOR",
+      "expected_acceptance_observed": true,
+      "rejection": null
+    },
+    {
+      "accepted_by_original_checker": true,
+      "case": "MODEL_ROOT_ORACLE",
+      "expected_acceptance_observed": true,
+      "rejection": null
+    },
+    {
+      "accepted_by_original_checker": true,
+      "case": "MODEL_ROOT_SPLIT_METADATA",
+      "expected_acceptance_observed": true,
+      "rejection": null
+    },
+    {
+      "accepted_by_original_checker": true,
+      "case": "ORACLE_DECLARATION_FALSE_SEALED",
+      "expected_acceptance_observed": true,
+      "rejection": null
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "MODEL_RECORD_ANSWER",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: MODEL_PROJECTION_MISMATCH"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "MODEL_RECORD_SPLIT",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: MODEL_PROJECTION_MISMATCH"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "ORACLE_ROOT_UNEXPECTED_FIELD",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: ORACLE_DATA_FIELDS"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "PAIR_WRONG_ANSWER",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: ANSWER_MISMATCH"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "SOURCE_EVENTS_TAMPERED",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: EVENT_SOURCE_TAMPERED"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "WRONG_DECLARED_COUNTS",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: DECLARED_COUNTS_MISMATCH"
+    },
+    {
+      "accepted_by_original_checker": false,
+      "case": "MODEL_PROJECTION_REORDER",
+      "expected_acceptance_observed": true,
+      "rejection": "Invalid: MODEL_PROJECTION_MISMATCH"
+    }
+  ],
+  "validator_mutations_expected_results": 11
+}
