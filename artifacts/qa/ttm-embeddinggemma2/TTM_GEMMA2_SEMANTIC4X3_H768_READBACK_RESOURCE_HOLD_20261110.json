@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.semantic4x3.h768.real_seal.readback_and_resource_decision.v1",
+  "date": "2026-11-10",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_SEMANTIC4X3_H768_REAL_SEAL_AND_RESOURCE_PREFLIGHT_SINGLE_BATCH",
+  "source_procedure_commit": "83d674622d13c4247de7d45454ca872e404b61ac",
+  "owner_output": {
+    "fixture": "PASS_4_CHECKS",
+    "seal_status": "H768_SEALED_NOT_SCORED",
+    "public_seal_sha256": "9725b1254cde81b77e23b85ab479a08cafc14af0a7a536c7722ca87c7f2a5aa0",
+    "membership_private_sha256": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+    "pack_private_sha256": "1eb5b54b4bb7744e23fffd0fd755d5c91853a773dcc0d2219f777b47ba6a53df",
+    "stories": 768,
+    "windows": 1000,
+    "targets": 186655,
+    "excluded_exact_source_count": 1159,
+    "near_self_pairs": 0,
+    "near_T1_TRAIN_pairs": 0,
+    "near_T1_VALIDATION_pairs": 0,
+    "no_old_TEST_or_H320_or_H512_text_decoded": true,
+    "claim_created": false,
+    "model_forward_calls": 0
+  },
+  "review": {
+    "public_receipt_read_directly_from_owner_Windows": true,
+    "public_receipt_canonical_json_sha256_recomputed_exact": true,
+    "public_seal_gitblob_expected": "3597bce6ad5330cef1e3aaf67fd87d8d01c0c578",
+    "source_script_sha256": "40197872225dde9cc17b0c098ade1918017b3e25d79d159ec92918a0c7de3ce6",
+    "source_script_git_blob": "ac11b9c7cb7403d5dc222dbfcda866d43f705e29",
+    "full_private_npz_hash_recomputed_by_adjudicator": false,
+    "private_membership_ids_released": false
+  },
+  "resource": {
+    "minimum_free_drive_gib_pre_claim": 6,
+    "mandatory_checkpoint_bytes": 5082944736,
+    "mandatory_checkpoint_gib": 4.733861178159714,
+    "extra_headroom_gib": 1,
+    "drive_free_now_gib": null,
+    "free_tesla_T4_now": null,
+    "resource_verdict": "HOLD_UNVERIFIED_CURRENT_DRIVE_FREE_AND_T4"
+  },
+  "runner_4x3": "NOT_IMPLEMENTED_IN_FROZEN_SOURCE_SNAPSHOT",
+  "governance": {
+    "prereg_frozen_v2": true,
+    "train_authorized": false,
+    "one_shot_claim": false,
+    "lineage_unchanged": true,
+    "main_unchanged": true,
+    "prior_scientific_L0017_L0018_L0019_preserved": true,
+    "GGUF_deferred": true,
+    "application_deferred": true
+  },
+  "status": "H768_REAL_SOURCE_PASS_RESOURCE_HOLD_NO_SCIENCE"
+}
