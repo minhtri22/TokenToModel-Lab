@@ -1,3 +1,15 @@
+# TTM T5 — XÁC NHẬN KHOA HỌC C01–C04: PASS 4/4, 2026-11-10
+
+**Phán quyết hiện hành:** `PASS_HELDOUT_STRICT_LOGIT_PARITY_4_OF_4_SCOPED_GELU_ERF`. C01/C02/C03/C04 mới tiền đăng ký đạt `max_abs≤0.001` trên đủ 2.048 logits mỗi fixture; 4/4 top-1 trùng, 4/4 node GELU_ERF xác thực. Receipt chủ dự án SHA256 `95ed3c419e42df493dc314abeb42e47afa1bf72fcb90d2c7246ff4c55d645e88`; độc lập auditor SHA256 `1d5e050e9aefbeb5720a5f86986ecbcffe2a51a8c7605d07c85467553b8b8887`; run một lần, không train hoặc TEST.
+
+[Biên bản độc lập 4/4 PASS](../../../artifacts/qa/ttm-t5-parity/TTM_T5_C01C04_GELU_ERF_HELDOUT_STRICT_4_OF_4_INDEPENDENT_ADJUDICATION_20261110.json) · [Báo cáo khoa học và review merge](../../../docs/pilot/TTM_T5_GELU_ERF_C01C04_HELDOUT_STRICT_PASS_INDEPENDENT_ADJUDICATION_AND_PR16_MERGE_REVIEW_20261110.md).
+
+**Quan trọng về nguồn/merge:** Kết quả PASS này áp dụng cho binary **llama.cpp được patch GELU_ERF ở checkout tách biệt**, CPU, KV F32, Flash OFF. PR #16 chứa mã chẩn đoán tạo bản patch và chứng cứ, **không tự cập nhật llama.cpp production hoặc làm model GGUF gốc tự tương thích**. Source V1 lỗi cú pháp và auditor V1 lỗi shape được giữ để truy vết, tuyệt đối không tái chạy; recovery V2 cũng là one-shot đã tiêu thụ, không dùng chạy lại. Đối với source production, cần áp dụng/đóng gói sửa GELU riêng theo quy trình phát hành, không đánh đồng merge research với triển khai runtime.
+
+**`SCIENCE=PASS_4/4` · `PR16=DRAFT_HOLD_FINAL_SOURCE_REVIEW_AND_OWNER_DECISION` · `MERGE=NOT_EXECUTED`**. L0013 FAIL 32/32 bất biến; L0014 PASS mới được nối tiếp trong `lineage.md`, không thay thế FAIL cũ.
+
+---
+
 # C01–C04 2026-11-10 — SỬA LỖI CÚ PHÁP TRƯỚC NATIVE, CHƯA TIÊU THỤ ONE-SHOT
 
 **Không chạy lại launcher V1** `Invoke-TTM-T5-C01C04-GELU-ERF-Confirmatory-Once-PS51.ps1`: checker trong V1 mắc `SyntaxError: unmatched ')'` tại dòng 99 và đã dừng trước mọi phép native C01–C04. Source lock V1 và lỗi được giữ nguyên; `main`, TEST và `lineage.md` không đổi. Sửa chính xác dấu ngoặc và pin SHA trong source mới.
