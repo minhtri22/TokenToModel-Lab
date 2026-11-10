@@ -1,0 +1,23 @@
+{
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "gpu_fp16_not_executed": true,
+  "model_logits_finite": true,
+  "model_logits_shape": [
+    1,
+    256,
+    2048
+  ],
+  "model_params": 3749376,
+  "no_optimizer_step": true,
+  "no_private_train_tokens_scored": true,
+  "optimizer_state_count": 52,
+  "optimizer_step": 1024,
+  "p02_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+  "scaler_state": {
+    "growth_tracker": 1024,
+    "scale": 65536.0
+  },
+  "scheduler_step": 1024,
+  "schema": "ttm.small4m.2x2.cpu_full_parent_restore_preflight.v1",
+  "status": "PASS_FULL_PARENT_MODEL_ADAMW_SCHEDULER_SAMPLER_SCALER_CPU_RESTORE"
+}
