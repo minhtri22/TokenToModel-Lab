@@ -1,0 +1,118 @@
+{
+  "schema": "ttm.r2a.o0_o1.fair_supervision_architecture_compute.design_candidate.v1",
+  "created": "2026-11-10",
+  "status": "DESIGN_ONLY_NO_SCIENCE_OWNER_APPROVAL",
+  "git": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-semantic-state-goal-toy-r2-20261110",
+    "canonical_r2a_dataset": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_ORACLE_DATASET.json",
+    "canonical_model_input": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_MODEL_INPUT_ONLY.json",
+    "full_manifest": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_COMPLETE_GITHUB_CUSTODY_MANIFEST_20261110.json"
+  },
+  "canonical_evidence": {
+    "pairs": 128,
+    "counterfactuals": 256,
+    "query_swap_probes": 128,
+    "public_inputs": 384,
+    "model_input_sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+    "public_oracle_sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e",
+    "is_sealed_final": false,
+    "may_use_as_neural_blind_final": false,
+    "labels_public": true
+  },
+  "candidate_arms": [
+    {
+      "id": "A",
+      "architecture": "O0_P02_CE",
+      "supervision": "TEXT_NEXT_TOKEN_CE_ONLY",
+      "role": "BASELINE",
+      "new_state_head": false
+    },
+    {
+      "id": "B",
+      "architecture": "O0_P02_CE",
+      "supervision": "TEXT_CE_PLUS_ORACLE_STATE_AS_TEXT_TOKENS",
+      "role": "ADDITIONAL_SUPERVISION_CONTROL",
+      "new_state_head": false
+    },
+    {
+      "id": "C",
+      "architecture": "O1_P02_PLUS_STATE_GOAL_HEAD",
+      "supervision": "TEXT_CE_PLUS_TRUE_ORACLE_STATE_HEAD_LABELS",
+      "role": "O1_CANDIDATE",
+      "new_state_head": true
+    },
+    {
+      "id": "D",
+      "architecture": "O1_P02_PLUS_STATE_GOAL_HEAD",
+      "supervision": "TEXT_CE_PLUS_SHUFFLED_STATE_HEAD_LABELS_PRESERVE_CLASS_MARGINALS",
+      "role": "NO_SEMANTIC_BINDING_NEGATIVE",
+      "new_state_head": true
+    },
+    {
+      "id": "E",
+      "architecture": "O0_P02_WITH_USED_CAPACITY_ADAPTER",
+      "supervision": "TEXT_NEXT_TOKEN_CE_ONLY",
+      "role": "PARAM_AND_FORWARD_COMPUTE_CONTROL",
+      "new_state_head": false
+    }
+  ],
+  "comparisons": [
+    {
+      "contrast": "B-A",
+      "interprets": "additional textual state supervision + compute overhead; not architecture"
+    },
+    {
+      "contrast": "C-B",
+      "interprets": "representation of same state target through head vs text; not pure architecture if FLOPs/entropy differ"
+    },
+    {
+      "contrast": "C-D",
+      "interprets": "meaningful state bindings vs label-marginal matched shuffled supervision, same architecture"
+    },
+    {
+      "contrast": "E-A",
+      "interprets": "extra active capacity/forward compute, same text labels"
+    },
+    {
+      "contrast": "C-E",
+      "interprets": "aggregate state supervision and architecture difference, not isolated benefit"
+    }
+  ],
+  "fairness_ledger_must_freeze": [
+    "TOTAL_TRAINABLE_PARAMETERS_AND_ACTIVE_PARAMETERS",
+    "PER_ARM_TEXT_TARGET_TOKEN_EXPOSURES",
+    "PER_ARM_ORACLE_STATE_TARGET_EXAMPLES",
+    "PER_ARM_SUPERVISED_TEXT_TOKEN_COUNT",
+    "TOTAL_FORWARD_SLOTS_AND_OBSERVED_FLOPS",
+    "GPU_SECONDS_AND_PEAK_VRAM",
+    "OPTIMIZER_START_STATE_AND_LEARNING_RATE_SCHEDULE",
+    "TRAIN_ONLY_LABEL_SOURCE_RIGHTS",
+    "P02_TRUNK_CHECKPOINT_COMPATIBILITY",
+    "EVALUATOR_AND_BLIND_MAPPING_RECEIPT"
+  ],
+  "same_backbone_freeze": true,
+  "information_control": {
+    "oracle_state_labels_only_from_train_text": true,
+    "oracle_at_inference": false,
+    "public_R2A_dataset_for_debug_only": true,
+    "R3_final_requires_new_hidden_label_set": true,
+    "novel_event_graph_heldout_before_science": true,
+    "label_shuffle_within_train_only": true,
+    "label_permutation_committed_before_training": true
+  },
+  "hard_gates": {
+    "R2A_codex_review": "PENDING",
+    "semantics_beyond_keyed_last_update": "NOT_DEMONSTRATED",
+    "E_active_capacity_param_matching": "NOT_IMPLEMENTED",
+    "tokenizer_and_objective_budget_equalization": "NOT_IMPLEMENTED",
+    "new_R3_unseen_study": "NOT_CREATED",
+    "offline_synthetic_qa": "NOT_EXECUTED",
+    "owner_science_approval": "NOT_GRANTED",
+    "gpu_training": "PROHIBITED",
+    "original_TTM_TEST_Q1Q2": "SEALED"
+  },
+  "internal_reviewer": "Codex AI separate scope, not external human",
+  "decision": "O0_HOLD_AND_O1_DEFER_PENDING_ADVERSARIAL_REVIEW",
+  "next": "TTM_R2A_CODEX_REVIEW_ADJUDICATE_THEN_R3_STRUCTURAL_STATE_TRACING_SCIENCE_DESIGN_OR_KEEP_O0"
+}
