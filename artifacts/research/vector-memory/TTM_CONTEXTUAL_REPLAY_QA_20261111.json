@@ -1,0 +1,17 @@
+{
+  "bug_fixed": "baseline=model(x)[0][rows,pos]",
+  "date": "2026-11-11",
+  "experiment": "TTM_VECTOR_MEMORY_REPLAY_QA_20261111",
+  "main_repo_changed": false,
+  "original_p02_api_forward_return": "(logits, loss)",
+  "p02_source_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "private_token_data_published": false,
+  "qa_note": "Replayed with P02-equivalent math and original forward tuple interface on frozen checkpoint; full original Git blob pinned in repo and used by published runner. No TEST or gradients.",
+  "qa_replay": "PASS_SAME_METRICS_BYTE_IDENTICAL_JSON",
+  "result_json_sha256": "911c8ad160843f9524f488a2d115bcc919427f5f36f7ed2b05354866a86d001b",
+  "runner_sha256": "307d3344d06566636b904ee89b23e9e5ea798a30841c4c6cd932cca57ba79ad7",
+  "scientific_result_unchanged": "FAIL_EXPLORATORY",
+  "scope": "CPU_REPLAY_SAME_RESULT_VERIFICATION",
+  "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "trained_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+}
