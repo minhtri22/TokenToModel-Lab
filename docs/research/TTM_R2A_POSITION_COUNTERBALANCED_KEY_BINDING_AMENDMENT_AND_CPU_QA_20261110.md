@@ -29,7 +29,7 @@ Codex đánh giá R2 gốc tại commit `b1325d61bac07587d07ac7b48b9ad47e4284f1a
 | Đối chứng đọc câu cuối, bỏ qua câu hỏi | **128/256 (50%)** |
 | Quy tắc cập nhật *last relevant event for queried key* | **256/256 (100%)** |
 | Câu cuối là target key | **128/256 (50%)** |
-| CPU unit + adverse mutation suite | **36/36 PASS** (21 positive/scoped + 15 targeted negatives theo tên test; xem log) |
+| CPU unit + adverse mutation suite | **36/36 PASS** (**17 kiểm tra khẳng định** và **19 ca mutation âm tính**; một số bị từ chối ở cổng đồng bộ model-input trước khi vào semantic parser, xem log) |
 
 **Điểm thận trọng:** Bộ phân tích rule-based vẫn giải được 100% theo `last-write-wins` và câu hỏi, nên thử nghiệm **không buộc neural model học biểu diễn trạng thái nội tại**; nó chỉ loại bỏ lỗi fixed-third-sentence và kiểm tra key binding. Không nói mô hình GPT-2/P02 không thể giải bài, không tuyên bố O1 tốt hơn O0.
 
