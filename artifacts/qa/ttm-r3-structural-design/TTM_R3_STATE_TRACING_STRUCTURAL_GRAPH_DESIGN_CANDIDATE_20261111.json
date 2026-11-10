@@ -1,0 +1,374 @@
+{
+  "schema": "ttm.r3.structural_state_tracing.design_candidate.v1",
+  "date": "2026-11-11",
+  "task": "TTM_R2A_CODEX_REVIEW_ADJUDICATE_THEN_R3_STRUCTURAL_STATE_TRACING_SCIENCE_DESIGN_OR_KEEP_O0",
+  "status": "DESIGN_ONLY_NOT_SCIENCE_PREREG_FROZEN_NOT_EXECUTED",
+  "git": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-r3-structural-state-tracing-design-20261111",
+    "base_codex_review_commit": "dbf2c5389358e3989c1cb4a691bb981c32ecaf45",
+    "reference_r2a_commit": "c85b2ab504953bd667f09909f3495c4772fd1b2e",
+    "pr13_locked_head": "8399406cfca7855626a20e031d1cfb3c767d606f"
+  },
+  "adjudication": {
+    "result": "DESIGN_R3_BEFORE_O1",
+    "reviewer": "CODEX_AI_INTERNAL_NO_EXTERNAL_HUMAN_VALIDATION",
+    "source_blob_report": "41dc4153070efe2113f13d3b089208891aeec5fb",
+    "source_blob_receipt": "ebac0525be5dcff65bdd3e125229476f83d46f12",
+    "author_unit_test_count": 36,
+    "review_mutation_total": 11,
+    "review_expected_rejected": 7,
+    "review_expected_accepted_bypasses": 4,
+    "original_validator_status": "FAIL_SCOPED",
+    "canonical_model_input_leaked": false,
+    "issues": [
+      {
+        "id": "R2A-01",
+        "severity": "HIGH",
+        "verdict": "CONFIRMED_VALIDATOR_FAIL",
+        "resolution": "top_level_exact_allowlist_and_record_allowlist"
+      },
+      {
+        "id": "R2A-02",
+        "severity": "MEDIUM",
+        "verdict": "CONFIRMED_VALIDATOR_FAIL",
+        "resolution": "literal_public_unsealed_declaration"
+      },
+      {
+        "id": "R2A-03",
+        "severity": "MEDIUM",
+        "verdict": "CONFIRMED_DISCRIMINATION_LIMIT",
+        "resolution": "indirect_multihop_state_event_families"
+      },
+      {
+        "id": "R2A-04",
+        "severity": "MEDIUM",
+        "verdict": "CONFIRMED_GROUP_SPLIT_LEAK_RISK",
+        "resolution": "group_and_graph_motif_disjoint_splits"
+      },
+      {
+        "id": "R2A-05",
+        "severity": "MEDIUM",
+        "verdict": "CONFIRMED_INCOMPLETE_FACTORIAL",
+        "resolution": "full_4_cell_intervention_x_query"
+      },
+      {
+        "id": "R2A-06",
+        "severity": "LOW",
+        "verdict": "CONFIRMED_QA_SCOPE_GAP",
+        "resolution": "same_negative_suite_on_hardened_validator"
+      },
+      {
+        "id": "R2A-07",
+        "severity": "HIGH",
+        "verdict": "CONFIRMED_FAIRNESS_IDENTIFICATION_GAP",
+        "resolution": "add_capacity_plus_state_text_F_arm"
+      }
+    ]
+  },
+  "ontology": {
+    "state_components": [
+      "H[item]=holder",
+      "G[person]=goal_or_NONE",
+      "A[alias]=person"
+    ],
+    "event_rules": [
+      {
+        "id": "INIT_HOLDER",
+        "precondition": "uninitialized item",
+        "effect": "H[item]=p"
+      },
+      {
+        "id": "HANDOFF",
+        "precondition": "H[item]=p and p!=q",
+        "effect": "H[item]=q"
+      },
+      {
+        "id": "DEFINE_ALIAS",
+        "precondition": "alias unbound or already bound to same person",
+        "effect": "A[alias]=p"
+      },
+      {
+        "id": "SET_GOAL",
+        "precondition": "G[p]=NONE",
+        "effect": "G[p]=goal"
+      },
+      {
+        "id": "DELEGATE_GOAL",
+        "precondition": "G[p]=goal and G[q]=NONE and p!=q",
+        "effect": "G[p]=NONE;G[q]=goal"
+      },
+      {
+        "id": "CHANGE_GOAL",
+        "precondition": "G[p]=old and old!=new",
+        "effect": "G[p]=new"
+      },
+      {
+        "id": "CANCEL_GOAL",
+        "precondition": "G[p]=goal",
+        "effect": "G[p]=NONE"
+      }
+    ],
+    "queries": [
+      "WHO_HOLDS(item)",
+      "ACTIVE_GOAL(person)",
+      "IS_ACTIVE(person,goal)"
+    ],
+    "invalid_cases": [
+      "AMBIGUOUS_REFERENCE",
+      "UNRESOLVED_ALIAS",
+      "INVALID_PRECONDITION",
+      "UNKNOWN_ENTITY",
+      "MISSING_QUERY_REFERENT"
+    ],
+    "logic_inspired_by": "dynamic discourse semantics and plans/goals; no physical law assumption",
+    "symbol_grounding_claim": false
+  },
+  "dataset_candidate": {
+    "families": [
+      {
+        "id": "T1",
+        "name": "MULTI_HOP_HOLDER",
+        "minimum_required_handoffs": 3,
+        "minimum_distractor_items": 2
+      },
+      {
+        "id": "T2",
+        "name": "GOAL_DELEGATION_CANCEL",
+        "minimum_people": 2,
+        "requires_cancel_or_change": true
+      },
+      {
+        "id": "T3",
+        "name": "ALIAS_CROSS_ENTITY",
+        "minimum_distinct_entities": 3,
+        "requires_explicit_alias": true
+      }
+    ],
+    "groups_per_family": 32,
+    "total_groups": 96,
+    "variants_per_group": 4,
+    "total_public_model_inputs_candidate": 384,
+    "event_count_min": 6,
+    "event_count_max": 12,
+    "factorial": [
+      {
+        "cell": "A_T",
+        "graph": "A",
+        "query": "TARGET"
+      },
+      {
+        "cell": "B_T",
+        "graph": "B",
+        "query": "TARGET"
+      },
+      {
+        "cell": "A_D",
+        "graph": "A",
+        "query": "DISTRACTOR"
+      },
+      {
+        "cell": "B_D",
+        "graph": "B",
+        "query": "DISTRACTOR"
+      }
+    ],
+    "constraints": [
+      "answer(A_T)!=answer(B_T) due to a single valid target-relevant intervention",
+      "answer(A_D)==answer(B_D) non-target intervention invariance",
+      "answers on same graph differ for target vs distractor by construction",
+      "all four cells and all paraphrases share group_id and split",
+      "every graph variation passes preconditions; never reorder handoff edges into invalid sequence",
+      "always replay visible text independently; never use source_events or answer to compute targets",
+      "length-binned/lexically controlled differences reported; exact bag-match only where feasible",
+      "story and graph motifs do not cross DEV/CHALLENGE by simple row shuffle"
+    ],
+    "public_toy_data_now": "NOT_GENERATED",
+    "new_hidden_final": "NOT_CREATED",
+    "original_TTM_test": "SEALED_UNTOUCHED",
+    "consumed_Q1Q2": "UNTOUCHED"
+  },
+  "split_prereg_candidate": {
+    "group_level": "all four cells and paraphrases in same split",
+    "graph_signature": "canonicalized event-type, ordered dependency DAG, alias topology, goal cancellation and query dependency; remove lexical names only",
+    "graph_motif_disjoint": true,
+    "token_near_duplicate_audit_required": true,
+    "feasibility_not_proven": true,
+    "future_final": "new independently seeded set, owner private sealed label ciphertext and public commitment before any science",
+    "public_R2A_or_R3_debug_may_be_science_final": false
+  },
+  "input_contract": {
+    "model_root_allowlist": [
+      "schema",
+      "records"
+    ],
+    "model_record_allowlist": [
+      "story",
+      "question"
+    ],
+    "raw_json_duplicate_key_reject": true,
+    "oracle_declaration": "Public grammar toy; not sealed TEST, not TTM learning evidence",
+    "labels_public": true,
+    "sealed_final": false,
+    "sha256_verification_required": true,
+    "reject_injected_top_level": [
+      "answer_vector",
+      "oracle",
+      "split"
+    ],
+    "reject_record_fields": [
+      "answer",
+      "source_events",
+      "split",
+      "id",
+      "pair_id",
+      "variant"
+    ],
+    "oracle_at_inference": false,
+    "validate_pre_projection": true,
+    "hardened_validator_status": "NOT_IMPLEMENTED",
+    "negative_mutation_examples": [
+      "ROOT_ANSWER_VECTOR",
+      "ROOT_ORACLE",
+      "ROOT_SPLIT",
+      "FALSE_SEALED_DECLARATION",
+      "DUPLICATE_JSON_KEY",
+      "UNKNOWN_ROOT_FIELD",
+      "RECORD_ANSWER",
+      "RECORD_SOURCE_EVENTS",
+      "CROSS_SPLIT_GROUP",
+      "CROSS_SPLIT_GRAPH_MOTIF",
+      "AMBIGUOUS_ALIAS",
+      "ILLEGAL_HANDOFF",
+      "ILLEGAL_CANCEL",
+      "COUNTERFACTUAL_NON_TARGET_CHANGED"
+    ]
+  },
+  "baselines": [
+    {
+      "id": "BOW",
+      "claim_limit": "order-invariant control only"
+    },
+    {
+      "id": "FIXED_POSITION",
+      "claim_limit": "positional heuristic"
+    },
+    {
+      "id": "KEYED_LATEST_DIRECT_ASSIGNMENT",
+      "claim_limit": "R2A shortcut; should not solve genuinely indirect handoffs"
+    },
+    {
+      "id": "LOCAL_NGRAM",
+      "claim_limit": "surface lexical shortcut"
+    },
+    {
+      "id": "GENERAL_SYMBOLIC_RULE_INTERPRETER",
+      "role": "upper_bound",
+      "expected_valid_accuracy": 1
+    },
+    {
+      "id": "FROZEN_P02_OR_O0",
+      "status": "FUTURE_SCIENCE_NOT_AUTHORIZED"
+    }
+  ],
+  "ablation_candidate_arms": [
+    {
+      "id": "A",
+      "architecture": "O0_P02",
+      "supervision": "NEXT_TOKEN_CE",
+      "role": "TEXT_BASELINE"
+    },
+    {
+      "id": "B",
+      "architecture": "O0_P02",
+      "supervision": "NEXT_TOKEN_CE_PLUS_ORACLE_STATE_AS_TEXT",
+      "role": "SUPERVISION_CONTROL"
+    },
+    {
+      "id": "C",
+      "architecture": "O1_P02_PLUS_STATE_HEAD",
+      "supervision": "NEXT_TOKEN_CE_PLUS_TRUE_STATE_LABEL",
+      "role": "O1_CANDIDATE"
+    },
+    {
+      "id": "D",
+      "architecture": "O1_P02_PLUS_STATE_HEAD",
+      "supervision": "NEXT_TOKEN_CE_PLUS_SHUFFLED_TRAIN_STATE_LABEL",
+      "role": "TRAIN_LABEL_BINDING_NEGATIVE"
+    },
+    {
+      "id": "E",
+      "architecture": "O0_P02_PLUS_USED_ADAPTER",
+      "supervision": "NEXT_TOKEN_CE",
+      "role": "CAPACITY_COMPUTE_CONTROL"
+    },
+    {
+      "id": "F",
+      "architecture": "O0_P02_PLUS_USED_ADAPTER",
+      "supervision": "NEXT_TOKEN_CE_PLUS_ORACLE_STATE_AS_TEXT",
+      "role": "CAPACITY_PLUS_SUPERVISION_CONTROL"
+    }
+  ],
+  "comparisons": [
+    {
+      "contrast": "E-A",
+      "claim": "capacity effect under text CE only"
+    },
+    {
+      "contrast": "F-B",
+      "claim": "capacity effect under textual state supervision"
+    },
+    {
+      "contrast": "F-E",
+      "claim": "extra semantic supervision + serialized tokens"
+    },
+    {
+      "contrast": "C-D",
+      "claim": "correct label alignment within O1; shuffled negative not sufficient alone"
+    },
+    {
+      "contrast": "C-F",
+      "claim": "matched source supervision and targeted capacity/compute but class-head vs text objective remain confounded"
+    }
+  ],
+  "fairness": {
+    "ledger1_supervision": [
+      "same TRAIN-only source",
+      "same state facts/opportunity counts where possible",
+      "text target-token count",
+      "oracle state examples",
+      "same P02 tokenizer and frozen ancestry",
+      "oracle label never at inference"
+    ],
+    "ledger2_compute": [
+      "total_trainable_active_params",
+      "nonzero forward-used adapter",
+      "forward token slots",
+      "measured effective FLOPs",
+      "optimizer steps",
+      "checkpoint/restored states",
+      "GPU seconds",
+      "peak VRAM",
+      "seed replicas"
+    ],
+    "pure_architecture_effect_identified": false,
+    "need_numeric_tolerance_before_gpu": true,
+    "reduce_arms_to_subset_if_free_T4_limited": "PRE_REGISTER_SUBSET_BEFORE_RESULTS_AND_LIMIT_CLAIMS",
+    "training_or_science_permit": "NOT_GRANTED"
+  },
+  "next": "TTM_R3_STRICT_INPUT_VALIDATOR_AND_STRUCTURAL_GRAPH_TOY_IMPLEMENTATION_SINGLE_CPU_QA",
+  "scientific_actions": {
+    "new_training_steps": 0,
+    "new_model_inference_calls": 0,
+    "gpu_calls": 0,
+    "TEST_reads": 0,
+    "Q1Q2_reads": 0
+  },
+  "governance": {
+    "main_not_written": true,
+    "pr13_draft_preserved": true,
+    "original_r2a_receipt_immutable": true,
+    "lineage_not_written": true,
+    "codex_review_branch_not_written": true
+  }
+}
