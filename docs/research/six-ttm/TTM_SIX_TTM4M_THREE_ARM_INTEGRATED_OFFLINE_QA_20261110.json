@@ -66,7 +66,6 @@
     "No BPE manifest raw bytes available for runtime acceptance in this task",
     "No actual TTM P02 model load/run on GPU",
     "Synthetic tiny proxy model used for 72x3 CPU dynamic smoke, not architecture parity",
-    "Source implementation and notebook have local downloadable artifacts; GitHub code publication to be handled separately if unavailable",
     "No TEST read or independent science adjudication"
   ],
   "permission": {
@@ -79,5 +78,15 @@
     "main_unchanged": true
   },
   "next": "ONE_OWNER_APPROVAL_FOR_NEW_TTM_SIX_PILOT_ONLY_AFTER_SOURCE_PINS_AND_PARENT_CHECKPOINT_SHA_PREFLIGHT",
-  "limitations_note": "No actual GPU TTM run or private checkpoint byte recheck. Owner approval needed; G1 original remains HOLD."
+  "limitations_note": "No actual GPU TTM run or private checkpoint byte recheck. Owner approval needed; G1 original remains HOLD.",
+  "github_source_publication": {
+    "branch": "research/ttm-six-functional-transfer-ttm4m-three-arm-design-20261110",
+    "runner_path": "scripts/research/six_ttm/ttm_six_ttm4m_three_arm_v1.py",
+    "runner_git_blob_sha1": "812e583433e743983a95bac0f92d551ed5f598d6",
+    "test_path": "tests/research/six_ttm/test_ttm_six_ttm4m_three_arm_v1.py",
+    "test_git_blob_sha1": "d331e50010e213e8543594478c46f2db5a51f2f3",
+    "notebook_path": "notebooks/six_ttm/TTM_SIX_TTM4M_THREE_ARM_T4_PRECLAIM_V1_20261110.ipynb",
+    "notebook_git_blob_sha1": "da95afd8709fb5b5d58e467a2f9479cc27b04e81",
+    "exact_blob_readback": "PASS_3_OF_3"
+  }
 }
