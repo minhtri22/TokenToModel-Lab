@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-10",
+  "independent_audit_sha256": "08b9fa2e96aee24723eea972f2f870f620c6ce81153ed157140e9139595f78f0",
+  "limitations": [
+    "Synthetic source only; does not test existence of valid 128-step replacement schedule on original private TRAIN pack",
+    "No real P02 model forward/backward or checkpoint restore, AdamW or CUDA FP16 / GradScaler reproduction",
+    "Equal target exposures and forward slots do not prove equal GPU seconds, energy, memory pressure or data diversity",
+    "Position-weighted CE is NOT explicit actor/object/goal supervision; semantic benefit untested",
+    "Experiment draws represent repeated exposures; matched number of targets does not imply matched unique informational budget",
+    "No new evaluation prompts, no independent human rater, no contemporary data-rights signoff, no science execution approval"
+  ],
+  "lineage_modified": false,
+  "main_modified": false,
+  "next_combined_gate": "SOURCE_RIGHTS_AND_REAL_TRAIN_META_COUNT_MATCH_PLUS_NEW_EVAL_SET_REVIEWER_AND_ONE_OWNER_SCIENCE_DECISION",
+  "no_private_data_in_artifact": true,
+  "owner_decision_proposal": "HOLD_REAL_TRAINING__FREEZE_SYNTHETIC_PROTOCOL_ONLY",
+  "pr13_modified": false,
+  "q1q2_accessed": false,
+  "result": {
+    "AC_plan_digests_equal": true,
+    "BD_plan_digests_equal": true,
+    "changed_window_selections": 3427,
+    "first_story_window_draw_counts": {
+      "A": 2243,
+      "B": 3585,
+      "C": 2243,
+      "D": 3585
+    },
+    "forward_slots_per_arm": {
+      "A": 917760,
+      "B": 917760,
+      "C": 917760,
+      "D": 917760
+    },
+    "forward_windows_per_arm": {
+      "A": 3585,
+      "B": 3585,
+      "C": 3585,
+      "D": 3585
+    },
+    "steps_per_arm": 128,
+    "targets_per_arm": {
+      "A": 524288,
+      "B": 524288,
+      "C": 524288,
+      "D": 524288
+    },
+    "total_target_exposures_all_arms": 2097152,
+    "valid_targets_per_step": 4096
+  },
+  "result_file_sha256": "1f92b9fe5965591ce6f8292e778642081c2ad9c1557ea08b5538f536524ac409",
+  "run_environment": {
+    "compute": "CPU",
+    "gpu_training": false,
+    "optimizer_updates": 0,
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu"
+  },
+  "schema": "ttm.small4m.2x2.equal_budget.synthetic_preflight.qa_receipt.v1",
+  "source_of_truth": {
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "existing_design_spec_git_blob": "6f8553e7054078d449bad6b2979c3b07d392eb48",
+    "main_base_commit": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "pr13_head_at_preflight": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "repo": "minhtri22/TokenToModel-Lab"
+  },
+  "source_sha256": {
+    "independent_result_audit.py": "d513eb5d21b38559ca9e3ba7ebd61643a025794f7a335d53404152d3f480fc32",
+    "test_ttm_2x2_equal_budget_synthetic.py": "b7c7ca0de9b9906c1d9828d203254d5df16fabab0cb0e8b31bf15d8527876d68",
+    "ttm_2x2_equal_budget_synthetic.py": "e95bb0f13eee158af8fe6b5237b1a1e64ef09df7c88d079443aa91cdcd891284"
+  },
+  "status": "PASS_SCOPED_SYNTHETIC_PREFLIGHT_WITH_REAL_DATA_SCIENCE_HOLD",
+  "task": "TTM_SMALL4M_2X2_EQUAL_BUDGET_TRAIN_SAMPLER_LOSS_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE",
+  "test_log_sha256": "a8de0ea164b66c2240a75fbee3bf2154cfe577d682561d839acf950370578b74",
+  "test_qa": {
+    "first_fixture_run": "2_TEST_FIXTURE_SETUP_FAILURES_CORRECTED_BEFORE_FINAL_FREEZE; NO_SCIENCE_RUN",
+    "independent_arithmetic_audit": "PASS",
+    "named_tests": 72,
+    "negative_mutants_rejected": "20_OF_20",
+    "negative_unit_cases": "included in 72",
+    "repeatability": "SECOND_SYNTHETIC_RUN_BYTE_EQUAL",
+    "status": "PASS_72_OF_72"
+  },
+  "train_val_test_accessed": false
+}
