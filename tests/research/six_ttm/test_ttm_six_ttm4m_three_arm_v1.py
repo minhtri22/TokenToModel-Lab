@@ -2,6 +2,7 @@
 """Independent synthetic CPU QA. NEVER opens checkpoint, TTM/G1 private TEST, or GPU."""
 from __future__ import annotations
 import json
+import os
 import tempfile
 import time
 import unittest
@@ -16,8 +17,8 @@ from torch.nn import functional as F
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import ttm_six_ttm4m_three_arm_v1 as m
 
-SOURCE=Path('/mnt/data/g1_explore_public_qwen_dev_v1.py')
-ZIP=Path('/mnt/data/TTM_SIX_G1_EXPLORE_REAL_QWEN_DEV_RESULTS.zip')
+SOURCE=Path(os.environ.get('TTM_SIX_QWEN_SOURCE', '/mnt/data/g1_explore_public_qwen_dev_v1.py'))
+ZIP=Path(os.environ.get('TTM_SIX_QWEN_ZIP', '/mnt/data/TTM_SIX_G1_EXPLORE_REAL_QWEN_DEV_RESULTS.zip'))
 
 class SmallGPT(nn.Module):
     """Cheap synthetic model with the same forward/hook API, not TTM model itself."""
@@ -176,15 +177,17 @@ class TestFrozenSource(unittest.TestCase):
         c={'dev_nll':3.08,'dev_group_nll':{str(k):3.08 for k in range(4)},'dev_raw_probe_mae':.05}
         self.assertEqual(m.verdict({'A':a,'B':b,'C':c})['decision'],'EXPLORATORY_FUNCTIONAL_GAIN_CANDIDATE')
 
-    def test_18_arms_same_initial_and_2steps_training_cpu(self):
+    def test_18_arms_same_initial_and_full72step_training_cpu(self):
         orig=m.make_model
         try:
             m.make_model=tiny_model_factory
             result=[]
             for arm in 'ABC':
-                model,head,fp,loss=m.train_arm(None,{},arm,self.ids,self.train,self.norm,torch.device('cpu'),time.monotonic(),tick=2)
-                self.assertEqual(len(loss),2)
+                model,head,fp,loss=m.train_arm(None,{},arm,self.ids,self.train,self.norm,torch.device('cpu'),time.monotonic(),tick=72)
+                self.assertEqual(len(loss),72)
                 self.assertTrue(all(np.isfinite(loss)))
+                dev_result=m.eval_arm(model,head,arm,self.ids,self.dev,self.teacher[48:],self.norm,torch.device('cpu'))
+                self.assertEqual(len(dev_result['dev_group_nll']),4)
                 result.append(fp)
             self.assertEqual(len(set(result)),1)
         finally:
