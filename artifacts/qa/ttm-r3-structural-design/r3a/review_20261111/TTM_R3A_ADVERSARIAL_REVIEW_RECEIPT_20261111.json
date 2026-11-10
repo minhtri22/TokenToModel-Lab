@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.r3a.readonly_adversarial_review.v1",
+  "date": "2026-11-11",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "pinned_commit": "81327724c08771682622bebb8648fefd55a4fa9a",
+  "reviewer": "ChatGPT GPT-6 independent internal read-only review, not Codex or external",
+  "source_integrity": {
+    "sha256_self_test": "PASS",
+    "manifest_files_verified": 9,
+    "sha256_match": 9,
+    "git_blob_match": 9,
+    "bytes_match": 9,
+    "model_sha256": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+    "oracle_sha256": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08"
+  },
+  "independent_js_visible_text_checker": {
+    "execution": "EXECUTED",
+    "replayed_rows": 384,
+    "correct_answers": 384,
+    "valid_counterfactual_groups": 96,
+    "model_projection_rows_clean": 384,
+    "model_duplicate_story_question": 0,
+    "T2_NONE_answers": 32
+  },
+  "adversarial_heuristics": {
+    "execution": "EXECUTED_ON_FULL_PINNED_CORPUS_IN_JS",
+    "oracle_used_in_prediction": false,
+    "alias_direct": {"correct": 288, "total": 384},
+    "event_lookup_without_alias": {"correct": 240, "total": 384},
+    "alias_reverse_regex_none_fallback": {
+      "correct": 384,
+      "total": 384,
+      "by_family_split": {
+        "T1_DEV": "64/64",
+        "T1_CHALLENGE": "64/64",
+        "T2_DEV": "64/64",
+        "T2_CHALLENGE": "64/64",
+        "T3_DEV": "64/64",
+        "T3_CHALLENGE": "64/64"
+      },
+      "uses_dynamic_holder_goal_state": false,
+      "checks_transition_preconditions": false,
+      "builds_causal_graph": false
+    }
+  },
+  "split_leakage": {
+    "split_predicted_by_story_length_given_family": "384/384",
+    "T1": {"DEV_lines": 9, "CHALLENGE_lines": 10},
+    "T2": {"DEV_lines": 7, "CHALLENGE_lines": 9},
+    "T3": {"DEV_lines": 9, "CHALLENGE_lines": 10},
+    "original_full_event_signature_cross_split": 0,
+    "review_query_relevant_skeleton_shared_signatures": 3,
+    "review_DEV_rows_with_shared_skeleton": 128,
+    "review_CHALLENGE_rows_with_shared_skeleton": 112,
+    "note": "Alternative graph-like diagnostic signature, not exact full graph isomorphism"
+  },
+  "executed": {
+    "author_python_44_tests_independently_rerun": "NOT_EXECUTED",
+    "author_python_30_negatives_independently_rerun": "NOT_EXECUTED",
+    "new_python_script_syntax": "PASS",
+    "new_python_script_smoke": "4/4_PASS",
+    "new_python_full_corpus_replay": "NOT_EXECUTED",
+    "git_branch_or_pr_write": "NOT_EXECUTED",
+    "GPU_or_neural": "NOT_EXECUTED",
+    "blinded_FINAL": "NOT_EXECUTED"
+  },
+  "scientific_discrimination": "FAIL_SCOPED_384_OF_384_SHALLOW_RULE",
+  "source_validator_evidence": "PRESERVED_PASS_SCOPED",
+  "reviewer_recommendation": "AMEND_TOY_AGAIN",
+  "owner_decision": "NOT_ISSUED",
+  "O0_pilot": "DESIGN_ONLY_NO_T4_GO",
+  "O1": "DEFER"
+}
