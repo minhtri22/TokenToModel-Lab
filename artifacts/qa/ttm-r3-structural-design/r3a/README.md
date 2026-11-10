@@ -34,7 +34,7 @@ $dir = Join-Path $P '_tmp\\r3a_replay_readonly_20261111'
 New-Item -ItemType Directory -Force -Path $dir | Out-Null
 $source = 'tools\\research\\semantic_state_r3'
 $data = 'artifacts\\qa\\ttm-r3-structural-design\\r3a'
-foreach ($name in @('r3a_generator.py','r3a_independent_checker.py','r3a_integrated_cpu_qa.py')) {
+foreach ($name in @('r3a_generator.py','r3a_independent_checker.py','r3a_integrated_cpu_qa.py','ttm_r3_independent_latest_write_baseline.py')) {
   Copy-Item (Join-Path $source $name) $dir -Force
 }
 Copy-Item (Join-Path $data 'R3A_PUBLIC_ORACLE.json') (Join-Path $dir 'R3A_ORACLE.json') -Force
