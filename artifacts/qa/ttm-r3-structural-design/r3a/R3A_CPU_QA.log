@@ -1,0 +1,49 @@
+test_01_visible_parser_384 (__main__.IntegratedQA.test_01_visible_parser_384) ... ok
+test_02_group_count (__main__.IntegratedQA.test_02_group_count) ... ok
+test_03_four_cell (__main__.IntegratedQA.test_03_four_cell) ... ok
+test_04_motifs_nonoverlap (__main__.IntegratedQA.test_04_motifs_nonoverlap) ... ok
+test_05_none_target (__main__.IntegratedQA.test_05_none_target) ... ok
+test_06_no_sealed_final (__main__.IntegratedQA.test_06_no_sealed_final) ... ok
+test_07_model_only_two_fields (__main__.IntegratedQA.test_07_model_only_two_fields) ... ok
+test_08_shuffled_input (__main__.IntegratedQA.test_08_shuffled_input) ... ok
+test_09_reproduces_bytes (__main__.IntegratedQA.test_09_reproduces_bytes) ... ok
+test_10_latest_write_cannot_solve (__main__.IntegratedQA.test_10_latest_write_cannot_solve) ... ok
+test_11_alias_answer_critical_t1 (__main__.IntegratedQA.test_11_alias_answer_critical_t1) ... ok
+test_12_no_training (__main__.IntegratedQA.test_12_no_training) ... ok
+test_13_input_sha (__main__.IntegratedQA.test_13_input_sha) ... ok
+test_14_oracle_sha (__main__.IntegratedQA.test_14_oracle_sha) ... ok
+test_N01_root_answer_vector (__main__.IntegratedQA.test_N01_root_answer_vector) ... ok
+test_N02_root_oracle (__main__.IntegratedQA.test_N02_root_oracle) ... ok
+test_N03_root_split (__main__.IntegratedQA.test_N03_root_split) ... ok
+test_N04_row_answer (__main__.IntegratedQA.test_N04_row_answer) ... ok
+test_N05_row_event (__main__.IntegratedQA.test_N05_row_event) ... ok
+test_N06_row_id (__main__.IntegratedQA.test_N06_row_id) ... ok
+test_N07_duplicate_json_root (__main__.IntegratedQA.test_N07_duplicate_json_root) ... ok
+test_N08_duplicate_json_row (__main__.IntegratedQA.test_N08_duplicate_json_row) ... ok
+test_N09_false_sealed (__main__.IntegratedQA.test_N09_false_sealed) ... ok
+test_N10_false_declaration (__main__.IntegratedQA.test_N10_false_declaration) ... ok
+test_N11_oracle_root_extra (__main__.IntegratedQA.test_N11_oracle_root_extra) ... ok
+test_N12_counts_tamper (__main__.IntegratedQA.test_N12_counts_tamper) ... ok
+test_N13_answer_tamper (__main__.IntegratedQA.test_N13_answer_tamper) ... ok
+test_N14_source_events_tamper (__main__.IntegratedQA.test_N14_source_events_tamper) ... ok
+test_N15_omit_cell (__main__.IntegratedQA.test_N15_omit_cell) ... ok
+test_N16_repeat_model_row (__main__.IntegratedQA.test_N16_repeat_model_row) ... ok
+test_N17_missing_model_row (__main__.IntegratedQA.test_N17_missing_model_row) ... ok
+test_N18_null_story (__main__.IntegratedQA.test_N18_null_story) ... ok
+test_N19_unknown_question (__main__.IntegratedQA.test_N19_unknown_question) ... ok
+test_N20_rewrite_event_grammar (__main__.IntegratedQA.test_N20_rewrite_event_grammar) ... ok
+test_N21_undefined_alias_in_story (__main__.IntegratedQA.test_N21_undefined_alias_in_story) ... ok
+test_N22_bad_handoff_precondition (__main__.IntegratedQA.test_N22_bad_handoff_precondition) ... ok
+test_N23_bad_goal_cancel (__main__.IntegratedQA.test_N23_bad_goal_cancel) ... ok
+test_N24_swap_projection (__main__.IntegratedQA.test_N24_swap_projection) ... ok
+test_N25_split_mislabeled (__main__.IntegratedQA.test_N25_split_mislabeled) ... ok
+test_N26_intervention_idx (__main__.IntegratedQA.test_N26_intervention_idx) ... ok
+test_N27_one_variant_same_story (__main__.IntegratedQA.test_N27_one_variant_same_story) ... ok
+test_N28_nan_json (__main__.IntegratedQA.test_N28_nan_json) ... ok
+test_N29_model_top_level_list (__main__.IntegratedQA.test_N29_model_top_level_list) ... ok
+test_N30_duplicate_group_id (__main__.IntegratedQA.test_N30_duplicate_group_id) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.243s
+
+OK
