@@ -354,21 +354,75 @@ def save_ready(out,s,arm,step,m,opt,losses,pre,env):
       'env':env})
     return h
 
-def resume_state(out,s,arm,m,opt,pre,env):
+def validate_completed_chunk(out,s,arm,end,pre,env):
+    """Validate immutable per-chunk SHA before admitting a READY as completed."""
     base=out/s/'checkpoints'/arm
-    base.mkdir(parents=True,exist_ok=True)
-    completed=[i for i in range(EVERY,STEPS+1,EVERY) if checkpoint_path(out,s,arm,i).joinpath('READY.json').exists()]
+    start_marker=base/f'CHUNK_{end:04d}_START.json'
+    done=base/f'CHUNK_{end:04d}_DONE.json'
+    p=checkpoint_path(out,s,arm,end)
+    require(start_marker.is_file() and done.is_file() and (p/'READY.json').is_file(),
+            'COMPLETE_CHUNK_JOURNAL_'+s+'_'+arm+str(end))
+    sm=jsonread(start_marker);dm=jsonread(done);ready=jsonread(p/'READY.json')
+    require(sm=={'run_id':seed_run_id(s),'arm':arm,'start':end-EVERY,'end':end},
+            'COMPLETE_START_META_'+s+'_'+arm+str(end))
+    require(dm.get('run_id')==seed_run_id(s) and dm.get('arm')==arm and dm.get('step')==end and
+            dm.get('checkpoint_sha256')==ready.get('checkpoint_sha256'),
+            'COMPLETE_DONE_META_'+s+'_'+arm+str(end))
+    require(ready.get('step')==end and ready.get('seed')==s and ready.get('arm')==arm and
+            ready.get('run_id')==seed_run_id(s) and ready.get('source_sha256')==pre['runner_sha256'] and
+            ready.get('schedule_sha256')==pre['schedules_sha256'][s] and ready.get('env')==env and
+            (p/'checkpoint.pt').is_file() and sha_file(p/'checkpoint.pt')==ready['checkpoint_sha256'],
+            'COMPLETE_READY_SHA_'+s+'_'+arm+str(end))
+    return ready
+
+
+def chunk_replay_plan(out,s,arm,pre,env):
+    """Read-only journal audit. At most one incomplete next chunk may be replayed.
+
+    An interrupted checkpoint file (directory exists but READY missing) is a
+    HOLD, never silently deleted or overwritten. Original START remains durable.
+    """
+    base=out/s/'checkpoints'/arm
+    if not base.exists():return 0,None
+    require(base.is_dir(),'CHUNK_BASE_NOT_DIR_'+s+'_'+arm)
+    completed=[];pending=[]
+    for end in range(EVERY,STEPS+1,EVERY):
+        mark=base/f'CHUNK_{end:04d}_START.json'
+        done=base/f'CHUNK_{end:04d}_DONE.json'
+        p=checkpoint_path(out,s,arm,end)
+        if done.exists():
+            validate_completed_chunk(out,s,arm,end,pre,env)
+            completed.append(end)
+        elif mark.exists():
+            require(not p.exists(), 'PARTIAL_CHECKPOINT_NEEDS_MANUAL_ADJUDICATION_'+s+'_'+arm+str(end))
+            sm=jsonread(mark)
+            require(sm=={'run_id':seed_run_id(s),'arm':arm,'start':end-EVERY,'end':end},
+                    'PENDING_START_META_'+s+'_'+arm+str(end))
+            pending.append(end)
+        else:
+            require(not p.exists(),'ORPHAN_CHECKPOINT_'+s+'_'+arm+str(end))
     last=max(completed) if completed else 0
     require(completed==list(range(EVERY,last+1,EVERY)),'NONCONTIGUOUS_READY_'+s+'_'+arm)
-    for end in range(EVERY,STEPS+1,EVERY):
-        mark=base/f'CHUNK_{end:04d}_START.json';done=base/f'CHUNK_{end:04d}_DONE.json'
-        if mark.exists():require(done.exists() and checkpoint_path(out,s,arm,end).joinpath('READY.json').exists(),'UNFINISHED_CHUNK_NO_REPLAY_'+s+'_'+arm+str(end))
-        if done.exists():require(mark.exists(),'CHUNK_ORPHAN_DONE_'+s+'_'+arm+str(end))
+    require(len(pending)<=1 and (not pending or pending[0]==last+EVERY),
+            'INVALID_PENDING_CHUNK_'+s+'_'+arm)
+    arm_marker=base/'ARM_START.json'
+    require(arm_marker.is_file() or not completed and not pending,'ARM_START_MISSING_'+s+'_'+arm)
+    if arm_marker.exists():
+        mark=jsonread(arm_marker)
+        require(mark.get('study_id')==STUDY_ID and mark.get('seed')==s and mark.get('arm')==arm and
+                mark.get('run_id')==seed_run_id(s),'ARM_START_MISMATCH_'+s+'_'+arm)
+    return last, pending[0] if pending else None
+
+
+def resume_state(out,s,arm,m,opt,pre,env):
+    """Resume only from SHA-verified READY; replay pending chunk with exact RNG."""
+    base=out/s/'checkpoints'/arm
+    last,pending=chunk_replay_plan(out,s,arm,pre,env)
+    base.mkdir(parents=True,exist_ok=True)
     if last==0:
-        require(not (base/'ARM_START.json').exists(),'ARM_STARTED_NO_READY_'+s+'_'+arm)
-        newjson(base/'ARM_START.json',{'study_id':STUDY_ID,'seed':s,'arm':arm,'run_id':seed_run_id(s)})
-        return 0,[]
-    require((base/'ARM_START.json').exists(),'ARM_START_MISSING_'+s+'_'+arm)
+        if not (base/'ARM_START.json').exists():
+            newjson(base/'ARM_START.json',{'study_id':STUDY_ID,'seed':s,'arm':arm,'run_id':seed_run_id(s)})
+        return 0,[],pending
     p=checkpoint_path(out,s,arm,last)
     metadata=jsonread(p/'READY.json');cp=p/'checkpoint.pt'
     require(metadata['step']==last and metadata['seed']==s and metadata['arm']==arm and metadata['run_id']==seed_run_id(s)
@@ -376,9 +430,43 @@ def resume_state(out,s,arm,m,opt,pre,env):
        and sha_file(cp)==metadata['checkpoint_sha256'],'RESTORE_SHA_META_'+s+'_'+arm)
     data=torch.load(cp,map_location='cpu',weights_only=True)
     require(data['step']==last and data['sampler_cursor']==last and len(data['train_losses'])==last and data['null_sha256']==pre['generated_by_seed'][s]['null_sha256'],'RESTORE_CONTENT_'+s+'_'+arm)
+    require(data['seed']==s and data['arm']==arm and data['run_id']==seed_run_id(s) and
+            data['source_sha256']==pre['runner_sha256'] and data['schedule_sha256']==pre['schedules_sha256'][s] and
+            data['env']==env,'RESTORE_CHECKPOINT_META_'+s+'_'+arm)
     m.load_state_dict(data['model'],strict=True);opt.load_state_dict(data['optimizer'])
     torch.set_rng_state(data['cpu_rng']);torch.cuda.set_rng_state_all(data['cuda_rng'])
-    return last,list(data['train_losses'])
+    return last,list(data['train_losses']),pending
+
+
+def start_chunk_attempt(base,s,arm,start,end,pending):
+    """Never rewrite original START. Every replay gets an append-only receipt."""
+    mark=base/f'CHUNK_{end:04d}_START.json'
+    original={'run_id':seed_run_id(s),'arm':arm,'start':start,'end':end}
+    if pending is None:
+        require(not mark.exists(),'UNEXPECTED_EXISTING_START_'+s+'_'+arm+str(end))
+        newjson(mark,original)
+        return None
+    require(pending==end and mark.is_file(),'REPLAY_NOT_FROZEN_PENDING_'+s+'_'+arm+str(end))
+    require(jsonread(mark)==original,'REPLAY_ORIGINAL_START_DRIFT_'+s+'_'+arm+str(end))
+    attempt=1
+    while (base/f'CHUNK_{end:04d}_REPLAY_{attempt:04d}_START.json').exists():
+        attempt+=1
+    require(attempt<=1000,'REPLAY_ATTEMPT_CAP_'+s+'_'+arm)
+    name=f'CHUNK_{end:04d}_REPLAY_{attempt:04d}_START.json'
+    newjson(base/name,{**original,'schema':'ttm.semantic4x3.chunk_replay_attempt.v1',
+                       'replay_from_ready_step':start,'attempt':attempt,'reason':'INTERRUPTED_WITHOUT_READY',
+                       'new_science_run_id':False})
+    return attempt
+
+
+def finish_chunk_attempt(base,s,arm,end,digest,attempt):
+    done=base/f'CHUNK_{end:04d}_DONE.json'
+    require(not done.exists(),'CHUNK_DONE_ALREADY_EXISTS_'+s+'_'+arm+str(end))
+    newjson(done,{'run_id':seed_run_id(s),'arm':arm,'step':end,'checkpoint_sha256':digest})
+    if attempt is not None:
+        newjson(base/f'CHUNK_{end:04d}_REPLAY_{attempt:04d}_DONE.json',
+                {'run_id':seed_run_id(s),'arm':arm,'step':end,'checkpoint_sha256':digest,
+                 'attempt':attempt,'schema':'ttm.semantic4x3.chunk_replay_complete.v1'})
 
 @torch.inference_mode()
 def story_score(m,h768):
@@ -429,39 +517,113 @@ def compute_science(losses,counts,seed=BOOT_SEED,draws=BOOT_DRAWS):
         for k in ('tau_residual','gamma_real')) else 'DONOR_RESIDUAL_SIGNAL_NOT_ESTABLISHED_SCOPED_FAIL')
     return nll,contrasts,bs,verdict
 
+def score_receipt_path(out,s,arm):
+    return out/'scoring'/s/(arm+'_PER_STORY_PRIVATE.json')
+
+
+def score_start_path(out,s,arm):
+    return out/'scoring'/s/(arm+'_START.json')
+
+
+def validate_scored_arm(path,s,arm,pre,ready_sha):
+    receipt=jsonread(path)
+    require(receipt.get('schema')=='ttm.semantic4x3.scored_arm.private.v1' and
+        receipt.get('study_id')==STUDY_ID and receipt.get('seed')==s and
+        receipt.get('arm')==arm and receipt.get('source_sha256')==pre['runner_sha256'] and
+        receipt.get('checkpoint_sha256')==ready_sha and
+        receipt.get('h768_membership_sha256')==H768_PINS['H768_MEMBERSHIP_PRIVATE.json'],
+        'SCORE_RECEIPT_META_'+s+'_'+arm)
+    scores=np.asarray(receipt.get('story_loss_sums'),dtype=np.float64)
+    require(scores.shape==(768,) and np.isfinite(scores).all() and (scores>=0).all(),
+        'SCORE_RECEIPT_VALUES_'+s+'_'+arm)
+    require(sha_bytes(np.asarray(scores,dtype='<f8').tobytes())==receipt.get('loss_sums_bytes_sha256'),
+        'SCORE_RECEIPT_DIGEST_'+s+'_'+arm)
+    return scores
+
+
 def post_train(out,pre,ctx):
     (sw,p02,old,ckpt,donor,src,valid,P,E0,data,counts,schedules,rows,hdir)=ctx
+    # No unsealed H768 labels before *all* 12 final READY check and source SHA pins.
+    final_ready={}
     for s in SEEDS:
         for arm in ARMS:
             dest=checkpoint_path(out,s,arm,STEPS)
-            require((dest/'READY.json').is_file() and (dest/'checkpoint.pt').is_file(),'ALL_12_FINAL_READY_REQUIRED_'+s+'_'+arm)
-    require(not (out/'SCORING_START.json').exists() and not (out/'RESULT.json').exists(),'SCORING_ALREADY_CONSUMED')
-    # No H768 labels were parsed and no model.forward occurred before all final READY.
-    newjson(out/'SCORING_START.json',{'schema':'ttm.semantic4x3.scoring_start.v1','study_id':STUDY_ID,'runner_sha256':pre['runner_sha256']})
-    h=load_h768_for_score(hdir,counts)
+            require((dest/'READY.json').is_file() and (dest/'checkpoint.pt').is_file(),
+                    'ALL_12_FINAL_READY_REQUIRED_'+s+'_'+arm)
+            ready=validate_completed_chunk(out,s,arm,STEPS,pre,pre['env'])
+            final_ready[(s,arm)]=ready['checkpoint_sha256']
+    require(not (out/'RESULT.json').exists(),'RESULT_ALREADY_EXISTS_NO_RESCORING')
+    marker=out/'SCORING_START.json'
+    start_meta={'schema':'ttm.semantic4x3.scoring_start.v1','study_id':STUDY_ID,
+                'runner_sha256':pre['runner_sha256'],
+                'h768_membership_sha256':H768_PINS['H768_MEMBERSHIP_PRIVATE.json']}
+    if marker.is_file():
+        require(jsonread(marker)==start_meta,'SCORING_START_DRIFT')
+    else:
+        newjson(marker,start_meta)
+    # Published only after all READY, independent of resume invocation boundaries.
+    need_score=any(not score_receipt_path(out,s,a).exists() for s in SEEDS for a in ARMS)
+    h=load_h768_for_score(hdir,counts) if need_score else None
     losses={}
     for s in SEEDS:
         losses[s]={}
         for arm in ARMS:
+            score_path=score_receipt_path(out,s,arm)
+            score_path.parent.mkdir(parents=True,exist_ok=True)
+            start_path=score_start_path(out,s,arm)
+            chk=final_ready[(s,arm)]
+            start_data={'schema':'ttm.semantic4x3.score_arm_start.v1',
+                'study_id':STUDY_ID,'seed':s,'arm':arm,'checkpoint_sha256':chk,
+                'source_sha256':pre['runner_sha256']}
+            if score_path.exists():
+                require(start_path.exists() and jsonread(start_path)==start_data,
+                        'SCORE_EXISTING_MISSING_START_'+s+'_'+arm)
+                losses[s][arm]=validate_scored_arm(score_path,s,arm,pre,chk)
+                print(f'SEMANTIC4X3_SCORE_REUSED seed={s} arm={arm}',flush=True)
+                continue
+            if start_path.exists():
+                require(jsonread(start_path)==start_data,'SCORE_STARTED_DRIFT_'+s+'_'+arm)
+                attempts=len(list(start_path.parent.glob(arm+'_RETRY_*_START.json')))+1
+                retry=start_path.parent/(arm+f'_RETRY_{attempts:04d}_START.json')
+                newjson(retry,{'schema':'ttm.semantic4x3.score_recovery_attempt.v1',
+                    'seed':s,'arm':arm,'attempt':attempts,'checkpoint_sha256':chk,
+                    'cause':'INTERRUPTED_SCORING_BEFORE_RECEIPT'})
+            else:
+                newjson(start_path,start_data)
             cpdir=checkpoint_path(out,s,arm,STEPS)
-            r=jsonread(cpdir/'READY.json')
-            require(r['run_id']==seed_run_id(s) and r['arm']==arm and r['step']==STEPS and r['source_sha256']==pre['runner_sha256'] and r['schedule_sha256']==pre['schedules_sha256'][s] and sha_file(cpdir/'checkpoint.pt')==r['checkpoint_sha256'],'SCORER_CHECKPOINT_SHA_'+s+'_'+arm)
-            m=make_model(arm,SEEDS[s]['model'],sw,p02,ckpt,donor,rows[s][arm],valid,P,E0)
             state=torch.load(cpdir/'checkpoint.pt',map_location='cpu',weights_only=True)
-            require(state['run_id']==seed_run_id(s) and state['null_sha256']==pre['generated_by_seed'][s]['null_sha256'],'SCORER_META_'+s+'_'+arm)
+            require(state['run_id']==seed_run_id(s) and state['null_sha256']==pre['generated_by_seed'][s]['null_sha256'],
+                    'SCORER_META_'+s+'_'+arm)
+            m=make_model(arm,SEEDS[s]['model'],sw,p02,ckpt,donor,rows[s][arm],valid,P,E0)
             m.load_state_dict(state['model'],strict=True)
             m=m.to('cuda:0',dtype=torch.float32)
-            losses[s][arm]=story_score(m,h)
+            score=story_score(m,h)
+            digest=sha_bytes(np.asarray(score,dtype='<f8').tobytes())
+            newjson(score_path,{'schema':'ttm.semantic4x3.scored_arm.private.v1',
+                'study_id':STUDY_ID,'seed':s,'arm':arm,'source_sha256':pre['runner_sha256'],
+                'checkpoint_sha256':chk,
+                'h768_membership_sha256':H768_PINS['H768_MEMBERSHIP_PRIVATE.json'],
+                'story_loss_sums':score.tolist(),'loss_sums_bytes_sha256':digest})
+            losses[s][arm]=validate_scored_arm(score_path,s,arm,pre,chk)
+            print(f'SEMANTIC4X3_SCORE_READY seed={s} arm={arm} sha256={sha_file(score_path)}',flush=True)
             del m,state;torch.cuda.empty_cache()
-    per={'schema':'ttm.semantic4x3.per_story.private.v1','study_id':STUDY_ID,'h768_membership_sha256':H768_PINS['H768_MEMBERSHIP_PRIVATE.json'],
-         'target_counts':counts.tolist(),'loss_sum_by_seed_arm':{s:{a:losses[s][a].tolist() for a in ARMS} for s in SEEDS}}
-    per_sha=newjson(out/'PER_STORY_PRIVATE.json',per)
+    per={'schema':'ttm.semantic4x3.per_story.private.v1','study_id':STUDY_ID,
+        'h768_membership_sha256':H768_PINS['H768_MEMBERSHIP_PRIVATE.json'],
+        'target_counts':counts.tolist(),
+        'loss_sum_by_seed_arm':{s:{a:losses[s][a].tolist() for a in ARMS} for s in SEEDS}}
+    dest=out/'PER_STORY_PRIVATE.json'
+    if dest.exists():
+        require(jsonread(dest)==per,'PER_STORY_EXISTING_DRIFT')
+        per_sha=sha_file(dest)
+    else:
+        per_sha=newjson(dest,per)
     nll,delta,bs,verdict=compute_science(losses,counts)
     result={'schema':'ttm.semantic4x3.result.public.v1','study_id':STUDY_ID,
        'status':'COMPLETED_PENDING_INDEPENDENT_ADJUDICATION','candidate_verdict':verdict,
        'arms_per_seed':4,'seed_count':3,'steps_per_arm':STEPS,'targets_per_step':TARGETS,
        'h768_stories':768,'h768_windows':1000,'h768_targets':int(counts.sum()),
-       'bootstrap_draws':BOOT_DRAWS,'bootstrap_seed':BOOT_SEED,'bootstrap_scope':'CONDITIONAL_ON_3_FIXED_TRAINING_SEEDS',
+       'bootstrap_draws':BOOT_DRAWS,'bootstrap_seed':BOOT_SEED,
+       'bootstrap_scope':'CONDITIONAL_ON_3_FIXED_TRAINING_SEEDS',
        'nll_nats_per_target':nll,'contrasts_by_seed':delta,'co_primary':bs,
        'claim_sha256':sha_file(out/'STUDY_CLAIM.json'),
        'private_per_story_sha256':per_sha,'source_runner_sha256':pre['runner_sha256'],
@@ -494,25 +656,46 @@ def execute(a):
         require(claim.get('claimed') is True,'NO_CONSUMED_CLAIM')
         for key in ('study_id','runner_sha256','null_module_sha256','input_pins','h768_pins','generated_by_seed','schedules_sha256','seeds','env'):
             require(claim[key]==pre[key],'CLAIM_DRIFT_'+key)
-        require(not (out/'SCORING_START.json').exists() and not (out/'RESULT.json').exists(),'SCORE_ALREADY_STARTED')
+        require(not (out/'RESULT.json').exists(),'RESULT_ALREADY_CONSUMED')
+        parent_sha=sha_file(out/'STUDY_CLAIM.json')
         for s in SEEDS:
-            require((out/s/'CLAIM.json').is_file() and (out/s/'SCHEDULE_PRIVATE.json').is_file(),'SEED_CLAIM_MISSING_'+s)
-            recorded=jsonread(out/s/'SCHEDULE_PRIVATE.json')
-            require(recorded['schedule_sha256']==pre['schedules_sha256'][s] and sha_bytes(canon(recorded['ordered_packets']))==pre['schedules_sha256'][s],'SCHEDULE_DRIFT_'+s)
+            d=out/s
+            seed_claim={'study_id':STUDY_ID,'run_id':seed_run_id(s),'seed':s,
+                'seeds':SEEDS[s],'source_sha256':pre['runner_sha256'],
+                'h768_sha256':H768_PINS,'env':env,'parent_study_claim_sha256':parent_sha}
+            sched={'run_id':seed_run_id(s),'schedule_sha256':pre['schedules_sha256'][s],
+                'ordered_packets':ctx[-3][s][0]}
+            if not (d/'CLAIM.json').is_file() or not (d/'SCHEDULE_PRIVATE.json').is_file():
+                require(not (d/'checkpoints').exists() and not (d/'SCORING_START.json').exists(),
+                    'SEED_PROVENANCE_INCOMPLETE_WITH_SCIENCE_'+s)
+                d.mkdir(parents=True,exist_ok=True)
+                if not (d/'CLAIM.json').exists():newjson(d/'CLAIM.json',seed_claim)
+                if not (d/'SCHEDULE_PRIVATE.json').exists():newjson(d/'SCHEDULE_PRIVATE.json',sched)
+            require(jsonread(d/'CLAIM.json')==seed_claim and jsonread(d/'SCHEDULE_PRIVATE.json')==sched,
+                    'SEED_CLAIM_SCHEDULE_DRIFT_'+s)
+            require(sha_bytes(canon(sched['ordered_packets']))==pre['schedules_sha256'][s],
+                    'SCHEDULE_DRIFT_'+s)
     (sw,p02,old,ckpt,donor,src,valid,P,E0,data,counts,schedules,rows_by_seed,hdir)=ctx
+    chunks_this_invocation=0
     for s in SEEDS:
         for arm in ARMS:
             m=make_model(arm,SEEDS[s]['model'],sw,p02,ckpt,donor,rows_by_seed[s][arm],valid,P,E0).to('cuda:0',dtype=torch.float32)
             opt=torch.optim.AdamW([p for p in m.parameters() if p.requires_grad],lr=1e-4,betas=(.9,.95),eps=1e-8,weight_decay=.1)
-            start,history=resume_state(out,s,arm,m,opt,pre,env)
+            start,history,pending=resume_state(out,s,arm,m,opt,pre,env)
             for end in range(start+EVERY,STEPS+1,EVERY):
                 base=out/s/'checkpoints'/arm
-                newjson(base/f'CHUNK_{end:04d}_START.json',{'run_id':seed_run_id(s),'arm':arm,'start':end-EVERY,'end':end})
+                replay_attempt=start_chunk_attempt(base,s,arm,end-EVERY,end,pending)
                 history.extend(train_chunk(m,opt,schedules[s][0],data,end-EVERY,end))
                 require(len(history)==end,'STEP_HISTORY_LENGTH')
                 digest=save_ready(out,s,arm,end,m,opt,history,pre,env)
-                newjson(base/f'CHUNK_{end:04d}_DONE.json',{'run_id':seed_run_id(s),'arm':arm,'step':end,'checkpoint_sha256':digest})
+                finish_chunk_attempt(base,s,arm,end,digest,replay_attempt)
                 print(f'SEMANTIC4X3_READY seed={s} arm={arm} step={end} sha256={digest}',flush=True)
+                pending=None
+                chunks_this_invocation+=1
+                if a.max_chunks_per_invocation and chunks_this_invocation>=a.max_chunks_per_invocation:
+                    print('SEMANTIC4X3_PAUSED_AT_DURABLE_READY=YES',flush=True)
+                    del m,opt;torch.cuda.empty_cache()
+                    return
             del m,opt;torch.cuda.empty_cache()
     post_train(out,pre,ctx)
 
@@ -548,16 +731,56 @@ def cpu_source_qa(a):
       'h768_stories':768,'h768_targets':186655,'source_parity':pre['cpu_original_C2048_source_parity'],
       'training_executed':False,'gpu_used':False,'claim_created':False},sort_keys=True))
 
+def progress_readonly(a):
+    """Read-only exact progress and interruption audit, no GPU/model/holdout scoring."""
+    out=Path(a.drive_output)
+    require(out.name==STUDY_ID and out.parent.resolve()==Path(DRIVE_BASE).resolve(),
+            'PROGRESS_STUDY_PATH')
+    if not out.exists():
+        print(json.dumps({'schema':'ttm.semantic4x3.progress.readonly.v1','status':'NOT_STARTED',
+              'claim_consumed':False,'ready_chunks':0,'total_chunks':96},sort_keys=True))
+        return
+    require(out.is_dir() and (out/'STUDY_CLAIM.json').is_file(),'CLAIM_MISSING_HOLD')
+    claim=jsonread(out/'STUDY_CLAIM.json')
+    require(claim.get('study_id')==STUDY_ID and claim.get('claimed') is True and
+            claim.get('runner_sha256')==sha_file(Path(__file__)),'PROGRESS_CLAIM_SOURCE')
+    pre={'runner_sha256':claim['runner_sha256'],
+         'schedules_sha256':claim['schedules_sha256']}
+    env=claim['env']
+    details={};chunks=0;scored=0
+    for s in SEEDS:
+        details[s]={}
+        for arm in ARMS:
+            last,pending=chunk_replay_plan(out,s,arm,pre,env)
+            completed=last//EVERY;chunks+=completed
+            score=score_receipt_path(out,s,arm)
+            scored+=int(score.exists())
+            details[s][arm]={'last_verified_READY_step':last,'pending_replay_end_step':pending,
+                             'scored_receipt_present':score.exists()}
+    result_present=(out/'RESULT.json').is_file()
+    print(json.dumps({'schema':'ttm.semantic4x3.progress.readonly.v1',
+          'status':'COMPLETED_RESULT_EXISTS' if result_present else 'CLAIM_CONSUMED_IN_PROGRESS',
+          'study_id':STUDY_ID,'claim_sha256':sha_file(out/'STUDY_CLAIM.json'),
+          'ready_chunks':chunks,'total_chunks':96,
+          'scoring_started':(out/'SCORING_START.json').exists(),
+          'arm_score_receipts':scored,'total_arm_scores':12,
+          'result_present':result_present,'arms':details,
+          'has_science_execution':True},sort_keys=True))
+
+
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument('--mode',required=True,choices=['fixture','cpu-source-qa','preflight','execute','resume'])
+    p.add_argument('--mode',required=True,choices=['fixture','cpu-source-qa','preflight','execute','resume','progress'])
     p.add_argument('--input',default='');p.add_argument('--h768',default='');p.add_argument('--code-dir',default='')
     p.add_argument('--drive-output',default='');p.add_argument('--owner-verified-free-gib',type=float,default=0)
     p.add_argument('--free-colab-confirmed',action='store_true')
     p.add_argument('--owner-science-approved',action='store_true')
     p.add_argument('--manual-resume-adjudicated',action='store_true')
+    p.add_argument('--max-chunks-per-invocation',type=int,default=0)
     a=p.parse_args()
+    require(0<=a.max_chunks_per_invocation<=96,'MAX_CHUNKS_RANGE')
     if a.mode=='fixture':fixture();return
+    if a.mode=='progress':progress_readonly(a);return
     if a.mode=='cpu-source-qa':cpu_source_qa(a);return
     if a.mode=='preflight':
         _,pre,_=study_preflight(a,require_absent=True,gpu=True)

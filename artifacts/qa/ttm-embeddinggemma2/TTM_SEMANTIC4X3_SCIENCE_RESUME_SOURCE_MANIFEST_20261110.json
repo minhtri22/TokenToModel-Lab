@@ -1,0 +1,68 @@
+{
+  "schema": "ttm.semantic4x3.sci_resume_source_manifest.v1",
+  "date": "2026-11-10",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "owner_approval": "GRANTED_SCIENCE_12_ARMS_X2048_FREE_T4",
+  "science_status": "NOT_EXECUTED_BEFORE_NEW_COLAB_LAUNCH",
+  "source_sha256": {
+    "runner": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
+    "independent_reader": "51732bd62cfd13bf8956f11ee862b939d0dc78a62c58cd3d655dc05b566764e2",
+    "null_helper": "0d71f38da356056be50a18d36f589774190178fd321e6d2e3970413d96238a2d",
+    "notebook": "72deb03c0e21487a3b65fce58ea43a98963ef589d8eb3bfa80230df8a154b6e7",
+    "source_zip": "67f07792446387b6c27ba5c334509b4ac11d3a3e7faf74ea44f329715eeae035"
+  },
+  "private_data": {
+    "old_input_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "new_h768_zip_sha256": "27825597aac0fa33753704f681343bc09211144590f475928aa812271ff609b1",
+    "H768": {
+      "public": "9725b1254cde81b77e23b85ab479a08cafc14af0a7a536c7722ca87c7f2a5aa0",
+      "membership": "0ab671ae59ff4300d8257f2689261d6328afd7563c0aa66b363bc22348c1628f",
+      "pack": "1eb5b54b4bb7744e23fffd0fd755d5c91853a773dcc0d2219f777b47ba6a53df"
+    },
+    "published_to_repo": false
+  },
+  "schedules_sha256": {
+    "S1": "35080993e5c0d21cd12235fd5133a1169a19c57bb86e3e07301a2af3e77aa6c6",
+    "S2": "9ec59ae161c2dd40eed7c8f14cdb39da73020a8a38f41274329854df9385fc5b",
+    "S3": "688c0b8f08432e2ed89e74b6c55dd504695acfa47c90dbf224841dc95b9f8c0a"
+  },
+  "train": {
+    "arms": 4,
+    "seeds": 3,
+    "steps_per_arm": 2048,
+    "targets_per_step": 4096,
+    "updates_total": 24576,
+    "checkpoint_every": 256,
+    "checkpoint_count": 96,
+    "one_study_id": true
+  },
+  "resume": {
+    "no_unverified_replay": true,
+    "restore_model_optimizer_rng_cursor": true,
+    "replay_pending_chunk_if_ready_absent_and_no_binary": true,
+    "append_only_replay_receipts": true,
+    "partial_binary_holds": true,
+    "scoring_receipts_reused": true,
+    "score_only_after_all_12_final_READY": true
+  },
+  "parallelism": {
+    "gpu_count": 1,
+    "arms_sequential": true,
+    "allow_simultaneous_colab_sessions": false,
+    "CPU_BLAS_QA_threads": 2
+  },
+  "qa": {
+    "offline_pytest": "PASS_23_OF_23",
+    "replay_toy_AdamW_RNG": "EXACT_EQUAL_WEIGHTS_AND_LOSS",
+    "real_source_CPU_three_seeds": "PASS_GEOMETRY_AND_PARITY",
+    "notebook_zip_stage": "PASS_IDEMPOTENT",
+    "new_colab_gpu_preclaim": "PENDING"
+  },
+  "governance": {
+    "claim_created": false,
+    "training_executed": false,
+    "lineage_unchanged": true,
+    "main_unchanged": true,
+    "GGUF_deferred": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "ttm.semantic4x3.resume_source.qa_public.v1",
+  "date": "2026-11-10",
+  "status": "PASS_CPU_SOURCE_QA_NOT_GPU_SCIENCE",
+  "source_runner_sha256": "a3182549739cda848ce0f7f449b1f1455e06419d72295dcee96f0e8a7822f676",
+  "tests": {
+    "source_preclaim_existing": 11,
+    "new_resume": 12,
+    "total_passed": 23,
+    "failed": 0
+  },
+  "replay_equivalence": "PASS_BITWISE_TOY_ADAMW_RNG_LOSSES",
+  "negative_tests": [
+    "incomplete chunk replay at previous READY only",
+    "pending marker tamper rejected",
+    "partial checkpoint bytes without READY HOLD",
+    "orphan DONE rejected",
+    "noncontiguous READY rejected",
+    "tampered scored arm SHA rejected",
+    "previously completed score receipts reused with zero forward"
+  ],
+  "real_source_CPU": "PASS_EXACT_STATE_AND_SYNTHETIC_LOGITS_AND_REAL_NULL_GEOMETRY_S1_S2_S3",
+  "h768_private_sha3": "VERIFIED",
+  "schedule_sha256": {
+    "S1": "35080993e5c0d21cd12235fd5133a1169a19c57bb86e3e07301a2af3e77aa6c6",
+    "S2": "9ec59ae161c2dd40eed7c8f14cdb39da73020a8a38f41274329854df9385fc5b",
+    "S3": "688c0b8f08432e2ed89e74b6c55dd504695acfa47c90dbf224841dc95b9f8c0a"
+  },
+  "notebook_staging": "PASS_FRESH_AND_IDEMPOTENT_USING_ACTUAL_FROZEN_PRIVATE_ZIPS",
+  "scope": "NO NEW GPU TRAINING RUN; NEW RUNNER REQUIRES ITS OWN COLAB_FREE_T4_PRECLAIM_BEFORE_STUDY_CLAIM",
+  "owner_science_approved": true,
+  "claim_created": false,
+  "training_executed": false,
+  "h768_scored": false
+}
