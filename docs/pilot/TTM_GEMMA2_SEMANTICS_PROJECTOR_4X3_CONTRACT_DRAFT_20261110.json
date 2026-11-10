@@ -1,0 +1,204 @@
+{
+  "schema": "ttm.gemma2.donor_semantics_projector_alignment.multiseed_design_only.v1",
+  "date": "2026-11-10",
+  "operation": "TTM_SMALL4M_EMBEDDINGGEMMA2_DONOR_SEMANTICS_VS_PROJECTOR_ALIGNMENT_REPLICATION_DESIGN_ONLY",
+  "decision": "GO_TO_INTEGRATED_CONTRACT_REVIEW_DESIGN_ONLY",
+  "status": "DESIGN_ONLY_NOT_PREREGISTERED_NOT_AUTHORIZED_TO_EXECUTE",
+  "source_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "source_head_before_design": "83dac7fc774b93025b5ddc64b5ece18aebdb48c8",
+  "evidence_L0019": {
+    "verdict": "PASS_SCOPED_DONOR_MAPPING_ALIGNMENT",
+    "run_id": "ttm_small4m_gemma2_causal6_2048x4096_free_t4_20261109_v1",
+    "primary_effect_delta_nll": 0.07856581002541464,
+    "primary_ci95": [
+      0.07099652650053324,
+      0.08639884949848596
+    ],
+    "caveat": "Ridge projector was trained on real donor–TTM token pairs, and real/permuted arms shared that initialization"
+  },
+  "scientific_question": "Does pretrained donor token-structured information give excess correctly-aligned assignment benefit beyond an equally target-fitted projector and spectrum-matched semantically unstructured donor null?",
+  "constraints": {
+    "model": "TTM-Small-4M hidden256 vocab2048 context256 four blocks four heads untied LM head",
+    "checkpoint_start_step": 1024,
+    "mapped_token_types": 1917,
+    "unmapped_fallback_source": "E0 original TTM; 130 fragments plus EOS",
+    "pretrained_donor": "Pinned EmbeddingGemma2 input token rows 2048x512 from existing candidate_initialization.pt",
+    "source_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "donor_candidate_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "original_causal6_source_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+    "no_model_forward_in_design": true,
+    "no_gpu_in_design": true
+  },
+  "core_design": {
+    "factors": {
+      "donor_information": [
+        "pretrained_real_rows",
+        "spectrum_matched_synthetic_null"
+      ],
+      "token_assignment": [
+        "original",
+        "precommitted_stratified_permutation"
+      ]
+    },
+    "arms": [
+      {
+        "id": "PT-REAL",
+        "donor": "pretrained",
+        "assignment": "real",
+        "projector": "ridge fitted on the 1438 anchor token pairs of this arm"
+      },
+      {
+        "id": "PT-PERM",
+        "donor": "pretrained",
+        "assignment": "permuted",
+        "projector": "ridge independently fitted on same 1438 token anchors after permutation"
+      },
+      {
+        "id": "NULL-REAL",
+        "donor": "spectral_null",
+        "assignment": "real_token_indexing_to_synthetic_rows",
+        "projector": "ridge independently fitted on same 1438 token anchors"
+      },
+      {
+        "id": "NULL-PERM",
+        "donor": "spectral_null",
+        "assignment": "same permutation as PT-PERM",
+        "projector": "ridge independently fitted on same 1438 token anchors after permutation"
+      }
+    ],
+    "anchor_split": {
+      "token_count": 1917,
+      "anchor_count": 1438,
+      "anchor_holdout_count": 479,
+      "selection_inputs": [
+        "T1 TRAIN token frequency",
+        "mapped-valid mask",
+        "donor-subtoken-count metadata",
+        "frozen token-ID SHA sort"
+      ],
+      "no_h512_or_future_holdout_labels": true
+    },
+    "projectors": {
+      "shape": "512x256",
+      "lambda": 0.01,
+      "fit": "(X_anchor^T X_anchor + 0.01 I)^(-1) X_anchor^T E0_anchor",
+      "freeze_after_init": false,
+      "one_fit_per_arm": true,
+      "no_H768_information": true,
+      "shared_within_arm_across_all_steps": true
+    },
+    "permutation": {
+      "seed_per_replicate": true,
+      "valid_mapped_only": true,
+      "stratified_by": [
+        "TRAIN-frequency band",
+        "number of donor subtokens"
+      ],
+      "no_posthoc_selection": true
+    },
+    "spectral_null": {
+      "source": "centered real donor mapped-row matrix X",
+      "construction": "U_new sampled as orthonormal columns perpendicular to all-ones vector, then X_null=mean(X)+U_new*S*V^T",
+      "preserves": [
+        "row-wise mean in aggregate",
+        "centered singular-value spectrum",
+        "column covariance",
+        "total centered Frobenius energy"
+      ],
+      "does_not_guarantee": [
+        "per-row norm distribution",
+        "semantic neighborhood or morphology",
+        "equal projection reconstruction quality"
+      ],
+      "not_an_untrained_neural_model": true
+    },
+    "training": {
+      "seeds_candidate": [
+        2026111101,
+        2026111102,
+        2026111103
+      ],
+      "seed_count": 3,
+      "arms_per_seed": 4,
+      "optimizer_steps_per_arm": 2048,
+      "train_targets_per_step": 4096,
+      "train_exposures_per_arm": 8388608,
+      "train_exposures_total": 100663296,
+      "train_pack": "Original pinned T4 TRAIN windows",
+      "paired_arm_schedule_per_seed": true,
+      "fresh_optimizer_each_arm": true,
+      "adamw": {
+        "lr": 0.0001,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "eps": 1e-8,
+        "weight_decay": 0.1,
+        "grad_clip": 1
+      },
+      "frozen_donor_rows": true,
+      "trainable": "512->256 projector + Transformer blocks + learned position + untied LM head, same counts and masks for all arms",
+      "dtype": "FP32",
+      "micro_max_windows": 8
+    },
+    "new_holdout": {
+      "candidate_name": "H768_NEW",
+      "stories": 768,
+      "source": "Pinned TinyStories-valid.txt",
+      "same_family_as_prior": true,
+      "exclude_by_exact_story_sha": [
+        "T1 TRAIN 2048",
+        "T1 VAL256",
+        "T1 historical TEST64",
+        "L0017 new 320",
+        "L0019 H512"
+      ],
+      "near_duplicate_audit": [
+        "candidate vs new candidates",
+        "candidate vs T1 TRAIN",
+        "candidate vs T1 VAL"
+      ],
+      "old_holdouts_content_not_opened": true,
+      "seed_freeze_before_train": true,
+      "one_release_after_all_12_final_READY": true,
+      "no_new_holdout_scoring_in_design": true
+    },
+    "estimand": {
+      "loss": "token-weighted answer-only NLL, same holdout token windows for all arms and seeds",
+      "delta_pretrained": "L(PT-PERM)-L(PT-REAL)",
+      "delta_null": "L(NULL-PERM)-L(NULL-REAL)",
+      "primary": "tau_specific=delta_pretrained-delta_null",
+      "sign": "positive means an excess correct-token advantage from pretrained relative to spectrum-null under equal separately fitted-projector procedure",
+      "robustness": "three fixed training-seed/null realizations, 3 of 3 tau_specific positive",
+      "bootstrap": {
+        "method": "sample 768 story IDs paired across all 12 runs; fixed seed list conditional, 2000 shared draws; percentile two-sided 95% on mean tau_specific across 3 fixed seeds",
+        "important_limit": "not a population-over-seeds 95% CI; n=3 cannot establish generalization to all training seeds"
+      }
+    },
+    "proposed_decision_gate": {
+      "pass": "All 12 arms complete at frozen budget; independent audit PASS; each of 3 finite-seed tau_specific >0; conditional-on-three-seeds paired-story bootstrap CI95 lower(mean tau_specific)>0; geometric control diagnostics within preregistered acceptability envelope or verdict narrowed to observed rather than causal-specific effect",
+      "fail": "Scientifically valid and completed study does not meet the whole intersection; do not switch to another contrast or automatically add more seeds",
+      "hold": "No valid new holdout, source/rights defect, geometry/null construction mismatch, incomplete one-shot, missing READY or insufficient free T4/Drive; no scientific FAIL inferred"
+    },
+    "interpretation_limits": [
+      "Spectrum matching preserves global covariance but not per-token norms, lexical neighborhoods, or all higher moments",
+      "Separate target-fitted projectors have same data access, but can produce unequal initialization fit errors; cannot assert exact geometry matching",
+      "A positive difference-in-differences is stronger evidence for pretrained donor structure than L0019, not proof of pure lexical semantics",
+      "All runs start from one pre-trained TTM source checkpoint and one EmbeddingGemma2 donor; 3 seeds vary adaptation and null realization, not donor pretraining corpus/seed",
+      "768-stories remain TinyStories-valid same domain; donor pretraining contamination unknown",
+      "No matched non-donor baseline, so no new absolute benefit-over-baseline claim"
+    ]
+  },
+  "provenance_and_governance": {
+    "no_training_claim": true,
+    "one_integrated_future_contract_required": true,
+    "free_colab_t4_conditional": true,
+    "append_lineage_now": false,
+    "no_GGUF": true,
+    "no_application_work": true,
+    "no_GATED32_reexecution": true,
+    "keep_L0017_L0018_L0019_immutable": true,
+    "do_not_publish_private_story_or_weights": true
+  }
+}
