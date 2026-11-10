@@ -96,7 +96,7 @@ def main():
         "native_sha256":sha(opts.native_logits),"native_trace_sha256":sha(opts.native_trace),
         "reference_zip_sha256":REF_ZIP,"reference_jsonl_sha256":REF_RAW,
         "confirmatory_replayed":False,"old_inputs_replayed":False,
-        "training":False,"TEST_or_Q1Q2":False,"merge":"HOLD_PENDING_INDEPENDENT_REVIEW"})
+        "training":False,"TEST_or_Q1Q2":False,"merge":"HOLD_PENDING_INDEPENDENT_REVIEW"}
     with opts.output.open("x",encoding="utf-8",newline="\n") as out:
         json.dump(receipt,out,sort_keys=True,indent=2)
         out.write("\n")
