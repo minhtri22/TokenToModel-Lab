@@ -1,0 +1,11 @@
+diff --git a/src/models/gpt2.cpp b/src/models/gpt2.cpp
+index 711a148a..59d1685d 100644
+--- a/src/models/gpt2.cpp
++++ b/src/models/gpt2.cpp
+@@ -119,5 +119,5 @@
+                     NULL,                      NULL,                        NULL,
+                     model.layers[il].ffn_down, model.layers[il].ffn_down_b, NULL,
+                     NULL,
+-                    LLM_FFN_GELU, LLM_FFN_SEQ, il);
++                    LLM_FFN_GELU_ERF, LLM_FFN_SEQ, il);
+             cb(cur, "ffn_out", il);
