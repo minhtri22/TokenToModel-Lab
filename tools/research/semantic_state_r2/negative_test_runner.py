@@ -1,6 +1,6 @@
 import copy,json,sys,pathlib
 sys.path.insert(0,str(pathlib.Path(__file__).parent))
-from runtime_integration import check,create,parse
+from r2_runtime_integration_executed import check,create,parse
 p=pathlib.Path(__file__).parent
 original=create()
 assert check(original)['oracle_text_parser_correct']==256
