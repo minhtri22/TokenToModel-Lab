@@ -1,0 +1,121 @@
+{
+  "schema": "ttm.r3a.anti_shortcut_full_github_evidence_manifest.v1",
+  "date": "2026-11-11",
+  "task": "TTM_R3_MINIMAL_ANTISHORTCUT_AMENDMENT_AND_SINGLE_INTEGRATED_ADVERSARIAL_CPU_QA_THEN_O0_PILOT_OWNER_DECISION",
+  "status": "AUTHOR_CPU_PREFLIGHT_PASS_SCOPED_O1_DEFER",
+  "source": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-r3a-antishortcut-amendment-20261111",
+    "review_base_commit": "d641e1577eaef4d3adffa526a13c3392a519b3bb",
+    "original_R3": "cd3dc4ceb3a42b9ac8df7bdb5169cda444c3b41a",
+    "original_review_script_git_blob": "72d84fd1c28ee422cf4264baec9c51e94db171f1",
+    "original_model_sha256": "4fa0ad45acdfecb2143a984127e6ad0c50126c203996148d60843eb1214cd50a",
+    "original_oracle_sha256": "bd9fb15d3f3850823e083269a61df90eaddaea3e61b8b73e9f40b4ec74c7ce47"
+  },
+  "files": [
+    {
+      "path": "tools/research/semantic_state_r3/r3a_generator.py",
+      "bytes": 8522,
+      "sha256": "b2bca78463063b2aedf7ef657f1a28b3c0f6f1bc3f16f59ffe6f6ac04a7c5cbe",
+      "git_blob": "7123b9d7963129451e530d5ac77f7716800a5d6d"
+    },
+    {
+      "path": "tools/research/semantic_state_r3/r3a_independent_checker.py",
+      "bytes": 11785,
+      "sha256": "1d1c3ba2f11ac83cb3d6d5f6b090f6b8476294f2de25d2ed3c17fd5d52b8907d",
+      "git_blob": "2e810e54e0c4fbc2ae144ae2295e2543005ca911"
+    },
+    {
+      "path": "tools/research/semantic_state_r3/r3a_integrated_cpu_qa.py",
+      "bytes": 7926,
+      "sha256": "812ce00b5992aeaa84a9ec3d1d1d372adcc7f893a17e016da72d47b25ff44127",
+      "git_blob": "29b124e05958b738411743e2b6295a07aa892977"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3A_PUBLIC_ORACLE.json",
+      "bytes": 309003,
+      "sha256": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08",
+      "git_blob": "53a607e283fa4783597d8cc07f2e5e1ac453c1df"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3A_MODEL_INPUT_ONLY.json",
+      "bytes": 113611,
+      "sha256": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+      "git_blob": "c78c748c06d7c1f8c4ee4680337c417c012a1317"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3A_CHECKER_REPORT.json",
+      "bytes": 617,
+      "sha256": "14df3d7dfce47b0a86bf78accda6106e1554967c96ad6e12e34dd8deb494c51c",
+      "git_blob": "431cbc466ce351e21a78d4bf9bcb956581efbac0"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3A_LATEST_WRITE_BASELINE.json",
+      "bytes": 561,
+      "sha256": "6dc86f0cd53bbf716e6ab3042f534d0a6da18153dd91479d0326d513e9cad20b",
+      "git_blob": "3bfdee3335365ef8ce2dce86b90c9ccf5dfcf854"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3A_CPU_QA.log",
+      "bytes": 3657,
+      "sha256": "c4918712b7047a0db17e78693140dd86dcbdd04b76aff6acbddd222b508f3b52",
+      "git_blob": "a0e021e477cf87d8dbf9f681404d3559996fc3a9"
+    },
+    {
+      "path": "artifacts/qa/ttm-r3-structural-design/r3a/R3_ORIGINAL_CODEX_BASELINE_EXACT_PYTHON_FULL_REPLAY.json",
+      "bytes": 704,
+      "sha256": "f3638ab00fb058d19e6a6dd9cc198bf551446cfcd80c2158f0ebfd9b657ba4a1",
+      "git_blob": "25b02f84847677bd1d2e15724dfd91439d89e7b2"
+    }
+  ],
+  "checks": {
+    "original_script_exact_blob": true,
+    "original_python_384_replayed": true,
+    "original_baseline": {
+      "correct": 384,
+      "total": 384
+    },
+    "new_synthetic_generator_deterministic": true,
+    "new_input_grammar_exact_story_question": true,
+    "new_model_input_shuffled": true,
+    "new_groups": 96,
+    "new_inputs": 384,
+    "new_counterfactual_quartets": 96,
+    "new_independent_visible_parser_correct": 384,
+    "new_latest_write_baseline": {
+      "correct": 208,
+      "total": 384,
+      "by_family_split": {
+        "T1_CHALLENGE": 32,
+        "T1_DEV": 32,
+        "T2_CHALLENGE": 48,
+        "T2_DEV": 32,
+        "T3_CHALLENGE": 32,
+        "T3_DEV": 32
+      }
+    },
+    "query_dependent_motif_cross_split": 0,
+    "number_goal_none_answers": 32,
+    "cpu_testcases_total": 44,
+    "cpu_testcases_pass": 44,
+    "negative_mutations_total": 30,
+    "negative_mutations_rejected": 30,
+    "initial_design_motif_overlap_detected": 3,
+    "initial_design_motif_overlap_resolved_before_final_freeze": true,
+    "checker_test_assertion_fixed_pre_final": true,
+    "training_steps": 0,
+    "gpu_calls": 0,
+    "neural_inference_calls": 0,
+    "test_q1q2_reads": 0
+  },
+  "limitations": [
+    "public toy: answer oracle is public; it cannot be used as blinded science FINAL",
+    "beating exactly one latest-write baseline does NOT rule out new lexical/alias-aware heuristics",
+    "motif signature disjointness is a limited query-conditioned typed-event structural check, not proof of graph-OOD generalization",
+    "generator and checker are separate scripts but both developed under the same ChatGPT Web operator; not external independence",
+    "no O0 or O1 model actually evaluated; no parameter, supervision, FLOP matching established",
+    "source files are not automatically an authorization to use private TinyStories or original TTM TEST"
+  ],
+  "decision": "R3A_SYNTHETIC_SHORTCUT_AMENDMENT_PASS_SCOPED__O0_BASELINE_ELIGIBLE_FOR_DESIGN_ONLY__O1_DEFER",
+  "next": "TTM_R3A_CODEX_ADVERSARIAL_HEURISTICS_REVIEW_THEN_O0_ONLY_SMALL_NEURAL_FEASIBILITY_SINGLE_OWNER_DECISION"
+}
