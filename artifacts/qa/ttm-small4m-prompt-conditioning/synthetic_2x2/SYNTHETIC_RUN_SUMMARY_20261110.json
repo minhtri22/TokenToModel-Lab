@@ -1,0 +1,49 @@
+{
+  "GPU_training": false,
+  "caveat": "Matching feasibility on real locked TRAIN pack NOT ESTABLISHED",
+  "first_story_window_draw_counts": {
+    "A": 2243,
+    "B": 3585,
+    "C": 2243,
+    "D": 3585
+  },
+  "microbatch_windows": 8,
+  "model_weights_loaded": false,
+  "optimizer_updates": 0,
+  "per_step_full_result_sha256": "1f92b9fe5965591ce6f8292e778642081c2ad9c1557ea08b5538f536524ac409",
+  "plan_digest_by_arm": {
+    "A": "16a4f2d2773789e756709d999b975aa4a4c7f0ea87164d163c6c19b563c063aa",
+    "B": "b58e4bbcf6513b513aeeaa915eac531e2b14773776c69c689bb8f047c5f79391",
+    "C": "16a4f2d2773789e756709d999b975aa4a4c7f0ea87164d163c6c19b563c063aa",
+    "D": "b58e4bbcf6513b513aeeaa915eac531e2b14773776c69c689bb8f047c5f79391"
+  },
+  "real_TRAIN_VAL_pack_read": false,
+  "replacement_count_changed_window_id": 3427,
+  "schema": "ttm.small4m.2x2.synthetic_preflight.result.v1",
+  "science_inference": false,
+  "source_dataset": "SYNTHETIC_INVENTED_ONLY",
+  "status": "SYNTHETIC_SAMPLER_PASS_NOT_TRAINING",
+  "steps": 128,
+  "synthetic_seed": 20261110,
+  "synthetic_total_windows": 64,
+  "synthetic_train_stories": 40,
+  "targets_per_step": 4096,
+  "total_forward_token_slots": {
+    "A": 917760,
+    "B": 917760,
+    "C": 917760,
+    "D": 917760
+  },
+  "total_forward_windows": {
+    "A": 3585,
+    "B": 3585,
+    "C": 3585,
+    "D": 3585
+  },
+  "total_valid_label_exposures": {
+    "A": 524288,
+    "B": 524288,
+    "C": 524288,
+    "D": 524288
+  }
+}
