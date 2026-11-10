@@ -1,6 +1,6 @@
 # HANDOFF — Codex phản biện đối kháng bản R2A (chưa thực hiện)
 
-**Phạm vi:** đọc-only độc lập, không tự merge/huấn luyện/test TTM, không dùng checkpoint, TEST/Q1Q2. Nguồn canonical: [R2A QA index](../artifacts/qa/ttm-r2-semantic-toy/r2a/README.md) của branch `research/ttm-small4m-semantic-state-goal-toy-r2-20261110`. Pin commit hiện hành khi tiếp nhận từ GitHub HEAD, không dựa trên HEAD cũ của R2.
+**Phạm vi:** đọc-only độc lập, không tự merge/huấn luyện/test TTM, không dùng checkpoint, TEST/Q1Q2. Nguồn canonical: [R2A QA index](../../artifacts/qa/ttm-r2-semantic-toy/r2a/README.md) của branch `research/ttm-small4m-semantic-state-goal-toy-r2-20261110`. Pin commit hiện hành khi tiếp nhận từ GitHub HEAD, không dựa trên HEAD cũ của R2.
 
 Codex cần đánh giá rằng lối tắt câu thứ ba được loại bỏ, nhưng **bất kỳ quy tắc khác không cần key-binding** còn tồn tại hay không. Đặc biệt kiểm: positional heuristics biết split/grammar, pattern of query wording, lexical-frequency cues, ID leakage, cặp phản thực cùng word-bag, 128 query-swap probes, việc checker so `counts` và không dùng `source_events` làm đáp án, model input chỉ có `story` và `question`.
 
