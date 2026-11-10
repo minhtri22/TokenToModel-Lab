@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.causal6.six_arm.independent_science_adjudication.public.v1",
+  "adjudication_date": "2026-11-10",
+  "run_id": "ttm_small4m_gemma2_causal6_2048x4096_free_t4_20261109_v1",
+  "research_branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+  "science_verdict": "PASS_SCOPED_DONOR_MAPPING_ALIGNMENT",
+  "independent_readback": "PASS_INDEPENDENT_STORY_BOOTSTRAP_READBACK",
+  "training": "COMPLETED_ONE_SHOT_6_ARMS_2048_UPDATES_EACH",
+  "checkpoint_base": "TTM_T4_STEP1024",
+  "gpu": "Tesla T4",
+  "source_runner_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+  "claim_sha256": "4ed9935821535bfee982b577c364a51eed25af496f03689ff75a0adc71c1f01b",
+  "result_sha256": "fa692607a5f25960a1fd55a1719743b1913d11174c310e7034a1b931e66fb18c",
+  "independent_readback_sha256": "64b118b44848da5c3f4de381b71519918e651849e7e8ee0632427b16a45b9b96",
+  "private_per_story_sha256": "aee961b6afd801960c15d4009d27aeea92fea1af2cb14e523a45a5d464f0840f",
+  "h512_public_sha256": "d9ce40f37da7acf2b4b12fd657cdedb366754b2bb29b4b86de144230240f1b03",
+  "h512_membership_sha256": "544c30b470f5e8718ba35fe016b0f52cac95e559020eae2806e1ff7291a03661",
+  "schedule_sha256": "899afc01be5473a07a67e0d6247b0c33775f7584139c07f6680f5798eb8b1ef6",
+  "environment": {
+    "cuda": "13.0",
+    "device": "Tesla T4",
+    "device_count": 1,
+    "numpy": "2.4.6",
+    "torch": "2.14.1+cu130"
+  },
+  "scope": {
+    "arms": 6,
+    "steps_each": 2048,
+    "targets_each_step": 4096,
+    "total_train_label_exposures": 50331648,
+    "holdout_stories": 512,
+    "holdout_windows": 651,
+    "holdout_targets": 119856,
+    "bootstrap_rounds": 2000,
+    "bootstrap_seed": 2026110915
+  },
+  "nll_nats_per_token": {
+    "OP-F": 3.408614959998946,
+    "OR-F": 3.3161514709743285,
+    "RP-A": 3.9170144487367806,
+    "RP-F": 3.3611221158000024,
+    "RR-A": 3.666718706884462,
+    "RR-F": 3.2825563057745875
+  },
+  "contrasts": {
+    "tau_A": {
+      "ci95_percentile": [
+        -0.17994321797416188,
+        -0.1629692810621092
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.17172993182690405
+    },
+    "tau_D": {
+      "ci95_percentile": [
+        0.07099652650053324,
+        0.08639884949848596
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll": 0.07856581002541464
+    },
+    "tau_P": {
+      "ci95_percentile": [
+        -0.020903770705949565,
+        -0.00694025243068729
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.013897678999203163
+    }
+  },
+  "primary_hypothesis": "tau_D=NLL(RP-F)-NLL(RR-F); PASS iff paired story bootstrap 95% CI lower > 0",
+  "secondary_exploratory": [
+    "tau_A",
+    "tau_P"
+  ],
+  "checkpoint_ready_sha256": {
+    "RR-F": "39e38dbc401d9090234671e02613fb2b1e26b6b34c7e525fad16397d6d10a801",
+    "RP-F": "f6526a80d4b5061fcc50a841f8da26ac1630d5f257350773057fec3e817e7704",
+    "RR-A": "93698e7cf6cc9caa0f18e72248b094eba57cd911520aafd2c78e2123e2d4d15f",
+    "RP-A": "8bde54566f221d0585e425238edd8928acb709c00caa21967ad469ff0b9cc4b4",
+    "OR-F": "1314c51fe5b62d7955a275068c55736a50e1081c324f1f8e4874256e23e7396b",
+    "OP-F": "9adfa4d7de17f211cb93a03b3f697c2cdc895f878728d9ac2242591cc11dfe5e"
+  },
+  "independent_evidence": {
+    "claim_and_result_raw_sha256_locally_verified": true,
+    "per_story_raw_sha256_locally_verified": true,
+    "nll_all_six_locally_recomputed_exact": true,
+    "paired_2000_bootstrap_locally_recomputed_exact": true,
+    "all_six_final_ready_metadata_read_from_owner_drive": true,
+    "checkpoint_binary_rehashed_by_adjudicator": false,
+    "checkpoint_hashes_checked_by_original_scoring_code_before_H512_forward": true,
+    "reviewer_no_model_forward": true,
+    "reviewer_no_training_reexecution": true
+  },
+  "limits": [
+    "One training seed and in-domain TinyStories-valid holdout",
+    "Shared projector initialization fitted to correct donor-token pairs; donor semantics not independently isolated",
+    "No train-matched TTM without donor evaluated on same H512",
+    "Unknown overlap with donor pretraining; historical TEST and previous holdout excluded by exact ID but not near-duplicate audited",
+    "tau_A and tau_P are exploratory interactions; no additional primary PASS claimed"
+  ],
+  "repository_action": "APPEND_L0019_ONLY",
+  "science_reexecuted_by_adjudication": false,
+  "private_per_story_or_weights_published": false
+}

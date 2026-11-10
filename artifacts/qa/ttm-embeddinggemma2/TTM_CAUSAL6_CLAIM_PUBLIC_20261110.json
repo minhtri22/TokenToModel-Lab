@@ -1,0 +1,69 @@
+{
+  "claimed": true,
+  "drive_gib_owner_attested": 6.0,
+  "env": {
+    "cuda": "13.0",
+    "device": "Tesla T4",
+    "device_count": 1,
+    "numpy": "2.4.6",
+    "torch": "2.14.1+cu130"
+  },
+  "free_colab_owner_attested": true,
+  "full_trainable_parameters": 3880448,
+  "gpu_synthetic_peak_bytes": 303281152,
+  "h512_membership_sha256": "544c30b470f5e8718ba35fe016b0f52cac95e559020eae2806e1ff7291a03661",
+  "h512_pack_sha256": "d70b23ad862f29f8adc39bb7690688960b67409b5e3f1706abd00c3fc2a72d86",
+  "h512_public_seal_sha256": "d9ce40f37da7acf2b4b12fd657cdedb366754b2bb29b4b86de144230240f1b03",
+  "hyperparameters": {
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "clip": 1.0,
+    "eps": 1e-08,
+    "lr": 0.0001,
+    "micro": 8,
+    "steps": 2048,
+    "targets": 4096,
+    "wd": 0.1
+  },
+  "init_projection_sha256": {
+    "orth": "432d19d183f1d56a1bc85f38c1d4e0c045cff398f32e770cb7ed1ad1bf6aa6fa",
+    "ridge": "9fdd433da0e728f969278cd89242a9df36b3e3e6b155821c9968b5e6d661c2b1"
+  },
+  "input_sha256": {
+    "T4_PRIVATE_PACK_MANIFEST.json": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "T4_PRIVATE_TRAIN_VAL_WINDOWS.npz": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "candidate_initialization.pt": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "checkpoint.pt": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "p02_exact.py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "ttm_directswap2048_gpu_once.py": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e",
+    "ttm_embeddinggemma2_swap.py": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39"
+  },
+  "procrustes_scale": 0.3322234327889172,
+  "projected_multiset_sha256": {
+    "OrthPerm": "ca3d18f7320436f02f9effd6744933d561cdc3213afb2f840dcfb4a991d32b42",
+    "OrthReal": "ca3d18f7320436f02f9effd6744933d561cdc3213afb2f840dcfb4a991d32b42",
+    "RidgePerm": "3ec97b05fb2620eb5d78e83b49a4d863ab436f597cf88d3560a26ead96eaa185",
+    "RidgeReal": "3ec97b05fb2620eb5d78e83b49a4d863ab436f597cf88d3560a26ead96eaa185"
+  },
+  "run_id": "ttm_small4m_gemma2_causal6_2048x4096_free_t4_20261109_v1",
+  "runner_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+  "schedule_sha256": "899afc01be5473a07a67e0d6247b0c33775f7584139c07f6680f5798eb8b1ef6",
+  "schema": "ttm.causal6.preclaim.v1",
+  "seeds": {
+    "bootstrap": 2026110915,
+    "model": 2026110912,
+    "perm": 2026110913,
+    "schedule": 2026110914
+  },
+  "six_arms": [
+    "RR-F",
+    "RP-F",
+    "RR-A",
+    "RP-A",
+    "OR-F",
+    "OP-F"
+  ],
+  "source_parity_C2048": "PASS_EXACT_STATE_AND_SYNTHETIC_LOGITS"
+}

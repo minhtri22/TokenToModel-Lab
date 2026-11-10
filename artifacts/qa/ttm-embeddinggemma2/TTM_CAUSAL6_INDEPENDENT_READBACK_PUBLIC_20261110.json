@@ -1,0 +1,50 @@
+{
+  "arm_count": 6,
+  "contrasts": {
+    "tau_A": {
+      "ci95_percentile": [
+        -0.17994321797416188,
+        -0.1629692810621092
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.17172993182690405
+    },
+    "tau_D": {
+      "ci95_percentile": [
+        0.07099652650053324,
+        0.08639884949848596
+      ],
+      "ci_lower_gt_zero": true,
+      "delta_nll": 0.07856581002541464
+    },
+    "tau_P": {
+      "ci95_percentile": [
+        -0.020903770705949565,
+        -0.00694025243068729
+      ],
+      "ci_lower_gt_zero": false,
+      "delta_nll": -0.013897678999203163
+    }
+  },
+  "model_forward_calls": 0,
+  "nll_nats_per_target": {
+    "OP-F": 3.408614959998946,
+    "OR-F": 3.3161514709743285,
+    "RP-A": 3.9170144487367806,
+    "RP-F": 3.3611221158000024,
+    "RR-A": 3.666718706884462,
+    "RR-F": 3.2825563057745875
+  },
+  "old_holdout_read": false,
+  "private_per_story_sha256": "aee961b6afd801960c15d4009d27aeea92fea1af2cb14e523a45a5d464f0840f",
+  "run_id": "ttm_small4m_gemma2_causal6_2048x4096_free_t4_20261109_v1",
+  "schema": "ttm.causal6.independent.public.v1",
+  "scientific_verdict_candidate": "PASS_SCOPED_DONOR_MAPPING_ALIGNMENT",
+  "source_claim_sha256": "4ed9935821535bfee982b577c364a51eed25af496f03689ff75a0adc71c1f01b",
+  "source_result_sha256": "fa692607a5f25960a1fd55a1719743b1913d11174c310e7034a1b931e66fb18c",
+  "status": "PASS_INDEPENDENT_STORY_BOOTSTRAP_READBACK",
+  "stories": 512,
+  "targets": 119856,
+  "test_read": false,
+  "training_reexecuted": false
+}
