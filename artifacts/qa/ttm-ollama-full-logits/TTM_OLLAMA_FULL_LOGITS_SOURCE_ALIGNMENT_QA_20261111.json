@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.ollama.full_logits.source_alignment_QA.v1",
+  "date": "2026-11-11",
+  "status": "SOURCE_ONLY_ALIGNMENT_PASS",
+  "source_pin": "39febd2adb947b70da35e95f9351b3bf58ad170a",
+  "original_server_context_git_blob": "2bd1ab9ec00ca581c70bac014f7ca6d3d2bae0ae",
+  "original_source_fetched_via_connected_github": true,
+  "exact_context_hunks": [
+    {
+      "start_line": 32,
+      "expected_old": 6,
+      "actual_old": 6,
+      "expected_new": 9,
+      "actual_new": 9,
+      "aligned": true
+    },
+    {
+      "start_line": 4870,
+      "expected_old": 6,
+      "actual_old": 6,
+      "expected_new": 53,
+      "actual_new": 53,
+      "aligned": true
+    }
+  ],
+  "raw_pre_sampler_hook_present": true,
+  "frozen_four_fixture_contract_present": true,
+  "checker_exact_prereg_blob_pinned": true,
+  "checker_restricts_all_paths_to_project_root": true,
+  "actual_git_apply_check": "NOT_EXECUTED",
+  "cpp_build": "NOT_EXECUTED",
+  "python_unit_tests": "NOT_EXECUTED",
+  "p02_new_reference": "NOT_EXECUTED",
+  "ollama_new_raw_capture": "NOT_EXECUTED",
+  "independent_numeric_audit": "NOT_EXECUTED",
+  "t5_v5": "UNCHANGED"
+}

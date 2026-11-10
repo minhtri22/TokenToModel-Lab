@@ -1,7 +1,7 @@
 diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
 --- a/tools/server/server-context.cpp
 +++ b/tools/server/server-context.cpp
-@@ -33,6 +33,9 @@
+@@ -32,6 +32,9 @@
  #include <filesystem>
  #include <random>
  #include <utility>
@@ -11,7 +11,7 @@ diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
 +#include <stdexcept>
  
  // fix problem with std::min and std::max
-@@ -4870,6 +4873,39 @@
+@@ -4870,6 +4873,53 @@
              // shifted according to the current sub-batch
              const int tok_idx = slot.i_batch - off;
  

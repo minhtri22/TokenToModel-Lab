@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 
 PIN_MAIN = "5d52e32f20021e36f08f284ef9864d3ba36dbead"
+PIN_PREREG_GIT_BLOB = "fdcb81064a6c55b3dca5f71e18defff0895c0568"
 PIN_GGUF = "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5"
 FIXTURES = {
     "FL01": [97, 98, 99],
@@ -20,6 +21,16 @@ LIMIT = 0.001
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def git_blob(path: Path) -> str:
+    data = path.read_bytes()
+    return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
+
+def in_root(root: Path, target: Path, existing: bool) -> Path:
+    p = target.resolve(strict=existing)
+    if not p.is_relative_to(root) or p == root:
+        raise ValueError("PATH_OUTSIDE_TTM_PROJECT")
+    return p
 
 def parse_rows(path: Path, origin: str):
     data = path.read_bytes()
@@ -70,6 +81,8 @@ def compare(ref, other):
     return results
 
 def audit(prereg: Path, reference: Path, ollama: Path):
+    if git_blob(prereg) != PIN_PREREG_GIT_BLOB:
+        raise ValueError("PREREG_GIT_BLOB_NOT_LOCKED")
     frozen = json.loads(prereg.read_text(encoding="utf-8"))
     if (frozen.get("schema") != "ttm.ollama.full_logits.independent_prereg.v1"
         or frozen.get("base_main_commit") != PIN_MAIN
@@ -98,7 +111,15 @@ def main():
     p = argparse.ArgumentParser()
     for key in ("prereg", "reference", "ollama", "output"):
         p.add_argument("--" + key, type=Path, required=True)
+    p.add_argument("--project-root", type=Path, required=True)
     a = p.parse_args()
+    root = a.project_root.resolve(strict=True)
+    if not root.is_dir():
+        raise ValueError("PROJECT_ROOT_NOT_DIRECTORY")
+    a.prereg = in_root(root, a.prereg, True)
+    a.reference = in_root(root, a.reference, True)
+    a.ollama = in_root(root, a.ollama, True)
+    a.output = in_root(root, a.output, False)
     if a.output.exists():
         raise FileExistsError("OUTPUT_EXISTS_NO_OVERWRITE")
     result = audit(a.prereg, a.reference, a.ollama)
