@@ -1,0 +1,60 @@
+{
+  "schema": "ttm.ollama.full_logits.p02_reference_owner_execution_and_remote_readback.v1",
+  "date": "2026-11-11",
+  "scope": "Technical reference generation and independent structural audit; NOT a numeric Ollama parity experiment.",
+  "source": {
+    "base_main_commit": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "reference_producer_commit": "b68cfa4e27dff35a412074a1eaad93d4f12dd67d",
+    "frozen_prereg_git_blob": "fdcb81064a6c55b3dca5f71e18defff0895c0568",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+  },
+  "owner_windows_execution": {
+    "status": "PASS_REFERENCE_4_OF_4_X_2048_SCOPED",
+    "branch_ff_only": "PASS",
+    "checkpoint_sha_verify": "PASS",
+    "python": "3.12",
+    "torch": "2.11.0+cpu",
+    "offline_tests": "PASS_7_OF_7",
+    "original_file": "_tmp/ttm_ollama_full_logits_reference_fl01_fl04_20261111/REFERENCE_P02_F32_FL01_FL04.jsonl",
+    "original_file_sha256": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+    "independent_seal": "_tmp/ttm_ollama_full_logits_reference_fl01_fl04_20261111/REFERENCE_INDEPENDENT_SEAL.json",
+    "independent_seal_sha256": "571a1a654bad1b97de066d6fb3b690e910ecc71777deb4b16b7b15968f444939",
+    "rows": 4,
+    "dimensions_per_row": 2048,
+    "values": 8192,
+    "checkpoint_read_only": true,
+    "ollama_inference": false,
+    "test_access": false,
+    "training": false
+  },
+  "remote_readback": {
+    "method": "Connected RemoteDesktop list_dir + read_file on Windows TTM _tmp.",
+    "files_exist": "PASS_2_OF_2",
+    "seal_text_metadata": {
+      "status": "PASS_REFERENCE_4_OF_4_X_2048",
+      "rows": 4,
+      "logits_evaluated": 8192,
+      "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "prereg_git_blob": "fdcb81064a6c55b3dca5f71e18defff0895c0568",
+      "reference_sha256": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+      "ollama_runtime": "NOT_EXECUTED"
+    },
+    "raw_reference_reader_limit": "Only first ~20,000 characters visible; 141,367 characters truncated; no independently recomputed raw 8192-value digest in this readback.",
+    "independent_remote_sha256_of_full_reference": "NOT_VERIFIED",
+    "independent_remote_sha256_of_seal": "NOT_VERIFIED",
+    "provenance_scope": "Owner execution and auditor local readback plus independent remote seal metadata; not full raw recomputation."
+  },
+  "verdict": {
+    "reference": "PASS_SCOPED_FROM_OWNER_WINDOWS_EXECUTION_AND_LOCAL_STRUCTURAL_AUDIT",
+    "remote_readback": "PASS_SEAL_METADATA_ONLY_LIMITED_RAW",
+    "runner_build": "NOT_EXECUTED",
+    "ollama_full_logits": "NOT_EXECUTED",
+    "strict_numeric_parity": "NOT_EXECUTED",
+    "t5_f32_v5": "PASS_SCOPED_UNCHANGED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED"
+  },
+  "next": "Build isolated candidate Ollama child runner with raw pre-sampler hook, then independent provenance and full numeric comparison. Must preserve both reference SHA256 and v5 baseline."
+}
