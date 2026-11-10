@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.t5.PR16.scoped_science_pass_final_source_hygiene_and_merge_decision.v1",
+  "date": "2026-11-10",
+  "source_count": 85,
+  "source_categories": {
+    "qa_receipts": 30,
+    "docs": 16,
+    "lineage": 1,
+    "discovery_source": 13,
+    "confirmatory_source": 7,
+    "historical_2x2_source": 14,
+    "historical_trace_source": 4
+  },
+  "all_paths_in_TTM_research_scope": true,
+  "source_archive_preserved": true,
+  "negative_results_preserved": true,
+  "superseded_must_not_execute": [
+    "tools/pilot_t5/exact_root_v1/independent_firstop_signed_tensor_audit.py",
+    "tools/pilot_t5/exact_root_v1/confirmatory_v1/Invoke-TTM-T5-C01C04-GELU-ERF-Confirmatory-Once-PS51.ps1",
+    "tools/pilot_t5/exact_root_v1/run_owner_discovery_two_variants_once.py",
+    "tools/pilot_t5/kv_flash_precision_v1/run_exact_one_frozen_32_native_batch.py"
+  ],
+  "corrected_confirmation_source": [
+    "tools/pilot_t5/exact_root_v1/confirmatory_v1/independent_strict_c01c04_checker.py",
+    "tools/pilot_t5/exact_root_v1/confirmatory_v1/run_c01c04_gelu_erf_confirmatory_once.py",
+    "tools/pilot_t5/exact_root_v1/confirmatory_v1/Invoke-TTM-T5-C01C04-Confirmatory-SourceRecovery-V2-PS51.ps1"
+  ],
+  "scientific_verdict": "PASS_HELDOUT_STRICT_LOGIT_PARITY_4_OF_4_SCOPED_GELU_ERF",
+  "science_L0014": "APPENDED_ONLY_ON_T5_BRANCH",
+  "science_L0013_original_negative": "PRESERVED",
+  "reference_audit": "artifacts/qa/ttm-t5-parity/TTM_T5_C01C04_GELU_ERF_HELDOUT_STRICT_4_OF_4_INDEPENDENT_ADJUDICATION_20261110.json",
+  "owner_receipt_sha256": "95ed3c419e42df493dc314abeb42e47afa1bf72fcb90d2c7246ff4c55d645e88",
+  "note": "Merging PR16 transfers research source, artifacts and lineage; patched GELU_ERF llama.cpp from project-local isolated checkout is not itself integrated into production runtime. Do not imply deployment parity.",
+  "merge": {
+    "PR16": "DRAFT",
+    "status": "HOLD_OWNER_FINAL_APPROVAL_AND_ARCHIVE_CURATION",
+    "reason": "Scoped scientific gate PASS, but 85-file research PR includes superseded one-shot and historical failure tooling; final owner selection of research evidence merge versus runtime fix integration is required.",
+    "performed": false,
+    "main_changed": false
+  },
+  "no_new_native": false,
+  "new_execution_in_review": false
+}
