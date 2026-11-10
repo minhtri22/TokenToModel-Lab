@@ -1,3 +1,15 @@
+# TTM T5 — CẬP NHẬT DISCOVERY GELU_ERF 2026-11-10
+
+**Kết quả mới nhất:** `GELU_ERF_CAUSAL_DISCOVERY=PASS_2_OF_2`, trên fixture mới D01/D02. Trước GELU các thống kê tensor không đổi giữa đối chứng A và B; A có chênh lệch đầu tiên >1e-5 tại `ffn_gelu-0`; B chỉ thay toán tử thành `GELU_ERF`, giảm max-abs logits D01 626×, D02 320× và đạt strict `≤0.001` 2/2. **Chưa có confirmatory native C01–C04**, vì vậy **`PR16=DRAFT_HOLD`, `MERGE=BLOCKED`**. Không được coi discovery PASS là PASS trên các 8 fixture lịch sử hoặc 32 phép đo cũ, đều giữ nguyên FAIL.
+
+- [Báo cáo khám phá và nguồn xác nhận đã khóa](../../../docs/pilot/TTM_T5_D01D02_GELU_ERF_CAUSAL_DISCOVERY_AND_C01C04_CONFIRMATORY_FREEZE_20261110.md)
+- [Biên bản khoa học discovery đã kiểm toán](../../../artifacts/qa/ttm-t5-parity/TTM_T5_D01D02_TRUE_GELU_ERF_FIRST_OPERATOR_SCOPED_CAUSAL_DISCOVERY_PASS_20261110.json)
+- [Bằng chứng QA trước confirmatory 46/46](../../../artifacts/qa/ttm-t5-parity/TTM_T5_C01_C04_CONFIRMATORY_FROZEN_SOURCE_46_46_STATIC_QA_AND_RUN_HOLD_20261110.json)
+
+Bốn fixture C01–C04, reference PyTorch F32 và source ứng viên `GELU_ERF` đã khóa SHA; không chạy confirmatory cho đến khi owner thực thi batch one-shot, kiểm định độc lập và phân xử khoa học. Các báo cáo MERGE/HOLD cũ bên dưới là lịch sử và không thay thế lệnh owner **chỉ merge khi strict PASS**.
+
+---
+
 # OWNER_OVERRIDE_2026_11_10 — MERGE HOLD CHỜ XÁC ĐỊNH NGUYÊN NHÂN VÀ STRICT PASS
 
 **Quyết định có hiệu lực mới nhất của owner:** `PR16=DRAFT_HOLD` · `MERGE=BLOCKED` cho tới khi **nguồn sai số được chứng minh bằng can thiệp nhân quả** và **một kiểm định strict logits mới đạt PASS ở ngưỡng 0,001**. QA nguồn PASS, top-1 PASS và Git mergeable **không đủ** để merge.
