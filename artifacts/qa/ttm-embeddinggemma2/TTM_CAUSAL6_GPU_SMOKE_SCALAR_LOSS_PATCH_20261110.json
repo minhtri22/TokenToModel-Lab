@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.causal6.preclaim.gpu_smoke_scalar_loss_fix.v1",
+  "date": "2026-11-10",
+  "status": "PATCH_PRECLAIM_PUBLISHED_NOT_EXECUTED_IN_COLAB",
+  "scope": "ONLY_GPU_SMOKE_SYNTHETIC",
+  "previous_runner_sha256": "bf1da76016e134e21c4d21eb7b972fd98cf8563deca965e50bacef457a590e32",
+  "new_runner_sha256": "84e1377ad526c7822bfe025f9728e91a133fee66483b4dcd8127989bb6360cd4",
+  "previous_git_blob_sha1": "4764ea6df99cbefc5923ad64e6f81e46d87f4f98",
+  "new_git_blob_sha1": "f4d25f174c80058aa49eb6102465239a4a4e6a7a",
+  "source_patch": {
+    "old_lines": [
+      "l,_=model(x,y)",
+      "require(bool(torch.isfinite(l)),'SMOKE_LOSS_FINITE')",
+      "l.backward()"
+    ],
+    "new_lines": [
+      "logits,_=model(x)",
+      "l=F.cross_entropy(logits.float().reshape(-1,2048),y.reshape(-1),reduction='mean')",
+      "require(bool(torch.isfinite(l).item()),'SMOKE_LOSS_FINITE')",
+      "l.backward()"
+    ]
+  },
+  "user_colab_observation": {
+    "GPU": "Tesla T4",
+    "cuda_available": true,
+    "cuda_vram_gib": 14.56317138671875,
+    "preflight_error": "Boolean value of Tensor with more than one value is ambiguous",
+    "run_directory_confirmed_absent_by_previous_diag": true,
+    "not_confirmed_new_claim": true
+  },
+  "evidence": {
+    "source_science_train_step_uses": "logits,_=m(x); F.cross_entropy(...,ignore_index=-100,reduction='sum')/TARGETS",
+    "cpu_proxy_forward_loss_backward": "PASS",
+    "source_qa": "STATIC_SOURCE_TARGET_EXACT_MATCH",
+    "real_t4_smoke": "NOT_EXECUTED",
+    "science": "NOT_EXECUTED"
+  },
+  "unchanged": [
+    "RUN_ID",
+    "H512 private membership and sealed target windows",
+    "source frozen input hashes",
+    "six arms",
+    "train steps per arm",
+    "valid targets per step",
+    "optimizer seed schedule",
+    "GPU smoke max-peak 12GiB gate",
+    "T4 min physical VRAM gate 14GiB",
+    "Colab Free and Drive thresholds",
+    "all user old science L0017 L0018"
+  ],
+  "claim_created_by_patch": false,
+  "instructions": "DO NOT RUN science until PRECLAIM=PASS_NO_SCIENCE_CONSUMED and run dir absent. Patch only if current file matches old SHA, or skip if already at new SHA; do not rerun if CLAIM exists."
+}
