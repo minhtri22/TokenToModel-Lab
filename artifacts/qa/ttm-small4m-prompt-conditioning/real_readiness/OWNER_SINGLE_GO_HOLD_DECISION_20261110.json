@@ -1,0 +1,103 @@
+{
+  "schema": "ttm.small4m.2x2.real_metadata_colab_runner_eval_rights.owner_single_hold.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SMALL4M_2X2_REAL_TRAIN_METADATA_MATCHED_DRAWS_AND_COLAB_RUNNER_QA_PLUS_EVAL_RIGHTS_SINGLE_OWNER_DECISION",
+  "status": "HOLD_FREE_T4_NOT_AUTHORIZED",
+  "source_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "pr13_held_sha": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "main_lineage_blob": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+    "pr13_lineage_blob": "15c67ada3b11c46e2d947bef8818599c7408733c"
+  },
+  "real_metadata": {
+    "pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "train_stories": 2048,
+    "train_windows": 2691,
+    "first_story_windows": 2048,
+    "full_first_256_windows": 560,
+    "steps": 128,
+    "valid_targets_each_arm": 524288,
+    "forward_windows_each_arm": 2928,
+    "forward_token_slots_each_arm": 749568,
+    "first_story_draws_A_C": 2225,
+    "first_story_draws_B_D": 2928,
+    "distinct_stories_A_C": 1493,
+    "distinct_stories_B_D": 1363,
+    "all_matched": true,
+    "schedule_digest_A_C": "b4082178bac4c7830645661f31b2ba16a5743d324ac46000b5f9dffc289f4fe3",
+    "schedule_digest_B_D": "162688091ea4f2331d86205761109216a16991b00f6b0849576524c81b18692a"
+  },
+  "runner": {
+    "p02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p02_sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+    "full_parent_cpu_restore": "PASS",
+    "cpu_test_cases": "PASS_42_OF_42",
+    "second_pass_audit": "PASS_34_OF_34",
+    "scaler_initial": 65536,
+    "optimizer_step_parent": 1024,
+    "no_new_optimizer_steps": true,
+    "science_mode_without_new_owner_lock": "FAIL_CLOSED_PASS",
+    "fp16_t4": "NOT_EXECUTED",
+    "checkpoint_preemption_resume": "NOT_IMPLEMENTED_NOT_TESTED",
+    "readiness": "CANDIDATE_NOT_PRODUCTION_READY"
+  },
+  "evaluation": {
+    "dev_count": 12,
+    "blind_final_count": 24,
+    "roundtrip_bpe_count": 36,
+    "minimum_bpe": 23,
+    "maximum_bpe": 35,
+    "old_fresh12_exact_overlap": 0,
+    "original_Q1Q2_TEST": "NOT_READ",
+    "new_reviewer_attestation": "NOT_RECEIVED",
+    "four_arm_latin_square": "DESIGN_STAGED_NOT_ASSIGNED"
+  },
+  "rights": {
+    "dataset_id": "roneneldan/TinyStories",
+    "revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "metadata_license": "cdla-sharing-1.0",
+    "official_license": "https://cdla.dev/sharing-1-0/",
+    "dataset_card": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "interpretation": "Section 2 computational use is permitted subject to Section 3 publication conditions; no user raw data published; not legal advice",
+    "owner_attestation": "HOLD_NOT_SIGNED",
+    "public_data_redistribution": "NOT_AUTHORIZED"
+  },
+  "artifacts": {
+    "real_metadata": "artifacts/qa/ttm-small4m-prompt-conditioning/real_readiness/REAL_METADATA_MATCHED_DRAWS_READONLY_20261110.json",
+    "cpu_restore": "artifacts/qa/ttm-small4m-prompt-conditioning/real_readiness/CPU_FULL_PARENT_RESTORE_QA_20261110.json",
+    "cpu_test_log": "artifacts/qa/ttm-small4m-prompt-conditioning/real_readiness/CPU_TEST_RUN_42_OF_42_20261110.log",
+    "audit": "artifacts/qa/ttm-small4m-prompt-conditioning/real_readiness/SECOND_PASS_REAL_READINESS_AUDIT_20261110.json",
+    "eval": "docs/research/TTM_SMALL4M_2X2_NEW_DEV12_BLIND_FINAL24_PROMPTS_FROZEN_20261110.json",
+    "report": "docs/research/TTM_SMALL4M_2X2_REAL_METADATA_COLAB_RUNNER_EVAL_RIGHTS_OWNER_DECISION_20261110.md",
+    "source_dir": "tools/pilot_t4/prompt_conditioning_2x2"
+  },
+  "gates": {
+    "read_only_real_train_metadata": "PASS",
+    "full_parent_restore_cpu": "PASS",
+    "masked_weighted_loss_cpu": "PASS",
+    "source_provenance": "PASS",
+    "fresh_eval_source_only": "PASS",
+    "rights_license_review": "PASS_SCOPED",
+    "owner_rights_attestation": "HOLD",
+    "independent_new_reviewer": "HOLD",
+    "colab_t4_fp16": "NOT_EXECUTED",
+    "checkpoint_resumption": "HOLD",
+    "exact_new_science_lock": "NOT_GRANTED"
+  },
+  "original_scope": {
+    "new_training_steps": 0,
+    "new_gpu_usage": false,
+    "new_inference": 0,
+    "test_reads": 0,
+    "q1q2_reads": 0,
+    "main_unchanged": true,
+    "pr13_draft_unchanged": true,
+    "main_lineage_l0012_unchanged": true,
+    "pr13_lineage_l0017_unchanged": true
+  },
+  "next": "TTM_SMALL4M_2X2_COLAB_RESUME_GPU_SMOKE_REVIEWER_RIGHTS_OWNER_SINGLE_GO_NO_GO"
+}
