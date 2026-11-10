@@ -60,7 +60,7 @@ Các nguồn đã commit vào nhánh T5:
 - 8 unit tests không model: `test_firstop_v2_shape_recovery.py`, blob `4b93a12784647701b578309bd925c04bc61c2674`.
 - Probe chỉ cho B: `gelu_erf_probe/ttm_t5_firstop_trace_probe.cpp`, blob `bd7d408885703a80055c2baf296a44f3006462b7`; CMake blob `066fef8e2a248efcaf25c71443bebd13cfb27be6`.
 - Runner V2: `recover_partial_discovery_audit_and_gelu_erf_once.py`, blob `34bfcf1d1ca0803bfd9b05beafd5214dc7ad8fe9`.
-- PowerShell 5.1 bootstrap: `Invoke-TTM-T5-FirstOp-Partial-V2-Owner-PS51.ps1`, blob `875b8910c4908c52f4269a3268e00a4ff68f3766`.
+- PowerShell 5.1 bootstrap: `Invoke-TTM-T5-FirstOp-Partial-V2-Owner-PS51.ps1`, blob `349bbd7869bec1ed477d3e29c9d9526b0c2238fc`.
 
 **Quy trình duy nhất:**
 
