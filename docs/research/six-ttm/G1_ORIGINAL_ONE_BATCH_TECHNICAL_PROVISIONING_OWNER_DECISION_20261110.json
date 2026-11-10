@@ -1,0 +1,115 @@
+{
+  "schema": "ttm.six.g1.original_one_batch_technical_provisioning_owner_decision.v1",
+  "date": "2026-11-10",
+  "plan_id": "TTM_SIX_G1_ORIGINAL_TECHNICAL_PROVISIONING_BATCH_V1_20261110",
+  "owner_scope_choice": "ORIGINAL_G1_CONFIRMATORY_UNCHANGED",
+  "owner_technical_approval": "PENDING_EXPLICIT_OWNER_APPROVAL",
+  "required_owner_approval_exact": "APPROVE_TTM_SIX_G1_ORIGINAL_TECHNICAL_PROVISIONING_BATCH_V1_20261110",
+  "plan_doc": {
+    "path": "docs/research/six-ttm/G1_ORIGINAL_ONE_BATCH_TECHNICAL_PROVISIONING_APPROVAL_PLAN_20261110.md",
+    "pinned_commit": "4c35b39bfb9ccbd495bb19c54bd4d5b5809a9329",
+    "git_blob_sha1": "b55963c12807bf4315d3969f3171bfc20b925e76"
+  },
+  "trusted_source": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "original_research_commit": "d5d0c5346a595557a76349f900d09be50bce289c",
+    "v1e_reviewed_source_commit": "1efca4ca080572dcd22bbe658701b221ca46f7dd",
+    "codex_v1e_review_commit": "365c352daee276ed5f8c12046ffc17444e0a7b35",
+    "t1_manifest_sha256": "9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9",
+    "g1_manifest_sha256": "6451be0cd09a54378eda9e815b5c89ce8ce8301ddefef556476d94e3e31e42b6"
+  },
+  "science_scope": {
+    "train": 128,
+    "dev": 64,
+    "test": 64,
+    "real_test_opened": false,
+    "science_executed": false,
+    "science_lock": "HOLD",
+    "owner_science_permit": "NOT_ISSUED",
+    "methods_v1e": "REVIEW_HOLD"
+  },
+  "allowed_project_roots": [
+    "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_trusted\\g1\\batch_v1",
+    "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\G1_PROVISION_BATCH_V1_*"
+  ],
+  "proposed_new_local_non_admin_principals": [
+    "TTM_G1_Controller",
+    "TTM_G1_Broker",
+    "TTM_G1_Writer",
+    "TTM_G1_Worker"
+  ],
+  "all_principals_require_actual_sid_readback": true,
+  "no_existing_principals_or_project_acl_modification": true,
+  "no_paid_service_or_new_cloud_account": true,
+  "external_witness": {
+    "required": true,
+    "endpoint_known": false,
+    "independent_admin_rollback_domain_proof_required": true,
+    "latest_tip_fresh_challenge": true,
+    "nonce_single_use": true
+  },
+  "colab_runtime": {
+    "target": "Free Tesla T4",
+    "availability_verified": false,
+    "real_test_staging_allowed": false,
+    "gpu_synthetic_qa_max_seconds": 120,
+    "teacher_model_load_allowed": false,
+    "remote_daemon_allowed": false,
+    "real_target_isolation_and_kill_required": true
+  },
+  "tech_batch_phases": [
+    {
+      "id": "A",
+      "name": "read_only_preflight",
+      "writes_allowed": false,
+      "on_failure": "STOP_NO_MUTATION"
+    },
+    {
+      "id": "B",
+      "name": "bounded_provisioning",
+      "requires": "owner_technical_approval_and_phase_A_PASS",
+      "test_data": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "C",
+      "name": "one_integrated_negative_QA",
+      "test_data": "SYNTHETIC_ONLY",
+      "reuse_existing_QA_without_rerun": true
+    },
+    {
+      "id": "D",
+      "name": "one_independent_six_gate_adjudication",
+      "verdict_options": [
+        "PASS_DISTINCT_REVIEWER",
+        "HOLD",
+        "FAIL"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "owner_science_admission",
+      "included": false
+    }
+  ],
+  "six_gate_status": {
+    "authority": "HOLD_EXTERNAL_EXACT_PIN_DEFECT",
+    "split_broker": "NOT_TESTED",
+    "writer_ledger": "NOT_TESTED",
+    "external_witness": "NOT_TESTED",
+    "gpu_watchdog": "NOT_TESTED_TARGET",
+    "scientific_methods": "REVIEW_HOLD_GROUP_EXCHANGEABILITY"
+  },
+  "stop_conditions": [
+    "external_witness_not_independent",
+    "worker_can_read_synthetic_TEST_before_freeze",
+    "colab_does_not_prove_isolation_or_kill",
+    "new_account_name_conflict",
+    "unexpected_ACL_or_system_scope_change",
+    "owner_data_rights_missing_for_private_lineage_audit",
+    "any_real_TEST_or_Qwen_science_requested",
+    "paid_service_or_new_account_required"
+  ],
+  "single_batch_independent_qa": true,
+  "original_g1_test_protections_unchanged": true,
+  "no_other_permission_implied": true
+}
