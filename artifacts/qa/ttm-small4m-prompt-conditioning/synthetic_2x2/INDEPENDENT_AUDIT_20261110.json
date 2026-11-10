@@ -1,0 +1,119 @@
+{
+  "checked_steps": 128,
+  "first_story_window_draw_counts": {
+    "A": 2243,
+    "B": 3585,
+    "C": 2243,
+    "D": 3585
+  },
+  "forward_token_slots": {
+    "A": 917760,
+    "B": 917760,
+    "C": 917760,
+    "D": 917760
+  },
+  "forward_windows": {
+    "A": 3585,
+    "B": 3585,
+    "C": 3585,
+    "D": 3585
+  },
+  "independent_human_review": false,
+  "negative": {
+    "detail": [
+      {
+        "fixture": "schema",
+        "rejected": "BAD_SCHEMA"
+      },
+      {
+        "fixture": "source_dataset",
+        "rejected": "DATASET_SOURCE_NOT_SYNTHETIC"
+      },
+      {
+        "fixture": "real_train_access",
+        "rejected": "REAL_PACK_ACCESS_NOT_PROVEN_ABSENT"
+      },
+      {
+        "fixture": "model_loaded",
+        "rejected": "CHECKPOINT_MAY_HAVE_BEEN_LOADED"
+      },
+      {
+        "fixture": "optimizer_updates",
+        "rejected": "SCIENCE_EXECUTION_NOT_ZERO"
+      },
+      {
+        "fixture": "steps",
+        "rejected": "FROZEN_BUDGET_CHANGED"
+      },
+      {
+        "fixture": "lost_step",
+        "rejected": "NOT_128_STEPS"
+      },
+      {
+        "fixture": "step_index",
+        "rejected": "STEP_NUMBER_NOT_CONTIGUOUS"
+      },
+      {
+        "fixture": "target_shortfall",
+        "rejected": "TARGETS_NOT_MATCHED"
+      },
+      {
+        "fixture": "forward_count",
+        "rejected": "FORWARD_SLOTS_MISMATCH"
+      },
+      {
+        "fixture": "forward_slots",
+        "rejected": "FORWARD_SLOTS_MISMATCH"
+      },
+      {
+        "fixture": "microbatch_count",
+        "rejected": "MICROBATCH_COUNT_MISMATCH"
+      },
+      {
+        "fixture": "A_C_schedule",
+        "rejected": "A_C_DATA_PLAN_DRIFT"
+      },
+      {
+        "fixture": "B_D_schedule",
+        "rejected": "B_D_DATA_PLAN_DRIFT"
+      },
+      {
+        "fixture": "head_summary_digest",
+        "rejected": "CHAIN_DIGEST_MISMATCH"
+      },
+      {
+        "fixture": "head_target_sum",
+        "rejected": "AGGREGATE_TARGETS_MISMATCH"
+      },
+      {
+        "fixture": "first_count",
+        "rejected": "NOT_ALL_B_D_FIRST_STORY"
+      },
+      {
+        "fixture": "no_replacement",
+        "rejected": "DATA_SAMPLING_NO_DIFFERENCE"
+      },
+      {
+        "fixture": "bootstrap_claim",
+        "rejected": "REAL_DATA_FEASIBILITY_MISREPRESENTED"
+      },
+      {
+        "fixture": "microbatch_size",
+        "rejected": "MICROBATCH_CHANGED"
+      }
+    ],
+    "negative_fixtures": 20,
+    "rejected": 20
+  },
+  "replacement_count_changed_window_id": 3427,
+  "source_file_sha256": "1f92b9fe5965591ce6f8292e778642081c2ad9c1557ea08b5538f536524ac409",
+  "source_input": "SYNTHETIC_ONLY",
+  "status": "PASS_INDEPENDENT_AGGREGATE_AUDIT",
+  "total_target_exposures": {
+    "A": 524288,
+    "B": 524288,
+    "C": 524288,
+    "D": 524288
+  },
+  "trust_scope": "SOURCE_JSON_ARITHMETIC_ONLY_NOT_MODEL_OR_REAL_DATA_QA"
+}
