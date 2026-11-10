@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.causal6.t4_vram_preclaim_resource_amendment.v1",
+  "date": "2026-11-10",
+  "observed": {
+    "gpu": "Tesla T4",
+    "count": 1,
+    "cuda_available": true,
+    "total_memory_gib": 14.56317138671875,
+    "torch": "2.14.1+cu130",
+    "python": "3.13.16",
+    "drive_owner_attested_free_gib": 6,
+    "run_dir_exists": false
+  },
+  "old_min_cuda_total_gib": 15,
+  "new_min_cuda_total_gib": 14,
+  "independent_synthetic_gpu_peak_gate_gib": 12,
+  "changed_file": "tools/embeddinggemma2_swap/causal6_v1/ttm_causal6_colab_free_t4_one_shot.py",
+  "original_runner_sha256": "51b15ebde7587dcad9a880116ab4c2cc605132cb0ac54ea03af05c7d12bac612",
+  "amended_runner_sha256": "bf1da76016e134e21c4d21eb7b972fd98cf8563deca965e50bacef457a590e32",
+  "patch_count": 1,
+  "fixture_qa": "PASS_5_OF_5_CPU_SYNTHETIC",
+  "one_shot_claim_created": false,
+  "science_training_executed": false,
+  "original_H512_unchanged": true,
+  "original_run_id_unchanged": true,
+  "source_zip_not_modified": true,
+  "requires_preclaim_synthetic_cuda_smoke": true,
+  "requires_smoke_peak_below_12gib": true,
+  "requires_t4": true,
+  "requires_owner_drive_free_gib_at_least_4": true,
+  "methodological_parameters_unchanged": true,
+  "current_status": "PRECLAIM_RESOURCE_HOLD_PENDING_T4_SMOKE"
+}

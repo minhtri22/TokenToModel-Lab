@@ -194,7 +194,7 @@ def gpu_preflight(free_drive_gib):
  require(torch.cuda.is_available() and torch.cuda.device_count()==1,'NO_CUDA_SINGLE_GPU')
  require('T4' in torch.cuda.get_device_name(0),'NOT_TESLA_T4')
  total=torch.cuda.get_device_properties(0).total_memory
- require(total >= 15*1024**3,'T4_TOO_SMALL')
+ require(total >= 14*1024**3,'T4_TOO_SMALL')
  require(free_drive_gib>=4,'OWNER_DRIVE_STORAGE_ATTEST_MISSING')
  require(os.environ.get('CUBLAS_WORKSPACE_CONFIG')==':4096:8','DETERMINISM_ENV_NOT_SET')
  torch.backends.cuda.matmul.allow_tf32=False
