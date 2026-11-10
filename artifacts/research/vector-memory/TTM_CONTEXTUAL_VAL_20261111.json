@@ -1,0 +1,60 @@
+{
+  "arms": {
+    "A_original": {
+      "n_targets": 128,
+      "nll_nats": 3.4083614349365234,
+      "ppl": 30.2156925201416,
+      "top1_accuracy": 0.34375
+    },
+    "B_exact_external": {
+      "n_targets": 128,
+      "nll_nats": 3.4083614349365234,
+      "ppl": 30.2156925201416,
+      "top1_accuracy": 0.34375
+    },
+    "C_content_retrieval": {
+      "n_targets": 128,
+      "nll_nats": 3.6076393127441406,
+      "ppl": 36.87889099121094,
+      "top1_accuracy": 0.2890625
+    },
+    "D_shuffled_values": {
+      "n_targets": 128,
+      "nll_nats": 3.5869650840759277,
+      "ppl": 36.12427520751953,
+      "top1_accuracy": 0.2734375
+    }
+  },
+  "comparisons": {
+    "A_B_bit_exact_logits": true,
+    "C_minus_A_nll_nats": 0.1992778778076172,
+    "C_minus_D_nll_nats": 0.02067422866821289,
+    "C_vs_A_top1_agreement": 0.75,
+    "retrieved_next_token_top1_hit": 0.140625
+  },
+  "date": "2026-11-11",
+  "experiment": "TTM_TRAINED_SEMANTIC_VECTOR_RETRIEVAL_SHARED_BACKBONE_MINI_TEST",
+  "fixed_design": {
+    "alpha": 0.25,
+    "backbone": "same frozen Attention/MLP/LayerNorm/position embeddings and tied head in all arms",
+    "k": 4,
+    "retrieval": "cosine kNN on frozen P02 contextual state of observed prefix",
+    "sequence_length": 64,
+    "temperature": 0.05,
+    "train_selected_index_sha256": "809b8b71d35fb6e52a04daf222bc2d629ea498b8dddd8c06d393fdae94fbdaa5",
+    "train_unique_stories": 512,
+    "val_selected_index_sha256": "7816abc24773b09079e350886bcbe7e33f1cb0d620b03b9bbd070827f44b5c22",
+    "val_unique_stories": 128,
+    "values": "TRAIN next token embeddings; never VAL targets"
+  },
+  "limitations": "Only one VAL next-token target per story; nearest contextual representation is not proof of semantics; no trained adapter, no unseen-document knowledge, no statistical claim.",
+  "scope": "EXPLORATORY_CPU_NOT_CONFIRMATORY",
+  "sources": {
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "data": "TinyStories TRAIN/VAL original tokenized window pack; no TEST",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "private_bytes_exported": false,
+    "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "verdict": "FAIL_EXPLORATORY"
+}

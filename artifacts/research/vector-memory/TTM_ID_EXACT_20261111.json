@@ -1,0 +1,90 @@
+{
+  "arms": {
+    "A_original_p02_trained_fp32": {
+      "baseline": true
+    },
+    "B_external_fp32_exact": {
+      "bit_exact_logits": true,
+      "max_abs_logit_error": 0.0,
+      "mean_abs_logit_error": 0.0,
+      "mean_kl_ref_to_arm_nats": 0.0,
+      "top1_agreement": 1.0
+    },
+    "C_external_fp16_tied_table": {
+      "bit_exact_logits": false,
+      "max_abs_logit_error": 0.0034456253051757812,
+      "mean_abs_logit_error": 0.00021188784739933908,
+      "mean_kl_ref_to_arm_nats": 4.557970356700025e-08,
+      "top1_agreement": 1.0
+    },
+    "D_external_int8_tied_table": {
+      "bit_exact_logits": false,
+      "max_abs_logit_error": 0.07798433303833008,
+      "mean_abs_logit_error": 0.006168743595480919,
+      "mean_kl_ref_to_arm_nats": 3.734243364306167e-05,
+      "top1_agreement": 0.99560546875
+    },
+    "E_wrong_nearest_first_token": {
+      "bit_exact_logits": false,
+      "max_abs_logit_error": 9.8184232711792,
+      "mean_abs_logit_error": 0.22184662520885468,
+      "mean_kl_ref_to_arm_nats": 0.10232086479663849,
+      "top1_agreement": 0.85107421875
+    }
+  },
+  "checkpoint": {
+    "config": {
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_head": 4,
+      "n_layer": 4,
+      "norm_type": "layernorm",
+      "vocab_size": 2048
+    },
+    "distinct_learned_parameters_total": 3749376,
+    "fraction_unique_parameters_moved_outside_model": 0.13983340161136146,
+    "schema": "ttm.t4.science.checkpoint.v1",
+    "sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "shared_core_parameters_without_tied_table": 3225088,
+    "source": "Google Drive TTM-Small-4M step_1280/checkpoint.pt",
+    "source_p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "state_dict_entries_including_tied_duplicate": 4273664,
+    "step": 1280,
+    "tied_table_parameters": 524288,
+    "tied_tok_and_head": true
+  },
+  "conclusion": {
+    "bit_exact_external_fp32": "YES",
+    "compress_fp16_int8_bit_exact": "NO",
+    "eliminating_learned_table_from_all_storage": "NO",
+    "eliminating_learned_table_from_model_parameter_storage": "YES",
+    "externalizing_trained_tied_table_with_same_transformer": "YES",
+    "preserve_language_quality_on_real_text": "NOT_TESTED",
+    "replace_attention_or_mlp": "NOT_TESTED",
+    "scope": "Toy-sized real trained checkpoint, ID-keyed exact retrieval, NOT semantic retrieval."
+  },
+  "experiment": "TTM_TRAINED_MODEL_SHARED_BACKBONE_VECTOR_RETRIEVAL_TEST",
+  "method": {
+    "device": "cpu",
+    "dtype": "fp32 for compute",
+    "external_keys": "8D deterministic Fourier code from IDs, no learned embedding values as query",
+    "external_search": "cosine nearest neighbor",
+    "full_vocab_nn_accuracy": 1.0,
+    "min_top1_top2_cosine_margin": 0.002804875373840332,
+    "original_p02_forward_matches_refactored_backbone_bit_exact": true,
+    "probe_sequences": 64,
+    "probe_source": "synthetic token IDs, not real-language held-out set",
+    "same_weights_attention_mlp": "All arms use exact same BackboneNoTiedTable module and initial weights from checkpoint; A also checked against full original GPT",
+    "shared_head_operation": "F.linear on output using same table (externalized tied table for B/C/D); no head.weight in externalized core",
+    "token_positions": 2048,
+    "torch": "2.10.0+cpu"
+  },
+  "storage_bytes": {
+    "excludes": "IDs, ANN index structures, runtime and other bookkeeping",
+    "external_fp16_values_plus_keys": 1114112,
+    "external_fp32_values_plus_keys": 2162688,
+    "external_int8_values_scales_plus_keys": 598016,
+    "keys_8d_fp32": 65536,
+    "original_tied_table_fp32": 2097152
+  }
+}
