@@ -1,0 +1,150 @@
+{
+  "schema": "ttm.six.ttm4m.three_arm_functional_transfer_exploratory_prereg.v1",
+  "date": "2026-11-10",
+  "phase": "DESIGN_ONLY",
+  "experiment_id": "TTM_SIX_TTM4M_FUNCTIONAL_TRANSFER_PUBLIC48_DEV16_V1",
+  "parent": {
+    "original_g1": "FEASIBILITY_HOLD_ARCHIVED",
+    "original_g1_science_lock": "HOLD",
+    "original_g1_private_test_opened": false,
+    "previous_qwen_exploratory": "EXPLORATORY_NO_SIGNAL",
+    "previous_qwen_result_commit": "a48e423c07c8205d97e832484bf959f768542af1",
+    "ttm_original_checkpoint_step": 1280,
+    "ttm_original_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "ttm_ready_sha256": "eb89d0a797451187ed20956d1f0097e9a8b9539da8eeaa92960e2a8508c9095f",
+    "ttm_checkpoint_drive_folder_id": "1IPEzkfAG2VkzoVtPDDOSiORIN5uBMiZa",
+    "ttm_checkpoint_bytes_reverified_now": false,
+    "p02_model_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p02_architecture": {
+      "n_params": 3749376,
+      "vocab": 2048,
+      "max_context": 256,
+      "n_layer": 4,
+      "n_embd": 256,
+      "n_head": 4,
+      "output_embedding_tied": true
+    },
+    "optimizer_lineage": "NEW_FINETUNE_OPTIMIZER_NOT_STEP1281_CONTINUATION"
+  },
+  "data": {
+    "source": "AUTHORED_FICTIONAL_PROMPTS_CACHED_QWEN",
+    "zip_sha256": "6f98560117219cf3cecc37fb87ff562a784fe82238d9b2d831cbda7634488d9f",
+    "manifest_sha256": "ae86b8e847e74c97b7f69d88a08f133902173bc4c4df104f413447c1cd6fa40d",
+    "qwen_extraction_source_sha256": "9688deb1d1157c93fb7090e5b1c12ea4bc56ed0dedadb0597d84ceb4e68e82eb",
+    "source_model_revisions": [
+      "c1899de289a04d12100db370d81485cdf75e47ca",
+      "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+    ],
+    "teacher_target": "Qwen3-1.7B cached response probe[64,2]",
+    "train_rows": 48,
+    "dev_rows": 16,
+    "train_groups": 12,
+    "dev_groups": 4,
+    "test_rows": 0,
+    "reuse_old_dev": true,
+    "dev_claim": "REUSED_EXPLORATORY_DEV_NOT_CONFIRMATORY",
+    "frozen_student_tokenizer": "TTM_PILOT_TRAIN_ONLY_BPE2048_RUNTIME_EXACT_HASH_REQUIRED",
+    "max_student_prompt_tokens": 256,
+    "teacher_model_rerun": false,
+    "ttm_pilot_original_val_test_reads": false,
+    "g1_original_test_reads": false
+  },
+  "arms": {
+    "A": {
+      "objective": "CE_NEXT_TOKEN",
+      "teacher_used": false
+    },
+    "B": {
+      "objective": "CE_NEXT_TOKEN_PLUS_DIRECT_QWEN_FUNCTIONAL_MSE",
+      "head_shape": [
+        256,
+        2
+      ],
+      "loss_weight": 0.1,
+      "norm": "TRAIN_GLOBAL_MEAN_STD"
+    },
+    "C": {
+      "objective": "CE_NEXT_TOKEN_PLUS_SIX_INSPIRED_TEMPLATE_NUISANCE_RESIDUAL_MSE",
+      "head_shape": [
+        256,
+        2
+      ],
+      "loss_weight": 0.1,
+      "norm": "TRAIN_TEMPLATE_4x2_MEAN_AND_TRAIN_RESIDUAL_STD",
+      "additional_train_derived_table_values": 8,
+      "method_claim": "SIX_INSPIRED_NEW_HYPOTHESIS_NOT_ORIGINAL_SIX_G1"
+    }
+  },
+  "training": {
+    "initial_weights": "SAME_STRICT_1280_CHECKPOINT_MODEL_WEIGHTS",
+    "optimizer_reset": "EQUAL_NEW_ADAMW_STATES_FOR_A_B_C",
+    "seed": 20261112,
+    "epochs": 12,
+    "batches_per_epoch": 6,
+    "updates_per_arm": 72,
+    "batch_groups": 2,
+    "group_size": 4,
+    "batch_prompts": 8,
+    "sequence_exposures_per_arm": 576,
+    "fp32": true,
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.01,
+    "clip_norm": 1,
+    "scheduler": "NONE",
+    "padding": "RIGHT_PAD_WITH_IGNORE_INDEX_MINUS100",
+    "aux_probe_position": "LAST_VALID_PROMPT_TOKEN",
+    "lm_supervision": "x=ids; y=ids[1:]+[-100]",
+    "max_vram_gib": 12,
+    "max_cumulative_wall_seconds": 1200,
+    "device": "Colab Free Tesla T4 WHEN_USER_AUTHORIZES",
+    "optimizer_steps_claimed_from_original_t4": false
+  },
+  "metrics": {
+    "primary": "FOUR_GROUP_DEV_STUDENT_NEXT_TOKEN_NLL_SAME_TTM_VOCAB",
+    "secondary": [
+      "TRAIN_ONLY_TEMPLATE_BASELINE_RAW_PROBE_MAE",
+      "RAW_TEACHER_PROBE_MAE_B_C",
+      "TEMPLATE_RESIDUAL_MAE_B_C",
+      "PER_GROUP_NLL",
+      "PEAK_VRAM",
+      "GPU_WALL_SECONDS",
+      "PROMPT_LABEL_COUNTS"
+    ],
+    "pre_existing_teacher_baseline_raw_probe_mae": 0.05202296104592581,
+    "pre_existing_global_mean_raw_probe_mae": 0.06755050653737271,
+    "signal_heuristic": {
+      "C_vs_A_relative_DEV_NLL_at_least": 0.01,
+      "C_vs_B_relative_DEV_NLL_at_least": 0.01,
+      "C_raw_probe_mae_better_than_B_and_template_only_relative_at_least": 0.01,
+      "min_groups_C_better_than_A_nll": 3,
+      "labels": [
+        "EXPLORATORY_FUNCTIONAL_GAIN_CANDIDATE",
+        "EXPLORATORY_NO_CLEAR_GAIN",
+        "TECHNICAL_STOP"
+      ]
+    },
+    "formal_significance": false,
+    "confirmatory_test": false
+  },
+  "execution": {
+    "new_ttm_training_executed": false,
+    "notebook_or_trainer_implemented": false,
+    "owner_new_pilot_execution_approval": "NOT_ISSUED",
+    "source_cpu_design_qa": "PASS_1_POSITIVE_3_NEGATIVE",
+    "checkpoint_ready_raw_qa": "PENDING",
+    "colab_gpu": "NOT_USED",
+    "original_test": "SEALED"
+  },
+  "governance": {
+    "no_main_change": true,
+    "no_old_g1_writes": true,
+    "no_ttm_original_checkpoint_writes": true,
+    "no_lineage_append": true,
+    "gh_branch": "research/ttm-six-functional-transfer-ttm4m-three-arm-design-20261110"
+  },
+  "next": "TTM_SIX_TTM4M_THREE_ARM_RUNNER_SOURCE_IMPLEMENTATION_SINGLE_INTEGRATED_OFFLINE_QA_AND_OWNER_PILOT_APPROVAL"
+}
