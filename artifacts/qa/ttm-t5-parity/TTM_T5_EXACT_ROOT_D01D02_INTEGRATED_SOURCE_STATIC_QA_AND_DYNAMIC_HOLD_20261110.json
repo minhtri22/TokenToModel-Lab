@@ -1,0 +1,45 @@
+{
+  "schema": "ttm.t5.exact_root.integrated_discovery.source_static_QA_v1",
+  "date": "2026-11-10",
+  "task": "TTM_T5_EXACT_ROOT_CAUSE_FIRST_DIVERGENT_OPERATOR_AND_CORRECTIVE_ABLATION_INTEGRATED",
+  "source_static_assertions": "PASS_38_OF_38",
+  "final_github_readback": "PASS_21_OF_21",
+  "dynamic_windows_static_unit_tests": "NOT_EXECUTED",
+  "dynamic_MSCV_build": "NOT_EXECUTED",
+  "dynamic_native_D01D02": "NOT_EXECUTED",
+  "independent_signed_GGML_tensor_audit": "NOT_EXECUTED",
+  "true_P02_CPU_discovery_ablation": "PASS_D01_D02",
+  "true_P02_CPU_42_stage_reference": "PASS_42_ROWS",
+  "prereg_git_blob": "82fdd9fe716579181db648caa69170fb63d115a6",
+  "program_blobs": {
+    "native_CPP": "80c18b6eb9272ee9457f4ffee761e1f0d0625c6b",
+    "native_CMake": "e19520ac4cc73a68fa036b9842260e569fe0cdc8",
+    "P02_trace_reference": "057658ab252b0e9e24982baa823dfd29d1768eea",
+    "patched_llama_isolated_prep": "47763aed0c8b81799171a3d5a3e32cf4fa47e0ac",
+    "independent_signed_auditor": "cf6a39f5e763b428fefd0d4c1bd5d0683cd78997",
+    "owner_windows_discovery_runner": "c027abf4318621542013c1a47fffba22d67ba7b0",
+    "static_unittest_16": "4d815608675205cf06a0a10861173ff03d7cc55c"
+  },
+  "cpu_reference": {
+    "archive_filename": "TTM_T5_D01D02_P02_TRUE_SIGNED_TRACE_20261110.zip",
+    "archive_sha256": "8e289485e9af2ae3de3aa8d8e19150b4d062dad395189540483ecb424be4bc10",
+    "archive_bytes": 435513,
+    "JSONL_sha256": "9cc5fc2db1f95e7e863a285eb279b28b7a383b81a4f890d7ec0f79b788b995e0",
+    "JSONL_tensors": 42,
+    "file_scope": "sandbox artifact delivered to owner for project-local import; not claimed present on Windows until owner stages file"
+  },
+  "untouched": {
+    "main": true,
+    "lineage": true,
+    "PR16_merge_hold": true,
+    "previous_7_of_8_FAIL": true,
+    "previous_32_of_32_FAIL": true,
+    "TEST": true,
+    "Q1Q2": true,
+    "checkpoint": true,
+    "GGUF": true
+  },
+  "decision": "HOLD_CAUSAL_ROOT_NOT_DEMONSTRATED",
+  "gate": "Owner Windows one-batch two-variant D01/D02 native trace and independently signed audit; freeze corrective source before unopened C01-C04.",
+  "limitations": "38/38 are authored static source/protocol consistency checks only, 16 Python unit tests not yet actually run on Windows. RemoteDesktop run_command denied (managed mode requires task_job_submit)."
+}
