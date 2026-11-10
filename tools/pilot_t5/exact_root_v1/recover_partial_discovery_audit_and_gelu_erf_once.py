@@ -35,8 +35,10 @@ ORIGINAL_WORK_HEAD = "4cd50e991c383809c804691b50be29624f39eebf"
 ORIGINAL_CPP_BLOB = "80c18b6eb9272ee9457f4ffee761e1f0d0625c6b"
 ORIGINAL_CMAKE_BLOB = "e19520ac4cc73a68fa036b9842260e569fe0cdc8"
 V1_AUDIT_BLOB = "cf6a39f5e763b428fefd0d4c1bd5d0683cd78997"
-V2_AUDIT_BLOB = "REPLACE_V2_BLOB"
-V2_TEST_BLOB = "REPLACE_V2_TEST_BLOB"
+V2_AUDIT_BLOB = "c523c470f8ec69b4938992f44b16a4127c3d08ae"
+V2_TEST_BLOB = "4b93a12784647701b578309bd925c04bc61c2674"
+B_CPP_BLOB = "bd7d408885703a80055c2baf296a44f3006462b7"
+B_CMAKE_BLOB = "066fef8e2a248efcaf25c71443bebd13cfb27be6"
 LLAMA_COMMIT = "372dc5ca157276beb6c67b2e92477e8d662e964a"
 B_GRAPH_SHA = "df553f77f4d481877455dde37a96b19e77e4aefd674879e14bcf55b9e2a2dd2c"
 B_GPT2_SHA = "59d1685da8f44ed420af8852c987a6c72e0d028c8304931f05a9e90a5c03f06e"
@@ -113,6 +115,7 @@ def main():
     ap.add_argument("--project-root", required=True, type=Path)
     ap.add_argument("--auditor-v2", required=True, type=Path)
     ap.add_argument("--test-v2", required=True, type=Path)
+    ap.add_argument("--b-probe-source", required=True, type=Path)
     ap.add_argument("--approve-recovery-scope", required=True)
     args = ap.parse_args()
     if (os.name != "nt" or sys.version_info[:2] != (3, 12)
@@ -126,6 +129,11 @@ def main():
     work = member(root, root / WORK, regular=False)
     auditor = member(root, args.auditor_v2)
     test = member(root, args.test_v2)
+    b_probe = member(root, args.b_probe_source, regular=False)
+    b_cpp = member(root, b_probe / "ttm_t5_firstop_trace_probe.cpp")
+    b_cmake = member(root, b_probe / "CMakeLists.txt")
+    if blob(b_cpp) != B_CPP_BLOB or blob(b_cmake) != B_CMAKE_BLOB:
+        raise ValueError("PINNED_B_ONLY_ERF_PROBE_BLOB_MISMATCH")
     if blob(auditor) != V2_AUDIT_BLOB or blob(test) != V2_TEST_BLOB:
         raise ValueError("RECOVERY_AUDITOR_OR_UNIT_TEST_SOURCE_BLOB_CHANGED")
     source = member(root, work / "tools/pilot_t5/exact_root_v1", regular=False)
@@ -166,6 +174,8 @@ def main():
     ref = member(root, old / REF_FILE)
     if sha(ref) != REF_SHA:
         raise ValueError("P02_REFERENCE_CHANGED")
+    if (old / "trace_gelu_erf").exists():
+        raise FileExistsError("B_VARIANT_ALREADY_EXISTS_IN_OLD_STAGE_NO_REPLAY")
     a = old / "trace_only"
     old_log = member(root, a / "12_independent_audit.log").read_text("utf-8")
     native_log = member(root, a / "11_native.log").read_text("utf-8")
@@ -207,6 +217,8 @@ def main():
                                 "original_native_logits": sha(logits_a),
                                 "source_isolation_receipt": OLD_ISOLATION_SHA},
               "audit_v2_blob": V2_AUDIT_BLOB,
+              "B_probe_CPP_blob": B_CPP_BLOB,
+              "B_probe_CMake_blob": B_CMAKE_BLOB,
               "test_v2_blob": V2_TEST_BLOB,
               "variants": {}}
     try:
@@ -241,7 +253,7 @@ def main():
              "--target", "llama", "--parallel", "4"],
             b, b / "04_build_llama.log", 900)
         run("05_B_configure_probe",
-            ["cmake.exe", "-S", source, "-B", probe_build,
+            ["cmake.exe", "-S", b_probe, "-B", probe_build,
              "-G", "Visual Studio 17 2022", "-A", "x64",
              "-DLLAMA_SOURCE_ROOT=" + str(b_source),
              "-DLLAMA_BUILD_ROOT=" + str(build)],
@@ -277,6 +289,19 @@ def main():
         report["new_native_gelu_erf_executions"] = 2
         trace_b = member(root, Path(str(out_native) + ".trace.jsonl"))
         native_b = member(root, out_native)
+        # The B-only probe records the actual GGML node ffn_gelu_erf-0
+        # and maps its output to the canonical same-input ffn_gelu-0 stage.
+        actual_erf = 0
+        with trace_b.open("r", encoding="utf-8") as input_trace:
+            for line in input_trace:
+                if '"actual_node_name":"ffn_gelu_erf-0"' in line:
+                    obj = json.loads(line)
+                    if obj["stage"] != "ffn_gelu-0":
+                        raise ValueError("B_ERF_TRACE_ALIAS_MISMATCH")
+                    actual_erf += 1
+        if actual_erf != 2:
+            raise ValueError("B_ACTUAL_ERF_GRAPH_NODE_NOT_SEEN_TWICE")
+        report["actual_B_ERF_node_captures"] = actual_erf
         report_b = b / "B_NEW_GELU_ERF_SIGNED_AUDIT_V2.json"
         run("09_B_independent_signed_audit",
             audit_cmd(sys.executable, auditor, prereg,
