@@ -1,0 +1,75 @@
+{
+  "schema": "ttm.t5.post_merge.archive_cleanup_runtime_integration_review.staticQA.v1",
+  "date": "2026-11-10",
+  "original_science": "PASS_HELDOUT_STRICT_LOGIT_PARITY_4_OF_4_SCOPED_GELU_ERF",
+  "original_PR16_merge_commit": "df126b2d4beaee865faa24d8a7e9720bb59693aa",
+  "old_L0013_FAIL": "PRESERVED_IN_MAIN",
+  "new_L0014_PASS": "PRESERVED_IN_MAIN",
+  "PR13": "UNCHANGED_DRAFT_UNMERGED",
+  "local_inventory": {
+    "root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "target_worktree": "worktrees/ttm-t5-kvflash-preview-20261109",
+    "candidate_isolated_gelu_erf": "_tmp/ttm_t5_exact_root_v1_20261110/trace_gelu_erf",
+    "immutable_owner_evidence": [
+      "_tmp/ttm_t5_exact_root_discovery_run_v1_20261110",
+      "_tmp/ttm_t5_exact_root_discovery_recovery_v2_20261110",
+      "_tmp/ttm_t5_c01c04_gelu_erf_confirmatory_one_shot_20261110",
+      "_tmp/ttm_t5_trained_f32_v1/TTM-Small4M-T4-step1024-F32.gguf"
+    ],
+    "observed": "PATHS_PRESENT_BY_REMOTE_READONLY_LIST",
+    "porcelain_worktree_clean": "UNVERIFIED_REMOTE_COMMAND_BLOCKED",
+    "worktree_cleanup": "NOT_EXECUTED",
+    "branch_ref_cleanup": "NOT_EXECUTED_RETAINED_FOR_PROVENANCE",
+    "original_evidence_deleted": false
+  },
+  "cleanup_package": {
+    "path": "tools/pilot_t5/postmerge/Invoke-TTM-T5-Merged-Worktree-Cleanup-PS51.ps1",
+    "git_blob": "635361d3668b91511ecc7d7f8795cb16d12d7608",
+    "mode": "GUARDED_POWERSHELL_51_APPLY_CLEANUP_ONLY_AFTER_PINNED_SOURCE_CHECK",
+    "only_worktree": "worktrees/ttm-t5-kvflash-preview-20261109",
+    "evidence_SHA_guard_count": 6,
+    "exact_merge_ancestor_gate": true,
+    "no_git_clean_reset_force": true,
+    "no_recursive_evidence_delete": true,
+    "no_remote_branch_delete": true,
+    "dynamic_PowerShell_parse": "NOT_EXECUTED_ON_OWNER_WINDOWS",
+    "dynamic_cleanup": "NOT_EXECUTED_ON_OWNER_WINDOWS"
+  },
+  "runtime_review": {
+    "preferred": "ISOLATED_LLAMA_CPP_CPU_X64_PORT_18085_SOURCE_ONLY",
+    "original_llama_pin": "372dc5ca157276beb6c67b2e92477e8d662e964a",
+    "pinned_original_GPT2_git_blob": "711a148a28bd1aa2c1dccf2e3b21803aac4a4185",
+    "current_master_GPT2_git_blob": "711a148a28bd1aa2c1dccf2e3b21803aac4a4185",
+    "patch_path": "tools/pilot_t5/postmerge/ttm_gpt2_gelu_erf_exact_one_callsite.patch",
+    "patch_git_blob": "3c9cac450ac85bbeb7032893a5f42b7537620d4f",
+    "patch": "LLM_FFN_GELU to LLM_FFN_GELU_ERF at only GPT2 FFN callsite",
+    "patch_applied_runtime": false,
+    "avoid_copying_probe_callback": true,
+    "GGUF_F32_original_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "required_initial_precision": {
+      "K": "F32",
+      "V": "F32",
+      "Flash": "OFF",
+      "CPU": true,
+      "threads": 1
+    },
+    "tokenizer_original_fixture_mismatch": "2_OF_9_NOT_RESOLVED",
+    "Ollama_untouched": true,
+    "Ollama_custom_build": "DESIGN_ONLY",
+    "production_runtime_validation": "NOT_EXECUTED"
+  },
+  "source_QA": {
+    "GitHub_source_static_crosschecks": "PASS_22_OF_22",
+    "reproducible_patch_single_anchor": true,
+    "frozen_upstream_Git_blob_readback": true,
+    "GitHub_main_after_PR16": "CHANGED_ONLY_BY_POSTMERGE_DOCS_AND_TOOLING",
+    "code_build": "NOT_EXECUTED",
+    "dynamic_runtime": "NOT_EXECUTED"
+  },
+  "links": {
+    "review": "docs/pilot/TTM_T5_POSTMERGE_ARCHIVE_CLEANUP_AND_GELU_ERF_RUNTIME_INTEGRATION_REVIEW_20261110.md",
+    "cleanup_script": "tools/pilot_t5/postmerge/Invoke-TTM-T5-Merged-Worktree-Cleanup-PS51.ps1",
+    "patch": "tools/pilot_t5/postmerge/ttm_gpt2_gelu_erf_exact_one_callsite.patch"
+  },
+  "next": "Owner executes one project-local guarded -ApplyCleanup batch on Windows and returns receipt; review isolate llama runtime source clone and tokenizer before building or touching Ollama."
+}
