@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.small4m.2x2.synthetic_preflight.owner_integrated_decision.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SMALL4M_2X2_EQUAL_BUDGET_TRAIN_SAMPLER_LOSS_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE",
+  "source_of_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "baseline_main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "pr13_locked_head": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "design_report_path": "docs/research/TTM_SMALL4M_2X2_SYNTHETIC_PREFLIGHT_AND_OWNER_FREEZE_20261110.md",
+    "evidence_index_path": "artifacts/qa/ttm-small4m-prompt-conditioning/synthetic_2x2/README.md",
+    "preflight_qa_sha256": "1fe5f96bd950fcdfa6c1084a3327d3d8550bbecbd26870843be23d878333d559"
+  },
+  "decision": {
+    "design_source_freeze": "TECHNICAL_CANDIDATE_FROZEN_IN_GITHUB",
+    "synthetic_code_qa": "PASS_72_OF_72",
+    "independent_arithmetic_source_qa": "PASS",
+    "negative_fixtures": "PASS_20_OF_20_REJECTED",
+    "full_evidence_replay": "PASS_EXACT_BYTE",
+    "owner_science_authorization": "NOT_GRANTED",
+    "can_start_colab_free_T4": "NO_GO_NOW",
+    "next_gate": "ONE_COMBINED_DECISION_AFTER_SOURCE_RIGHTS_TRAIN_COUNT_MATCH_CHECKPOINT_RESTORE_EVAL_FREEZE",
+    "detailed_reason": "Synthetic-only budget parity is demonstrated; actual TRAIN count matching, rights, full P02 AdamW FP16 checkpoint restore and unseen evaluation/reviewer are not yet verified.",
+    "no_micro_permit_policy": "ONE_REVIEWER_PLUS_OWNER_SCIENCE_DECISION_AFTER_COMBINED_OFFLINE_QA"
+  },
+  "synthetic_measures": {
+    "source_type": "INVENTED_TRAIN_ONLY",
+    "arms": [
+      "A_ORIGINAL_CE",
+      "B_FIRST_WINDOW_CE",
+      "C_ORIGINAL_SUFFIX_WEIGHTED",
+      "D_FIRST_WINDOW_SUFFIX_WEIGHTED"
+    ],
+    "steps_per_arm": 128,
+    "valid_targets_per_step": 4096,
+    "valid_exposures_per_arm": 524288,
+    "total_valid_exposures": 2097152,
+    "forward_windows_per_arm": 3585,
+    "forward_token_slots_per_arm": 917760,
+    "first_story_window_draws": {
+      "A": 2243,
+      "B": 3585,
+      "C": 2243,
+      "D": 3585
+    },
+    "window_id_replacements": 3427,
+    "A_equals_C_exact": true,
+    "B_equals_D_exact": true
+  },
+  "blocked_inputs": {
+    "SOURCE_RIGHTS": "HOLD_REVIEW_CDLA_SHARING_METADATA_NOT_LEGAL_CLEARANCE",
+    "REAL_TRAIN_COUNT_MATCH": "NOT_CHECKED_NO_PRIVATE_PACK_READ",
+    "SCIENCE_RUNNER_P02_CHECKPOINT_RESTORE": "NOT_EXECUTED_ONLY_SYNTHETIC",
+    "ORIGINAL_MOMENTS_SAMPLER_RNG_SCALER": "NOT_CHECKED_IN_THIS_PREFLIGHT",
+    "NEW_DEV_FINAL_PROMPTS": "NOT_CREATED",
+    "INDEPENDENT_EVALUATOR": "NOT_ASSIGNED",
+    "GPU_CAPACITY": "NOT_EXECUTED",
+    "SCIENCE_LOCK": "NOT_ISSUED"
+  },
+  "provenance": {
+    "test_source_sha256": "b7c7ca0de9b9906c1d9828d203254d5df16fabab0cb0e8b31bf15d8527876d68",
+    "runner_source_sha256": "e95bb0f13eee158af8fe6b5237b1a1e64ef09df7c88d079443aa91cdcd891284",
+    "auditor_source_sha256": "d513eb5d21b38559ca9e3ba7ebd61643a025794f7a335d53404152d3f480fc32",
+    "full_128step_json_sha256": "1f92b9fe5965591ce6f8292e778642081c2ad9c1557ea08b5538f536524ac409",
+    "full_log_on_github_as": "2_parts_gzip_base64_with_reconstruct_and_SHA256",
+    "pr13_main_not_modified": true,
+    "original_TRAIN_VAL_TEST_unread": true,
+    "Q1Q2_unread": true,
+    "main_lineage_blob": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+    "pr13_lineage_blob": "15c67ada3b11c46e2d947bef8818599c7408733c",
+    "lineage_edit": false
+  }
+}
