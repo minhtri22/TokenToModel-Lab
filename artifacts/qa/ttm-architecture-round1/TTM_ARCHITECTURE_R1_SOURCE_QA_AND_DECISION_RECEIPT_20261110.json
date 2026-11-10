@@ -1,0 +1,54 @@
+{
+  "schema": "ttm.architecture_round1.source_audit.v1",
+  "date": "2026-11-10",
+  "level": "SOURCE_AND_HYPOTHESIS_ONLY",
+  "qa_status": "PASS_18_OF_18_AUTHOR_SOURCE_AUDIT",
+  "quality_note": "Author-side provenance and design check, not independent review or experimental demonstration",
+  "sources": {
+    "main_commit": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "pr13_commit": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "preserved_2x2_commit": "ed2cfcd3b8676e1a6a959d2f90aade35269ee117",
+    "report_blob": "bf63d074c18e950c70ff8fbbd8d0278ab96bd2ab",
+    "decision_blob": "a84efc10e07df26efefa606f75b11f3e8df34ae2",
+    "upstream_code_blobs": {
+      "gpt2": "230b83cc2ac7582b4a22e9db3c2d8916dfe2ea9a",
+      "ttm_p02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "llama4_model_card": "80e624a8f7415bd533070277cc6b9f3c5215625b",
+      "llama4_license": "ce807287a1cd38e1ed0f8e5eaaa925292e3f6903"
+    }
+  },
+  "audited": [
+    "report_readback",
+    "decision_readback",
+    "main_sha",
+    "pr13_draft",
+    "old_2x2_preserved",
+    "ttm_blob",
+    "gpt2_blob",
+    "llama4_model_card_blob",
+    "llama4_license_blob",
+    "four_philosophy_lenses",
+    "five_architecture_options",
+    "no_science_executed",
+    "no_gpu_authorized",
+    "no_codex_handoff",
+    "no_external_reviewer_claim",
+    "separate_lineages",
+    "ttm_parameter_count",
+    "no_llama_weight_copy"
+  ],
+  "decision": {
+    "continue_2x2_science": "HOLD",
+    "open_philosophical_toy_R2": "DESIGN_FAVORABLE_NOT_SCIENCE_AUTHORIZATION",
+    "reviewer_handoff": "DEFER_UNTIL_R2",
+    "internal_team": "OWNER_PLUS_CHATGPT_WEB_PLUS_CODEX_IF_NEEDED",
+    "new_training_steps": 0,
+    "new_model_inference": 0,
+    "test_access": "NO",
+    "q1q2_access": "NO",
+    "repo_main_modified": false,
+    "pr13_modified": false,
+    "prior_2x2_modified": false
+  },
+  "next": "TTM_SMALL4M_SEMANTIC_STATE_GOAL_FORMAL_HYPOTHESIS_AND_NO_TRAINING_TOY_FEASIBILITY"
+}
