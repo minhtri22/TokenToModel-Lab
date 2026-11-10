@@ -20,3 +20,13 @@
 **Phát hiện quan trọng:** 11 mutation Codex = **4 ACCEPT sai (bypass)** + **7 REJECT đúng**. Giữ `R2A_INPUT_SCHEMA=FAIL_SCOPED`. Không rewrite file hoặc receipt gốc để khiến lỗi biến mất.
 
 **Bước thực hiện tiếp theo:** `TTM_R3_STRICT_INPUT_VALIDATOR_AND_STRUCTURAL_GRAPH_TOY_IMPLEMENTATION_SINGLE_CPU_QA`. Triển khai R3 parser/generator trên dữ liệu toy, chống lộ nhãn, đủ 4 ô, rồi chạy một lượt QA CPU; chỉ sau đó cân nhắc khoa học GPU bằng một quyết định owner, không từng micro-permit.
+
+## R3 thực thi CPU — đã hoàn tất 2026-11-11
+
+**[Mở toàn bộ mã, dữ liệu toy 384 bản ghi, checker, 70 test và kết quả SHA trực tiếp trên GitHub](runtime/README.md).** Đây là kết quả kế nhiệm của thiết kế bên dưới, không ghi đè tài liệu design.
+
+- `R3_RUNTIME_CPU=PASS_SCOPED_70/70` · `NEGATIVE_VALIDATION=PASS_42/42`
+- `R3_ORACLE_FULL=GITHUB_COMMITTED` · `R3_MODEL_INPUT_ONLY_FULL=GITHUB_COMMITTED`
+- `SHALLOW_DIRECT_64/384` · `VISIBLE_TEXT_ORACLE_384/384` · `NEURAL=NOT_TESTED`
+- `O0=HOLD_PRESERVE` · `O1=DEFER` · `R2A_VALIDATOR_FAIL=HISTORICALLY_PRESERVED`
+- [Biên bản CPU và phán quyết](../../docs/research/TTM_R3_STRICT_INPUT_GRAPH_TOY_INTEGRATED_CPU_QA_AND_OWNER_ADJUDICATION_20261111.md)
