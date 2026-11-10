@@ -1,0 +1,153 @@
+{
+  "checks": [
+    {
+      "id": "real_metadata_status",
+      "pass": true
+    },
+    {
+      "id": "input_pack_pin",
+      "pass": true
+    },
+    {
+      "id": "original_checkpoint_pin",
+      "pass": true
+    },
+    {
+      "id": "step_count",
+      "pass": true
+    },
+    {
+      "id": "step_index_sequence",
+      "pass": true
+    },
+    {
+      "id": "step_target_sum",
+      "pass": true
+    },
+    {
+      "id": "each_step_target_exact",
+      "pass": true
+    },
+    {
+      "id": "window_draws_match",
+      "pass": true
+    },
+    {
+      "id": "all_forward_shapes_match",
+      "pass": true
+    },
+    {
+      "id": "slot_total",
+      "pass": true
+    },
+    {
+      "id": "first_window_metadata",
+      "pass": true
+    },
+    {
+      "id": "first_candidate_full",
+      "pass": true
+    },
+    {
+      "id": "all_real_candidates_satisfied",
+      "pass": true
+    },
+    {
+      "id": "counts_matched_each_step",
+      "pass": true
+    },
+    {
+      "id": "a_c_same",
+      "pass": true
+    },
+    {
+      "id": "b_d_same",
+      "pass": true
+    },
+    {
+      "id": "4arm_budget",
+      "pass": true
+    },
+    {
+      "id": "new_eval_count",
+      "pass": true
+    },
+    {
+      "id": "dev_size",
+      "pass": true
+    },
+    {
+      "id": "final_size",
+      "pass": true
+    },
+    {
+      "id": "ids_unique",
+      "pass": true
+    },
+    {
+      "id": "texts_unique",
+      "pass": true
+    },
+    {
+      "id": "prompt_hashes_all",
+      "pass": true
+    },
+    {
+      "id": "prompt_length_under_context",
+      "pass": true
+    },
+    {
+      "id": "eval_not_test",
+      "pass": true
+    },
+    {
+      "id": "cpu_parent_restored",
+      "pass": true
+    },
+    {
+      "id": "cpu_no_updates",
+      "pass": true
+    },
+    {
+      "id": "cpu_model_parameters",
+      "pass": true
+    },
+    {
+      "id": "cpu_scaler",
+      "pass": true
+    },
+    {
+      "id": "cpu_gpu_not_claimed",
+      "pass": true
+    },
+    {
+      "id": "test42",
+      "pass": true
+    },
+    {
+      "id": "no_private_token_records",
+      "pass": true
+    },
+    {
+      "id": "not_owner_approved",
+      "pass": true
+    },
+    {
+      "id": "no_original_test",
+      "pass": true
+    }
+  ],
+  "inputs_sha256": {
+    "cpu": "89a6bd40ed28a0d7433a4695fd44e138288c4c431d8ceb33a930af5640284c91",
+    "eval": "6b83a4f0e490b6a59097fccb96bad5d7ff555a50d67080457f845d1a9db057e2",
+    "metadata": "14d60dca4fe3ea6256c0c3c86b354d088b09d9583f75b61b7ad3c3a7a5570e95",
+    "test_log": "4187f7d466d989bdb97109654edf4c09832b9e0c8031da1a39fe3dd2edc8250c"
+  },
+  "limitations": [
+    "Separate arithmetic/source inspection only, no new semantic reviewer",
+    "No new training, no GPU",
+    "Pack metadata original sampled once with frozen original checkpoint RNG; no TEST/Q1Q2"
+  ],
+  "schema": "ttm.2x2.real_metadata.readiness.second_pass_audit.v1",
+  "status": "PASS_34_OF_34_INDEPENDENT_PUBLIC_SAFE_AUDIT"
+}
