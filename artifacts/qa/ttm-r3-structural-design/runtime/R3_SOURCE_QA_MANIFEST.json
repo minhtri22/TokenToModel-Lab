@@ -1,0 +1,66 @@
+{
+  "branch": "research/ttm-r3-structural-state-tracing-design-20261111",
+  "cpu_unittest_pass": 70,
+  "cross_split_story_overlap": 0,
+  "date": "2026-11-11",
+  "files": [
+    {
+      "git_blob_sha1": "a1e20ae5e70210251a2d39861a7358c1a7ac1d39",
+      "name": "r3_generator.py",
+      "sha256": "8f8296ba2009f5b13b8c23bdb15a90519b524f39fb8c2884493b6ae63719a404",
+      "size_bytes": 9225
+    },
+    {
+      "git_blob_sha1": "507af48770fdb29aa2f4da93b561f3d6b6c4ac95",
+      "name": "r3_independent_checker.py",
+      "sha256": "7acde2388149065e862f9561e36130747d7c597d86615d4ce0e390152d373984",
+      "size_bytes": 15745
+    },
+    {
+      "git_blob_sha1": "eb96fd1ac445b432ad2e63c4d1965b70f9eea4c3",
+      "name": "r3_single_cpu_qa.py",
+      "sha256": "9c6bb8da606bd5df9d31d134810dcdee352e03017e241d3e67e91b2a1576c96e",
+      "size_bytes": 13913
+    },
+    {
+      "git_blob_sha1": "f7dc397be3be6cf2f14eba11cedbefa505a96dd7",
+      "name": "R3_PUBLIC_ORACLE.json",
+      "sha256": "bd9fb15d3f3850823e083269a61df90eaddaea3e61b8b73e9f40b4ec74c7ce47",
+      "size_bytes": 296768
+    },
+    {
+      "git_blob_sha1": "b67628fe8ddd96e027e86a2f71b904cfee968143",
+      "name": "R3_MODEL_INPUT_ONLY.json",
+      "sha256": "4fa0ad45acdfecb2143a984127e6ad0c50126c203996148d60843eb1214cd50a",
+      "size_bytes": 103879
+    },
+    {
+      "git_blob_sha1": "29115ec8c65959fd410c6a6d9e4361664d61270e",
+      "name": "R3_CHECKER_REPORT.json",
+      "sha256": "ed9c149d525b503d8cfe93b7716246797c3218ebbf420bfe852a1c8d7ebab088",
+      "size_bytes": 1117
+    },
+    {
+      "git_blob_sha1": "793308e5d88cde36c5613b748b9cf4c5795614aa",
+      "name": "R3_CPU_TEST_LOG_FINAL.txt",
+      "sha256": "0927768f7b156056d018b8df5b6180e7452ef08dbb2d73766144649ac36516e9",
+      "size_bytes": 6567
+    }
+  ],
+  "four_cells_per_group": 4,
+  "graph_motifs_overlap": 0,
+  "groups": 96,
+  "model_input_only": [
+    "story",
+    "question"
+  ],
+  "negative_cases_pass": 42,
+  "oracle_public": true,
+  "parent": "bf0ead9daca66be9f75522d7404469b5a8cb593a",
+  "parser_correct": 384,
+  "records": 384,
+  "schema": "ttm.r3.full_public_source_data_cpu_qa.v1",
+  "science_executed": false,
+  "scope": "NO_MODEL_TRAIN_INFERENCE_GPU_TEST_Q1Q2",
+  "shallow_baseline_correct": 64
+}
