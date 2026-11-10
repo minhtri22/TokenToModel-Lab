@@ -1,0 +1,31 @@
+{
+  "schema": "ttm.small4m.posthoc_semantic_review.pre_unblind_hash_lock.v1",
+  "date": "2026-11-09",
+  "task": "TTM_SMALL4M_POSTHOC_ABLATION_SEMANTIC_REVIEW_AND_NEXT_DATA_DECISION",
+  "status": "PRE_UNBLIND_SCORE_LOCK",
+  "n_pairs": 32,
+  "n_outputs": 64,
+  "n_criteria": 3,
+  "n_integer_scores": 192,
+  "source_old_sha256": "8c9cb99dcfd6e0f6eb507552c9bbcf6b0acfbf2d98d798a99c1e6358ea62cd2e",
+  "source_trimmed_sha256": "eaa98bb4b1da6079513d96a73a23ea33a30fe43df0e736806a9294fa47530021",
+  "blind_input_sha256": "fec7427b75fcf52eeb82e563f9571a31d463724e299d7119c6c33f3087a2827d",
+  "opaque_key_sha256": "4776006bb0d58eff8c532ff21f43dd1d7a9fc78b78745fd73daa8271e0ffd8af",
+  "rubric_sha256": "61705dac08df2c4458eb37e1fd9530d75a2efa11bec0a85f7f63640a5aaabad3",
+  "frozen_A_B_scores_csv_sha256": "748acd55fa064f70c68af1f08fdda78b2e1c370969a8549b9da9eaf0f752037a",
+  "rating_scale": "0-3 each for prompt adherence, coherence, consistency",
+  "rater": "ONE_AI_NOT_INDEPENDENT_HUMAN",
+  "blinding_limits": [
+    "previous conversation contained examples with condition labels",
+    "leading newline is a strong non-identifying-but-diagnostic clue; reviewer should ignore formatting"
+  ],
+  "prereg_status": "POSTHOC_EXPLORATORY_ONLY_NO_CONFIRMATORY_SCIENCE",
+  "restrictions": {
+    "training": false,
+    "new_generations": false,
+    "test_read": false,
+    "q1q2_replay": false,
+    "main_write": false,
+    "lineage_append": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "phase": "Q1",
+  "prompt_id": "E01",
+  "request": {
+    "keep_alive": "10m",
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "options": {
+      "num_ctx": 256,
+      "num_predict": 64,
+      "seed": 101,
+      "temperature": 0.8,
+      "top_p": 0.9
+    },
+    "prompt": "Mara put a small red cup on the kitchen table. She heard a soft tap at the window and turned to see",
+    "raw": true,
+    "stream": false
+  },
+  "response": {
+    "created_at": "2026-11-09T07:58:57.9450757Z",
+    "done": true,
+    "done_reason": "length",
+    "eval_count": 64,
+    "eval_duration": 69607000,
+    "load_duration": 11058700,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "prompt_eval_cached_count": 25,
+    "prompt_eval_count": 26,
+    "prompt_eval_duration": 1110000,
+    "response": " the rock on the box.\nOne day, the store, the water was sad that she took the flowers. It was so she wanted to eat it.\nShe said, \"I'm so nice. I am a shiny and I want to the park and we are you.\"\nBut then said, \"I",
+    "total_duration": 86695500
+  },
+  "run_id": "Q1-E01-S101"
+}

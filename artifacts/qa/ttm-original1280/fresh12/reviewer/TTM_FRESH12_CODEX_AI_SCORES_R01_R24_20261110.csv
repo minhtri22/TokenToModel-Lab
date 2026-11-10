@@ -1,0 +1,25 @@
+pair_id,A_adherence,A_coherence,A_consistency,B_adherence,B_coherence,B_consistency,reviewer_id,note
+R01,0,1,0,0,1,1,Codex AI (GPT-6),"A unrelated Ben/tree dialogue; B repeated apologies, missing star/card"
+R02,1,1,2,0,1,0,Codex AI (GPT-6),A retains tree only and loops; B substitutes dog and mixed pronouns
+R03,0,1,1,0,1,1,Codex AI (GPT-6),A tree/sky without kite or wind; B unrelated girl apology
+R04,0,1,1,0,1,1,Codex AI (GPT-6),A garbled pawe and unrelated girl; B generic fragmented dialogue
+R05,1,1,1,1,1,1,Codex AI (GPT-6),"Both mention being careful, neither includes turtle/pond or rescue"
+R06,1,1,1,0,1,1,Codex AI (GPT-6),A includes dog but not Kiki/spoon/search; B unrelated tree
+R07,0,1,1,0,1,1,Codex AI (GPT-6),A unrelated dog loop; B unrelated Tom/dog and name repetition
+R08,0,1,1,0,1,1,Codex AI (GPT-6),A short unrelated garden clause; B repetitive careful dialogue
+R09,0,1,1,1,1,1,Codex AI (GPT-6),A unrelated tree/Lily dialogue; B mentions toys but no repair
+R10,0,1,1,0,1,1,Codex AI (GPT-6),A unrelated dog and apology; B unrelated Lily/play dialogue
+R11,0,1,1,0,1,1,Codex AI (GPT-6),A unrelated garden/play; B unrelated Ben/tree
+R12,0,1,1,0,1,1,Codex AI (GPT-6),A park/toys without boat; B garden/friends without boat
+R13,0,1,1,0,1,1,Codex AI (GPT-6),A repeats tree and introduces Lily; B generic happy/friends
+R14,0,1,1,1,1,1,Codex AI (GPT-6),A unrelated tree/Lily; B mentions toys without train/wheel
+R15,0,1,1,0,1,0,Codex AI (GPT-6),A unrelated girl/tree; B tree loop with shifting tree agency
+R16,0,1,2,0,1,2,Codex AI (GPT-6),Both tree/park topics omit dog/spoon/search; entities mostly stable
+R17,1,1,1,1,1,1,Codex AI (GPT-6),Both repeat careful as a safety cue but omit turtle/pond/help
+R18,0,1,2,1,1,2,Codex AI (GPT-6),A generic happiness only; B tree cue repeated without duck
+R19,0,1,1,1,1,1,Codex AI (GPT-6),"A generic careful dialogue; B mentions kitchen, then loses cup"
+R20,0,1,1,0,1,2,Codex AI (GPT-6),A generic happiness; B repeated tree without seeds/pot/flower
+R21,0,1,2,0,1,1,Codex AI (GPT-6),"A girl/friends subplot; B garbled pawe/friends, no coat/rain"
+R22,0,1,1,0,1,1,Codex AI (GPT-6),A unrelated dog/mom; B unrelated dog/Lily dialogues
+R23,2,1,0,1,1,1,Codex AI (GPT-6),A keeps bird and tree but incoherent bird agency; B keeps bird only
+R24,1,1,1,0,1,2,Codex AI (GPT-6),A keeps bird but loses orange/tree and goal; B generic happiness

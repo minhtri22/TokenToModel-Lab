@@ -1,0 +1,32 @@
+{
+  "phase": "Q1",
+  "prompt_id": "E01",
+  "request": {
+    "keep_alive": "10m",
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "options": {
+      "num_ctx": 256,
+      "num_predict": 64,
+      "temperature": 0.0,
+      "top_p": 1.0
+    },
+    "prompt": "Mara put a small red cup on the kitchen table. She heard a soft tap at the window and turned to see",
+    "raw": true,
+    "stream": false
+  },
+  "response": {
+    "created_at": "2026-11-09T07:58:56.2414014Z",
+    "done": true,
+    "done_reason": "length",
+    "eval_count": 64,
+    "eval_duration": 40718000,
+    "load_duration": 291347800,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_count": 26,
+    "prompt_eval_duration": 3294000,
+    "response": " it. She was a big and saw a big tree. She wanted to see the tree and a big tree.\n\"Look, a big, a big tree!\" Lily said, \"I'm sorry, but it is a big tree. I have a big tree. I have a big tree.\"\n\"I",
+    "total_duration": 343776500
+  },
+  "run_id": "Q1-E01-G0"
+}

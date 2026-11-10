@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-10",
+  "design": {
+    "A_baseline_n": 12,
+    "A_trimmed_n": 12,
+    "checkpoint_A_trimmed_each": 6,
+    "decoder": "greedy",
+    "n_checkpoints": 2,
+    "n_outputs": 48,
+    "n_pairs": 24,
+    "n_prompts": 12,
+    "n_scores": 144,
+    "one_shot_no_new_generation": true,
+    "rater": "Codex AI (GPT-6), scoped independent AI; not a human third-party reviewer"
+  },
+  "governance": {
+    "lineage_L0017_unchanged": true,
+    "main_unchanged": true,
+    "new_inference_tokens": 0,
+    "new_training_steps": 0,
+    "pr13_draft_hold": true,
+    "q1q2_reads": 0,
+    "test_reads": 0
+  },
+  "lock_gate": {
+    "receipt_readback_verified_before_unblind": true,
+    "scores_locked_before_unblind": true,
+    "source_checkpoints_unchanged": true,
+    "test_and_Q1Q2_untouched": true
+  },
+  "methodology": {
+    "conclusion": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED",
+    "no_data_training_changes_authorized": true,
+    "not_independent_human_or_confirmatory_external_replication": true,
+    "only8_prior_pilot_prompts_screened_for_novelty_Q1Q2_remained_sealed": true,
+    "original_alloc_private_mapping_sha256_from_prior_design": "UNVERIFIED_EXACT_FILE_BYTE_MATCH; SHA of original file was recorded, but original private file was not retained in current runtime; HMAC seed and all 24 conditions were verified",
+    "registered_candidate_requires_all_gates": true,
+    "reviewer_position_bias_residual_risk": true,
+    "scope": "Fresh 12 prompt pilot, one reviewer Codex AI, 24 paired greedy comparisons, two correlated checkpoint generations per prompt",
+    "scoring_rubric_quality_absolute_level": "low across both conditions"
+  },
+  "per_checkpoint": {
+    "1024": {
+      "adherence": {
+        "baseline_mean": 0.3333333333333333,
+        "mean_delta": -0.16666666666666666,
+        "trimmed_mean": 0.16666666666666666,
+        "trimmed_strict_wins": 1
+      },
+      "coherence": {
+        "baseline_mean": 1.0,
+        "mean_delta": 0.0,
+        "trimmed_mean": 1.0,
+        "trimmed_strict_wins": 0
+      },
+      "consistency": {
+        "baseline_mean": 1.25,
+        "mean_delta": -0.08333333333333333,
+        "trimmed_mean": 1.1666666666666667,
+        "trimmed_strict_wins": 1
+      }
+    },
+    "1280": {
+      "adherence": {
+        "baseline_mean": 0.25,
+        "mean_delta": 0.16666666666666666,
+        "trimmed_mean": 0.4166666666666667,
+        "trimmed_strict_wins": 3
+      },
+      "coherence": {
+        "baseline_mean": 1.0,
+        "mean_delta": 0.0,
+        "trimmed_mean": 1.0,
+        "trimmed_strict_wins": 0
+      },
+      "consistency": {
+        "baseline_mean": 1.0833333333333333,
+        "mean_delta": -0.25,
+        "trimmed_mean": 0.8333333333333334,
+        "trimmed_strict_wins": 1
+      }
+    }
+  },
+  "per_decoder": {},
+  "preregistered_gates": {
+    "12_prompt_bootstrap_ci95_lower_gt_0": false,
+    "balanced_A_B_12_12": true,
+    "coherence_delta_ge_minus_0_25": true,
+    "consistency_delta_ge_minus_0_25": true,
+    "mean_adherence_delta_ge_0_5": false,
+    "nonnegative_adherence_each_checkpoint": false,
+    "scoped_independent_reviewer_scores_frozen_before_unblind": true,
+    "trimmed_strict_adherence_wins_ge_16_of_24": false
+  },
+  "schema": "ttm.fresh12.owner_controlled_unblind.scoped_adjudication.v1",
+  "source": {
+    "encrypted_labelled_raw_mapping_git_blob": "e364ea7309c9d4b8b4288ec81acef47208db4375",
+    "encrypted_labelled_raw_mapping_sha256": "3097d66900b0027edcc1c0f81c8467f31e0dbbc8b2d80365fb7c798b2ee64435",
+    "github_owner_repo": "minhtri22/TokenToModel-Lab",
+    "github_reviewer_readback_commit": "a4bdfee7ca9e04c5b5bfec5c75e0fb3ec968da62",
+    "github_reviewer_score_lock_commit": "20163b753b56f8645b78731224538816569a3222",
+    "locked_score_csv_sha256": "d56f8f062d1a7ef2addd391b524cf555dc81d8eca5406a78daee3a7935c6a29c",
+    "locked_score_receipt_sha256": "081fbb773f545aef2921557fbf9a313ff6bd7dfdbbe036d250a0ae161f65e73e",
+    "raw48_sha256": "729bb83d177835e8283262210d857e6a012db44c2beed62e967fa8f8fa5a4fa5",
+    "reviewer_completion_comment_id": 6758016818,
+    "reviewer_packet_sha256": "85fec5d290d6639809ca6ba437982fa8bb11cd5e7e0fbcf412d40f7bc9c3a037",
+    "sha_unblinding_key": "REDACTED_PRIVATE_OWNER_KEPT_LOCAL",
+    "source_pr13_head_before_adjudication": "f69d4eb0b566344b19e9795de59ee6eec87ef47f"
+  },
+  "summary": {
+    "adherence": {
+      "baseline_mean": 0.2916666666666667,
+      "baseline_strict_wins": 4,
+      "mean_delta": 0.0,
+      "ties": 16,
+      "trimmed_mean": 0.2916666666666667,
+      "trimmed_strict_wins": 4
+    },
+    "adherence_cluster_bootstrap": {
+      "ci95": [
+        -0.20833333333333334,
+        0.16666666666666666
+      ],
+      "ci_method": "percentile descriptive, not human-rater uncertainty",
+      "cluster_mean_delta_values_SORTED_UNLINKED_TO_PROMPT": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "clusters": 12,
+      "replicates": 10000,
+      "seed": 20261110
+    },
+    "coherence": {
+      "baseline_mean": 1.0,
+      "baseline_strict_wins": 0,
+      "mean_delta": 0.0,
+      "ties": 24,
+      "trimmed_mean": 1.0,
+      "trimmed_strict_wins": 0
+    },
+    "consistency": {
+      "baseline_mean": 1.1666666666666667,
+      "baseline_strict_wins": 5,
+      "mean_delta": -0.16666666666666666,
+      "ties": 17,
+      "trimmed_mean": 1.0,
+      "trimmed_strict_wins": 2
+    },
+    "n_new_generations_this_unblind": 0,
+    "outputs_zero_adherence_35_of_48": 35,
+    "rater_total_raw_114_of_432": 114,
+    "total": {
+      "baseline_mean": 2.4583333333333335,
+      "baseline_strict_wins": 6,
+      "mean_delta": -0.16666666666666666,
+      "ties": 14,
+      "trimmed_mean": 2.2916666666666665,
+      "trimmed_strict_wins": 4
+    },
+    "zero_adherence_fraction": 0.7291666666666666
+  },
+  "task": "TTM_SMALL4M_FRESH12_OWNER_CONTROLLED_UNBLIND_HANDOFF"
+}

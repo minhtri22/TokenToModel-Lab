@@ -1,0 +1,115 @@
+{
+  "schema": "ttm.small4m.original1024_to1280.crossbranch_reference_and_source_readiness.v1",
+  "date_utc": "2026-11-09",
+  "scope": "ORIGINAL_T4_ONLY_NO_EMBEDDING_ADAPTER_NO_GPU_NO_NEW_INFERENCE",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "pr": 13,
+  "pr_prior_head": "c92cf77183e64f02d9fe6eabbb30dc06ee285f08",
+  "main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "reference_original": {
+    "science_run_id": "t4_science_4m_1024_a2_20261108_v1",
+    "checkpoint_step": 1024,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_ready_last": true,
+    "progress_sha256": "5517cc691fc803eaa69db4078f1f3b3ed78f99fa3c012cb17fd8655123c606ec",
+    "model_original_val_nll": 3.522338851682218,
+    "bigram_val_nll": 3.9972314169551506,
+    "source_git_blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "trainer_source_sha256": "c6298f3381efd4b54e4b3e7aeb8143354f36bb1ed9fd87d08900cee18f7f90e6",
+    "original_science_lock_sha256": "fd183ade2a696d40313aae19b63429d4ef3edd8abf25c899c8cc496836d36817",
+    "train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "train_val_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "original_optimizer": "AdamW 3e-4 betas(.9,.95),cosine warmup32, floor3e-5 at step1024,restore full state",
+    "precision": "FP16",
+    "model_parameters": 3749376,
+    "context": 256,
+    "tokenizer_vocab": 2048,
+    "story_counts": {
+      "train": 2048,
+      "val": 256,
+      "test64": "SEALED_CONSUMED_NO_ACCESS"
+    }
+  },
+  "cross_branch_reference_only": {
+    "branch": "research/ttm-small4m-embeddinggemma2-token-swap-minimal-proof-20261109",
+    "head_sha_at_review": "02d5385732f13e0df265d87e09b8127add0292d3",
+    "A_model_origin": "weights cloned from original T4 1024 checkpoint; training then uses freshly initialized AdamW 1e-4 constant LR and FP32",
+    "A_val_nll_after_1024_adaptation": 3.3501216607592945,
+    "A_val_nll_after_2048_adaptation": 3.313238012373695,
+    "A_delta_val_nll": 0.036883648385599654,
+    "inference": "May benefit from further optimization; not evidence of same-optimizer continuity effect in original T4",
+    "B_C_D_scope": "EXCLUDED_FROM_ORIGINAL_T4_PLAN",
+    "separate_lineage_entries": [
+      "L0015",
+      "L0016"
+    ]
+  },
+  "static_source_review": {
+    "status": "PASS_STATIC_SOURCE_CONTRACT_18_OF_18",
+    "checks": 18,
+    "source": "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+    "source_blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "scheduler_lambda_at_steps": {
+      "1024": 0.1,
+      "1025": 0.1,
+      "1152": 0.1,
+      "1280": 0.1
+    },
+    "lr_floor": 0.00003,
+    "checkpoint_load_restores": [
+      "model",
+      "AdamW optimizer",
+      "LambdaLR scheduler",
+      "sampler",
+      "torch CPU RNG",
+      "torch CUDA RNG",
+      "Python RNG",
+      "NumPy RNG",
+      "GradScaler"
+    ],
+    "original_trainer_hard_stop": 1024,
+    "original_science_lock_budget_1024": true,
+    "note": "Source-only static review, not checkpoint bytes revalidated this turn; no new training implementation or runtime QA exists."
+  },
+  "successor": {
+    "run_id": "ttm_small4m_step1024_to1280_exploratory_v1",
+    "start_checkpoint": "ORIGINAL_T4_STEP1024_ONLY",
+    "start_step": 1024,
+    "end_step": 1280,
+    "new_optimizer_steps": 256,
+    "targets_per_step": 4096,
+    "new_target_exposures": 1048576,
+    "checkpoint_original": "IMMUTABLE",
+    "new_source": "NOT_IMPLEMENTED",
+    "new_science_lock": "NOT_ISSUED",
+    "restore_old_lock_for_import": "REQUIRED_VERIFY_OLD_PAYLOAD_UNDER_ORIGINAL_LOCK_BEFORE_SUCCESSOR_LOCK",
+    "optimizer_reset": false,
+    "scheduler_reset": false,
+    "seed_reset": false,
+    "new_training_data": false,
+    "new_tokenizer": false,
+    "new_architecture": false,
+    "original_optimizer_state": "MUST_RESTORE_EXACT",
+    "execution": "NOT_AUTHORIZED_NOT_EXECUTED",
+    "run_root": "NEW_ISOLATED_DRIVE_DIR_AFTER_PRECLAIM",
+    "eval": {
+      "step1152": "DIAGNOSTIC_ONLY",
+      "step1280": "PRIMARY_EXPLORATORY",
+      "baseline_step1024": "FROZEN_ORIGINAL_EVALUATE_READONLY_IF_PER_STORY_REQUIRED",
+      "bootstrap": "Paired by story 1000 seed20261109; not confirmatory",
+      "test": "DO_NOT_OPEN"
+    },
+    "interpretation": "VAL improvement is not automatically better coherent story generation"
+  },
+  "gates": {
+    "static_source_contract": "PASS_18_18",
+    "source_successor_implemented": "NO",
+    "new_lock_authorized": "NO",
+    "original_checkpoint_live_sha_recheck": "PENDING",
+    "GPU": "NOT_USED",
+    "q1q2_v3": "NOT_OPENED",
+    "original_lineage": "UNMODIFIED",
+    "branch_merge": "HOLD",
+    "next_action": "TTM_SMALL4M_1024_TO_1280_ORIGINAL_CONTINUATION_RUNNER_AND_INDEPENDENT_OFFLINE_QA"
+  }
+}

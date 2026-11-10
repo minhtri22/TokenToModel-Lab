@@ -1,0 +1,202 @@
+{
+  "schema": "ttm.small4m.step1024.quality_revise.source_audit.v1",
+  "date": "2026-11-09",
+  "classification": "DESCRIPTIVE_READBACK_NO_NEW_SCIENCE_EXECUTION",
+  "provenance": {
+    "github_repo": "minhtri22/TokenToModel-Lab",
+    "pr": 13,
+    "pr_head_at_review": "b95a7c70fafe4c4cb28b9026b7d2f5355548ca67",
+    "main_at_review": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "drive_original_progress_filename": "step_1024/progress.json",
+    "drive_folder": "https://drive.google.com/drive/folders/1pLmIEB595x_cEkez0299C7mI_mV4bMfO",
+    "progress_sha256_verified_against_READY": "5517cc691fc803eaa69db4078f1f3b3ed78f99fa3c012cb17fd8655123c606ec",
+    "progress_size_bytes": 142438,
+    "progress_records": 1024,
+    "steps_contiguous": true,
+    "all_exact_scored_targets_4096": true,
+    "independent_h1_git_blob": "84cb94647c403ea358d8c991090bf56adc11f128",
+    "formal_h1_git_blob": "c1a471087ae30f31a696fbf786230eff3773a0d1",
+    "partial5_git_blob": "af88910574a938b16e1b9366bef33530b7023694",
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_gguf_sha256": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5"
+  },
+  "train": {
+    "architecture": "P02 GPT2-like decoder-only",
+    "parameters": 3749376,
+    "model_context": 256,
+    "tokenizer_vocab": 2048,
+    "train_stories": 2048,
+    "val_stories": 256,
+    "train_distinct_scored_positions": 498287,
+    "total_optimizer_steps": 1024,
+    "exact_targets_per_step": 4096,
+    "total_target_exposures": 4194304,
+    "avg_target_reuse": 8.417,
+    "seed": 20261108,
+    "optimizer": "AdamW betas 0.9/0.95 eps 1e-8 weight_decay 0.1, gradclip 1.0",
+    "learning_rate_schedule": "3e-4, warmup32, cosine to 3e-5 at step1024",
+    "checkpoint_steps": [
+      256,
+      512,
+      768,
+      1024
+    ],
+    "val_steps": [
+      128,
+      256,
+      384,
+      512,
+      640,
+      768,
+      896,
+      1024
+    ],
+    "train_loss_step1": 7.677355527877808,
+    "train_loss_step1024": 3.282975196838379,
+    "train_loss_last64_mean_step1024_rounded8": 3.3069587,
+    "val_curve": [
+      {
+        "step": 128,
+        "train_step_loss_rounded8": 4.56494713,
+        "train_trailing64_mean_rounded8": 4.89100852,
+        "val_nll_original": 4.582941993166532,
+        "gain_over_bigram_percent_rounded5": -14.65291,
+        "delta_val_nll_from_previous": null
+      },
+      {
+        "step": 256,
+        "train_step_loss_rounded8": 3.99596709,
+        "train_trailing64_mean_rounded8": 4.12802757,
+        "val_nll_original": 4.0918276389619335,
+        "gain_over_bigram_percent_rounded5": -2.36654,
+        "delta_val_nll_from_previous": 0.4911143542045986
+      },
+      {
+        "step": 384,
+        "train_step_loss_rounded8": 3.68721271,
+        "train_trailing64_mean_rounded8": 3.80224778,
+        "val_nll_original": 3.8696401664706053,
+        "gain_over_bigram_percent_rounded5": 3.19199,
+        "delta_val_nll_from_previous": 0.2221874724913282
+      },
+      {
+        "step": 512,
+        "train_step_loss_rounded8": 3.55261219,
+        "train_trailing64_mean_rounded8": 3.60593945,
+        "val_nll_original": 3.729337704103267,
+        "gain_over_bigram_percent_rounded5": 6.70198,
+        "delta_val_nll_from_previous": 0.14030246236733834
+      },
+      {
+        "step": 640,
+        "train_step_loss_rounded8": 3.35863769,
+        "train_trailing64_mean_rounded8": 3.47518082,
+        "val_nll_original": 3.6313697998016856,
+        "gain_over_bigram_percent_rounded5": 9.15288,
+        "delta_val_nll_from_previous": 0.09796790430158131
+      },
+      {
+        "step": 768,
+        "train_step_loss_rounded8": 3.36791867,
+        "train_trailing64_mean_rounded8": 3.37375866,
+        "val_nll_original": 3.5795112058624174,
+        "gain_over_bigram_percent_rounded5": 10.45024,
+        "delta_val_nll_from_previous": 0.05185859393926817
+      },
+      {
+        "step": 896,
+        "train_step_loss_rounded8": 3.36562437,
+        "train_trailing64_mean_rounded8": 3.32423522,
+        "val_nll_original": 3.540885291171789,
+        "gain_over_bigram_percent_rounded5": 11.41656,
+        "delta_val_nll_from_previous": 0.03862591469062826
+      },
+      {
+        "step": 1024,
+        "train_step_loss_rounded8": 3.2829752,
+        "train_trailing64_mean_rounded8": 3.3069587,
+        "val_nll_original": 3.5223388568740495,
+        "gain_over_bigram_percent_rounded5": 11.88054,
+        "delta_val_nll_from_previous": 0.018546434297739722
+      }
+    ],
+    "last_128_step_val_nll_gain": 0.018546434297739722,
+    "preceding_128_step_val_nll_gain": 0.03862591469062826,
+    "notes": [
+      "TRAIN batch loss and full VAL NLL differ in sampling/aggregation and must not be equated as an overfitting statistic",
+      "All observed VAL points decreased; diminishing marginal improvement, not a proven strict plateau",
+      "Repeating small fixed training data 8.417 times creates a potential data-diversity limitation, not a causal diagnosis"
+    ]
+  },
+  "h1": {
+    "verdict": "PASS_H1_CONFIRMATORY_VAL_SCOPE",
+    "val_model_nll_independent": 3.522338851682218,
+    "val_bigram_nll_independent": 3.9972314169551506,
+    "relative_improvement_percent": 11.880537195283955,
+    "bootstrap95_absolute_advantage": [
+      0.4581867476104475,
+      0.49406158185105853
+    ],
+    "test64": "CONSUMED_ONCE_DO_NOT_REUSE_TEST_FOR_SELECTION"
+  },
+  "t5": {
+    "ollama_compatibility": "PASS",
+    "strict_logits_numeric_parity": "FAIL_7_OF_8_PRESERVED",
+    "max_abs_logit_error_reported": 0.003362178805176086,
+    "top1_mismatch_count": 0,
+    "noncausal_note": "Parity violation could be a confound but is not evidence that it caused weak Q1 outputs"
+  },
+  "q1q2": {
+    "v1": "HOLD_CONSUMED_ZERO",
+    "v2": "HOLD_CONSUMED_PARTIAL",
+    "v2_complete_q1": 5,
+    "q1_planned": 48,
+    "q2_completed": 0,
+    "q2_planned": 24,
+    "raw_generated_tokens": 283,
+    "qualitative": "Weak prompt adherence in E01 and E02; no causal/consistency groups; no human rubric",
+    "inference": "Greedy repetition and sampled topic drift noted; n too small for generalization",
+    "quality_adjudication": "NOT_ADJUDICATED"
+  },
+  "hypotheses": [
+    {
+      "id": "Htrain",
+      "question": "More optimizer steps on identical data/architecture improve VAL NLL",
+      "status": "PLAUSIBLE_NOT_PROVEN",
+      "priority": 1
+    },
+    {
+      "id": "Hdata",
+      "question": "Limited 2048-story data and over-reuse cause poor entity/event continuity",
+      "status": "PLAUSIBLE_NOT_PROVEN",
+      "priority": 2
+    },
+    {
+      "id": "Hprompt",
+      "question": "TinyStories-style unconditional continuation differs from invented Q1 prompts; model weak at narrative state retention",
+      "status": "PLAUSIBLE_NOT_PROVEN",
+      "priority": 2
+    },
+    {
+      "id": "Hruntime",
+      "question": "GGUF/llama.cpp numeric mismatch contributes to generated-text degradation",
+      "status": "UNRESOLVED_CONFOUND_NO_CAUSAL_CLAIM",
+      "priority": 3
+    },
+    {
+      "id": "Hcapacity",
+      "question": "3.749M parameter capacity is primary bottleneck",
+      "status": "NOT_ESTABLISHED",
+      "priority": 4
+    }
+  ],
+  "decision": {
+    "method": "EXPLORATORY_SCIENCE_PLANNING_NOT_CONFIRMATORY",
+    "recommendation": "REVISE_CANDIDATE_LIMITED_256_STEP_CONTINUATION",
+    "no_third_q1q2_run": true,
+    "training_now": "NOT_AUTHORIZED_NOT_EXECUTED",
+    "checkpoint_1024": "IMMUTABLE_REFERENCE",
+    "original_science_h1": "PASS_UNCHANGED",
+    "merge_pr13": "HOLD"
+  }
+}

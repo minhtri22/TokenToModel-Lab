@@ -1,0 +1,33 @@
+{
+  "phase": "Q1",
+  "prompt_id": "E02",
+  "request": {
+    "keep_alive": "10m",
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "options": {
+      "num_ctx": 256,
+      "num_predict": 64,
+      "seed": 101,
+      "temperature": 0.8,
+      "top_p": 0.9
+    },
+    "prompt": "On a rainy morning, Leo found one dry sock near his bed. He wanted to keep both feet warm, so he",
+    "raw": true,
+    "stream": false
+  },
+  "response": {
+    "created_at": "2026-11-09T07:59:02.8785102Z",
+    "done": true,
+    "done_reason": "length",
+    "eval_count": 64,
+    "eval_duration": 67862000,
+    "load_duration": 3723500,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "prompt_eval_cached_count": 27,
+    "prompt_eval_count": 28,
+    "prompt_eval_duration": 1140000,
+    "response": " decided to come in the garden.\nAfter the park, he had an idea,, a boring and he went to the water. He thought about the park, and a bird was so he found it. It was happy and he could do something new house. \nThe bear saw a lot of a big",
+    "total_duration": 74096800
+  },
+  "run_id": "Q1-E02-S101"
+}

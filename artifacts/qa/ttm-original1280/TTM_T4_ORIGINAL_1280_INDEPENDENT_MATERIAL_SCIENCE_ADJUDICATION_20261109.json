@@ -1,0 +1,210 @@
+{
+  "schema": "ttm.t4.original1024to1280.independent_scoped_material_adjudication.v1",
+  "date": "2026-11-09",
+  "pr": 13,
+  "reviewed_pr_source_head": "36202913a504a3cdec55962db877dd47b176385a",
+  "scope": "ORIGINAL_T4_ONLY_GPU_EXECUTED_BY_OWNER_COLAB_FREE_T4",
+  "run_id": "ttm_small4m_step1024_to1280_exploratory_v1",
+  "original_checkpoint_step": 1024,
+  "step_end": 1280,
+  "source_sha256": "55cf8f9f686d911411ed3284ba6baf00b7a4ed1d7cc255e3f4fed1b9a2f5365c",
+  "original_parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "original_parent_progress_sha256": "5517cc691fc803eaa69db4078f1f3b3ed78f99fa3c012cb17fd8655123c606ec",
+  "owner_lock_sha256": "39d61f0012b41497ac5dd406dea6d0f6040c7391ff9942c254c1331d9c643730",
+  "claim_sha256": "af3e5b269e2e2d306d8dab1f12d4a2be8cc5303bb6bdd36686e04e6cda39765b",
+  "reported_result_sha256": "bf5e19daa017d5872750c6324913048335e3098e8d071ba0b5f94941a7dc4795",
+  "baseline_private_sha256": "01d555919096aa76fbaf7fa580969effaf13e9f9fb130519943fb86bf9614339",
+  "step1152": {
+    "ready_step": 1152,
+    "checkpoint_sha256": "f76b8083fc919eae91f268e8970d9f3529dc68f0aca7be2bde029ac13395e5ae",
+    "checkpoint_bytes": 45075275,
+    "ready_sha_verified": true,
+    "progress_sha_verified": true,
+    "optimizer_state_count": 52,
+    "all_optimizer_step": 1152,
+    "scheduler_last_epoch": 1152,
+    "lr": 0.00003,
+    "val_nll": 3.511285912623514
+  },
+  "step1280": {
+    "ready_step": 1280,
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "checkpoint_bytes": 45075275,
+    "ready_sha256": "eb89d0a797451187ed20956d1f0097e9a8b9539da8eeaa92960e2a8508c9095f",
+    "progress_sha256": "f6aa76ac9c2e3c1cb7f08a35ade19b7dda1fcc2c2da62e7776b21d82523ce1a3",
+    "progress_records": 1280,
+    "original_progress_prefix_exact_match": true,
+    "successor_steps": 256,
+    "successor_target_exposures": 1048576,
+    "optimizer_state_count": 52,
+    "all_optimizer_step": 1280,
+    "scheduler_last_epoch": 1280,
+    "lr": 0.00003,
+    "saved_state": {
+      "model": true,
+      "optimizer": true,
+      "scheduler": true,
+      "sampler": true,
+      "torch_cpu_rng": true,
+      "torch_cuda_rng": true,
+      "python_rng": true,
+      "numpy_rng": true,
+      "grad_scaler": true
+    }
+  },
+  "evaluation": {
+    "val_stories": 256,
+    "val_targets": 61122,
+    "baseline1024_nll": 3.5223388568740495,
+    "diagnostic1152_nll": 3.511285912623514,
+    "primary1280_nll": 3.498089026735425,
+    "delta_nll": 0.024249830138624417,
+    "relative_improvement_pct": 0.6885,
+    "ci95_reported_by_pinned_runner": [
+      0.02170874671893396,
+      0.026568311029801738
+    ],
+    "bootstrap_seed": 20261109,
+    "bootstrap_rounds": 1000,
+    "verdict_from_runner": "TRAINING_HELPFUL_SIGNAL",
+    "independent_ci_recompute": "NOT_PERFORMED_NO_ENDPOINT_PER_STORY_LOSS_FILE",
+    "tested": "VALIDATION_ONLY_NO_TEST_READ",
+    "quality_generation": "NOT_ESTABLISHED"
+  },
+  "independent_material_qa": {
+    "status": "PASS_29_CHECKS_SCOPED",
+    "checks": [
+      {
+        "name": "READY_1280",
+        "status": "PASS"
+      },
+      {
+        "name": "CHECKPOINT_1280_SHA",
+        "status": "PASS"
+      },
+      {
+        "name": "CHECKPOINT_1280_BYTES",
+        "status": "PASS"
+      },
+      {
+        "name": "PROGRESS_1280_SHA",
+        "status": "PASS"
+      },
+      {
+        "name": "PROGRESS_1280_1280_RECORDS",
+        "status": "PASS"
+      },
+      {
+        "name": "PROGRESS_STEPS_CONTIGUOUS",
+        "status": "PASS"
+      },
+      {
+        "name": "PROGRESS_TARGETS_4096",
+        "status": "PASS"
+      },
+      {
+        "name": "SCIENCE_LOCK_SHA",
+        "status": "PASS"
+      },
+      {
+        "name": "BASELINE_SHA",
+        "status": "PASS"
+      },
+      {
+        "name": "PARENT_CHECKPOINT_PIN",
+        "status": "PASS"
+      },
+      {
+        "name": "ORIGINAL_MODEL_NOT_EMBEDDED",
+        "status": "PASS"
+      },
+      {
+        "name": "SUCCESSOR_RUNID",
+        "status": "PASS"
+      },
+      {
+        "name": "PARENT_OLD_NEW_LOCK_SEPARATE",
+        "status": "PASS"
+      },
+      {
+        "name": "OPTIMIZER_52_STATES",
+        "status": "PASS"
+      },
+      {
+        "name": "OPTIMIZER_STEP_1280",
+        "status": "PASS"
+      },
+      {
+        "name": "SCHEDULER_STEP_1280",
+        "status": "PASS"
+      },
+      {
+        "name": "LR_FLOOR_3E5",
+        "status": "PASS"
+      },
+      {
+        "name": "FULL_STATE_PRESENT",
+        "status": "PASS"
+      },
+      {
+        "name": "SCIENCE_NO_TEST",
+        "status": "PASS"
+      },
+      {
+        "name": "SCIENCE_SCOPE_ORIGINAL_ONLY",
+        "status": "PASS"
+      },
+      {
+        "name": "RESULT_NLL_MATCH",
+        "status": "PASS"
+      },
+      {
+        "name": "RESULT_FINAL_LOG_MATCH",
+        "status": "PASS"
+      },
+      {
+        "name": "RESULT_MID_LOG_EXISTS",
+        "status": "PASS"
+      },
+      {
+        "name": "RESULT_VAL_IMPROVED",
+        "status": "PASS"
+      },
+      {
+        "name": "SOURCE_SHA_CROSS",
+        "status": "PASS"
+      },
+      {
+        "name": "PARENT_PROGRESS_EXACT_PREFIX_1024",
+        "status": "PASS"
+      },
+      {
+        "name": "SUCCESSOR_256_STEPS_1048576_TARGETS",
+        "status": "PASS"
+      },
+      {
+        "name": "CHECKPOINT_1152_SHA_BYTES_PROGRESS",
+        "status": "PASS"
+      },
+      {
+        "name": "CHECKPOINT_1152_ADAMW_SCHEDULER_STATE",
+        "status": "PASS"
+      }
+    ],
+    "checkpoint1280_loaded_on_cpu_with_weights_only": true,
+    "checkpoint1152_loaded_on_cpu_with_weights_only": true,
+    "checkpoint1280_sha_and_progress_checked": true,
+    "original1024_log_prefix_exactly_equal": true,
+    "private_pack_not_exported": true
+  },
+  "final_scoped_adjudication": "PASS_EXPLORATORY_VAL_TRAINING_SIGNAL_MATERIAL_VERIFIED_NO_CONFIRMATORY_CLAIM",
+  "limits": [
+    "Exploratory single-run VAL improvement; VAL previously used across research; no fresh held-out TEST.",
+    "CI numbers are verified as present in pinned runner output but not independently recomputed from endpoint per-story losses.",
+    "Independent QA inspected checkpoint state and materials, not full independent CPU re-evaluation nor repeat GPU training.",
+    "No evidence of improved human-rated prompt adherence or story coherence.",
+    "No EmbeddingGemma2 arms imported into original-run training."
+  ],
+  "drive_run_folder": "https://drive.google.com/drive/folders/137ClmIGTH4pq_peBgD-dORJbwRrz3biw",
+  "source_branch_merge": "HOLD_UNTIL_SEPARATE_MERGE_DECISION"
+}

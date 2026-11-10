@@ -1,0 +1,33 @@
+{
+  "phase": "Q1",
+  "prompt_id": "E01",
+  "request": {
+    "keep_alive": "10m",
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "options": {
+      "num_ctx": 256,
+      "num_predict": 64,
+      "seed": 102,
+      "temperature": 0.8,
+      "top_p": 0.9
+    },
+    "prompt": "Mara put a small red cup on the kitchen table. She heard a soft tap at the window and turned to see",
+    "raw": true,
+    "stream": false
+  },
+  "response": {
+    "created_at": "2026-11-09T07:58:59.6030048Z",
+    "done": true,
+    "done_reason": "length",
+    "eval_count": 64,
+    "eval_duration": 34212000,
+    "load_duration": 2668900,
+    "model": "ttm-t5-f32-compat-only-v5final:latest",
+    "prompt_eval_cached_count": 25,
+    "prompt_eval_count": 26,
+    "prompt_eval_duration": 1050000,
+    "response": " it. She ran to the park, it on her mom.\nOne day, she said, \"Let's the oborh and the garden. It is a big tree.\"\n\"Hello, so there?\" she said. \"Sa said, I have to go back. You can't play with",
+    "total_duration": 40023400
+  },
+  "run_id": "Q1-E01-S102"
+}
