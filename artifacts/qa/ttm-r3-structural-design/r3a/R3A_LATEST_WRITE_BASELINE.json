@@ -1,0 +1,35 @@
+{
+  "by_family_split": {
+    "T1_CHALLENGE": {
+      "correct": 32,
+      "total": 64
+    },
+    "T1_DEV": {
+      "correct": 32,
+      "total": 64
+    },
+    "T2_CHALLENGE": {
+      "correct": 48,
+      "total": 64
+    },
+    "T2_DEV": {
+      "correct": 32,
+      "total": 64
+    },
+    "T3_CHALLENGE": {
+      "correct": 32,
+      "total": 64
+    },
+    "T3_DEV": {
+      "correct": 32,
+      "total": 64
+    }
+  },
+  "correct": 208,
+  "prediction_types": {
+    "last_goal_change": 144,
+    "last_handoff": 128,
+    "missing_goal": 112
+  },
+  "total": 384
+}
