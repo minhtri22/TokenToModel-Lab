@@ -40,3 +40,13 @@ Trạng thái: `SOURCE_OF_TRUTH=GITHUB_PR13` · `FRESH12_PREREG=FROZEN` · `REVI
 ## D. Rà soát quy hoạch nhánh song song
 
 [Tài liệu đối chiếu toàn bộ kế hoạch P00–P12 và các workstream có thể làm song song](https://github.com/minhtri22/TokenToModel-Lab/blob/governance/ttm-parallel-workstreams-review-20261109/docs/governance/TTM_P00_P12_ORIGINAL_PLAN_VS_CURRENT_PARALLEL_WORKSTREAMS_20261109.md) nằm ở **nhánh quản trị riêng** từ `main`, không hợp nhất cùng PR #13 và không thay phase gates gốc.
+
+## E. FRESH12 — cập nhật executor 2026-11-10 (ưu tiên hiện trạng so với snapshot cũ)
+
+- **[Biên bản 48/48 và bàn giao review](TTM_FRESH12_EXECUTOR_SINGLE_BATCH_AND_BLIND_PACKET_HANDOFF_20261110.md)**; 12 prompt × 2 checkpoint × 2 điều kiện, 0 bước TRAIN, không TEST/Q1Q2, reviewer 0/144, chưa giải mù.
+- [Amendment A01 trước chạy](TTM_FRESH12_A01_NEUTRAL_PAIR_IDS_AND_CUSTODY_PRE_RUN_20261110.md) sửa lộ checkpoint từ mã cặp `Fxx-C1024/C1280` thành ID vô danh `R01–R24`, không đổi ngưỡng/đối chứng.
+- [**Reviewer packet 24 cặp ẩn nhãn**](../../../artifacts/qa/ttm-original1280/fresh12/reviewer/TTM_FRESH12_BLINDED_REVIEWER_PACKET_R01_R24_20261110.md) + [**phiếu điểm CSV mới R01–R24**](../../../artifacts/qa/ttm-original1280/fresh12/reviewer/TTM_FRESH12_REVIEWER_SCORE_TEMPLATE_R01_R24_20261110.csv), **hai nguồn duy nhất dành cho Codex**. Không dùng template cũ chứa checkpoint trong ID.
+- [Raw có nhãn + mapping mã hóa AES-256-GCM](../../../artifacts/qa/ttm-original1280/fresh12/escrow/TTM_FRESH12_ENCRYPTED_RAW48_AND_PRIVATE_MAPPING_20261110.json) **dành cho chủ dự án, tuyệt đối không đưa cho reviewer**. Khóa giải mã owner chỉ giữ ngoài GitHub public.
+- [QA packet](../../../artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_EXECUTOR_PACKET_QA_20261110.json) và [kiểm toán 37/37](../../../artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_AUTHOR_SIDE_SEPARATE_AUDIT_20261110.json) — kỹ thuật vật liệu, không phải science PASS hay review con người.
+
+**Trạng thái hiện hành:** `FRESH12_RUN=EXECUTED_48/48` · `REVIEWER_PACKET=READY_24_PAIRS` · `SCORING=0/144` · `UNBLIND=NO` · `PR13=HOLD` · `MAIN=UNCHANGED` · `LINEAGE=L0017_UNCHANGED`. Các biên bản prereg cũ ghi `NOT_EXECUTED` là snapshot trước chạy, không bị chỉnh sửa hồi tố.
