@@ -1,0 +1,109 @@
+{
+  "schema": "ttm.r2a.complete_github_evidence_manifest.v1",
+  "date": "2026-11-10",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-semantic-state-goal-toy-r2-20261110",
+  "scope": "EXACT_FULL_SOURCE_AND_EVIDENCE_PUBLIC_TOY",
+  "original_R2A_old_head": "d7128812ce7f98eb0c6087b4649822bc999d1088",
+  "data_count": {
+    "counterfactual_pairs": 128,
+    "counterfactual_records": 256,
+    "query_binding_probes": 128,
+    "model_inputs": 384
+  },
+  "file_count": 10,
+  "files": [
+    {
+      "path": "tools/research/semantic_state_r2/r2a_generator.py",
+      "size_bytes": 7426,
+      "sha256": "e9f7df99d09a2aa449173db1358449515772b9c54778d75f775eae04f5447326",
+      "git_blob": "78d0ce42468ae4c29e44b6488feafba8b2a31215",
+      "verified": true
+    },
+    {
+      "path": "tools/research/semantic_state_r2/r2a_independent_checker.py",
+      "size_bytes": 9638,
+      "sha256": "5224707f32688d1582ab80939e844902848f896fdb52596d136904a0ec34d191",
+      "git_blob": "1a6edc434e30cfd66820c0d021c0b085124e1847",
+      "verified": true
+    },
+    {
+      "path": "tools/research/semantic_state_r2/r2a_single_cpu_qa.py",
+      "size_bytes": 4913,
+      "sha256": "96fb5e494c75230331238f7b03361c61e9de58e197efd2dce76d17d4b229bc8e",
+      "git_blob": "6263e4bc56a6cb2747ed11f70fe7a37544973c3f",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_ORACLE_DATASET.json",
+      "size_bytes": 183830,
+      "sha256": "3243d1eaae4b8727449fe4571dc81c898414b5ba300a20e7ead0819d7953286e",
+      "git_blob": "b1c087b618c871d99a4d6da39358c6ac57f8d4ee",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_MODEL_INPUT_ONLY.json",
+      "size_bytes": 60734,
+      "sha256": "72f57d704a2e4f99f06a797b8b647d93736a7093852e0c9df0f28dc59549032d",
+      "git_blob": "581c55ad2b67bd0887def85abe4363cf7413e647",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_INDEPENDENT_QA_20261110.json",
+      "size_bytes": 1005,
+      "sha256": "76920a16525b4feaa2bed9e49abbea620b91cc3982fae93d0f353a76b326a967",
+      "git_blob": "7c8c448636648e53049d022c145b59535f40540a",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_CPU_TEST_LOG_FINAL_20261110.txt",
+      "size_bytes": 3025,
+      "sha256": "6efc7fa9f1517f082b5b881942ae99a54224f8308204d496d093b648c1867159",
+      "git_blob": "409fbf9756f77021e4ccb957d6300aa2f1f76006",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_INITIAL_TEST_LOG_20261110.txt",
+      "size_bytes": 3733,
+      "sha256": "35998d6e31690a86ec1d43a0bc2d7a85ebf5e1371e72e9ba5029c29eb33cb8d0",
+      "git_blob": "7e58396444d7539a9ec638c5bcb72c6394fdd7ea",
+      "verified": true
+    },
+    {
+      "path": "tools/research/semantic_state_r2/r2a_author_shortcut_audit_20261110.py",
+      "size_bytes": 5337,
+      "sha256": "2969641085d7e0ac7c33ef4e5958f8b8148c9eb44eb24a97d7b38640da408cbb",
+      "git_blob": "0172001add17be83b51bb17a6cea5ec2d78e5d22",
+      "verified": true
+    },
+    {
+      "path": "artifacts/qa/ttm-r2-semantic-toy/r2a/R2A_AUTHOR_SHORTCUT_AUDIT_20261110.json",
+      "size_bytes": 1174,
+      "sha256": "f83a2b9eff883826effc88d8c6a7212154be86b7628f4391abfda1d873aaadea",
+      "git_blob": "c72317609f0c52b4aae5af0a3a609a0abeb026a9",
+      "verified": true
+    }
+  ],
+  "qa": {
+    "original_author_test_final": "PASS_36_OF_36",
+    "initial_test_log": "PRESERVED_ONE_FAIL_FROM_TEST_ASSERTION_THEN_CORRECTED",
+    "separate_parser": "PASS_SCOPED_TOY_256_OF_256",
+    "codex_R2_original_review": "COMPLETED_GITHUB",
+    "codex_R2A_review": "PENDING_NOT_EXECUTED",
+    "author_shortcut_audit": "PASS_SCOPED_NOT_CODEX"
+  },
+  "safety": {
+    "dataset_public": true,
+    "oracle_contains_answers": true,
+    "model_input_only_fields": [
+      "story",
+      "question"
+    ],
+    "public_challenge_is_sealed": false,
+    "using_public_R2A_as_future_independent_final_test": "PROHIBITED",
+    "TRAIN_VAL_TEST_Q1Q2_unread": true,
+    "training_steps": 0,
+    "GPU_steps": 0
+  },
+  "source_truth_note": "Every source and result file in original R2A archive is committed as a normal GitHub file, byte-identical by Git blob. ZIP not required. Future sealed evaluation requires a new set not published with labels."
+}
