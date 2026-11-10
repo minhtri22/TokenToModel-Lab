@@ -1,0 +1,42 @@
+{
+  "by_family_split": {
+    "T1_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T1_DEV": {
+      "correct": 64,
+      "total": 64
+    },
+    "T2_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T2_DEV": {
+      "correct": 64,
+      "total": 64
+    },
+    "T3_CHALLENGE": {
+      "correct": 64,
+      "total": 64
+    },
+    "T3_DEV": {
+      "correct": 64,
+      "total": 64
+    }
+  },
+  "correct": 384,
+  "errors": [],
+  "oracle_use": "SCORING_ONLY_AFTER_PREDICTION",
+  "pinned_commit": "81327724c08771682622bebb8648fefd55a4fa9a",
+  "precondition_validation": false,
+  "review_type": "INDEPENDENT_PYTHON_REPLAY_OF_JS_PREDICTOR",
+  "scientific_scope": "PUBLIC_TOY_ONLY_NOT_BLINDED_FINAL",
+  "source_sha256": {
+    "model": "2510866d82641bd27207082566d6b4dbb867e59516794e422dff8fb041646402",
+    "oracle": "b509fae3f63399c978d532c2686d147bd4ba41e44b2aa9135dcd38360e6ffb08"
+  },
+  "status": "SHALLOW_HEURISTIC_384_384",
+  "total": 384,
+  "uses_state_simulation": false
+}
