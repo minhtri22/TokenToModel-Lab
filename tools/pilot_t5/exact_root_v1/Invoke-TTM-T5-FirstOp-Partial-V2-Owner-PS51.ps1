@@ -78,7 +78,8 @@ Get-TTMExactSource -RelativePath "$base/gelu_erf_probe/CMakeLists.txt" -TargetFi
 Get-TTMExactSource -RelativePath "$base/recover_partial_discovery_audit_and_gelu_erf_once.py" -TargetFile $runner -ExpectedBlob '34bfcf1d1ca0803bfd9b05beafd5214dc7ad8fe9'
 
 $env:PYTHONDONTWRITEBYTECODE = '1'
-& $Python312 -c 'import ast,sys,pathlib; [ast.parse(pathlib.Path(p).read_text(encoding="utf-8")) for p in sys.argv[1:]]' $auditor $test $runner
+# py_compile is native PS5.1-safe, and any __pycache__ stays in TTM _tmp.
+& $Python312 -m py_compile $auditor $test $runner
 if ($LASTEXITCODE -ne 0) {
     throw 'PYTHON312_STATIC_PARSE_FAILED_NO_NATIVE'
 }
