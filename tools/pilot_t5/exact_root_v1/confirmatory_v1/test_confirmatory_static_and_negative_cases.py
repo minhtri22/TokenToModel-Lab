@@ -64,7 +64,7 @@ class FrozenConfirmatory12(unittest.TestCase):
         self.assertIn("CONFIRMATORY_ALREADY_STARTED_NO_REPEAT",s)
         self.assertNotIn("optimizer.step()",s)
         self.assertNotIn("llama_decode(",s)
-        self.assertIn("B_GELU_ERF_DISCOVERY_GATE_NOT_MET",s) if False else self.assertIn("GELU_ERF_DISCOVERY_GATE_NOT_MET",s)
+        self.assertIn("GELU_ERF_DISCOVERY_GATE_NOT_MET",s)
         for p in ROOT.glob("*.py"):ast.parse(p.read_text("utf-8"),filename=str(p))
 
 if __name__=="__main__":unittest.main(verbosity=2)
