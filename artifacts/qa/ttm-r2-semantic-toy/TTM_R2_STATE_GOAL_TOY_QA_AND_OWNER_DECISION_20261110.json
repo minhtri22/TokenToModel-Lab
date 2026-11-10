@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.r2.semantic_state_goal.toy_qa_receipt.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SMALL4M_SEMANTIC_STATE_GOAL_FORMAL_HYPOTHESIS_AND_NO_TRAINING_TOY_FEASIBILITY",
+  "status": "PASS_SCOPED_TOY_FEASIBILITY_NOT_NEURAL_SCIENCE",
+  "source_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-semantic-state-goal-toy-r2-20261110",
+    "base_r1_commit": "fe3e2851019f8ea5ed5219dcf022a4f2cb515fd3",
+    "exact_executed_runtime_path": "tools/research/semantic_state_r2/r2_runtime_integration_executed.py",
+    "exact_executed_runtime_git_blob": "4d78819e9ee7c602b7fd461a346819abd42bda1e",
+    "exact_executed_negative_runner_path": "tools/research/semantic_state_r2/negative_test_runner.py",
+    "exact_executed_negative_runner_git_blob": "965def98940984bb5f073aa275102336f9e2bad6",
+    "alternative_generator_path": "tools/research/semantic_state_r2/r2_semantic_toy_generator.py",
+    "alternative_independent_checker_path": "tools/research/semantic_state_r2/r2_independent_visible_text_checker.py",
+    "alternative_implementations_exact_run": "NOT_EXECUTED_VERIFY_BY_CODEX"
+  },
+  "dataset": {
+    "synthetic_only": true,
+    "pairs_total": 128,
+    "records_total": 256,
+    "pairs_by_family": {
+      "ownership": 64,
+      "goal": 64
+    },
+    "records_by_family_split": {
+      "goal_DEV": 64,
+      "goal_CHALLENGE": 64,
+      "ownership_DEV": 64,
+      "ownership_CHALLENGE": 64
+    },
+    "records_sha256": "f20915ff0559b32786961b4a19fa3dce3858cb95d18beaee1fc77ab79cb3cb08",
+    "records_bytes": 200630,
+    "regenerate_command": "python r2_runtime_integration_executed.py",
+    "public_fixture_scope": "DEV and CHALLENGE labels are public; no sealed future evaluation here",
+    "other_research_DATA_TEST_Q1Q2_read": false
+  },
+  "checks": {
+    "visible_text_oracle_correct": 256,
+    "visible_text_oracle_total": 256,
+    "identical_word_multiset_counterfactual_pairs": 128,
+    "opposing_answers_pairs": 128,
+    "lexical_order_invariant_baseline_correct": 128,
+    "lexical_order_invariant_baseline_total": 256,
+    "negative_mutations_rejected": 21,
+    "negative_mutations_total": 21,
+    "source_events_mutation_ignored_by_visible_text_parser": true,
+    "local_runtime_qa_json_sha256": "ba763faf7b4de3d6b0631da412f64ff15c49b8aac7ff339c01e8eff38ca3a677",
+    "local_negative_audit_json_sha256": "6347fca61c27186e40f84b5dc21e0c5231c013fea656870467489f34c774b448",
+    "runtime_git_blob_exact_byte_match": true,
+    "negative_runner_git_blob_exact_byte_match": true
+  },
+  "limits": [
+    "All answers follow predefined toy last-write-wins rules; perfect rule-parser accuracy is a construct validity check, not neural generalization.",
+    "Bag-of-words 50 percent follows mathematically from same-input/opposing-label balanced pairs, not an empirical model benchmark.",
+    "GPT-2 and TTM attention preserve token order; no experiment demonstrates their semantic weakness.",
+    "Parser and structured oracle share author and public grammar despite independent implementations.",
+    "No semantic auxiliary-head, state-slot or LLM training/inference has occurred.",
+    "Public CHALLENGE data cannot be reused as a blind held-out science test.",
+    "Independent separate candidate generator/checker on GitHub not yet verified for exact output SHA; Codex review must do so."
+  ],
+  "proposed_follow_up": "TTM_SMALL4M_R2_CODEX_ADVERSARIAL_THEORY_AND_SOURCE_REVIEW_THEN_O0_VS_O1_DECISION",
+  "codex_state": "HANDOFF_PREPARED_NOT_REVIEWED",
+  "owner_choice": "HOLD_2X2_AND_O1_BOTH_UNTIL_ADVERSARIAL_REVIEW",
+  "science": {
+    "TRAIN_steps": 0,
+    "GPU_use": false,
+    "model_inference_outputs": 0,
+    "TEST_reads": 0,
+    "Q1Q2_reads": 0
+  },
+  "governance": {
+    "main_modified_by_r2": false,
+    "pr13_modified_by_r2": false,
+    "older_2x2_modified_by_r2": false,
+    "lineage_modified_by_r2": false
+  }
+}
