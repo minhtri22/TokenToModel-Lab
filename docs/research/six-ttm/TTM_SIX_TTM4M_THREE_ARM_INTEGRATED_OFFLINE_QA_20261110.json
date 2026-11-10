@@ -1,0 +1,83 @@
+{
+  "schema": "ttm.six.ttm4m.three_arm_source_integrated_cpu_qa.v1",
+  "date": "2026-11-10",
+  "task": "TTM_SIX_TTM4M_THREE_ARM_RUNNER_SOURCE_IMPLEMENTATION_SINGLE_INTEGRATED_OFFLINE_QA_AND_OWNER_PILOT_APPROVAL",
+  "status": "SOURCE_COMMITTED_READY_FOR_OWNER_DECISION_CPU_QA_PASS_20_OF_20_NO_GPU",
+  "files": {
+    "ttm_six_ttm4m_three_arm_v1.py": {
+      "sha256": "cdd1d5615368f2e4254c50af977887afa3969e4f6aabc6953b4c39d73dfc9cec",
+      "bytes": 24661
+    },
+    "test_ttm_six_ttm4m_three_arm_v1.py": {
+      "sha256": "5ed88ccc1d83bf0991ca656daefb4c0d4e51ec85e4b8d1bf337037b772768f68",
+      "bytes": 9544
+    },
+    "TTM_SIX_TTM4M_THREE_ARM_T4_PRECLAIM_V1_20261110.ipynb": {
+      "sha256": "dc453f884b8b79d1ec364a5cbb638200b38947eabe51f99e2239bd706d7f3a95",
+      "bytes": 20627
+    },
+    "WRITE_OWNER_PILOT_APPROVAL_LATER.json": {
+      "sha256": "132c416992f9d8debebb2cc6d8e30d22d366d7a5bc57eafb3a1ee598df56875d",
+      "bytes": 793
+    }
+  },
+  "audit": {
+    "unit_tests": 20,
+    "unit_tests_passed": 20,
+    "unit_tests_failed": 0,
+    "full_synthetic_schedule_updates_per_arm": 72,
+    "full_synthetic_schedule_arm_count": 3,
+    "full_synthetic_schedule_executed_cpu": true,
+    "syntax_compile": "PASS",
+    "notebook_nbformat_validate": "PASS",
+    "notebook_code_cells_ast": "PASS",
+    "notebook_embedded_runner_sha256_matches": "PASS",
+    "actual_ttm_model_cuda_training": "NOT_EXECUTED",
+    "full_synthetic_schedule_executed_within_20_unittests": true,
+    "unittest_exact_command": "python -m unittest -q test_ttm_six_ttm4m_three_arm_v1.py (set TTM_SIX_QWEN_SOURCE and TTM_SIX_QWEN_ZIP)"
+  },
+  "positive_sources": {
+    "cached_public_qwen_zip_sha256": "6f98560117219cf3cecc37fb87ff562a784fe82238d9b2d831cbda7634488d9f",
+    "qwen_scores_shape": [
+      64,
+      2
+    ],
+    "train_rows": 48,
+    "dev_rows": 16,
+    "train_groups": 12,
+    "dev_groups": 4,
+    "template_only_dev_mae": 0.05202296104592581
+  },
+  "negative_cases": [
+    "tampered Qwen ZIP",
+    "tampered Qwen source SHA",
+    "nonfinite teacher tensor",
+    "group duplicate",
+    "DEV target perturbation does not change TRAIN norms",
+    "degenerate aux std",
+    "wrong BPE SHA",
+    "fake parent checkpoint sha",
+    "absent owner approval",
+    "old G1 approval schema rejected",
+    "untrusted output path"
+  ],
+  "known_limitations": [
+    "No original checkpoint/READY raw bytes accessible for SHA rehash in this task",
+    "No BPE manifest raw bytes available for runtime acceptance in this task",
+    "No actual TTM P02 model load/run on GPU",
+    "Synthetic tiny proxy model used for 72x3 CPU dynamic smoke, not architecture parity",
+    "Source implementation and notebook have local downloadable artifacts; GitHub code publication to be handled separately if unavailable",
+    "No TEST read or independent science adjudication"
+  ],
+  "permission": {
+    "new_owner_pilot_permit": "NOT_ISSUED",
+    "g1_original_science_lock": "HOLD",
+    "g1_original_private_TEST": "SEALED",
+    "gpu": "NOT_USED",
+    "original_checkpoint_written": false,
+    "lineage_md_written": false,
+    "main_unchanged": true
+  },
+  "next": "ONE_OWNER_APPROVAL_FOR_NEW_TTM_SIX_PILOT_ONLY_AFTER_SOURCE_PINS_AND_PARENT_CHECKPOINT_SHA_PREFLIGHT",
+  "limitations_note": "No actual GPU TTM run or private checkpoint byte recheck. Owner approval needed; G1 original remains HOLD."
+}
