@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """CPU/source tests: no training, no checkpoint mutation, no Q1Q2/TEST."""
 from __future__ import annotations
-import hashlib, json, sys, tempfile, unittest
+import hashlib, json, sys, os, tempfile, unittest
 from pathlib import Path
 from unittest.mock import Mock
 import numpy as np
@@ -10,11 +10,11 @@ import torch.nn.functional as F
 from real_metadata_preflight import run,ranked_match,PACK_SHA,MANIFEST_SHA,CHECKPOINT_SHA
 import ttm_2x2_colab_runner_candidate as m
 
-ROOT=Path('/mnt/data/ttm_2x2_real_readiness_20261110')
-PACK=Path('/mnt/data/T4_PRIVATE_TRAIN_VAL_WINDOWS.npz')
-MAN=Path('/mnt/data/T4_PRIVATE_PACK_MANIFEST.json')
-CP=Path('/mnt/data/checkpoint.pt')
-P02=ROOT/'upstream'/'transformer_core.py'
+ROOT=Path(os.environ.get('TTM2X2_TEST_ROOT','/mnt/data/ttm_2x2_real_readiness_20261110'))
+PACK=Path(os.environ.get('TTM2X2_PACK','/mnt/data/T4_PRIVATE_TRAIN_VAL_WINDOWS.npz'))
+MAN=Path(os.environ.get('TTM2X2_MANIFEST','/mnt/data/T4_PRIVATE_PACK_MANIFEST.json'))
+CP=Path(os.environ.get('TTM2X2_CHECKPOINT','/mnt/data/checkpoint.pt'))
+P02=Path(os.environ.get('TTM2X2_P02',str(ROOT/'upstream'/'transformer_core.py')))
 
 class T(unittest.TestCase):
   @classmethod
