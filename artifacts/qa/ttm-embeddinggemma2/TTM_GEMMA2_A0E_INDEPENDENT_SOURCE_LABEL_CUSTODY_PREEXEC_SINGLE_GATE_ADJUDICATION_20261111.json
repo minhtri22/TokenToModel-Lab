@@ -1,0 +1,202 @@
+{
+  "schema": "ttm.gemma2.a0e.independent_source_label_custody_preexec_integrated_gate.v1",
+  "operation": "TTM_GEMMA2_A0E_INDEPENDENT_SOURCE_LABEL_CUSTODY_AND_PREEXEC_FROZEN_GATE_DECISION",
+  "date": "2026-11-11",
+  "mode": "READ_ONLY_SOURCE_AUDIT_AND_DESIGN_ONLY",
+  "scoped_repository": "minhtri22/TokenToModel-Lab",
+  "research_branch": "research/ttm-gemma2-token-alignment-pretraining-causality-20261111",
+  "baseline_head_before_this_op": "d1637d5fd84ca9e281943a11192b9645760a6a53",
+  "A0D_owner_pinned_source_provenance": "PASS_CLOSED",
+  "source_review": {
+    "simverb": {
+      "name": "SimVerb-3500",
+      "publisher": "University of Cambridge Apollo",
+      "doi": "10.17863/CAM.9391",
+      "url": "https://www.repository.cam.ac.uk/items/8a568201-0fa4-4e54-81b1-f920102492ea",
+      "license": "CC BY 4.0",
+      "license_status": "PASS_PUBLISHER_NOTICE",
+      "original_archive_filename": "simverb-3500-data.zip",
+      "original_archive_sha256": "dcd3d5a43724d4e763b9c7f7f28f3785c5cc73e79144346c3b5904c667719530",
+      "original_data_file_sha256": "b58f68454cf9354b94ecd8bfd778ff2cc784a25fc7dca02bc695319ad2b4157e",
+      "original_data_file_git_blob": "769fcdee0ebfae8e37b8ca69241f626a080a75c8",
+      "original_data_file_size": 97778,
+      "mirror_git_blob_same": "769fcdee0ebfae8e37b8ca69241f626a080a75c8",
+      "original_data_file_vs_mirror_bytes": "PASS_BYTE_IDENTICAL",
+      "ci_workflow": ".github/workflows/ttm-gemma2-a0e-publisher-source-parity-readonly.yml",
+      "ci_success_run": 43014627056,
+      "ci_success_head": "efc9f128c2f0be37ae8755e7dbc488d1c6374f11",
+      "ci_artifact_id": 13851922366,
+      "ci_artifact_digest": "sha256:7492cb74218410f9149b15bb949a8183e47d242769b3192a905d0fa91d30d04f",
+      "ci_receipt_sha256": "31607af478b010f3c9e2a3d1b52d4b1e82c2562153155f80afedbb9d26dec777",
+      "prior_first_ci_run": 43014563519,
+      "prior_first_ci_result": "FAIL_SOURCE_WORKFLOW_ESCAPING_BUG_CORRECTED_BEFORE_SUCCESS_RUN",
+      "publisher_archive_mirror_parity_verified_independent_metadata_only": true,
+      "gold_scores_used_for_pair_selection": false,
+      "gold_scores_used_for_model_scoring": false,
+      "public_dataset_pretraining_contamination_excluded": false
+    },
+    "tinyStories": {
+      "name": "roneneldan/TinyStories",
+      "dataset_card": "https://huggingface.co/datasets/roneneldan/TinyStories",
+      "declared_license": "CDLA-Sharing-1.0",
+      "license_text": "https://cdla.dev/sharing-1-0/",
+      "computational_use_license_metadata": "PASS_SCOPED",
+      "exact_original_owner_raw_train_and_valid_SHA_rechecked_in_this_gate": false,
+      "owner_final_redistribution_release_scope_adjudicated": false,
+      "source_use_vs_publication_differentiated": true
+    }
+  },
+  "private_archives_readback": {
+    "A0E_lexical_mask_archive_sha256": "5680a2e8b39b04eba85629a0851c50f3da18387305221bdfa4a2aa2ab3b7c710",
+    "A0E_full_mask_sha256": "8ba5b07bea73cfc6784de940378d5726be9cc8dab2ecc32daa4a5a3555bf91b1",
+    "A0E_core_mask_sha256": "b280478feb9f7359c261944e5c54c7808c96e05bd14558657044fe6f35a2ee2c",
+    "A0E_full_pairs": 138,
+    "A0E_full_word_types": 78,
+    "A0E_word_disjoint_core_pairs": 37,
+    "A0E_mask_scoped_QA": "PASS_FROZEN_MASK_HASH_AND_GRAPH_12_GATES",
+    "A0D_official_owner_receipt_sha256": "f4c4c0b44d588a876fdc8cf02f9b333820ac244f9c048cf9ee62bcf4d312e81a",
+    "prior_private_T4_package_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "prior_candidate_source_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "prior_private_T4_TRAIN_VAL_windows_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "prior_private_T4_checkpoint_pt_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "prior_T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "source_only_rehashed_private_zip_members": true,
+    "model_weights_loaded": false,
+    "private_tensor_contents_published": false,
+    "training_windows_read_for_model_scoring": false,
+    "prior_checkpoint_bound_as_A0E_science_start": false
+  },
+  "frozen_protocol": {
+    "path": "docs/pilot/TTM_GEMMA2_A0E_FRESH_LEXICAL_HUMAN_RATED_4ARM_PROSPECTIVE_PREREG_FREEZE_DESIGN_ONLY_20261111.md",
+    "git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+    "design_status": "FROZEN_DESIGN_ONLY",
+    "arms": [
+      "P-A",
+      "P-C",
+      "N-A",
+      "N-C"
+    ],
+    "training_seed_blocks": [
+      41031,
+      41032,
+      41033
+    ],
+    "untrained_init_seed_blocks": [
+      61031,
+      61032,
+      61033
+    ],
+    "null_seed_blocks": [
+      51031,
+      51032,
+      51033
+    ],
+    "target_token_budget": 25165824,
+    "pilot_language_effect_threshold": "all_three_D_origin_positive_and_mean_ge_0.02_nats_per_target",
+    "pilot_hypothesis_test": "NOT_CONFIRMATORY_3_SEEDS",
+    "confirmatory_statistical_power": "NOT_ESTABLISHED",
+    "semantic_causality_claim": "NOT_ADMISSIBLE_FROM_PUBLIC_LEXICAL_AND_PILOT_ALONE"
+  },
+  "integrated_gates": [
+    {
+      "id": "G01",
+      "scope": "A0D owner official source + tokenizer T1 + official CPU class",
+      "status": "PASS",
+      "evidence": "A0D independent receipt and source hashes; owner-class 271002624 params/413 tensors"
+    },
+    {
+      "id": "G02",
+      "scope": "Lexical source provenance and publisher CC BY 4.0 rights",
+      "status": "PASS",
+      "evidence": "Cambridge Apollo canonical dataset record DOI 10.17863/CAM.9391"
+    },
+    {
+      "id": "G03",
+      "scope": "Original Cambridge ZIP vs pinned public mirror exact file bytes",
+      "status": "PASS",
+      "evidence": "GitHub Actions 43014627056, original SimVerb file sha256 b58f684..."
+    },
+    {
+      "id": "G04",
+      "scope": "Score-blind 138/37 roster hashes and disjoint graph audit",
+      "status": "PASS",
+      "evidence": "Private zip SHA5680..., hash + graph independent 12 gates"
+    },
+    {
+      "id": "G05",
+      "scope": "TinyStories TRAIN/VAL raw source license and owner release rights",
+      "status": "HOLD_OWNER_RAW_ORIGIN_RIGHTS_SCOPE",
+      "evidence": "CDLA card PASS scoped; private window pack SHA PASS; raw owner SHA and redistribution assessment not independently completed"
+    },
+    {
+      "id": "G06",
+      "scope": "Independent human gold label custody",
+      "status": "HOLD_NO_INDEPENDENT_GOLD_CUSTODIAN",
+      "evidence": "Gold public, score-blind roster pinned but no external custodian signed gold SHA/access seal/scorer hash or blind chain-of-custody"
+    },
+    {
+      "id": "G07",
+      "scope": "Gold contamination-free against donor pretrained corpus",
+      "status": "HOLD_UNOBSERVABLE_TRAIN_CORPUS_EXCLUSION",
+      "evidence": "2016 benchmark predates donor Jan-2025 data cutoff; source membership exclusion unavailable, thus strict causal-semantic inference blocked"
+    },
+    {
+      "id": "G08",
+      "scope": "Pretrained P input donor complete original official weight SHA and derivative provenance",
+      "status": "HOLD_OFFICIAL_WEIGHT_SOURCE_RECHECK",
+      "evidence": "Prior candidate SHA reverified but original official model.safetensors full pinned SHA not independently rechecked in this integrated gate"
+    },
+    {
+      "id": "G09",
+      "scope": "Nonpretrained N-A/N-C official-init exact frozen tensor provenance",
+      "status": "HOLD_EXACT_SEEDED_N_ROWS_NOT_FROZEN_FOR_FOUR_ARM",
+      "evidence": "A0D official class initialized CPU no forward; no four-arm N init tensor/seed SHA or matched projection receipts"
+    },
+    {
+      "id": "G10",
+      "scope": "Constrained null P-C/N-C geometry and lexical disruption QA",
+      "status": "HOLD_FOUR_ARM_GEOMETRY_NOT_AUDITED",
+      "evidence": "Previous A0B proven scoped P-only CPU equivalent math, no N-C source-matched moment/frequency/morphology/semantic selective disruption complete"
+    },
+    {
+      "id": "G11",
+      "scope": "Same frozen TRAIN/VAL story IDs, exact checkpoint, optimizer/sampler/scorer code SHA",
+      "status": "HOLD_EXECUTION_MANIFEST_NOT_COMPLETE",
+      "evidence": "T4 20261109 pack exists with SHA, but full four-arm runner/scorer/initial-checkpoint and paired-VAL source frozen pre-exec manifest not bound"
+    },
+    {
+      "id": "G12",
+      "scope": "Pilot hypotheses, seeds, budget and no-peek design contract",
+      "status": "PASS_DESIGN_ONLY",
+      "evidence": "A0E prospective prereg contract blob d6e5d827...; 3-seed pilot not confirmatory"
+    },
+    {
+      "id": "G13",
+      "scope": "One independent pre-exec science authorization",
+      "status": "HOLD_NO_GO",
+      "evidence": "Mandatory G05/G06/G08/G09/G10/G11 unresolved; G07 restricts strong causal interpretation"
+    }
+  ],
+  "adjudication": {
+    "A0D": "PASS_CLOSED",
+    "A0E_SOURCE_LICENSE": "PASS_SCOPED",
+    "A0E_ORIGINAL_SOURCE_PARITY": "PASS_EXACT",
+    "A0E_MASK_AND_PROTOCOL": "PASS_DESIGN_FROZEN",
+    "A0E_INDEPENDENT_GOLD_CUSTODY": "HOLD",
+    "A0E_FOUR_ARM_PREEXEC": "HOLD",
+    "A0E_SCIENCE_ADMISSION": "NO_GO_HOLD",
+    "T4_2X2": "HOLD_NO_GPU",
+    "no_lm_forward": true,
+    "no_training": true,
+    "no_optimizer_steps": true,
+    "no_gpu_consumed": true,
+    "no_new_science_result": true,
+    "TEST_H768_OOD256_not_reused": true,
+    "main_branch_intentionally_unchanged": true,
+    "lineage_append": false,
+    "no_L0022": true,
+    "all_gates_pass": false
+  },
+  "next_integrated_operation": "TTM_GEMMA2_A0E_OWNER_GOLD_CUSTODIAN_SEAL_AND_FOUR_ARM_FROZEN_INPUT_NULL_QA_FINAL_ADMISSION",
+  "admission_policy": "Do not split into technical micro-permits. Complete remaining evidence as one bounded independent artifact packet, then one GO/NO_GO. No T4 on this HOLD."
+}
