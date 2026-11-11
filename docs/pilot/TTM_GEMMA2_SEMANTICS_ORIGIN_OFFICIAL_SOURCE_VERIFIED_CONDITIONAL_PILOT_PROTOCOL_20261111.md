@@ -57,3 +57,19 @@ Không được dùng p=0.0052 trước đó để kết luận significance. Ne
 - L0020, L0021 và lineage.md giữ nguyên. No new science claim/lineage L0022; main và checkpoint không bị tác động. No training/inference/optimizer/GPU.
 
 **Bước thực hiện tiếp theo:** TTM_GEMMA2_A0D_OWNER_WINDOWS_PINNED_SOURCE_T1_MAPPING_SINGLE_READBACK_AND_PILOT_PREREG_GATE. Một lượt PowerShell 5.1 owner-local kiểm ba file đúng SHA và T1 1917/50 bằng official class; độc lập xác minh receipt rồi mới chốt pilot prereg và một quyết định T4. Không thêm model mirror hoặc lặp lại các benchmark đã tiêu thụ.
+
+---
+
+## 5. Addendum 2026-11-11 — owner-local PASS, không thay đổi cổng science
+
+**Bản tin mới hơn thay thế trạng thái owner-local HOLD tại mục 1 và mục 4 ở phía trên; các giả thuyết và kiểm soát khoa học ở mục 2–3 không thay đổi.**
+
+Đã kiểm toán bằng chứng gốc `TTM_GEMMA2_A0D_ISOLATED_CPU_READBACK_20261111_105145_384.json`, SHA256 `f4c4c0b44d588a876fdc8cf02f9b333820ac244f9c048cf9ee62bcf4d312e81a`. SHA256 từ tệp owner upload khớp với user report, và nội dung chính được đọc thêm từ original owner Windows QA file qua kết nối chỉ đọc. Bộ xác minh 13/13 kiểm tra biên bản PASS.
+
+- `DONOR_CONFIG_TOKENIZER_3SHA=PASS_OWNER_3_OF_3`, đúng revision `f9972ac22e696a105c482202646979e33e4b5a1e`.
+- `OWNER_OFFICIAL_CLASS=PASS_REAL_EmbeddingGemma2TextModel` với Python 3.12.10, Torch 2.11.0+cpu, Transformers 5.19.0; 271.002.624 tham số, 413 state tensors. Fingerprint name/shape/dtype là `9e36b43011641e65bbdbdc2938d8c12a368810d9e59e2107024683288d2fecc1`, khớp CI độc lập.
+- `T1_TO_OFFICIAL_TOKENIZER=PASS`: 1.917 mapped, 50 multi-ID, 130 incomplete UTF-8, 1 special/empty, 0 invalid donor IDs.
+- `MODEL_FORWARD=FALSE`, `TRAINING=FALSE`, `PRETRAINED_WEIGHTS_LOADED=FALSE`, `OOD256_REUSE=FALSE`, `T4_AUTHORIZED=FALSE`.
+- Đã đóng **A0D technical provenance gate**; `A0E_FRESH_LEXICAL_CONFIRMATORY_AND_PREREG=OPEN_DESIGN_ONLY`, `T4_2X2=HOLD`. Cần bộ lexical độc lập, provenance/rights, rubric và threshold prereg, không sử dụng tập đã chấm hoặc TEST/H768/OOD256.
+
+Biên bản phân xử duy nhất: [A0D owner PASS independent adjudication](../../artifacts/qa/ttm-embeddinggemma2/TTM_GEMMA2_A0D_OWNER_OFFICIAL_SOURCE_T1_MAPPING_PASS_INDEPENDENT_ADJUDICATION_20261111.json). L0020, L0021 và `lineage.md` bất biến; không thêm L0022 vì đây chỉ là kiểm toán nguồn và môi trường, không phải kết quả science.
