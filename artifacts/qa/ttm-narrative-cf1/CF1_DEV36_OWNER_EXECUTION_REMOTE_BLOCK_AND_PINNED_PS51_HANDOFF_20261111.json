@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.cf1.dev36.one_shot.remote_execution_block_and_fallback_source.v1",
+  "date": "2026-11-11",
+  "task": "TTM_CF1_EXACT_LOCAL_BPE_MANIFEST_DEV36_ONESHOT_OWNER_EXECUTION_AND_GITHUB_RECEIPT",
+  "status": "REMOTE_TRANSPORT_BLOCKED__DEV36_CPU_NOT_EXECUTED__OWNER_PS51_FALLBACK_PINNED",
+  "scope": "ONE_READONLY_FROZEN_O0_STEP1024_CPU_DEV_36_PAIRS",
+  "facts": {
+    "repository_full_name": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-o0-narrative-cf1-source-scorer-blind-readiness-20261111",
+    "existing_pinned_readiness_head": "4f5071daffa28db1468ee9af0dbd3ad2f8ab41a6",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "dev_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+    "dev_oracle_sha256": "3a425188077f24041a02fe9675e5a503221fe5cc0247ebd53a8cc266329c046d",
+    "required_private_T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "inner_runner_git_blob": "14109c8d4e27a874e1832a480a0d7eeebed78b2f",
+    "owner_ps51_wrapper_git_blob": "59a7e90e7e1284303bda716937b4632094d77693",
+    "remote_desktop": "INTERNAL_TOOL_FAILURE_DEVICE_LIST_MANIFEST_READ_AND_PROJECT_REGISTER__NO_REMOTE_JOB_ACCEPTED",
+    "container_manifest": "UNAVAILABLE; partial extracted 1277 of 1791 pair IDs rejected",
+    "GoogleDrive_manifest_exact_filename": "NOT_FOUND",
+    "actual_cpu_scored_DEV_pairs": 0,
+    "actual_teacher_forced_DEV_scores": 0,
+    "actual_science_metrics": "NOT_AVAILABLE",
+    "output_score_receipt": "NOT_CREATED",
+    "GPU_calls": 0,
+    "optimizer_updates": 0,
+    "original_TEST_Q1Q2_reads": 0,
+    "FINAL_plaintext_reads": 0,
+    "main_changed_by_task": false,
+    "PR13_changed_by_task": false,
+    "lineage_changed_by_task": false
+  },
+  "source_QA": {
+    "status": "PASS_13_OF_13_AUTHOR_STATIC_GUARDS",
+    "checks": {
+      "source_pin_expected": true,
+      "inner_runner_exact_blob": true,
+      "checkpoint_sha_pin": true,
+      "tokenizer_sha_pin": true,
+      "project_root_exact": true,
+      "prevent_replay": true,
+      "source_git_bytes": true,
+      "no_original_test_or_final": true,
+      "gpu_training_guard": true,
+      "new_evidence_branch": true,
+      "no_main_checkout": true,
+      "git_push_and_readback": true,
+      "no_science_execution_claim": true
+    }
+  },
+  "decisions": {
+    "owner_scoped_runtime": "HOLD_REMOTE_DISPATCH_AND_EXACT_PRIVATE_BPE_ACCESS",
+    "scientific_O0_result": "NOT_EXECUTED_NOT_FAIL",
+    "permitted_local_action": "RUN_PUBLISHED_PS51_ONCE_AFTER_EXACT_SOURCE_PREFLIGHT",
+    "evidence_branch": "evidence/ttm-cf1-step1024-dev36-once-20261111",
+    "post_execution": "GitHub exact SHA readback and later scientific scoped adjudication",
+    "O1": "DEFER",
+    "GPU": "HOLD",
+    "TRAINING": "HOLD",
+    "BLIND_FINAL": "SEALED_HOLD"
+  }
+}
