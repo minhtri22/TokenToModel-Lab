@@ -72,3 +72,39 @@ Không chỉnh sửa biên bản gốc, không chuyển các FAIL thành `PASS` 
 - **Merge decision:** `HOLD_NOT_REQUESTED` — nhánh đã đóng phạm vi nghiên cứu nhưng chưa qua quyết định merge riêng; bảng này không tự quyết định hợp nhất.
 
 **Bước thực hiện tiếp theo:** `TTM_PORTFOLIO_PRIORITY_REVIEW_NO_SCIENCE_REPLAY` — dùng danh mục để chọn **một** hướng nghiên cứu mới theo giá trị/khoảng trống chứng cứ; thiết kế hợp đồng khoa học mới trước mọi phép đo. Không chạy lại bộ 4 fixture Ollama và không mở P07/P08 chỉ từ kết quả này.
+
+## 6. Kết quả đánh giá ưu tiên sau khi đóng Ollama Full Logits (2026-11-11)
+
+**Operation:** `TTM_PORTFOLIO_PRIORITY_REVIEW_NO_SCIENCE_REPLAY`. Phân loại: **quyết định sắp xếp nghiên cứu chỉ dựa vào bằng chứng hiện hữu** (`DESIGN_AND_PORTFOLIO_REVIEW_ONLY`). Không chạy mô hình, không chọn checkpoint mới, không mở TEST, không thêm phán quyết khoa học hay thay đổi cổng P00–P12. `lineage.md` giữ nguyên.
+
+### 6.1. Ma trận ưu tiên (đánh giá giá trị thông tin, không phải phép đo benchmark)
+
+| Thứ tự | Hướng nghiên cứu | Bằng chứng hiện hữu | Khoảng trống cụ thể | Quyết định |
+|---|---|---|---|---|
+| **1 — ưu tiên cao nhất** | **TTM-Small-4M: chẩn đoán khả năng tiếp nối ngữ cảnh và chất lượng sinh văn bản (generation quality/continuation)** | T4 VAL NLL hơn bigram, TEST descriptive PASS; FRESH12 có **35/48** đoạn bám prompt = 0, phép thử trimmed vs baseline không chứng minh cải thiện | Chưa xác định rõ mô hình tạo truyện có mạch lạc/tuân theo ngữ cảnh đủ để phát triển tiếp hay nguyên nhân do dữ liệu, context 256, vocab BPE 2048, checkpoint hoặc đánh giá | **`NEXT_RESEARCH_DESIGN_PRIORITY`**. Thiết kế đối chứng chất lượng mới; không dùng lại 64 truyện TEST và không tái chạy FRESH12. Không train trước khi có mục tiêu và cổng mới |
+| 2 | EmbeddingGemma 2 residual/semantic transfer, kiểm tra cơ chế | OOD256: `PASS_SCOPED_OOD_RESIDUAL_TRANSPORT`, 3 seed, 12 arms, hai co-primary CI dương | Chưa cô lập semantic pretraining khỏi cấu trúc hình học, hình thái token, chuẩn vector; chưa kết luận lợi ích trong sản phẩm | `SECONDARY_DESIGN_PRIORITY`; không chạy lại OOD256; nghiên cứu nhân quả khác nếu cần |
+| 3 | Attention/Dense/Paged KV đúng số học, sau đó tối ưu inference | L0014 và L0015 xác nhận logits F32 phạm vi nhỏ; P07 XPU canary PASS nhưng SYCL kernel chưa chạy | Chưa có **native PagedAttention GPU parity** hay benchmark ngang workload/VRAM, TTFT/TPOT | `DEFER_NEW_EXECUTION`, chỉ dùng baseline CPU làm tham chiếu; giữ P07 `PAUSED_PRESERVE` |
+| 4 | Bộ nhớ vector ngoài, adapter/cross-attention | Exact lookup bitwise PASS; contextual retrieval và adapter đã có kết quả âm tính ở cấu hình thử | Chưa có bằng chứng cải thiện NLL tăng thêm qua memory; thiết kế attention tích hợp mới vẫn là giả thuyết | `PAUSED_PENDING_NEW_HYPOTHESIS`; giữ các FAIL |
+| 5 | MoE (Mixture of Experts), tăng quy mô và GPU serving | Mô hình 4M chạy được và so logits; chưa có thí nghiệm MoE cùng ngân sách hoặc tín hiệu quality gain | Thay kiến trúc tăng chi phí, rủi ro sai đối chứng và độ phức tạp vận hành khi mô hình nền còn hạn chế chất lượng | `DEFER`, không mở P09/P10/P11 hoặc điều chỉnh kiến trúc từ PASS kỹ thuật |
+
+**Lý do ưu tiên:** chênh lệch logits rất thấp chứng minh tuyến triển khai đúng về số học trong phạm vi giới hạn; nó không giải quyết câu hỏi mô hình có sinh được nội dung hữu ích. Trước khi đầu tư vào GPU, MoE, PagedAttention hoặc scaling, cần một kết luận định lượng/mô tả hợp lệ về chất lượng của chính mô hình đã huấn luyện, đủ khả năng phân biệt `QUALITY_NO_SIGNAL` và `QUALITY_CANDIDATE`.
+
+### 6.2. Hướng duy nhất được chọn để chuẩn bị kế hoạch kế tiếp
+
+**`TTM_SMALL4M_FRESH_CONTINUATION_QUALITY_GAP_REVIEW_DESIGN_ONLY`**
+
+- **Câu hỏi khoa học:** mô hình TTM-Small-4M đã huấn luyện có tạo tiếp nối truyện giữ thực thể, sự kiện và quan hệ nhân quả trên prompt mới hay không, trong cấu hình cố định? Không tráo câu hỏi thành instruction-following của chat model.
+- **Nguồn phải giữ nguyên:** checkpoint(s), tokenizer và nguồn đào tạo đã xác minh; ngưỡng/chi tiết dự kiến cần *khóa trước* một nghiên cứu mới. Không sử dụng TEST 64 truyện đã tiêu thụ hoặc tái sử dụng FRESH12 như tập xác nhận mới.
+- **Thiết kế ưu tiên:** tập prompt mới do dự án tự viết và khóa hash trước khi sinh; rubric chấm bám ngữ cảnh, liên tục thực thể, nhân quả, tỷ lệ lặp; có đối chứng thích hợp, ghi ai là người chấm; không gọi một reviewer AI là đánh giá con người độc lập. Chốt unit of analysis, tiêu chí PASS/FAIL, giới hạn CPU/Colab và số lượt trước execution.
+- **Điểm dừng hữu hạn:** kết thúc ở tài liệu thiết kế và đề nghị một quyết định khoa học hợp nhất nếu chủ dự án sau này chọn chạy. **Không mở quyền inference, GPU, Colab hoặc huấn luyện trong lượt này.**
+- **Khi thiếu tín hiệu:** ưu tiên giả thuyết dữ liệu, vocab, context, mục tiêu và số lần lặp TRAIN, không tự chuyển ngay sang MoE, scaling hoặc cài kernel GPU.
+- **Khi có tín hiệu:** đưa sang giai đoạn đối chứng hiệu năng/lưu trữ cùng checkpoint, không dùng logits parity 4/4 để claim chất lượng hay tốc độ.
+
+### 6.3. Quyết định đóng và lưu trữ nhánh Ollama
+
+- Kết quả khoa học L0015 và hồ sơ chứng cứ vẫn ở nhánh gốc. `PASS_SCOPED_CLOSED_UNMERGED` là quyết định **kết thúc nghiên cứu**, không phải quyết định hợp nhất source runner vào `main`.
+- Bản báo cáo ưu tiên này chỉ bổ sung tài liệu quản trị. Kết quả âm tính L0013, FRESH12, vector memory và fail P07 vẫn được dẫn chiếu, không sửa.
+- Bản snapshot sẽ được **đóng băng** bằng ref `archive/ttm-ollama-full-logits-scoped-20261111` trỏ **exact final commit** chứa cả báo cáo ưu tiên. Nhánh gốc `research/ttm-t5-ollama-full-logits-20261111` sẽ không được dùng cho công việc tiếp; xóa ref gốc chỉ sau khi kiểm chứng archive và đúng SHA, nếu có công cụ có quyền xóa. Không đụng Git worktree/dữ liệu trên Windows, không force.
+- `MAIN_SHA`: `5d52e32f20021e36f08f284ef9864d3ba36dbead`; `MERGE_DECISION=NOT_MERGEABLE_WITHOUT_SEPARATE_REVIEW`; `SCIENCE_REPLAY=FORBIDDEN`; `LINEAGE=NO_CHANGE`.
+
+**Bước thực hiện tiếp theo:** `TTM_SMALL4M_FRESH_CONTINUATION_QUALITY_GAP_REVIEW_DESIGN_ONLY` chỉ là hướng được đề xuất cho một công việc nghiên cứu tương lai. **Không khởi chạy công việc đó trong lượt ưu tiên này.**

@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.governance.ollama_research_closeout_portfolio_priority.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_PORTFOLIO_PRIORITY_REVIEW_NO_SCIENCE_REPLAY",
+  "source_branch": "research/ttm-t5-ollama-full-logits-20261111",
+  "source_head_before_commit": "f159cc3c52124e57a30e1236faac6a9bacb3ace6",
+  "archive_ref_target": "archive/ttm-ollama-full-logits-scoped-20261111",
+  "archive_creation": "TO_BE_VERIFIED_AFTER_THIS_COMMIT",
+  "original_branch_remote_deletion": "NOT_PERFORMED_NO_DELETE_REF_CONNECTOR",
+  "lineage_git_blob_before": "7f08821c251c7cde61cf4ed380765bfaafa32cd1",
+  "lineage_modified": false,
+  "main_sha": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "ollama_science": {
+    "status": "PASS_SCOPED_CLOSED_UNMERGED",
+    "four_fixtures_passed": 4,
+    "logits_compared": 8192,
+    "global_max_abs": 0.0000095367431640625,
+    "provenance": "PASS_RECORDED_CIM_CHILD_AND_OLLAMA_LOG_CORROBORATED",
+    "rerun": false
+  },
+  "negative_preservation": [
+    "TTM_T5_FAIL_7_OF_8",
+    "TTM_T5_L0013_FAIL_STRICT_32_OF_32",
+    "TTM_FRESH12_NO_DEMONSTRATED_SEMANTIC_GAIN",
+    "TTM_VECTOR_MEMORY_CONTEXTUAL_FAIL_EXPLORATORY",
+    "TTM_P07_RUN_HOLD_OR_FAIL_RESOURCE_GUARD"
+  ],
+  "priorities": [
+    {
+      "rank": 1,
+      "branch_or_area": "TTM_SMALL4M_GENERATION_QUALITY",
+      "decision": "NEXT_DESIGN_PRIORITY",
+      "reason": "Held-out NLL improvement and Ollama numeric parity do not establish useful story continuation; FRESH12 35/48 adherence zero."
+    },
+    {
+      "rank": 2,
+      "branch_or_area": "TTM_EMBEDDINGGEMMA2_OOD",
+      "decision": "SECONDARY_DESIGN_PRIORITY",
+      "reason": "OOD256 residual PASS but semantic mechanism confounded."
+    },
+    {
+      "rank": 3,
+      "branch_or_area": "TTM_ATTENTION_DENSE_PAGED_GPU",
+      "decision": "DEFER_EXECUTION",
+      "reason": "No native P07 SYCL parity/throughput yet; original CPU full logits only a baseline."
+    },
+    {
+      "rank": 4,
+      "branch_or_area": "TTM_VECTOR_MEMORY",
+      "decision": "PAUSED_NO_NEW_HYPOTHESIS",
+      "reason": "Negative contextual retrieval and adapter scoped science preserved."
+    },
+    {
+      "rank": 5,
+      "branch_or_area": "TTM_MOE_SCALING_SERVING",
+      "decision": "DEFER",
+      "reason": "No equivalent-budget quality evidence; new architecture incurs complexity."
+    }
+  ],
+  "authorized_scope": "DOCS_ONLY_NO_INFERENCE_NO_TRAINING_NO_NEW_QA_NO_MAIN_MERGE",
+  "next_operation": "TTM_SMALL4M_FRESH_CONTINUATION_QUALITY_GAP_REVIEW_DESIGN_ONLY",
+  "next_operation_started": false
+}
