@@ -1,0 +1,42 @@
+name: TTM GEMMA2 A0E CPU local Linux Python313 dependency wheelhouse
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0e-py313-linux-local-offline-deps.yml
+  workflow_dispatch:
+jobs:
+  wheelhouse-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - name: Download only CPU Python 3.13 dependency wheels, no model or private inputs
+        shell: bash
+        run: |
+          mkdir -p _tmp/a0e_linux_py313_wheels
+          python -m pip download --disable-pip-version-check --only-binary=:all: --python-version 3.13 --implementation cp --abi cp313 --platform manylinux_2_17_x86_64 --dest _tmp/a0e_linux_py313_wheels 'transformers==5.19.0'
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          root=Path('_tmp/a0e_linux_py313_wheels')
+          manifest={'status':'PASS_WHEELHOUSE_SOURCE_ONLY','python':'3.13','platform':'manylinux_2_17_x86_64','transformers':'5.19.0','wheels':[],'torch_included':False,'private_data_included':False}
+          for p in sorted(root.glob('*.whl')):
+              manifest['wheels'].append({'name':p.name,'bytes':p.stat().st_size,'sha256':hashlib.file_digest(p.open('rb'),'sha256').hexdigest()})
+          assert len(manifest['wheels'])>=10
+          assert not any(x['name'].startswith('torch-') for x in manifest['wheels'])
+          (root/'WHEELHOUSE_SHA256_MANIFEST.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n',encoding='utf8')
+          print('A0E_LINUX_PY313_WHEEL_COUNT='+str(len(manifest['wheels'])))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TTM_GEMMA2_A0E_LINUX_CP313_TRANSFORMERS_5_19_WHEELS_20261111
+          path: _tmp/a0e_linux_py313_wheels/*
+          retention-days: 7
+          if-no-files-found: error
+      - if: always()
+        run: rm -rf _tmp/a0e_linux_py313_wheels
