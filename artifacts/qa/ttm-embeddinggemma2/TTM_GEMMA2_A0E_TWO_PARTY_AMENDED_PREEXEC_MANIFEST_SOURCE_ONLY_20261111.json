@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.gemma2.a0e.two_party_amendment_preexec.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_TWO_PARTY_PROCEDURAL_BLINDING_AND_CAUSAL_CONTROL_SINGLE_AMENDMENT",
+  "mode": "DESIGN_FROZEN_ONE_SHOT_PREEXEC_HOLD",
+  "original_prereg_git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+  "amendment_document_path": "docs/pilot/TTM_GEMMA2_A0E_TWO_PARTY_PROCEDURAL_BLINDING_CAUSAL_CONTROL_SINGLE_AMENDMENT_20261111.md",
+  "gold_source_sha256": "b58f68454cf9354b94ecd8bfd778ff2cc784a25fc7dca02bc695319ad2b4157e",
+  "arms": [
+    "P-A",
+    "P-C",
+    "N-A",
+    "N-C"
+  ],
+  "paired_training_seeds": [
+    41031,
+    41032,
+    41033
+  ],
+  "N_init_seeds": [
+    61031,
+    61032,
+    61033
+  ],
+  "null_seeds": [
+    51031,
+    51032,
+    51033
+  ],
+  "optimizer_steps_per_arm_seed": 512,
+  "target_tokens_per_step": 4096,
+  "target_token_presentations": 25165824,
+  "normalization_rule": "SCALAR_P_TO_N_MEDIAN_T1_MAPPED_BY_SEED_P_C_SAME_FACTOR",
+  "normalization_source_only_aggregate_receipt_sha256": "9507d218f2d72da69821a3213026543df0ea8924f9985f1e1328892d1bc15be4",
+  "normalization_coefficients_from_prior_aggregate_only": {
+    "61031": 0.4518916284254787,
+    "61032": 0.4524194705328433,
+    "61033": 0.4521401636404541
+  },
+  "normalization_coefficients_are_design_estimates_not_new_tensor_sha": true,
+  "projector_interpretation": "GRADIENT_ADAPTATION_CONFOUND_PRETRAINING_ASSOCIATED_ONLY",
+  "procedural_blinding_mode": "TWO_PARTY_HASH_LOCK_NO_THIRD_PARTY",
+  "procedure": "LOCK_EXACT_12_RESULTS_SHA256_AND_PUBLISH_RECEIPT_COMMIT_BEFORE_GOLD_READ",
+  "gold_scores_read_prelock": false,
+  "label_appears_in_training_inputs": false,
+  "scientific_claim_scope": "EXPLORATORY_PRETRAINING_ASSOCIATED_NOT_PURE_SEMANTIC_CAUSALITY",
+  "external_custodian_required": false,
+  "owner_two_party_protocol_adopted": true,
+  "owner_two_party_protocol_adoption_basis": "Explicit user request this turn; no external signature claimed",
+  "owner_source_rights_and_budget_acknowledged": false,
+  "local_evidence": {
+    "scaled_P_A_P_C_three_seed_sha_receipt": null,
+    "cross_origin_full_spectrum_and_SMD_QA": null,
+    "projector_source_negative_QA": null,
+    "train_val_raw_rights_and_neardup_QA": null,
+    "original_pretrained_weight_extraction_QA": null,
+    "full_A0E_training_runner_source": null,
+    "optimizer_sampler_schedule_source": null,
+    "fresh_VAL_roster_receipt": null,
+    "independent_NLL_and_lexical_scorer_source": null,
+    "procedural_blind_lock_source_QA": null,
+    "owner_no_peek_declaration": null
+  },
+  "known_source_pins_not_approval": {
+    "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "TRAIN_VAL_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "TTM_original_candidate_initialization_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "private_PN_matched_null_receipt_sha256": "a8f7a1d232f8edf579af52cd4e73959b3b8a51cbd3bd1beaf628b6f56b4f1cd5",
+    "N_T1_source_3_seed_qa": "PASS_PRESERVED",
+    "PN_within_source_null_6_of_6_qa": "PASS_PRESERVED"
+  },
+  "T4_authorized": false,
+  "training_executed": false,
+  "model_forward_executed": false,
+  "outcome_NLL_read": false,
+  "SimVerb_scores_read": false,
+  "TEST_H768_OOD256_reused": false,
+  "SCIENCE_ADMISSION": "NO_GO_HOLD"
+}
