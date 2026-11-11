@@ -1,0 +1,118 @@
+{
+  "GPU_calls": 0,
+  "cases": [
+    {
+      "name": "valid_input",
+      "pass": true
+    },
+    {
+      "name": "reject_root_answer",
+      "pass": true
+    },
+    {
+      "name": "reject_root_oracle",
+      "pass": true
+    },
+    {
+      "name": "reject_root_split",
+      "pass": true
+    },
+    {
+      "name": "reject_record_label",
+      "pass": true
+    },
+    {
+      "name": "reject_record_source",
+      "pass": true
+    },
+    {
+      "name": "reject_record_id",
+      "pass": true
+    },
+    {
+      "name": "reject_record_split",
+      "pass": true
+    },
+    {
+      "name": "reject_record_extra",
+      "pass": true
+    },
+    {
+      "name": "reject_context_same",
+      "pass": true
+    },
+    {
+      "name": "reject_completion_same",
+      "pass": true
+    },
+    {
+      "name": "reject_missing_prefix",
+      "pass": true
+    },
+    {
+      "name": "reject_duplicate_json_keys",
+      "pass": true
+    },
+    {
+      "name": "reject_nan",
+      "pass": true
+    },
+    {
+      "name": "reject_unicode_decode",
+      "pass": true
+    },
+    {
+      "name": "reject_unexpected_root",
+      "pass": true
+    },
+    {
+      "name": "reject_empty_records",
+      "pass": true
+    },
+    {
+      "name": "prefix_token_math",
+      "pass": true
+    },
+    {
+      "name": "boundary_overflow",
+      "pass": true
+    },
+    {
+      "name": "completion_overflow",
+      "pass": true
+    },
+    {
+      "name": "score_four_teacher_forced_logits",
+      "pass": true
+    },
+    {
+      "name": "teacher_forcing_index_no_offbyone",
+      "pass": true
+    },
+    {
+      "name": "nonfinite_rejected",
+      "pass": true
+    },
+    {
+      "name": "checkpoint_original_sha256",
+      "pass": true
+    },
+    {
+      "name": "checkpoint_metadata_strict",
+      "pass": true
+    }
+  ],
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "limitations": [
+    "byte-ASCII token stub in CPU fixture, not exact BPE",
+    "does not run neural DEV or FINAL scores",
+    "strict P02 source blob loader is prepared; on-disk GitHub source bytes must be supplied for exact load"
+  ],
+  "model_inference_on_DEV_OR_FINAL": 0,
+  "optimizer_updates": 0,
+  "passed": 25,
+  "schema": "ttm.cf1.cpu_synthetic_scorer_and_source_qa.v1",
+  "status": "PASS",
+  "torch": "2.10.0+cpu",
+  "total": 25
+}
