@@ -11,7 +11,13 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE))
 from cf1_exact_t1_bpe import PinnedT1BPE
-from cf1_teacher_forced_scorer import length_and_prefix_check
+def length_and_prefix_check(encode,context,completion):
+    p=list(encode(context));whole=list(encode(context+completion))
+    if whole[:len(p)]!=p:raise ValueError('PREFIX_TOKENIZATION_CHANGED')
+    suffix=whole[len(p):]
+    if not 1<=len(p)<=224 or not 1<=len(suffix)<=16 or len(whole)>256:
+        raise ValueError('FINAL_BPE_LENGTH_CAP_EXCEEDED')
+    return p,suffix
 
 def sha(b):return hashlib.sha256(b).hexdigest()
 def main():
