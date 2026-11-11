@@ -1,0 +1,15 @@
+{
+  "aad_b64": "dHRtLm8wLm4xLmZpbmFsLnNlZWQuZXNjcm93LnYxfDIwMjYxMTEx",
+  "cipher": "AES-256-GCM",
+  "ciphertext_b64": "W9fbV3JJ4vAdL9+uS3QbD9e4/zwgllxM6A7ylh/RM3rRuH/Y0Kn9dkvfyOmNIJGwyj/KcxzbvpQH7HKE+cNioBtaUomngyXq/d5Qe7Mtxc4a1WzloPRx1pszzoZlynBTHIxOjAWRi2v7EpvU/6WU2nmHbEyWhusBajNpw8YLSeeaFAkSZ6l8B4QJkxCEbq6hXCQUJmnIGu8wifgQci45t0BSseSS3aSURR79usKgSGAuGU4sI6Cgio3wd1B1qiq9jC0vAHTxoBVKNq/7zMEjuEsFh8y8F5u7NwgEzNaAtE+o5+Z4Smz9bYXF6aYOEZZnMSsyqjs7+wXxGhAQpyFVtYknem4IP64az7Jgp7U8e1CPpbY0Oy5KTvO2oq05cFgwjkHid439/PiKdqw1F3uKqIlAIg==",
+  "ciphertext_sha256": "4b514b3ab1844ec58132e1deaf8c7507968d04930c11ecc6aef9f9b77cf6e197",
+  "full_corpus_ciphertext_sha256": "887cdb593cb22dda9128d00b8b4d5556670dc0613422f945cb0b5111c12b7c67",
+  "groups": 128,
+  "must_preserve_private_key_file": true,
+  "nonce_b64": "FSKYx/Oqw07vP+Om",
+  "plaintext_commitment_sha256": "70487eba90d642f03e79b10816705797c134c421b2b8062d9b58bb72b7f8f505",
+  "public_labels_present": false,
+  "public_seed_present": false,
+  "rows": 512,
+  "schema": "ttm.o0.n1.final.seed.aes256gcm.escrow.v1"
+}
