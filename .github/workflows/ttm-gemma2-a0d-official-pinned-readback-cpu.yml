@@ -1,0 +1,52 @@
+name: TTM GEMMA2 A0D exact donor + official text CPU readback
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0d-official-pinned-readback-cpu.yml
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0d_pinned_official_source_readback.py
+  workflow_dispatch:
+
+jobs:
+  source-only:
+    name: Exact files and official class; no training/inference
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HOME: ".a0d-hf-cache"
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      TRANSFORMERS_NO_TF: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned CPU torch
+        run: python -m pip install --disable-pip-version-check --no-cache-dir torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Install official Transformers
+        run: python -m pip install --disable-pip-version-check --no-cache-dir transformers==5.19.0
+      - name: Compile exact source
+        run: python -m py_compile tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0d_pinned_official_source_readback.py
+      - name: Fetch ONLY three official source files at frozen donor revision
+        run: |
+          python - <<'PY'
+          from huggingface_hub import hf_hub_download
+          from pathlib import Path
+          root=Path(".a0d-private-source");root.mkdir(exist_ok=False)
+          rev="f9972ac22e696a105c482202646979e33e4b5a1e"
+          for name in ["config.json","tokenizer.json","tokenizer_config.json"]:
+              p=hf_hub_download(repo_id="google/embeddinggemma-2",revision=rev,
+                  filename=name,local_dir=str(root),force_download=False)
+              print("FETCH_SOURCE_ONLY", name,Path(p).stat().st_size)
+          PY
+      - name: Run fail-closed pinned SHA + official class CPU initialization
+        run: |
+          python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0d_pinned_official_source_readback.py --source-dir .a0d-private-source --cpu-init
+      - name: Remove ephemeral source copies
+        if: always()
+        run: rm -rf .a0d-private-source .a0d-hf-cache
