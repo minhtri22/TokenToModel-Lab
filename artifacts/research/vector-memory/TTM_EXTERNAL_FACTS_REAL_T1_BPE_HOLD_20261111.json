@@ -1,0 +1,6 @@
+{
+  "expected_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "science": "NOT_EXECUTED",
+  "status": "HOLD_REAL_T1_MANIFEST_MISSING",
+  "test_status": "NOT_READ_OR_DECRYPTED"
+}
