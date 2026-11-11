@@ -219,6 +219,8 @@ def main() -> None:
                     "generated_text":None,"adherence_0_to_3":None,"first_event_fact_match":None,
                     "goal_retention":None,"serious_contradiction":None,"notes":None} for r in blind]
     }
+    # Randomize scorer-facing record order separately from private mapping order.
+    secrets.SystemRandom().shuffle(scorer["records"])
     scorer_blob = json_crlf(scorer)
     forbidden = (b'"decoder"',b'"seed"',b'"truth"',b'"prompt_id"',b'"condition"',b'"candidate_A"',b'"candidate_B"')
     if any(k in scorer_blob for k in forbidden):
