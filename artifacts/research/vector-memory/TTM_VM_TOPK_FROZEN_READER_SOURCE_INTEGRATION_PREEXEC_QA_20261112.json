@@ -1,0 +1,84 @@
+{
+  "schema": "ttm.vm.externalfacts.topk_source_integration_and_owner_preexec.v1",
+  "operation": "TTM_VM_TOPK_NONTEST_FROZEN_READER_ONE_SHOT_SOURCE_INTEGRATION_AND_PREEXEC_QA",
+  "date": "2026-11-12",
+  "status": "PASS_SCOPED_SOURCE_INTEGRATION__HOLD_PRIVATE_READER_SHA_OWNER",
+  "source_pins": {
+    "original_reader_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "probe_generator_git_blob": "b08e2120a2ac9d4e270ee48fdca77e4a4743e22c",
+    "new_integration_git_blob": "ccab713f8c5a4b913259088225daffcf5382be41",
+    "private_custody_script_git_blob": "688d97e8389a8052a4e405632bdbf7d261bc306b",
+    "independent_qa_script_git_blob": "30920a7b837343606fa8e200c8cc1c79c4a706d8",
+    "windows_preexec_ps51_git_blob": "87b3bf5f16e2e3d76f8c2180dd10e1140e7c8734",
+    "frozen_science_source_commit": "c41b6c8bc01a4c367bf619a6df6e05e5e2fb9d47",
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "nontest_probe_sha256": "88c558a8f1844ee1e55bff64f30c2b801c8bf3e54ef0cbc537f9fd81e51e9c11",
+    "private_reader_sha256": "PENDING_RAW_BYTES_OWNER_WINDOWS"
+  },
+  "qa_execution": {
+    "local_full_suite": {
+      "status": "PASS",
+      "checks": 42,
+      "total": 42,
+      "output_sha256": "44c16412860eb8e0605a727a92ad864f080f5bd16eed0b8e11a1bd29415a7154",
+      "runner_in_public_zip": "test_topk_reader_integration_source_qa.py"
+    },
+    "second_codepath_compact_audit": {
+      "status": "PASS",
+      "checks": 28,
+      "total": 28,
+      "output_sha256": "7e084cd962267b745c87306835821f0984ba6f8c09327123132afdab686504ef",
+      "runner_committed": true
+    },
+    "synthetic_private_custody_smoke": {
+      "status": "PASS_SYNTHETIC_FAKE_READER_ONLY",
+      "private_real_reader_used": false,
+      "steps_metadata": 128,
+      "tensors": 8
+    },
+    "vectors": {
+      "test_tokenizer": "MOCK_ASCII",
+      "embedding": "RANDOM_FROZEN_CPU_FP32",
+      "reader": "ORIGINAL_SOURCE_RANDOM_WEIGHTS_WITH_CONTROLLED_OUTPUT_PROJECTION_PERTURBATION",
+      "trained_model_loaded": false
+    }
+  },
+  "integration_contract": {
+    "primary_retrieval": "FULL_QUESTION_T1_MEAN_EMBEDDING_COSINE_VS_32_CARD_KEYS",
+    "selection": "TOP1_OR_TOP3_FROM_RANK_ONLY",
+    "no_oracle_lookup_in_main_path": true,
+    "no_gold_answer_or_target_key_in_rank_api": true,
+    "correct_wrong_keys_same_order_and_rank": true,
+    "one_or_three_mask_bits_only": true,
+    "bypass_original_reader_output_bit_exact": true,
+    "swapped_target_value_changes_output_iff_target_selected_in_mock": true,
+    "wrong_value_has_no_effect_when_target_not_selected_in_mock": true,
+    "owner_custody_metadata_only_no_forward": true
+  },
+  "not_yet_achieved": {
+    "private_reader_byte_sha_locked": false,
+    "private_reader_real_state_validated": false,
+    "real_t1_retrieval_scored": false,
+    "probe_recall_measured": false,
+    "probe_nll_measured": false,
+    "frozen_reader_science_inference_authorized": false
+  },
+  "executed": {
+    "new_training_steps": 0,
+    "dev_rescored": false,
+    "probe_inference_science": false,
+    "test_accessed": false,
+    "gpu_used": false,
+    "main_modified": false
+  },
+  "limitations": [
+    "42/42 and 28/28 are technical QA only, not independent trained-model proof.",
+    "Original L0020 private Reader byte SHA is unknown until owner Windows readback; do not substitute synthetic model SHA.",
+    "Top3 is out of distribution for singleton-Oracle trained Reader; low NLL gain would be ambiguous between retriever and multi-record reader.",
+    "Do not reuse old DEV for model selection or open sealed TEST."
+  ],
+  "decision": "HOLD_FROZEN_READER_PROBE_SCIENCE_NOT_RELEASED",
+  "next_action": "OWNER_WINDOWS_ONE_PACKET_SOURCE_QA_AND_SHA256_READBACK_NO_SCIENCE",
+  "lineage": "L0020_UNCHANGED_DESIGN_ONLY"
+}
