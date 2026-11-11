@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.o0.n1.shallow_alias_aware_heuristic.v1",
+  "status": "SHALLOW_HEURISTIC_FULL_BYPASS_100_PERCENT",
+  "method": "regex reverse latest relevant clause, one-pass static alias/guide/seal tables, NO event preconditions, NO dynamic state transition simulation",
+  "by_split": {
+    "TRAIN": {
+      "n": 4096,
+      "correct": 4096,
+      "by_family": {
+        "N1": {
+          "correct": 1024,
+          "n": 1024
+        },
+        "N2": {
+          "correct": 1024,
+          "n": 1024
+        },
+        "N3": {
+          "correct": 1024,
+          "n": 1024
+        },
+        "N4": {
+          "correct": 1024,
+          "n": 1024
+        }
+      }
+    },
+    "DEV_IID": {
+      "n": 256,
+      "correct": 256,
+      "by_family": {
+        "N1": {
+          "correct": 64,
+          "n": 64
+        },
+        "N2": {
+          "correct": 64,
+          "n": 64
+        },
+        "N3": {
+          "correct": 64,
+          "n": 64
+        },
+        "N4": {
+          "correct": 64,
+          "n": 64
+        }
+      }
+    },
+    "DEV_STRUCT": {
+      "n": 256,
+      "correct": 256,
+      "by_family": {
+        "N1": {
+          "correct": 64,
+          "n": 64
+        },
+        "N2": {
+          "correct": 64,
+          "n": 64
+        },
+        "N3": {
+          "correct": 64,
+          "n": 64
+        },
+        "N4": {
+          "correct": 64,
+          "n": 64
+        }
+      }
+    }
+  },
+  "total": 4608,
+  "correct": 4608,
+  "errors": 0,
+  "science_discrimination": "FAIL_SCOPED",
+  "limit": "Demonstrates public grammar is solvable with static alias lookup and last relevant clause; neither O0 learning nor O1 necessity measured."
+}
