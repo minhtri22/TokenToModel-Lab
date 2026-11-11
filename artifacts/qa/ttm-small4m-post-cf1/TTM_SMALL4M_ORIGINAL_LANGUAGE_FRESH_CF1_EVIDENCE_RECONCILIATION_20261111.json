@@ -1,0 +1,259 @@
+{
+  "schema": "ttm.small4m.original_post_cf1.evidence_only_gap_reconciliation.v1",
+  "date": "2026-11-11",
+  "task": "TTM_SMALL4M_POST_CF1_FROZEN_O0_ORIGINAL_LANGUAGE_VAL_AND_FRESH_CONTINUATION_GAP_RECONCILIATION_DESIGN_ONLY_NO_NEW_TOY",
+  "assessment_kind": "RETROSPECTIVE_PUBLIC_SOURCE_REVIEW_ONLY",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-post-cf1-language-fresh-gap-reconcile-20261111",
+  "parent_review_commit": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+  "scientific_scope": "P02 original T4 3.749M checkpoint step1024; never substitute EmbeddingGemma2 or alternate architecture evidence",
+  "frozen_parent": {
+    "step": 1024,
+    "architecture": "P02 decoder-only",
+    "params": 3749376,
+    "vocab": 2048,
+    "context": 256,
+    "source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "one_seed": 20261108,
+    "train_stories": 2048,
+    "validation_stories": 256,
+    "historical_consumed_test_stories": 64,
+    "unique_train_target_positions": 498287,
+    "target_exposures": 4194304,
+    "reuse_ratio": 8.417446170580408
+  },
+  "ledger": [
+    {
+      "id": "T4_VAL",
+      "kind": "CONFIRMATORY_VAL_H1_APPROVED_ORIGINAL",
+      "source_ref": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+      "file": "evidence/pilot/t4-science/T4_A2_FINAL_INDEPENDENT_SCIENCE_ADJUDICATION.json",
+      "git_blob": "84cb94647c403ea358d8c991090bf56adc11f128",
+      "model_val_nll": 3.522338851682218,
+      "bigram_val_nll": 3.9972314169551506,
+      "relative_advantage": 0.11880537195283955,
+      "bootstrap_story_95_difference": [
+        0.4581867476104475,
+        0.49406158185105853
+      ],
+      "observed": "PASS_H1_CONFIRMATORY_VAL_SCOPE",
+      "does_not_establish": "prompt adherence or coherent story generation"
+    },
+    {
+      "id": "T4_TEST_OLD",
+      "kind": "HISTORICAL_ONE_SHOT_DESCRIPTIVE_ONLY_REPORT_READ",
+      "file": "docs/pilot/TTM_T4_TEST_64_SCIENCE_ADJUDICATION_AND_T5_TRAINED_F32_EXPORT_20261108.md",
+      "git_blob": "cf2bcb1c48d172afacb6b1f7406320851bfcbf65",
+      "model_test_nll": 3.483591073340649,
+      "bigram_test_nll": 3.97360374531842,
+      "relative_advantage": 0.12331694436,
+      "previous_test_story_count": 64,
+      "raw_test_reads_this_task": 0,
+      "does_not_establish": "new independent TEST evaluation or human story quality"
+    },
+    {
+      "id": "STEP1280_OLD",
+      "kind": "EXPLORATORY_CONTINUATION_AND_QUALITY_NOT_CONFIRMATORY",
+      "file": "docs/pilot/TTM_SMALL4M_1024_VS_1280_BLIND_QUALITY_SCOPED_ADJUDICATION_20261109.md",
+      "branch_ref": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+      "git_blob": "27d6240839b5a8f70c26ee527bf3be9707e6d40d",
+      "step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+      "val_nll_1024": 3.5223388569,
+      "val_nll_1280": 3.4980890267,
+      "model_generations_consumed_older": 32,
+      "quality_adherence_1024": 0.375,
+      "quality_adherence_1280": 0.375,
+      "total_quality_9_step1024": 1.375,
+      "total_quality_9_step1280": 2.0625,
+      "exploratory_gain_gate": "FAIL_THRESHOLD_NOT_PROVEN",
+      "does_not_establish": "longer train is useless or superior on fresh prompts"
+    },
+    {
+      "id": "PROMPT_FORMAT_ABLATION",
+      "kind": "POSTHOC_LEXICAL_NOT_SEMANTIC",
+      "file": "docs/pilot/TTM_SMALL4M_PROMPT_SERIALIZATION_POSTHOC_ABLATION_RESULT_20261109.md",
+      "branch_ref": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+      "git_blob": "38c66ff40add58a32897a1923629ed80323c2d57",
+      "old_outputs": 32,
+      "new_outputs": 32,
+      "first_token_newline_before": 29,
+      "first_token_newline_after": 0,
+      "anchor_lexical_hits_before": 0,
+      "anchor_lexical_hits_after": 3,
+      "conclusion": "SERIALIZATION_FIRST_TOKEN_EFFECT_PASS_SCOPED__SEMANTIC_GAIN_NOT_ESTABLISHED"
+    },
+    {
+      "id": "FRESH12",
+      "kind": "SCOPED_AI_SINGLE_RATER_GREEDY_GENERATION",
+      "file": "artifacts/qa/ttm-original1280/fresh12/adjudication/FRESH12_OWNER_PUBLIC_SCOPED_ADJUDICATION_20261110.json",
+      "branch_ref": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+      "git_blob": "3a88e28e4d9b07b30e3ea4baecbf55402b8e9ca3",
+      "prompts": 12,
+      "generated_outputs_consumed": 48,
+      "paired_ab": 24,
+      "ratings_total": 144,
+      "zero_adherence_outputs": 35,
+      "raw_total_scores": 114,
+      "raw_score_max": 432,
+      "adherence_baseline_mean": 0.2916666666666667,
+      "adherence_trimmed_mean": 0.2916666666666667,
+      "adherence_delta": 0,
+      "coherence_baseline_mean": 1,
+      "coherence_trimmed_mean": 1,
+      "consistency_baseline_mean": 1.1666666666666667,
+      "consistency_trimmed_mean": 1,
+      "adherence_delta_cluster_bootstrap_95": [
+        -0.20833333333333334,
+        0.16666666666666666
+      ],
+      "registered_candidate_gates": "PASS_4_FAIL_4",
+      "reviewer": "Codex AI one rater, not independent human",
+      "conclusion": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED"
+    },
+    {
+      "id": "Q1Q2_PARTIAL",
+      "kind": "HISTORICAL_INCOMPLETE_RUNTIME_ONLY",
+      "file": "docs/pilot/TTM_Q1Q2_V2_PARTIAL5_QUALITY_AND_HOLD_ADJUDICATION_20261109.md",
+      "branch_ref": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+      "git_blob": "4a3165168252b9ead4d866e89a7f59ca9f60605f",
+      "requests_completed": 5,
+      "requests_planned": 74,
+      "Q2_measurements": 0,
+      "verdict": "HOLD_INCOMPLETE_NO_REPLAY",
+      "not_a_human_science_adjudication": true
+    },
+    {
+      "id": "CF1_DEV36",
+      "kind": "FROZEN_O0_PUBLIC_DEV_TEACHER_FORCED_NEURAL_ONESHOT",
+      "file": "artifacts/qa/ttm-narrative-cf1/reviews/CF1_DEV36_INDEPENDENT_GITHUB_SOURCE_SCORE_AUDIT_AND_ADJUDICATION_20261111.json",
+      "branch_ref": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+      "git_blob": "b3f524472a4b980bc9e93aa10daaeab25829b565",
+      "one_shot_evidence_commit": "cf6a37e5e9709ab0613918dc03ee70efa79f893f",
+      "n_pairs": 36,
+      "logprob_scores": 144,
+      "both_contexts_correct": 0,
+      "context_A_correct": 1,
+      "context_B_correct": 35,
+      "pairs_with_changed_preferred_completion": 0,
+      "preferred_y_both_contexts": 35,
+      "preferred_x_both_contexts": 1,
+      "mean_D": -0.0004280481718662453,
+      "bootstrap_ci95_mean_D": [
+        -0.00758929466883952,
+        0.006309848515406872
+      ],
+      "completion_prior_abs_margin_mean": 0.30915274431193435,
+      "context_change_abs_margin_mean": 0.012343681192138072,
+      "known_heuristic_public_dev_36_of_36": true,
+      "all_gold_A_x_B_y": true,
+      "verdict": "FAIL_SCOPED_PUBLIC_DEV_NO_SWITCH__FINAL_HOLD"
+    },
+    {
+      "id": "FRESH16",
+      "kind": "SOURCE_QA_PASS_BUT_NO_SCIENCE_EXECUTION",
+      "branch_ref": "1583c5b475407799bfca75b503ddf359de7fda69",
+      "file": "artifacts/research/ttm-small4m-quality-gap/TTM_FRESH16_NATIVE_OFFLINE_QA_READBACK_AND_EXECUTION_GATE_20261111.json",
+      "git_blob": "c0fdba15918200944fbb007a68a22c7364045a34",
+      "prompts": 16,
+      "pairs": 8,
+      "source_BPE_native_verified": true,
+      "neural_outputs": 0,
+      "reviewer_custody": "UNASSIGNED",
+      "owner_science_execution_lock": "NOT_GRANTED",
+      "verdict": "NO_GO_EXECUTION_PENDING_REVIEWER_CUSTODY_AND_SINGLE_OWNER_DECISION"
+    },
+    {
+      "id": "AC_DATA_OBJECTIVE",
+      "kind": "EXISTING_DIAGNOSTIC_INTERVENTION_DESIGN_NOT_EXECUTED",
+      "branch_ref": "837289fda82b41653a61b74e476f76a0b4c4137c",
+      "file": "artifacts/qa/ttm-small4m-prompt-conditioning/ac_preexec/TTM_SMALL4M_AC_FINAL_PREEXEC_SINGLE_DECISION_AND_SOURCE_READBACK_20261111.json",
+      "git_blob": "0c83b23c13c588a7787dd64a6c3d9ed5da22c5ce",
+      "status": "NO_GO_PREEXEC_EXTERNAL_AND_NATIVE_GATES_OPEN",
+      "science": "NOT_EXECUTED",
+      "design": "DATA_WINDOW_SELECTION_VS_LOSS_WEIGHT",
+      "causal_result": "NOT_AVAILABLE"
+    }
+  ],
+  "reconciliation": {
+    "finding_1": "Original decoder learned TinyStories next-token distribution better than TRAIN-only bigram; formal VAL H1 PASS.",
+    "finding_2": "Good average next-token NLL does not entail semantics-preserving multi-token generation, instruction response, or counterfactual completion selection.",
+    "finding_3": "Older checkpoint 1280 shows a small VAL NLL reduction and some exploratory aggregate-quality change, but adherence does not improve; data/format/rating confounds remain.",
+    "finding_4": "FRESH12 uses independent-from-executor AI scoring but only one AI rater; strong observed low adherence level and no serialization treatment benefit under registered candidate gates.",
+    "finding_5": "CF1 one-shot observes 0/36 correct both-context pairs and 0/36 preference flips, with weak mean context effect relative to completion prior. The exercise itself has shallow heuristic and A=x/B=y position confound. No global neural incapacity proven.",
+    "finding_6": "FRESH16 is prereg source-ready only: no outputs or scientific verdict; don't reuse its unspent prompts as already-scored evidence.",
+    "finding_7": "Q1Q2 original attempts are consumed and partial, not a valid full quality/speed comparator; historical T4 TEST and Q1Q2 not reopened.",
+    "finding_8": "Don't attribute semantic weaknesses uniquely to data scarcity, CE objective, capacity or attention; each remains hypothesis needing equal-budget intervention."
+  },
+  "causal_hypotheses": [
+    {
+      "id": "H_FORMAT",
+      "priority": "CONTROL_FIRST_AT_ANY_FUTURE_EVAL",
+      "mechanism": "Trailing whitespace materially changes initial token, but this did not solve semantic adherence on FRESH12",
+      "strength": "MEASURED_FIRST_TOKEN_ONLY"
+    },
+    {
+      "id": "H_DATA",
+      "priority": "REVIEW_NEXT",
+      "mechanism": "Train 2048 stories, context-bound windows, repeats 8.42x and limited coverage may underrepresent conditioning tasks",
+      "strength": "PLAUSIBLE_NOT_CAUSALLY_TESTED"
+    },
+    {
+      "id": "H_OBJECTIVE",
+      "priority": "COMPARE_WITH_H_DATA",
+      "mechanism": "Uniform next-token CE contains no explicit task/goal-state supervision; conditional completion objective weighting might matter",
+      "strength": "PLAUSIBLE_NOT_CAUSALLY_TESTED"
+    },
+    {
+      "id": "H_CAPACITY",
+      "priority": "DEFER",
+      "mechanism": "3.75M params, BPE2048 and context256 might limit generalization; no matched-data matched-budget scale arm",
+      "strength": "NOT_IDENTIFIED"
+    },
+    {
+      "id": "H_ARCHITECTURE_O1",
+      "priority": "DEFER",
+      "mechanism": "No evidence that O1 improves performance under same data budget, metrics and checkpoint",
+      "strength": "NO_SUPPORTED_CAUSAL_CLAIM"
+    }
+  ],
+  "methodological_non_comparability": [
+    "T4 VAL/TEST NLL scores all next-tokens, not conditional alignment with a specified story premise",
+    "FRESH12 rubric values are one AI rater on greedy generations, not same metric, holdout population or design as CF1",
+    "CF1 compares two teacher-forced candidates (log probabilities) with per-pair exact sign thresholds, not free-form generation quality",
+    "1280 continuation comes from a different already-consumed exploratory run, not an untreated same-budget data/objective arm",
+    "FRESH16 source QA and AC preflight are not neural outcomes",
+    "Q1Q2 partial native outputs cannot be extrapolated to full 74 request experiment",
+    "Historical TEST values may be cited from reports but TEST source must not be opened or scored again"
+  ],
+  "single_owner_recommendation": {
+    "status": "HOLD_NEW_TRAINING_AND_NEW_NEURAL_EVAL__GO_SOURCE_ONLY_NEXT_DECISION_DESIGN",
+    "executive": "Document data/conditional-objective alternatives already present on the AC research branch and unresolved FRESH16 reviewer-custody. Do not claim one is effective until a preregistered same-budget test; no O1/MoE/attention/scale investment yet.",
+    "priority_ranked": [
+      "Preserve confirmed VAL H1 and CF1 FAIL_SCOPED side by side",
+      "Keep original TinyStories TEST/Q1Q2 and all consumed FRESH/CF1 one-shots closed",
+      "Require canonical prompt serialization and fresh holdout/source checks when planning future evaluations",
+      "Prefer single integrated research gate comparing data selection and objective using the existing AC design and unconsumed fresh human-readable continuation rubric, not R3A/N1/CF1",
+      "Defer architecture and large Colab workloads until data/objective baselines show limits under fair budget"
+    ],
+    "existing_AC_status": "NO_GO_PREEXEC; do not turn into training permit from reconciliation",
+    "existing_FRESH16_status": "REVIEWER_UNASSIGNED; no generated outputs; do not dispatch in this turn",
+    "target_future_science_question": "At unchanged P02 weights/parameter count/tokenizer and equal compute, which intervention—TRAIN selection or continuation-oriented loss weighting—improves unseen premise preservation beyond same-budget continued-CE control, without VAL regression?",
+    "execution_authority": "NONE",
+    "next": "TTM_SMALL4M_DATA_OBJECTIVE_EXISTING_AC_AND_FRESH16_SINGLE_INTEGRATED_SCIENCE_READINESS_GAP_REVIEW_DESIGN_ONLY"
+  },
+  "status_ledger": {
+    "new_model_forward_calls": 0,
+    "training_optimizer_steps": 0,
+    "gpu_jobs": 0,
+    "new_generated_stories": 0,
+    "toy_datasets_created": 0,
+    "original_TEST_reuse": false,
+    "Q1Q2_reuse": false,
+    "prior_FRESH_or_CF1_replay": false,
+    "final_unseal": false,
+    "main_write": false,
+    "PR13_write": false,
+    "lineage_write": false
+  }
+}
