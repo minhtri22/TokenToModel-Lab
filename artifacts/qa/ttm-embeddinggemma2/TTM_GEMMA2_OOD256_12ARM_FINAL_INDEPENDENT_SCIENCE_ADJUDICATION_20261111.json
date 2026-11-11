@@ -1,0 +1,162 @@
+{
+  "schema": "ttm.gemma2.ood256.final_independent_scientific_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_OOD_12ARM_ONE_SHOT_INDEPENDENT_SCIENTIFIC_ADJUDICATION",
+  "target_model_lineage": "TTM_SMALL_4M_EMBEDDINGGEMMA2_EXPERIMENTAL",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "verdict": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT",
+  "original_runner_candidate_verdict": "PASS_SCOPED_OOD_RESIDUAL_SIGNAL",
+  "verdict_label_mapping": "Original prereg scientific label takes precedence; same frozen signs and two co-primary CI lower >0",
+  "raw_drive": {
+    "source": "owner Google Drive private science_one_shot; direct raw-file fetch and independent container byte rehash",
+    "claim_sha256": "19c92d525d45bd5f6c72db92e8a10c2520ab18b776df113f389faadda76f7238",
+    "result_sha256": "5faa962919dfd56980c2b826fb341b6d90780adb2369d9c03c05d4ca42c55f9c",
+    "per_document_private_sha256": "f3b4a91109054b0c4cbc45afe3f8f90845caa6bc9b8f8cdd304b70edc9d877e",
+    "independent_readback_public_sha256": "34f8174bcd835c5d3c130dff4f82dd0a9623ada24924fddf87b2d0561bdf03f6",
+    "sha256_real_readback_pass_count": 4,
+    "science_result_original_status": "COMPLETED_PENDING_INDEPENDENT_ADJUDICATION",
+    "independent_science_receipt_original_status": "INDEPENDENT_QA_PASS_PENDING_OWNER_SCIENCE_ADJUDICATION",
+    "original_files_modified": false
+  },
+  "sealed_ood": {
+    "original_split": "Salesforce/wikitext wikitext-2-raw-v1 train split used solely as TTM OOD evaluation",
+    "source_revision": "6231e49f19a707241d6b84d9cff60a3a86b85a85",
+    "source_parquet_sha256": "49280f3dd993cbdfd322186194133d5d1935f81e1c91064c239f2a70ebb02701",
+    "t1_bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "public_sha256": "0091b56b27c68f1bb724b63181097434d6c7c5922e5cc1de929423b5b0c45438",
+    "private_membership_sha256": "627c99db8b39b6479fdb074a82b0ab7eea0367dde49bf0072c29ff410ecdcd5f",
+    "private_windows_sha256": "3ec7655c512c5d13d4c0d04d1ddbae80b8ea0106aee82064e8dd806786d8336a",
+    "raw_readback_sha256_three_files": "PASS_3_OF_3",
+    "source_rows": 36718,
+    "article_count": 256,
+    "window_count": 512,
+    "labels_per_article": 512,
+    "scored_targets_total": 131072,
+    "window_shape": [
+      512,
+      256
+    ],
+    "shift_and_continuity": "PASS_REAL_PRIVATE_NPZ_INDEPENDENT",
+    "source_exact_historical_intersection": 0,
+    "donor_pretraining_overlap": "UNKNOWN",
+    "duplicate_detection_scope": "T1 TRAIN2048/VAL256 near-duplicate, not full historical corpus"
+  },
+  "checkpoint": {
+    "arm_count": 12,
+    "seed_count": 3,
+    "step": 2048,
+    "pin_equality_to_L0020": "PASS_12_OF_12",
+    "SHA_actual_checkpoint_binaries_verified_in_preexec": "PASS_12_OF_12",
+    "colab_runtime_preclaim_source_and_sha_gate": "PASS_IMPLIED_BY_CONSUMED_CLAIM_AND_SOURCE_EXECUTION",
+    "no_checkpoint_reselection": true,
+    "no_training": true
+  },
+  "independent_review": {
+    "python_independent_recomputation": "PASS",
+    "per_arm_private_receipts_verified": 12,
+    "per_arm_private_receipts_total": 12,
+    "per_arm_sha256_of_little_endian_float64_loss_sum": "PASS_12_OF_12",
+    "sha_claim_and_checkpoint_and_ood_membership_from_each_receipt": "PASS_12_OF_12",
+    "per_document_vectors_match_aggregated_private": "PASS_12_OF_12",
+    "arm_nll_recompute_max_abs_difference": 0,
+    "seed_contrast_recompute_max_abs_difference": 0,
+    "bootstrap_recompute_max_abs_difference": 0,
+    "bootstrap_seed": 2026111198,
+    "bootstrap_draws": 2000,
+    "bootstrap_unit": "256 paired documents with 3 fixed training seeds; nonpopulation-seed CI",
+    "seeds_positive_tau_and_gamma": 3,
+    "seed_required": 3,
+    "co_primary_passed": 2,
+    "co_primary_required": 2
+  },
+  "science": {
+    "nll_nats_per_target": {
+      "S1": {
+        "PT-REAL": 6.750181772901335,
+        "PT-PERM": 6.962138433976733,
+        "NULL-REAL": 6.78195744218241,
+        "NULL-PERM": 6.897262381453295
+      },
+      "S2": {
+        "PT-REAL": 6.67853478024559,
+        "PT-PERM": 6.7884142972280515,
+        "NULL-REAL": 6.727749428846757,
+        "NULL-PERM": 6.769509741890289
+      },
+      "S3": {
+        "PT-REAL": 6.743344322664253,
+        "PT-PERM": 6.908771373028998,
+        "NULL-REAL": 6.806294430997674,
+        "NULL-PERM": 6.931404045446499
+      }
+    },
+    "contrasts": {
+      "S1": {
+        "tau_residual": 0.09665172180451265,
+        "gamma_real": 0.03177566928107467,
+        "delta_PRE": 0.2119566610753978,
+        "delta_NULL": 0.11530493927088514
+      },
+      "S2": {
+        "tau_residual": 0.06811920393893,
+        "gamma_real": 0.04921464860116753,
+        "delta_PRE": 0.10987951698246157,
+        "delta_NULL": 0.04176031304353156
+      },
+      "S3": {
+        "tau_residual": 0.040317435915920186,
+        "gamma_real": 0.06295010833342118,
+        "delta_PRE": 0.1654270503647446,
+        "delta_NULL": 0.1251096144488244
+      }
+    },
+    "co_primary": {
+      "tau_residual": {
+        "mean": 0.06836278721978761,
+        "ci95": [
+          0.06235342572949934,
+          0.07423878749033531
+        ],
+        "seed_all_positive": true,
+        "ci_lower_positive": true,
+        "passed": true
+      },
+      "gamma_real": {
+        "mean": 0.0479801420718878,
+        "ci95": [
+          0.04355893220445865,
+          0.052225954797402115
+        ],
+        "seed_all_positive": true,
+        "ci_lower_positive": true,
+        "passed": true
+      }
+    },
+    "decision_gate": "Both co-primary mean contrasts positive with paired-document 95% lower > 0; each seed positive; all source/scorer/sha gates PASS",
+    "prereg_verdict": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT"
+  },
+  "limitations": [
+    "Evidence on exactly one pinned WikiText-2 OOD domain; not proof across arbitrary domains",
+    "Donor-pretraining overlap unknown",
+    "Near-duplicate exclusion does not cover all 2.1 million TinyStories train stories",
+    "Bootstrap conditions on the 3 fixed seeds, not population variation over training seeds",
+    "Semantic donor pretraining not causally isolated from projected geometry/morphology/row norm and higher moments",
+    "WikiText source license CC-BY-SA/GFDL attribution obligations preserved"
+  ],
+  "governance": {
+    "one_shot_claim_consumed": true,
+    "original_claim_or_result_rewritten": false,
+    "science_forward_completed_all_12_arms": true,
+    "training_reexecuted": false,
+    "independent_qa_model_forward_calls": 0,
+    "original_L0020_verdict": "PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE",
+    "L0020_changed": false,
+    "new_lineage_record": "L0021",
+    "append_only_on_experimental_ood_branch": true,
+    "git_main_untouched": true,
+    "other_science_branch_untouched": true,
+    "gguf_or_application": false,
+    "source_report": "docs/pilot/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENTIFIC_ADJUDICATION_20261111.md",
+    "private_data_uploaded_to_public_github": false
+  }
+}
