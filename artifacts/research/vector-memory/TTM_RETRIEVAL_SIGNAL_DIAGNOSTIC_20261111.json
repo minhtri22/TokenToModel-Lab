@@ -1,0 +1,255 @@
+{
+  "decision_rule": "continue only if additional 128 VAL have p<=.05 for top1 vs 1000 label-shuffle null, AND lambda=.10 kNN fusion improves frozen NLL with 95pct paired bootstrap lower bound >0; otherwise PAUSE",
+  "design": {
+    "adapter_fit_reserved_train_stories": 512,
+    "bank_label_top1_frequency": 0.048828125,
+    "bank_label_unique_count": 297,
+    "bank_selection_sha256": "4b8546f6d9c22df481d4b9be6a9e0d97691179bde21cb48d38e44e580eb60922",
+    "bank_stories": 512,
+    "bank_target_label_coverage_on_val": 0.6328125,
+    "context_length": 64,
+    "frozen_parameters": true,
+    "fusion_lambdas": [
+      0.05,
+      0.1,
+      0.25
+    ],
+    "k": 4,
+    "new_val_disjoint_from_previous": true,
+    "no_adapter_training": true,
+    "random_label_permutations": 1000,
+    "softmax_temperature": 0.05,
+    "val_all_selection_sha256": "36927136655dcece5953b52e4f2154758f1badf8f3d78c190bbd565743124a05",
+    "val_label_unique_count": 160,
+    "val_previous_selection_sha256": "fb9d072fbb817cc8cc5a90367f2175d7b789d29a2140a660fbf2803332fa584f"
+  },
+  "environment": {
+    "device": "cpu",
+    "python": "3.13.5",
+    "threads": 2,
+    "torch": "2.10.0+cpu"
+  },
+  "experiment": "TTM_VECTOR_MEMORY_RETRIEVAL_SIGNAL_DIAGNOSTIC",
+  "integrity": {
+    "VAL_disjoint_from_TRAIN": true,
+    "checkpoint_unchanged": true,
+    "no_gradients": true,
+    "no_private_text_or_token_rows_in_output": true,
+    "no_test": true,
+    "train_bank_fit_disjoint": true
+  },
+  "limitations": [
+    "kNN labels are next-token TRAIN, not external novel knowledge",
+    "new VAL group disjoint from previous 128 but within same corpus and previously defined VAL split",
+    "permutation test only compares association against shuffled labels; does not establish semantic usefulness",
+    "fusion is fixed output-level NLL probe, not trained adapter or same input injection",
+    "one target per story, 256 stories total, not confirmatory or out-of-domain",
+    "no architecture change or impact on main and P00-P12"
+  ],
+  "metrics": {
+    "hidden_context": {
+      "additional_val128": {
+        "base_frozen_nll": 3.430677030130197,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.07104348496916774,
+          -0.010913924844294555
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.04390437605543626,
+        "global_unigram_nll": 6.665745557820878,
+        "knn_fusion0.10_minus_shuffled_mean": -0.05565436117886868,
+        "knn_fusion0.10_shuffled_comparison_p": 0.000999000999000999,
+        "mean_neighbor_margin": 0.06335422326810658,
+        "mean_top1_cosine": 0.7446418453473598,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.4487396760397218,
+          "lambda_0.10": 3.4745814061856333,
+          "lambda_0.25": 3.58157478902611
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.530235767364502,
+        "targets": 128,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.055597460784042596,
+          0.1703605467335592
+        ],
+        "top1_excess_vs_shuffle": 0.10835155844688416,
+        "top1_hit": 0.1171875,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.008835937827825546,
+        "top1_random_shuffle_p95": 0.0234375,
+        "top4_any_hit": 0.2890625,
+        "top4_random_shuffle_mean": 0.03263281285762787,
+        "weighted_correct_mass": 0.12379129240315478
+      },
+      "all_val256": {
+        "base_frozen_nll": 3.5340007573515084,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.05152601207507349,
+          0.007541687003914979
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.023585213711390333,
+        "global_unigram_nll": 6.614470263140859,
+        "knn_fusion0.10_minus_shuffled_mean": -0.07364104538607563,
+        "knn_fusion0.10_shuffled_comparison_p": 0.000999000999000999,
+        "mean_neighbor_margin": 0.06637949566356838,
+        "mean_top1_cosine": 0.7521390329347923,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.5393526111765263,
+          "lambda_0.10": 3.557585971062899,
+          "lambda_0.25": 3.648942147005142
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.6312270164489746,
+        "targets": 256,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.0858583983176345,
+          0.16691562488498446
+        ],
+        "top1_excess_vs_shuffle": 0.12459765374660492,
+        "top1_hit": 0.1328125,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.008214843459427357,
+        "top1_random_shuffle_p95": 0.01953125,
+        "top4_any_hit": 0.30859375,
+        "top4_random_shuffle_mean": 0.030863281339406967,
+        "weighted_correct_mass": 0.1296845493737635
+      },
+      "previous_val128": {
+        "base_frozen_nll": 3.63732448457282,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.048032616310032056,
+          0.05145787323493976
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.0032660513673444047,
+        "global_unigram_nll": 6.5631949684608415,
+        "knn_fusion0.10_minus_shuffled_mean": -0.09162772959328258,
+        "knn_fusion0.10_shuffled_comparison_p": 0.000999000999000999,
+        "mean_neighbor_margin": 0.06940476805903018,
+        "mean_top1_cosine": 0.7596362205222249,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.6299655463133305,
+          "lambda_0.10": 3.6405905359401647,
+          "lambda_0.25": 3.716309504984175
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.7322182655334473,
+        "targets": 128,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.07977929683847833,
+          0.20307812490243576
+        ],
+        "top1_excess_vs_shuffle": 0.14084374904632568,
+        "top1_hit": 0.1484375,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.007593750022351742,
+        "top1_random_shuffle_p95": 0.0234375,
+        "top4_any_hit": 0.328125,
+        "top4_random_shuffle_mean": 0.029093749821186066,
+        "weighted_correct_mass": 0.13557780634437222
+      }
+    },
+    "last_token_embedding": {
+      "additional_val128": {
+        "base_frozen_nll": 3.430677030130197,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.08947288474784958,
+          -0.04385955365177822
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.06972318379778186,
+        "global_unigram_nll": 6.665745557820878,
+        "knn_fusion0.10_minus_shuffled_mean": -0.029766650467162314,
+        "knn_fusion0.10_shuffled_comparison_p": 0.01898101898101898,
+        "mean_neighbor_margin": 0.11858115391805768,
+        "mean_top1_cosine": 0.796803071629256,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.4626618249595724,
+          "lambda_0.10": 3.5004002139279793,
+          "lambda_0.25": 3.6385773654055065
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.5301668643951416,
+        "targets": 128,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.005929101427636851,
+          0.0772984373661302
+        ],
+        "top1_excess_vs_shuffle": 0.03798437491059303,
+        "top1_hit": 0.046875,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.008890625089406967,
+        "top1_random_shuffle_p95": 0.0234375,
+        "top4_any_hit": 0.15625,
+        "top4_random_shuffle_mean": 0.03338281065225601,
+        "weighted_correct_mass": 0.07030756173492136
+      },
+      "all_val256": {
+        "base_frozen_nll": 3.5340007573515084,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.08142435306159912,
+          -0.03451339872255119
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.060904737864708416,
+        "global_unigram_nll": 6.614470263140859,
+        "knn_fusion0.10_minus_shuffled_mean": -0.036409497688445924,
+        "knn_fusion0.10_shuffled_comparison_p": 0.000999000999000999,
+        "mean_neighbor_margin": 0.10621398512739688,
+        "mean_top1_cosine": 0.7970766344806179,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.559469979841626,
+          "lambda_0.10": 3.594905495216217,
+          "lambda_0.25": 3.7298975533516057
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.631314992904663,
+        "targets": 256,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.019538867095525346,
+          0.0771966796502511
+        ],
+        "top1_excess_vs_shuffle": 0.04646874964237213,
+        "top1_hit": 0.0546875,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.008218750357627869,
+        "top1_random_shuffle_p95": 0.01953125,
+        "top4_any_hit": 0.171875,
+        "top4_random_shuffle_mean": 0.031492188572883606,
+        "weighted_correct_mass": 0.06949631917962851
+      },
+      "previous_val128": {
+        "base_frozen_nll": 3.63732448457282,
+        "base_minus_knn_fusion0.10_bootstrap95pct_CI": [
+          -0.0867520753548659,
+          -0.003758345942592481
+        ],
+        "base_minus_knn_fusion0.10_mean": -0.05208629193163496,
+        "global_unigram_nll": 6.5631949684608415,
+        "knn_fusion0.10_minus_shuffled_mean": -0.043052583328308636,
+        "knn_fusion0.10_shuffled_comparison_p": 0.005994005994005994,
+        "mean_neighbor_margin": 0.09384681633673608,
+        "mean_top1_cosine": 0.7973501973319799,
+        "nll_with_knn_fusion": {
+          "lambda_0.05": 3.6562781347236797,
+          "lambda_0.10": 3.689410776504455,
+          "lambda_0.25": 3.821217741297705
+        },
+        "nll_with_shuffled_knn_fusion_0.10_mean": 3.7324633598327637,
+        "targets": 128,
+        "top1_excess_95pct_bootstrap_CI": [
+          0.015967968674090116,
+          0.10162187492171594
+        ],
+        "top1_excess_vs_shuffle": 0.05495312437415123,
+        "top1_hit": 0.0625,
+        "top1_permutation_one_sided_p": 0.000999000999000999,
+        "top1_random_shuffle_mean": 0.007546875160187483,
+        "top1_random_shuffle_p95": 0.0234375,
+        "top4_any_hit": 0.1875,
+        "top4_random_shuffle_mean": 0.0296015627682209,
+        "weighted_correct_mass": 0.06868507662433565
+      }
+    }
+  },
+  "pins": {
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "reference_reimplementation_sha256": "e2b824af2356c6b894ba3545efd53c3ba057ad9b25d41897672e6af7071d6e6a",
+    "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "scope": "CPU_READ_ONLY_EXPLORATORY; no gradients; previous 128 VAL + additional disjoint 128 VAL; no TEST; no tuning",
+  "verdict": "PAUSE_VECTOR_MEMORY_RESEARCH_NO_RELIABLE_INCREMENTAL_SIGNAL"
+}

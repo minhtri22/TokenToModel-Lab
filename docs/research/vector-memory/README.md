@@ -60,3 +60,9 @@ Không sao chép bộ TRAIN/VAL có thể giải mã vào repo Git; chỉ đưa 
 - Phán quyết: **NO_SCOPED_EXPLORATORY**, adapter có memory không cải thiện NLL so với checkpoint gốc hoặc memory đảo trên subset 128 VAL targets.
 - [Báo cáo và giới hạn](ADAPTER_TRAIN_ONLY_PILOT_20261111.md); JSON aggregate tại `artifacts/research/vector-memory/TTM_ADAPTER_TRAIN_ONLY_PILOT_20261111.json` và entry `lineage.md` L0017.
 - Chỉ nghiên cứu; không merge vào main.
+
+## Retrieval signal diagnostic (2026-11-11)
+
+- Kết luận: `KEY_LABEL_ASSOCIATION=YES_SCOPED`, `INCREMENTAL_NLL_GAIN=NO_SCOPED`, `VECTOR_MEMORY_TRAINING=PAUSED`.
+- Chứng cứ: [báo cáo](RETRIEVAL_SIGNAL_DIAGNOSTIC_20261111.md), JSON aggregate, runner CPU và kiểm toán 22/22 tại `artifacts/research/vector-memory/` / `tools/research/vector-memory/`; `lineage.md` nối thêm L0018.
+- Không huấn luyện, không GPU, không dùng TEST, không merge vào main. Không dùng VAL đã xem để tune.

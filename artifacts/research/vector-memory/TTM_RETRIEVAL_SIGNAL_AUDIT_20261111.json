@@ -1,0 +1,32 @@
+{
+  "limitations": "Checks aggregate report structure and internal consistency; not a new independent reimplementation of the retrieval algorithm.",
+  "replay_required": "BYTE_EXACT_REPLAY_VERIFIED_SEPARATELY",
+  "result_sha256": "a4d7babfa7db00ecc18b38b76812f0c0384b902f605b7ee1765b14cf9de6e5cd",
+  "script_sha256": "dde7b1b30de3aca63935f703f004cb0010fa19190368b70992c6570a5c049ac7",
+  "status": "PASS",
+  "test_count": 22,
+  "tests": {
+    "additional_val_disjoint": true,
+    "bank_selection_pin": true,
+    "checkpoint_pin": true,
+    "experiment": true,
+    "frozen_no_grad": true,
+    "hidden_better_than_last_token": true,
+    "label_association_better_than_shuffle": true,
+    "label_permutation_signal": true,
+    "lambda05_no_gain": true,
+    "lambda25_no_gain": true,
+    "no_gain_on_additional_val": true,
+    "no_raw_array_keys": true,
+    "no_test_or_private_export": true,
+    "pack_pin": true,
+    "paired_bootstrap_no_gain": true,
+    "previous_val_pin": true,
+    "prior_baseline_reproduction": true,
+    "prior_top1_reproduction": true,
+    "retrieval_better_than_shuffled_fusion": true,
+    "story_disjointness": true,
+    "val_counts": true,
+    "verdict": true
+  }
+}
