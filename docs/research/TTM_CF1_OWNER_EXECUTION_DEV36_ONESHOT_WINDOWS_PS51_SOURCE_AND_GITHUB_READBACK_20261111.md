@@ -30,7 +30,9 @@ if (-not (Test-Path -LiteralPath $root)) { throw 'TTM_PROJECT_ROOT_NOT_FOUND' }
 if (Test-Path -LiteralPath $script) { throw 'PINNED_WRAPPER_ALREADY_STAGED_REFUSE_OVERWRITE' }
 & git -C $root fetch --no-tags origin $branch
 if ($LASTEXITCODE -ne 0) { throw 'PINNED_GITHUB_FETCH_FAILED' }
-& $python -c 'import pathlib,subprocess,sys,hashlib; b=subprocess.check_output(["git","-C",sys.argv[1],"cat-file","blob",sys.argv[3]]); h=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest(); assert h==sys.argv[3]; pathlib.Path(sys.argv[2]).open("xb").write(b)' $root $script $blob
+# PowerShell 5.1: outer double quotes, Python inner single quotes (not the reverse).
+$pycode = "import pathlib,subprocess,sys,hashlib; b=subprocess.check_output(['git','-C',sys.argv[1],'cat-file','blob',sys.argv[3]]); assert hashlib.sha1(b'blob '+str(len(b)).encode()+bytes([0])+b).hexdigest()==sys.argv[3]; pathlib.Path(sys.argv[2]).open('xb').write(b)"
+& $python -c $pycode $root $script $blob
 if ($LASTEXITCODE -ne 0) { throw 'GIT_BLOB_BINARY_SHA_MISMATCH' }
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script
 if ($LASTEXITCODE -ne 0) { throw 'CF1_DEV36_OWNER_ONE_SHOT_HOLD_OR_FAIL_NO_REPLAY' }
