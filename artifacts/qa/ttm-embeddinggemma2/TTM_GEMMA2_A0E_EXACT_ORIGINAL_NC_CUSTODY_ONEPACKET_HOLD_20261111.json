@@ -1,0 +1,103 @@
+{
+  "schema": "ttm.gemma2.a0e.exact_original_nc_custody_onepacket_source_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_EXACT_ORIGINAL_NC_TENSOR_CUSTODY_RECOVERY_AND_ONEPACKET_SOURCE_QA",
+  "branch": "research/ttm-gemma2-token-alignment-pretraining-causality-20261111",
+  "parent_head": "8912546632033409c4679dae13e4057cce238e8d",
+  "provenance": {
+    "prereg_git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+    "two_party_amendment_git_blob": "95257120d1450cf05871c9b134a62fb3c84bf890",
+    "public_prior_independent_receipt_git_path": "artifacts/qa/ttm-embeddinggemma2/TTM_GEMMA2_A0E_PRIVATE_N_T1_THREE_SEED_PN_NULL_AND_GOLD_CUSTODY_SINGLE_PACKET_ADJUDICATION_20261111.json",
+    "P_A_and_P0_prior_real_byte_readback": "PASS_PRESERVED_NO_RERUN",
+    "original_P_A_sha256": "b6b0d3cb9d4f33b8d7d63269d296d2001e946706948d71cb4f357ab7cf5b2122",
+    "original_P0_sha256": "9fdd433da0e728f969278cd89242a9df36b3e3e6b155821c9968b5e6d661c2b1"
+  },
+  "original_private_packets_read_only": [
+    {
+      "filename": "TTM_GEMMA2_A0E_PRIVATE_N_T1_PN_MATCHED_NULL_FINAL_ONE_PACKET_20261111.zip",
+      "size_bytes": 19224,
+      "SHA256": "2c38e3d70ed302f11973247818a7cc5841adc03ed28e8b5bc8619902c464ba31",
+      "zip_members": 9,
+      "manifest_exact_member_SHA256": "PASS_8_OF_8",
+      "original_private_receipt_SHA256": "a8f7a1d232f8edf579af52cd4e73959b3b8a51cbd3bd1beaf628b6f56b4f1cd5",
+      "raw_float32_matrix_payloads": 0
+    },
+    {
+      "filename": "TTM_GEMMA2_A0E_N_SOURCE_CUSTODY_NULL_SINGLE_READBACK_20261111.zip",
+      "size_bytes": 13158,
+      "SHA256": "3d539bb7408f58bfdfb4f7b6d3c7740c9f41613630eee8745a4629385a50ba21",
+      "zip_members": 9,
+      "raw_float32_matrix_payloads": 0,
+      "only_hash_and_source_control_receipts": true
+    }
+  ],
+  "availability_scope": {
+    "verified_original_P_C_N_A_N_C_in_two_actual_private_archives": 0,
+    "expected_exact_matrices": 9,
+    "no_original_source_matrix_byte_payload_found_in_the_two_archives": true,
+    "Google_Drive_filename_search_A0E": "NO_MATCH",
+    "owner_Windows_project_folders": "TARGETED_READONLY_LISTINGS_NO_EXACT_MATRIX_SOURCE_IDENTIFIED",
+    "owner_C_Downloads": "UNREADABLE_BY_REMOTE_CONNECTOR_OUTSIDE_WORKSPACE",
+    "global_absence_proven": false
+  },
+  "frozen_source_sha256": {
+    "P-C-61031": "e96f2d55ed1e02003c06012fd0345da260aab1fb3864f844155621e4d6ee2fd1",
+    "P-C-61032": "30ad3136a00f9e26f8469a6dab5509289b8f258a7a8681d28ca1bdc18ac3b053",
+    "P-C-61033": "6c7d8f6fac478be11b0f57c94976ab438f61911f929aabefe5609df3d0a052fb",
+    "N-A-61031": "9fd58fb914e1ffccebbc735ef8d633feecf965ba99efcd96c5b7a2503aeaf9e6",
+    "N-A-61032": "6d9c535397aef5fee11a7ceee4a562b10f1ad78b947fbb7cdc8dfc349a822a43",
+    "N-A-61033": "e6746ab9766c820e64ebb7bfbe78507fad1aeb91e0111ab6324ec0d8c5cfe02f",
+    "N-C-61031": "004be5fa5611291ef806a0b2de0e91de4a25d25fc490e85547233c40d6ccbf64",
+    "N-C-61032": "85d671f32d4f16e4a898f1369dfc6056d7b3fad6d68e4147764b7a843f911c12",
+    "N-C-61033": "bfc63f5bf39563dbc5fb6ca0b638bbd54456f43a9511e34878f3f9e67838bc13"
+  },
+  "new_source_only_QA": {
+    "method": "INDEPENDENT_RAW_ZIP_SHA256_AND_EIGHT_INNER_MEMBER_SHA256_THEN_READONLY_NINE_EXACT_MATRIX_SHA_SEARCH",
+    "private_archive_nine_pins_found": 0,
+    "missing_exact_original_tensor_count": 9,
+    "scan_result": "HOLD_EXPECTED_NO_ORIGINAL_MATRIX_PAYLOADS_IN_THE_TWO_ARCHIVES",
+    "empty_source_negative_test": "PASS_NO_UNPINNED_MATRIX_ACCEPTED",
+    "no_tensor_regeneration": true,
+    "no_model_forward": true,
+    "gold_scores_read": false,
+    "TEST_H768_OOD256_not_opened": true,
+    "normalization_PN": "NOT_EXECUTED_GATED_ON_NINE_ORIGINAL_TENSORS",
+    "covariance_eigenspectrum_SMD": "NOT_EXECUTED_GATED_ON_NINE_ORIGINAL_TENSORS",
+    "trainer_real_source_readback": "NOT_EXECUTED_GATED_ON_NINE_ORIGINAL_TENSORS",
+    "training": false,
+    "GPU": false
+  },
+  "owner_local_fallback": {
+    "PowerShell_version": "5.1",
+    "artifact": "Invoke-TTM-GEMMA2-A0E-ExactOriginalNC-OnePacket-PS51.ps1",
+    "Python_verifier": "ttm_a0e_exact_custody_recovery_v1.py",
+    "search_roots": [
+      "C:\\Users\\minht\\Downloads",
+      "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp",
+      "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\artifacts\\qa",
+      "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\evidence",
+      "D:\\WORK\\RESEARCH\\_evidence"
+    ],
+    "script_sha256": "c8099b7b0af7b656a0527c813e8ad55ea141c29f7145ada1d535a307529a4e33",
+    "launcher_sha256": "5b6fea057e3bcefe766476caf21a2eba70504305744a02a5a61b295e12292c9f",
+    "packet_zip_sha256": "f1a89dfc3635b6cb90a4b8ac8a3a477fb3564732d3a21768112ad5ac1f0a9eaf",
+    "local_Windows_run_executed_by_assistant": false,
+    "writes_confined_to_project_tmp": true
+  },
+  "release": {
+    "T4": "NO_GO_HOLD",
+    "owner_GPU_execution_authorized": false,
+    "overwrite_source": false,
+    "science_executed": false,
+    "L0022_created": false,
+    "lineage_blob_unchanged": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2",
+    "no_merge_main": true,
+    "known_remaining_gates": [
+      "EXACT_NINE_ORIGINAL_SOURCE_BYTE_CUSTODY",
+      "RAW_RIGHTS_FRESH_VAL_NEARDUP",
+      "FULL_OFFICIAL_WEIGHTS_PROVENANCE",
+      "INDEPENDENT_REAL_RUNNER_SCORER_READBACK"
+    ]
+  },
+  "final_decision": "NO_GO_HOLD"
+}
