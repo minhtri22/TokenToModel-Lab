@@ -1,0 +1,28 @@
+name: TTM GEMMA2 A0E scorer and runner preexec contract synthetic no science
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0e-fourarm-scorer-preexec-contract-qa.yml
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_independent_scorer_v1.py
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_preexec_runner_contract_v1.py
+  workflow_dispatch:
+jobs:
+  source-only:
+    runs-on: ubuntu-24.04
+    permissions: {contents: read}
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install --disable-pip-version-check --no-cache-dir numpy==2.3.5
+      - name: Source byte compilation and synthetic positive/negative scorer fixture
+        run: |
+          python -m py_compile tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_independent_scorer_v1.py
+          python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_independent_scorer_v1.py --fixture
+      - name: Source byte compilation and fail-closed A0E preexec guard fixture
+        run: |
+          python -m py_compile tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_preexec_runner_contract_v1.py
+          python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_fourarm_preexec_runner_contract_v1.py --fixture
