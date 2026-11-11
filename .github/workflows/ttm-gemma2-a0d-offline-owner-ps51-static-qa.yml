@@ -1,0 +1,35 @@
+name: TTM GEMMA2 A0D Windows PS5.1 offline owner readback static QA
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0d-offline-owner-ps51-static-qa.yml
+      - tools/embeddinggemma2_swap/semantics_origin_a0/Invoke-TTM-GEMMA2-A0D-IsolatedOfflinePy312-OwnerReadback-PS51.ps1
+  workflow_dispatch:
+
+jobs:
+  parse-only:
+    runs-on: windows-2022
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: PowerShell 5.1 parse with errors report and read-only safety static assertions
+        shell: powershell
+        run: |
+          $path = 'tools/embeddinggemma2_swap/semantics_origin_a0/Invoke-TTM-GEMMA2-A0D-IsolatedOfflinePy312-OwnerReadback-PS51.ps1'
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path).Path,[ref]$tokens,[ref]$errors) | Out-Null
+          if (@($errors).Count -gt 0) {
+            $errors | ForEach-Object { Write-Output $_.ToString() }
+            throw 'A0D_POWERSHELL_51_PARSE_FAILED'
+          }
+          $s=[IO.File]::ReadAllText((Resolve-Path $path).Path)
+          foreach ($guard in @('--no-index','--system-site-packages','HOLD_WHEELHOUSE_ARTIFACT_SHA256','HOLD_DONOR_SOURCE_PIN_','T4_execution_authorized=$false','model_forward=$false')) {
+            if (-not $s.Contains($guard)) { throw ('A0D_OFFLINE_SOURCE_GUARD_MISSING: ' + $guard) }
+          }
+          Write-Output 'A0D_PS51_PARSE=PASS'
+          Write-Output 'A0D_CPU_OFFLINE_SAFETY_STATIC=PASS'
