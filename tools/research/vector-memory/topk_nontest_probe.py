@@ -173,5 +173,4 @@ def main() -> None:
                       'sha256':hashlib.sha256(raw.encode()).hexdigest(),
                       'test_accessed':False,'reader_loaded':False},sort_keys=True))
 
-
 if __name__=='__main__':main()
