@@ -1,0 +1,83 @@
+{
+  "schema": "ttm.fresh16.v2.owner_adoption_and_lean_rater_custody.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_OWNER_EXPLICIT_ADOPTION_AND_RATER_CUSTODY_BINDING",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "immediately_prior_branch_head": "979db370441bb8e9f27932777905c7ab40d9ade2",
+  "decision": {
+    "owner_explicit_message": "Quyết định ADOPT_V2",
+    "value": "ADOPT_V2",
+    "provenance": "OWNER_DIRECT_USER_MESSAGE_IN_CURRENT_CONVERSATION",
+    "effective_scoring_interpretation": "PROSPECTIVE_OPERATIONAL_OUTCOME_REDEFINITION_V2",
+    "adopted_v2_path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_SCORING_AMENDMENT_V2_ACTION_ROLE_BINDING_TWO_LOCKS_CANDIDATE_20261111.md",
+    "adopted_v2_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "supersedes_prior_default_defer": true,
+    "does_not_amend_original_prompt_or_rubric": true,
+    "does_not_grant_science_execution_permission": true
+  },
+  "pre_adoption_exposure": {
+    "owner_statement": "User affirmed that owner and executor have not generated, viewed, or used any FRESH16 outputs before ADOPT_V2; described that as already clear because the study has not reached execution.",
+    "owner_state": "OWNER_FIRST_PARTY_NO_PRIOR_OUTPUT_ASSERTED_FOR_BOTH_ROLES",
+    "independent_fingerprint_or_exhaustive_machine_scan": "NOT_CLAIMED",
+    "separate_executor_signature": "NOT_REQUESTED_FOR_LEAN_EXPLORATORY_STUDY",
+    "consequence": "ACCEPT_SELF_ATTESTATION_WITH_PROVENANCE; if contradictory output evidence appears, HOLD"
+  },
+  "independent_protocol_review": {
+    "verdict": "ACCEPT_CANDIDATE_FOR_OWNER_APPROVAL",
+    "overall": "PASS_PROTOCOL_REVIEW_FOR_OWNER_DECISION",
+    "P1": "PASS",
+    "P2": "PASS",
+    "P3": "PASS",
+    "P4": "HOLD_IMPLEMENTATION_PASS_DESIGN",
+    "no_V3_required": true,
+    "reviewer_is_not_output_rater": true
+  },
+  "frozen_source": {
+    "original_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+    "prompt_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "v2_git_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "checkpoint1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint1280_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "source_qa": "PASS_RECORDED_NO_RERUN",
+    "H1": "AT_LEAST_12_OF_16_PRIMARY_STEP1024_ADHERENCE_GE2",
+    "H2": "AT_LEAST_6_OF_8_PAIRS_PRIMARY_STEP1024_FACT_CONDITIONED_AND_AT_LEAST_ONE_EACH_FOUR_GROUPS"
+  },
+  "lean_custody": {
+    "S1_output_rater": {
+      "role_id": "FRESH16_S1_OUTPUT_RATER",
+      "role_contract": "BOUND",
+      "actual_identity_or_session": "NOT_INSTANTIATED",
+      "must_be_separate_from_executor": true,
+      "packet": "32_INDIVIDUALLY_BLINDED_OUTPUTS",
+      "score_lock": "SHA256_COMMIT_RECEIPT_BEFORE_PAIR_REVEAL"
+    },
+    "S2_pair_adjudicator": {
+      "role_id": "FRESH16_S2_PAIR_ADJUDICATOR",
+      "role_contract": "BOUND",
+      "actual_identity_or_session": "NOT_INSTANTIATED",
+      "must_be_separate_from_S1_rater": true,
+      "packet": "16_OPAQUE_PAIRS_CHECKPOINT_STILL_MASKED",
+      "score_lock": "SHA256_COMMIT_RECEIPT_BEFORE_CHECKPOINT_UNBLIND"
+    },
+    "scores_executed": false,
+    "blind_map_prepared": false,
+    "score_hashes_created": false,
+    "third_party_evidence_custodian_required": false,
+    "evidence_anchor": "GITHUB_IMMUTABLE_COMMIT_SHA_OF_SCORE_HASH_RECEIPTS",
+    "handoff_path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_TWO_AGENT_RATER_HANDOFF_AND_BLIND_SCORING_PROTOCOL_20261111.md"
+  },
+  "science": {
+    "status": "NOT_EXECUTED",
+    "execution_decision": "NO_GO_HOLD_PENDING_SINGLE_RUNNER_AND_CUSTODY_INTEGRATED_GATE",
+    "CPU_runner_source_locked": false,
+    "new_training": false,
+    "inference": false,
+    "TEST_access": false,
+    "original_one_shot_replay": false,
+    "main_changed": false,
+    "lineage_changed": false,
+    "execution_permit_issued": false
+  },
+  "next_operation": "TTM_FRESH16_V2_SINGLE_CPU_RUNNER_BLIND_MAP_RATER_CUSTODY_INTEGRATED_GO_NO_GO"
+}
