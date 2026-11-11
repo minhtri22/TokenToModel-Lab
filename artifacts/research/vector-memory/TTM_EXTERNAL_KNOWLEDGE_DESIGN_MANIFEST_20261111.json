@@ -1,0 +1,21 @@
+{
+  "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+  "checkpoint_step": 1280,
+  "date": "2026-11-11",
+  "dev_stories": 64,
+  "lineage_policy": "NO_APPEND_UNTIL_SCIENCE_RESULT",
+  "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "schema": "ttm.vector_memory.external_knowledge.design_manifest.v1",
+  "source_sha256": {
+    "artifacts/research/vector-memory/TTM_EXTERNAL_FACTS_DEV_64_V1.json": "fd68373f7765eead4cd5744584abc71d5377bc184863e28cdef7ad3cdfc3e05f",
+    "artifacts/research/vector-memory/TTM_EXTERNAL_FACTS_TRAIN_256_V1.json": "1c44055fae2281015228b74b3b6e3dffa513becd9207d43c28658ef063a6a57d",
+    "artifacts/research/vector-memory/TTM_EXTERNAL_KNOWLEDGE_DESIGN_STATIC_QA_20261111.json": "2a31ee23334bed01e8bff0d63bf65d2921e24e981cbb78de2f3e2beb5718f69f",
+    "docs/research/vector-memory/EXTERNAL_KNOWLEDGE_EVALUATION_DESIGN_20261111.md": "8742e444d3e7f0dd377eef09d6846a1f0441d632bb6cd8e28e1435ba025785c8",
+    "tools/research/vector-memory/external_knowledge_fixture.py": "a206bf0c1804969feea993dde0d096b730ce7fed2f79b792c334bd0a4f06609c",
+    "tools/research/vector-memory/test_external_knowledge_fixture.py": "b507a7cb4bab79e1db0891f8118ec47e1b75f4eacd853775920227fed60fb1fb"
+  },
+  "status": "DESIGN_ONLY_NO_SCIENCE",
+  "test_status": "NOT_MATERIALIZED_NOT_SEALED",
+  "test_stories_planned": 64,
+  "train_stories": 256
+}
