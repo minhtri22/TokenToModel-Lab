@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.small4m.ac.final_preexec.closeout.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_AC_FINAL_OWNER_RIGHTS_REVIEWER_ESCROW_AND_NATIVE_RESUME_PREEXEC_CLOSEOUT",
+  "status": "NO_GO_PREEXEC_EXTERNAL_AND_NATIVE_GATES_OPEN",
+  "science": "NOT_EXECUTED",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+  "main_frozen_observed": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "frozen_pins": {
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "eval_prompts_git_blob": "f08f15c5049baf77771bed463a5119136566373b",
+    "eval_count": 24,
+    "reviewer_scores_needed": 144
+  },
+  "gates": {
+    "design_source": "PASS_SCOPE_AC_2ARMS",
+    "prior_source_static_qa": "PASS_23_OF_23_SCOPED",
+    "prior_cpu_synthetic_resume": "PASS_6_OF_6_SCOPED",
+    "license_text": "PASS_CDLA_SHARING_1_0_COMPUTATIONAL_USE_SCOPED",
+    "owner_private_pack_attestation": "HOLD_NOT_RECEIVED",
+    "blind_pair_ciphertext": "PASS_SHA256_GITHUB_READBACK",
+    "blind_pair_balance": "PASS_12_A_LEFT_12_C_LEFT",
+    "private_escrow_key_owner_workspace": "HOLD_NOT_ATTESTED",
+    "reviewer_identity_and_independence": "HOLD_UNASSIGNED",
+    "windows_exact_python312_source_qa": "NOT_EXECUTED",
+    "colab_t4_fp16_zero_science_step_smoke": "NOT_EXECUTED",
+    "small4m_actual_interrupted_resume_parity": "NOT_EXECUTED",
+    "science_owner_lock": "NOT_GRANTED"
+  },
+  "github_evidence": {
+    "integrated_report": "docs/research/TTM_SMALL4M_AC_FINAL_OWNER_RIGHTS_REVIEWER_ESCROW_AND_NATIVE_RESUME_PREEXEC_CLOSEOUT_20261111.md",
+    "integrated_report_git_blob": "df50cdc235c3c0d57cda6bde434c352287b67008",
+    "encrypted_escrow": "artifacts/qa/ttm-small4m-prompt-conditioning/ac_preexec/TTM_SMALL4M_AC_BLIND24_ENCRYPTED_ESCROW_PUBLIC_20261111.json",
+    "encrypted_escrow_sha256": "519f3185d6202052ce1e5c98a7e7fa58a813d87ce9d9e2d173eb25f6a05f9f1c",
+    "encrypted_escrow_git_blob": "ff30fb1cded4712215f5ca657f4b98b182bc362f",
+    "native_preexec_script": "tools/pilot_t4/prompt_conditioning_2x2/Invoke-TTM-AC-Final-Preexec-PS51.ps1",
+    "native_preexec_script_git_blob": "12991679b890ac55304d87ab822d41a9029b670c",
+    "source_commit_pinned_inside_ps": "6628401b08ea7682cf34aa5078546e1d18e4d2cc",
+    "reviewer_owner_template": "docs/research/TTM_SMALL4M_AC_OWNER_RIGHTS_AND_INDEPENDENT_REVIEWER_SIGNOFF_TEMPLATE_20261111.md"
+  },
+  "no_change": {
+    "training_steps": 0,
+    "new_ttm_inference_tokens": 0,
+    "testruns": 0,
+    "oodruns": 0,
+    "q1q2runs": 0,
+    "lineage_updated": false,
+    "main_updated": false,
+    "pr13_updated": false,
+    "new_branches": 0
+  },
+  "decision": "NO_GO_NO_EXECUTION",
+  "next": "TTM_SMALL4M_AC_OWNER_CUSTODY_NATIVE_QA_AND_REVIEWER_ATTESTATION_SINGLE_READBACK",
+  "note": "No formal reviewer or private pack owner signature invented; do not promote source-only QA to science execution."
+}
