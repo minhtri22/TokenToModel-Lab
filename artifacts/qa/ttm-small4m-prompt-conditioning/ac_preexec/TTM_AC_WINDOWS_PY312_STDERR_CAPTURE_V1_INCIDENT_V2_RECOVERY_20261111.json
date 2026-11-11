@@ -1,0 +1,47 @@
+{
+  "schema": "ttm.small4m.ac.windows.ps51.unitest.stderr.capture.recovery.v2",
+  "date": "2026-11-11",
+  "task": "TTM_SMALL4M_AC_OWNER_CUSTODY_NATIVE_QA_ERROR_RECOVERY",
+  "incident": {
+    "user_evidence": "Windows PowerShell 5.1 Python 3.12.10 environment; PyTorch 2.11.0+cpu; NumPy 2.4.4",
+    "v1_result": "HOLD_NATIVE_QA_FAILED",
+    "v1_observed_error": "test_01_scoped_roundtrip_and_no_overwrite (...) ... ok",
+    "v1_technical_classification": "PS51_STDERR_REDIRECTION_WITH_ERRORACTIONPREFERENCE_STOP",
+    "v1_original_dir": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_NATIVE_PREEXEC_6628401b08ea",
+    "v1_test01": "OBSERVED_OK",
+    "v1_all_six_tests": "NOT_VERIFIED",
+    "v1_q1q2_test_ood_science": "NOT_TOUCHED"
+  },
+  "recovery": {
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "script_path": "tools/pilot_t4/prompt_conditioning_2x2/Invoke-TTM-AC-Final-Preexec-PS51.ps1",
+    "v2_source_git_blob": "7b7cac6d4cb0e68b0b91a3dc9fd22862d0b0b05b",
+    "v2_immutable_output_dir": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_NATIVE_PREEXEC_STDERR_FIX_V2_6628401b08ea",
+    "capture_method": "Start-Process -Wait -PassThru -RedirectStandardOutput separate -RedirectStandardError separate",
+    "pass_requirement": "ExitCode==0 AND stderr Ran 6 tests in AND stderr final OK AND no FAILED",
+    "source_pin": "6628401b08ea7682cf34aa5078546e1d18e4d2cc",
+    "source_scope_check": "PASS_STATIC_18_OF_18",
+    "actual_windows_v2_executed": false,
+    "actual_windows_v2_status": "NOT_EXECUTED_WAITING_OWNER_READBACK",
+    "original_dir_untouched": true,
+    "independent_actual_small4m_resume": "NOT_EXECUTED"
+  },
+  "private_escrow_recovery": {
+    "json_key_sha256": "c216ec0e9b815eb231e58c80cbb2d5ccc956cf4c66d481c7b3aa4488e19a897e",
+    "zip_sha256": "1cca257db4fef78f9a90ab9fdcd98095bd223f663fc3c86d2d3b83fa3cb472f4",
+    "zip_verified_extract_exact_json": true,
+    "private_key_published_to_github": false,
+    "owner_local_custody": "NOT_VERIFIED",
+    "encrypted_public_escrow_sha256": "519f3185d6202052ce1e5c98a7e7fa58a813d87ce9d9e2d173eb25f6a05f9f1c"
+  },
+  "authorization": {
+    "science": "NO_GO_UNCHANGED",
+    "owner_rights": "HOLD",
+    "reviewer": "HOLD",
+    "t4_resume": "HOLD",
+    "main_no_change": true,
+    "lineage_no_change": true,
+    "new_branch": false,
+    "training_steps": 0
+  }
+}
