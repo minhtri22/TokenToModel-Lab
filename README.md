@@ -4,6 +4,10 @@
 
 **Mục tiêu cuối:** một mô hình có thể huấn luyện, đo lường, vận hành và xem xét thương mại hóa theo bằng chứng; đồng thời hình thành tài liệu để viết sách bằng tiếng Việt.
 
+## Danh mục tình trạng nghiên cứu (11/11/2026)
+
+**[Bảng tổng quan các nhánh nghiên cứu TTM](docs/RESEARCH_PORTFOLIO_STATUS.md)** ghi rõ PASS/FAIL/HOLD theo đúng nhánh và bằng chứng, gồm kết quả Ollama full logits `PASS_SCOPED_CLOSED_UNMERGED` trên runner tùy chỉnh, các FAIL lịch sử và định hướng Attention/MoE/GPU. Đây là snapshot trên nhánh nghiên cứu, **chưa thay đổi `main`**, không phải đánh giá chất lượng ứng dụng.
+
 ## Trạng thái dự án sau P00
 
 - P00 đã được hợp nhất vào `main` trên GitHub tại commit `8df22f5f29e645b2becff936daccbd32ac780661`.
