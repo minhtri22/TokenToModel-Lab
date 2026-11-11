@@ -1,0 +1,23 @@
+{
+  "author_ciphertext_sha256": "8acb265b77a84edcfe43da7cded1020f9d09821f3ec523ac482c7db824a813df",
+  "ciphertext_sha256": "28c1670a609b80214f1ec852cd04df622bc210fb17f3ddccea5300f086218365",
+  "family_counts": {
+    "C1": 24,
+    "C2": 24,
+    "C3": 24
+  },
+  "final_pairs": 72,
+  "final_plaintext_sha256_commitment": "5a22715cd397604fc72c4897c43be825acf63f9dfa2b7450e85c0b531673a4a0",
+  "final_scores": 0,
+  "model_inference": false,
+  "original_TTM_TEST_Q1Q2_reads": 0,
+  "owner_key_not_exported": true,
+  "owner_key_read": true,
+  "private_author_source_sha256_commitment": "0414614c822dd1b1b6d9cdc1e0a45ba71dd7e25b27ec321a7e8024008d39f994",
+  "schema": "ttm.cf1.owner_private_final_readonly_escrow_verification.v1",
+  "status": "PASS_AES256GCM_TWO_AUTHENTICATED_DECRYPTIONS_AND_COMMITMENTS",
+  "warnings": [
+    "This verifies cryptographic custody, not semantic correctness or blind structural independence.",
+    "No private FINAL text, key, nonce unblinding action, or source is printed or stored in this receipt."
+  ]
+}
