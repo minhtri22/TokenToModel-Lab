@@ -47,7 +47,9 @@ if($LASTEXITCODE -ne 0 -or $already.Count -ne 0){throw 'EVIDENCE_REMOTE_EXISTS_O
 & git -C $Root cat-file -e ($runnerBlob + '^{blob}')
 if($LASTEXITCODE -ne 0){throw 'EXACT_RUNNER_GIT_BLOB_MISSING'}
 # Stage Python runner without PS5.1 text-redirection corruption.
-& $Python -c 'import pathlib,subprocess,sys,hashlib; b=subprocess.check_output(["git","-C",sys.argv[1],"cat-file","blob",sys.argv[3]]); assert hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()==sys.argv[3]; pathlib.Path(sys.argv[2]).open("xb").write(b)' $Root $stage $runnerBlob
+# PowerShell 5.1 must not strip double quotes inside native Python -c arguments.
+$blob_stage_py = "import pathlib,subprocess,sys,hashlib; b=subprocess.check_output(['git','-C',sys.argv[1],'cat-file','blob',sys.argv[3]]); assert hashlib.sha1(b'blob '+str(len(b)).encode()+bytes([0])+b).hexdigest()==sys.argv[3]; pathlib.Path(sys.argv[2]).open('xb').write(b)"
+& $Python -c $blob_stage_py $Root $stage $runnerBlob
 if($LASTEXITCODE -ne 0){throw 'EXACT_RUNNER_STAGE_FAILED'}
 # Inner runner checks checkpoint, manifest and SIX exact Git blobs before creating run dir.
 & $Python $stage --repo-root $Root --checkpoint $Checkpoint
