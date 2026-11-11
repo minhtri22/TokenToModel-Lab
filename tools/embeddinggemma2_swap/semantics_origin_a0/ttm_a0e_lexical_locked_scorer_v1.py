@@ -4,7 +4,7 @@ Only after externally verified Git commit of all 12 outcomes can --score be used
 Uses paired word-disjoint bootstrap; Holm adjusted p values over exactly two tests.
 """
 from __future__ import annotations
-import argparse,hashlib,json,math
+import argparse,hashlib,json,math,re,subprocess
 from pathlib import Path
 import numpy as np
 
@@ -65,12 +65,31 @@ def analyze(vec, gold):
             "holm_adjusted_p":adj.tolist(),"simultaneous_bonferroni_97_5_lower":lower.tolist(),
             "simultaneous_bonferroni_97_5_upper":upper.tolist(),
             "not_claiming_third_party_or_pure_semantic_causality":True}
+def verify_git_lock(a):
+    """Verify a real commit object containing exactly the frozen receipt bytes before gold read."""
+    need(a.git_repo and a.lock_commit and a.receipt_repo_path and a.verified_commit_receipt,
+         "GIT_ARGS_REQUIRED")
+    need(re.fullmatch(r'[0-9a-f]{40}',a.lock_commit),"GIT_COMMIT_FORMAT")
+    need(a.receipt_repo_path.startswith('artifacts/qa/ttm-embeddinggemma2/')
+         and '..' not in a.receipt_repo_path,"GIT_RECEIPT_PATH")
+    command=['git','-C',str(Path(a.git_repo).resolve()),'show',
+             a.lock_commit+':'+a.receipt_repo_path]
+    result=subprocess.run(command,capture_output=True,check=False)
+    need(result.returncode==0 and result.stdout,"LOCK_COMMIT_OBJECT_NOT_FOUND")
+    need(hashlib.sha256(result.stdout).hexdigest()==digest(a.verified_commit_receipt),
+         "GIT_RECEIPT_BYTES_DO_NOT_MATCH")
+    receipt=json.loads(result.stdout.decode('utf8'))
+    need(receipt.get('schema')=='ttm.gemma2.a0e.two_party_hash_locked_outcomes.v1'
+         and receipt.get('outcome_count')==12
+         and receipt.get('gold_scores_read') is False
+         and receipt.get('unblind_allowed') is False,"LOCK_CONTENT_NOT_VALID")
+    need(receipt.get('original_prereg_git_blob')=='d6e5d82709b2bc31458f73e7720cdae1e5f5e54e',
+         "LOCK_PREREG_WRONG")
+    need(len(receipt.get('outcomes',{}))==12,"LOCK_12_MISSING")
+    return receipt
+
 def private_score(a):
-    need(a.verified_commit_receipt and a.lock_verified_by_separate_github_readback,
-         "EXTERNAL_GIT_READBACK_REQUIRED")
-    receipt=json.loads(Path(a.verified_commit_receipt).read_text('utf8'))
-    need(receipt.get('status')=='PASS_GITHUB_COMMIT_READBACK_BEFORE_GOLD' and receipt.get('outcomes_locked_count')==12,
-         "COMMIT_READBACK_STATUS")
+    receipt=verify_git_lock(a)
     need(digest(a.core)==CORE_SHA,"CORE_ROSTER_SHA")
     need(digest(a.gold)==GOLD_SHA,"GOLD_SHA")
     # Gold source parsing requires exact frozen layout, not inferred dynamically.
@@ -117,7 +136,8 @@ def fixture():
 def main():
     ap=argparse.ArgumentParser()
     g=ap.add_mutually_exclusive_group(required=True);g.add_argument('--fixture',action='store_true');g.add_argument('--score',action='store_true')
-    for name in ('verified-commit-receipt','core','gold','frozen-column-contract','frozen-cosines','output'):
+    for name in ('verified-commit-receipt','git-repo','lock-commit','receipt-repo-path',
+                 'core','gold','frozen-column-contract','frozen-cosines','output'):
         ap.add_argument('--'+name)
     ap.add_argument('--lock-verified-by-separate-github-readback',action='store_true')
     a=ap.parse_args()
