@@ -176,6 +176,10 @@ def main():
     check('33_no_gradients_on_frozen_model',all(p.grad is None and not p.requires_grad for p in frozen_p02.parameters()))
     check('34_no_gradients_on_reader',all(p.grad is None for p in reader.parameters()))
     check('35_no_test_model_or_optimizer_in_execution',True)
+    # A no-memory arm must not even tokenize/look at a supplied fact payload.
+    def forbidden_tokenizer(_): raise AssertionError('NO_MEMORY_MUST_NOT_TOKENIZE')
+    poison=mod.encode_cards_for_reader([selected[0]['question']],[[{'bad':'untrusted'}]],forbidden_tokenizer,head,no_memory=True)
+    check('36_no_memory_skips_fact_read_and_tokenizer',poison.keys.shape==(1,0,256) and poison.values.shape==(1,0,256) and poison.mask.shape==(1,0))
 
     report={
         'schema':'ttm.vm.externalfacts.oracle_reader.source_only_integrated_qa.v1',
