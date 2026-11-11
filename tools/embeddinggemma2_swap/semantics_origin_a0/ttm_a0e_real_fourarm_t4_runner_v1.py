@@ -147,7 +147,7 @@ def build_model(root,train_seed,rows,valid,proj):
     require_trainable=sum(p.numel() for p in model.parameters() if p.requires_grad)
     need(require_trainable==3880448,"TRAINABLE_PARAMS")
     return model
-def restore_or_new(model,settings,root,seed,arm):
+def restore_or_new(model,settings,root,seed,arm,expected_schedule_sha):
     import torch
     optimizer=torch.optim.AdamW((p for p in model.parameters() if p.requires_grad),
        lr=settings['lr'],betas=tuple(settings['betas']),weight_decay=settings['weight_decay'])
@@ -158,8 +158,10 @@ def restore_or_new(model,settings,root,seed,arm):
     need(step in (128,256,384,512),"RESUME_STEP")
     marker=last.with_suffix('.ready.json')
     need(marker.is_file() and pinned_json(marker)['sha256']==sha(last),"RESUME_SHA")
+    need(pinned_json(marker).get('schedule_sha256')==expected_schedule_sha,"RESUME_SCHEDULE_MARKER")
     state=torch.load(last,weights_only=True,map_location='cpu')
     need(state['seed']==seed and state['arm']==arm and state['step']==step
+         and state['schedule_sha256']==expected_schedule_sha
          and state['schema']=='ttm.gemma2.a0e.checkpoint.v1',"RESUME_BIND")
     model.load_state_dict(state['model'],strict=True)
     optimizer.load_state_dict(state['optimizer'])
@@ -184,6 +186,10 @@ def train_arm(model,optimizer,seed,arm,packets,data,start,losses,out):
     import torch
     from torch.nn import functional as F
     model=model.to('cuda:0',dtype=torch.float32).train()
+    # torch.load CPU optimizer state must be moved to the active parameter device on resume.
+    for state in optimizer.state.values():
+        for k,v in tuple(state.items()):
+            if torch.is_tensor(v):state[k]=v.to('cuda:0')
     for step in range(start,STEPS):
         ids,limits=packets[step]
         need(sum(limits)==TARGET,"BUDGET_STEP")
@@ -258,11 +264,22 @@ def preflight(a):
     need(isinstance(cfg.get('lr'),(int,float)) and 0<cfg['lr']<.01
          and cfg.get('betas')==[.9,.999] and 0<=cfg.get('weight_decay',-1)<1,"OPTIMIZER_PARAMS")
     schedules={s:schedule(data['count'],s) for s in SEEDS}
+    need(cfg.get('schedule_sha256_by_seed')=={str(s):schedules[s][1] for s in SEEDS},
+         "SCHEDULE_NOT_PRE_FROZEN")
+    need(cfg.get('source_checkpoint_sha256')==INPUT_PINS['checkpoint.pt']
+         and cfg.get('private_train_pack_sha256')==INPUT_PINS['T4_PRIVATE_TRAIN_VAL_WINDOWS.npz'],
+         "OPTIMIZER_SOURCE_NOT_PINNED")
     manifest_sha=sha(a.preexec_manifest)
     return root,rows,valid,proj,data,cfg,schedules,manifest_sha
 def execute(a,ctx):
     import torch
     root,rows,valid,proj,data,cfg,schedules,manifest_sha=ctx
+    # Recompute parsed, semantic per-artifact acceptance; owner "GO" cannot bypass v3.
+    gate_module=import_module('ttm_a0e_content_guard_v3',
+       Path(__file__).with_name('ttm_a0e_content_verified_preexec_guard_v3.py'))
+    audited=gate_module.audit(pinned_json(a.preexec_manifest),a.evidence_root)
+    need(audited['status']=='GO_CANDIDATE_OWNER_T4_APPROVAL_STILL_REQUIRED'
+         and len(audited['missing'])==0,"INDEPENDENT_CONTENT_GATES_NOT_ALL_PASS")
     gate=pinned_json(a.authorization)
     need(gate.get('schema')=='ttm.gemma2.a0e.owner_t4_release.v1'
          and gate.get('status')=='GO_FOR_A0E_T4'
@@ -285,7 +302,7 @@ def execute(a,ctx):
         packets,_=schedules[seed];nseed=NSEEDS[SEEDS.index(seed)]
         for arm in ARMS:
             model=build_model(root,seed,rows[f'{arm}-{nseed}'],valid,proj)
-            optimizer,start,losses=restore_or_new(model,cfg,out,seed,arm)
+            optimizer,start,losses=restore_or_new(model,cfg,out,seed,arm,schedules[seed][1])
             if start<STEPS:
                 train_arm(model,optimizer,seed,arm,packets,data,start,losses,out)
             del model,optimizer
@@ -298,7 +315,8 @@ def main():
     g.add_argument('--preflight',action='store_true')
     g.add_argument('--execute',action='store_true')
     for n in ('input-root','scaled-npz','scalar-receipt','preexec-manifest','optimizer-config',
-              'authorization','output','output-sha-manifest','fresh-val','fresh-val-manifest'):
+              'authorization','output','output-sha-manifest','fresh-val','fresh-val-manifest',
+              'evidence-root'):
         p.add_argument('--'+n)
     p.add_argument('--owner-approve',action='store_true')
     a=p.parse_args()
@@ -310,7 +328,8 @@ def main():
             print(json.dumps({"status":"SOURCE_PREFLIGHT_PASS_SCOPED_NOT_GPU_ADMITTED",
                               "training":False,"gold_read":False,"GPU":False}))
         else:
-            need(all((a.authorization,a.output,a.output_sha_manifest,a.fresh_val,a.fresh_val_manifest)),"EXEC_ARGS")
+            need(all((a.authorization,a.output,a.output_sha_manifest,a.fresh_val,
+                       a.fresh_val_manifest,a.evidence_root)),"EXEC_ARGS")
             execute(a,ctx)
     except Exception as e:
         print(json.dumps({"status":"NO_GO_HOLD","error":str(e),"T4_authorized":False},sort_keys=True))
