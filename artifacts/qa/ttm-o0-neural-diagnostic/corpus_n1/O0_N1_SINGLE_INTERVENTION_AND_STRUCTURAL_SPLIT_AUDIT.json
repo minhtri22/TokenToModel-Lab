@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.o0.n1.counterfactual_and_structural_overlap_audit.v1",
+  "splits": {
+    "TRAIN": {
+      "groups": 1024,
+      "one_line_only": 500,
+      "additional_noise_change": 524,
+      "last_two_lines_same": 500
+    },
+    "DEV_IID": {
+      "groups": 64,
+      "one_line_only": 28,
+      "additional_noise_change": 36,
+      "last_two_lines_same": 28
+    },
+    "DEV_STRUCT": {
+      "groups": 64,
+      "one_line_only": 28,
+      "additional_noise_change": 36,
+      "last_two_lines_same": 28
+    }
+  },
+  "totals": {
+    "groups": 1152,
+    "one_line_only": 556,
+    "additional_noise_change": 596,
+    "last_two_lines_same": 556
+  },
+  "final_structural_pattern_overlap": [
+    "N1:CHAIN2:HOLDER",
+    "N2:DOUBLE_DELEGATE:CANCEL_VS_TRANSFER",
+    "N3:ROLE_REF_CHAIN:HOLDER",
+    "N4:SEAL_BADGE_CHAIN:HOLDER"
+  ],
+  "single_intervention_gate": "FAIL_SCOPED",
+  "final_vs_dev_struct_gate": "FAIL_SCOPED"
+}
