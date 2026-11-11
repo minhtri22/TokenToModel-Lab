@@ -39,7 +39,7 @@ jobs:
                   return raw
           mirror_url="https://raw.githubusercontent.com/benathi/word2gm/56bda7d964b2eede9b0280e7b9a3b9cdbb06fa38/evaluation_data/simverb/data/SimVerb-3500.txt"
           mirror=get(mirror_url,300000)
-          gitblob=hashlib.sha1(b"blob "+str(len(mirror)).encode("ascii")+b"\\0"+mirror).hexdigest()
+          gitblob=hashlib.sha1(b"blob "+str(len(mirror)).encode("ascii")+b"\0"+mirror).hexdigest()
           result["mirror_git_blob_actual"]=gitblob
           if gitblob!=result["mirror_git_blob_expected"]:raise ValueError("HOLD_GITHUB_MIRROR_BLOB_MISMATCH")
           result["mirror_sha256"]=hashlib.sha256(mirror).hexdigest()
@@ -75,7 +75,7 @@ jobs:
                       result["official_zip_sha256"]=hashlib.sha256(raw).hexdigest()
                       result["publisher_file_sha256"]=hashlib.sha256(publisher).hexdigest()
                       result["publisher_file_git_blob"]=hashlib.sha1(
-                          b"blob "+str(len(publisher)).encode()+b"\\0"+publisher).hexdigest()
+                          b"blob "+str(len(publisher)).encode()+b"\0"+publisher).hexdigest()
                       result["publisher_file_bytes"]=len(publisher)
                       result["official_url_kind"]="legacy_handle" if ix==0 else "api_bitstream"
                       if publisher==mirror:
@@ -87,7 +87,7 @@ jobs:
               except Exception as err:
                   result["attempts"].append({"kind":"legacy_handle" if ix==0 else "api","status":"UNAVAILABLE","error_type":type(err).__name__})
           dest=outdir/"A0E_OFFICIAL_PUBLISHER_PARITY_SOURCE_ONLY.json"
-          dest.write_text(json.dumps(result,indent=2,sort_keys=True)+"\\n",encoding="utf-8")
+          dest.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
           print("A0E_PUBLISHER_PARITY_STATUS="+result["status"])
           print("A0E_PUBLISHER_PARITY_SOURCE_RECEIPT_SHA256="+hashlib.sha256(dest.read_bytes()).hexdigest())
           print("A0E_PUBLISHER_ATTEMPTS="+json.dumps(result["attempts"],sort_keys=True))
