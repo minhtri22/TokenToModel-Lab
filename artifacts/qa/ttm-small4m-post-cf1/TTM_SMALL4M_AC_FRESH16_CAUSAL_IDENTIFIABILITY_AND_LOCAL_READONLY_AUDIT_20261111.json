@@ -1,0 +1,152 @@
+{
+  "schema": "ttm.small4m.post_cf1.ac_fresh16.integrated_readiness_source_local_audit.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_DATA_OBJECTIVE_EXISTING_AC_AND_FRESH16_SINGLE_INTEGRATED_SCIENCE_READINESS_GAP_REVIEW_DESIGN_ONLY",
+  "status": "GO_DESIGN_REVIEW_COMPLETE__HOLD_SCIENCE_EXECUTION",
+  "audit_level": "AUTHOR_SOURCE_READBACK_AND_PARTIAL_LOCAL_READ_ONLY_NOT_NEW_SCIENCE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "research_branch": "research/ttm-small4m-post-cf1-language-fresh-gap-reconcile-20261111",
+  "report_commit_before_json": "f9e86df884ac657fdc3617fa307ce998df0c644f",
+  "refs": {
+    "github_main": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "previous_reconciliation": "11f115c57abd495863f6e19f0a2915eff8b45476",
+    "ac_design_head": "837289fda82b41653a61b74e476f76a0b4c4137c",
+    "fresh16_latest_head": "23dd0f73656a2882c54f8d27a0280511f06fd2ce",
+    "fresh16_prior_source": "1583c5b475407799bfca75b503ddf359de7fda69",
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "ac_private_train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "github_inventory": {
+    "open_draft_prs": [
+      13,
+      14,
+      15
+    ],
+    "historic_merged_pr_count": 13,
+    "closed_unmerged_prs": [
+      4
+    ],
+    "original_t4_val_nll": 3.522338851682218,
+    "train_only_bigram_val_nll": 3.9972314169551506,
+    "relative_advantage": 0.11880537195283955,
+    "fresh12_zero_adherence_outputs": 35,
+    "fresh12_outputs": 48,
+    "cf1_correct_both_contexts": 0,
+    "cf1_pairs": 36,
+    "cf1_switches": 0
+  },
+  "local_readonly": {
+    "target": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "root_head_ref": "refs/heads/main",
+    "root_main_head": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "observed_origin_main": "d4ec548727ba85625d1bf2684d85ec9e6867572b",
+    "github_main_ahead_of_local_main": 146,
+    "github_main_behind_local_main": 0,
+    "comparison_status": "LOCAL_MAIN_ANCESTOR_OF_GITHUB_MAIN",
+    "fresh16_worktree_head_ref": "refs/heads/research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+    "fresh16_local_branch_sha": "6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2",
+    "worktrees_exist": true,
+    "dirty_status": "NOT_VERIFIED",
+    "git_command_status": "DENIED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+    "git_fetch_pull_checkout_merge": "NOT_EXECUTED",
+    "local_files_modified": false,
+    "native_ac_receipt": {
+      "path": "_tmp/TTM_AC_NATIVE_PREEXEC_6628401b08ea/NATIVE_SOURCE_QA_RESULT.json",
+      "status": "HOLD_NATIVE_QA_FAILED",
+      "source_git_blob_exact": true,
+      "syntax_compile": true,
+      "source_qa": true,
+      "synthetic_resume_tests": false,
+      "test01_observed": "ok",
+      "incident_classification": "POWERSHELL51_STDERR_REDIRECTION_ERRORACTIONPREFERENCE_STOP",
+      "v2_recovery_script_staged_on_github": true,
+      "v2_native_execution": "NOT_VERIFIED_AS_EXECUTED",
+      "t4_smoke": "NOT_EXECUTED",
+      "original_test_q1q2_ood": "UNTOUCHED"
+    }
+  },
+  "causal_design": {
+    "full_2x2_design_existing": true,
+    "arms": {
+      "A": "original_sampler + uniform_CE",
+      "B": "first_story_window_count_matched + uniform_CE",
+      "C": "original_sampler + suffix_position_weighted_CE",
+      "D": "first_story_window_count_matched + suffix_position_weighted_CE"
+    },
+    "full_factorial_effects": {
+      "data": "B-A and D-C",
+      "objective": "C-A and D-B",
+      "interaction": "(D-B)-(C-A)"
+    },
+    "ac_implemented": [
+      "A",
+      "C"
+    ],
+    "ac_scope": "ONLY_SUFFIX_POSITION_WEIGHTING_CAUSAL_CONTRAST_NOT_DATA_EFFECT",
+    "ac_per_arm_steps": 128,
+    "ac_per_step_target_exposures": 4096,
+    "ac_total_two_arm_target_exposures": 1048576,
+    "loss_position_start": 32,
+    "loss_suffix_weight": 3,
+    "data_vs_objective_identified_by_ac": false,
+    "bd_arms_ready_for_science": false,
+    "historical_1280_is_fair_control": false
+  },
+  "fresh16": {
+    "source_bpe": "PASS_SCOPED",
+    "new_inference_outputs": 0,
+    "prompt_count": 16,
+    "pair_count": 8,
+    "frozen_H1_min": 12,
+    "frozen_H2_min": 6,
+    "external_protocol_review": {
+      "pass": 3,
+      "hold": 5,
+      "fail": 0
+    },
+    "new_scoring_interpretation": "CANDIDATE_NOT_ADOPTED",
+    "cloze_confounds": true,
+    "common_valid_response_confounds": true,
+    "output_rater": "UNASSIGNED",
+    "blind_scoring_packet": "NOT_LOCKED",
+    "decision": "NO_GO_HOLD"
+  },
+  "ac": {
+    "source_static_qa": "PASS_SCOPED_PREVIOUS",
+    "synthetic_resume": "PASS_SCOPED_PREVIOUS_LINUX_NOT_EQUIVALENT_NATIVE",
+    "public_blind24_escrow": "PASS_SCOPED",
+    "owner_private_key_custody": "HOLD_NOT_VERIFIED",
+    "owner_private_pack_rights_attestation": "HOLD_NOT_RECEIVED",
+    "independent_output_reviewer": "UNASSIGNED",
+    "windows_native_qa_v1": "HOLD_NATIVE_QA_FAILED",
+    "windows_native_v2": "NOT_VERIFIED",
+    "colab_t4_zero_step": "NOT_EXECUTED",
+    "actual_small4m_interrupted_resume": "NOT_EXECUTED",
+    "science_lock": "NOT_GRANTED",
+    "decision": "NO_GO_PREEXEC"
+  },
+  "judgments": {
+    "source_reconciliation": "PASS_SCOPED_AUTHOR_READBACK",
+    "local_worktree_cleanliness": "UNKNOWN",
+    "fresh16_cpu32": "HOLD",
+    "ac_training_two_arm": "HOLD",
+    "full_factorial_data_vs_objective": "DESIGN_ONLY_NOT_AUTHORIZED",
+    "architecture_o1_moe_new_attention": "DEFER",
+    "new_toy": "NO",
+    "owner_science_permission": "NOT_GRANTED"
+  },
+  "invariants": {
+    "github_main_written": false,
+    "pr13_written": false,
+    "lineage_written": false,
+    "local_worktrees_written": false,
+    "science_training_steps": 0,
+    "science_inference_outputs": 0,
+    "original_test_opened": false,
+    "q1q2_reused": false,
+    "fresh12_reused": false,
+    "cf1_reused": false,
+    "independent_science_qa_claimed": false
+  },
+  "next": "TTM_SMALL4M_ORIGINAL_FRESH16_PROTOCOL_OWNER_RATER_AND_AC_NATIVE_V2_SINGLE_READBACK_DECISION_NO_SCIENCE"
+}
