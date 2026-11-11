@@ -1,0 +1,63 @@
+name: TTM GEMMA2 A0D Windows 3.12 OFFLINE Transformers 5.19 wheelhouse
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0d-py312-windows-offline-transformers-wheels.yml
+  workflow_dispatch:
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download Windows CPython 3.12 pinned Transformers dependency wheels, never torch or pretrained weights
+        shell: bash
+        run: |
+          mkdir -p _a0d_win312_offline_wheels
+          python -m pip download --disable-pip-version-check --only-binary=:all: --platform win_amd64 --python-version 3.12 --implementation cp --abi cp312 --dest _a0d_win312_offline_wheels 'transformers==5.19.0'
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          directory=Path('_a0d_win312_offline_wheels')
+          records=[]
+          for p in sorted(directory.glob('*.whl')):
+              with p.open('rb') as f: sha=hashlib.file_digest(f,'sha256').hexdigest()
+              records.append({'name':p.name,'bytes':p.stat().st_size,'sha256':sha})
+          assert any(x['name'].lower().startswith('transformers-5.19.0-') for x in records)
+          assert not any(x['name'].lower().startswith('torch-') for x in records)
+          assert len(records)>=8
+          receipt={
+              'schema':'ttm.gemma2.a0d.py312_windows_offline_wheelhouse.v1',
+              'status':'PASS_WHEELHOUSE_COMPLETE',
+              'platform':'win_amd64','python_version':'3.12',
+              'transformers_pin':'5.19.0','wheels':records,
+              'contains_torch':False,
+              'contains_pretrained_model_weights':False,
+              'does_not_change_owner_site_packages':True,
+              'install_method':'NEW_PROJECT_LOCAL_VENV_SYSTEM_SITE_PACKAGES_OFFLINE_ONLY',
+              'python_interpreter':'EXISTING_OWNER_PYTHON_3_12'
+          }
+          (directory/'WHEELHOUSE_SHA256_MANIFEST.json').write_text(
+              json.dumps(receipt,indent=2,sort_keys=True)+'\n',encoding='utf8')
+          print('A0D_WINDOWS_OFFLINE_WHEEL_COUNT='+str(len(records)))
+          print('A0D_WINDOWS_OFFLINE_TOTAL_BYTES='+str(sum(r['bytes'] for r in records)))
+          print('A0D_WINDOWS_OFFLINE_WHEELHOUSE=PASS')
+          PY
+      - name: Publish exact Windows-only wheelhouse for owner-local project-scope venv
+        uses: actions/upload-artifact@v4
+        with:
+          name: TTM_GEMMA2_A0D_WINDOWS_PY312_TRANSFORMERS_5_19_OFFLINE_WHEELS_20261111
+          path: _a0d_win312_offline_wheels/*
+          retention-days: 7
+          if-no-files-found: error
+      - name: Remove transient wheel downloads
+        if: always()
+        run: rm -rf _a0d_win312_offline_wheels
