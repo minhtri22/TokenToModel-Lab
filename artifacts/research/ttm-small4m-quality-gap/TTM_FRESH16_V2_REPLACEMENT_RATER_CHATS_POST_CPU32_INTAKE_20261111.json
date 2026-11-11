@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.fresh16.v2.new_blind_rater_chats_after_cpu32.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_S1_S2_NEW_BLIND_SCORING_CHATS_HANDOFF_POST_CPU32",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "precommit_head": "d849f010740a47fd9bcc353f6b54aedfc2096fe0",
+  "prior_rater_chat_status": "OWNER_REPORTS_PREVIOUS_S1_AND_S2_CHAT_WINDOWS_DELETED; NO_SCORES_SUBMITTED_OR_LOCKED",
+  "new_rater_chat_status": {
+    "S1": "NEW_DEDICATED_CHAT_NOT_YET_OPENED",
+    "S2": "NEW_DISTINCT_CHAT_NOT_YET_OPENED"
+  },
+  "prior_GO_permit_remains_historical": "d123fbb8b41d53fe76ad1ff14d4ac4e8907c31ea",
+  "prior_GO_session_aliases": "OWNER_DESIGNATED_NON_PROVIDER_IDENTIFIERS_IN_PAST_GO; NOT PROOF OF CURRENT_SCORERS",
+  "replace_actual_scoring_session_ids": "S1 and S2 agents will declare their own fresh session labels with scored files; never rewrite previous GO receipt",
+  "run_status": "CPU32_PASS_COMPLETE_NO_RERUN",
+  "scoring_status": {
+    "S1": "NOT_EXECUTED",
+    "S2": "NOT_EXECUTED"
+  },
+  "S1_packet": {
+    "schema": "ttm.fresh16.v2.s1_packet.v1",
+    "sha256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+    "records": 32,
+    "unique_opaque_ids": 32,
+    "sanitized_field_names": [
+      "opaque_id",
+      "prompt_text",
+      "generated_text_only"
+    ],
+    "owner_chat_attachment_validated": true
+  },
+  "S1_scores_SHA_anchor": "NOT_CREATED",
+  "S2_pair_packet": "NOT_GENERATED",
+  "S2_packet_release_gate": "S1_32_COMPLETE_AND_SHA_ANCHORED_IN_GIT_COMMIT",
+  "checkpoint_unblinding": "NOT_ALLOWED_BEFORE_S2_SHA_ANCHORED",
+  "handoff_paths": {
+    "S1": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_NEW_INDEPENDENT_S1_CHAT_ACTUAL_32_BLIND_SCORING_HANDOFF_20261111.md",
+    "S2": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_NEW_INDEPENDENT_S2_CHAT_POST_S1_LOCK_16_PAIR_HANDOFF_20261111.md"
+  },
+  "public_release_policy": "HANDOFFS_AND_HASH_ONLY_NO_RAW_OUTPUTS_NO_MAPPING_NO_PERSONAL_SESSION_LINKS",
+  "source_preservation": {
+    "E0_frozen_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "source_QA_rerun": false,
+    "model_inference_rerun": false,
+    "main_unchanged": true,
+    "lineage_unchanged": true
+  }
+}
