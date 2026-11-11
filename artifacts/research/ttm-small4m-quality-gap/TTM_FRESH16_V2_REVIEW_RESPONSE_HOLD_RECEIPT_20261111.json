@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.fresh16.v2_candidate_response_to_second_independent_protocol_audit.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_SCORING_AMENDMENT_V2_ACTION_ROLE_BINDING_AND_TWO_STAGE_BLIND_LOCK_FINAL_REVIEW",
+  "parent_remediation_head": "23dd0f73656a2882c54f8d27a0280511f06fd2ce",
+  "frozen_original_science_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+  "source_of_audit": "USER_SUPPLIED_PASTED_TEXT_20261111_110150",
+  "source_reviewer_role": "INDEPENDENT_PROTOCOL_REVIEWER_NOT_OUTPUT_RATER",
+  "second_independent_review": {
+    "amendment": "REVISE_BEFORE_OWNER_APPROVAL",
+    "overall": "HOLD",
+    "recommendation": "NO_GO_HOLD",
+    "P1": "HOLD",
+    "P2": "HOLD",
+    "P3": "PASS",
+    "P4": "HOLD",
+    "findings": [
+      "F05_ACTION_ARGUMENT_AMBIGUITY_HIGH",
+      "PROSPECTIVE_OUTCOME_REDEFINITION_NOT_MERE_CLARIFICATION",
+      "TWO_SCORE_LOCKS_BEFORE_CHECKPOINT_UNBLIND_REQUIRED",
+      "OUTPUTS_ABSOLUTELY_ABSENT_NOT_INDEPENDENTLY_ATTESTED"
+    ]
+  },
+  "V2": {
+    "path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_SCORING_AMENDMENT_V2_ACTION_ROLE_BINDING_TWO_LOCKS_CANDIDATE_20261111.md",
+    "status": "PROSPECTIVE_OUTCOME_REDEFINITION_V2_CANDIDATE_NOT_APPROVED",
+    "new_operational_rules": [
+      "CLOZE_ONLY_CAP_AT_1_WITH_EXPLICIT_NEW_EVENT_EVIDENCE",
+      "SEMANTIC_ROLE_BINDING_ACCEPTABLE_H2_WITH_NEW_EVENT_AND_FACT_DEPENDENT_ARGUMENT",
+      "BARE_LEXICAL_SWAP_NOT_SUFFICIENT_FOR_H2",
+      "GENERIC_COMMON_VALID_H2_ZERO_WITH_NON_DIAGNOSTIC_FLAG",
+      "SWAP_COUNTERCHECK_FOR_INTERVENTION_DEPENDENCE",
+      "S1_32_INDIVIDUAL_SCORES_SHA_LOCK",
+      "S2_16_HIDDEN_CHECKPOINT_PAIR_SCORES_SHA_LOCK",
+      "UNBLIND_CHECKPOINT_ONLY_AFTER_BOTH_LOCKS"
+    ],
+    "unchanged_original_prompt_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "unchanged_original_rubric_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "H1_required_min": 12,
+    "H1_denominator": 16,
+    "H2_required_min": 6,
+    "H2_denominator": 8,
+    "H2_each_four_categories_min_one": true,
+    "step1024_primary": true,
+    "step1280_descriptive_only": true,
+    "scoring_examples_from_frozen_prompts_in_rater_packet": false
+  },
+  "final_review_handoff_path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_PROTOCOL_REVIEW_V2_FINAL_HANDOFF_20261111.md",
+  "required_before_owner_adoption": [
+    "INDEPENDENT_PROTOCOL_REVIEW_ACCEPTANCE",
+    "EXACT_V2_GIT_BLOB_AND_SOURCE_PINS",
+    "OWNER_ATTESTS_NO_FRESH16_OUTPUT_EXPOSURE_PRIOR_TO_ADOPTION",
+    "EXECUTOR_ATTESTS_NO_FRESH16_OUTPUT_EXPOSURE_PRIOR_TO_ADOPTION"
+  ],
+  "required_before_cpu_science": [
+    "OWNER_EXPLICIT_V2_ADOPTION",
+    "INDEPENDENT_OUTPUT_RATER_IDENTITY_AND_VERSION",
+    "H2_PAIR_ADJUDICATOR_IDENTITY_AND_VERSION",
+    "BLIND_MAP_SOURCE_AND_CUSTODY_LOCK",
+    "CPU_RUNNER_SOURCE_LOCK",
+    "ONE_EXPLICIT_OWNER_EXECUTION_DECISION"
+  ],
+  "status": {
+    "V2_independent_review": "NOT_EXECUTED",
+    "owner_amendment_approval": "NOT_ISSUED",
+    "output_rater_custody": "UNASSIGNED",
+    "H2_pair_adjudicator_custody": "UNASSIGNED",
+    "blind_packet": "NOT_PREPARED",
+    "two_score_locks": "NOT_EXECUTED",
+    "science_execution": "NOT_EXECUTED",
+    "training": false,
+    "inference": false,
+    "TEST_read": false,
+    "main_unchanged_expected": true,
+    "lineage_unchanged_expected": true,
+    "single_run_decision": "NO_GO_HOLD",
+    "historical_QA": "PRESERVED_NOT_RERUN"
+  }
+}
