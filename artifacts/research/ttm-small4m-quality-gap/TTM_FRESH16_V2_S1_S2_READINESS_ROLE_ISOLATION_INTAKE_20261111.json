@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.fresh16.v2.s1_s2_owner_supplied_readiness_intake.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_S1_S2_READINESS_AND_ROLE_ISOLATION_INTAKE_SINGLE_GATE",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pinned_e0_source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "pinned_e0_mapping_sha_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+  "V2_owner_adopted": true,
+  "E0_native_prepare": "PASS_SOURCE_ONLY_NO_FORWARD",
+  "map_sha_anchored": true,
+  "owner_supplied_reviews": [
+    {
+      "role": "FRESH16_S1_OUTPUT_RATER",
+      "report_provenance": "USER_PASTED_AGENT_REPORT_20261111_NOT_INDEPENDENTLY_FETCHED_SESSION",
+      "model_reported": "OpenAI ChatGPT GPT-6",
+      "session_id": "NOT_PROVIDED",
+      "handoff_git_commit": "89dcbe1af040802472428ed73eaf2b4e030013b0",
+      "handoff_review": "PASS_REPORTED",
+      "scoring": "NOT_EXECUTED_0_OF_32",
+      "readiness": "READY_FOR_S1_PACKET_REPORTED",
+      "actual_scoring_session_independence": "NOT_VALIDATED_SHARED_SESSION_DISCLOSED_IN_S2_REPORT"
+    },
+    {
+      "role": "FRESH16_S2_PAIR_ADJUDICATOR",
+      "report_provenance": "USER_PASTED_AGENT_REPORT_20261111_NOT_INDEPENDENTLY_FETCHED_SESSION",
+      "model_reported": "OpenAI GPT-6",
+      "session_id": "NOT_PROVIDED",
+      "handoff_git_commit": "89dcbe1af040802472428ed73eaf2b4e030013b0",
+      "handoff_review": "PASS_REPORTED",
+      "scoring": "NOT_EXECUTED_0_OF_16",
+      "readiness": "READY_FOR_S2_PACKET_REPORTED",
+      "role_isolation": "HOLD_SAME_SESSION_PREVIOUSLY_ACCEPTED_S1_ROLE",
+      "locked_s1_sha": "NOT_CREATED"
+    }
+  ],
+  "adjudication": {
+    "handoffs": "PASS_REPORTED",
+    "two_independent_scoring_sessions": "NOT_ESTABLISHED",
+    "shared_historical_session": "ADMINISTRATIVE_REVIEW_ONLY_NOT_ELIGIBLE_TO_SCORE_S1_OR_S2",
+    "scientific_result": "NONE",
+    "science_inference": "NOT_EXECUTED",
+    "owner_GO_32_CPU_ONE_SHOT": "NOT_ISSUED",
+    "single_science_execution_decision": "NO_GO_HOLD",
+    "reason": "distinct independent S1/S2 scoring sessions not yet established; an owner execution GO remains separate from V2 adoption"
+  },
+  "lean_recovery": {
+    "need_to_repeat_E0": false,
+    "need_to_repeat_source_QA": false,
+    "need_to_change_frozen_prompts_or_rubric": false,
+    "need_to_rewrite_agent_handoffs": false,
+    "action": "Create two different fresh sessions for actual scoring roles, each read only its own handoff, record user-chosen unique chat labels/links as session identifiers when native IDs unavailable. No packet or scoring yet.",
+    "before_GO": "collect S1 and S2 distinct session identity and one owner explicit GO",
+    "after_GO": "32 outputs once then S1 32 grades SHA Git commit, then S2 16 pairs SHA Git commit, then unblind"
+  },
+  "no_changes_to_main_lineage_or_frozen_sources": true
+}
