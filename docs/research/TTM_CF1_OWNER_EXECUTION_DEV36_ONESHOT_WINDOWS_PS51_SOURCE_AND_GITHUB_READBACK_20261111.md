@@ -14,6 +14,9 @@ Có đủ nguồn trên GitHub:
 - [Python one-shot source runner theo Git blob](../../tools/research/narrative_cf1/cf1_dev_only_one_shot_owner_cpu.py)
 - [Receipt lưu lỗi Remote và kiểm toán guard tĩnh 13/13](../../artifacts/qa/ttm-narrative-cf1/CF1_DEV36_OWNER_EXECUTION_REMOTE_BLOCK_AND_PINNED_PS51_HANDOFF_20261111.json)
 
+
+**Sửa lỗi PowerShell 5.1 ngày 11/11/2026:** bản wrapper Git blob `59a7e90...` có thêm một lỗi tương tự khi stage inner Python runner. Đã sửa cả hai lớp quoting trong wrapper mới Git blob **`4a4c50d1cd9f61080a043d93ef7397f663706d08`** và trong đoạn stage của tài liệu này. Cần `git fetch` lại đúng nhánh để nhận blob mới trước khi stage. Lỗi staging cũ xảy ra trước one-shot: không có execution marker hoặc DEV scores được ghi. Không sử dụng wrapper cũ nữa.
+
 ## Chạy an toàn trên Windows PowerShell 5.1 (chỉ một lần)
 
 **Chỉ cần chạy khối sau trong PowerShell, không cần checkout nhánh nghiên cứu hoặc tải ZIP.** Git fetch chỉ kéo nguồn, không sửa `main` trong working tree. Dùng chính Python 3.12 của máy và Git blob đầy đủ đã ghim; không dùng PowerShell redirection vì làm đổi byte.
@@ -23,7 +26,7 @@ $ErrorActionPreference = 'Stop'
 $root   = 'D:\WORK\RESEARCH\TokenToModel-Lab'
 $python = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 $branch = 'research/ttm-o0-narrative-cf1-source-scorer-blind-readiness-20261111'
-$blob   = '59a7e90e7e1284303bda716937b4632094d77693'
+$blob   = '4a4c50d1cd9f61080a043d93ef7397f663706d08'
 $script = Join-Path $root '_tmp\Run-TTM-CF1-DEV36-Once-Owner-PS51-20261111.ps1'
 
 if (-not (Test-Path -LiteralPath $root)) { throw 'TTM_PROJECT_ROOT_NOT_FOUND' }
