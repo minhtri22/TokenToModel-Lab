@@ -1,0 +1,161 @@
+{
+  "definition": "YES if C NLL strictly better than frozen A, old adapter, and shuffled-value D on 256 unseen-to-adapter TRAIN stories; exploratory only",
+  "design": {
+    "batch_size": 16,
+    "context": 64,
+    "cross_attention_description": "top4 distinct TRAIN keys and next-token embeddings + trainable q/k/v projections, post-backbone head residual, per-query learned gate initialized low",
+    "cross_attn_zero_init_bypass": true,
+    "lr": 0.002,
+    "primary_not_confirmatory": "Holdout is disjoint from adapter-fitting and bank but belongs to TRAIN distribution used to train checkpoint; all VAL stories previously seen in diagnostics",
+    "same_old_adapter_training_setup": true,
+    "seed": 20261111,
+    "steps": 64,
+    "topk": 4,
+    "train_bank_stories": 512,
+    "train_fit_stories": 512,
+    "train_holdout_stories": 256,
+    "val_story_count_already_seen_in_prior_diagnostics": 256
+  },
+  "elapsed_seconds_removed_from_json_for_reproducibility": true,
+  "environment": {
+    "cpu_threads": 2,
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu"
+  },
+  "experiment": "TTM_VECTOR_MEMORY_GATED_CROSS_ATTENTION_ARCHITECTURE_MINI_TEST",
+  "historical_adapter_regression_on_prior_128_val": {
+    "old_adapter_nll": 3.739093065261841,
+    "prior_reported_old_adapter_nll": 3.7390940189361572,
+    "reproduced": true
+  },
+  "holdout_train_not_used_for_adapter_or_bank": {
+    "additional": {
+      "gain_bootstrap95_descriptive": [
+        -0.07458509188145399,
+        -0.0011467382311821438
+      ],
+      "gate_max": 0.9808619618415833,
+      "gate_min": 0.01746368780732155,
+      "max_abs_original_3d_head_vs_selected_2d_head": 1.049041748046875e-05,
+      "mean_base_minus_C_nll": -0.035279255360364914,
+      "mean_gate": 0.23775802552700043,
+      "neighbor_top1_hit_rate": 0.1640625,
+      "neighbor_top4_hit_rate": 0.28125
+    },
+    "arms": {
+      "A_base": {
+        "accuracy": 0.3515625,
+        "agreement_with_base": 1.0,
+        "nll": 3.2302072048187256
+      },
+      "B_exact": {
+        "accuracy": 0.3515625,
+        "agreement_with_base": 1.0,
+        "nll": 3.2302072048187256
+      },
+      "C_cross_attention": {
+        "accuracy": 0.34765625,
+        "agreement_with_base": 0.96875,
+        "nll": 3.265486717224121
+      },
+      "D_shuffled_values": {
+        "accuracy": 0.35546875,
+        "agreement_with_base": 0.98046875,
+        "nll": 3.2370481491088867
+      },
+      "E_bypass": {
+        "accuracy": 0.3515625,
+        "agreement_with_base": 1.0,
+        "nll": 3.2302072048187256
+      },
+      "OLD_adapter": {
+        "accuracy": 0.33984375,
+        "agreement_with_base": 0.75,
+        "nll": 3.3915233612060547
+      }
+    },
+    "selection_index_sha256": "baa789b16d219264ef60cb047875906aca5b6b0de848f3e77e962a942e36e919",
+    "verdict_yes": false
+  },
+  "integrity": {
+    "all_original_parameters_frozen": true,
+    "bank_fit_holdout_disjoint": true,
+    "checkpoint_unchanged": true,
+    "init_zero_delta_exact": true,
+    "original_exact_external_embedding_and_head_bit_exact_on_both_sets": true,
+    "private_rows_not_exported": true,
+    "test_never_loaded": true
+  },
+  "model": {
+    "backbone_frozen": true,
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "step": 1280,
+    "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "scope_limits": [
+    "Exploratory small CPU pilot; no new story-level independent VAL available in existing pack",
+    "Holdout TRAIN previously seen by original GPT training, not a scientific heldout test",
+    "All VAL story labels explored by prior pilots; VAL metrics descriptive only",
+    "Memory values are next-token embeddings, not novel external facts",
+    "No claim about architecture-scale improvement, memory economics, or generalization"
+  ],
+  "status": "NO_SCOPED_EXPLORATORY",
+  "training": {
+    "cross_last16": 2.9075223952531815,
+    "cross_start16": 3.249911904335022,
+    "cross_trainable_params": 110753,
+    "old_last16": 2.748549409210682,
+    "old_start16": 3.4671802073717117,
+    "old_trainable_params": 24865
+  },
+  "val_previously_examined_exploratory_only": {
+    "additional": {
+      "gain_bootstrap95_descriptive": [
+        -0.09102397430688143,
+        -0.0019714897847734935
+      ],
+      "gate_max": 0.9831416606903076,
+      "gate_min": 0.0178114864975214,
+      "max_abs_original_3d_head_vs_selected_2d_head": 1.1444091796875e-05,
+      "mean_base_minus_C_nll": -0.044011086225509644,
+      "mean_gate": 0.2859589755535126,
+      "neighbor_top1_hit_rate": 0.1328125,
+      "neighbor_top4_hit_rate": 0.30859375
+    },
+    "arms": {
+      "A_base": {
+        "accuracy": 0.3203125,
+        "agreement_with_base": 1.0,
+        "nll": 3.5340003967285156
+      },
+      "B_exact": {
+        "accuracy": 0.3203125,
+        "agreement_with_base": 1.0,
+        "nll": 3.5340003967285156
+      },
+      "C_cross_attention": {
+        "accuracy": 0.30859375,
+        "agreement_with_base": 0.953125,
+        "nll": 3.578011989593506
+      },
+      "D_shuffled_values": {
+        "accuracy": 0.31640625,
+        "agreement_with_base": 0.95703125,
+        "nll": 3.5596001148223877
+      },
+      "E_bypass": {
+        "accuracy": 0.3203125,
+        "agreement_with_base": 1.0,
+        "nll": 3.5340003967285156
+      },
+      "OLD_adapter": {
+        "accuracy": 0.25390625,
+        "agreement_with_base": 0.703125,
+        "nll": 3.6954867839813232
+      }
+    },
+    "selection_index_sha256": "36927136655dcece5953b52e4f2154758f1badf8f3d78c190bbd565743124a05",
+    "verdict_yes": false
+  }
+}
