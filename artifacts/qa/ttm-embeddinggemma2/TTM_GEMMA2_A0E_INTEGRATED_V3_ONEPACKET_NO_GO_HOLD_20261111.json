@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.gemma2.a0e.integrated_onepacket_preexec_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_TWO_PARTY_SOURCE_NORMALIZED_PN_AND_REAL_RUNNER_FINAL_ONE_PACKET_PREEXEC",
+  "scope": "NEW_SOURCE_IMPLEMENTATION_AND_FAIL_CLOSED_ONLY_NO_SCIENCE_EXECUTION",
+  "branch": "research/ttm-gemma2-token-alignment-pretraining-causality-20261111",
+  "pinned_scientific_source": "0092adceebb0f2397829cc67746c4f112bb30646",
+  "original_prereg_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+  "two_party_amendment_blob": "95257120d1450cf05871c9b134a62fb3c84bf890",
+  "preserved_old_QA": [
+    "A0D_PASS",
+    "A0E_PRIVATE_SOURCE_20_20_PASS",
+    "N_OFFICIAL_THREE_SEEDS_PASS",
+    "N_T1_MAPPED_3_3_PASS",
+    "PN_WITHIN_SOURCE_NULL_6_6_PASS"
+  ],
+  "implemented_new_source": {
+    "private_tensor_verifier": "EXACT_ORIGINAL_SOURCE_SHA_AND_TRAIN_ONLY_SCALAR_INPUT_VERIFIER_CODE_ADDED",
+    "four_arm_runner": "FULL_TRAINING_SOURCE_CODE_ADDED_NOT_VALIDATED_WITH_REAL_MODEL_INPUT",
+    "lexical_scorer": "LOCKED_CORE_37_CODE_ADDED_LOCAL_GIT_OBJECT_AND_EXTERNAL_GITHUB_READBACK_REQUIRED_NOT_EXECUTED",
+    "nll_scorer": "TWELVE_OUTCOME_INDEPENDENT_READBACK_ADDED_NOT_EXECUTED_ON_SCIENCE",
+    "content_guard": "SCHEMA_STATUS_AND_REAL_SHA_CHECKS_NEW_NEGATIVE_FIXTURE"
+  },
+  "private_evidence": {
+    "actual_scaled_tensor_sources_located_on_owner_windows": false,
+    "original_P_N_source_matrices_read_this_operation": false,
+    "normalized_private_tensor_sha_new": null,
+    "cross_origin_covariance_full_spectrum_measured": false,
+    "train_only_frequency_morphology_length_smd_complete": false,
+    "fresh_val_rights_neardup_closed": false,
+    "official_pretrained_weight_raw_extraction_closed": false,
+    "model_forward_or_training_performed": false,
+    "gold_unblinding_performed": false
+  },
+  "gates": {
+    "two_party_amendment": "PASS_PRESERVED",
+    "source_only_negative_QA": "PASS_FIRST_V3_WORKFLOW_RUN_43058927459",
+    "normalized_PN_real_source": "NOT_EXECUTED_PRIVATE_INPUTS_NOT_AVAILABLE",
+    "runner_source": "IMPLEMENTED_BUT_REAL_IMPORT_AND_CHECKPOINT_RESUME_NOT_VALIDATED",
+    "lexical_scorer": "SOURCE_FIXTURE_ONLY",
+    "independent_NLL_scorer": "SOURCE_FIXTURE_PENDING_LATEST_CI",
+    "rights_and_fresh_VAL": "HOLD",
+    "preexec_manifest_content_v3": "NO_GO_HOLD_ACTUAL_MANIFEST",
+    "T4_resource": "NOT_EXECUTED_NOT_AUTHORIZED"
+  },
+  "final_decision": "T4_NO_GO_HOLD",
+  "T4_authorized": false,
+  "no_GPU": true,
+  "no_model_forward": true,
+  "no_training": true,
+  "no_unblind": true,
+  "lineage_md_unchanged_sha": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2",
+  "L0022_created": false,
+  "next_integrated_operation": "TTM_GEMMA2_A0E_OWNER_PRIVATE_SOURCE_TENSOR_REBIND_AND_INDEPENDENT_FULL_RUNNER_READBACK_ONE_SHOT"
+}

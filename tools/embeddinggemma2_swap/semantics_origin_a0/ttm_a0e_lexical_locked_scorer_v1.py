@@ -89,6 +89,10 @@ def verify_git_lock(a):
     return receipt
 
 def private_score(a):
+    need(a.lock_verified_by_separate_github_readback is True,
+         "SEPARATE_GITHUB_READBACK_NOT_CONFIRMED")
+    need(a.expected_receipt_sha256 and a.expected_receipt_sha256==digest(a.verified_commit_receipt),
+         "PUBLISHED_READBACK_HASH_NOT_BOUND")
     receipt=verify_git_lock(a)
     need(digest(a.core)==CORE_SHA,"CORE_ROSTER_SHA")
     need(digest(a.gold)==GOLD_SHA,"GOLD_SHA")
@@ -140,6 +144,7 @@ def main():
                  'core','gold','frozen-column-contract','frozen-cosines','output'):
         ap.add_argument('--'+name)
     ap.add_argument('--lock-verified-by-separate-github-readback',action='store_true')
+    ap.add_argument('--expected-receipt-sha256')
     a=ap.parse_args()
     try:fixture() if a.fixture else private_score(a)
     except Exception as e:

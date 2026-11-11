@@ -7,6 +7,7 @@ on:
       - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_lexical_locked_scorer_v1.py
       - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_content_verified_preexec_guard_v3.py
       - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_real_fourarm_t4_runner_v1.py
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_independent_12_nll_readback_v1.py
       - .github/workflows/ttm-gemma2-a0e-integrated-preexec-v3.yml
   workflow_dispatch:
 permissions: {contents: read}
@@ -21,12 +22,13 @@ jobs:
       - name: Only test NEW source implementations, no old QA rerun
         run: |
           python -m pip install numpy==2.2.6
-          for script in ttm_a0e_prospective_real_tensor_verifier_v1.py ttm_a0e_lexical_locked_scorer_v1.py ttm_a0e_content_verified_preexec_guard_v3.py ttm_a0e_real_fourarm_t4_runner_v1.py; do
+          for script in ttm_a0e_prospective_real_tensor_verifier_v1.py ttm_a0e_lexical_locked_scorer_v1.py ttm_a0e_content_verified_preexec_guard_v3.py ttm_a0e_real_fourarm_t4_runner_v1.py ttm_a0e_independent_12_nll_readback_v1.py; do
             python -m py_compile "tools/embeddinggemma2_swap/semantics_origin_a0/$script"
           done
           python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_prospective_real_tensor_verifier_v1.py --fixture
           python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_lexical_locked_scorer_v1.py --fixture
           python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_real_fourarm_t4_runner_v1.py --fixture
+          python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_independent_12_nll_readback_v1.py --fixture
       - name: Real incomplete manifest MUST fail closed using content validation
         run: |
           python - <<'PY'
