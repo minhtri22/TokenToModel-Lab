@@ -22,7 +22,7 @@ function RequireSha($path, $expected, $label) {
     if ($found -ne $expected) { throw ('HOLD_SHA256_' + $label + ':' + $found) }
 }
 function Git {
-    $output = & git @args
+    $output = & git.exe @args
     if ($LASTEXITCODE -ne 0) { throw ('HOLD_GIT_COMMAND_FAILED_' + ($args -join '_')) }
     return $output
 }
