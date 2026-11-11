@@ -1,0 +1,87 @@
+{
+  "schema": "ttm.vm.externalfacts.cpu_one_shot.independent_aggregate_and_source_qa.v1",
+  "operation": "TTM_VM_EXTERNAL_FACTS_CPU_ONE_SHOT_RESULT_INDEPENDENT_QA_AND_SCIENTIFIC_ADJUDICATION",
+  "mode": "READ_ONLY_NO_SCIENCE_REEXECUTION",
+  "source": "owner Windows actual one-shot output, read through connected Windows workspace",
+  "run_id": "TTM_VM_EXTERNAL_FACTS_CPU_ORACLE_TRAIN_DEV_20261111_V1",
+  "result_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_evidence\\vector-memory\\TTM_VM_EXTERNAL_FACTS_CPU_ORACLE_TRAIN_DEV_20261111_V1\\DEV_AGGREGATE_PUBLIC.json",
+  "reported_result_sha256": "26bec01154d5925b5c290f628a6497783e1422f5d8fc7a4911e85f475a913299",
+  "reconstructed_text_sha256": {
+    "method": "read_file text normalized to LF; reconstruct Windows CRLF and trailing CRLF; hash SHA256",
+    "sha256": "26bec01154d5925b5c290f628a6497783e1422f5d8fc7a4911e85f475a913299",
+    "matches_owner": true,
+    "caveat": "Not independent binary raw-file read; exact CRLF reconstruction matches owner's native hash."
+  },
+  "other_present_files": [
+    "ONE_SHOT_STARTED.json",
+    "reader_private.pt"
+  ],
+  "source_commit": "c41b6c8bc01a4c367bf619a6df6e05e5e2fb9d47",
+  "source_runner_git_blob": "13701b8768c463d845762c690768abae2040eba2",
+  "train_stories": 256,
+  "dev_stories": 64,
+  "reported_steps": 128,
+  "dev_answer_tokens_each_arm": 200,
+  "trainable_reader_parameters": 110689,
+  "seed": 20261111,
+  "baseline_no_memory_nll": 6.947507053613663,
+  "correct_memory_nll": 3.8169478699564934,
+  "wrong_memory_nll": 5.298715498298407,
+  "delta_no_minus_correct": 3.1305591836571693,
+  "delta_wrong_minus_correct": 1.4817676283419132,
+  "bootstrap95_reported": {
+    "no_minus_correct": [
+      2.8624527269043027,
+      3.4449861110188067
+    ],
+    "wrong_minus_correct": [
+      0.7690657899715007,
+      2.3000695523805907
+    ]
+  },
+  "frozen_pre_registered_screen": {
+    "both_delta_at_least_nats": 0.05,
+    "both_ci_lower_greater_than_zero": true,
+    "satisfies_screen": true
+  },
+  "checks": {
+    "01_fixed_128_step": true,
+    "02_train_size_256": true,
+    "03_dev_size_64": true,
+    "04_source_checkpoint_sha_pin": true,
+    "05_run_id_matches_frozen": true,
+    "06_answer_token_count_equal_all_arms_200": true,
+    "07_trainable_reader_parameter_count_110689": true,
+    "08_test_not_opened": true,
+    "09_backbone_checkpoint_reported_unchanged": true,
+    "10_bootstrap_no_vs_correct_lower_positive": true,
+    "11_bootstrap_wrong_vs_correct_lower_positive": true,
+    "12_arithmetic_delta_no_vs_correct_consistent": true,
+    "13_arithmetic_delta_wrong_vs_correct_consistent": true,
+    "14_both_delta_thresholds_0p05_met": true,
+    "15_nll_arm_order_correct_lt_wrong_lt_none": true,
+    "16_original_runner_status_candidate": true,
+    "17_windows_result_sha_reconstructed_match": true
+  },
+  "checks_passed": 17,
+  "checks_total": 17,
+  "status": "PASS_INDEPENDENT_AGGREGATE_CONSISTENCY",
+  "science_adjudication": "PASS_DEV_SCREEN_GO_CANDIDATE_SCOPED",
+  "independent_verification_limits": [
+    "Paired bootstrap CI NOT recomputed from 64 per-story NLL records; runner excludes private individual losses from saved aggregate.",
+    "Private Reader weights existence observed, binary state not independently inspected.",
+    "Reported optimizer steps are corroborated by fixed-source loop and result, not independent per-step trace.",
+    "DEV has been used for screening; not heldout confirmatory TEST.",
+    "Oracle reads exactly one card by literal question key: semantic retrieval and learned attention ranking not tested.",
+    "Synthetic fictitious label memory only, not general language knowledge improvement."
+  ],
+  "execution": {
+    "new_optimizer_steps": 0,
+    "dev_re_evaluations": 0,
+    "test_accessed": false,
+    "gpu_used": false,
+    "main_changed": false
+  },
+  "next_gate": "RETRIEVED_TOPK_NONSEALED_RECALL_AND_COUNTERFACTUAL_READER_QA_BEFORE_ANY_TEST",
+  "lineage_action": "APPEND_L0020_SCIENTIFIC_DEV_SCREEN_PASS_ONLY"
+}
