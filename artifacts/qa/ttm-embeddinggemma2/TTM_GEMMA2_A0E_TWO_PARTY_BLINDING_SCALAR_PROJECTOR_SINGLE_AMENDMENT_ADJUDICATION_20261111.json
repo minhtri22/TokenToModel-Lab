@@ -1,0 +1,136 @@
+{
+  "schema": "ttm.gemma2.a0e.two_party_blinding_causal_control_single_amendment_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_TWO_PARTY_PROCEDURAL_BLINDING_AND_CAUSAL_CONTROL_SINGLE_AMENDMENT",
+  "mode": "PROSPECTIVE_SOURCE_ONLY_NO_GOLD_NO_NLL_NO_GPU",
+  "branch": "research/ttm-gemma2-token-alignment-pretraining-causality-20261111",
+  "original_prereg_git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+  "original_prereg_unchanged": true,
+  "this_amendment_doc": "docs/pilot/TTM_GEMMA2_A0E_TWO_PARTY_PROCEDURAL_BLINDING_CAUSAL_CONTROL_SINGLE_AMENDMENT_20261111.md",
+  "evidence_input_no_rerun": {
+    "A0D_official_T1": "PASS_PRESERVED",
+    "Cambridge_simverb_original_source": "PASS_PRESERVED",
+    "A0E_roster_138_37": "PASS_PRESERVED",
+    "A0E_private_source_20_20": "PASS_PRESERVED",
+    "N_full_source_3_of_3": "PASS_PRESERVED",
+    "N_mapped_T1_3_of_3": "PASS_PRESERVED",
+    "P_C_N_C_within_source_null_6_of_6": "PASS_SCOPED_PRESERVED",
+    "prior_private_PN_receipt_sha256": "a8f7a1d232f8edf579af52cd4e73959b3b8a51cbd3bd1beaf628b6f56b4f1cd5"
+  },
+  "two_party_gold_custody_amendment": {
+    "external_custodian_signature_required_for_exploratory_pilot": false,
+    "independent_human_gold_rating_source": "Cambridge Apollo SimVerb-3500",
+    "gold_is_public_and_donor_contamination_unexcluded": true,
+    "gold_source_sha256": "b58f68454cf9354b94ecd8bfd778ff2cc784a25fc7dca02bc695319ad2b4157e",
+    "mask_37_sha256": "b280478feb9f7359c261944e5c54c7808c96e05bd14558657044fe6f35a2ee2c",
+    "mask_138_sha256": "8ba5b07bea73cfc6784de940378d5726be9cc8dab2ecc32daa4a5a3555bf91b1",
+    "protocol": "Freeze scorer and model/code before outcomes; lock SHA of exact 12 outcomes; commit/check readback receipt before public gold label scoring; no posthoc rerun",
+    "guard_code": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_procedural_lock_v1.py",
+    "fixture_status": "PASS_SOURCE_ONLY_LOCK_WITH_4_NEGATIVE_FIXTURES",
+    "gold_source_read_this_turn": false,
+    "outcomes_locked_this_turn": false,
+    "protocol_status": "PASS_SOURCE_DESIGN_NOT_RUNTIME_UNBLIND",
+    "no_claim_independent_third_party": true
+  },
+  "cross_origin_scalar_design": {
+    "data_basis": "ALREADY_PINNED_PRIOR_PRIVATE_SOURCE_AGGREGATES",
+    "method": "alpha_s=median L2 norm N_s(mapped)/median L2 norm P(mapped); apply same alpha to P-A and P-C; keep N A/C unchanged; 131 fallback IDs untouched",
+    "per_seed": [
+      {
+        "seed": 61031,
+        "alpha": 0.4518916284254787,
+        "scaled_covariance_trace_P_over_N": 0.9749089214603819
+      },
+      {
+        "seed": 61032,
+        "alpha": 0.4524194705328433,
+        "scaled_covariance_trace_P_over_N": 0.9773489489850512
+      },
+      {
+        "seed": 61033,
+        "alpha": 0.4521401636404541,
+        "scaled_covariance_trace_P_over_N": 0.9771994154042902
+      }
+    ],
+    "private_readback_local_receipt_sha256": "9507d218f2d72da69821a3213026543df0ea8924f9985f1e1328892d1bc15be4",
+    "source_local_audit_sha256": "5d31f917850152dd122b7fd7c943ab885ce2647068d0e5169ebab5c12db39e6d",
+    "per_seed_scaled_P_A_P_C_tensor_fingerprints": "NOT_EXECUTED",
+    "full_covariance_spectrum_and_effective_rank": "NOT_EXECUTED",
+    "TRAIN_only_frequency_length_morph_SMD": "NOT_EXECUTED",
+    "claim": "PASS_SCALAR_ALGEBRA_ONLY_CROSS_ORIGIN_FULL_MATCH_HOLD"
+  },
+  "projector_confound": {
+    "base_projection_dim": "512_to_256_trainable",
+    "identity_at_initialization": "P-A and P-C, N-A and N-C have same projected input at P0 if null constraint exact",
+    "frozen_projector_intervention": "INPUT_IDENTICAL_UNDER_FROZEN_P0_TRIVIAL_ZERO_EFFECT_CONDITION",
+    "trainable_projection_gradients_can_diverge": true,
+    "prior_cpu_gradient_negative_control_relative_difference": 1.5336064006074779,
+    "interpretation": "Pilot examines pretrained-origin-conditioned learnability through trainable projection; not isolated pure semantics",
+    "extra_fourarm_GPU_frozen_projector_added": false,
+    "status": "PASS_PRIOR_MATHEMATICAL_NEGATIVE_SCOPED_NOT_NEW_SCIENCE"
+  },
+  "frozen_design": {
+    "arms": [
+      "P-A",
+      "P-C",
+      "N-A",
+      "N-C"
+    ],
+    "train_seed_blocks": [
+      41031,
+      41032,
+      41033
+    ],
+    "official_N_init_seed_blocks": [
+      61031,
+      61032,
+      61033
+    ],
+    "null_seed_blocks": [
+      51031,
+      51032,
+      51033
+    ],
+    "optimizer_steps": 512,
+    "per_step_target_tokens": 4096,
+    "total_target_token_presentations": 25165824,
+    "origin_interaction": "D_origin=(NLL_P_C-NLL_P_A)-(NLL_N_C-NLL_N_A)",
+    "pilot_thresholds_unchanged": true,
+    "three_seeds_confirmatory_sign_test": false
+  },
+  "source_code": {
+    "NLL_scorer_old_git_blob": "88ea6af212b2ebaab60e4c208390113882611f34",
+    "source_only_NLL_scorer_qa": "PASS_PRIOR_FIXTURE_NO_RERUN",
+    "lexical_full_gold_scorer": "NOT_FULLY_IMPLEMENTED",
+    "two_party_lock": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_procedural_lock_v1.py",
+    "scalar_aggregate_audit": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_cross_origin_scalar_amendment_audit_v1.py",
+    "preexec_guard_v2": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py",
+    "trainer_full_fourarm": "NOT_IMPLEMENTED",
+    "raw_source_rights_near_dup": "HOLD",
+    "raw_pretrained_weights_extraction": "HOLD",
+    "T4_memory_runtime_preflight": "NOT_EXECUTED"
+  },
+  "CI": {
+    "first_source_only_run_id": 43053657664,
+    "first_source_only_run_conclusion": "success",
+    "actual_incomplete_manifest_HOLD_run_id": 43053921335,
+    "actual_incomplete_manifest_verdict": "EXPECTED_NO_GO_HOLD_PENDING_CI_READBACK",
+    "test_1": "PASS_TWO_PARTY_LOCK_4_NEGATIVE_FIXTURES",
+    "test_2": "PASS_SCALAR_AGGREGATE_SOURCE_FIXTURE_AND_NEGATIVE",
+    "test_3": "PASS_TWO_PARTY_PREEXEC_REAL_SHA_GATES_AND_NEGATIVE_FIXTURE"
+  },
+  "governance": {
+    "third_party_requirement_removed_for_pilot": true,
+    "main_unchanged_intent": true,
+    "lineage_md_append": false,
+    "L0022_created": false,
+    "no_model_forward": true,
+    "no_training": true,
+    "no_GPU": true,
+    "no_unblind": true,
+    "prior_TEST_H768_OOD256_not_reused": true,
+    "science_admission": "NO_GO_HOLD",
+    "T4": "HOLD_NO_GPU"
+  },
+  "next_integrated_operation": "TTM_GEMMA2_A0E_TWO_PARTY_SOURCE_NORMALIZED_PN_AND_REAL_RUNNER_FINAL_ONE_PACKET_PREEXEC"
+}
