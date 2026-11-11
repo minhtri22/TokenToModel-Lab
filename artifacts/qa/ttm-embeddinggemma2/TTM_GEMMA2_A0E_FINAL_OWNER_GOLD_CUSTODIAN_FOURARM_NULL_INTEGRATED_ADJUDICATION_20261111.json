@@ -1,0 +1,193 @@
+{
+  "schema": "ttm.gemma2.a0e.owner_gold_custodian_fourarm_frozen_input_null_qa_final_admission.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_OWNER_GOLD_CUSTODIAN_SEAL_AND_FOUR_ARM_FROZEN_INPUT_NULL_QA_FINAL_ADMISSION",
+  "mode": "READ_ONLY_INPUT_BYTES_AND_DESIGN_ONLY",
+  "existing_frozen_prereg_sha_git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+  "already_closed": {
+    "A0D": "PASS_OWNER_OFFICIAL_CPU_CLASS_AND_EXACT_T1_MAPPING",
+    "SimVerb_Cambridge_original_source_parity": "PASS_BYTE_IDENTICAL",
+    "A0E_roster_138_37": "PASS_HASH_GRAPH",
+    "source_rights": "PASS_SCOPED"
+  },
+  "latest_independent_source_only_qa": {
+    "qa_script_sha256": "0a5bb40a1a8d0f7b9bf2bf9cb57830e5c8d7764081bc5e424c3baa6509199778",
+    "qa_receipt_sha256": "464957f7e7602013896842b3a250846176a38e66d97dfce25952cd0bfa414010",
+    "result": "PASS_SCOPED_SOURCE_ONLY_WITH_SCIENCE_HOLD",
+    "checked": "20_OF_20",
+    "source_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "candidate_initialization_pt_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "checkpoint_pt_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "train_val_windows_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "official_donor_weight_sha256_cited_metadata_and_embedded_candidate": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79",
+    "official_donor_original_weight_bytes_rehashed_this_gate": false,
+    "input_embedding_shape": [
+      2048,
+      512
+    ],
+    "projection_shape": [
+      256,
+      512
+    ],
+    "mapped_T1_count": 1917,
+    "source_lookup_frozen": true,
+    "projection_trainable": true,
+    "train_stories": 2048,
+    "val_stories": 256,
+    "train_windows": 2691,
+    "val_windows": 328,
+    "train_target_count": 498287,
+    "val_target_count": 61122,
+    "exact_token_windows_cross_split_SHA_collisions": 0,
+    "aggregated_story_windowpack_cross_split_sha_collisions": 0,
+    "warning": "Split-local story_index values overlap by definition; cannot be interpreted as cross-split source IDs. Token-window hash noncollision does NOT prove raw story near-duplicate absence.",
+    "raw_TinyStories_source_bytes_rechecked": false,
+    "no_model_forward": true,
+    "no_training": true,
+    "no_gpu": true,
+    "no_gold_ratings_read": true
+  },
+  "negative_qa": {
+    "T1_tamper_one_byte_expected": "HOLD_FAIL_CLOSED",
+    "T1_tamper_one_byte_observed": "HOLD_FAIL_CLOSED",
+    "exit_code": 2,
+    "error": "A0E_HOLD_T1_MANIFEST_SHA256",
+    "receipt_sha256": "7f3193db4b9cdcba628861447ba5d46cb2e1a70154abab8e91874d5469809d60"
+  },
+  "gold_custody": {
+    "original_gold_public_sha256": "b58f68454cf9354b94ecd8bfd778ff2cc784a25fc7dca02bc695319ad2b4157e",
+    "frozen_core_sha256": "b280478feb9f7359c261944e5c54c7808c96e05bd14558657044fe6f35a2ee2c",
+    "frozen_full_sha256": "8ba5b07bea73cfc6784de940378d5726be9cc8dab2ecc32daa4a5a3555bf91b1",
+    "custodian_appointed": false,
+    "signed_attestation": false,
+    "unblind_event_logged": false,
+    "public_gold_hash_not_independent_access_custody": true,
+    "gold_custody_template_sha256": "2e4e99307f95f1ac3478aa73c5e06397de8d470be69f0c71a2d5bed00517bd16",
+    "status": "HOLD_NO_INDEPENDENT_CUSTODIAN"
+  },
+  "fourarm_frozen_manifest": {
+    "template_sha256": "d2a9e0223b4145466e0931831b6f376d1869ac44ed91c1f08d6abb99aa438843",
+    "arms": [
+      "P-A",
+      "P-C",
+      "N-A",
+      "N-C"
+    ],
+    "train_seed_blocks": [
+      41031,
+      41032,
+      41033
+    ],
+    "untrained_init_seeds": [
+      61031,
+      61032,
+      61033
+    ],
+    "null_seeds": [
+      51031,
+      51032,
+      51033
+    ],
+    "target_token_presentations_budget": 25165824,
+    "init_perseed_tensor_sha_pinned": false,
+    "pretrained_P_C_null_input_rows_SHA_pinned": false,
+    "random_N_A_N_C_sha_pinned": false,
+    "P_and_N_matching_full_geometry_verified": false,
+    "T4_authorized": false
+  },
+  "scientific_finding": {
+    "scope": "SOURCE_IMPLEMENTATION_AND_IDENTIFIABILITY",
+    "source_dim": 512,
+    "projected_dim": 256,
+    "projection_behavior": "PRETRAINED_INPUT_ROWS_FROZEN_PROJECTOR_TRAINABLE",
+    "matched_residual_control": "P-C retains projected-input values at time 0 under A0B; gradient pathways differ after optimizer updates",
+    "causal_semantics_not_identifiable_from_4arm_nll_alone": true,
+    "needed_control": "preregister and QA frozen-projection negative control before claiming pure semantic causality; no amendment automatically applied",
+    "donor_pretraining_cutoff": "January 2025 (official Google model card)",
+    "public_SimVerb_first_released": 2016,
+    "benchmark_excluded_from_donor_corpus": "UNVERIFIED",
+    "three_training_seeds_suffice_for_confirmatory_alpha05": false
+  },
+  "gates": [
+    {
+      "id": "G01",
+      "scope": "A0D official class/tokenizer T1",
+      "status": "PASS"
+    },
+    {
+      "id": "G02",
+      "scope": "SimVerb origin and CC BY 4.0",
+      "status": "PASS"
+    },
+    {
+      "id": "G03",
+      "scope": "Cambridge original ZIP vs pinned public mirror byte parity",
+      "status": "PASS"
+    },
+    {
+      "id": "G04",
+      "scope": "A0E score-blind 138/37 mask SHA and graph",
+      "status": "PASS"
+    },
+    {
+      "id": "G05",
+      "scope": "TinyStories exact raw train/valid byte origin, rights and near-duplicate full membership",
+      "status": "HOLD_RAW_ORIGIN_OWNER_RELEASE_AND_FULL_NEAR_DUPLICATE"
+    },
+    {
+      "id": "G06",
+      "scope": "Independent signed gold label custody/locked scorer access boundary",
+      "status": "HOLD_NO_EXTERNAL_CUSTODIAN_SIGNATURE"
+    },
+    {
+      "id": "G07",
+      "scope": "SimVerb 2016 benchmark excluded from donor pretrained corpus",
+      "status": "HOLD_CANNOT_EXCLUDE"
+    },
+    {
+      "id": "G08",
+      "scope": "Full pinned pretrained safetensors byte SHA and extracted source rows audit",
+      "status": "HOLD_METADATA_MATCH_ONLY_FULL_WEIGHTS_NOT_REHASHED"
+    },
+    {
+      "id": "G09",
+      "scope": "Official N-A/N-C random seeded tensor exact SHA and matched projections",
+      "status": "HOLD_SEEDED_N_ROWS_NOT_FROZEN"
+    },
+    {
+      "id": "G10",
+      "scope": "Actual P-C/N-C matched null geometry, selective lexical corruption and projector-gradient negative control",
+      "status": "HOLD_FOUR_ARM_NULL_NOT_EXECUTED"
+    },
+    {
+      "id": "G11",
+      "scope": "Exact A0E checkpoint, sampler, optimizer, scorer and VALID docs frozen execution manifest",
+      "status": "HOLD_FOUR_ARM_MANIFEST_INCOMPLETE"
+    },
+    {
+      "id": "G12",
+      "scope": "Predeclared hypotheses, seeds, budget and exploratory thresholds",
+      "status": "PASS_DESIGN_ONLY"
+    },
+    {
+      "id": "G13",
+      "scope": "Independent integrated T4 authorization",
+      "status": "HOLD_NO_GO"
+    }
+  ],
+  "gate_summary": {
+    "pass_scoped": 5,
+    "hold": 8,
+    "science_fail": 0
+  },
+  "main_intentionally_unchanged": true,
+  "lineage_md_intentionally_unchanged": true,
+  "L0022_not_opened": true,
+  "no_reuse_of_TEST_H768_OOD256": true,
+  "verdict": "NO_GO_HOLD",
+  "T4_2X2": "HOLD_NO_GPU",
+  "local_packet_filename": "TTM_GEMMA2_A0E_FINAL_INTEGRATED_PREEXEC_PACKET_20261111.zip",
+  "local_packet_sha256": "f5220de7098583c1b96d676852e0ba7dfaa1ee9e8e53a681e86bbd0b91215f81",
+  "next_operation": "TTM_GEMMA2_A0E_FINAL_OWNER_CUSTODY_SIGNATURE_AND_N_SOURCE_MATCHED_NULL_EVIDENCE_SINGLE_READBACK"
+}
