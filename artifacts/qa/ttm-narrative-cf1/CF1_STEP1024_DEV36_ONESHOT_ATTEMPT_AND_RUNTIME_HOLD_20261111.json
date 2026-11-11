@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.cf1.frozen_o0.step1024.dev36.oneshot_attempt_and_runtime_hold.v1",
+  "date": "2026-11-11",
+  "task": "TTM_O0_CF1_FROZEN_STEP1024_DEV_ONLY_ONESHOT_CPU_TEACHER_FORCED_EVAL_AND_OWNER_ADJUDICATION",
+  "status": "HOLD_ORIGINAL_T1_MANIFEST_UNAVAILABLE_IN_EXECUTION_CONTAINER__NO_DEV_MODEL_SCORES",
+  "scope": {
+    "dataset": "CF1_DEV_MODEL_INPUT_ONLY",
+    "expected_pairs": 36,
+    "expected_teacher_forced_scores": 144,
+    "blind_final": "SEALED_NOT_ACCESSED",
+    "original_TTM_TEST_Q1Q2": "UNTOUCHED",
+    "gpu_calls": 0,
+    "optimizer_updates": 0,
+    "checkpoint_write": false,
+    "main_write": false,
+    "pr13_write": false,
+    "lineage_write": false
+  },
+  "verified_this_turn": {
+    "git_blob_source_P02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "P02_source_bytes": 5160,
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "parent_step": 1024,
+    "parent_parameters": 3749376,
+    "strict_state_dict_load": "PASS",
+    "actual_P02_CPU_forward_fixture": "PASS_FINITE_LOGITS_SHAPE_1_6_2048",
+    "actual_P02_CPU_forward_data": "SYNTHETIC_BYTE_TOKENS_NOT_DEV",
+    "scorer_cpu_unit_QA": "PASS_25_OF_25_REPEAT_20261111",
+    "model_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+    "private_T1_manifest_sha256_required": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "private_T1_manifest_sha256_this_container": "NOT_AVAILABLE",
+    "remote_reader": "MCP_INTERNAL_ERROR_DURING_FULL_MANIFEST_ACCESS",
+    "no_approximate_BPE_used": true
+  },
+  "one_shot_execution": {
+    "DEV_score_forward_calls": 0,
+    "DEV_pair_count_scored": 0,
+    "data_score_file": "NOT_CREATED",
+    "science_primary_metric": "NOT_AVAILABLE",
+    "python_owner_fallback_file": "tools/research/narrative_cf1/cf1_dev_only_one_shot_owner_cpu.py",
+    "fallback_source_is_executable_but_not_yet_owner_run": true,
+    "source_qa_only_not_science_result": true
+  },
+  "adjudication": {
+    "decision": "HOLD_RUNTIME_PINNED_BPE_NOT_READABLE",
+    "reason": "Pinned original BPE manifest unavailable in container and RemoteDesktop returned internal errors; incomplete copied token list failed 1791 pairs/merge integrity and was discarded. No substitute tokenizer permitted.",
+    "scientific_claim": "NONE__DEV_NEURAL_EVAL_NOT_EXECUTED",
+    "final_eligibility": "NOT_CHANGED_HOLD",
+    "O0_training": "HOLD",
+    "O1": "DEFER",
+    "T4": "HOLD",
+    "owner_next_scope": "RUN_EXACT_PINNED_DEV_ONLY_OWNER_LOCAL_ONCE_IF_CHECKPOINT_AND_BPE_AVAILABLE",
+    "not_authorized": [
+      "BLIND_FINAL_UNSEAL",
+      "O0_TRAIN",
+      "GPU",
+      "O1",
+      "Q1Q2_TEST",
+      "MAIN_PR13_LINEAGE_MUTATION"
+    ]
+  }
+}
