@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.fresh16.v2.owner_go_32_cpu_one_shot.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_SINGLE_CPU_ONE_SHOT_GO_AND_EXECUTION",
+  "decision": "GO_32_CPU_ONE_SHOT",
+  "owner_explicit_authorization": "User explicitly instructed operation TTM_FRESH16_V2_SINGLE_CPU_ONE_SHOT_GO_AND_EXECUTION, directing a single CPU generation of 32 outputs, followed by S1 SHA lock and S2 only after S1 lock, without additional source QA or role approval cycles.",
+  "owner_go_source": "CURRENT_CONVERSATION_USER_MESSAGE_20261111",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "runner_git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+  "runner_sha256": "b9da32181a1c802f5eb56f6c22b71ca6ee8b834f8660cdd30fc9b91262eeb2f5",
+  "map_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+  "sealed_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+  "prepared_receipt_sha256": "3ae27b3690bf84befe952129dc5daf0ff28a2239ee296f4104f32806ee0708ba",
+  "S1_rater_session": "FRESH16-S1-GPT6-OWNER-REPORTED-DEDICATED-20261111",
+  "S2_adjudicator_session": "FRESH16-S2-GPT6-OWNER-REPORTED-NEW-20261111",
+  "rater_session_identifiers_kind": "OWNER_DESIGNATED_ALIASES_ONLY_NOT_PROVIDER_NATIVE_SESSION_IDS",
+  "rater_provenance": "OWNER_PASTED_SEPARATE_S1_AND_S2_READINESS_REPORTS_IN_THIS_CONVERSATION; SESSION_LINKS_NOT_AVAILABLE; NO_MODEL_OUTPUTS_SEEN",
+  "scientific_contract": {
+    "checkpoint_steps": [
+      1024,
+      1280
+    ],
+    "step1024": "PRIMARY_H1_H2",
+    "step1280": "DESCRIPTIVE_ONLY",
+    "n_prompts": 16,
+    "n_pairs_per_checkpoint": 8,
+    "outputs_max": 32,
+    "max_new_tokens_each": 64,
+    "context_length": 256,
+    "generation": "GREEDY_ARGMAX_EOS256",
+    "platform": "WINDOWS_CPU_FP32",
+    "wall_time_cap_seconds": 900,
+    "process_ram_cap_bytes": 8589934592,
+    "no_retry": true,
+    "no_training": true,
+    "no_TEST": true,
+    "no_new_source_QA": true
+  },
+  "proof": {
+    "E0_native_prepare": "PASS_SOURCE_ONLY_NO_FORWARD",
+    "map_anchor_verified": "PASS_GITHUB_COMMIT",
+    "pre_GO_private_run_directory_files": [
+      "BLIND_MAP_PRIVATE.json",
+      "PREPARED.json"
+    ],
+    "RUN_STARTED": "NOT_PRESENT_AS_OF_OWNER_GO_PRECHECK",
+    "RUN_FINISHED": "NOT_PRESENT_AS_OF_OWNER_GO_PRECHECK"
+  },
+  "follow_through": "After a single actual run, deliver S1_BLIND_PACKET_PRIVATE.json only to S1. Only after 32 scores and a Git S1 SHA lock, create S2 packet for distinct adjudicator. Only unblind after S2 SHA commit.",
+  "scope": "SINGLE_OWNER_AUTHORIZATION_ONLY_NOT_PROOF_OF_EXECUTED_INFERENCE"
+}
