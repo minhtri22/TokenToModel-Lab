@@ -1,0 +1,70 @@
+{
+  "schema": "ttm.gemma2.semantics_origin.a0.real_donor_geometry_independent_audit.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_SEMANTICS_VS_GEOMETRY_AND_PRETRAINED_ORIGIN_A0",
+  "classification": "CPU_SOURCE_FEASIBILITY_DIAGNOSTIC_NOT_SCIENCE",
+  "source": {
+    "source_zip_name": "TTM_GEMMA2_CAUSAL6_INPUT_PRIVATE_V1_20261109.zip",
+    "source_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "candidate_initialization_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "source": "private authenticated Google Drive; actual raw bytes checked",
+    "candidate_model_input_embedding_weight": "tok.source.weight",
+    "token_mask": "tok.valid",
+    "ridge": "tok.proj.weight",
+    "frequency_source": "T4_PRIVATE_TRAIN_VAL_WINDOWS.npz TRAIN_X and TRAIN_COUNT only",
+    "eval_or_holdout_labels_used": false
+  },
+  "math": {
+    "n_mapped": 1917,
+    "source_dim": 512,
+    "projected_dim": 256,
+    "projector_rank": 256,
+    "nullspace_dim": 256,
+    "residual_min_norm": 0.5032702243475508,
+    "manipulation": "per-token original projected vector preserved and residual norm preserved; derangement in 4 frequency rank bins × 4 residual norm rank bins",
+    "seed": 2026111137,
+    "groups": 16,
+    "min_group": 83,
+    "max_group": 180,
+    "mapped_token_fraction_reassigned": 1,
+    "max_projection_drift_fp64": 2.2638141361497333e-16,
+    "max_per_token_l2_norm_drift_fp64": 3.3306690738754696e-16,
+    "global_covariance_relative_fro_drift": 0.48401038004373853,
+    "mean_relative_l2_drift": 0.0070256652939474145,
+    "mean_residual_cosine_change": 0.9684996960115265
+  },
+  "interpretation": {
+    "exact_projected_input_and_token_norm_control": "PASS_SCOPED_MATHEMATICAL_FEASIBILITY",
+    "covariance_and_lexical_control": "NOT_MATCHED",
+    "training_frequency_control": "TRAIN_ONLY_QUARTILE_PROXY",
+    "morphology_control": "NOT_EXECUTED",
+    "word_semantic_anchor_control": "NOT_EXECUTED",
+    "pretrained_vs_randomized_same_arch_source": "NOT_EXECUTED",
+    "net_semantic_causal_identifiability": "HOLD_GEOMETRY_CONFOUND",
+    "no_outcome_peek": true,
+    "no_model_forward": true,
+    "no_training": true,
+    "no_new_science_claim": true,
+    "donor_512d_is_contextual_output_768d": false,
+    "note": "Pretraining-origin attribution additionally requires a non-pretrained source/control and independent lexical probe; geometry-only shuffle cannot by itself prove pretrained semantics."
+  },
+  "qa": {
+    "provenance": "A0 independent Python CPU audit using actual candidate tensor and TRAIN-only input-token frequency",
+    "source_fixture_github_commit": "81520d1561c5e85795ddd4287c5e4fa80399b6cf",
+    "source_fixture_workflow_run_id": 42949232448,
+    "source_fixture_workflow_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/42949232448",
+    "python_compile": "PASS",
+    "synthetic_positive_negative_geometry_checks": "PASS_8_NO_FORWARD_NO_TRAIN",
+    "source_private_real_validation": "PASS_SCOPED_INDEPENDENT_AGGREGATE_ONLY",
+    "private_token_rows_copied_to_github": false,
+    "lexical_coverage_checked": false,
+    "science_executed": false
+  },
+  "verdict": "PARTIAL_A0_MATH_PASS_SEMANTIC_ISOLATION_HOLD",
+  "next_gate": "A0B_PREDECLARED_COVARIANCE_AWARE_MATCHING_AND_SAME_ARCH_NONPRETRAINED_SOURCE_PROVENANCE",
+  "previous_science": {
+    "L0020": "PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE_FROZEN",
+    "L0021": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT_FROZEN"
+  },
+  "newline": "append-only science lineage not changed by technical A0"
+}
