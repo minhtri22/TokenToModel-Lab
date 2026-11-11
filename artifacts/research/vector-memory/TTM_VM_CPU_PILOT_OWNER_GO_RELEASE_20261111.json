@@ -1,0 +1,58 @@
+{
+  "schema": "ttm.vm.externalfacts.owner_one_shot_cpu_release.v1",
+  "operation": "TTM_VM_EXTERNAL_FACTS_CPU_PILOT_OWNER_ONE_SHOT_EXECUTION_DECISION",
+  "decision": "GO_SCOPED_CPU_TRAIN_DEV_ONCE",
+  "decision_basis": "Owner-supplied successful Windows preexecution stdout, with previously pinned GitHub source and QA",
+  "provenance": "OWNER_TERMINAL_STDOUT_IN_CHAT_NOT_SCIENCE_OUTPUT",
+  "input_report": {
+    "preexec_status": "GO_OWNER_PREEXEC_ALL_PINS_PASS=TRUE",
+    "frozen_research_checkout": "c41b6c8bc01a4c367bf619a6df6e05e5e2fb9d47",
+    "t1_receipt_raw_sha256": "PASS",
+    "checkpoint_t1_source_fixtures": "PASS",
+    "one_shot_output_absent": "PASS",
+    "training_not_executed": true,
+    "dev_not_scored": true,
+    "test_not_opened": true,
+    "main_not_checked_out_or_changed": true
+  },
+  "immutable_pins": {
+    "runner_git_blob": "13701b8768c463d845762c690768abae2040eba2",
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "real_t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "t1_receipt_sha256": "bc688ca5bcc4084a19d3e95b0f7d555c283d8b1b1319ff255c5baf9e66c7b34b",
+    "reader_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "train_fixture_git_blob": "9e86317c055047fffebfb2d802889e69987a8c8b",
+    "dev_fixture_git_blob": "ffc9d211508fbedc84db31235ecaad8d07596ece"
+  },
+  "allowed_science": {
+    "run_id": "TTM_VM_EXTERNAL_FACTS_CPU_ORACLE_TRAIN_DEV_20261111_V1",
+    "device": "CPU_ONLY_FP32",
+    "steps": 128,
+    "epochs": 8,
+    "batch_size": 16,
+    "train_stories": 256,
+    "dev_stories": 64,
+    "dev_evaluations": 1,
+    "backbone": "FROZEN",
+    "trainable": "READER_VALUE_OUTPUT_GATE_ONLY",
+    "controls": [
+      "none",
+      "correct",
+      "wrong"
+    ],
+    "prohibit": [
+      "TEST_DECRYPT",
+      "GPU",
+      "CHANGING_HYPERPARAMETERS",
+      "DEV_TUNING",
+      "AUTOMATIC_RETRY",
+      "CHANGING_MAIN"
+    ]
+  },
+  "executing_now": false,
+  "optimizer_steps_executed_in_this_decision": 0,
+  "science_result": "NOT_EXECUTED",
+  "when_one_shot_output_present": "STOP_AND_READ_EVIDENCE_NO_RERUN",
+  "lineage_update": "NONE_DECISION_NOT_SCIENTIFIC_RESULT"
+}
