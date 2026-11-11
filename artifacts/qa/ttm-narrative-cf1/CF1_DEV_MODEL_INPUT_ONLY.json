@@ -1,0 +1,221 @@
+{
+  "records": [
+    {
+      "completion_x": " Mira owned the task.",
+      "completion_y": " Lena owned the task.",
+      "context_a": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Mira accepted responsibility for the report and Lena remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week.",
+      "context_b": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Lena accepted responsibility for the report and Mira remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week."
+    },
+    {
+      "completion_x": " The suitcase went to Anna.",
+      "completion_y": " The suitcase went to Jack.",
+      "context_a": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Anna, rather than Jack, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive.",
+      "context_b": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Jack, rather than Anna, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive."
+    },
+    {
+      "completion_x": " Anna knew the hall.",
+      "completion_y": " Jack knew the hall.",
+      "context_a": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Anna stopped to read the update while Jack walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall.",
+      "context_b": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Jack stopped to read the update while Anna walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall."
+    },
+    {
+      "completion_x": " The suitcase went to Mira.",
+      "completion_y": " The suitcase went to Lena.",
+      "context_a": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Mira, rather than Lena, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive.",
+      "context_b": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Lena, rather than Mira, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive."
+    },
+    {
+      "completion_x": " Ella held the assignment.",
+      "completion_y": " Emma held the assignment.",
+      "context_a": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Ella on map duty and cancelled Emma's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active.",
+      "context_b": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Emma on map duty and cancelled Ella's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active."
+    },
+    {
+      "completion_x": " Anna kept the duty.",
+      "completion_y": " Jack kept the duty.",
+      "context_a": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Anna; Jack would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task.",
+      "context_b": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Jack; Anna would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task."
+    },
+    {
+      "completion_x": " The clerk gave it to Mira.",
+      "completion_y": " The clerk gave it to Lena.",
+      "context_a": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Mira, not Lena. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory.",
+      "context_b": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Lena, not Mira. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory."
+    },
+    {
+      "completion_x": " Anna owned the task.",
+      "completion_y": " Jack owned the task.",
+      "context_a": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Anna accepted responsibility for the report and Jack remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week.",
+      "context_b": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Jack accepted responsibility for the report and Anna remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week."
+    },
+    {
+      "completion_x": " Ella owned the task.",
+      "completion_y": " Emma owned the task.",
+      "context_a": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Ella accepted responsibility for the report and Emma remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week.",
+      "context_b": "The residents' committee was preparing a short public report. Two members could have taken responsibility, but the minutes named only one editor. After the vote, Emma accepted responsibility for the report and Ella remained available as a backup. The chair asked who had the active obligation, not who might volunteer next week."
+    },
+    {
+      "completion_x": " Mira knew the platform.",
+      "completion_y": " Lena knew the platform.",
+      "context_a": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Mira studied the updated board; Lena remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform.",
+      "context_b": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Lena studied the updated board; Mira remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform."
+    },
+    {
+      "completion_x": " Ella knew the platform.",
+      "completion_y": " Emma knew the platform.",
+      "context_a": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Ella studied the updated board; Emma remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform.",
+      "context_b": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Emma studied the updated board; Ella remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform."
+    },
+    {
+      "completion_x": " Anna had the leaflet task.",
+      "completion_y": " Jack had the leaflet task.",
+      "context_a": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Anna, releasing Jack from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was.",
+      "context_b": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Jack, releasing Anna from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was."
+    },
+    {
+      "completion_x": " Mira knew the room.",
+      "completion_y": " Lena knew the room.",
+      "context_a": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Mira opened the new room notice; Lena was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed.",
+      "context_b": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Lena opened the new room notice; Mira was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed."
+    },
+    {
+      "completion_x": " Anna knew the platform.",
+      "completion_y": " Jack knew the platform.",
+      "context_a": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Anna studied the updated board; Jack remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform.",
+      "context_b": "The train operator replaced Platform 3 with Platform 7 on the departure board. The announcement was displayed but not spoken. Jack studied the updated board; Anna remained in a waiting room with no view of it. No one relayed the change. A station worker later asked which person had seen the new platform."
+    },
+    {
+      "completion_x": " Mira knew the hall.",
+      "completion_y": " Lena knew the hall.",
+      "context_a": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Mira stopped to read the update while Lena walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall.",
+      "context_b": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Lena stopped to read the update while Mira walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall."
+    },
+    {
+      "completion_x": " Ella knew the time.",
+      "completion_y": " Emma knew the time.",
+      "context_a": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Ella read the note saying boarding would close at six; Emma did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time.",
+      "context_b": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Emma read the note saying boarding would close at six; Ella did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time."
+    },
+    {
+      "completion_x": " The mechanic chose Ella.",
+      "completion_y": " The mechanic chose Emma.",
+      "context_a": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Ella; Emma's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle.",
+      "context_b": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Emma; Ella's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle."
+    },
+    {
+      "completion_x": " The mechanic chose Mira.",
+      "completion_y": " The mechanic chose Lena.",
+      "context_a": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Mira; Lena's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle.",
+      "context_b": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Lena; Mira's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle."
+    },
+    {
+      "completion_x": " The canvas went to Anna.",
+      "completion_y": " The canvas went to Jack.",
+      "context_a": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Anna, although Jack had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark.",
+      "context_b": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Jack, although Anna had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark."
+    },
+    {
+      "completion_x": " The suitcase went to Ella.",
+      "completion_y": " The suitcase went to Emma.",
+      "context_a": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Ella, rather than Emma, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive.",
+      "context_b": "The station's lost-property desk held a suitcase without a name tag. Its handle was wrapped in orange tape. The duty officer found that Emma, rather than Ella, had registered that tape pattern in the luggage book. The officer ignored the order in which the travelers came to ask. The tape registration was decisive."
+    },
+    {
+      "completion_x": " Mira held the assignment.",
+      "completion_y": " Lena held the assignment.",
+      "context_a": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Mira on map duty and cancelled Lena's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active.",
+      "context_b": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Lena on map duty and cancelled Mira's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active."
+    },
+    {
+      "completion_x": " Mira kept the duty.",
+      "completion_y": " Lena kept the duty.",
+      "context_a": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Mira; Lena would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task.",
+      "context_b": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Lena; Mira would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task."
+    },
+    {
+      "completion_x": " The clerk gave it to Anna.",
+      "completion_y": " The clerk gave it to Jack.",
+      "context_a": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Anna, not Jack. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory.",
+      "context_b": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Jack, not Anna. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory."
+    },
+    {
+      "completion_x": " The clerk gave it to Ella.",
+      "completion_y": " The clerk gave it to Emma.",
+      "context_a": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Ella, not Emma. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory.",
+      "context_b": "At the town library, two visitors had left parcels behind the counter. The clerk found a blue claim slip with a tiny drawing of a bird. The clerk checked the log: the blue slip was issued to Emma, not Ella. The parcel carried the same bird drawing. The clerk followed the log rather than trusting either visitor's memory."
+    },
+    {
+      "completion_x": " Mira knew the time.",
+      "completion_y": " Lena knew the time.",
+      "context_a": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Mira read the note saying boarding would close at six; Lena did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time.",
+      "context_b": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Lena read the note saying boarding would close at six; Mira did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time."
+    },
+    {
+      "completion_x": " The canvas went to Ella.",
+      "completion_y": " The canvas went to Emma.",
+      "context_a": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Ella, although Emma had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark.",
+      "context_b": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Emma, although Ella had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark."
+    },
+    {
+      "completion_x": " The canvas went to Mira.",
+      "completion_y": " The canvas went to Lena.",
+      "context_a": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Mira, although Lena had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark.",
+      "context_b": "During a community art show, two painters stored canvases in the same locked room. One canvas had a ribbon along its wooden frame. The exhibition list linked the ribbon-marked canvas to Lena, although Mira had carried it inside. The gallery assistant had promised to return each work to the painter listed beside its mark."
+    },
+    {
+      "completion_x": " Mira had the leaflet task.",
+      "completion_y": " Lena had the leaflet task.",
+      "context_a": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Mira, releasing Lena from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was.",
+      "context_b": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Lena, releasing Mira from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was."
+    },
+    {
+      "completion_x": " Ella had the leaflet task.",
+      "completion_y": " Emma had the leaflet task.",
+      "context_a": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Ella, releasing Emma from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was.",
+      "context_b": "A health clinic organized a patient-information leaflet. Two staff members had suggested ideas for it at the meeting. The coordinator formally delegated the finished leaflet to Emma, releasing Ella from that duty. No one had printed it yet. The coordinator only wanted to record whose task it currently was."
+    },
+    {
+      "completion_x": " Anna knew the time.",
+      "completion_y": " Jack knew the time.",
+      "context_a": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Anna read the note saying boarding would close at six; Jack did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time.",
+      "context_b": "The ferry company changed its final boarding time and posted a note beside the office door. Two travelers were waiting in different rooms. Only Jack read the note saying boarding would close at six; Anna did not see the update. Neither traveler spoke to the other before the clerk asked about the revised closing time."
+    },
+    {
+      "completion_x": " Ella knew the hall.",
+      "completion_y": " Emma knew the hall.",
+      "context_a": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Ella stopped to read the update while Emma walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall.",
+      "context_b": "A gallery curator moved the opening talk to the east hall. A printed update was placed near the entrance. Emma stopped to read the update while Ella walked past without looking. They separated afterward and did not exchange messages. A guide asked who had learned about the east hall."
+    },
+    {
+      "completion_x": " Ella knew the room.",
+      "completion_y": " Emma knew the room.",
+      "context_a": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Ella opened the new room notice; Emma was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed.",
+      "context_b": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Emma opened the new room notice; Ella was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed."
+    },
+    {
+      "completion_x": " The mechanic chose Anna.",
+      "completion_y": " The mechanic chose Jack.",
+      "context_a": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Anna; Jack's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle.",
+      "context_b": "A neighborhood repair shop kept two bicycles under a single tarp. One bicycle had a small brass bell and a bent left pedal. On the service form, the bell-and-pedal description belonged to Jack; Anna's bicycle was different. The mechanic checked that description carefully before giving anyone a bicycle."
+    },
+    {
+      "completion_x": " Anna held the assignment.",
+      "completion_y": " Jack held the assignment.",
+      "context_a": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Anna on map duty and cancelled Jack's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active.",
+      "context_b": "The neighborhood museum needed someone to update a visitor map. Both applicants were present when the director revised the schedule. The director kept Jack on map duty and cancelled Anna's earlier tentative assignment. The old schedule was crossed out. The revised obligation was the only one still active."
+    },
+    {
+      "completion_x": " Ella kept the duty.",
+      "completion_y": " Emma kept the duty.",
+      "context_a": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Ella; Emma would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task.",
+      "context_b": "At the school festival, the volunteers changed their plan for arranging chairs. A written assignment was made before anyone moved a chair. The final assignment gave the chair plan to Emma; Ella would only advise if asked. Later, the director read the assignment aloud to avoid confusing advice with ownership of the task."
+    },
+    {
+      "completion_x": " Anna knew the room.",
+      "completion_y": " Jack knew the room.",
+      "context_a": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Anna opened the new room notice; Jack was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed.",
+      "context_b": "The school moved a class into Room 12 and sent a notice through a staff chat. Two teachers had their phones on the desk. Jack opened the new room notice; Anna was offline and received no other message. There was no later conversation. The principal wanted to know whose information had actually changed."
+    }
+  ],
+  "schema": "ttm.cf1.model_input.v1"
+}
