@@ -1,0 +1,101 @@
+{
+  "schema": "ttm.gemma2.a0d.owner_pinned_donor_official_class_integrated_readback.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0D_OWNER_LOCAL_PINNED_DONOR_TOKENIZER_AND_OFFICIAL_TRANSFORMERS_CLASS_ONE_INTEGRATED_READBACK",
+  "classification": "SOURCE_AUTHENTICITY_AND_OFFICIAL_CLASS_CPU_READBACK_ONLY",
+  "source": {
+    "repository": "google/embeddinggemma-2",
+    "revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "files": [
+      {
+        "name": "config.json",
+        "bytes": 4455,
+        "sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+        "verdict": "PASS_SHA256"
+      },
+      {
+        "name": "tokenizer.json",
+        "bytes": 32170510,
+        "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4",
+        "verdict": "PASS_SHA256"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "bytes": 1599,
+        "sha256": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874",
+        "verdict": "PASS_SHA256"
+      }
+    ]
+  },
+  "ci_readback": {
+    "mode": "GITHUB_ACTIONS_UBUNTU_CPU_NOT_OWNER_WINDOWS",
+    "workflow_run_id": 42968236741,
+    "workflow_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/42968236741",
+    "job_id": 130350371710,
+    "head_sha": "931dc78101d845dd55e4f161829708003c87a005",
+    "status": "COMPLETED_SUCCESS",
+    "steps": {
+      "cpu_torch_install": "PASS",
+      "official_transformers_install": "PASS",
+      "source_python_compile": "PASS",
+      "fetch_exact_revision_source_only": "PASS",
+      "all_three_sha256": "PASS",
+      "official_class_cpu_init": "PASS",
+      "ephemeral_cleanup": "PASS"
+    },
+    "python_version": "3.12.16",
+    "torch_version": "2.10.0+cpu",
+    "transformers_version": "5.19.0",
+    "official_class": "transformers.models.embedding_gemma2.modeling_embedding_gemma2",
+    "official_parameter_count": 271002624,
+    "official_state_tensor_count": 413,
+    "official_state_name_shape_dtype_sha256": "9e36b43011641e65bbdbdc2938d8c12a368810d9e59e2107024683288d2fecc1",
+    "official_tokenizer_class": "GemmaTokenizer",
+    "actual_weight_inference_executed": false,
+    "full_model_cpu_instantiated": true,
+    "pretrained_weights_loaded": false,
+    "checkpoint_saved": false,
+    "training_executed": false,
+    "T1_manifest_uploaded_to_ci": false,
+    "T1_mapping_full_readback": "NOT_EXECUTED",
+    "internal_status": "PASS_OFFICIAL_CLASS_AND_SOURCE_NO_T1_MAPPING"
+  },
+  "owner_readback": {
+    "windows_connected_direct": "UNAVAILABLE_REMOTE_CONNECTOR_INTERNAL_ERROR",
+    "windows_files_SHA256_verified": "NOT_EXECUTED",
+    "scoped_Google_Drive_exact_three_source_files": "NOT_FOUND_IN_SCOPED_SEARCH_AND_FOLDER_BROWSE",
+    "hf_cache_drive_found": "YES_BUT_SNAPSHOT_IS_OTHER_MODEL_NOT_GEMMA2",
+    "T1_manifest_SHA256_earlier_verified": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "T1_to_verified_donor_tokenizer_mapping_1917_multi50": "NOT_EXECUTED",
+    "python_owner_3p12_transformers_import": "NOT_EXECUTED",
+    "fallback_script_source_path": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0d_pinned_official_source_readback.py",
+    "fallback_git_blob": "6258b9f824e3ff8aabb1baba899f2a37894e8599",
+    "fallback_source_commit": "931dc78101d845dd55e4f161829708003c87a005",
+    "fallback_script_fail_closed": "PASS_MISSING_CONFIG_NEGATIVE_LOCAL_TEST",
+    "fallback_powershell_copy": "DELIVERED_AS_LOCAL_SANDBOX_ATTACHMENT_NO_CLAIM_EXECUTED_ON_OWNER_WINDOWS"
+  },
+  "prior_a0d": {
+    "canonical_t1_mapped_count": 1917,
+    "canonical_t1_multi_id_count": 50,
+    "historical_semantic_probe": "EXPLORATORY_POSITIVE_BUT_NONINDEPENDENT_44_PAIRS",
+    "L0020": "FROZEN_PASS_SCOPED",
+    "L0021": "FROZEN_PASS_SCOPED",
+    "lineage_expected_git_blob": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2"
+  },
+  "adjudication": {
+    "ci_official_donor_source": "PASS_SCOPED",
+    "ci_official_CPU_class": "PASS_SCOPED",
+    "owner_local_exact_sources": "HOLD_NOT_VERIFIED",
+    "owner_local_T1_mapping": "HOLD_NOT_EXECUTED",
+    "independent_fresh_lexical_holdout": "HOLD_NOT_ADMITTED",
+    "conditional_pilot_design": "SOURCE_AND_ARM_DESIGN_CAN_BE_FROZEN_WITH_EXPLICIT_OWNER_GATE",
+    "T4_2x2_execution": "HOLD",
+    "new_scientific_result": false,
+    "science_lineage_append": false,
+    "OOD256_immutable": true,
+    "model_training": 0,
+    "model_inference": 0,
+    "GPU_usage": 0,
+    "next_operation": "TTM_GEMMA2_A0D_OWNER_WINDOWS_READBACK_EXACT_T1_MAPPING_THEN_PILOT_FREEZE"
+  }
+}
