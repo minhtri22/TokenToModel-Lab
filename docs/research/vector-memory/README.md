@@ -66,3 +66,11 @@ Không sao chép bộ TRAIN/VAL có thể giải mã vào repo Git; chỉ đưa 
 - Kết luận: `KEY_LABEL_ASSOCIATION=YES_SCOPED`, `INCREMENTAL_NLL_GAIN=NO_SCOPED`, `VECTOR_MEMORY_TRAINING=PAUSED`.
 - Chứng cứ: [báo cáo](RETRIEVAL_SIGNAL_DIAGNOSTIC_20261111.md), JSON aggregate, runner CPU và kiểm toán 22/22 tại `artifacts/research/vector-memory/` / `tools/research/vector-memory/`; `lineage.md` nối thêm L0018.
 - Không huấn luyện, không GPU, không dùng TEST, không merge vào main. Không dùng VAL đã xem để tune.
+
+## External knowledge evaluation — thiết kế mới 2026-11-11
+
+- **Trạng thái:** `DESIGN_ONLY_STATIC_QA_PASS_22_OF_22`; `SCIENCE_NOT_EXECUTED`; `TEST_NOT_MATERIALIZED_NOT_SEALED`.
+- [Hợp đồng câu hỏi tri thức ngoại sinh theo từng truyện](EXTERNAL_KNOWLEDGE_EVALUATION_DESIGN_20261111.md): 256 TRAIN + 64 DEV synthetic mới; 64 TEST dự kiến dùng secret riêng, chưa tạo/chưa xem.
+- Ba đối chứng giữ cùng backbone: không bộ nhớ, bộ nhớ đúng, bộ nhớ sai (chỉ đổi target value); tách `ORACLE_LOOKUP` với `RETRIEVED_TOPK`, phán quyết qua answer-only NLL và paired story bootstrap.
+- Bộ sinh, QA, TRAIN/DEV fixtures, manifest và QA JSON lưu trong `tools/research/vector-memory/` và `artifacts/research/vector-memory/`. Không dùng lại TinyStories VAL cũ, không huấn luyện, không inference, không GPU.
+- Không ghi `lineage.md` vì hiện mới có kết quả kiểm tra tĩnh, chưa có kết quả khoa học PASS/FAIL. Nhánh tiếp tục không merge vào `main`.
