@@ -1,0 +1,116 @@
+{
+  "schema": "ttm.o0.n1.integrated_cpu_qa_owner_single_go_no_go.v1",
+  "date": "2026-11-11",
+  "task": "TTM_O0_NEW_DIAGNOSTIC_CORPUS_GENERATOR_STRICT_CHECKER_SHORTCUT_AUDIT_AND_ONE_CPU_PREFLIGHT_SINGLE_OWNER_DECISION",
+  "science_decision": "HOLD_T4_DO_NOT_TRAIN",
+  "decision_reason_ids": [
+    "SHALLOW_ALIAS_AWARE_HEURISTIC_SOLVES_PUBLIC_CORPUS_100_PERCENT",
+    "R3A_STYLE_DATASET_OVERFITTING_RISK",
+    "FOUR_CELL_GROUPS_NOT_EXACT_SINGLE_EVENT_INTERVENTION",
+    "FINAL_STRUCTURAL_SPLIT_OVERLAPS_DEV_STRUCT",
+    "ONE_SEED_T4_CAPACITY_AND_NEW_RUNNER_NOT_PROVEN",
+    "ANSWER_TOKEN_SUPERVISION_ONLY_2_38_PERCENT"
+  ],
+  "source_truth": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-o0-only-neural-feasibility-diagnostic-design-20261111",
+    "parent": "08b1f8586627608512eef222b681624f2a8656e1",
+    "generator": "tools/research/o0_diagnostic_n1/o0_n1_public_generator.mjs",
+    "generator_blob": "008936285e511446ec61be8668aa7c3480b1a785",
+    "oracle_model_split_roots": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/",
+    "shard_index": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/TRAIN_SHARD_INDEX.json",
+    "independent_checker": "tools/research/o0_diagnostic_n1/o0_n1_independent_checker.mjs",
+    "raw_json_validator": "tools/research/o0_diagnostic_n1/o0_n1_raw_input_fail_closed.mjs",
+    "heuristic_source": "tools/research/o0_diagnostic_n1/o0_n1_alias_aware_last_event_baseline.mjs",
+    "compressed_python_cpu_source": "tools/research/o0_diagnostic_n1/o0_cpu_restore_qa.py.gz.b64",
+    "cpu_reconstructed_script_git_blob": "b4729b2d16e116d3846b63089bed5ae4951eb8da",
+    "compressed_python_final_source": "tools/research/o0_diagnostic_n1/o0_final_private_escrow.py.gz.b64",
+    "final_reconstructed_script_git_blob": "a8e48d0f889e3de638e12355966e75536f861953",
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "corpus": {
+    "public_rows": {
+      "TRAIN": 4096,
+      "DEV_IID": 256,
+      "DEV_STRUCT": 256,
+      "total": 4608
+    },
+    "family_balance": "N1_N2_N3_N4_EQUAL",
+    "public_counterfactual_groups": 1152,
+    "oracle_labels_public_on_GitHub": true,
+    "generated_from_new_grammar": true,
+    "original_R3A_rows_reused": 0,
+    "private_final_rows": 512,
+    "private_final_groups": 128,
+    "full_planned_rows": 5120,
+    "single_intervention_exact_groups": 556,
+    "groups_with_unintended_independent_noise_reordering": 596,
+    "coarse_final_vs_DEV_STRUCT_patterns_overlap": 4,
+    "strict_structural_graph_disjoint": "FAIL_NOT_ESTABLISHED"
+  },
+  "qa": {
+    "public_independent_visible_text": "PASS_4608_OF_4608",
+    "public_counterfactual_outcome_invariants": "PASS_1152_OF_1152",
+    "semantic_mutation_and_record_allowlist_negative": "PASS_13_OF_13",
+    "raw_json_fail_closed_negative": "PASS_16_OF_16",
+    "generator_reproducible": "PASS_DETERMINISTIC_CODE_ONLY",
+    "git_readback_shard_DEV": "PASS_20_OF_20_EXACT_UTF8_CONTENT",
+    "exact_T1_BPE_pairs": 1791,
+    "BPE_public_counted_rows": 4608,
+    "BPE_prompt_longest": 177,
+    "BPE_train_sequence_longest": 182,
+    "BPE_prompt_over224": 0,
+    "BPE_sequence_over256": 0,
+    "CPU_original_P02_strict_restore": "PASS",
+    "CPU_synthetic_optimizer_restore_parity": "PASS_2_STEPS",
+    "CPU_actual_128_optimizer_steps": "NOT_EXECUTED",
+    "CPU_T4_FP16_capacity_and_resume": "NOT_EXECUTED"
+  },
+  "predeclared_shallow": {
+    "name": "alias_aware_last_relevant_event_regex_without_state_simulation",
+    "correct": 4608,
+    "total": 4608,
+    "by_split": {
+      "TRAIN": "4096/4096",
+      "DEV_IID": "256/256",
+      "DEV_STRUCT": "256/256"
+    },
+    "scientific_discrimination": "FAIL_SCOPED"
+  },
+  "target_budget": {
+    "candidate_optimizer_steps": 128,
+    "candidate_labeled_targets_per_step": 4096,
+    "candidate_total_target_exposures": 524288,
+    "train_sequence_total_tokens_one_pass": 637010,
+    "train_answer_target_tokens_one_pass": 15162,
+    "answer_target_fraction_one_pass": 0.023801824147187643,
+    "answer_learning_signal": "LOW_SCOPED_DO_NOT_CHANGE_OBJECTIVE_AFTER_SEEING_HEURISTIC_RESULTS"
+  },
+  "escrow": {
+    "encrypted_seed_on_GitHub": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/BLIND_FINAL_ENCRYPTED_SEED_ESCROW.json",
+    "encrypted_seed_envelope_git_blob": "133bb4182f65f6c911f493622b5709561f69befb",
+    "encrypted_seed_ciphertext_sha256": "4b514b3ab1844ec58132e1deaf8c7507968d04930c11ecc6aef9f9b77cf6e197",
+    "original_full_ciphertext_sha256_local": "887cdb593cb22dda9128d00b8b4d5556670dc0613422f945cb0b5111c12b7c67",
+    "final_plaintext_commitment_sha256": "70487eba90d642f03e79b10816705797c134c421b2b8062d9b58bb72b7f8f505",
+    "owner_private_key_on_windows": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_O0_N1_FINAL_PRIVATE_OWNER_KEY_DO_NOT_GITHUB_20261111.json",
+    "owner_key_write_and_exact_readback": "PASS",
+    "encrypted_seed_to_full_final_reconstruction": "PASS_512_ROWS_128_GROUPS",
+    "public_final_labels": "NEVER_PUBLISHED",
+    "final_exact_BPE_tokenization": "NOT_EXECUTED",
+    "final_unblind": "NOT_EXECUTED",
+    "final_science_gate": "HOLD_STRUCTURAL_OVERLAP"
+  },
+  "history": {
+    "main": "NOT_WRITTEN_BY_THIS_TASK",
+    "PR13": "DRAFT_PRESERVED_UNMERGED",
+    "lineage_md": "NOT_WRITTEN",
+    "O0_original_2x2": "HOLD_PRESERVED",
+    "O1": "DEFER",
+    "R3A": "DEMO_ONLY",
+    "TEST_Q1Q2": "UNTOUCHED",
+    "new_scientific_training_steps": 0,
+    "GPU_calls": 0
+  },
+  "next": "TTM_O0_DIAGNOSTIC_N1_FAILED_GATES_OWNER_RESEARCH_REDIRECT_NO_MORE_HEURISTIC_PATCHES"
+}
