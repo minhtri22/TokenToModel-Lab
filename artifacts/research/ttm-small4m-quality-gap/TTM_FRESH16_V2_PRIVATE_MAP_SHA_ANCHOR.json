@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.fresh16.v2.private_map_sha_anchor.v1",
+  "operation": "TTM_FRESH16_V2_E0_NATIVE_PREPARE_READBACK_AND_SINGLE_CLOSURE",
+  "date": "2026-11-11",
+  "source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "sealed_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+  "prepared_receipt_sha256": "3ae27b3690bf84befe952129dc5daf0ff28a2239ee296f4104f32806ee0708ba",
+  "runner_git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+  "runner_sha256": "b9da32181a1c802f5eb56f6c22b71ca6ee8b834f8660cdd30fc9b91262eeb2f5",
+  "private_map_location_kind": "PRIVATE_WINDOWS_PROJECT_ROOT_ONLY",
+  "private_map_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/BLIND_MAP_PRIVATE.json",
+  "prepared_receipt_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/PREPARED.json",
+  "source_readback": {
+    "native_prepare": "PASS_SOURCE_ONLY_NO_FORWARD",
+    "git_fast_forward": "PASS_6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2_to_c05872354d892a9656f8f98642866f7eebfd0f50",
+    "source_frozen_prompt_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "adopted_v2_git_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "frozen_rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "checkpoint_1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_1280_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "prompts": 16,
+    "expected_outputs": 32,
+    "expected_pairs": 16,
+    "local_private_map_and_receipt_existence": "VERIFIED_REMOTE_DESKTOP_READ_ONLY",
+    "map_digest_provenance": "OWNER_NATIVE_PREPARE_CONSOLE_AND_PREPARED_JSON; no private map content published",
+    "receipt_digest_provenance": "OWNER_NATIVE_POWERSHELL_SHA256_CONSOLE; exact byte hash not recalculated by remote text read"
+  },
+  "role_readiness": {
+    "E0": "CLOSED_PASS_SOURCE_ONLY",
+    "S1": "NOT_ASSIGNED",
+    "S2": "NOT_ASSIGNED"
+  },
+  "execution": {
+    "GO_32_CPU_ONE_SHOT": "NOT_ISSUED",
+    "inference": "NOT_EXECUTED",
+    "training": "NOT_EXECUTED",
+    "TEST": "NOT_READ",
+    "one_shot_no_retry": true
+  },
+  "safety": {
+    "unblinding_map_uploaded": false,
+    "private_output_uploaded": false,
+    "source_head_must_remain_pinned_at": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "do_not_move_worktree_HEAD_to_anchor_commit": true,
+    "owner_may_send_S1_handoff_for_readiness": true,
+    "owner_may_send_S2_handoff_after_S1_readiness_and_prior_to_pair_scoring": true,
+    "pair_packet_requires_S1_SHA_anchor": true
+  },
+  "decision": "E0_NATIVE_PREPARE_PASS_AND_MAPPING_SHA_ANCHORED_NO_SCIENCE_GO"
+}
