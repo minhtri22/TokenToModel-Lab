@@ -34,10 +34,11 @@
     "32_original_p02_random_parameters_unchanged": true,
     "33_no_gradients_on_frozen_model": true,
     "34_no_gradients_on_reader": true,
-    "35_no_test_model_or_optimizer_in_execution": true
+    "35_no_test_model_or_optimizer_in_execution": true,
+    "36_no_memory_skips_fact_read_and_tokenizer": true
   },
-  "checks_passed": 35,
-  "checks_total": 35,
+  "checks_passed": 36,
+  "checks_total": 36,
   "data_counts": {
     "dev": 64,
     "test_accessed": 0,
