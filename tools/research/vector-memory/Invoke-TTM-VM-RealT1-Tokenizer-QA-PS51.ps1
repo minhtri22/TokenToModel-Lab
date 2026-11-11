@@ -1,13 +1,17 @@
 # TTM Vector Memory - exact real T1 BPE compatibility QA, Windows PowerShell 5.1
-# Read-only inputs; one output receipt under project _evidence. No TEST decrypt, training, inference or GPU.
+# Run from the research branch checkout/worktree inside owner root. Read-only inputs.
+# One output receipt under owner root _evidence. No TEST decrypt, training, inference or GPU.
 $ErrorActionPreference = 'Stop'
 $root = 'D:\WORK\RESEARCH\TokenToModel-Lab'
+$checkoutRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..\..')).Path
+$allowedPrefix = $root.TrimEnd('\') + '\'
+if (($checkoutRoot -ne $root) -and (-not $checkoutRoot.StartsWith($allowedPrefix, [StringComparison]::OrdinalIgnoreCase))) { throw 'CHECKOUT_OUTSIDE_TTM_ROOT_DENIED' }
 $py = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 $manifest = Join-Path $root '_tmp\ttm_t1_real_source_v1\T1_BPE2048_REAL_TRAIN_MANIFEST.json'
-$source = Join-Path $root 'tools\pilot_t4\integrated\source_t2\ttm_gpt2_bpe2048.py'
-$runner = Join-Path $root 'tools\research\vector-memory\real_t1_bpe_compat_audit.py'
-$train = Join-Path $root 'artifacts\research\vector-memory\TTM_EXTERNAL_FACTS_TRAIN_256_V1.json'
-$dev = Join-Path $root 'artifacts\research\vector-memory\TTM_EXTERNAL_FACTS_DEV_64_V1.json'
+$source = Join-Path $checkoutRoot 'tools\pilot_t4\integrated\source_t2\ttm_gpt2_bpe2048.py'
+$runner = Join-Path $checkoutRoot 'tools\research\vector-memory\real_t1_bpe_compat_audit.py'
+$train = Join-Path $checkoutRoot 'artifacts\research\vector-memory\TTM_EXTERNAL_FACTS_TRAIN_256_V1.json'
+$dev = Join-Path $checkoutRoot 'artifacts\research\vector-memory\TTM_EXTERNAL_FACTS_DEV_64_V1.json'
 $outDir = Join-Path $root '_evidence\vector-memory'
 $out = Join-Path $outDir 'TTM_VM_REAL_T1_BPE_COMPAT_QA_20261111.json'
 $expected = 'cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc'
