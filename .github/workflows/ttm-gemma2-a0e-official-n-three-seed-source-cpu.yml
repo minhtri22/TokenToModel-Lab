@@ -1,0 +1,103 @@
+name: TTM GEMMA2 A0E official untrained N three-seed CPU fingerprint only
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0e-official-n-three-seed-source-cpu.yml
+  workflow_dispatch:
+
+jobs:
+  frozen-n-provenance-no-model-forward:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      OMP_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+      TRANSFORMERS_NO_TF: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned CPU-only class dependencies
+        run: |
+          python -m pip install --disable-pip-version-check --no-cache-dir torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check --no-cache-dir transformers==5.19.0
+      - name: Official pretrained repo config metadata only; SHA256 fail closed
+        run: |
+          mkdir -p _tmp/a0e-n-source
+          python - <<'PY'
+          from huggingface_hub import hf_hub_download
+          from pathlib import Path
+          import hashlib
+          src=Path(hf_hub_download(repo_id="google/embeddinggemma-2",revision="f9972ac22e696a105c482202646979e33e4b5a1e",filename="config.json",local_dir="_tmp/a0e-n-source"))
+          sha=hashlib.sha256(src.read_bytes()).hexdigest()
+          assert sha=="b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3", "HOLD_CONFIG_SHA"
+          print("A0E_N_CONFIG_SHA=PASS")
+          PY
+      - name: Initialize three official untrained N sources on CPU, hash complete input tensors, NO forward
+        run: |
+          python - <<'PY'
+          import gc, hashlib, json, sys
+          from pathlib import Path
+          import numpy as np, torch, transformers
+          from transformers import EmbeddingGemma2TextConfig, EmbeddingGemma2TextModel
+          assert sys.version_info[:2]==(3,12)
+          assert torch.__version__.startswith("2.10.0+cpu")
+          assert transformers.__version__=="5.19.0"
+          p=Path("_tmp/a0e-n-source/config.json")
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=="b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3"
+          cfg=json.loads(p.read_bytes())["text_config"]
+          assert (cfg["vocab_size"],cfg["hidden_size"],cfg["num_hidden_layers"])==(262144,512,24)
+          torch.set_num_threads(2)
+          rows=[]
+          for seed in (61031,61032,61033):
+              torch.manual_seed(seed)
+              with torch.no_grad():
+                  model=EmbeddingGemma2TextModel(EmbeddingGemma2TextConfig(**cfg))
+                  w=model.embed_tokens.weight
+                  assert tuple(w.shape)==(262144,512) and w.dtype==torch.float32 and w.device.type=="cpu"
+                  assert torch.count_nonzero(w[0]).item()==0
+                  h=hashlib.sha256()
+                  for i in range(0,262144,1024):
+                      a=w[i:i+1024].detach().contiguous().numpy()
+                      assert a.dtype==np.float32 and np.isfinite(a).all()
+                      h.update(a.astype("<f4",copy=False).tobytes(order="C"))
+                  state=sorted((n,list(t.shape),str(t.dtype)) for n,t in model.state_dict().items())
+                  topology=hashlib.sha256(json.dumps(state,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+                  assert topology=="9e36b43011641e65bbdbdc2938d8c12a368810d9e59e2107024683288d2fecc1"
+                  assert sum(p.numel() for p in model.parameters())==271002624
+                  rows.append({"seed":seed,"full_official_input_weight_sha256_f32le":h.hexdigest(),
+                               "shape":[262144,512],"topology_sha256":topology})
+                  print("A0E_N_OFFICIAL_SEED_"+str(seed)+"_SHA256="+h.hexdigest(),flush=True)
+                  del model,w
+              gc.collect()
+          assert len({r["full_official_input_weight_sha256_f32le"] for r in rows})==3
+          report={"schema":"ttm.gemma2.a0e.official_n_seed_input_provenance_cpu.v1",
+             "status":"PASS_OFFICIAL_N_FULL_INPUT_SEED_SHA_3_OF_3_SOURCE_ONLY",
+             "donor_revision":"f9972ac22e696a105c482202646979e33e4b5a1e",
+             "config_sha256":"b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+             "torch":torch.__version__,"transformers":transformers.__version__,
+             "seeds":[61031,61032,61033],"sources":rows,
+             "actual_T1_N_rows_materialized":False,
+             "P_C_N_C_matched_geometry_QA":False,"model_forward":False,
+             "pretrained_weights_loaded":False,"training":False,"gpu":False,"T4_authorized":False}
+          out=Path("_tmp/a0e-n-source/A0E_OFFICIAL_N_THREE_SEED_PUBLIC_HASH_RECEIPT.json")
+          out.write_text(json.dumps(report,sort_keys=True,indent=2)+"\n",encoding="utf8")
+          print("A0E_OFFICIAL_N_STATUS="+report["status"])
+          print("A0E_OFFICIAL_N_RECEIPT_SHA256="+hashlib.sha256(out.read_bytes()).hexdigest())
+          PY
+      - name: Publish fingerprint-only public receipt, never any weights
+        uses: actions/upload-artifact@v4
+        with:
+          name: TTM_GEMMA2_A0E_N_OFFICIAL_3SEED_INPUT_SHA_ONLY_20261111
+          path: _tmp/a0e-n-source/A0E_OFFICIAL_N_THREE_SEED_PUBLIC_HASH_RECEIPT.json
+          retention-days: 7
+          if-no-files-found: error
+      - name: Cleanup ephemeral files
+        if: always()
+        run: rm -rf _tmp/a0e-n-source
