@@ -1,0 +1,69 @@
+{
+  "schema": "ttm.vm.externalfacts.nontest_topk.probe_design_manifest.v1",
+  "operation": "TTM_VM_EXTERNAL_FACTS_RETRIEVED_TOPK_NONTEST_READINESS_AND_FROZEN_READER_GENERALIZATION_DESIGN",
+  "status": "FROZEN_DESIGN_SOURCE_QA_ONLY",
+  "preexisting_science": {
+    "latest_lineage": "L0020",
+    "dev_screen": "PASS_DEV_SCREEN_GO_CANDIDATE_SCOPED",
+    "reader_training_one_shot": "CONSUMED",
+    "old_dev_rescored": false
+  },
+  "study": {
+    "split": "non_test_probe",
+    "cases": 128,
+    "cards_per_case": 32,
+    "hard_negative_keys_per_case": 4,
+    "label_set_size": 16,
+    "labels_per_class": 8,
+    "generated_probe_sha256": "88c558a8f1844ee1e55bff64f30c2b801c8bf3e54ef0cbc537f9fd81e51e9c11",
+    "public_probe_cases_committed_to_github": false,
+    "train_dev_alias_disjoint": "PASS_BY_SOURCE_QA",
+    "generator_git_blob": "b08e2120a2ac9d4e270ee48fdca77e4a4743e22c",
+    "generator_sha256": "a86c8f659c86921695f8653000986ffc34472d88b1466d7b900104e7c4e661f8",
+    "generator_path": "tools/research/vector-memory/topk_nontest_probe.py",
+    "static_qa_script_git_blob": "9c8627929d7c1bb6ebda6ab4429857e44d349a91",
+    "static_qa_source_sha256": "75e069c0c9c380c5bd35eedb443a0bfd9bb262624317ae571eaa1b67ca420331",
+    "static_qa_status": "PASS_38_OF_38",
+    "primary_retriever": "R_FULL_COSINE_FROZEN_T1_P02_MEAN_EMBEDDING_FULL_QUESTION_VS_KEY",
+    "controls": [
+      "R_LEX_TRIGRAM_RECALL_ONLY",
+      "R_ORACLE_EXACTKEY_TOP1_UPPER_BOUND",
+      "A_NO_MEMORY",
+      "B1_CORRECT_TOP1",
+      "C1_WRONG_TOP1",
+      "B3_CORRECT_TOP3",
+      "C3_WRONG_TOP3"
+    ],
+    "not_yet_executed": [
+      "FROZEN_READER_PROBE_INFERENCE",
+      "TOPK_RECALL_REAL_T1",
+      "ANSWER_ONLY_NLL_PROBE",
+      "BOOTSTRAP_RECALC"
+    ],
+    "readout_criteria": {
+      "recall3_min": 0.95,
+      "paired_delta_nll_min": 0.05,
+      "paired_bootstrap_ci_lower_gt": 0,
+      "bootstrap_replicates": 1000,
+      "bootstrap_seeds": [
+        20261114,
+        20261115
+      ],
+      "primary_reader_arm": "B3"
+    }
+  },
+  "privacy_and_integrity": {
+    "original_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "trained_reader_sha256": "NOT_READBACK_IN_THIS_DESIGN_STAGE",
+    "checkpoint_loaded": false,
+    "reader_loaded": false,
+    "optimizer_steps": 0,
+    "old_dev_model_scoring": false,
+    "test_accessed": false,
+    "gpu_used": false,
+    "main_changed": false,
+    "lineage_change": "NONE_DESIGN_ONLY"
+  },
+  "next_operation": "TTM_VM_TOPK_NONTEST_FROZEN_READER_ONE_SHOT_SOURCE_INTEGRATION_AND_PREEXEC_QA"
+}
