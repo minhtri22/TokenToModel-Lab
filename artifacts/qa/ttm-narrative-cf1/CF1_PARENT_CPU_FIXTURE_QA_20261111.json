@@ -1,0 +1,25 @@
+{
+  "DEV_and_FINAL_neural_scores_executed": 0,
+  "P02_source_for_fixture": "N1 algebraically equivalent CPU reconstruction, not exact src/p02/transformer_core.py blob",
+  "Q1Q2_TEST_reads": 0,
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "checkpoint_step": 1024,
+  "checks": [
+    "checkpoint_SHA256",
+    "checkpoint_p02_step_config_pin",
+    "strict_state_dict",
+    "parameter_count_3749376",
+    "four_teacher_forced_scores_finite",
+    "repeat_deterministic",
+    "frozen_weights_unmodified",
+    "original_checkpoint_sha_unchanged"
+  ],
+  "future_official_scorer_requires_exact_P02_blob": true,
+  "gpu_calls": 0,
+  "model_params": 3749376,
+  "new_training_steps": 0,
+  "runtime": "CPU_PYTORCH_2.10.0+cpu",
+  "schema": "ttm.cf1.frozen_parent_equivalent_cpu_fixture_source_qa.v1",
+  "status": "PASS_8_OF_8_SOURCE_AND_SYNTHETIC_FIXTURE_ONLY",
+  "tokenizer_in_fixture": "ASCII_BYTES_ONLY_NOT_T1_BPE2048"
+}
