@@ -1,0 +1,120 @@
+{
+  "schema": "ttm.ollama.full_logits.final_science_closeout.v1",
+  "date": "2026-11-11",
+  "branch": "research/ttm-t5-ollama-full-logits-20261111",
+  "verdict": "PASS_SCOPED_OLLAMA_CHILD_FULL_RAW_LOGITS_4_OF_4",
+  "prereg_git_blob": "fdcb81064a6c55b3dca5f71e18defff0895c0568",
+  "original_run_source_head": "194fb946cc3283d65bd54c64bb965db2343e0c71",
+  "independent_readback_source_head": "da20b95864234ee02ab9f747cc852068e89ebb0d",
+  "owner_reported_original_independent_final_sha256": "1c0d48e8072de3a33849eb490a4118493e4479b6c3488fbc263b86cf237e8066",
+  "remote_readback_of_independent_final": "PASS_CONTENT_AND_STRUCTURE",
+  "remote_independent_rehash_of_final_report": "NOT_EXECUTED",
+  "science_scope": "Fixed P02 checkpoint and trained GELU_ERF F32 GGUF on Windows CPU, four preregistered prompt token sequences.",
+  "numeric": {
+    "logits_compared": 8192,
+    "max_abs_global": 0.0000095367431640625,
+    "pass": true,
+    "per_fixture": [
+      {
+        "fixture_id": "FL01",
+        "max_abs": 0.000005245208740234375,
+        "mean_abs": 7.673529580642935e-7,
+        "n_logits": 2048,
+        "peak_index": 93,
+        "signed_peak_ollama_minus_p02": -0.000005245208740234375,
+        "strict_pass": true,
+        "top1_equal": true,
+        "top1_ollama": 99,
+        "top1_reference": 99
+      },
+      {
+        "fixture_id": "FL02",
+        "max_abs": 0.00000476837158203125,
+        "mean_abs": 4.782850737683475e-7,
+        "n_logits": 2048,
+        "peak_index": 238,
+        "signed_peak_ollama_minus_p02": -0.00000476837158203125,
+        "strict_pass": true,
+        "top1_equal": true,
+        "top1_ollama": 282,
+        "top1_reference": 282
+      },
+      {
+        "fixture_id": "FL03",
+        "max_abs": 0.00000476837158203125,
+        "mean_abs": 6.824793672421947e-7,
+        "n_logits": 2048,
+        "peak_index": 186,
+        "signed_peak_ollama_minus_p02": -0.00000476837158203125,
+        "strict_pass": true,
+        "top1_equal": true,
+        "top1_ollama": 282,
+        "top1_reference": 282
+      },
+      {
+        "fixture_id": "FL04",
+        "max_abs": 0.0000095367431640625,
+        "mean_abs": 8.723598057258641e-7,
+        "n_logits": 2048,
+        "peak_index": 186,
+        "signed_peak_ollama_minus_p02": -0.0000095367431640625,
+        "strict_pass": true,
+        "top1_equal": true,
+        "top1_ollama": 46,
+        "top1_reference": 46
+      }
+    ],
+    "rows": 4,
+    "top1_equal": 4
+  },
+  "provenance": {
+    "api_requests": 4,
+    "child_pid": 27488,
+    "cpu_only": true,
+    "flash_attention": "OFF",
+    "kv_cache": "F32",
+    "live_pid_rewitness_after_shutdown": false,
+    "native_port": 50871,
+    "note": "Original owner runner collected CIM observations while running; independent reviewer verified immutable snapshots and matching server log after shutdown.",
+    "ollama_api_port": 12651,
+    "one_child_launch": true,
+    "parent_pid": 580,
+    "snapshots": 4,
+    "status": "PASS_RECORDED_CIM_CHILD_AND_OLLAMA_LOG_CORROBORATED"
+  },
+  "frozen_sha256": {
+    "GGUF": "5bdc904e6c51af04a4223219f36e6bc2e687f60fd6e17dc24508f3eb7489e4e5",
+    "NUMERIC_AUDIT.json": "1710564a877e02cb2c96b00edfebccf94e2e31473c8d11f0ef6a05315eb7b77d",
+    "NUMERIC_AUDIT_RUN.log": "c22d7eeb4c68021a2ad31512b5a9a269492806ad5a3c95910579fe824f0998d0",
+    "OLLAMA_RAW_FL01_FL04.jsonl": "af289d6cbe52931581b6b0419d0239d80bbdd95d19357abbeb586ae53d1dd9e1",
+    "OLLAMA_SERVE.log": "d43954db7a1078dd999086b64a6683e7fada38278fe9cf2a434132e059b44964",
+    "OWNED_PROCESS_CLEANUP.log": "e0caa327def0f07ebd6f71f1220b1b538bfa6e3689050c7349305cc19bbc662a",
+    "ollama_cli": "7544d36e5bb4c9cfddbd48a400ea4f1919de8fcea80510e1847627ec92909e43",
+    "reference": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+    "reference_seal": "571a1a654bad1b97de066d6fb3b690e910ecc71777deb4b16b7b15968f444939",
+    "run_receipt": "18f2fea2d986449eda098a949103e9614ab3c8a1a2368a3647c0c7729dbda269",
+    "runner": "818fec27008b0a8555ecbae09c8c95e6a076d2b2fa4c26377b8bdb248232210a"
+  },
+  "offline_tests_independent": "PASS_8_OF_8_FROM_OWNER_WINDOWS_OUTPUT",
+  "original_local_evidence": "D:/WORK/RESEARCH/TokenToModel-Lab/_tmp/fl3/",
+  "preserve": {
+    "main": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "T5_WINDOWS_F32": "PASS_SCOPED_UNCHANGED",
+    "L0013": "FAIL_STRICT_LOGITS_32_OF_32_UNCHANGED",
+    "L0014": "PASS_HELDOUT_STRICT_LOGITS_4_OF_4_UNCHANGED",
+    "retrain": false,
+    "TEST_access": false,
+    "inference_replay": false,
+    "branch_merge_main": false
+  },
+  "independent_adjudication_method": "Fresh source re-reads and hashes entire raw+reference JSONL, independently calculates 8192 differences and cross checks source numeric audit, CIM snapshots, native runtime log, cleanup evidence. No model inference or TEST access.",
+  "limitations": [
+    "The full original JSONL files and checkpoint remain local, not uploaded to GitHub.",
+    "Raw-file SHA rehash and re-comparison on owner machine, not a second native execution.",
+    "Runtime PIDs were witnessed by original runner during execution and are no longer live.",
+    "Pass applies only to four prompts, CPU, KV F32, Flash OFF, fixed trained model and custom build; does not prove universal equivalence, bitwise equality, or stock Ollama support.",
+    "The original NUMERIC_AUDIT.json contains inherited field T5_OLLAMA_FULL_LOGITS=NOT_EXECUTED_UNCHANGED; preserve original bytes and interpret numeric status and run receipt as the scope of this separate experiment."
+  ],
+  "review_scope": "PASS_SCOPED_FROM_INDEPENDENT_OWNER_WINDOWS_REHASH_AND_RECOMPARISON; CIM provenance checked from frozen live-captured snapshots and logs",
+  "research_closeout": "SCOPED_CLOSED_UNMERGED"
+}
