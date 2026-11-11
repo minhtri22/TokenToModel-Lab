@@ -150,7 +150,7 @@ def build_model(root,train_seed,rows,valid,proj):
 def restore_or_new(model,settings,root,seed,arm,expected_schedule_sha):
     import torch
     optimizer=torch.optim.AdamW((p for p in model.parameters() if p.requires_grad),
-       lr=settings['lr'],betas=tuple(settings['betas']),weight_decay=settings['weight_decay'])
+       lr=settings['lr'],betas=tuple(settings['betas']),eps=settings['eps'],weight_decay=settings['weight_decay'])
     folder=root/f'seed{seed}'/arm
     checkpoints=sorted(folder.glob('step_*.pt')) if folder.exists() else []
     if not checkpoints:return optimizer,0,[]
@@ -220,9 +220,15 @@ def evaluate_after_all(out,models,root,rows,valid,proj,settings,holdout):
     import numpy as np
     import torch
     from torch.nn import functional as F
-    x,y,c,story=fresh_val_sources(*holdout)
     names=[f'seed{s}__{arm}.json' for s in SEEDS for arm in ARMS]
-    need(all((out/f'seed{s}'/arm/'step_0512.pt').exists() for s in SEEDS for arm in ARMS),"ALL_FINAL_BEFORE_VAL")
+    need(all((out/f'seed{s}'/arm/'step_0512.pt').is_file() for s in SEEDS for arm in ARMS),"ALL_FINAL_BEFORE_VAL")
+    # READBACK ALL 12 READY hashes before opening fresh VAL labels.
+    for seed in SEEDS:
+        for arm in ARMS:
+            cp=out/f'seed{seed}'/arm/'step_0512.pt'
+            marker=cp.with_suffix('.ready.json')
+            need(marker.is_file() and pinned_json(marker).get('sha256')==sha(cp),"FINAL_READY_SHA")
+    x,y,c,story=fresh_val_sources(*holdout)
     target=out/'outcomes'
     target.mkdir(exist_ok=True)
     need(not any((target/name).exists() for name in names),"NO_OVERWRITE_OUTCOME")
@@ -262,7 +268,8 @@ def preflight(a):
     need(cfg.get('schema')=='ttm.gemma2.a0e.frozen_optimizer.v1'
          and cfg.get('original_prereg_blob')==PREREG_BLOB,"OPTIMIZER_PIN")
     need(isinstance(cfg.get('lr'),(int,float)) and 0<cfg['lr']<.01
-         and cfg.get('betas')==[.9,.999] and 0<=cfg.get('weight_decay',-1)<1,"OPTIMIZER_PARAMS")
+         and cfg.get('lr')==.0001 and cfg.get('betas')==[.9,.95]
+         and cfg.get('eps')==1e-8 and cfg.get('weight_decay')==.1,"OPTIMIZER_PARAMS")
     schedules={s:schedule(data['count'],s) for s in SEEDS}
     need(cfg.get('schedule_sha256_by_seed')=={str(s):schedules[s][1] for s in SEEDS},
          "SCHEDULE_NOT_PRE_FROZEN")
@@ -287,7 +294,13 @@ def execute(a,ctx):
          and gate.get('preexec_manifest_sha256')==manifest_sha
          and gate.get('runner_sha256')==sha(__file__), "OWNER_RELEASE_NOT_VALID")
     need(a.owner_approve and os.environ.get('TTM_A0E_T4_GO')=='YES','OWNER_EXECUTION_MARKER')
-    need(torch.cuda.is_available() and 'T4' in torch.cuda.get_device_name(0),"NOT_T4")
+    need(os.environ.get('CUBLAS_WORKSPACE_CONFIG')==':4096:8',"CUDA_DETERMINISM_NOT_SET")
+    torch.use_deterministic_algorithms(True)
+    torch.backends.cuda.matmul.allow_tf32=False
+    torch.backends.cudnn.allow_tf32=False
+    torch.set_float32_matmul_precision('highest')
+    need(torch.cuda.is_available() and torch.cuda.device_count()==1
+         and 'T4' in torch.cuda.get_device_name(0),"NOT_FREE_T4")
     out=Path(a.output).resolve()
     need(out.exists() and out.is_dir() and a.output_sha_manifest,"OUTPUT_ROOT_EXISTENCE")
     claim=out/'A0E_CLAIM.json'
