@@ -1,0 +1,69 @@
+name: TTM GEMMA2 A0D pinned donor 3-file offline source artifact
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0d-exact-source-offline-artifact.yml
+  workflow_dispatch:
+
+jobs:
+  verified-three-source-files:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    env:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Hugging Face download client, no torch/model packages
+        run: python -m pip install --disable-pip-version-check "huggingface_hub>=0.36,<3"
+      - name: Download exact frozen donor SOURCE files, independently check SHA and size
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from huggingface_hub import hf_hub_download
+          revision="f9972ac22e696a105c482202646979e33e4b5a1e"
+          expected={
+           "config.json":(4455,"b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3"),
+           "tokenizer.json":(32170510,"4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4"),
+           "tokenizer_config.json":(1599,"17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874")}
+          dest=Path("a0d_verified_donor_source");dest.mkdir(exist_ok=False)
+          files=[]
+          for name,(size,digest) in expected.items():
+              p=Path(hf_hub_download(repo_id="google/embeddinggemma-2",
+                 filename=name,revision=revision,local_dir=str(dest)))
+              actual_size=p.stat().st_size
+              actual_sha=hashlib.file_digest(p.open("rb"),"sha256").hexdigest()
+              assert (actual_size,actual_sha)==(size,digest),f"HOLD_PIN_OR_SIZE_MISMATCH_{name}"
+              files.append({"filename":name,"size_bytes":size,"sha256":actual_sha})
+              print("A0D_OFFLINE_SOURCE_PASS",name,actual_size,actual_sha)
+          receipt={"schema":"ttm.gemma2.a0d.pinned_source_export.v1",
+             "revision":revision,"repository":"google/embeddinggemma-2",
+             "status":"PASS_EXACT_SHA256_3_OF_3","files":files,
+             "pretrained_weights_included":False,"T1_private_manifest_included":False,
+             "model_forward":False,"training":False}
+          (dest/"PINNED_SOURCE_RECEIPT.json").write_text(
+             json.dumps(receipt,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+          print("A0D_OFFLINE_EXPORT_PASS_3_OF_3")
+          PY
+      - name: Publish source-only archive for authenticated owner download
+        uses: actions/upload-artifact@v4
+        with:
+          name: TTM_GEMMA2_A0D_EXACT_DONOR_3FILES_20261111
+          path: |
+            a0d_verified_donor_source/config.json
+            a0d_verified_donor_source/tokenizer.json
+            a0d_verified_donor_source/tokenizer_config.json
+            a0d_verified_donor_source/PINNED_SOURCE_RECEIPT.json
+          retention-days: 7
+          if-no-files-found: error
+      - name: Clean temporary donor source
+        if: always()
+        run: rm -rf a0d_verified_donor_source
