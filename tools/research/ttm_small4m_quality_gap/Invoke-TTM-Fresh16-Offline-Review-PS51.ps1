@@ -1,7 +1,7 @@
 # Source-only / private-source read-only FRESH16 integrated QA. NO inference.
 [CmdletBinding()]
 param(
-    [string]$Checkpoint1024 = '',
+    [string]$Checkpoint1024 = 'D:\WORK\RESEARCH\TokenToModel-Lab\_tmp\ttm_causal6_source_h512_stage_20261109\input\checkpoint.pt',
     [string]$Checkpoint1280 = '',
     [string]$Python312 = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 )

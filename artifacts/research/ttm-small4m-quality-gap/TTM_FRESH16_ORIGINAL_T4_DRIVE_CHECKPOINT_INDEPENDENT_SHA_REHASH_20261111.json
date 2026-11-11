@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.fresh16.original_t4_checkpoint_independent_drive_sha_rehash.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_PROMPT_ADHERENCE_FRESH16_PREREG_SOURCE_AND_RUBRIC_INTEGRATED_OFFLINE_REVIEW",
+  "method": "Read canonical original T4 and original step1024-to1280 experimental Drive folders, fetch complete raw checkpoint bytes via authenticated Google Drive connector, independently rehash SHA256 in an isolated Python filesystem; do not load PyTorch model or run a forward pass.",
+  "results": [
+    {
+      "step": 1024,
+      "source": "TTM/ttm-small-pilot/t4_science_4m_1024_a2_20261108_v1/checkpoints/step_1024/checkpoint.pt",
+      "actual_bytes": 45074891,
+      "actual_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "expected_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "status": "PASS_RAW_BYTES_SHA256"
+    },
+    {
+      "step": 1280,
+      "source": "TTM/ttm_small4m_step1024_to1280_exploratory_v1/checkpoints/step_1280/checkpoint.pt",
+      "actual_bytes": 45075275,
+      "actual_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+      "expected_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+      "status": "PASS_RAW_BYTES_SHA256"
+    }
+  ],
+  "independent_source_status": "PASS_2_OF_2_ORIGINAL_DRIVE_RAW_CHECKPOINTS",
+  "status_scope": {
+    "original_disk_files_rehashed_inside_owner_Windows": "NOT_EXECUTED",
+    "local_step1024_known_candidate": "D:/WORK/RESEARCH/TokenToModel-Lab/_tmp/ttm_causal6_source_h512_stage_20261109/input/checkpoint.pt",
+    "local_step1280_path": "UNKNOWN_ON_OWNER_WINDOWS",
+    "native_original_T1_BPE_manifest_windows": "NOT_EXECUTED_REMOTE_DESKTOP_INTERNAL_ERROR",
+    "rubric_and_H1_H2": "SOURCE_RULES_FROZEN",
+    "reviewer_identity_and_blinded_custody": "UNASSIGNED",
+    "inference": false,
+    "training": false,
+    "TEST": false
+  },
+  "security": "Full checkpoint bytes are private and were not uploaded to GitHub; this public receipt contains only SHA256, byte counts and non-sensitive logical source paths."
+}

@@ -38,3 +38,16 @@ Mã `tools/research/ttm_small4m_quality_gap/ttm_fresh16_integrated_offline_revie
 Một lượt CPU nếu có quyết định riêng về sau: step1024+1280, 16 prompt mỗi checkpoint, max 64 token/response, tổng tối đa 32 response/2048 new tokens, context256, greedy. Không cần GPU/Colab, không tự retry. **Chưa có permit cấp inference.**
 
 **Bước thực hiện tiếp theo:** chạy một lượt `FRESH16_NATIVE_BPE_CHECKPOINT_READBACK_OFFLINE_QA` trên Windows sau khi cung cấp đúng hai file checkpoint project-local. Nếu receipt nguồn PASS và reviewer custody có tên xác thực, mới lập một quyết định duy nhất cho 32 đầu ra; không áp đặt thêm micro-permits.
+
+## 5. Đọc lại byte hai checkpoint gốc từ Google Drive kết nối
+
+Trong cùng lượt rà soát, đã đọc nguyên byte hai checkpoint khoa học nguyên bản và băm SHA-256 độc lập bằng Python, không tải nội dung mô hình lên GitHub:
+
+| Checkpoint | Byte gốc | SHA-256 đối chiếu | Kết quả |
+|---|---:|---|---|
+| T4 step1024 | 45.074.891 | `cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b` | **PASS_RAW_BYTES_SHA256** |
+| T4 original step1280 | 45.075.275 | `ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc` | **PASS_RAW_BYTES_SHA256** |
+
+Biên bản: `artifacts/research/ttm-small4m-quality-gap/TTM_FRESH16_ORIGINAL_T4_DRIVE_CHECKPOINT_INDEPENDENT_SHA_REHASH_20261111.json`.
+
+**Phân biệt phạm vi:** đây là kiểm tra byte của file gốc trên Drive; *chưa* kiểm tra bản checkpoint được đặt trên Windows trong workspace hiện tại. Đường dẫn step1024 Windows từng được xác minh là `_tmp/ttm_causal6_source_h512_stage_20261109/input/checkpoint.pt`; chưa có đường dẫn step1280 nội bộ được xác nhận, nên không tự giả định nó đã nằm trên Windows. BPE manifest TRAIN-only gốc `_tmp/ttm_t1_real_source_v1/T1_BPE2048_REAL_TRAIN_MANIFEST.json` vẫn phải được Python 3.12 đọc và kiểm bằng byte thực trên Windows. Sau khi có cả hai tệp checkpoint trong phạm vi TTM, chỉ chạy **một lượt offline QA tích hợp**; không chạy model.
