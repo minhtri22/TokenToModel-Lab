@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "01_exact_original_p02_source_blob": true,
+    "02_exact_train_source_blob": true,
+    "03_exact_dev_source_blob": true,
+    "04_primary_35_checks_pass": true,
+    "05_primary_model_and_TEST_not_used": true,
+    "06_oracle_input_only_question_memory": true,
+    "07_320_case_count": true,
+    "08_case_oracle_correct_value_and_foil_all": true,
+    "09_gold_label_and_target_metadata_are_not_inputs": true,
+    "10_no_memory_and_cold_reader_bit_exact": true,
+    "11_post_edit_no_memory_bit_exact": true,
+    "12_counterfactual_value_changes_reader_output": true,
+    "13_foil_preserves_key_vectors_and_oracle_mask": true,
+    "14_independent_fresh_p02_random_full_logits_bit_exact": true,
+    "15_no_optimizer_test_or_checkpoint_access": true
+  },
+  "checks_passed": 15,
+  "checks_total": 15,
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu"
+  },
+  "gpu_used": false,
+  "lineage_append": false,
+  "primary_report_sha256": "2bcfccc36d537e3d8bb37efbd7e3df5f1dee42dd6368de5208230779e1ccdff5",
+  "schema": "ttm.vm.oracle_reader.independent_source_qa.v1",
+  "science_executed": false,
+  "source_git_blobs": {
+    "dev": "ffc9d211508fbedc84db31235ecaad8d07596ece",
+    "p02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "train": "9e86317c055047fffebfb2d802889e69987a8c8b"
+  },
+  "status": "PASS_INDEPENDENT_SOURCE_ONLY",
+  "test_read_or_decrypted": false,
+  "trained_checkpoint_loaded": false,
+  "training_steps": 0
+}
