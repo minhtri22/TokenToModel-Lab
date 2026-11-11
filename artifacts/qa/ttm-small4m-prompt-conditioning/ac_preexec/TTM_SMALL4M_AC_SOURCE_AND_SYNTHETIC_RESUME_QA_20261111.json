@@ -1,0 +1,66 @@
+{
+  "schema": "ttm.small4m.ac.preexec.source_readonly_qa.v1",
+  "date": "2026-11-11",
+  "status": "PASS_23_OF_23_STATIC_SOURCE_REVIEW_WITH_SYNTHETIC_RESUME_PASS_6_OF_6",
+  "source": {
+    "runner_git_blob": "ad7d88672c65c6778f5956e6fc7aa656b78b998f",
+    "ready_helper_git_blob": "8b02db35854cf24e77246d81dba6a8b8fe2d746e",
+    "fixture_git_blob": "0c6f89518b919532e1ebc8a8021f79893c4ca10d",
+    "eval_git_blob": "f08f15c5049baf77771bed463a5119136566373b",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110"
+  },
+  "source_checks": {
+    "two_arm_only": true,
+    "not_old_run_id": true,
+    "default_source_qa": true,
+    "science_gate_before_science_call": true,
+    "science_lock_source_hash": true,
+    "science_lock_base_hash": true,
+    "science_lock_resume_hash": true,
+    "owner_rights_gate": true,
+    "reviewer_attestation_gate": true,
+    "blind_eval_freeze_gate": true,
+    "resume_parity_gate": true,
+    "t4_fp16_gate": true,
+    "ready_last_sha_verified": true,
+    "ready_no_overwrite": true,
+    "ready_noncontiguous_rejected": true,
+    "no_duplicate_completed_steps": true,
+    "synthetic_fixture_exact_6": true,
+    "eval_24_finals": true,
+    "eval_12_devs": true,
+    "eval_final_ids": true,
+    "eval_unique": true,
+    "eval_no_final_trailing_spaces": true,
+    "eval_sha_pins_present": true
+  },
+  "static_check_pass": 23,
+  "static_check_total": 23,
+  "actual_synthetic_resume_fixture": {
+    "status": "PASS_6_OF_6",
+    "runtime": "Linux x86_64 Python 3.13.5; torch 2.10.0+cpu; numpy 2.3.5",
+    "verified_exact_github_blobs": [
+      "8b02db35854cf24e77246d81dba6a8b8fe2d746e",
+      "0c6f89518b919532e1ebc8a8021f79893c4ca10d"
+    ],
+    "tests": [
+      "readback 4 READY boundaries x 2 arms and no overwrite",
+      "reject orphan checkpoint",
+      "reject mismatched SHA scope",
+      "reject corrupted checkpoint bytes",
+      "reject noncontiguous READY",
+      "CPU toy AdamW Torch Python NumPy sampler uninterrupted vs resumed exact parity"
+    ],
+    "scoped": "Not TTM-Small4M parent checkpoint forward or GPU resumed training"
+  },
+  "unexecuted": {
+    "exact_new_runner_python_compilation": "NOT_EXECUTED_AS_GITHUB_EXACT_SOURCE_ON_WINDOWS",
+    "real_parent_resume_parity": "NOT_EXECUTED",
+    "gpu_t4_fp16_smoke": "NOT_EXECUTED",
+    "owner_rights_attestation": "NOT_RECEIVED",
+    "reviewer_assignment": "NOT_RECEIVED",
+    "new_science_lock": "NOT_GRANTED"
+  },
+  "scope": "NO_TRAINING_NO_INFERENCE_NO_TEST_NO_OOD_NO_Q1Q2",
+  "science_verdict": "NOT_EXECUTED"
+}
