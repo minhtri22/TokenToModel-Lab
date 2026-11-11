@@ -1,0 +1,254 @@
+{
+  "schema": "ttm.small4m.ac.objective_only.final24.blind_design_freeze.v1",
+  "date": "2026-11-11",
+  "status": "PUBLIC_EVAL_SOURCE_LOCKED_PRIVATE_RANDOMIZATION_AND_REVIEWER_HOLD",
+  "scope": "STAGED_2_ARM_PREEXEC_NO_SCIENCE",
+  "source": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "prompt_source_git_blob": "f08f15c5049baf77771bed463a5119136566373b",
+    "prompt_source_path": "docs/research/TTM_SMALL4M_2X2_NEW_DEV12_BLIND_FINAL24_PROMPTS_FROZEN_20261110.json",
+    "original_state": "FROZEN_BEFORE_FUTURE_SCIENCE_NO_SCIENCE_EXECUTED",
+    "original_4arm_order": "HISTORICAL_DESIGN_NOT_REUSED"
+  },
+  "arms": [
+    "A_UNIFORM_VALID_TOKEN_CE",
+    "C_SUFFIX_1_3_WEIGHTED_VALID_TOKEN_CE"
+  ],
+  "eval": {
+    "dev_count": 12,
+    "final_count": 24,
+    "final_prompt_pins": [
+      {
+        "prompt_id": "Q01",
+        "utf8_sha256": "4b28c4f176e68cc3aef959082c87590c6e215eab3b2ebb4a931b2b315396f9cb",
+        "bpe_token_count": 31
+      },
+      {
+        "prompt_id": "Q02",
+        "utf8_sha256": "44a7bc4bf4d06832ccbb49e4234b761a3d457405075fdf0674fe59fbe6e65861",
+        "bpe_token_count": 33
+      },
+      {
+        "prompt_id": "Q03",
+        "utf8_sha256": "e240ceeda92f013784beb524fa4c62f1b3795554bfc1a5aa21947d393216a025",
+        "bpe_token_count": 29
+      },
+      {
+        "prompt_id": "Q04",
+        "utf8_sha256": "0193b2aa0472262fb1c9b7fb96609deb2568da0d3a2f0fb91de55a9c0e510c43",
+        "bpe_token_count": 23
+      },
+      {
+        "prompt_id": "Q05",
+        "utf8_sha256": "f8fde9bf4c9e41150b042908908b097127061251a82f24758eb0270ca0b44073",
+        "bpe_token_count": 25
+      },
+      {
+        "prompt_id": "Q06",
+        "utf8_sha256": "1e382f73a738160a31ff6b876594e0b90ea43c586a3ff4ee3a8afdb639f38073",
+        "bpe_token_count": 25
+      },
+      {
+        "prompt_id": "Q07",
+        "utf8_sha256": "eaf055e3bfdeb05952046433245c4ca3c38c827dd53baff7818df7d55b75989f",
+        "bpe_token_count": 23
+      },
+      {
+        "prompt_id": "Q08",
+        "utf8_sha256": "5333dd04043dc3116606bbc1d69934fc341d8860b49f9b247e7f87abe8b135f7",
+        "bpe_token_count": 30
+      },
+      {
+        "prompt_id": "Q09",
+        "utf8_sha256": "7ed210207b7cba72264230bb2b5dfa5483c7b588212d0d08167cb442850e53bb",
+        "bpe_token_count": 32
+      },
+      {
+        "prompt_id": "Q10",
+        "utf8_sha256": "86b4817a5f9234687061081c585f60efca064a6eddadb417b8d08b1f96f48c34",
+        "bpe_token_count": 28
+      },
+      {
+        "prompt_id": "Q11",
+        "utf8_sha256": "3f6277b3ea6c144fc32fddc85a3593bf2ec485517dcb390c35b2dddcbac9ec61",
+        "bpe_token_count": 25
+      },
+      {
+        "prompt_id": "Q12",
+        "utf8_sha256": "2bb9c55c0c750181aba8545ac04bc3de60c2445ce837150bf5ef4f13733ea1d6",
+        "bpe_token_count": 27
+      },
+      {
+        "prompt_id": "Q13",
+        "utf8_sha256": "d629c78e16ecea537b74a8a21393f1f5d27310543cb4531b79b371a77733348e",
+        "bpe_token_count": 27
+      },
+      {
+        "prompt_id": "Q14",
+        "utf8_sha256": "703a14b6e2c630a7547863bbf9bceefa4bd755e3885321d0eb396106bf5c6dc6",
+        "bpe_token_count": 34
+      },
+      {
+        "prompt_id": "Q15",
+        "utf8_sha256": "ed63943052918161c44bf7eb99c79aaacad8fe954478b1ccc901e77942cd8e61",
+        "bpe_token_count": 28
+      },
+      {
+        "prompt_id": "Q16",
+        "utf8_sha256": "98ec2b551c0ca1c8eac8fd308fa33538a00c4fec7d2a775501cf063c6f8570e6",
+        "bpe_token_count": 31
+      },
+      {
+        "prompt_id": "Q17",
+        "utf8_sha256": "e0e02154984f30dabf1b0e1b2229a6b7951e9c7564a8109323e89d0ba321caea",
+        "bpe_token_count": 31
+      },
+      {
+        "prompt_id": "Q18",
+        "utf8_sha256": "10336d8972341d80b6254cb2085ea1a6999c46118152b87d4d63dc7a8dfd3853",
+        "bpe_token_count": 29
+      },
+      {
+        "prompt_id": "Q19",
+        "utf8_sha256": "bc0c2822de995b47c98dc3348de2802205e944bfd64e2078456bfc9a566d8bba",
+        "bpe_token_count": 27
+      },
+      {
+        "prompt_id": "Q20",
+        "utf8_sha256": "933a1ebe9d5b1217bb415f9ad40296315e14d8d68c3cb2da687b95eebfc21080",
+        "bpe_token_count": 27
+      },
+      {
+        "prompt_id": "Q21",
+        "utf8_sha256": "9795227121b5c9f756f6bcbfdf889f786285d9223d840a4efd2e448c27a8c839",
+        "bpe_token_count": 30
+      },
+      {
+        "prompt_id": "Q22",
+        "utf8_sha256": "736a254bef31d171f9507f4609c4340b204d3b3de4b9f7eb247f58cc72e5f254",
+        "bpe_token_count": 30
+      },
+      {
+        "prompt_id": "Q23",
+        "utf8_sha256": "30e03091e0a1ca67cc7e68e5299e4926e14dc437539be020179208a6541678f2",
+        "bpe_token_count": 35
+      },
+      {
+        "prompt_id": "Q24",
+        "utf8_sha256": "cf19ea197744af487b70af64ddfe94d0a0cbfe95107c36cf1461e2f6b4e2ad11",
+        "bpe_token_count": 27
+      }
+    ],
+    "final_prompt_ids_fixed_order": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24"
+    ],
+    "no_trailing_ascii_space": true,
+    "decoding": "greedy_argmax",
+    "max_new_bpe_tokens": 64,
+    "max_final_outputs": 48,
+    "max_final_output_tokens": 3072,
+    "one_shot_on_final": true,
+    "original_T4_TEST": "SEALED_UNTOUCHED",
+    "Q1Q2_FRESH12_OOD256": "CONSUMED_NOT_REUSED"
+  },
+  "rubric": {
+    "dimensions": [
+      "prompt_adherence",
+      "coherence",
+      "consistency"
+    ],
+    "scale_min": 0,
+    "scale_max": 3,
+    "primary": "mean_over_24_prompt_pairs(score_C_adherence-score_A_adherence)",
+    "candidate_min_delta": 0.5,
+    "candidate_min_strict_wins_C": 16,
+    "paired_prompt_bootstrap_CI95_lower_gt_zero": true,
+    "guardrail_max_val_nll_relative_regression": 0.05,
+    "guardrail_max_coherence_mean_drop": 0.25,
+    "guardrail_max_consistency_mean_drop": 0.25,
+    "not_a_confirmatory_multiseed_claim": true
+  },
+  "blinding": {
+    "one_pair_per_prompt": true,
+    "neutral_pair_ids": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24"
+    ],
+    "balanced_A_as_left": 12,
+    "balanced_C_as_left": 12,
+    "side_assignment_method": "secure_seed_HMACSHA256_rank_top12; exact labels private",
+    "seed_private_owner_escrow": "HOLD_NOT_CREATED",
+    "source_hidden_from_reviewer": "arm labels, order key, checkpoint step, model condition",
+    "randomization": "HOLD_NOT_EXECUTED",
+    "blinded_packet": "NOT_GENERATED_NO_NEW_OUTPUTS"
+  },
+  "reviewer": {
+    "role": "independent from data/trainer/prompt design; blind to arms",
+    "identity": "UNASSIGNED",
+    "attestation": "NOT_RECEIVED",
+    "scoring_mode": "human reviewer preferred; separate AI permissible only as scoped exploratory",
+    "scoring_locked_before_unblind": false
+  },
+  "rights": {
+    "dataset": "roneneldan/TinyStories",
+    "dataset_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "hugging_face_license_metadata": "cdla-sharing-1.0",
+    "official_license_url": "https://cdla.dev/sharing-1-0/",
+    "section_2_right_to_computational_use": "PASS_TEXT_REVIEW",
+    "section_3_publication_conditions": "APPLY_IF_DATA_OR_ENHANCED_DATA_PUBLISHED",
+    "no_private_data_publication_in_this_work": "PASS_BY_DESIGN",
+    "owner_private_pack_use_attestation": "NOT_SIGNED",
+    "rights_gate": "HOLD_OWNER_SCOPE_ATTESTATION"
+  },
+  "decision": {
+    "eval_source_freeze": "PASS_SCOPED_EXISTING_36_PROMPTS",
+    "private_map_and_reviewer": "HOLD",
+    "one_science_batch_authorized": false
+  }
+}
