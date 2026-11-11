@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.fresh16.v2.s2_pair_sha_anchor.v1",
+  "operation": "TTM_FRESH16_V2_S2_SCORE_SHA_LOCK_BEFORE_UNBLINDING",
+  "date": "2026-11-11",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "sealed_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+  "map_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+  "s1_anchor_commit": "5fd1d923de52d18709a39332400e3e98e6dfb31d",
+  "s1_score_file_sha256": "d08d59a9fe9738ef798aa2e0449345cb76e5c9f24f825a37685f928052028d35",
+  "s2_pair_file_sha256": "517643feba73c96003334a1e8a9095ebd091aaff3e764ddd87faf91dbf78b31b",
+  "s2_score_file_bytes": 36434,
+  "s2_score_file_schema": "ttm.fresh16.v2.s2_pair_scores.v1",
+  "s2_adjudicator_identity_and_version": "OpenAI GPT-6 · S2-FRESH16-NEW-CHAT-20261111 · independent blind pair adjudicator",
+  "s2_score_file_local_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/TTM_FRESH16_V2_S2_PAIR_SCORES_EXACT_LOCKED_LF_PRIVATE.json",
+  "score_provenance": "Owner-uploaded original UTF-8 JSON bytes independently SHA256-verified in current sandbox; no normalization/rewrites applied to SHA.",
+  "validation": {
+    "verdict": "PASS_INTEGRITY_ONLY_NO_SUBSTANTIVE_REGRADING",
+    "record_count": 16,
+    "unique_pair_ids": 16,
+    "total_member_ids": 32,
+    "unique_member_ids": 32,
+    "all_pair_and_member_ids_match_private_windows_s2_packet": true,
+    "locked_s1_member_scores_match_private_s2_packet": "32_OF_32",
+    "locked_s1_score_sha_matches_git_anchor": true,
+    "exact_generated_text_spans_verified_for_all_nonempty": true,
+    "score_field_h2_binary_in_range": true,
+    "all_16_have_explanatory_evidence": true
+  },
+  "lock": {
+    "s2_score_status": "SHA256_LOCKED_NO_EDITS",
+    "private_s2_score_contents_published": false,
+    "private_s2_packet_contents_published": false,
+    "private_mapping_contents_published": false,
+    "pre_unblind_inference_rerun": "FORBIDDEN",
+    "unblind": "NOT_EXECUTED_AT_S2_LOCK",
+    "final_tally": "NOT_EXECUTED_AT_S2_LOCK",
+    "model_quality_adjudication": "PENDING_FROZEN_GATE_UNBLIND",
+    "lineage_append": "NOT_PERFORMED_BEFORE_FINAL_TALLY"
+  }
+}
