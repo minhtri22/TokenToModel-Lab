@@ -1,0 +1,138 @@
+{
+  "schema": "ttm.fresh16.frozen_scoring_and_prereg_source.v1",
+  "date": "2026-11-11",
+  "task": "TTM_SMALL4M_PROMPT_ADHERENCE_FRESH16_PREREG_SOURCE_AND_RUBRIC_INTEGRATED_OFFLINE_REVIEW",
+  "status": "SOURCE_AND_METRIC_RULES_FROZEN_PENDING_PRIVATE_NATIVE_PREFLIGHT_AND_REVIEWER_CUSTODY",
+  "design_source_commit": "c6cff9aed62bb605809dcc8f4a5cd41891d14d90",
+  "prompt_source_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+  "public_history_bases": [
+    "0a7cb5c2125b69b062d8e5559dbbe47cb07eb788",
+    "919c43f2c919fa733b20a9be5d6b965e9649339c"
+  ],
+  "source_pins": {
+    "bpe_manifest_path_under_TTM": "_tmp/ttm_t1_real_source_v1/T1_BPE2048_REAL_TRAIN_MANIFEST.json",
+    "bpe_manifest_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "bpe_gguf_token_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+    "bpe_source_git_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "bpe_vocab": 2048,
+    "bpe_eos_id": 256,
+    "p02_core_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+  },
+  "fixture_contract": {
+    "n_pairs": 8,
+    "n_prompts": 16,
+    "prompt_source_text_field": "new_prompts[].prompt_text",
+    "distribution": {
+      "entity_location": 2,
+      "causal_reasoning": 2,
+      "rule_constraint": 2,
+      "goal_persistence": 2
+    },
+    "prompt_language": "en",
+    "prompt_serialization": "EXACT_UTF8_NO_TERMINAL_WHITESPACE_NO_WRAPPERS",
+    "prompt_token_limit_before_science": 192,
+    "context_window_tokens": 256,
+    "near_duplicate_check_ngram": 3,
+    "near_duplicate_jaccard_reject_if_greater_or_equal": 0.35,
+    "prior_public_prompt_count": 28,
+    "no_sealed_TEST_access": true,
+    "no_prior_Q1_FRESH12_outputs_access": true,
+    "future_sampling": {
+      "decoder": "GREEDY",
+      "token_budget_per_output": 64,
+      "EOS_ID": 256,
+      "sequences": 32,
+      "primary_step": 1024,
+      "secondary_step": 1280
+    },
+    "outcome_on_empty_eos": "retain original no-retry and score 0 for adherence",
+    "primary": {
+      "H1": {
+        "metric": "count primary step1024 outputs with adherence_0_to_3 >=2",
+        "required_min": 12,
+        "denominator": 16
+      },
+      "H2": {
+        "metric": "count pairs on step1024 where both outputs adherence >=2 and fact-specific actions differ appropriately",
+        "required_min": 6,
+        "denominator": 8,
+        "require_min_one_pass_each_of_four_categories": true
+      }
+    }
+  },
+  "rubric": {
+    "adherence_0_to_3": {
+      "0": "Continuation no longer follows central premise, or it directly contradicts the modified fact; empty output/no interpretable continuation also 0",
+      "1": "Only isolated prompt entity/object appears or repeated; central goal or changed fact not maintained",
+      "2": "Central actor/object and changed fact drive a relevant action, with minor lapse but no direct fact contradiction",
+      "3": "Actor, object, changed fact and goal are respected; new continuation advances events plausibly"
+    },
+    "coherence_0_to_3": {
+      "0": "Uninterpretable or incoherent fragments",
+      "1": "Some interpretable clauses without connected progression",
+      "2": "Mostly understandable connected events",
+      "3": "Coherent progression with linked new events"
+    },
+    "entity_consistency_0_to_3": {
+      "0": "Hard contradiction of actor/object/holder/location",
+      "1": "Major entity confusion",
+      "2": "Mostly consistent actors/referents with minor lapse",
+      "3": "Fully consistent actors and object state"
+    },
+    "causal_continuation_0_to_3": {
+      "0": "Actions contradict cause or no relevant continuation",
+      "1": "Weak or implausible response to cause",
+      "2": "Mostly appropriate causal response",
+      "3": "Clear causal response advances the plot"
+    },
+    "grade_only_newly_generated_text": true,
+    "do_not_credit_copying_prompt": true,
+    "pair_fact_specific_binary": {
+      "0": "Both outputs may be fluent but at least one does not use its changed fact correctly, or the response is identical generic behavior that ignores the intervention",
+      "1": "Both continuations pass adherence >=2 and demonstrate appropriate meaningfully distinct responses to their own facts"
+    },
+    "secondary_only": [
+      "coherence",
+      "entity_consistency",
+      "causal_continuation",
+      "3gram_repetition",
+      "step1280_adherence"
+    ],
+    "cross_rater_agreement": "Report raw disagreements; do not invent Cohen kappa from one reviewer"
+  },
+  "reviewer_contract": {
+    "candidate_model": "INDEPENDENT_RATER_SEPARATE_FROM_EXECUTOR",
+    "custody": "UNASSIGNED_NOT_ATTESTED",
+    "reviewer_packet": "Hide checkpoint, variant label and pair membership at scoring; show full original prompt and generated continuation to allow adherence scoring",
+    "source_separation": "Reviewer cannot choose model, revise prompt set, see prereg threshold changes, or access unblinding mapping before score file is locked by SHA",
+    "science_gate": "Scorer source/identity must be recorded before inference; a single AI reviewer yields exploratory scoped claim only and is not a human independent rating",
+    "required_score_fields": [
+      "opaque_id",
+      "adherence",
+      "coherence",
+      "entity_consistency",
+      "causal_continuation",
+      "text_evidence",
+      "rater_role"
+    ],
+    "unblind_after_scores": "The two 16-output checkpoint sets are scored before revealing checkpoint labels, variant IDs or pairing; decoded text remains byte-identical to model output",
+    "no_assigned_human": false
+  },
+  "decision": {
+    "quality_candidate_label": "QUALITY_CANDIDATE_SCOPED_STEP1024_ONLY",
+    "thresholds_both_required": [
+      "H1",
+      "H2"
+    ],
+    "if_failed": "NO_DEMONSTRATED_PROMPT_ADHERENCE_SCOPED",
+    "if_private_source_or_rater_missing": "HOLD_PREEXEC_NOT_SCIENCE_FAIL",
+    "significance_claim": "NONE_SMALL_EXPLORATORY_STUDY",
+    "posthoc_changes_not_allowed": true,
+    "owner_execute_permit": "NOT_ISSUED",
+    "train": false,
+    "inference": false,
+    "TEST": false
+  }
+}

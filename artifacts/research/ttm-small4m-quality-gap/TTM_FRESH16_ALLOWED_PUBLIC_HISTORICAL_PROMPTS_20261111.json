@@ -1,0 +1,160 @@
+{
+  "schema": "ttm.fresh16.allowed_public_historical_prompts.v1",
+  "source": "Only public author-authored Q1 and FRESH12 prompts, not scores, outputs, private mapping, TRAIN, VAL or sealed TEST",
+  "sources": [
+    {
+      "name": "Q1_PUBLIC",
+      "source_ref": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "git_blob_sha": "0a7cb5c2125b69b062d8e5559dbbe47cb07eb788",
+      "count": 16
+    },
+    {
+      "name": "FRESH12_PUBLIC",
+      "source_ref": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "git_blob_sha": "919c43f2c919fa733b20a9be5d6b965e9649339c",
+      "count": 12
+    }
+  ],
+  "history": [
+    {
+      "id": "Q1_E01",
+      "text": "Mara put a small red cup on the kitchen table. She heard a soft tap at the window and turned to see",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E02",
+      "text": "On a rainy morning, Leo found one dry sock near his bed. He wanted to keep both feet warm, so he",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E03",
+      "text": "Nina brought two paper boats to the pond. Her brother Max asked why one boat was blue. Nina pointed to",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E04",
+      "text": "A little rabbit named Pip lived near a quiet garden. Each morning Pip waited for a sound from",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E05",
+      "text": "Tom and his grandmother planted a seed beside the porch. For many days, Tom carried a small jar of water and",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E06",
+      "text": "At the market, Sara carried a basket of green apples. A friendly shopkeeper smiled when she",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E07",
+      "text": "The old clock in Ben's room stopped before lunch. Ben brought it to his sister, who",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_E08",
+      "text": "On a cold evening, Lila shared a yellow blanket with her puppy. The puppy kept looking toward",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_C01",
+      "text": "The bridge was wet after the rain. Emma wanted to cross with a cart, but the wheels started to slide, so",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_C02",
+      "text": "A glass fell from the shelf because the table shook. Milo heard a noise and went to the room to",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_C03",
+      "text": "The little kite could not rise because the wind was still. Ava watched the clouds and decided to",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_C04",
+      "text": "The garden gate stayed open all night. In the morning, the carrots were gone, and the gardener wondered",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_K01",
+      "text": "Jules had a blue key and Nora had a silver key. Only the blue key opened the box. When Nora picked up the box,",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_K02",
+      "text": "A fox named Fen carried a round pebble, and a mouse named Dot carried a ribbon. They promised not to trade their gifts. At sunset, Fen",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_K03",
+      "text": "On Monday, Eli hid three yellow marbles under a red bowl. On Tuesday, his friend Rosa saw the bowl and",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "Q1_K04",
+      "text": "A small turtle called June lived beside a lake. June could swim, but her friend Cal the hedgehog could not. When they reached the water,",
+      "source": "Q1_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F01",
+      "text": "Mira carried a red cup to the kitchen, but it slipped from her hands before she could give it to Dad.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F02",
+      "text": "Toby promised to bring a green kite to his friend on the hill, but the wind grew strong.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F03",
+      "text": "Nell saw a small turtle stuck beside the pond and looked for a safe way to help it.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F04",
+      "text": "Ben put his last apple in a basket for his sister, then heard a noise behind the door.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F05",
+      "text": "Rosa took a warm coat to her brother at the gate because rain was starting.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F06",
+      "text": "A small dog named Kiki hid a wooden spoon under the bed, and Mia tried to find it.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F07",
+      "text": "Leo drew a star on a paper card for Grandma but spilled water on the picture.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F08",
+      "text": "Tara found a broken toy train near the stairs and asked her brother to fix the wheel.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F09",
+      "text": "Owen made a paper boat for his sister, then watched it float toward the big rock.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F10",
+      "text": "A shy duck named Dodo wanted to join the other ducks at the pond but stayed behind a tree.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F11",
+      "text": "Ivy put three seeds in a blue pot and waited for her first flower to grow.",
+      "source": "FRESH12_PUBLIC"
+    },
+    {
+      "id": "FRESH12_F12",
+      "text": "Finn wanted to share his orange with a hungry bird, but the bird sat high in the tree.",
+      "source": "FRESH12_PUBLIC"
+    }
+  ]
+}
