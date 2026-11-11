@@ -1,0 +1,92 @@
+{
+  "schema": "ttm.fresh16.v2.final_scoped_science_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_FROZEN_UNBLIND_FINAL_TALLY_AND_SCIENTIFIC_ADJUDICATION",
+  "run_id": "TTM_FRESH16_V2_CPU32_20261111_ONE_SHOT",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "provenance": {
+    "original_runner_git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+    "original_packet_gate_git_blob": "244c49c188c4645825af9f1bd048fbad535019d3",
+    "owner_GO_commit": "d123fbb8b41d53fe76ad1ff14d4ac4e8907c31ea",
+    "CPU32_execution_evidence_commit": "d849f010740a47fd9bcc353f6b54aedfc2096fe0",
+    "sealed_map_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+    "sealed_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+    "S1_scoring_anchor_commit": "5fd1d923de52d18709a39332400e3e98e6dfb31d",
+    "S1_score_sha256": "d08d59a9fe9738ef798aa2e0449345cb76e5c9f24f825a37685f928052028d35",
+    "S2_scoring_anchor_commit": "9c02e0f3c7d3073e742de7fc75a08e5a48ec9afe",
+    "S2_pair_score_sha256": "517643feba73c96003334a1e8a9095ebd091aaff3e764ddd87faf91dbf78b31b",
+    "final_tally_private_sha256": "64ec345fef6ef2f1c8b08e847047e3d3ac53f7bcca83fe39ae10d27e69b6f181",
+    "final_tally_private_size_bytes": 839,
+    "final_tally_private_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/FINAL_TALLY_PRIVATE.json",
+    "proof": "Owner Windows native frozen-gate log and RUN_STARTED/RUN_FINISHED receipts; independent SHA256 check of owner-uploaded raw FINAL_TALLY_PRIVATE.json (839 bytes) plus RemoteDesktop JSON readback agreeing with original values.",
+    "checkpoint_primary_step": 1024,
+    "checkpoint_secondary_step": 1280,
+    "secondary_role": "DESCRIPTIVE_ONLY",
+    "no_new_training": true,
+    "no_TEST_access_for_FRESH16": true,
+    "no_inference_rerun": true
+  },
+  "pre_registered_gate": {
+    "H1_adherence_ge2_minimum": 12,
+    "H1_denominator": 16,
+    "H2_success_minimum": 6,
+    "H2_denominator": 8,
+    "minimum_success_each_category": 1,
+    "categories": [
+      "entity_location",
+      "causal_reasoning",
+      "rule_constraint",
+      "goal_persistence"
+    ],
+    "pass_requires_all_conditions": true
+  },
+  "observed": {
+    "generated_outputs": 32,
+    "blind_S1_records": 32,
+    "S1_distribution_all_32": {
+      "adherence_0": 4,
+      "adherence_1": 28,
+      "adherence_ge2": 0
+    },
+    "blind_S2_pair_records": 16,
+    "S2_all_pairs_positive": 0,
+    "S2_all_pairs_zero": 16,
+    "primary_H1_ge2": 0,
+    "primary_H1_denominator": 16,
+    "primary_H2_positive": 0,
+    "primary_H2_denominator": 8,
+    "H2_category_successes": {
+      "entity_location": 0,
+      "causal_reasoning": 0,
+      "rule_constraint": 0,
+      "goal_persistence": 0
+    },
+    "original_frozen_verdict": "NO_DEMONSTRATED_PROMPT_ADHERENCE_SCOPED"
+  },
+  "scientific_adjudication": {
+    "classification": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED",
+    "verdict_exact": "NO_DEMONSTRATED_PROMPT_ADHERENCE_SCOPED",
+    "scope": "LOCAL_CONTEXT_FACT_CONDITIONED_CONTINUATION_EXPLORATORY",
+    "interpretation": "On the frozen 32-output CPU one-shot FRESH16 V2 protocol, independently scored prompt adherence and counterfactual event contrast fail the original quality-candidate gates at primary step1024.",
+    "not_inferred": [
+      "not a proof the model cannot ever follow prompts",
+      "not a universal LLM capability verdict",
+      "not a reversal of earlier T4 NLL VAL/TEST scope-specific PASS findings",
+      "not a demonstration of negative causal effect for arbitrary hyperparameters",
+      "not a checkpoint step1280 confirmatory claim"
+    ],
+    "S1_S2_scorer_session_provenance": "Owner-supplied distinct ChatGPT GPT-6 conversation labels; provider-native session IDs unavailable",
+    "independent_regrading_performed_by_owner": false,
+    "science_rerun": "FORBIDDEN"
+  },
+  "evidence_policy": {
+    "public_artifact_contains_private_text": false,
+    "public_artifact_contains_private_mapping": false,
+    "public_artifact_contains_scoring_rows": false,
+    "public_artifact_contains_raw_token_ids": false,
+    "only_hashes_and_aggregates": true,
+    "lineage_append_target": "L0015"
+  }
+}
