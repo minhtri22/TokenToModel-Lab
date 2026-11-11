@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.o0.n1.exact_bpe2048_length_readonly_check.v1",
+  "pairs": 1791,
+  "manifest_internal_sha256": "6da22cf79c3a6cfd08d80a768eb1074125a753164ccf62a164e79545956e94c6",
+  "bpe_merges_reference_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+  "source": "Windows exact T1 manifest pair_ids, reconstructed GPT2-style rank merge on ASCII-only synthetic text",
+  "splits": {
+    "TRAIN": {
+      "rows": 4096,
+      "prompt_tokens_min": 132,
+      "prompt_tokens_max": 177,
+      "train_tokens_min": 135,
+      "train_tokens_max": 182,
+      "answers_tokens_max": 6,
+      "over_prompt_224": 0,
+      "over_total_256": 0,
+      "over_answer_16": 0,
+      "avg_prompt_tokens": 150.818359375,
+      "avg_train_tokens": 155.52001953125,
+      "scored_answer_tokens": 15162
+    },
+    "DEV_IID": {
+      "rows": 256,
+      "prompt_tokens_min": 134,
+      "prompt_tokens_max": 173,
+      "train_tokens_min": 138,
+      "train_tokens_max": 177,
+      "answers_tokens_max": 6,
+      "over_prompt_224": 0,
+      "over_total_256": 0,
+      "over_answer_16": 0,
+      "avg_prompt_tokens": 151.6953125,
+      "avg_train_tokens": 156.41015625,
+      "scored_answer_tokens": 951
+    },
+    "DEV_STRUCT": {
+      "rows": 256,
+      "prompt_tokens_min": 138,
+      "prompt_tokens_max": 173,
+      "train_tokens_min": 142,
+      "train_tokens_max": 178,
+      "answers_tokens_max": 6,
+      "over_prompt_224": 0,
+      "over_total_256": 0,
+      "over_answer_16": 0,
+      "avg_prompt_tokens": 151.03125,
+      "avg_train_tokens": 155.65625,
+      "scored_answer_tokens": 928
+    }
+  },
+  "status": "PASS_SCOPED_EXACT_T1_BPE_LENGTHS_ON_PUBLIC_TRAIN_DEV",
+  "total": {
+    "prompt_max": 177,
+    "train_max": 182,
+    "prompt_over224": 0,
+    "sequence_over256": 0,
+    "answer_over16": 0,
+    "total": 4608,
+    "train_target_tokens": 716899
+  }
+}
