@@ -75,7 +75,23 @@ with open(dst, "xb") as f:
     os.fsync(f.fileno())
 print("FRESH16_GO_PERMIT_SHA256=" + hashlib.sha256(data).hexdigest(), flush=True)
 '@
-& $py -c $pythonCode $wt $goCommit $goRel $permitPath $source $anchor $mapExpected $runnerBlob
+# Windows PowerShell 5.1 mangles quotes in python.exe -c with multi-line code.
+# Save exact UTF-8 Python source to a new project-local helper and run by filename.
+# This change affects permit materialization only, never the pinned E0 science runner.
+$helper = Join-Path $root '_tmp\ttm_fresh16_v2_go32_permit_materializer_20261111.py'
+if (Test-Path -LiteralPath $helper) {
+    throw 'FRESH16_GO_HELPER_ALREADY_EXISTS_PRESERVE_NO_OVERWRITE'
+}
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+$helperBytes = $utf8NoBom.GetBytes($pythonCode + [Environment]::NewLine)
+$helperStream = New-Object System.IO.FileStream($helper, [System.IO.FileMode]::CreateNew, [System.IO.FileAccess]::Write, [System.IO.FileShare]::None)
+try {
+    $helperStream.Write($helperBytes, 0, $helperBytes.Length)
+    $helperStream.Flush($true)
+} finally {
+    $helperStream.Dispose()
+}
+& $py $helper $wt $goCommit $goRel $permitPath $source $anchor $mapExpected $runnerBlob
 if ($LASTEXITCODE -ne 0) { throw 'FRESH16_GO_PERMIT_MATERIALIZATION_HOLD' }
 $permitSHA = (Get-FileHash -LiteralPath $permitPath -Algorithm SHA256).Hash.ToLowerInvariant()
 
