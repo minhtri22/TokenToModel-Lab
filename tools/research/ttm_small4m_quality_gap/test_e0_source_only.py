@@ -24,6 +24,13 @@ class E0SourceOnlyTests(unittest.TestCase):
         m=mod.make_map(ids)
         m['mapping'][0]['variant']='C'
         with self.assertRaises(RuntimeError):mod.map_validate(m)
+    def test_map_missing_condition_is_rejected(self):
+        ids=[{'id':f'CP{i:02d}-{v}'} for i in range(1,9) for v in 'AB']
+        m=mod.make_map(ids)
+        first=next(x for x in m['mapping'] if x['checkpoint_step']==1024 and x['prompt_id']=='CP01-A')
+        second=next(x for x in m['mapping'] if x['checkpoint_step']==1280 and x['prompt_id']=='CP01-A')
+        second['checkpoint_step']=1024
+        with self.assertRaises(RuntimeError):mod.map_validate(m)
     def test_no_permit_is_fail_closed(self):
         import subprocess,sys
         p=subprocess.run([sys.executable,str(FILE),'--mode','run','--project-root','/tmp','--worktree','/tmp','--expected-head','0'*40,'--run-dir','/tmp/missing'],capture_output=True,text=True)

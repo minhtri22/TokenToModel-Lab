@@ -210,6 +210,11 @@ def map_validate(data):
              two[0]["pair_id"] == two[1]["pair_id"] and
              {two[0]["variant"], two[1]["variant"]} == {"A", "B"} for two in pairs.values()),
          "MAP_PAIR_INVALID")
+    expected = {(step, f"CP{i:02d}-{v}") for step in (1024, 1280)
+                for i in range(1, 9) for v in "AB"}
+    need({(x["checkpoint_step"], x["prompt_id"]) for x in entries} == expected and
+         all(x["prompt_id"] == x["pair_id"] + "-" + x["variant"] for x in entries),
+         "MAP_STEP_PROMPT_COVERAGE_INVALID")
     return entries
 
 
@@ -252,8 +257,12 @@ def memory_bytes():
                     ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t)]
     pmc = PMC()
     pmc.cb = ctypes.sizeof(PMC)
-    ok = ctypes.windll.psapi.GetProcessMemoryInfo(ctypes.windll.kernel32.GetCurrentProcess(),
-                                                   ctypes.byref(pmc), pmc.cb)
+    kernel = ctypes.windll.kernel32
+    psapi = ctypes.windll.psapi
+    kernel.GetCurrentProcess.restype = ctypes.c_void_p
+    psapi.GetProcessMemoryInfo.argtypes = [ctypes.c_void_p, ctypes.POINTER(PMC), ctypes.c_ulong]
+    psapi.GetProcessMemoryInfo.restype = ctypes.c_int
+    ok = psapi.GetProcessMemoryInfo(kernel.GetCurrentProcess(), ctypes.byref(pmc), pmc.cb)
     need(bool(ok), "MEMORY_CAP_MEASUREMENT_FAILED")
     return pmc.WorkingSetSize
 

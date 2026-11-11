@@ -28,8 +28,8 @@
   "implemented": {
     "runner": {
       "path": "tools/research/ttm_small4m_quality_gap/ttm_fresh16_v2_e0.py",
-      "git_blob": "1fa550fb48f073f7a27fcbfdd2fd5f8672aa2053",
-      "sha256": "07e25ee563fce4861f2eaefefe718deb10a0ff64bb000f93730bca3d19270f5f"
+      "git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+      "sha256": "b9da32181a1c802f5eb56f6c22b71ca6ee8b834f8660cdd30fc9b91262eeb2f5"
     },
     "packet_gate": {
       "path": "tools/research/ttm_small4m_quality_gap/ttm_fresh16_v2_packet_gate.py",
@@ -37,7 +37,7 @@
     },
     "tests": {
       "path": "tools/research/ttm_small4m_quality_gap/test_e0_source_only.py",
-      "git_blob": "3d33351b121bb774811d420eb1b3262f2573afd0"
+      "git_blob": "39d12ccb84584a9f31a54ca209d99520a3a9169c"
     },
     "powershell": {
       "path": "tools/research/ttm_small4m_quality_gap/Invoke-TTM-Fresh16-V2-E0-PS51.ps1",
@@ -46,7 +46,7 @@
   },
   "observed": {
     "python_source_syntax": "PASS_BOTH",
-    "sandbox_source_only_unit_tests": "PASS_5_OF_5",
+    "sandbox_source_only_unit_tests": "PASS_6_OF_6",
     "original_step1280_binary_sha256": "PASS_IN_SANDBOX_FROM_ORIGINAL_RAW_BYTES",
     "original_step1280_weights_only_metadata": {
       "step": 1280,
@@ -65,7 +65,8 @@
     "actual_S2_session": "UNASSIGNED",
     "science_forward_executed": false,
     "training_executed": false,
-    "TEST_read": false
+    "TEST_read": false,
+    "source_only_hardening": "MAP_STEP_PROMPT_COVERAGE_AND_WIN32_POINTER_SIGNATURES"
   },
   "single_gate_decision": "NO_GO_HOLD",
   "next_step": "RUN_ONE_WINDOWS_E0_PREPARE_WITH_EXACT_HEAD_THEN_MAP_ANCHOR_AND_ONE_OWNER_GO_NO_GO"

@@ -19,8 +19,9 @@
 
 ## 2. Evidence obtained this turn (no inference)
 
+- Source-only hardening: exact (checkpoint, prompt) coverage in the sealed map and explicit Win32 API handle/pointer type signatures for the future process-RAM cap.
 - Python 3.13 local source compilation: \`PASS\` on both new Python files (programmatic syntax only, not Windows native verification).
-- Local isolated source-only tests: **5/5 PASS**. No model forward; this is **not** the owner's native Windows Python 3.12 integration QA.
+- Local isolated source-only tests: **6/6 PASS**. No model forward; this is **not** the owner's native Windows Python 3.12 integration QA.
 - Original step1280 full raw binary was loaded with \`torch.load(..., weights_only=True, map_location='cpu')\`; SHA256 **ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc** matches the frozen pin, and checkpoint metadata contains config above, \`step=1280\`, P02 source blob, 53 state_dict entries, 3,749,376 unique weights and parent checkpoint SHA **cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b**. No forward.
 - Existing owner Windows QA receipt (prior) had **11/11 PASS**, real BPE roundtrip 16/16 and local checkpoint SHA 2/2. These older source gates were **not rerun**.
 - Remote Windows node was used only for list/read checks. Arbitrary \`run_command\` returned \`managed mode requires task_job_submit\`; no project task lease was opened to create a micro-permit for a source-only check.
