@@ -13,7 +13,12 @@ $work=Join-Path $root 'worktrees\ttm-fresh16-quality-20261111'
 if(-not (Test-Path -LiteralPath $Python312 -PathType Leaf)){throw 'PYTHON312_MISSING'}
 if(-not (Test-Path -LiteralPath $root -PathType Container)){throw 'TTM_ROOT_MISSING'}
 if(-not (Test-Path -LiteralPath $work -PathType Container)){
-    & git.exe -C $root worktree add --track -b $branch $work "origin/$branch"
+    & git.exe -C $root show-ref --verify --quiet "refs/heads/$branch"
+    if($LASTEXITCODE -eq 0){
+        & git.exe -C $root worktree add $work $branch
+    } else {
+        & git.exe -C $root worktree add --track -b $branch $work "origin/$branch"
+    }
     if($LASTEXITCODE -ne 0){throw 'RESEARCH_WORKTREE_ADD_FAILED'}
 }
 $actual=(& git.exe -C $work branch --show-current | Out-String).Trim()

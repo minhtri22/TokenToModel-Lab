@@ -118,7 +118,7 @@ def assess_public(prompts,history,rubric):
         require(a["pair_id"]==b["pair_id"] and a["category"]==b["category"] and
                 a["contrast_fact"]!=b["contrast_fact"],"PAIR_NOT_MINIMAL")
         marker_a=a["contrast_fact"];marker_b=b["contrast_fact"]
-        ia=a["prompt_text"].find(marker_a); ib=b["prompt_text"].find(marker_b)
+        ia=a["prompt_text"].rfind(marker_a); ib=b["prompt_text"].rfind(marker_b)
         require(ia>=0 and ib>=0 and
                 a["prompt_text"][:ia]==b["prompt_text"][:ib] and
                 a["prompt_text"][ia+len(marker_a):]==b["prompt_text"][ib+len(marker_b):],

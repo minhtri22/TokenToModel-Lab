@@ -31,6 +31,11 @@ class StaticReviewQA(unittest.TestCase):
         x=json.loads(json.dumps(RUBRIC));x["fixture_contract"]["primary"]["H2"]["required_min"]=1
         with self.assertRaisesRegex(ValueError,"H1_H2_PREREG_CHANGED"):
             M.assess_public(PROMPTS,HISTORY,x)
+    def test_repeated_intervention_word_uses_last_occurrence(self):
+        pair=next(x for x in PROMPTS["new_prompts"] if x["id"]=="CP05-A")
+        self.assertEqual(pair["prompt_text"].lower().count("red"),2)
+        self.assertEqual(M.assess_public(PROMPTS,HISTORY,RUBRIC)["status"],
+                         "PASS_PUBLIC_FROZEN_SOURCE")
     def test_checkpoint_missing_holds(self):
         self.assertEqual(M.check_ckpt(Path("/tmp"),None,"1024")["status"],
                          "HOLD_CHECKPOINT_NOT_SUPPLIED")

@@ -118,7 +118,7 @@
       "rater_role"
     ],
     "unblind_after_scores": "The two 16-output checkpoint sets are scored before revealing checkpoint labels, variant IDs or pairing; decoded text remains byte-identical to model output",
-    "no_assigned_human": false
+    "human_reviewer_assigned": false
   },
   "decision": {
     "quality_candidate_label": "QUALITY_CANDIDATE_SCOPED_STEP1024_ONLY",
