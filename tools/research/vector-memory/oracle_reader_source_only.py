@@ -83,6 +83,11 @@ def encode_cards_for_reader(
         raise ValueError('FROZEN_TIED_EMBEDDING_SHAPE_MISMATCH')
     if len(questions) != len(per_question_cards) or not questions:
         raise ValueError('QUESTION_MEMORY_BATCH_SHAPE_MISMATCH')
+    if no_memory:
+        # A true no-memory arm: NEVER inspect cards, search keys or tokenize facts.
+        empty = frozen_embedding_weight.detach().new_zeros((len(questions), 0, D_MODEL))
+        no_mask = torch.zeros((len(questions), 0), dtype=torch.bool, device=frozen_embedding_weight.device)
+        return EncodedMemory(empty, empty.clone(), no_mask)
     key_rows, value_rows, masks = [], [], []
     def frozen_encode(s: str) -> Tensor:
         ids = list(text_to_ids(s))
@@ -96,8 +101,6 @@ def encode_cards_for_reader(
         for question, cards in zip(questions, per_question_cards):
             # Mask is formed *only* from the observed question and memory keys.
             mask = oracle_key_mask(question, cards)
-            if no_memory:
-                mask = [False, False, False]
             key_rows.append(torch.stack([frozen_encode(card['key']) for card in cards]))
             # Prefix is fixed and public; not read from any target/gold metadata.
             value_rows.append(torch.stack([frozen_encode(' ' + card['value']) for card in cards]))
