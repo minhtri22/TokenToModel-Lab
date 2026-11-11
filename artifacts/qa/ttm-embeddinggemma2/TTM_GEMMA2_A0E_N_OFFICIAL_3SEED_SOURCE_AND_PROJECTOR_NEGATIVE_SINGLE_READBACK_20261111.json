@@ -1,0 +1,121 @@
+{
+  "schema": "ttm.gemma2.a0e.owner_custody_n_source_matched_null_single_readback_progress.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_FINAL_OWNER_CUSTODY_SIGNATURE_AND_N_SOURCE_MATCHED_NULL_EVIDENCE_SINGLE_READBACK",
+  "execution_scope": "CPU_SOURCE_ONLY_NO_FORWARD_NO_TRAIN_NO_GPU",
+  "prior_closed_gates": {
+    "A0D": "PASS_PRESERVED_NO_RERUN",
+    "A0E_Cambridge_source_and_mask": "PASS_PRESERVED_NO_RERUN",
+    "A0E_private_source": "PASS_20_OF_20_PRESERVED_NO_RERUN"
+  },
+  "new_official_N_source": {
+    "run": 43019314812,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43019314812",
+    "workflow": ".github/workflows/ttm-gemma2-a0e-official-n-three-seed-source-cpu.yml",
+    "workflow_head": "cb83fa70c61f2f32b2593f882ca4fb5b278e728f",
+    "conclusion": "success",
+    "artifact_id": 13853569172,
+    "artifact_name": "TTM_GEMMA2_A0E_N_OFFICIAL_3SEED_INPUT_SHA_ONLY_20261111",
+    "artifact_zip_sha256": "e3485fc38ea6fe79ae9ed24d95277fed95ede549524d8df2946f4a9f3d4950d4",
+    "receipt_sha256": "6dcc578ab812ec2884a1ec9c372fcfe5b70ec4c3233e9605b77afa9e7212f115",
+    "artifact_zip_independently_hashed_in_container": true,
+    "receipt_json_independently_hashed_in_container": true,
+    "transformers": "5.19.0",
+    "torch": "2.10.0+cpu",
+    "source_class": "EmbeddingGemma2TextModel",
+    "config_sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+    "source_topology_sha256": "9e36b43011641e65bbdbdc2938d8c12a368810d9e59e2107024683288d2fecc1",
+    "shape": [
+      262144,
+      512
+    ],
+    "full_official_untrained_input_weight_f32le_sha256": {
+      "61031": "4a5553ee294a08d4dc03a552169930998827b6d16a23ccd80dfc128ae82fe826",
+      "61032": "edbb8c89304eb35722f78efe186626341a25147bb5fd457079060443d326ca3c",
+      "61033": "a78c59a1fe0584e67c3011be71975e11048a3a5904a49bd23a05d0aae0fc6aaf"
+    },
+    "source_fingerprint_status": "PASS_3_OF_3",
+    "T1_mapped_input_rows_frozen": false,
+    "N_A_N_C_projected_inputs_frozen": false,
+    "fourarm_matched_null_executed": false
+  },
+  "projector_mechanism_negative_control": {
+    "source_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "candidate_pt_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "script_sha256": "23a343c5fe8257ad010fd82cc710181e4f35cd9eea9b9ddc575554d03fde6954",
+    "receipt_sha256": "7da91b8287318a185ca492f6bc92c66eda75df51d366c5de539779c75f8c2a9a",
+    "status": "PASS_ALGEBRAIC_IDENTIFIABILITY_NEGATIVE_CONTROL_ONLY",
+    "method": "GLOBAL_ORTHOGONAL_REFLECTION_IN_PROJECTION_NULLSPACE_NOT_A0B_P_C_N_C",
+    "source_rows_mapped": 1917,
+    "rows_in_gram_sample": 120,
+    "max_proj_initial_diff": 2.3592239273284576e-16,
+    "max_norm_diff": 2.220446049250313e-16,
+    "relative_gram_error": 8.837639126593109e-16,
+    "relative_parameter_gradient_difference": 1.5336064006074779,
+    "relative_output_drift_after_hypothetical_projector_perturbation": 0.026243885676188627,
+    "linear_algebra_only": true,
+    "does_not_destroy_pairwise_geometry": true,
+    "does_not_prove_semantics": true,
+    "no_model_forward": true,
+    "no_optimizer_step": true,
+    "no_training": true
+  },
+  "runner_scorer_contract": {
+    "prior_CAUSAL6_runner_source_sha256": "51b15ebde7587dcad9a880116ab4c2cc605132cb0ac54ea03af05c7d12bac612",
+    "prior_CAUSAL6_arm_names": [
+      "RR-F",
+      "RP-F",
+      "RR-A",
+      "RP-A",
+      "OR-F",
+      "OP-F"
+    ],
+    "A0E_required_arms": [
+      "P-A",
+      "P-C",
+      "N-A",
+      "N-C"
+    ],
+    "prior_runner_not_suitable_as_A0E_runner": true,
+    "A0E_runner_sha256": null,
+    "A0E_independent_scorer_sha256": null,
+    "A0E_checkpoint_approval_sha256": null,
+    "A0E_optimizer_scheduler_sampler_manifest_sha256": null
+  },
+  "custody": {
+    "independent_custodian_appointed": false,
+    "external_signed_gold_seal": false,
+    "public_gold_source_integrity_PIN": "PASS",
+    "public_gold_already_viewable_by_world": true,
+    "current_public_gold_never_equal_to_prospective_new_post_pretraining_labels": true,
+    "status": "HOLD_UNSIGNED"
+  },
+  "readback": {
+    "local_checker_sha256": "2d5a35402dc80d4203ebba2c6ea97c70f915d07499df2e6f0c531bf902b34e3f",
+    "status": "PASS_SOURCE_RECHECK_NO_GO_SCIENCE",
+    "receipt_sha256": "c8fa604e6ab9c9ed8dde8b4bc235bc24effd39e79fcf39983bbb3cb232e2b57f",
+    "local_sidecar_sha256": "231bbf09f698f7bfe3402b86de0c90a5c340a2515557ae9418111b12658da4b5",
+    "local_evidence_zip_filename": "TTM_GEMMA2_A0E_N_SOURCE_CUSTODY_NULL_SINGLE_READBACK_20261111.zip",
+    "local_evidence_zip_sha256": "3d539bb7408f58bfdfb4f7b6d3c7740c9f41613630eee8745a4629385a50ba21",
+    "local_evidence_contains_private_raw_weights_or_training_windows": false
+  },
+  "remaining": {
+    "N_source_fingerprints": "PASS_SOURCE_ONLY",
+    "N_mapped_1917_and_matched_P_N": "HOLD",
+    "P_C_N_C_exact_moment_freq_morph_lexical_disruption_qa": "HOLD",
+    "projection_frozen_intervention_controls": "HOLD_SCIENCE",
+    "gold_independent_custodian_seal": "HOLD",
+    "raw_TRAIN_VAL_source_rights_and_nearduplicate": "HOLD",
+    "pretrained_weight_full_byte_provenance": "HOLD",
+    "donor_pretraining_contamination_exclusion": "HOLD",
+    "fourarm_runner_optimizer_scorer_checkpoint": "HOLD"
+  },
+  "adjudication": "NO_GO_HOLD",
+  "T4_2X2_authorized": false,
+  "lineage_append": false,
+  "L0022_created": false,
+  "model_training": false,
+  "model_inference": false,
+  "GPU_used": false,
+  "TEST_H768_OOD256_reused": false
+}
