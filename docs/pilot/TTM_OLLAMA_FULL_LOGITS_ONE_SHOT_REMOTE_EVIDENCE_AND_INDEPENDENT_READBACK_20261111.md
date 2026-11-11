@@ -1,0 +1,9 @@
+# TTM Ollama full raw logits — independent one-shot evidence review, 11 November 2026
+
+Owner Windows one-shot ran FL01–FL04 exactly once through isolated Ollama v0.40.14 child runner (binary SHA256 818fec27008b0a8555ecbae09c8c95e6a076d2b2fa4c26377b8bdb248232210a), with four 2048-F32 pre-sampling raw vectors captured. The owner numeric audit reported PASS 4/4, all top1 equal, max abs respectively 5.245208740234375e-6, 4.76837158203125e-6, 4.76837158203125e-6 and 9.5367431640625e-6 under unchanged <=0.001 prereg threshold.
+
+Remote read-only independent review inspected the original RUN_RECEIPT.json, NUMERIC_AUDIT.json, log, cleanup. Ollama parent PID 580 started child PID 27488 at port 50871; original CIM recorded same child for all four. Native log observed F32 K/V and disabled Flash, exact 3/3/3/6-token requests, four HTTP POST /api/generate and one child launch. Owned cleanup confirmed. The raw JSONL file is truncated by remote text reader; raw digest and all 8192 comparisons still require a separate read-only recomputation on owner Windows.
+
+Source pinned at tools/ollama_full_logits_v1/independent_fl01_fl04_final_readback.py independently rehashes all original files, checks all 8192 values against original PyTorch reference, cross-checks numeric report and process snapshots/logs/cleanup and emits an exclusive independent receipt _tmp/fl3/INDEPENDENT_FINAL_ADJUDICATION.json. It imports neither torch nor llama and never invokes Ollama, so original one-shot is not replayed. Run with Invoke-TTM-Ollama-FullLogits-Independent-Readback-PS51.ps1 after ff-only branch update.
+
+No main changes, no training/TEST, frozen T5 v5 status unchanged. Append a scientifically scoped PASS entry in research-branch lineage only after independent full readback PASS. If failure, preserve original evidence and adjudicate HOLD without rerunning inference. Not evidence of stock Ollama support or universal bitwise equivalence.

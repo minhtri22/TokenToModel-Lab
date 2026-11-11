@@ -1,0 +1,75 @@
+{
+  "schema": "ttm.ollama.full_logits.owner_windows_run_independent_remote_review.v1",
+  "date": "2026-11-11",
+  "subject": "Independent read-only review of Windows original owner run; full-vector recomputation intentionally deferred to separate source and owner machine.",
+  "original_run_source_head": "194fb946cc3283d65bd54c64bb965db2343e0c71",
+  "run_receipt_sha256": "18f2fea2d986449eda098a949103e9614ab3c8a1a2368a3647c0c7729dbda269",
+  "files": {
+    "reference": "1e098a643c9bce66431adf3dc0296ce6b628731d33c4532753d2f2acd664d082",
+    "reference_seal": "571a1a654bad1b97de066d6fb3b690e910ecc71777deb4b16b7b15968f444939",
+    "raw_logits": "af289d6cbe52931581b6b0419d0239d80bbdd95d19357abbeb586ae53d1dd9e1",
+    "numeric_audit": "1710564a877e02cb2c96b00edfebccf94e2e31473c8d11f0ef6a05315eb7b77d",
+    "server_log": "d43954db7a1078dd999086b64a6683e7fada38278fe9cf2a434132e059b44964",
+    "cleanup_log": "e0caa327def0f07ebd6f71f1220b1b538bfa6e3689050c7349305cc19bbc662a"
+  },
+  "reported_numeric": [
+    {
+      "fixture": "FL01",
+      "max_abs": 0.000005245208740234375,
+      "top1": 99
+    },
+    {
+      "fixture": "FL02",
+      "max_abs": 0.00000476837158203125,
+      "top1": 282
+    },
+    {
+      "fixture": "FL03",
+      "max_abs": 0.00000476837158203125,
+      "top1": 282
+    },
+    {
+      "fixture": "FL04",
+      "max_abs": 0.0000095367431640625,
+      "top1": 46
+    }
+  ],
+  "numeric_result": "PASS_4_OF_4_AT_MAX_ABS_LE_0.001_TOP1_EQ_4_OF_4",
+  "readback": {
+    "receipt_metadata": "READ_DIRECTLY",
+    "numeric_report": "READ_DIRECTLY",
+    "numeric_audit_run_log": "READ_DIRECTLY",
+    "original_serve_log": "READ_IN_SEGMENTS",
+    "cleanup_log": "READ_DIRECTLY",
+    "full_raw_vector_remote": "TRUNCATED_TOOL_VIEW",
+    "recomputed_full_sha256_external": "NOT_EXECUTED",
+    "independent_readback_verdict": "PASS_RECORDED_EVIDENCE_PENDING_FULL_RAW_REHASH"
+  },
+  "runtime_provenance": {
+    "ollama_parent_pid": 580,
+    "runner_child_pid": 27488,
+    "api_port": 12651,
+    "native_port": 50871,
+    "runner_executable": "_tmp/fl2/package/lib/ollama/llama-server.exe",
+    "runner_sha256": "818fec27008b0a8555ecbae09c8c95e6a076d2b2fa4c26377b8bdb248232210a",
+    "four_child_snapshots_same_pid": true,
+    "one_runner_launch_line": true,
+    "api_generate_success_logs": 4,
+    "cpu_only": true,
+    "kv_f32": true,
+    "flash_off": true,
+    "token_length_logs": [
+      3,
+      3,
+      3,
+      6
+    ],
+    "owned_cleanup_returncode": 0,
+    "independent_live_pid_rewitness": false,
+    "source": "CIM snapshots recorded during run, independently cross checked after shutdown against Ollama server log and cleanup log."
+  },
+  "scope_caveat": "NUMERIC_AUDIT.json has stale inherited label T5_OLLAMA_FULL_LOGITS=NOT_EXECUTED_UNCHANGED; its own actual scoped status is NUMERIC_PASS_PROVENANCE_PENDING, and the independent final readback is separate.",
+  "frozen_v5": "PASS_SCOPED_UNCHANGED",
+  "main_sha": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "lineage": "UNCHANGED_PENDING_FINAL_INDEPENDENT_READBACK"
+}
