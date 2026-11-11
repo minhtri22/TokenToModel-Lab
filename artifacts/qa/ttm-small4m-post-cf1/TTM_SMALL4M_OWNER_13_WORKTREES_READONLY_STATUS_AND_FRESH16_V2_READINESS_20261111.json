@@ -96,7 +96,7 @@
     "fresh16_v2_amendment_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
     "fresh16_v2_receipt_blob": "1dd2ddd7d3ca5c054fedefa5b7ea574d98e4a660",
     "frozen_original_head": "1583c5b475407799bfca75b503ddf359de7fda69",
-    "frozen_original_prompt_blob": "6299a073f0b7c7f8ea890ba9d29eaed9442f1f",
+    "frozen_original_prompt_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
     "frozen_original_rubric_blob": "69668664df23d2246cd65935ab049054aea43e7a",
     "fresh16_local_worktree_head": "6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2",
     "ac_branch_head": "837289fda82b41653a61b74e476f76a0b4c4137c",
@@ -120,5 +120,6 @@
     "pr13_unchanged": true,
     "lineage_unchanged": true
   },
-  "next": "TTM_FRESH16_V2_SINGLE_INDEPENDENT_PROTOCOL_FINAL_REVIEW_AND_OWNER_AMENDMENT_DECISION_DESIGN_ONLY"
+  "next": "TTM_FRESH16_V2_SINGLE_INDEPENDENT_PROTOCOL_FINAL_REVIEW_AND_OWNER_AMENDMENT_DECISION_DESIGN_ONLY",
+  "source_pin_correction": "AUTHOR_READBACK_FIX_IN_PUBLIC_RECEIPT_BEFORE_FINAL"
 }
