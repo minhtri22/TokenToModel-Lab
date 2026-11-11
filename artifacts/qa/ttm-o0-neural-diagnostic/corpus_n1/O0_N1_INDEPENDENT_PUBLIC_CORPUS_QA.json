@@ -1,0 +1,45 @@
+{
+  "schema": "ttm.o0.n1.independent_corpus_qa.v1",
+  "status": "PASS_4608_VISIBLE_TEXT_1152_QUARTETS_13_NEGATIVE",
+  "correct": 4608,
+  "groups": 1152,
+  "by_split": {
+    "TRAIN": {
+      "rows": 4096,
+      "families": {
+        "N1": 1024,
+        "N2": 1024,
+        "N3": 1024,
+        "N4": 1024
+      }
+    },
+    "DEV_IID": {
+      "rows": 256,
+      "families": {
+        "N1": 64,
+        "N2": 64,
+        "N3": 64,
+        "N4": 64
+      }
+    },
+    "DEV_STRUCT": {
+      "rows": 256,
+      "families": {
+        "N1": 64,
+        "N2": 64,
+        "N3": 64,
+        "N4": 64
+      }
+    }
+  },
+  "quartets_verified": 1152,
+  "mutants_rejected": 13,
+  "coarse_struct_signature_overlap": 0,
+  "public_oracle_only": true,
+  "notes": [
+    "Programmatic object allowlist tested with 8 mutations; raw duplicate JSON-key scanning requires a separate byte-level validator before science.",
+    "Five illegal-state story mutations rejected independently of the generator.",
+    "Coarse split signature is not full query-rooted graph isomorphism, so structural claim stays HOLD.",
+    "Public DEV labels cannot serve as hidden FINAL."
+  ]
+}
