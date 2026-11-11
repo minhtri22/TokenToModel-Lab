@@ -1,0 +1,140 @@
+{
+  "schema": "ttm.cf1.dev36.independent_public_evidence_score_audit_and_scoped_adjudication.v1",
+  "date": "2026-11-11",
+  "task": "TTM_CF1_DEV36_OWNER_LOCAL_EVIDENCE_READBACK_AND_SCIENCE_SCOPE_ADJUDICATION",
+  "audit_origin": "ChatGPT Web separate source-based readback/recompute of published one-shot scores, not an external reviewer and not a second model inference",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "one_shot_evidence": {
+    "branch": "evidence/ttm-cf1-step1024-dev36-once-20261111",
+    "exact_immutable_commit": "cf6a37e5e9709ab0613918dc03ee70efa79f893f",
+    "parent": "f2ce247bced65101401b3ed5c4bdca84f2f17913",
+    "commit_only_adds_five_files": true,
+    "replayed_or_mutated_original_scores": false
+  },
+  "pinned_inputs": {
+    "checkpoint_step": 1024,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "P02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "scorer_git_blob": "d7214a4514ecb52e98c0abccd3cecb7180c705e8",
+    "dev_model_input_git_blob": "4fac79c16bc337926060fa21a6e22944d74259b7",
+    "dev_model_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+    "oracle_git_blob": "3f5a38069c918fd27c033ab48fce6fac9b8c5e4b",
+    "oracle_sha256": "3a425188077f24041a02fe9675e5a503221fe5cc0247ebd53a8cc266329c046d",
+    "scores_git_blob": "462711cdc3b0bd6b8bdae33518a8518fd6f5bdd0",
+    "scores_sha256": "2f690fad052e4f76aec35904b665bd3135d598aca9eff12642d075c6335e2721",
+    "owner_summary_git_blob": "490d562ca63f59a4f68a70d685f828f92dd4b755",
+    "owner_summary_sha256": "6a824e724fae0fe26aee291f5fa02d3d74d631e581adb4e6ecd4a73f741137b5",
+    "pin_receipt_git_blob": "8156874518acc925db213b91604e47360373ec4d",
+    "stderr_git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  "verification": {
+    "sha256_utf8_algorithm_test_abc": "PASS_STANDARD_VECTOR",
+    "sha256_github_readback_scores": "PASS_EXACT_OWNER_PIN",
+    "sha256_github_readback_summary": "PASS_EXACT_OWNER_PIN",
+    "sha256_github_readback_dev_model_input": "PASS_EXACT_OWNER_PIN",
+    "sha256_github_readback_oracle": "PASS_EXACT_OWNER_PIN",
+    "scores_receipt_and_summary_agree": "PASS",
+    "dev_oracle_text_exact_row_alignment": "PASS_36_OF_36",
+    "source_scoring_identity_recomputed": "PASS_36_OF_36",
+    "score_values_finite": "PASS_144_LOGPROB_VALUES",
+    "all_candidates_token_length_equal": "PASS_36_OF_36",
+    "all_gold_labels_A_x_B_y": "YES_36_OF_36__EVAL_POSITION_CONFOUND",
+    "owner_report_both_correct_recomputed": "MATCH_0_OF_36",
+    "standard_error_log": "EMPTY",
+    "no_new_inference_or_neural_computation_during_audit": true
+  },
+  "statistics": {
+    "pairs": 36,
+    "teacher_forced_logprob_values": 144,
+    "per_family_pairs": {
+      "C1": 12,
+      "C2": 12,
+      "C3": 12
+    },
+    "both_contexts_correct": 0,
+    "both_contexts_correct_pct": 0,
+    "context_A_correct": 1,
+    "context_B_correct": 35,
+    "same_choice_both_contexts": 36,
+    "switched_choice_count": 0,
+    "preferred_y_both_contexts": 35,
+    "preferred_x_both_contexts": 1,
+    "positive_counterfactual_D": 20,
+    "negative_counterfactual_D": 16,
+    "zero_D": 0,
+    "mean_margin_A_correct_x": -0.3069264193024701,
+    "mean_margin_B_correct_y": 0.30649837113060374,
+    "mean_contextual_D": -0.0004280481718662453,
+    "mean_absolute_contextual_D": 0.012343681192138072,
+    "mean_absolute_completion_preference_margin": 0.30915274431193435,
+    "context_effect_to_completion_preference_abs_ratio": 0.03992745145966852,
+    "bootstrap_95_percentile_CI_mean_D": [
+      -0.00758929466883952,
+      0.006309848515406872
+    ],
+    "bootstrap": {
+      "resamples": 10000,
+      "unit": "pair",
+      "seed": 20261111,
+      "prng": "32-bit LCG: seed=(1664525*seed+1013904223) mod 2^32; use seed/2^32",
+      "estimand": "mean of D margin_A_correct_x+margin_B_correct_y",
+      "note": "exploratory small constructed DEV; CI not confirmatory generalization"
+    },
+    "per_family": {
+      "C1": {
+        "n": 12,
+        "context_A_correct": 0,
+        "context_B_correct": 12,
+        "both_correct": 0,
+        "switched": 0,
+        "D_positive": 4,
+        "mean_D": -0.001216163779749942
+      },
+      "C2": {
+        "n": 12,
+        "context_A_correct": 0,
+        "context_B_correct": 12,
+        "both_correct": 0,
+        "switched": 0,
+        "D_positive": 9,
+        "mean_D": 0.012279279854734796
+      },
+      "C3": {
+        "n": 12,
+        "context_A_correct": 1,
+        "context_B_correct": 11,
+        "both_correct": 0,
+        "switched": 0,
+        "D_positive": 7,
+        "mean_D": -0.01234726059058359
+      }
+    }
+  },
+  "comparison": {
+    "position_only_evaluator_baseline": "ALWAYS_X_FOR_A_AND_ALWAYS_Y_FOR_B_ACCURACY_36_OF_36_BUT_ITS_INPUT_USES_EVAL_POSITION_NOT_MODEL_CONTEXT",
+    "pre_existing_lexical_shallow_heuristic": "36_OF_36_PAIRS_DEMONSTRATED_ON_PUBLIC_DEV_IN_SOURCE_QA",
+    "frozen_O0": "0_OF_36_PAIRS",
+    "note": "Position-based baseline demonstrates an evaluation-design confound; it is not a permitted model-only inference baseline. Lexical heuristic and position pattern undermine state-reasoning specificity."
+  },
+  "scope_of_claim": {
+    "positive": "ONE_OWNER_CPU_FROZEN_O0_STEP1024_ON_PUBLIC_DEV36_FULL_EXECUTION_PASS_SOURCE_INTEGRITY",
+    "negative": "MODEL_DID_NOT_SWITCH_PREFERRED_COMPLETION_IN_ANY_PAIR",
+    "scientific_conclusion": "NO_DEMONSTRATED_CF1_CONTEXT_DEPENDENT_PREFERENCE_SWITCHING_ON_PUBLIC_DEV",
+    "stronger_claims_not_supported": [
+      "model has no contextual capability on other tasks",
+      "O1 architecture would perform better",
+      "model cannot learn these tasks with training",
+      "this is a blinded independent FINAL score",
+      "TTM global science failure"
+    ],
+    "validity": "CF1_NOT_VALID_FOR_STRUCTURAL_REASONING_DISCRIMINATION__LEXICAL_SHORTCUT_AND_GOLD_POSITION_CONFOUND",
+    "one_owner_decision": "NO_GO_CF1_BLIND_FINAL__ARCHIVE_CF1_EXPLORATORY_DIAGNOSTIC",
+    "neural_training": "NOT_PERFORMED",
+    "gpu": "NOT_USED",
+    "o1": "DEFER",
+    "final": "SEALED_NOT_OPENED",
+    "Q1Q2_TEST": "NOT_OPENED"
+  },
+  "next": "TTM_SMALL4M_POST_CF1_FROZEN_O0_ORIGINAL_LANGUAGE_VAL_AND_FRESH_CONTINUATION_GAP_RECONCILIATION_DESIGN_ONLY_NO_NEW_TOY"
+}
