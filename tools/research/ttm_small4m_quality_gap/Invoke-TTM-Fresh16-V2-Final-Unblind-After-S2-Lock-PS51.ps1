@@ -44,10 +44,10 @@ if ((Get-FileHash -LiteralPath $mapFile -Algorithm SHA256).Hash.ToLowerInvariant
 
 & git -C $wt fetch origin "refs/heads/$branch"
 if ($LASTEXITCODE -ne 0) { throw 'FINAL_GATE_FETCH_COMMIT_OBJECTS_FAILED' }
-foreach ($item in @(@($s1Commit,$s1Rel),@($s2Commit,$s2Rel))) {
-    & git -C $wt cat-file -e ($item[0] + ':' + $item[1])
-    if ($LASTEXITCODE -ne 0) { throw 'FINAL_GATE_LOCKED_GIT_RECEIPT_MISSING' }
-}
+& git -C $wt cat-file -e ($s1Commit + ':' + $s1Rel)
+if ($LASTEXITCODE -ne 0) { throw 'FINAL_GATE_S1_LOCKED_GIT_RECEIPT_MISSING' }
+& git -C $wt cat-file -e ($s2Commit + ':' + $s2Rel)
+if ($LASTEXITCODE -ne 0) { throw 'FINAL_GATE_S2_LOCKED_GIT_RECEIPT_MISSING' }
 if ((& git -C $wt rev-parse HEAD).Trim() -ne $source) { throw 'FINAL_GATE_E0_HEAD_CHANGED_AFTER_FETCH' }
 $s1Anchor = (& git -C $wt show ($s1Commit + ':' + $s1Rel) | Out-String) | ConvertFrom-Json
 $s2Anchor = (& git -C $wt show ($s2Commit + ':' + $s2Rel) | Out-String) | ConvertFrom-Json
