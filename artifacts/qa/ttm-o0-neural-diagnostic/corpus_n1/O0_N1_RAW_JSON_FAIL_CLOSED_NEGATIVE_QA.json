@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.o0.n1.raw_input_negative_QA.v1",
+  "status": "PASS_16_OF_16_EXPECTED_REJECTIONS",
+  "original": {
+    "rows": 256,
+    "strict_root": true,
+    "strict_record": true,
+    "duplicate_keys_rejected": true
+  },
+  "source_git_blob": "266c2dc410c38a08d7bde84f52119688ba703fca",
+  "negative_cases": [
+    {
+      "id": "ROOT_answer_vector",
+      "error": "O0_INPUT_REJECT:ROOT_ALLOWLIST"
+    },
+    {
+      "id": "ROOT_oracle",
+      "error": "O0_INPUT_REJECT:ROOT_ALLOWLIST"
+    },
+    {
+      "id": "ROOT_split",
+      "error": "O0_INPUT_REJECT:ROOT_ALLOWLIST"
+    },
+    {
+      "id": "ROOT_sealed_final",
+      "error": "O0_INPUT_REJECT:ROOT_ALLOWLIST"
+    },
+    {
+      "id": "ROOT_test_labels",
+      "error": "O0_INPUT_REJECT:ROOT_ALLOWLIST"
+    },
+    {
+      "id": "ROW_answer",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "ROW_source_events",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "ROW_id",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "ROW_group_id",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "ROW_split",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "ROW_oracle",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    },
+    {
+      "id": "DUPLICATE_ROOT",
+      "error": "O0_INPUT_REJECT:DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "DUPLICATE_ROW",
+      "error": "O0_INPUT_REJECT:DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "FORGED_SCHEMA",
+      "error": "O0_INPUT_REJECT:BAD_SCHEMA_OR_RECORD_COUNT"
+    },
+    {
+      "id": "JSON_TRUNCATED",
+      "error": "O0_INPUT_REJECT:UNTERMINATED_STRING"
+    },
+    {
+      "id": "INVALID_RECORD_NULL",
+      "error": "O0_INPUT_REJECT:RECORD_FIELD_ALLOWLIST"
+    }
+  ],
+  "science_executed": false
+}
