@@ -1,0 +1,21 @@
+{
+  "schema": "ttm.o0.n1.final_escrow_reconstruction_QA.v1",
+  "status": "PASS_AES256GCM_SEED_DECRYPT_TO_EXACT_512_FINAL_RECORDS",
+  "source": "o0_final_private_escrow.py.gz.b64",
+  "reconstructed_python_source_git_blob": "a8e48d0f889e3de638e12355966e75536f861953",
+  "compressed_source_git_blob": "d061d27d5ea2b78568639cedf711aab3080f33cd",
+  "encrypted_seed_envelope_git_blob": "133bb4182f65f6c911f493622b5709561f69befb",
+  "ciphertext_sha256": "4b514b3ab1844ec58132e1deaf8c7507968d04930c11ecc6aef9f9b77cf6e197",
+  "final_plaintext_commitment_sha256": "70487eba90d642f03e79b10816705797c134c421b2b8062d9b58bb72b7f8f505",
+  "final_records": 512,
+  "final_groups": 128,
+  "key_on_owner_windows": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_O0_N1_FINAL_PRIVATE_OWNER_KEY_DO_NOT_GITHUB_20261111.json",
+  "key_owner_windows_readback": "PASS_CONTENT_EXACT",
+  "plaintext_labels_not_on_public_GitHub": true,
+  "github_ciphertext_and_python_reproducer": "PASS_GIT_BLOB_READBACK",
+  "raw_final_saved_to_public_GitHub": false,
+  "full_final_exact_T1_BPE_validation": "NOT_EXECUTED",
+  "independent_FINAL_graph_motif_disjoint": "FAIL_COARSE_MOTIF_OVERLAP_WITH_DEV_STRUCT",
+  "blind_final_science_unlock": "HOLD_NO_UNBLIND_FOR_SCIENCE",
+  "original_TEST_Q1Q2_reads": 0
+}
