@@ -1,0 +1,23 @@
+{
+  "checkpoint_parent_readonly": true,
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "checkpoint_step": 1024,
+  "CPU_synthetic_optimizer_steps": 2,
+  "device": "cpu",
+  "exact_restored_next_step_parameters": true,
+  "finished_fingerprint": "PRESERVED_IN_LOCAL_CPU_QA_RESULT",
+  "GPU_used": false,
+  "initial_fingerprint": "PRESERVED_IN_LOCAL_CPU_QA_RESULT",
+  "new_scientific_training_steps": 0,
+  "not_proof_of_T4_fp16_resume": true,
+  "P02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "P02_strict_load": true,
+  "parameters": 3749376,
+  "python": "3.13",
+  "schema": "ttm.o0.n1.cpu_synthetic_restore_qa.v1",
+  "source_data_or_TEST_read": false,
+  "status": "PASS_CPU_SYNTHETIC_RESTORE_PARITY",
+  "temp_synthetic_checkpoint_sha256": "f12e4262a747487842657e4513b9049780fc427343415913b76757ccd2f31edb",
+  "torch": "2.10.0+cpu",
+  "note": "This public summary omits local state_fingerprint detail; source CPU QA script executed only on synthetic random token IDs, no TTM science."
+}
