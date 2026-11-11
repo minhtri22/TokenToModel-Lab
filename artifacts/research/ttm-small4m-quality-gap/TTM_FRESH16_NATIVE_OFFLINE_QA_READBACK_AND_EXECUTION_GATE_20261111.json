@@ -1,0 +1,174 @@
+{
+  "schema": "ttm.fresh16.native_integrated_offline_readback_scoped_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_NATIVE_BPE_CHECKPOINT_READBACK_AND_SINGLE_EXECUTION_GATE",
+  "source_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "frozen_source_commit": "6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2",
+  "source_receipt": {
+    "local_source_path_relative_to_TTM": "_tmp/ttm_fresh16_integrated_offline_review_20261111/INTEGRATED_OFFLINE_REVIEW_RECEIPT.json",
+    "reported_receipt_sha256": "41407fa954f322879759a04562fdf8ac7b2cc05545a9bcbb734ee5404603c017",
+    "reported_sha_source": "owner PowerShell printed SHA; independent tool verified receipt fields, not a second byte SHA recompute",
+    "source_head": "6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2",
+    "rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "history_git_blob": "6b35ec8ae377a9dbdb778766756a32e8ad4bcbc8",
+    "payload_publicity": "Sanitized metadata only; full private local receipt and checkpoint paths not uploaded"
+  },
+  "unit_qa": {
+    "status": "PASS_RECORDED_11_OF_11",
+    "test_count": 11,
+    "source": "Owner PS51 output supplied in current chat; no independent rerun of Windows Python tests"
+  },
+  "native": {
+    "public_source": {
+      "status": "PASS_PUBLIC_FROZEN_SOURCE",
+      "count": 16,
+      "pairs": 8,
+      "historical_count": 28,
+      "exact_collisions": 0,
+      "max_jaccard_3gram": 0.017543859649122806,
+      "max_jaccard_5gram": 0
+    },
+    "bpe": {
+      "status": "PASS_NATIVE_TRAIN_ONLY_BPE",
+      "manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "source_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+      "merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+      "min_prompt_tokens": 28,
+      "max_prompt_tokens": 47,
+      "roundtrip_count": 16,
+      "token_id_sha256_by_prompt": [
+        {
+          "prompt_id": "CP01-A",
+          "count": 28,
+          "packed_token_id_sha256": "3afd8a179137052dd4206d99eab6074112fe427247b7a85c2c2f454849dd1276"
+        },
+        {
+          "prompt_id": "CP01-B",
+          "count": 28,
+          "packed_token_id_sha256": "a23709e2f9d4c8a61b61a67a9823a6a55cbdac468a7f2172d1ae2228c267cfca"
+        },
+        {
+          "prompt_id": "CP02-A",
+          "count": 29,
+          "packed_token_id_sha256": "0b2839b9959e8e0678e995d4fd9b0db000898d605f9a94365e702273fdb786d7"
+        },
+        {
+          "prompt_id": "CP02-B",
+          "count": 29,
+          "packed_token_id_sha256": "c9ff163cefd6d52be043abeadb993c4479bfbd9e8f0c994af5a066a3da869ac7"
+        },
+        {
+          "prompt_id": "CP03-A",
+          "count": 46,
+          "packed_token_id_sha256": "e8af5d244da95b14ce99772bc095cdd987fc7c2491f2bf5914924e8b48a43e91"
+        },
+        {
+          "prompt_id": "CP03-B",
+          "count": 46,
+          "packed_token_id_sha256": "6dc3fed05e72b990f4149722aba21651c41ec82e7a934456b3b6a57f5f0f7a14"
+        },
+        {
+          "prompt_id": "CP04-A",
+          "count": 37,
+          "packed_token_id_sha256": "e3718420b5352d6995a5048f5f8f7e967c05ab41d8fd46f166c786fd41f29c7c"
+        },
+        {
+          "prompt_id": "CP04-B",
+          "count": 35,
+          "packed_token_id_sha256": "9c02754e24dcd54174adc6ae3645257bf9c91e2e2a1d2f5abec4040caf91cd8b"
+        },
+        {
+          "prompt_id": "CP05-A",
+          "count": 47,
+          "packed_token_id_sha256": "5a0d308dc4f5aaf142b427f2e7eb8bdefd659e88d280578e49f9e7c7079a868b"
+        },
+        {
+          "prompt_id": "CP05-B",
+          "count": 47,
+          "packed_token_id_sha256": "05e7b38497d4bfb8a0d03e3df80344f91d23fb81b17d066c1b3247ae0d50e135"
+        },
+        {
+          "prompt_id": "CP06-A",
+          "count": 36,
+          "packed_token_id_sha256": "da3f2bedacb4360012621234ae269aee810e4cfa57ef351d7bdf223ad291c40b"
+        },
+        {
+          "prompt_id": "CP06-B",
+          "count": 36,
+          "packed_token_id_sha256": "51b7aa002eaba462d73ba12653d413829ea5a07c053df99194d66c1df77357aa"
+        },
+        {
+          "prompt_id": "CP07-A",
+          "count": 38,
+          "packed_token_id_sha256": "b89820873aac1046e071813b83d63825d71f50864556b5aab66b6a4dd6d77d28"
+        },
+        {
+          "prompt_id": "CP07-B",
+          "count": 37,
+          "packed_token_id_sha256": "ea74cf1e6d1b37552e2c967af02772ff0b18d8eafca9a971bb6ef25aa98fc34c"
+        },
+        {
+          "prompt_id": "CP08-A",
+          "count": 32,
+          "packed_token_id_sha256": "5f3edd388e704d69210f7e2921ef848178d5025faf1d67dabae3e884518f2f41"
+        },
+        {
+          "prompt_id": "CP08-B",
+          "count": 33,
+          "packed_token_id_sha256": "21f094a68583cae1059e975ce50ec604f849db5e57efe1dca2dcc2cacde9013d"
+        }
+      ]
+    },
+    "checkpoints": [
+      {
+        "step": 1024,
+        "status": "PASS_EXACT_SHA256",
+        "bytes": 45074891,
+        "sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+      },
+      {
+        "step": 1280,
+        "status": "PASS_EXACT_SHA256",
+        "bytes": 45075275,
+        "sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+      }
+    ]
+  },
+  "frozen_endpoints": {
+    "primary_step": 1024,
+    "secondary_step_descriptive_only": 1280,
+    "H1": {
+      "min_good": 12,
+      "n": 16,
+      "adherence_score_min": 2
+    },
+    "H2": {
+      "min_counterfactual_pairs": 6,
+      "n": 8,
+      "min_one_pass_each_category": true
+    },
+    "number_of_prompts": 16,
+    "planned_outputs_max": 32,
+    "planned_new_tokens_max": 2048,
+    "no_reuse_of_consumed_test_or_oneshots": true
+  },
+  "pending": {
+    "independent_reviewer_identity": "UNASSIGNED",
+    "independent_reviewer_custody": "NOT_ATTESTED",
+    "blinded_scoring_packet": "NOT_PREPARED",
+    "owner_execution_authorization": "NOT_ISSUED"
+  },
+  "decision": {
+    "source_review": "PASS_SOURCE_BYTES_NATIVE_16_OF_16",
+    "science_status": "NOT_EXECUTED",
+    "execution": "NO_GO_EXECUTION_PENDING_REVIEWER_CUSTODY_AND_SINGLE_OWNER_DECISION",
+    "scope": "No more source QA needed for same unchanged byte pins; retain frozen prompt set and H1/H2",
+    "if_reviewer_ready": "Propose one bounded run decision for 32 outputs CPU with separate reviewer and frozen blind scoring; no autoexecution",
+    "if_reviewer_unavailable": "HOLD_NO_INFERENCE_NO_TEST_REOPEN",
+    "lineage": "UNCHANGED",
+    "main": "UNCHANGED",
+    "training": false,
+    "inference": false,
+    "TEST_read": false
+  }
+}
