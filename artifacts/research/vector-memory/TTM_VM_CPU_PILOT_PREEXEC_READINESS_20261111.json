@@ -1,0 +1,92 @@
+{
+  "checks": {
+    "01_checkpoint_sha_pin": true,
+    "02_p02_git_blob_pin": true,
+    "03_reader_git_blob_pin": true,
+    "04_train_git_blob_pin": true,
+    "05_dev_git_blob_pin": true,
+    "06_trained_checkpoint_metadata": true,
+    "07_real_checkpoint_expected_dims": true,
+    "08_tied_head_pinned_weights": true,
+    "09_readiness_no_optimizer_states_modified": true,
+    "10_256_train_64_dev_disjoint": true,
+    "11_exact_no_memory_teacher_forcing": true,
+    "12_no_memory_ce_equal_direct": true,
+    "13_token_alignment_and_range": true,
+    "14_no_memory_gate_zero": true,
+    "15_multi_token_answer_scored": true,
+    "16_zero_init_correct_equals_base": true,
+    "17_zero_init_wrong_equals_base": true,
+    "18_bypass_after_reader_perturbation_bit_exact": true,
+    "19_correct_wrong_values_affect_reader": true,
+    "20_correct_wrong_have_same_logit_shape": true,
+    "21_reader_gradient_present": true,
+    "22_random_p02_no_gradient": true,
+    "23_random_p02_parameters_unchanged": true,
+    "24_pretrained_head_is_tied": true,
+    "25_pretrained_full_logits_no_memory_bit_exact": true,
+    "26_pretrained_full_logits_cold_reader_bit_exact": true,
+    "27_pretrained_checkpoint_unchanged": true,
+    "28_pretrained_gradients_absent": true,
+    "29_no_test_or_training_and_no_gpu": true
+  },
+  "checks_passed": 29,
+  "checks_total": 29,
+  "environment": {
+    "device": "cpu",
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu"
+  },
+  "execution": {
+    "dev_model_scoring": false,
+    "gpu_used": false,
+    "optimizer_steps": 0,
+    "random_model_qa_forward_only": false,
+    "test_accessed": false,
+    "trained_checkpoint_forward_calls_on_synthetic_token_ids": 1,
+    "training_executed": false
+  },
+  "limitations": [
+    "Synthetic byte tokenizer is NOT true T1; real tokenizer has owner PASS receipt only",
+    "No independent receipt bytes readback by assistant",
+    "Oracle uses one selected record, not learned retrieval ranking",
+    "No scientific NLL / DEV / TEST evaluated",
+    "Trained checkpoint synthetic-token bypass parity is technical only; no real text scoring"
+  ],
+  "pins": {
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "dev_git_blob": "ffc9d211508fbedc84db31235ecaad8d07596ece",
+    "owner_receipt_sha256": "bc688ca5bcc4084a19d3e95b0f7d555c283d8b1b1319ff255c5baf9e66c7b34b",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "reader_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "train_git_blob": "9e86317c055047fffebfb2d802889e69987a8c8b"
+  },
+  "plan": {
+    "batch_stories": 16,
+    "checkpoint_selection": "fixed_final_step_128_no_best_of_dev",
+    "clip_grad_norm": 1.0,
+    "dev_cases": 64,
+    "dev_evaluations": 1,
+    "epochs": 8,
+    "frozen_p02": true,
+    "learning_rate": 0.001,
+    "no_automatic_execution": true,
+    "optimizer": "AdamW",
+    "oracle_qk_projection_frozen": true,
+    "primary": "mean_stories_of_mean_answer_token_NLL",
+    "seed": 20261111,
+    "steps": 128,
+    "test_access": "DENIED_UNTIL_FROZEN_CONFIG",
+    "train_cases": 256,
+    "trainable_components": [
+      "reader.value_proj",
+      "reader.output_proj",
+      "reader.gate_net"
+    ],
+    "weight_decay": 0.0
+  },
+  "schema": "ttm.vm.externalfacts.cpu_pilot.preexecution_readiness.v1",
+  "science_execution": "NOT_AUTHORIZED_NOT_EXECUTED",
+  "status": "PASS_SCOPED_PREEXEC_TECHNICAL_READINESS"
+}

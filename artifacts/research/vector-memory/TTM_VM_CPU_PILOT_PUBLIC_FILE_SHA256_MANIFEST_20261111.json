@@ -1,0 +1,9 @@
+{
+  "artifacts/research/vector-memory/TTM_VM_CPU_PILOT_INDEPENDENT_PREEXEC_QA_20261111.json": "1ae078eddf39a8aa7629b8e4c5ab9b9d02ddb957bd83205aebaaaddb2e27cc4b",
+  "artifacts/research/vector-memory/TTM_VM_CPU_PILOT_PREEXEC_READINESS_20261111.json": "f150185138db7aeddfccf197fb550175693b1f98a3c5cf0d53ae477a0a54b0a1",
+  "docs/research/vector-memory/TTM_VM_EXTERNAL_FACTS_CPU_PILOT_ONE_SHOT_PREREG_READINESS_20261111.md": "bc51a1133da6a4e5f22617aeab586413365fbb376a29e988184f14927e76e652",
+  "tools/research/vector-memory/Run-TTM-VM-ExternalFacts-Preexec-PS51.ps1": "1ab34c223a738a8c82ae98e85abaa5feb916c3540b53bdcb07731ac104870931",
+  "tools/research/vector-memory/cpu_pilot_independent_readiness_audit.py": "53aaadff24bc8ac4a455f6cf77afc11984f96e9c8ef6dfce0761d25edb5525c7",
+  "tools/research/vector-memory/cpu_pilot_one_shot.py": "2de7bc5274ac1e956d2ea6c7043b244f5bf7547cd918f8ea94b4a020d0a6493c",
+  "tools/research/vector-memory/cpu_pilot_readiness.py": "c6575af2e259fde9bdf604ef699bcf706e09b8719e1e283cbc9a4064bab0b296"
+}
