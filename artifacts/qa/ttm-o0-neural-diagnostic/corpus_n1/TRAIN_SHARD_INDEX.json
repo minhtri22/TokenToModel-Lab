@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.o0.n1.public_train_shards.v1",
+  "generator_git_blob": "008936285e511446ec61be8668aa7c3480b1a785",
+  "full_train_rows": 4096,
+  "shards": [
+    {
+      "range": [
+        0,
+        512
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_01_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_01_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        512,
+        1024
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_02_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_02_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        1024,
+        1536
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_03_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_03_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        1536,
+        2048
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_04_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_04_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        2048,
+        2560
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_05_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_05_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        2560,
+        3072
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_06_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_06_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        3072,
+        3584
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_07_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_07_MODEL_INPUT_ONLY.json",
+      "records": 512
+    },
+    {
+      "range": [
+        3584,
+        4096
+      ],
+      "oracle_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_08_PUBLIC_ORACLE.json",
+      "model_path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_08_MODEL_INPUT_ONLY.json",
+      "records": 512
+    }
+  ]
+}
