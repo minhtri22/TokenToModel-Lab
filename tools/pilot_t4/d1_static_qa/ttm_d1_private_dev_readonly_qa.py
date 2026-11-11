@@ -27,7 +27,7 @@ PUBLIC_HISTORY = (
     WORKTREE / "artifacts" / "research" / "ttm-small4m-quality-gap"
     / "TTM_FRESH16_ALLOWED_PUBLIC_HISTORICAL_PROMPTS_20261111.json",
 )
-SEEDS = (2026111201, 2026111202, 2026111203)
+SEED_COUNT = 3  # only cardinality is public; values reside in private pack
 CATEGORIES = ("entity_location", "causal_reasoning", "rule_constraint", "goal_persistence")
 
 def digest(b: bytes) -> str:
@@ -142,6 +142,14 @@ def main() -> None:
         f=fam[r["family_id"]]
         if f["fact_A"] in r["prompt_text"] or f["fact_B"] in r["prompt_text"]:
             die("PRIOR_FACT_LEAKAGE:" + r["id"])
+    # Seeds are private, unique, integer-valued and committed in the private manifest.
+    # Never publish their literal values in checker source or public receipts.
+    seed_groups = [d for d in obj["run_parameters"]["decode"] if d.get("method") == "nucleus"]
+    if len(seed_groups) != 1:
+        die("NUCLEUS_DECODE_SPEC_MISMATCH")
+    seeds = seed_groups[0].get("seeds")
+    if not isinstance(seeds, list) or len(seeds) != SEED_COUNT or len(set(seeds)) != SEED_COUNT or any(type(s) is not int for s in seeds):
+        die("PRIVATE_NUCLEUS_SEED_INVALID")
     maps = obj["blind_mapping_private"]
     if len({r["blind_id"] for r in maps}) != 512:
         die("BLIND_ID_COLLISION")
@@ -152,7 +160,7 @@ def main() -> None:
         coverage[r["prompt_id"]].append((r["decoder"], r["seed"]))
     for pid in seen_id:
         pairs = coverage[pid]
-        if sorted(pairs, key=lambda q: (q[0], q[1] or 0)) != sorted([("GREEDY",None)]+[("NUCLEUS",s) for s in SEEDS], key=lambda q:(q[0], q[1] or 0)):
+        if sorted(pairs, key=lambda q: (q[0], q[1] or 0)) != sorted([("GREEDY",None)]+[("NUCLEUS",s) for s in seeds], key=lambda q:(q[0], q[1] or 0)):
             die("BLIND_DECODER_SEED_MISMATCH:" + pid)
     if any(sum(f["candidate_order_in_manifest"] == "A_then_B" for f in fam.values() if f["category"] == c) != 2 for c in CATEGORIES):
         die("COUNTERBALANCE_MISMATCH")
