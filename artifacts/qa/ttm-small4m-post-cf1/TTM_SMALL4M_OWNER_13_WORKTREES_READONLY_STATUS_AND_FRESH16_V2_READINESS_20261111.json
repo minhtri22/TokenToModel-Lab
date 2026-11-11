@@ -1,0 +1,124 @@
+{
+  "schema": "ttm.small4m.owner_git_worktree_readback_and_fresh16_v2_merged_status.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_OWNER_LOCAL_ALL_WORKTREES_READONLY_QA_AND_LATEST_FRESH16_V2_SOURCE_GATE_RECONCILIATION",
+  "evidence_level": "OWNER_POWERSHELL_OUTPUT_PLUS_GITHUB_READBACK_NOT_INDEPENDENT_NATIVE_GIT_STATUS",
+  "project_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+  "local_main": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "observed_remote_tracking_main": "d4ec548727ba85625d1bf2684d85ec9e6867572b",
+  "github_main": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "git_ahead_of_local_main": 146,
+  "scan": {
+    "git_worktrees_total": 13,
+    "project_scoped_worktrees": 11,
+    "outside_project_skipped": 2,
+    "project_scoped_zero_status": 8,
+    "project_scoped_nonzero_status": 3,
+    "status_entries_total": 22,
+    "outside_project_worktrees": [
+      "D:\\WORK\\RESEARCH\\.remotemcp\\w\\prj_1544c3e94ebd4b2947bc84e9\\tsk_4fb1b1663e6de4c303138660",
+      "D:\\WORK\\RESEARCH\\.remotemcp\\w\\prj_1544c3e94ebd4b2947bc84e9\\tsk_a219c435c867be41ddc5c4fc"
+    ],
+    "project_worktrees": [
+      {
+        "path": ".",
+        "name": "main",
+        "status_entry_count": 8,
+        "known_classification": "UNTRACKED_8_NO_TRACKED_CHANGES",
+        "preserve": true
+      },
+      {
+        "path": ".worktrees/cf1-dev36-once-evidence-20261111",
+        "name": "CF1 one-shot",
+        "status_entry_count": 0
+      },
+      {
+        "path": ".worktrees/ttm-t6-pr15-20261109",
+        "name": "T6 PR15 detached",
+        "status_entry_count": 3,
+        "preserve": true,
+        "classification": "UNKNOWN_TRACKED_OR_UNTRACKED"
+      },
+      {
+        "path": "worktrees/p00-source-docs-diagrams-20261105",
+        "name": "P00",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/p01-f0-static-i0a-20261105",
+        "name": "P01",
+        "status_entry_count": 11,
+        "preserve": true,
+        "classification": "UNKNOWN_TRACKED_OR_UNTRACKED"
+      },
+      {
+        "path": "worktrees/ttm-fresh16-quality-20261111",
+        "name": "FRESH16",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/ttm-ollama-full-logits-20261111",
+        "name": "Ollama logits",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/ttm-r2a-codex-review-20261111",
+        "name": "R2A independent review",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/ttm-six-g1-v1c-distinct-review-20261109",
+        "name": "SIX G1 V1C",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/ttm-six-g1-windows-distinct-20261110",
+        "name": "SIX G1 windows",
+        "status_entry_count": 0
+      },
+      {
+        "path": "worktrees/ttm-vm-external-20261111",
+        "name": "VM external detached",
+        "status_entry_count": 0
+      }
+    ],
+    "no_git_mutations_this_turn": true,
+    "child_worktree_git_status_verified_from_owner_output": true,
+    "exact_file_names_in_p01_t6": "NOT_DISCLOSED",
+    "untracked_paths_safe_to_discard": "NO",
+    "all_worktrees_clean": "NO",
+    "safe_to_git_clean_reset_prune": "NO"
+  },
+  "current_source": {
+    "research_branch": "research/ttm-small4m-post-cf1-language-fresh-gap-reconcile-20261111",
+    "prior_research_branch_head": "8a3ebecd16e7999e81d5e795b154a75a62e0e0db",
+    "fresh16_git_head": "202477787a14cd2c30649bb9dab8f630573479f0",
+    "fresh16_v2_amendment_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "fresh16_v2_receipt_blob": "1dd2ddd7d3ca5c054fedefa5b7ea574d98e4a660",
+    "frozen_original_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+    "frozen_original_prompt_blob": "6299a073f0b7c7f8ea890ba9d29eaed9442f1f",
+    "frozen_original_rubric_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "fresh16_local_worktree_head": "6c4ba3946d6ddd3d0b4dcdc8348f7f734289d2e2",
+    "ac_branch_head": "837289fda82b41653a61b74e476f76a0b4c4137c",
+    "ac_native_v1_result": "HOLD_NATIVE_QA_FAILED",
+    "ac_native_v2_actual_result": "NOT_FOUND_OR_NOT_REPORTED"
+  },
+  "decision": {
+    "root_git_tracked_status": "CLEAN_OWNER_REPORT",
+    "root_git_untracked_status": "8_PRESERVE",
+    "clean_scoped_worktrees": 8,
+    "worktrees_requiring_preservation": 3,
+    "external_worktree_boundary": "NOT_TOUCHED",
+    "git_sync": "NOT_AUTHORIZED_NOT_DONE",
+    "fresh16_v2_protocol_review": "NOT_APPROVED",
+    "fresh16_outcome_redefinition": "PROSPECTIVE_V2_CANDIDATE_NOT_ADOPTED",
+    "fresh16_cpu32": "NO_GO_HOLD",
+    "ac_training": "NO_GO_HOLD",
+    "science": "NOT_EXECUTED",
+    "prune_reset_clean": "PROHIBITED",
+    "main_unchanged": true,
+    "pr13_unchanged": true,
+    "lineage_unchanged": true
+  },
+  "next": "TTM_FRESH16_V2_SINGLE_INDEPENDENT_PROTOCOL_FINAL_REVIEW_AND_OWNER_AMENDMENT_DECISION_DESIGN_ONLY"
+}
