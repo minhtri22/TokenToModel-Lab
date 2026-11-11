@@ -69,7 +69,7 @@ Distribution-matching guard (TRAIN only, no lexical gold): source-wise mean, cov
 
 ## 4. Lexical outcome and statistical pre-registration
 
-**Primary (37 pair independent-word core):** all 37 human scores remain sealed until exact score files and all P/N/C vector hashes, transformations and analysis code have been frozen. Compute Spearman rho(cosine, human score) separately for P-A, P-C and N-A; use the same original donor-to-T1 mapping / original 512D input space before TTM training as the source-origin test. Vector source is input embedding, not donor text-model forward.
+**Primary (37 pair independent-word core):** selection of all 37 pairs did not use human scores, but the source is PUBLIC and score bytes are **not under independent custody yet**; do not claim they have already been sealed. Before using the scores, an independent custodian must pin the gold file, scorer, all P/N/C vector hashes and source transformations, with no selective unblinding. Compute Spearman rho(cosine, human score) separately for P-A, P-C and N-A; use the same original donor-to-T1 mapping / original 512D input space before TTM training as the source-origin test. Vector source is input embedding, not donor text-model forward.
 
 Primary contrasts:
 - L_origin = rho(P-A) - mean across predeclared N-A initialization seed blocks of rho(N-A).
