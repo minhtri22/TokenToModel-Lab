@@ -2,7 +2,7 @@
 
 **Ngày:** 2026-11-11. **Nhánh:** research/ttm-vector-memory-architecture-20261111.
 
-**Kết quả:** PASS_SOURCE_ONLY_SYNTHETIC_QA (35/35 kiểm tra tích hợp; 15/15 kiểm tra độc lập). Đây là kết quả kỹ thuật trên dữ liệu và tensor tổng hợp, không phải kết quả khoa học trên checkpoint đã huấn luyện.
+**Kết quả:** PASS_SOURCE_ONLY_SYNTHETIC_QA (36/36 kiểm tra tích hợp; 16/16 kiểm tra độc lập). Đây là kết quả kỹ thuật trên dữ liệu và tensor tổng hợp, không phải kết quả khoa học trên checkpoint đã huấn luyện.
 
 ## Nguồn và giới hạn
 
@@ -18,7 +18,7 @@
 Question -> trích xuất một mã thực thể từ chính nội dung câu hỏi -> Oracle tìm duy nhất một key trong ba fact cards. Hàm oracle_key_mask chỉ nhận question và memory_cards, không nhận gold label, answer hoặc target_key từ metadata.
 
 Memory Reader nhận riêng vector Key và Value, dùng Query/Key/Value projections 64/128 chiều, masked Cross-Attention, Adaptive Gate theo từng input, residual lên hidden state sau frozen P02 và trước cùng tied output head. Các đối chứng:
-- No memory: mask tất cả; giữ nguyên hidden state và logits theo phép so bit-exact.
+- No memory: bỏ qua hoàn toàn fact cards (không truy vấn key, không gọi tokenizer), trả về memory tensor K=0 và giữ nguyên hidden state/logits bit-exact ngay cả sau khi Reader bị can thiệp.
 - Đúng memory: chỉ chọn một record có key trùng thực thể trong câu hỏi.
 - Sai memory: đổi đúng value của record mục tiêu, giữ nguyên key, vị trí và hai distractor.
 
@@ -26,14 +26,14 @@ Output projection khởi tạo zero nên Reader ban đầu không thay đổi lo
 
 ## Bằng chứng
 
-- Primary source-only QA 35/35 PASS: pinned P02 và fixture blobs; toàn bộ 320 TRAIN/DEV cases; negative-key cases; no-memory bit-exact; cold-init bit-exact; swap-value sensitivity; distractor masking; mixed-batch; frozen parameters; không gradient.
-- Independent second-path QA 15/15 PASS: xác nhận lại nguồn, oracle không đọc gold/target metadata, foil value, zero-init bypass và random P02 full-logit parity.
+- Primary source-only QA 36/36 PASS: pinned P02 và fixture blobs; toàn bộ 320 TRAIN/DEV cases; negative-key cases; no-memory bit-exact; cold-init bit-exact; swap-value sensitivity; distractor masking; mixed-batch; frozen parameters; không gradient.
+- Independent second-path QA 16/16 PASS: xác nhận lại nguồn, oracle không đọc gold/target metadata, foil value, zero-init bypass và random P02 full-logit parity.
 - Random P02 smoke dùng đúng P02 Git blob và topology n_layer=4, n_head=4, n_embd=256, max_seq_len=256. Đầu ra full-model với bypass và cold-init Reader trùng từng phần tử. **Đây là random-weight technical smoke; checkpoint TRAINED chưa được sử dụng.**
 - QA artifacts và Python runner lưu cùng thư mục tools/research/vector-memory và artifacts/research/vector-memory.
 
 ## Hạn chế khoa học
 
-Oracle mask chỉ cho phép đúng một memory card hoạt động; attention weight ở card này bằng 1. Do đó QA không chứng minh khả năng xếp hạng truy xuất theo ngữ nghĩa hoặc learned key-query attention. Không có bằng chứng Reader giảm NLL, sao chép đúng nhãn, hoặc cải thiện mô hình. RETRIEVED_TOPK, teacher-forced answer-only NLL, cấu hình chọn qua DEV và TEST one-shot chưa chạy.
+No-memory QA mới còn đưa payload không hợp lệ và tokenizer chủ động phát lỗi để chứng minh đường bypass không truy cập hay mã hóa fact nào. Oracle mask chỉ cho phép đúng một memory card hoạt động; attention weight ở card này bằng 1. Do đó QA không chứng minh khả năng xếp hạng truy xuất theo ngữ nghĩa hoặc learned key-query attention. Không có bằng chứng Reader giảm NLL, sao chép đúng nhãn, hoặc cải thiện mô hình. RETRIEVED_TOPK, teacher-forced answer-only NLL, cấu hình chọn qua DEV và TEST one-shot chưa chạy.
 
 ## Quyết định
 
