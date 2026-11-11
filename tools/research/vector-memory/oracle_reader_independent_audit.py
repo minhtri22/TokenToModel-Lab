@@ -40,7 +40,7 @@ def main():
  verify('02_exact_train_source_blob',git_blob(train)==BLOBS['train'])
  verify('03_exact_dev_source_blob',git_blob(dev)==BLOBS['dev'])
  original=json.loads(args.result.read_text('utf8'))
- verify('04_primary_35_checks_pass',original['checks_passed']==original['checks_total']==35 and all(original['checks'].values()))
+ verify('04_primary_36_checks_pass',original['checks_passed']==original['checks_total']==36 and all(original['checks'].values()))
  verify('05_primary_model_and_TEST_not_used',original['integrity']['trained_checkpoint_read'] is False and original['integrity']['TEST_read_or_decrypted'] is False and original['integrity']['optimizer_steps']==0)
  r=dynamic_module('vm_reader_independent',reader_src)
  verify('06_oracle_input_only_question_memory',list(inspect.signature(r.oracle_key_mask).parameters)==['question','memory_cards'])
@@ -97,6 +97,8 @@ def main():
   test=model.head(hs2)
  verify('14_independent_fresh_p02_random_full_logits_bit_exact',torch.equal(fwd,test))
  verify('15_no_optimizer_test_or_checkpoint_access',not any(x in reader_src.read_text() for x in ['torch.load(', 'AESGCM','TEST_SECRET','torch.optim.']))
+ bad=r.encode_cards_for_reader(['No memory needed'],[[{'bad':'invalid'}]],lambda _: (_ for _ in ()).throw(AssertionError('ENCODER_CALLED')),frozen_table,no_memory=True)
+ verify('16_no_memory_skips_lookup_and_fact_encoding',bad.keys.shape==(1,0,256) and bad.values.shape==(1,0,256) and bad.mask.shape==(1,0))
  out={'schema':'ttm.vm.oracle_reader.independent_source_qa.v1',
       'status':'PASS_INDEPENDENT_SOURCE_ONLY' if all(checks.values()) else 'FAIL',
       'checks_passed':sum(checks.values()),'checks_total':len(checks),'checks':checks,
