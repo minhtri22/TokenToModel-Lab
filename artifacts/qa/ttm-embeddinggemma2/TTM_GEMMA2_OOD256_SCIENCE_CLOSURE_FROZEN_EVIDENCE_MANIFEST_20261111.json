@@ -1,0 +1,124 @@
+{
+  "schema": "ttm.gemma2.ood256.science_closure.content_addressed.v1",
+  "operation": "TTM_GEMMA2_OOD256_SCIENCE_CLOSURE_AND_NEXT_HYPOTHESIS_REVIEW",
+  "created_on": "2026-11-11",
+  "scope": "close and preserve existing science; new hypotheses DESIGN_ONLY",
+  "science_verdict": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT",
+  "conclusion_scope": "One pinned WikiText-2 raw evaluation corpus; conditional on exactly 3 fixed training seeds; not semantic-causal proof",
+  "lineage": {
+    "original_study_commit": "13820a972c99c2670e8ab32ee01eb51763479aae",
+    "original_study_head_at_closure": "13820a972c99c2670e8ab32ee01eb51763479aae",
+    "science_ood_adjudicated_commit": "6f3c73401b1724b6040dd1f877bc4c0c514f60f2",
+    "lineage_at_science_close_git_blob": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2",
+    "prior_lineage_at_L0020_git_blob": "3bd60e32e28cc358740953df5bd0ad180862a9fc",
+    "L0020": "PRESERVED_BYTE_EXACT_WITHIN_L0021_APPEND_ONLY",
+    "L0021": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT",
+    "L0022": "NOT_CREATED_FOR_ADMINISTRATIVE_CLOSURE",
+    "target_branch": "research/ttm-small4m-embeddinggemma2-ood-design-20261111",
+    "main_merge": "NONE"
+  },
+  "study": {
+    "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+    "checkpoint_step": 2048,
+    "checkpoint_seed_count": 3,
+    "checkpoint_arm_count": 4,
+    "checkpoint_sha256": {
+      "S1/PT-REAL": "cf3e6863215555b639fd4d3582f77f2b997c05dc5269cd411342bf660632cf46",
+      "S1/PT-PERM": "dd62bf4695ec9dd4175817c1e3c663389b1282ead560a267f02c7d97a54960fb",
+      "S1/NULL-REAL": "59bb203f5ba2a02e56778200d21ec26c2898bed12a2644d9c860ae06aaffe9fb",
+      "S1/NULL-PERM": "9365403b0a2f4499405f348639d8ebd37e9d8997d0d10894ef23d0d57dbddb21",
+      "S2/PT-REAL": "1ea877b7c62e0b17fc757881a54cd1a4bd829128c0e406543723e871c6f432f1",
+      "S2/PT-PERM": "f1dba5a83772d2346222083039012f928917351ba48bdf843f8d4814dc24b60a",
+      "S2/NULL-REAL": "10ad0ffa8ffd58bee5276374562140e9e3bf580695a5a2e4f4d4bfc08ea42b25",
+      "S2/NULL-PERM": "a2740d762abdf760483f460716464631caf68f577491946de6d264b206a4aa5f",
+      "S3/PT-REAL": "272fd3987d5f5505807662ab62153ede927d76f1c87333affa98df8c6f55fb93",
+      "S3/PT-PERM": "c51a947f1d075e90a5199130e79a671c5257714d66a511fc2d9e78bbc7eac89d",
+      "S3/NULL-REAL": "b58a17f65d6ec949095a0d3d1ac3a91f26d3c71c7246a1ea64d2a4d224341c1e",
+      "S3/NULL-PERM": "ac6fe6ed4510eb6212609c1e913d6102782a78dcb4cfc2aa7743f6151ef07235"
+    },
+    "training_reexecuted": false,
+    "ood_inference_reexecuted": false,
+    "gguf_created": false,
+    "ood_corpus": "Salesforce/wikitext wikitext-2-raw-v1 train split used only as TTM EVAL",
+    "ood_source_revision": "6231e49f19a707241d6b84d9cff60a3a86b85a85",
+    "ood_parquet_sha256": "49280f3dd993cbdfd322186194133d5d1935f81e1c91064c239f2a70ebb02701",
+    "t1_bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "ood_document_count": 256,
+    "windows": 512,
+    "next_token_targets": 131072,
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 2026111198
+  },
+  "evidence": {
+    "stored_privately_in_google_drive_folder_id": "1cQ4kUtqqnII_xs6Q1qqM0R0JJT9owA7B",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1cQ4kUtqqnII_xs6Q1qqM0R0JJT9owA7B",
+    "drive_files": [
+      {
+        "name": "CLAIM.json",
+        "id": "1fhHEu9BBKC24mxHNPeBXLcw1UAdtErJU",
+        "sha256": "19c92d525d45bd5f6c72db92e8a10c2520ab18b776df113f389faadda76f7238",
+        "visibility": "private"
+      },
+      {
+        "name": "RESULT.json",
+        "id": "1olF1FJ77C0EI0LbABC1NlbWLhQylT60W",
+        "sha256": "5faa962919dfd56980c2b826fb341b6d90780adb2369d9c03c05d4ca42c55f9c",
+        "visibility": "private"
+      },
+      {
+        "name": "INDEPENDENT_READBACK_PUBLIC.json",
+        "id": "1XRkNiz9idG51l0SOhDzmUNDOgJk53H04",
+        "sha256": "34f8174bcd835c5d3c130dff4f82dd0a9623ada24924fddf87b2d0561bdf03f6",
+        "visibility": "private_storage_public_content"
+      },
+      {
+        "name": "PER_DOCUMENT_PRIVATE.json",
+        "id": "1PSaiGYQ9ggWUOR8OAY9Zaq_EkhgPYi-N",
+        "sha256": "f3b4a91109054b0c4cbc45afe3f8f90845caa6bc9b8f8c8dd304b70edc9d877e",
+        "visibility": "private_do_not_publish"
+      }
+    ],
+    "sealed_ood_inputs_in_private_drive_folder_id": "1nEWtmyK_8sdeZAdUd7LdYnC08nOZfJjx",
+    "sealed_ood_input_sha256": {
+      "OOD256_PUBLIC_SEAL.json": "0091b56b27c68f1bb724b63181097434d6c7c5922e5cc1de929423b5b0c45438",
+      "OOD256_PRIVATE_MEMBERSHIP.json": "627c99db8b39b6479fdb074a82b0ab7eea0367dde49bf0072c29ff410ecdcd5f",
+      "OOD256_PRIVATE_WINDOWS.npz": "3ec7655c512c5d13d4c0d04d1ddbae80b8ea0106aee82064e8dd806786d8336a"
+    },
+    "per_arm_score_receipts_verified": 12,
+    "source_independent_adjudication_path": "artifacts/qa/ttm-embeddinggemma2/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENCE_ADJUDICATION_20261111.json",
+    "source_independent_adjudication_git_blob": "a823eb99fe12d862c12d0c5a9e91817f2299419f",
+    "source_report_path": "docs/pilot/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENTIFIC_ADJUDICATION_20261111.md",
+    "source_report_git_blob": "dda35d3f8154de346e93c454cf3832c3ac461eaf",
+    "closure_readback": "CURRENT_DRIVE_CLAIM_RESULT_INDEPENDENT_FIELDS_RECHECKED_NO_INFERENCE",
+    "prior_independent_sha_actual_bytes": "PASS_4_CLAIM_RESULT_PER_DOCUMENT_INDEPENDENT",
+    "private_content_embedded_public": false,
+    "storage_immutability": "NOT_ENFORCED_BY_GOOGLE_DRIVE; SHA_PINNED_CONTENT_ADDRESSED_ONLY"
+  },
+  "scientific_metrics": {
+    "tau_residual": {
+      "mean": 0.06836278721978761,
+      "ci95": [
+        0.06235342572949934,
+        0.07423878749033531
+      ],
+      "seeds_positive": 3
+    },
+    "gamma_real": {
+      "mean": 0.0479801420718878,
+      "ci95": [
+        0.04355893220445865,
+        0.052225954797402115
+      ],
+      "seeds_positive": 3
+    }
+  },
+  "next_hypothesis": {
+    "status": "DESIGN_ONLY_NOT_REGISTERED_FOR_SCIENTIFIC_EXECUTION",
+    "rank": "HIGH_CONDITIONAL_ON_GEOMETRY_MATCHING_FEASIBILITY",
+    "question": "Does token-semantic assignment of donor residual improve new held-out next-token NLL after controlling for original Ridge projection, per-token norms, and low-order geometry?",
+    "historic_ood256_use_in_new_hypothesis": "FORBIDDEN_AS_NEW_CONFIRMATORY_TEST",
+    "owner_new_science_permit": "NOT_ISSUED",
+    "new_training": "NOT_AUTHORIZED"
+  },
+  "closure": "PASS_SCOPED_EVIDENCE_PINNED_CONTENT_ADDRESSED; NO_NEW_SCIENCE"
+}
