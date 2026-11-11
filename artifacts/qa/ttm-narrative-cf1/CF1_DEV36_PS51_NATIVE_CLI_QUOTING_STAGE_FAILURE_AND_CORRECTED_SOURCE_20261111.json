@@ -1,0 +1,41 @@
+{
+  "schema": "ttm.cf1.dev36.ps51.native_argument_quoting.recovery.v1",
+  "date": "2026-11-11",
+  "task": "TTM_CF1_DEV36_OWNER_LOCAL_ONESHOT_EXECUTION_AND_GITHUB_READBACK",
+  "user_supplied_windows_evidence": {
+    "git_fetch": "PASS_SOURCE_BRANCH_FETCHED",
+    "python_staging": "FAIL_SYNTAXERROR_BEFORE_FILE_WRITE",
+    "original_error": "SyntaxError: '(' was never closed",
+    "exact_staged_ps51_path_exists": "NO_AS_REPORTED_AND_REMOTE_DIR_READBACK",
+    "script_invocation": "FAIL_SCRIPT_FILE_NOT_FOUND",
+    "neural_inference": "NOT_EXECUTED",
+    "oneshot_execution_dir": "NOT_PRESENT_DURING_REMOTE_READBACK",
+    "evidence_branch": "NOT_FOUND_DURING_GITHUB_READBACK",
+    "oneshot_consumed": "NO"
+  },
+  "root_cause": "PowerShell 5.1 removed nested double quotes in native python -c argument surrounded by PowerShell single quotes. Both outer script staging command and internal wrapper contained the unsafe pattern.",
+  "corrected_source": {
+    "branch": "research/ttm-o0-narrative-cf1-source-scorer-blind-readiness-20261111",
+    "old_wrapper_git_blob": "59a7e90e7e1284303bda716937b4632094d77693",
+    "new_wrapper_git_blob": "4a4c50d1cd9f61080a043d93ef7397f663706d08",
+    "new_document_git_blob": "b27c2417bc48aa323ba80607bb8db1c45eb6cccf",
+    "static_source_checks": "PASS_12_OF_12",
+    "fix": "PowerShell outer double-quoted Python command; Python inner single-quoted string literals, no escaped nested double quotes; Git SHA1 blob includes bytes([0]) separator",
+    "requires_new_fetch": true,
+    "requires_exact_blob_sha_readback": true,
+    "local_stage_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\Run-TTM-CF1-DEV36-Once-Owner-PS51-20261111.ps1",
+    "do_not_use_old_blob": true
+  },
+  "scope_guards": {
+    "main_unchanged": true,
+    "PR13_draft": true,
+    "lineage_unmodified": true,
+    "data_DEV_only": true,
+    "FINAL_sealed": true,
+    "TEST_Q1Q2_unread": true,
+    "GPU_calls": 0,
+    "training_steps": 0,
+    "neural_results_available": false
+  },
+  "adjudication": "NO_SCIENCE_RESULT_ONE_SHOT_NOT_STARTED__RECOVER_STAGE_ONLY_AND_RUN_ORIGINAL_ONCE"
+}
