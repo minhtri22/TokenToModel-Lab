@@ -1,0 +1,64 @@
+{
+  "DEV": {
+    "family_counts": {
+      "C1": 12,
+      "C2": 12,
+      "C3": 12
+    },
+    "last_sentence_identical_contexts": 36,
+    "motif_count": 12,
+    "motif_repetitions": [
+      3
+    ],
+    "pair_ids_unique": true,
+    "pairs": 36,
+    "person_swap_only_context_pairs": 36,
+    "simple_first_name_heuristic_correct": 36,
+    "simple_first_name_heuristic_total": 36,
+    "strict_label_orientation_valid": 36
+  },
+  "DEV_FINAL_5gram_Jaccard_ge_0_85_pairs": 0,
+  "DEV_FINAL_exact_context_overlap": 0,
+  "DEV_FINAL_exact_pair_overlap": 0,
+  "DEV_FINAL_max_5gram_Jaccard": 0.0112,
+  "DEV_FINAL_motif_id_overlap": 0,
+  "DEV_sha256": "3a425188077f24041a02fe9675e5a503221fe5cc0247ebd53a8cc266329c046d",
+  "FINAL_PRIVATE_AGGREGATES_ONLY": {
+    "family_counts": {
+      "C1": 24,
+      "C2": 24,
+      "C3": 24
+    },
+    "last_sentence_identical_contexts": 72,
+    "motif_count": 24,
+    "motif_repetitions": [
+      3
+    ],
+    "pair_ids_unique": true,
+    "pairs": 72,
+    "person_swap_only_context_pairs": 72,
+    "simple_first_name_heuristic_correct": 72,
+    "simple_first_name_heuristic_total": 72,
+    "strict_label_orientation_valid": 72
+  },
+  "GPU_used": false,
+  "data_blindness": "FINAL_LABELS_ENCRYPTED_ONLY_GITHUB",
+  "dev_natural_language_draft_is_templated": true,
+  "encrypted_final_author_source_sha256": "8acb265b77a84edcfe43da7cded1020f9d09821f3ec523ac482c7db824a813df",
+  "encrypted_final_ciphertext_sha256": "28c1670a609b80214f1ec852cd04df622bc210fb17f3ddccea5300f086218365",
+  "failure_classification": "SHALLOW_FIRST_PERSON_MENTION_PREDICTS_100_PERCENT_IN_SOURCE_GRAMMAR",
+  "final_plaintext_sha256_commitment": "5a22715cd397604fc72c4897c43be825acf63f9dfa2b7450e85c0b531673a4a0",
+  "independent_semantic_review": "NOT_EXECUTED",
+  "model_inference_executed": false,
+  "model_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+  "notes": [
+    "DEV and FINAL use 36 hand-authored scenario bases, three cast variations each; not 108 structurally independent plots",
+    "Distinct motif IDs do not prove query-conditioned causal-graph OOD",
+    "The first-person-name shortcut works on both A and B; cannot claim state-specific benchmark discrimination",
+    "Do not use private FINAL as science holdout until human/Codex reviewer checks unambiguous labels and structural independence."
+  ],
+  "schema": "ttm.cf1.narrative_public_DEV_and_private_FINAL.author_content_QA.v1",
+  "scientific_state_reasoning_discrimination": "FAIL_SCOPED",
+  "status": "PASS_FORMAL_SOURCE_QA_WITH_SHALLOW_SHORTCUT_AND_REVIEW_LIMIT",
+  "training_executed": false
+}
