@@ -1,0 +1,72 @@
+{
+  "schema": "ttm.fresh16.v2.e0.source_only_runner_implementation_gate.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_E0_PREPARE_RUNNER_SEALED_MAP_SINGLE_READINESS_GATE",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_base_head": "89dcbe1af040802472428ed73eaf2b4e030013b0",
+  "owner_v2": "ADOPTED",
+  "frozen_source": {
+    "scientific_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+    "prompt_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "original_rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "adopted_v2_git_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "p02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "bpe_source_git_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "checkpoint_1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_1280_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "trained_config": {
+      "vocab_size": 2048,
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "norm_type": "layernorm"
+    },
+    "trainable_params": 3749376
+  },
+  "implemented": {
+    "runner": {
+      "path": "tools/research/ttm_small4m_quality_gap/ttm_fresh16_v2_e0.py",
+      "git_blob": "1fa550fb48f073f7a27fcbfdd2fd5f8672aa2053",
+      "sha256": "07e25ee563fce4861f2eaefefe718deb10a0ff64bb000f93730bca3d19270f5f"
+    },
+    "packet_gate": {
+      "path": "tools/research/ttm_small4m_quality_gap/ttm_fresh16_v2_packet_gate.py",
+      "git_blob": "244c49c188c4645825af9f1bd048fbad535019d3"
+    },
+    "tests": {
+      "path": "tools/research/ttm_small4m_quality_gap/test_e0_source_only.py",
+      "git_blob": "3d33351b121bb774811d420eb1b3262f2573afd0"
+    },
+    "powershell": {
+      "path": "tools/research/ttm_small4m_quality_gap/Invoke-TTM-Fresh16-V2-E0-PS51.ps1",
+      "git_blob": "e1351962f488411fec219c9762b849a364e50073"
+    }
+  },
+  "observed": {
+    "python_source_syntax": "PASS_BOTH",
+    "sandbox_source_only_unit_tests": "PASS_5_OF_5",
+    "original_step1280_binary_sha256": "PASS_IN_SANDBOX_FROM_ORIGINAL_RAW_BYTES",
+    "original_step1280_weights_only_metadata": {
+      "step": 1280,
+      "config_verified": true,
+      "model_state_dict_entries": 53,
+      "unique_params": 3749376,
+      "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "forward_executed": false
+    },
+    "owner_windows_prior_source_qa": "PASS_11_UNIT_TESTS_BPE_16_AND_CHECKPOINT_SHA_2",
+    "owner_windows_e0_prepare": "NOT_EXECUTED",
+    "source_only_map_generated_on_owner_windows": false,
+    "source_only_runner_win32_integration": "NOT_EXECUTED",
+    "map_anchor_commit": "NOT_CREATED",
+    "actual_S1_session": "UNASSIGNED",
+    "actual_S2_session": "UNASSIGNED",
+    "science_forward_executed": false,
+    "training_executed": false,
+    "TEST_read": false
+  },
+  "single_gate_decision": "NO_GO_HOLD",
+  "next_step": "RUN_ONE_WINDOWS_E0_PREPARE_WITH_EXACT_HEAD_THEN_MAP_ANCHOR_AND_ONE_OWNER_GO_NO_GO"
+}
