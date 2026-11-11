@@ -39,7 +39,7 @@ def sha256(data: bytes) -> str:
 
 
 def git_blob_id(data: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\0" + data).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
 
 
 def git_read(repo: Path, blob_id: str) -> bytes:
@@ -63,7 +63,7 @@ def check_within(path: Path, root: Path) -> Path:
 def write_new_json(path: Path, obj: dict) -> None:
     with path.open("x", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, sort_keys=True, indent=2)
-        f.write("\\n")
+        f.write("\n")
         f.flush()
         os.fsync(f.fileno())
 
