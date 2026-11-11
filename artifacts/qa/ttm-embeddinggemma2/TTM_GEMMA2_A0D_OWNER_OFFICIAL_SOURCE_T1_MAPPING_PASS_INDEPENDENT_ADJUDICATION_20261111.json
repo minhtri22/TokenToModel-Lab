@@ -1,0 +1,95 @@
+{
+  "schema": "ttm.gemma2.a0d.owner_exact_donor_official_class_t1_mapping_independent_adjudication.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0D_OWNER_LOCAL_PINNED_DONOR_TOKENIZER_AND_OFFICIAL_TRANSFORMERS_CLASS_ONE_INTEGRATED_READBACK",
+  "scope": "INTEGRATED_TECHNICAL_PROVENANCE_QA_NOT_SCIENCE_OUTCOME",
+  "primary_receipt": {
+    "filename": "TTM_GEMMA2_A0D_ISOLATED_CPU_READBACK_20261111_105145_384.json",
+    "root_relative_path": "artifacts/qa/ttm-embeddinggemma2/a0d_owner_local_readback/TTM_GEMMA2_A0D_ISOLATED_CPU_READBACK_20261111_105145_384.json",
+    "sha256_independently_recomputed_from_uploaded_bytes": "f4c4c0b44d588a876fdc8cf02f9b333820ac244f9c048cf9ee62bcf4d312e81a",
+    "user_reported_sha256": "F4C4C0B44D588A876FDC8CF02F9B333820AC244F9C048CF9EE62BCF4D312E81A",
+    "content_verified_against_original_windows_QA_file_via_authenticated_remote_read": true,
+    "remote_windows_file_sha256_independently_computed": false
+  },
+  "evidence_source_script": {
+    "python_source_git_blob": "6258b9f824e3ff8aabb1baba899f2a37894e8599",
+    "official_python_source_path": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0d_pinned_official_source_readback.py",
+    "owner_isolated_PS51_git_blob": "2dc280ffe52b46fba168564d42291bceb8c1a7a2",
+    "owner_isolated_PS51_path": "tools/embeddinggemma2_swap/semantics_origin_a0/Invoke-TTM-GEMMA2-A0D-IsolatedOfflinePy312-OwnerReadback-PS51.ps1",
+    "previous_static_Windows_PowerShell_QA_run": 43005706705
+  },
+  "exact_sources": {
+    "donor_repo": "google/embeddinggemma-2",
+    "donor_revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "files": {
+      "config.json": {
+        "sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+        "size": 4455
+      },
+      "tokenizer.json": {
+        "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4",
+        "size": 32170510
+      },
+      "tokenizer_config.json": {
+        "sha256": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874",
+        "size": 1599
+      }
+    },
+    "windows_verified_files_count": 3,
+    "private_T1_manifest_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "private_T1_data_contents_included_in_this_report": false
+  },
+  "owner_cpu_runtime": {
+    "python": "3.12.10",
+    "torch": "2.11.0+cpu",
+    "transformers": "5.19.0",
+    "project_local_isolated_venv_used": true,
+    "wheel_artifact_id": 13846859761,
+    "wheel_artifact_sha256": "17b292711ec27df09513c51013fd654155de9fe0a24b3534f56cd43b3b3a8b44",
+    "wheel_count_verified": 31,
+    "pip_exit_code": 0,
+    "python_readback_exit_code": 0,
+    "official_class_module": "transformers.models.embedding_gemma2.modeling_embedding_gemma2",
+    "official_class_name": "EmbeddingGemma2TextModel",
+    "tokenizer_class": "GemmaTokenizer",
+    "parameters": 271002624,
+    "state_tensors": 413,
+    "state_name_shape_dtype_sha256": "9e36b43011641e65bbdbdc2938d8c12a368810d9e59e2107024683288d2fecc1",
+    "initialization": "CPU_NO_FORWARD",
+    "original_ci_official_state_fingerprint_match": true
+  },
+  "original_T1_mapping": {
+    "total_T1_tokens": 2048,
+    "mapped": 1917,
+    "multi_id_mapped": 50,
+    "incomplete_utf8": 130,
+    "empty_or_special": 1,
+    "unmapped_or_invalid_donor_ids": 0,
+    "counts_match_original_locked_mapping": true
+  },
+  "independent_adjudication": {
+    "independent_receipt_sha256_check": "PASS",
+    "remote_QA_receipt_readback_field_parity": "PASS",
+    "combined_receipt_validation_checks": "PASS_13_OF_13",
+    "three_donor_source_hashes": "PASS_3_OF_3",
+    "official_CPU_class": "PASS_REAL_CLASS",
+    "T1_full_mapping": "PASS_COUNTS_AND_ZERO_INVALID_IDS",
+    "A0D_owner_local_provenance_gate": "PASS",
+    "experiment_science_inference_executed": false,
+    "training_executed": false,
+    "model_forward_executed": false,
+    "pretrained_weights_loaded": false,
+    "OOD256_reused": false,
+    "checkpoint_written": false,
+    "T4_permit_issued": false,
+    "T4_2x2_execution": "HOLD",
+    "lexically_independent_confirmatory_dataset": "NOT_READY",
+    "fresh_lexical_rubric_thresholds_preregistered": "NOT_READY",
+    "Causal_semantic_pretraining_claim": "NOT_SUPPORTED",
+    "L0022_new_science_result": "NOT_AUTHORIZED",
+    "science_lineage_md_append": "NO",
+    "main_branch_change": "NO"
+  },
+  "next_operation": "TTM_GEMMA2_A0E_FRESH_LEXICAL_INDEPENDENT_EVALUATION_AND_FOUR_ARM_PREREG_FREEZE_DESIGN_ONLY",
+  "rationale": "Scientific T4 pilot remains HOLD until new independent lexical sources and all confirmatory thresholds are preregistered and independently audited; no reuse of consumed TEST/OOD256/H768."
+}
