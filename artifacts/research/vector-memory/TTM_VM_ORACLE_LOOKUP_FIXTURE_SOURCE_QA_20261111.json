@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.vm.externalfacts.oracle_lookup.fixture_source_qa.v1",
+  "status": "PASS_SCOPED_STATIC_DATA_CONTRACT",
+  "scope": "TRAIN_AND_DEV_ONLY_NO_TEST",
+  "method": "Read GitHub fixed TRAIN and DEV JSON fixtures; derive target from question by exact entity pattern; lookup target key in 3 public fact cards; check value, foil, mask, record order and question answer absence",
+  "source_blobs": {
+    "train": "9e86317c055047fffebfb2d802889e69987a8c8b",
+    "dev": "ffc9d211508fbedc84db31235ecaad8d07596ece"
+  },
+  "counts": {
+    "train": 256,
+    "dev": 64,
+    "total": 320
+  },
+  "checks": {
+    "unique_case_ids": "PASS_320",
+    "independent_entity_extraction_from_question": "PASS_320",
+    "oracle_target_key_unique_in_three_cards": "PASS_320",
+    "correct_target_value_matches_fixture_label": "PASS_320",
+    "wrong_target_value_foil_preserves_keys_and_non_target_values": "PASS_320",
+    "record_rank_consistency": "PASS_320",
+    "no_memory_mask_empty": "PASS_320",
+    "no_answer_in_question": "PASS_320"
+  },
+  "source_execution": "JAVASCRIPT_STATIC_FIXTURE_AUDIT_IN_ASSISTANT_SESSION",
+  "scientific_inference_calls": 0,
+  "trained_checkpoint_loaded": false,
+  "optimizer_steps": 0,
+  "test_read_or_decrypted": false,
+  "limits": "Does not establish model/reader learning, attention functionality, tokenizer manifest independent receipt readback or frozen-backbone parity",
+  "next_gate": "ORACLE_READER_FROZEN_BYPASS_SOURCE_ONLY_INTEGRATED_QA",
+  "lineage_update": "NONE_TECHNICAL_QA_ONLY"
+}
