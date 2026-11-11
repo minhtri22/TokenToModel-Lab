@@ -1,0 +1,32 @@
+name: TTM GEMMA2 A0E prospective two-party amendment CPU source-only QA
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0e-two-party-procedural-amendment-cpu-qa.yml
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_procedural_lock_v1.py
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_cross_origin_scalar_amendment_audit_v1.py
+      - tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py
+  workflow_dispatch:
+jobs:
+  amendment-static-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Compile three source-only amendment contracts
+        run: |
+          python -m py_compile \
+            tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_procedural_lock_v1.py \
+            tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_cross_origin_scalar_amendment_audit_v1.py \
+            tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py
+      - name: Two-party hash-lock synthetic and four negative cases, no gold
+        run: python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_procedural_lock_v1.py --fixture
+      - name: Scalar P/N source aggregate feasibility and negative, no tensors
+        run: python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_cross_origin_scalar_amendment_audit_v1.py --fixture
+      - name: Fail-closed amended preexecution with real file byte verification fixture
+        run: python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py --fixture
