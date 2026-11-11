@@ -1,0 +1,48 @@
+{
+  "schema": "ttm.cf1.dev36.ps51.checkpoint_search_acl_preflight_hold.v1",
+  "date": "2026-11-11",
+  "task": "TTM_CF1_DEV36_OWNER_LOCAL_ONESHOT_EXECUTION_AND_GITHUB_READBACK",
+  "source": "Owner-supplied PowerShell transcript plus remote read-only directory verification",
+  "observed_error": {
+    "command": "Get-ChildItem -LiteralPath $Root -Recurse -File -Filter '*.pt' -ErrorAction Stop",
+    "source_file": "_tmp/Run-TTM-CF1-DEV36-Once-Owner-PS51-20261111.ps1",
+    "source_line": 25,
+    "inaccessible_subdirectory": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\worktrees\\_ttm_p01_l1_service_provision_20261106",
+    "category": "UnauthorizedAccessException",
+    "error_id": "DirUnauthorizedAccessError",
+    "stage": "PRECHECKPOINT_DISCOVERY_BEFORE_INNER_PYTHON_RUNNER",
+    "cause": "recursive scan requested fail-fast on an unrelated access-controlled P01 worktree"
+  },
+  "verified": {
+    "one_shot_folder": "NOT_PRESENT_ON_OWNER_MACHINE_AT_REMOTE_READBACK",
+    "staged_wrapper": "PRESENT_IN_PROJECT_TMP",
+    "expected_evidence_branch": "NOT_FOUND_ON_GITHUB_EARLIER_CHECK",
+    "no_science_forward_in_this_attempt": true,
+    "checkpoint_source_candidate_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_container_copy_sha256_verified": true,
+    "checkpoint_container_copy_bytes": 45074891,
+    "original_manifest_status": "PRESENT_REMOTE_NOT_REHASHED_THIS_TURN"
+  },
+  "scoped_recovery": {
+    "action": "invoke existing pinned wrapper with -Checkpoint explicit path within TTM root",
+    "no_ACL_change": true,
+    "no_elevation": true,
+    "no_worktree_cleanup": true,
+    "no_original_wrapper_mutation": true,
+    "no_new_execution_identity": true,
+    "rerun_status": "PREEXEC_FAILURE_ONLY__EXISTING_SCIENCE_ONESHOT_UNCONSUMED",
+    "run_directory_guard": "STOP_IF_PRESENT",
+    "sha_guard": "FAIL_CLOSED_CHECKPOINT_SHA256",
+    "fallback_source": "exact SHA-matching 45074891 byte checkpoint copy can be downloaded by owner into project _tmp if not already present"
+  },
+  "governance": {
+    "main": "NOT_WRITTEN",
+    "PR13": "NOT_WRITTEN",
+    "lineage": "NOT_WRITTEN",
+    "neural_DEV_scores": "NOT_EXECUTED",
+    "FINAL": "SEALED_HOLD",
+    "GPU_calls": 0,
+    "training_steps": 0,
+    "Q1Q2_TEST": "UNTOUCHED"
+  }
+}
