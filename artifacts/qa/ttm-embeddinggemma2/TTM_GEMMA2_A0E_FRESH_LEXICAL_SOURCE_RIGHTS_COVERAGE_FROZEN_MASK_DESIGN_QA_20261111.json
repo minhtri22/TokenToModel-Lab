@@ -1,0 +1,123 @@
+{
+  "schema": "ttm.gemma2.a0e.lexical_source_rights_scoreblind_mask_and_fourarm_prereg_design_qa.v1",
+  "operation": "TTM_GEMMA2_A0E_FRESH_LEXICAL_INDEPENDENT_EVALUATION_AND_FOUR_ARM_PREREG_FREEZE_DESIGN_ONLY",
+  "date": "2026-11-11",
+  "classification": "SOURCE_ONLY_FEASIBILITY_AND_PROSPECTIVE_PREREG_DESIGN__NO_SCIENTIFIC_OUTCOME",
+  "baseline_A0D_owner": "PASS_SOURCE_OFFICIAL_CLASS_T1_MAPPING",
+  "locked_source_checkpoint_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "lexical_source": {
+    "name": "SimVerb-3500",
+    "authors": "Gerz, Vulić, Hill, Reichart, Korhonen",
+    "year": 2016,
+    "doi": "10.18653/v1/D16-1235",
+    "official_publisher": "University of Cambridge Apollo repository",
+    "repository_doi": "10.17863/CAM.9391",
+    "publisher_url": "https://www.repository.cam.ac.uk/items/8a568201-0fa4-4e54-81b1-f920102492ea",
+    "source_license": "CC-BY-4.0",
+    "license_verified_from_official_publisher_metadata": true,
+    "source_repo_mirror": "benathi/word2gm",
+    "source_path": "evaluation_data/simverb/data/SimVerb-3500.txt",
+    "github_blob_sha1": "769fcdee0ebfae8e37b8ca69241f626a080a75c8",
+    "second_mirror_same_git_blob": "sota-hayashi/scisci/data/raw/word_similarity_benchmarks/simverb3500/simverb_3500.txt",
+    "second_mirror_annotated_as_original_Cambridge_release": true,
+    "exact_original_Cambridge_zip_sha256_parity": "NOT_VERIFIED",
+    "source_original_rows": 3500,
+    "rating_construct": "English verb semantic similarity, not generic relatedness",
+    "rating_scale": "0..10",
+    "dataset_is_distinct_from_A0D_SimLex_and_WordSim": true,
+    "benchmark_appears_in_donor_pretraining_excluded": "UNVERIFIED"
+  },
+  "reused_dataset_exclusion": {
+    "SimLex999_all_word_types": 1028,
+    "SimLex_git_blob_sha1": "b642f3abe39c9ff1c9d6f942c917e47fd6c3801d",
+    "WordSim353_all_word_types": 437,
+    "WordSim_git_blob_sha1": "f4b59539bdc53a9baa45d0388ca418373560bd8a",
+    "rule": "EXCLUDE_BOTH_WORDS_IF_EITHER_OCCURS_IN_ANY_SIMLEX999_OR_WORDSIM353_PAIR_NOT_JUST_PRIOR_CONSUMED_44_OR_21",
+    "gold_scores_used_for_mask_selection": false
+  },
+  "source_only_coverage": {
+    "unique_T1_ascii_lowercase_whole_leading_space_words": 1142,
+    "T1_donor_valid_mapped_count_earlier_owner_A0D": 1917,
+    "SimVerb_T1_both_word_eligible_pairs": 288,
+    "after_excluding_all_SimLex_word_types": 144,
+    "after_excluding_all_SimLex_and_WordSim_word_types": 138,
+    "full_mask_unique_word_types": 78,
+    "word_pair_graph_components": 2,
+    "largest_connected_component_word_types": 76,
+    "maximum_cardinality_word_disjoint_core_pairs": 37,
+    "word_disjoint_core_unique_words": 74,
+    "frozen_full_pair_roster_sha256": "8ba5b07bea73cfc6784de940378d5726be9cc8dab2ecc32daa4a5a3555bf91b1",
+    "frozen_word_disjoint_core_sha256": "b280478feb9f7359c261944e5c54c7808c96e05bd14558657044fe6f35a2ee2c",
+    "format": "UTF8_tab_two_columns_original_source_orientation_LF_trailing_LF_ASCII_lex_sort_word1_word2",
+    "core_selection_method": "networkx_3.6.1_max_weight_matching_maxcardinality_true_SHA256_tie_break_weights",
+    "private_roster_not_uploaded_to_public_repository": true,
+    "private_bundle_filename": "TTM_GEMMA2_A0E_FRESH_LEXICAL_SCORE_BLIND_138_37_PRIVATE_MASK_20261111.zip",
+    "private_bundle_SHA256": "5680a2e8b39b04eba85629a0851c50f3da18387305221bdfa4a2aa2ab3b7c710",
+    "full_mask_is_score_blind": true,
+    "core_selection_is_score_blind": true
+  },
+  "experimental_design": {
+    "arms": [
+      "P-A",
+      "P-C",
+      "N-A",
+      "N-C"
+    ],
+    "primary_language_estimand": "D_origin=[NLL(P-C)-NLL(P-A)]-[NLL(N-C)-NLL(N-A)]",
+    "supporting_alignment_estimand": "D_align=NLL(P-C)-NLL(P-A)",
+    "primary_lexical_estimands": [
+      "rho(P-A)-rho(N-A)",
+      "rho(P-A)-rho(P-C)"
+    ],
+    "lexical_gold_used_in_design_or_selection": false,
+    "training_budget": "4 arms x 3 seeds x 512 optimizer steps x 4096 target-token presentations=25165824 total",
+    "fixed_train_seeds": [
+      41031,
+      41032,
+      41033
+    ],
+    "fixed_untrained_init_seeds": [
+      61031,
+      61032,
+      61033
+    ],
+    "fixed_null_seeds": [
+      51031,
+      51032,
+      51033
+    ],
+    "piloting_only_three_training_seeds": true,
+    "two_sided_exact_sign_test_best_p_three_seeds": 0.25,
+    "strict_confirmatory_claim_three_seeds": false,
+    "pilot_promotion_min_effect_nats_per_target_token": 0.02,
+    "pilot_promotion_rule": "D_origin>0 all 3 paired seeds AND mean D_origin>=0.02 nats/token AND D_align_P>0 all seeds, plus all geometry and leakage QA; PROMOTE only not scientific PASS",
+    "lexical_core_primary_pairs": 37,
+    "lexical_full_graph_sensitivity_pairs": 138,
+    "lexical_decision_threshold": "rho(pretrained)-rho(untrained)>=0.20 AND rho(pretrained)-rho(P-C)>=0.20; paired bootstrap CI lower>0 with Holm corrected 0.05; require independent custody before unsealing labels",
+    "bootstrap_replicates": 10000,
+    "gold_leakage_exclusion": "No reuse of SimLex, WordSim labels as target, TTM TEST, OOD256, H768; labels not used for hyperparameters",
+    "geometry_design_gate": "SOURCE_MOMENTS_AND_ALIGNED_NULL_VALIDATED_TRAIN_ONLY_NO_GOLD",
+    "pretraining_semantics_strict_causal_claim_allowed": false
+  },
+  "adjudication": {
+    "source_licensing": "PASS_CC_BY4_SIMVERB_WITH_ATTRIBUTION_REQUIRED",
+    "score_blind_mask_source_only_feasibility": "PASS_138_AND_37_FROZEN_SHA256",
+    "independence_from_prior_simlex_words": "PASS_SCOPED",
+    "independence_from_prior_wordsim_words": "PASS_SCOPED",
+    "independence_from_donor_pretraining_corpus": "HOLD_UNKNOWN",
+    "exact_source_zip_parity": "HOLD_NOT_VERIFIED",
+    "blind_human_label_custody": "HOLD_NOT_ASSIGNED",
+    "TRAIN_VAL_SOURCE_RIGHTS_RECHECK": "REQUIRED_BEFORE_T4",
+    "pretrained_source_weights_recheck": "REQUIRED_BEFORE_T4",
+    "null_geometry_fidelity_qa": "NOT_EXECUTED",
+    "pilot_4arm_design": "FROZEN_DESIGN_ONLY",
+    "A0E_full_science_admission": "HOLD",
+    "T4_2x2": "HOLD",
+    "training_executed": false,
+    "model_inference_executed": false,
+    "gpu_consumed": false,
+    "TEST_OOD_H768_reused": false,
+    "lineage_science_append": false
+  },
+  "next_operation": "TTM_GEMMA2_A0E_INDEPENDENT_SOURCE_LABEL_CUSTODY_AND_PREEXEC_FROZEN_GATE_DECISION"
+}
