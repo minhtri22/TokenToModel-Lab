@@ -1,0 +1,25 @@
+{
+  "schema": "ttm.vm.externalfacts.real_t1_bpe.owner_reported_receipt.v1",
+  "workflow": "TTM_VECTOR_MEMORY_EXTERNAL_FACTS_TEST_SEAL_AND_TOKENIZER_COMPATIBILITY_STATIC_QA",
+  "evidence_type": "OWNER_SUPPLIED_WINDOWS_STDOUT",
+  "status": "PASS_REAL_T1_TOKENIZER",
+  "trust_boundary": "Owner pasted stdout; original receipt file and its SHA256 have not been independently read back by this assistant.",
+  "expected_manifest_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "reported": {
+    "input_cases": 320,
+    "maximum_question_tokens": 43,
+    "maximum_answer_tokens": 4,
+    "maximum_joint_tokens": 47,
+    "answer_prefix_mismatches": 0,
+    "test_used": false,
+    "test_not_opened": "PASS",
+    "receipt_sha256": "bc688ca5bcc4084a19d3e95b0f7d555c283d8b1b1319ff255c5baf9e66c7b34b"
+  },
+  "science_executed": false,
+  "model_inference_executed": false,
+  "training_executed": false,
+  "test_decrypted": false,
+  "scope": "TRAIN_256_PLUS_DEV_64_ONLY",
+  "next_gate": "ORACLE_READER_FROZEN_BYPASS_SOURCE_ONLY_QA",
+  "lineage_update": "NONE_TECHNICAL_QA_ONLY"
+}
