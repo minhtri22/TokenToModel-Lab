@@ -1,0 +1,38 @@
+{
+  "accuracy": 0.0,
+  "both_correct": 0,
+  "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "by_family": {
+    "C1": {
+      "both_correct": 0,
+      "total": 12
+    },
+    "C2": {
+      "both_correct": 0,
+      "total": 12
+    },
+    "C3": {
+      "both_correct": 0,
+      "total": 12
+    }
+  },
+  "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "final_opened": false,
+  "gpu_calls": 0,
+  "model_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+  "optimizer_updates": 0,
+  "original_TEST_Q1Q2_read": false,
+  "pairs": 36,
+  "science_claim": "EXPLORATORY_PUBLIC_DEV_ONLY",
+  "scores_sha256": "2f690fad052e4f76aec35904b665bd3135d598aca9eff12642d075c6335e2721",
+  "source_exact_git_blobs": {
+    "CF1_DEV_MODEL_INPUT_ONLY.json": "4fac79c16bc337926060fa21a6e22944d74259b7",
+    "CF1_DEV_PUBLIC_ORACLE.json": "3f5a38069c918fd27c033ab48fce6fac9b8c5e4b",
+    "cf1_dev_once_readonly.py": "c5f319a038a67885f191641b949f60f46d215d1d",
+    "cf1_exact_t1_bpe.py": "98be7c264c6fcacf2c5177153ece1aac611e1f51",
+    "cf1_teacher_forced_scorer.py": "d7214a4514ecb52e98c0abccd3cecb7180c705e8",
+    "transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18"
+  },
+  "status": "DEV_ONLY_DONE_NOT_FINAL_OR_ARCHITECTURE_CLAIM",
+  "ties": 0
+}

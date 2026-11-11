@@ -1,0 +1,14 @@
+﻿{
+    "schema":  "ttm.cf1.dev36.owner_one_shot.evidence_sha256.v1",
+    "source_commit":  "f2ce247bced65101401b3ed5c4bdca84f2f17913",
+    "python_runner_git_blob":  "14109c8d4e27a874e1832a480a0d7eeebed78b2f",
+    "scored_pairs":  36,
+    "checkpoint_sha256":  "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "BPE_sha256":  "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "scores_sha256":  "2f690fad052e4f76aec35904b665bd3135d598aca9eff12642d075c6335e2721",
+    "summary_sha256":  "6a824e724fae0fe26aee291f5fa02d3d74d631e581adb4e6ecd4a73f741137b5",
+    "optimizer_updates":  0,
+    "gpu_calls":  0,
+    "final_opened":  false,
+    "Q1Q2_TEST_opened":  false
+}
