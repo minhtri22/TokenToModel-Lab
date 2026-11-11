@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.gemma2.ood256.owner_permit.frozen_source.cpu_qa.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_OOD_12ARM_INFERENCE_ONLY_ONE_SHOT_OWNER_PERMIT_AND_FROZEN_SCORER_SOURCE_QA",
+  "research_model": "TTM_SMALL_4M_EMBEDDINGGEMMA2_EXPERIMENTAL_ONLY",
+  "branch": "research/ttm-small4m-embeddinggemma2-ood-design-20261111",
+  "owner_permission": {
+    "decision": "GRANTED_CONDITIONAL_ONE_SHOT",
+    "scope": "Run scorer for all 12 SHA-pinned final step_2048 checkpoints on exact sealed 256 OOD documents after all runtime preflight gates PASS",
+    "training": false,
+    "finetune": false,
+    "checkpoint_reselection": false,
+    "data_reselection": false,
+    "gguf": false,
+    "application": false,
+    "requires_no_second_micropermit": true,
+    "claim_created": false,
+    "inference_run_executed": false
+  },
+  "original_science": {
+    "L0020": "FROZEN",
+    "scientific_branch_head": "13820a972c99c2670e8ab32ee01eb51763479aae",
+    "lineage_git_blob": "3bd60e32e28cc358740953df5bd0ad180862a9fc"
+  },
+  "source": {
+    "runner": {
+      "path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/ttm_ood256_inference_only_12arm.py",
+      "create_commit": "44721a6ac0d206756a0e45db5fd36f60cb177fd6",
+      "git_blob": "7f6cd35a149569016391128ea6e048ad2930cc80"
+    },
+    "independent": {
+      "path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/ttm_ood256_independent_science_readback.py",
+      "create_commit": "3f49d16a98d008f2ddb976ce0f8e4d316ce7b2e2",
+      "git_blob": "2c278a1e8ce3597307e988a866178981cc81f5f1"
+    },
+    "colab_notebook": {
+      "path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/TTM_GEMMA2_OOD_12ARM_ONE_SHOT_INFERENCE_ONLY_20261111.ipynb",
+      "create_commit": "1c012321f326beb23d85badc7acf11aeae6ca4d4",
+      "git_blob": "ef974045e1dbcdf71418077666d9e8812b63a2d9"
+    },
+    "private_transfer_ps": {
+      "path": "tools/embeddinggemma2_swap/ood_wikitext2_v1/Prepare-TTM-GEMMA2-OOD256-Private-Colab-Transfer-PS51.ps1",
+      "git_blob": "e8639a526320786f74b8a117e01a85922d239a57",
+      "windows_local_stage": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\Prepare-TTM-GEMMA2-OOD256-Private-Colab-Transfer-PS51.ps1",
+      "windows_textual_readback": "PASS_EXACT_NORMALIZED"
+    }
+  },
+  "source_static_qa": {
+    "checkpoint_literal_pins_match_L0020": "PASS_12_OF_12",
+    "pinned_ood_sha": "PASS_3_OF_3",
+    "original_model_source_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "bootstrap_seed": 2026111198,
+    "bootstrap_draws": 2000,
+    "owner_pre_forward_gate": "PASS_STATIC",
+    "preflight_before_science_claim": "PASS_STATIC",
+    "model_forward_call_sites": 1,
+    "optimizer_step_calls": 0,
+    "backward_calls": 0,
+    "train_calls": 0,
+    "github_notebook_json": "PASS_5_CELLS_AND_3_SOURCE_BLOBS",
+    "source_static_verdict": "PASS_SCOPED"
+  },
+  "source_dynamic_cpu_qa": {
+    "provider": "GitHub Actions",
+    "workflow": "TTM GEMMA2 OOD256 source-only QA",
+    "run_id": 42941910345,
+    "job_id": 130265472557,
+    "run_head_sha": "b481440989a31f4bfbae65510ec03a21f3f151d2",
+    "run_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/42941910345",
+    "status": "COMPLETED",
+    "conclusion": "SUCCESS",
+    "environment": "ubuntu-24.04 Python 3.12, numpy==2.2.6, torch==2.6.0 CPU",
+    "python_compile": "PASS",
+    "main_runner_fixture": "PASS_5_NO_FORWARD_NO_CLAIM",
+    "independent_math_fixture": "PASS_3_NO_FORWARD_NO_CLAIM",
+    "precomputed_logit_fixture": "PASS_6_MODEL_FORWARD_0",
+    "checkpoint_binary_downloads": 0,
+    "real_ood_windows_loaded": false,
+    "training_executed": false,
+    "inference_executed": false,
+    "science_claim_created": false
+  },
+  "dispatch_state": {
+    "windows_private_ood_transfer_zip_created": false,
+    "google_drive_private_ood_transfer": "NOT_EXECUTED",
+    "model_gpu_runtime": "NOT_EXECUTED",
+    "on_colab_preflight_12_checkpoint_sha": "NOT_EXECUTED",
+    "on_colab_preflight_3_private_ood_sha": "NOT_EXECUTED",
+    "on_colab_preflight_source_and_model": "NOT_EXECUTED",
+    "one_shot_claim": "NOT_CREATED",
+    "scientific_scoring": "NOT_EXECUTED",
+    "independent_science_readback": "NOT_EXECUTED",
+    "scientific_adjudication": "NOT_EXECUTED",
+    "blocker": "Owner local Windows-private OOD256 data must be transferred to authenticated Colab/Drive to run approved one-shot; connected tools cannot operate the interactive Colab T4 session.",
+    "next": "Owner run exact already-staged PowerShell private transfer; open exact GitHub notebook on free Colab T4; Run all once with OOD256_COLAB_PRIVATE_TRANSFER.zip. No new science permit required. All preflight gates fail closed."
+  },
+  "confidentiality": {
+    "private_data_published": false,
+    "checkpoint_published": false,
+    "model_weights_published": false,
+    "per_document_losses_published": false,
+    "lineage_modified": false,
+    "main_modified": false
+  }
+}
