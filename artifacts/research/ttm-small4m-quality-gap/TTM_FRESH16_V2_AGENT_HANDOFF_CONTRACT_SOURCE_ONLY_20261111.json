@@ -1,0 +1,82 @@
+{
+  "schema": "ttm.fresh16.v2.multi_agent_source_only_handoffs.v1",
+  "operation": "TTM_FRESH16_V2_SINGLE_CPU_RUNNER_BLIND_MAP_RATER_CUSTODY_INTEGRATED_GO_NO_GO",
+  "date": "2026-11-11",
+  "source_baseline_head": "39c1cbfb8734911a3d9fba0e7249e1c3985f94a0",
+  "original_science_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "owner_v2_decision": "ADOPT_V2",
+  "source_pins": {
+    "prompt_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "original_rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "adopted_v2_git_blob": "27b994b3b3283b2611af21d63acc5d37abf45013",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "bpe_git_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_step1280_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc"
+  },
+  "agents": [
+    {
+      "role": "E0_CPU_EXECUTOR_BLIND_MAP",
+      "handoff": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_AGENT_E0_CPU_RUNNER_BLIND_MAP_HANDOFF_20261111.md",
+      "source_writes_permitted_after_agent_validates_worktree": true,
+      "science_forward_allowed_without_new_owner_GO": false,
+      "initial_state": "UNASSIGNED"
+    },
+    {
+      "role": "S1_OUTPUT_RATER",
+      "handoff": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_AGENT_S1_OUTPUT_RATER_HANDOFF_20261111.md",
+      "source_writes_permitted": false,
+      "packet_required_to_score": true,
+      "initial_state": "UNASSIGNED"
+    },
+    {
+      "role": "S2_PAIR_ADJUDICATOR",
+      "handoff": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_AGENT_S2_PAIR_ADJUDICATOR_HANDOFF_20261111.md",
+      "source_writes_permitted": false,
+      "packet_required_to_score": true,
+      "S1_SHA_REQUIRED": true,
+      "initial_state": "UNASSIGNED"
+    }
+  ],
+  "coordination_handoff": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_INTEGRATED_SINGLE_GO_NO_GO_COORDINATION_20261111.md",
+  "contract": {
+    "n_prompts": 16,
+    "n_pairs_per_checkpoint": 8,
+    "checkpoints": 2,
+    "max_outputs": 32,
+    "max_new_tokens_each": 64,
+    "max_generated_tokens": 2048,
+    "context": 256,
+    "decoder": "GREEDY_ARGMAX",
+    "EOS": 256,
+    "device": "CPU_FP32",
+    "max_wall_seconds": 900,
+    "max_RAM_GiB": 8,
+    "no_retry": true,
+    "primary_step": 1024,
+    "secondary_step": 1280
+  },
+  "privacy": {
+    "unblinding_map_in_public_github": false,
+    "output_text_in_public_github": false,
+    "only_map_or_S1_S2_sha_receipts_public": true,
+    "source_only_handoffs_contain_no_real_outputs": true
+  },
+  "status": {
+    "frozen_source_QA": "PASS_RECORDED_NO_RERUN",
+    "V2": "ADOPTED",
+    "source_only_runner": "NOT_IMPLEMENTED",
+    "mapping": "NOT_GENERATED",
+    "S1_session": "UNASSIGNED",
+    "S2_session": "UNASSIGNED",
+    "S1_scores": "NOT_GENERATED",
+    "S2_pair_scores": "NOT_GENERATED",
+    "science_inference": "NOT_EXECUTED",
+    "training": "NO",
+    "sealed_TEST": "NOT_READ",
+    "execution_decision": "NO_GO_HOLD"
+  },
+  "claim": "HANDOFF_PREPARATION_ONLY_NO_OWNER_SCIENCE_PERMIT"
+}
