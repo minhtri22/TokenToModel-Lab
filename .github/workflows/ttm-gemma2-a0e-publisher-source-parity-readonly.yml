@@ -1,0 +1,105 @@
+name: TTM GEMMA2 A0E independent publisher source byte parity (no scores)
+on:
+  push:
+    branches:
+      - research/ttm-gemma2-token-alignment-pretraining-causality-20261111
+    paths:
+      - .github/workflows/ttm-gemma2-a0e-publisher-source-parity-readonly.yml
+  workflow_dispatch:
+
+jobs:
+  official-source-compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read-only official Cambridge archived ZIP vs pinned public git blob
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          import hashlib, json, io, zipfile
+          outdir=Path("_tmp/ttm_a0e_official_parity");outdir.mkdir(parents=True,exist_ok=True)
+          result={
+           "schema":"ttm.gemma2.a0e.publisher_original_zip_parity.readonly.v1",
+           "publisher":"Cambridge Apollo", "doi":"10.17863/CAM.9391",
+           "item_id":"8a568201-0fa4-4e54-81b1-f920102492ea",
+           "mirror_git_blob_expected":"769fcdee0ebfae8e37b8ca69241f626a080a75c8",
+           "source_file":"SimVerb-3500.txt", "training":False,"model_forward":False,
+           "gold_scores_printed":False,"gold_scores_used_in_design":False,
+           "source_archive_published":False,"status":"HOLD_SOURCE_PARITY_NOT_VERIFIED",
+           "attempts":[]}
+          def get(url,limit):
+              req=Request(url,headers={"User-Agent":"TTM-A0E-research-integrity/1.0","Accept":"application/json,application/zip,*/*"})
+              with urlopen(req,timeout=12) as response:
+                  raw=response.read(limit+1)
+                  if len(raw)>limit: raise ValueError("SIZE_LIMIT")
+                  return raw
+          mirror_url="https://raw.githubusercontent.com/benathi/word2gm/56bda7d964b2eede9b0280e7b9a3b9cdbb06fa38/evaluation_data/simverb/data/SimVerb-3500.txt"
+          mirror=get(mirror_url,300000)
+          gitblob=hashlib.sha1(b"blob "+str(len(mirror)).encode("ascii")+b"\\0"+mirror).hexdigest()
+          result["mirror_git_blob_actual"]=gitblob
+          if gitblob!=result["mirror_git_blob_expected"]:raise ValueError("HOLD_GITHUB_MIRROR_BLOB_MISMATCH")
+          result["mirror_sha256"]=hashlib.sha256(mirror).hexdigest()
+          item="8a568201-0fa4-4e54-81b1-f920102492ea"
+          candidates=[
+             "https://www.repository.cam.ac.uk/bitstream/handle/1810/264124/simverb-3500-data.zip?sequence=1&isAllowed=y",
+             "https://api.repository.cam.ac.uk/server/api/core/items/"+item+"/bundles"
+          ]
+          for ix,url in enumerate(candidates):
+              try:
+                  raw=get(url,1000000)
+                  if ix==1:
+                      result["attempts"].append({"kind":"dspace_bundle_api","status":"API_RESPONDED","length":len(raw)})
+                      payload=json.loads(raw)
+                      hrefs=[x.get("_links",{}).get("bitstreams",{}).get("href") for x in payload.get("_embedded",{}).get("bundles",[])]
+                      for h in [h for h in hrefs if h]:
+                          try:
+                              bs=json.loads(get(h,300000))
+                              for entry in bs.get("_embedded",{}).get("bitstreams",[]):
+                                  if entry.get("name")!="simverb-3500-data.zip":continue
+                                  official=get(entry["_links"]["content"]["href"],1000000)
+                                  candidates.append("data:from_api")
+                                  raw=official
+                                  break
+                          except Exception as err:
+                              result["attempts"].append({"kind":"bitstreams","status":"FAILED","error_type":type(err).__name__})
+                      if not raw.startswith(b"PK"):continue
+                  if raw.startswith(b"PK"):
+                      with zipfile.ZipFile(io.BytesIO(raw)) as z:
+                          files=[n for n in z.namelist() if n.split("/")[-1]=="SimVerb-3500.txt"]
+                          if len(files)!=1:raise ValueError("HOLD_ARCHIVE_MISSING_CANONICAL_SIMVERB")
+                          publisher=z.read(files[0])
+                      result["official_zip_sha256"]=hashlib.sha256(raw).hexdigest()
+                      result["publisher_file_sha256"]=hashlib.sha256(publisher).hexdigest()
+                      result["publisher_file_git_blob"]=hashlib.sha1(
+                          b"blob "+str(len(publisher)).encode()+b"\\0"+publisher).hexdigest()
+                      result["publisher_file_bytes"]=len(publisher)
+                      result["official_url_kind"]="legacy_handle" if ix==0 else "api_bitstream"
+                      if publisher==mirror:
+                          result["status"]="PASS_OFFICIAL_PUBLISHER_FILE_BYTE_IDENTICAL_TO_PINNED_MIRROR"
+                      else:
+                          result["status"]="HOLD_PUBLISHER_MIRROR_BYTE_DIFFERENCE"
+                      break
+                  result["attempts"].append({"kind":"legacy_handle" if ix==0 else "api","status":"NON_ARCHIVE_RESPONSE","bytes":len(raw)})
+              except Exception as err:
+                  result["attempts"].append({"kind":"legacy_handle" if ix==0 else "api","status":"UNAVAILABLE","error_type":type(err).__name__})
+          dest=outdir/"A0E_OFFICIAL_PUBLISHER_PARITY_SOURCE_ONLY.json"
+          dest.write_text(json.dumps(result,indent=2,sort_keys=True)+"\\n",encoding="utf-8")
+          print("A0E_PUBLISHER_PARITY_STATUS="+result["status"])
+          print("A0E_PUBLISHER_PARITY_SOURCE_RECEIPT_SHA256="+hashlib.sha256(dest.read_bytes()).hexdigest())
+          print("A0E_PUBLISHER_ATTEMPTS="+json.dumps(result["attempts"],sort_keys=True))
+          PY
+      - name: Upload small metadata-only parity result (NO label data)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TTM_GEMMA2_A0E_OFFICIAL_PUBLISHER_PARITY_META_20261111
+          path: _tmp/ttm_a0e_official_parity/A0E_OFFICIAL_PUBLISHER_PARITY_SOURCE_ONLY.json
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Cleanup ephemeral source bytes within project
+        if: always()
+        run: rm -rf _tmp/ttm_a0e_official_parity
