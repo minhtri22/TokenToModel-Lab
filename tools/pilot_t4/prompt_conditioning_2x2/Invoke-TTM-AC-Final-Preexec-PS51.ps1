@@ -1,6 +1,6 @@
 #requires -Version 5.1
 <#
-TTM-Small4M A/C exact-source native Windows preexec. No science, GPU, TEST, OOD or Q1Q2.
+TTM-Small4M A/C Windows PS51 stderr-recovery V2. No science, GPU, TEST, OOD or Q1Q2.
 Outputs strictly under D:\WORK\RESEARCH\TokenToModel-Lab\_tmp.
 Run only once; never overwrite an existing run directory.
 #>
@@ -40,15 +40,17 @@ $Pins = [ordered]@{
     'ttm_2x2_colab_runner_candidate.py' = '6c87e388da4d4a2b94dffba655861a390dfad73c'
     'real_metadata_preflight.py' = '84d54dced18b19bea2bc062216e32301c3c32dc2'
 }
-$RunDir = Join-Path $ProjectRoot ('_tmp\TTM_AC_NATIVE_PREEXEC_' + $PinnedCommit.Substring(0,12))
+$RunDir = Join-Path $ProjectRoot ('_tmp\TTM_AC_NATIVE_PREEXEC_STDERR_FIX_V2_' + $PinnedCommit.Substring(0,12))
 if (Test-Path -LiteralPath $RunDir) {
     throw 'TTM_NATIVE_QA_RUN_ALREADY_EXISTS_NO_RERUN'
 }
 New-Item -Path $RunDir -ItemType Directory -ErrorAction Stop | Out-Null
 $ResultPath = Join-Path $RunDir 'NATIVE_SOURCE_QA_RESULT.json'
 $Result = [ordered]@{
-    schema = 'ttm.ac.native.py312.source_qa.v1'
+    schema = 'ttm.ac.native.py312.stderr_capture_recovery.v2'
     pinned_commit = $PinnedCommit
+    recovery_of = 'TTM_AC_NATIVE_PREEXEC_6628401b08ea'
+    failure_class = 'POWERSHELL51_UNITTEST_STDERR_CAPTURE_V1'
     status = 'HOLD_UNEXECUTED'
     python312 = $Python312
     source_git_blob_exact = $false
@@ -99,11 +101,32 @@ try {
     }
     $Result.source_qa = $true
     $env:TTM_AC_QA_ROOT = $RunDir
+    # Python unittest sends ordinary progress "test ... ok" to STDERR.
+    # In PS 5.1 2>&1 + ErrorActionPreference=Stop can turn it into a failure.
+    # Redirect stdout and stderr separately and check exit code + final summary.
+    $TestScript = Join-Path $RunDir 'test_ttm_ac_resume_synthetic.py'
+    $TestStdoutPath = Join-Path $RunDir 'SYNTHETIC_RESUME_STDOUT.txt'
+    $TestStderrPath = Join-Path $RunDir 'SYNTHETIC_RESUME_STDERR.txt'
     $TestLog = Join-Path $RunDir 'SYNTHETIC_RESUME_TEST_LOG.txt'
-    $TestOutput = & $Python312 -B (Join-Path $RunDir 'test_ttm_ac_resume_synthetic.py') 2>&1
-    $TestOutput | Out-File -FilePath $TestLog -Encoding utf8
-    if ($LASTEXITCODE -ne 0 -or ($TestOutput -join ' ') -notmatch 'Ran 6 tests') {
-        throw 'TTM_AC_SYNTHETIC_RESUME_QA_FAILED'
+    $TestArgs = @('-B', ('"' + $TestScript + '"'))
+    $TestProcess = Start-Process -FilePath $Python312 -ArgumentList $TestArgs -WorkingDirectory $RunDir -NoNewWindow -Wait -PassThru -RedirectStandardOutput $TestStdoutPath -RedirectStandardError $TestStderrPath -ErrorAction Stop
+    $TestStdout = [IO.File]::ReadAllText($TestStdoutPath)
+    $TestStderr = [IO.File]::ReadAllText($TestStderrPath)
+    @(
+        '===== PYTHON STDOUT ====='
+        $TestStdout
+        '===== PYTHON STDERR ====='
+        $TestStderr
+    ) | Set-Content -LiteralPath $TestLog -Encoding UTF8
+    $Result.synthetic_resume_exit_code = [int]$TestProcess.ExitCode
+    $Result.synthetic_resume_stdout_path = $TestStdoutPath
+    $Result.synthetic_resume_stderr_path = $TestStderrPath
+    $Result.synthetic_resume_log_path = $TestLog
+    if ($TestProcess.ExitCode -ne 0 -or
+        $TestStderr -notmatch '(?m)^Ran 6 tests in ' -or
+        $TestStderr -notmatch '(?m)^OK\r?$' -or
+        $TestStderr -match '(?m)^FAILED ') {
+        throw ('TTM_AC_SYNTHETIC_RESUME_QA_FAILED_EXIT_' + $TestProcess.ExitCode)
     }
     $Result.synthetic_resume_tests = $true
     $Result.status = 'PASS_SCOPED_NATIVE_PY312_SOURCE_AND_CPU_TOY_RESUME'
