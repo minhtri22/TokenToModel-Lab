@@ -1,0 +1,87 @@
+{
+  "checks": {
+    "01_pinned_p02_git_blob": true,
+    "02_pinned_train_fixture_blob": true,
+    "03_pinned_dev_fixture_blob": true,
+    "04_reader_no_checkpoint_load_or_optimizer": true,
+    "05_lookup_api_question_and_cards_only": true,
+    "06_tokenizer_adapter_only_text_and_frozen_embedding": true,
+    "07_only_public_train_dev_fixtures": true,
+    "08_all_questions_without_answer_leak": true,
+    "09_target_selected_uniquely_on_320_stories": true,
+    "10_foil_changes_value_not_key_or_distractors": true,
+    "11_no_memory_schema_all_cases": true,
+    "12_permutation_of_cards_preserves_target_identity": true,
+    "13_duplicate_memory_keys_rejected": true,
+    "14_missing_target_in_question_rejected": true,
+    "15_query_without_matching_key_rejected": true,
+    "16_encoded_shapes_and_mask": true,
+    "17_correct_wrong_same_keys_and_mask": true,
+    "18_correct_wrong_selected_value_changes": true,
+    "19_frozen_value_embedding_detached": true,
+    "20_all_masked_bypass_bit_exact": true,
+    "21_zero_initialization_with_memory_bit_exact": true,
+    "22_no_nan_on_all_masked": true,
+    "23_post_intervention_bypass_still_bit_exact": true,
+    "24_value_swap_changes_reader_output": true,
+    "25_gate_finite_and_contextual_reader_active": true,
+    "26_masked_distractor_values_ignored_exact": true,
+    "27_mixed_batch_masked_row_bit_exact": true,
+    "28_mixed_batch_active_row_unchanged": true,
+    "29_original_p02_random_source_forward_reconstruction_bit_exact": true,
+    "30_full_p02_random_model_no_memory_bit_exact": true,
+    "31_full_p02_random_model_zero_init_memory_bit_exact": true,
+    "32_original_p02_random_parameters_unchanged": true,
+    "33_no_gradients_on_frozen_model": true,
+    "34_no_gradients_on_reader": true,
+    "35_no_test_model_or_optimizer_in_execution": true
+  },
+  "checks_passed": 35,
+  "checks_total": 35,
+  "data_counts": {
+    "dev": 64,
+    "test_accessed": 0,
+    "train": 256
+  },
+  "environment": {
+    "device": "cpu",
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu"
+  },
+  "future": "Separate CPU pilot authorization after source-only QA and original receipt readback",
+  "integrity": {
+    "GPU_used": false,
+    "TEST_read_or_decrypted": false,
+    "frozen_P02_random_parameters_unchanged": true,
+    "only_new_components_trainable_in_future": true,
+    "optimizer_steps": 0,
+    "real_T1_manifest_loaded_here": false,
+    "trained_checkpoint_read": false
+  },
+  "limits": [
+    "Oracle lookup parses a literal entity in question, NOT semantic retrieval or learned query embeddings",
+    "Synthetic byte tokenizer is an architecture smoke only; real tokenizer T1 320/320 PASS is a separate owner receipt",
+    "No learned memory utility or NLL results; no trained checkpoint loaded",
+    "No evidence of TEST-science readiness; do not train or open TEST under this workflow"
+  ],
+  "lineage_action": "NO_ENTRY_TECHNICAL_ONLY",
+  "pins": {
+    "dev_fixture_blob": "ffc9d211508fbedc84db31235ecaad8d07596ece",
+    "p02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "train_fixture_blob": "9e86317c055047fffebfb2d802889e69987a8c8b"
+  },
+  "reader": {
+    "d_model": 256,
+    "frozen_P02_random_configuration": {
+      "context_cap": 256,
+      "heads": 4,
+      "layers": 4
+    },
+    "key_proj": 64,
+    "records": 3,
+    "value_proj": 128
+  },
+  "schema": "ttm.vm.externalfacts.oracle_reader.source_only_integrated_qa.v1",
+  "scope": "SOURCE_AND_SYNTHETIC_TENSORS_ONLY; MOCK_BYTE_ENCODER_FOR_WIRING; NOT_TRAINED_CHECKPOINT_OR_REAL_T1_QA",
+  "status": "PASS_SOURCE_ONLY_SYNTHETIC_QA"
+}
