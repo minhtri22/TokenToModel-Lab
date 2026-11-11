@@ -1,0 +1,87 @@
+{
+  "schema": "ttm.gemma2.a0e.owner_private_source_rebind_independent_onepacket_public.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0E_OWNER_PRIVATE_SOURCE_TENSOR_REBIND_AND_INDEPENDENT_FULL_RUNNER_READBACK_ONE_SHOT",
+  "mode": "CPU_PRIVATE_SOURCE_READBACK_ONLY_NO_MODEL_FORWARD_NO_GOLD_NO_TRAINING_NO_GPU",
+  "predecessor_head": "bd20a231795b47e0969b2c8a0f732c1514402c2e",
+  "original_prereg_git_blob": "d6e5d82709b2bc31458f73e7720cdae1e5f5e54e",
+  "amendment_git_blob": "95257120d1450cf05871c9b134a62fb3c84bf890",
+  "real_source": {
+    "private_archive": "TTM_GEMMA2_CAUSAL6_INPUT_PRIVATE_V1_20261109.zip",
+    "private_archive_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "archive_bytes": 61350758,
+    "archive_members_count": 16,
+    "member_sha256": {
+      "candidate_initialization": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+      "TTM_checkpoint_step1024": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "TRAIN_VAL_pack": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+      "p02_exact_py": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07",
+      "ttm_embeddinggemma2_swap_py": "d11da61e9d7bb040f3263e680f026817a513553c186ab243e184ffaf6e68cd39",
+      "ttm_directswap2048_gpu_once_py": "0994f0cd91cb504f2db8478f55963813a85469807f2921e38c196248f323759e"
+    },
+    "P_A_original_f32le_sha256": "b6b0d3cb9d4f33b8d7d63269d296d2001e946706948d71cb4f357ab7cf5b2122",
+    "P_A_shape": [
+      2048,
+      512
+    ],
+    "P0_original_f32le_sha256": "9fdd433da0e728f969278cd89242a9df36b3e3e6b155821c9968b5e6d661c2b1",
+    "P0_shape": [
+      256,
+      512
+    ],
+    "valid_mapped_tokens": 1917,
+    "fallback_tokens": 131,
+    "TRAIN_windows_read": 2691,
+    "TRAIN_valid_target_count": 498287,
+    "VAL_arrays_read": false,
+    "checkpoint_step": 1024,
+    "model_built_no_forward": true,
+    "trainable_parameters": 3880448,
+    "source_embedding_frozen": true,
+    "projector_trainable": true,
+    "original_TTM_fallback_verified": true
+  },
+  "expected_original_A0E_source_matrices_not_found_in_CAUSAL6_archive": {
+    "P-C-61031": "e96f2d55ed1e02003c06012fd0345da260aab1fb3864f844155621e4d6ee2fd1",
+    "P-C-61032": "30ad3136a00f9e26f8469a6dab5509289b8f258a7a8681d28ca1bdc18ac3b053",
+    "P-C-61033": "6c7d8f6fac478be11b0f57c94976ab438f61911f929aabefe5609df3d0a052fb",
+    "N-A-61031": "9fd58fb914e1ffccebbc735ef8d633feecf965ba99efcd96c5b7a2503aeaf9e6",
+    "N-A-61032": "6d9c535397aef5fee11a7ceee4a562b10f1ad78b947fbb7cdc8dfc349a822a43",
+    "N-A-61033": "e6746ab9766c820e64ebb7bfbe78507fad1aeb91e0111ab6324ec0d8c5cfe02f",
+    "N-C-61031": "004be5fa5611291ef806a0b2de0e91de4a25d25fc490e85547233c40d6ccbf64",
+    "N-C-61032": "85d671f32d4f16e4a898f1369dfc6056d7b3fad6d68e4147764b7a843f911c12",
+    "N-C-61033": "bfc63f5bf39563dbc5fb6ca0b638bbd54456f43a9511e34878f3f9e67838bc13"
+  },
+  "source_recovery_status": {
+    "CAUSAL6_P_A_P0_checkpoint_TRAIN": "PASS_REAL_BYTES_AND_SHAPES",
+    "original_A0E_N_A_N_C_P_C_3seeds": "NOT_LOCATED_IN_ACCESSIBLE_GDRIVE_OR_PROJECT_ROOT",
+    "original_A0E_two_party_source_receipt": "PRIOR_PASS_PRESERVED_NOT_RERUN",
+    "real_scaled_A0E_PN_tensor_SHA": "NOT_EXECUTED",
+    "full_covariance_eigenspectrum_and_frequency_morphology_SMD": "NOT_EXECUTED",
+    "full_A0E_runner_real_12_arm_exec_and_resume": "NOT_EXECUTED",
+    "NLL_lexical_outcomes": "NOT_EXECUTED",
+    "raw_source_rights_and_fresh_VAL": "HOLD",
+    "official_donor_raw_weight_full_byte_extraction": "HOLD",
+    "GitHub_A0E_old_QA": "PASS_PRESERVED"
+  },
+  "owner_windows": {
+    "device": "DESKTOP-4PSD0G2",
+    "device_state": "ONLINE",
+    "direct_readback_T4_TRAIN_manifest": "PASS_SOURCE_METADATA_ONLY",
+    "direct_readback_A0D_source_receipt": "PASS_THREE_FILES_NO_WEIGHTS",
+    "arbitrary_process_execution": "UNAVAILABLE_MANAGED_PROJECT_REGISTRATION_CONFLICT",
+    "C_Downloads_access": "DENIED_OUTSIDE_WORKSPACE",
+    "exact_9_A0E_source_tensor_byte_hash_on_Windows": "NOT_VERIFIED"
+  },
+  "independently_generated_private_readback_receipt_sha256": "f276f7f2bfa1171e5e064f7a2910648fe45ce5709f5c69ac1dc89ba93195001f",
+  "no_gold_read": true,
+  "no_model_forward": true,
+  "no_training": true,
+  "no_gpu": true,
+  "lineage_md_unchanged_sha": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2",
+  "L0022_created": false,
+  "T4_authorized": false,
+  "final_decision": "NO_GO_HOLD",
+  "scientific_outcome": "NOT_EXECUTED",
+  "next_operation": "TTM_GEMMA2_A0E_EXACT_ORIGINAL_NC_TENSOR_CUSTODY_RECOVERY_AND_ONEPACKET_SOURCE_QA"
+}
