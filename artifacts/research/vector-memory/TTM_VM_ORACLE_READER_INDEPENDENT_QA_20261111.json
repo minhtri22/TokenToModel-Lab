@@ -3,7 +3,7 @@
     "01_exact_original_p02_source_blob": true,
     "02_exact_train_source_blob": true,
     "03_exact_dev_source_blob": true,
-    "04_primary_35_checks_pass": true,
+    "04_primary_36_checks_pass": true,
     "05_primary_model_and_TEST_not_used": true,
     "06_oracle_input_only_question_memory": true,
     "07_320_case_count": true,
@@ -14,17 +14,18 @@
     "12_counterfactual_value_changes_reader_output": true,
     "13_foil_preserves_key_vectors_and_oracle_mask": true,
     "14_independent_fresh_p02_random_full_logits_bit_exact": true,
-    "15_no_optimizer_test_or_checkpoint_access": true
+    "15_no_optimizer_test_or_checkpoint_access": true,
+    "16_no_memory_skips_lookup_and_fact_encoding": true
   },
-  "checks_passed": 15,
-  "checks_total": 15,
+  "checks_passed": 16,
+  "checks_total": 16,
   "environment": {
     "python": "3.13.5",
     "torch": "2.10.0+cpu"
   },
   "gpu_used": false,
   "lineage_append": false,
-  "primary_report_sha256": "2bcfccc36d537e3d8bb37efbd7e3df5f1dee42dd6368de5208230779e1ccdff5",
+  "primary_report_sha256": "99ef6978757e1dab8f98f34e8794d4019ba66d9a1c6c715f18eb7e3751cdb2f2",
   "schema": "ttm.vm.oracle_reader.independent_source_qa.v1",
   "science_executed": false,
   "source_git_blobs": {
