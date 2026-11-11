@@ -29,7 +29,7 @@ def rho(x,y):
     if np.std(x)==0 or np.std(y)==0:return float('nan')
     return float(np.corrcoef(rank(x),rank(y))[0,1])
 def analyze(vec, gold):
-    need(len(gold)==37 and len(vec)==4,"PAIR_COUNT")
+    need(len(gold)==37 and len(vec)==5,"PAIR_COUNT")
     g=np.asarray(gold,dtype=np.float64)
     v={k:np.asarray(a,dtype=np.float64) for k,a in vec.items()}
     need(set(v)=={'P-A','P-C','N-A-61031','N-A-61032','N-A-61033'},"FIVE_SOURCES")
