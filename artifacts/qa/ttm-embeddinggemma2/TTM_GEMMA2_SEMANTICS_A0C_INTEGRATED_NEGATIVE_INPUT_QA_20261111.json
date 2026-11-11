@@ -1,0 +1,29 @@
+{
+  "schema": "ttm.gemma2.semantics.a0c.integrated_negative_source_qa.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_SEMANTICS_ORIGIN_A0C_T1_LEXICAL_MANIFEST_AND_SEEDED_SAME_ARCH_UNTRAINED_SOURCE_CPU_ADMISSION",
+  "source_git_blob": "8a29c02ff941f0e697958765fbc4f0c32d1a0035",
+  "negative_cases": [
+    {
+      "name": "T1_exact_manifest_SHA tampered one-byte",
+      "expected": "HOLD_A0C_T1_FILE_SHA",
+      "actual": "HOLD_A0C_T1_FILE_SHA",
+      "process_exit": 1,
+      "pass": true
+    },
+    {
+      "name": "seeded .npy source replaced by wrong bytes",
+      "expected": "HOLD_A0C_NULL_NPY_SHA",
+      "actual": "HOLD_A0C_NULL_NPY_SHA",
+      "process_exit": 1,
+      "pass": true
+    }
+  ],
+  "status": "PASS_2_OF_2_FAIL_CLOSED_NEGATIVE_QA",
+  "original_inputs_modified": false,
+  "private_corrupt_test_files_published": false,
+  "model_forward_calls": 0,
+  "training_executed": false,
+  "science_result_created": false,
+  "original_L0020_L0021_modified": false
+}
