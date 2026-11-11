@@ -85,7 +85,7 @@ if ($report.status -ne 'PASS_REAL_T1_TOKENIZER' -or
     $report.test_status -ne 'NOT_READ_OR_DECRYPTED') {
     throw 'HOLD_REAL_T1_RECEIPT_CONTENT'
 }
-& $python -c 'import sys,torch,numpy,regex;assert sys.version_info[:2]==(3,12);assert hasattr(torch,"__version__")'
+& $python -c 'import sys,torch,numpy,regex;assert sys.version_info[:2]==(3,12);assert torch.__version__'
 if ($LASTEXITCODE -ne 0) { throw 'HOLD_PYTHON_DEPENDENCIES' }
 if ((Git -C $root rev-parse refs/heads/main).Trim() -ne $mainBefore) { throw 'HOLD_MAIN_CHANGED' }
 Write-Output 'GO_OWNER_PREEXEC_ALL_PINS_PASS=TRUE'
