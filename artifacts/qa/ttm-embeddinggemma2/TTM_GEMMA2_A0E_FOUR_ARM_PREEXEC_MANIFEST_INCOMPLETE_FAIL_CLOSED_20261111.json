@@ -1,0 +1,62 @@
+{
+  "schema": "ttm.gemma2.a0e.fourarm_final_preexec_manifest_unsigned.v1",
+  "status": "NOT_ADMITTED_PARTIALLY_PINNED",
+  "arms": [
+    "P-A",
+    "P-C",
+    "N-A",
+    "N-C"
+  ],
+  "train_seeds": [
+    41031,
+    41032,
+    41033
+  ],
+  "official_N_init_seeds": [
+    61031,
+    61032,
+    61033
+  ],
+  "control_null_seeds": [
+    51031,
+    51032,
+    51033
+  ],
+  "steps_per_block": 512,
+  "target_tokens_per_step": 4096,
+  "target_token_presentations": 25165824,
+  "frozen_source": {
+    "donor_revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "donor_weights_SHA256_metadata_only": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79",
+    "candidate_source_SHA256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "prior_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "TRAIN_VAL_windows_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc"
+  },
+  "actual_N_A_seed_tensor_SHA256": {
+    "61031": null,
+    "61032": null,
+    "61033": null
+  },
+  "actual_N_C_seed_tensor_SHA256": {
+    "61031": null,
+    "61032": null,
+    "61033": null
+  },
+  "P_C_null_seed_tensor_SHA256": {
+    "51031": null,
+    "51032": null,
+    "51033": null
+  },
+  "P_and_N_matched_null_moments_receipt_SHA256": null,
+  "projection_frozen_negative_control_receipt_SHA256": null,
+  "A0E_approved_initial_checkpoint_SHA256": null,
+  "source_and_val_story_id_roster_SHA256": null,
+  "optimizer_schedule_git_blob": null,
+  "science_scorer_git_blob": null,
+  "strict_4arm_runner_git_blob": null,
+  "independent_gold_custodian_signature_SHA256": null,
+  "clinical_or_science_execution_authorization": null,
+  "T4_authorized": false,
+  "note": "Known SHA values are source metadata, not execution admission. No null placeholder may be silently defaulted. Frozen prior hypotheses and thresholds unchanged."
+}
