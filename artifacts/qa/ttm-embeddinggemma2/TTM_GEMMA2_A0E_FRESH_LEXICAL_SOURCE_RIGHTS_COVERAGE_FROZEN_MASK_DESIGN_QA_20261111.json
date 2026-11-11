@@ -119,5 +119,25 @@
     "TEST_OOD_H768_reused": false,
     "lineage_science_append": false
   },
-  "next_operation": "TTM_GEMMA2_A0E_INDEPENDENT_SOURCE_LABEL_CUSTODY_AND_PREEXEC_FROZEN_GATE_DECISION"
+  "next_operation": "TTM_GEMMA2_A0E_INDEPENDENT_SOURCE_LABEL_CUSTODY_AND_PREEXEC_FROZEN_GATE_DECISION",
+  "independent_private_mask_QA": {
+    "checker_path": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_frozen_mask_independent_qa.py",
+    "checker_git_blob_sha1": "610250fd95ec502d683ae3f2d65799d2d0c9e52a",
+    "checker_sha256": "0e7a990b4f5f73a9710afa7c1bbc9aab0ca002986e6a435eecc10093b7a1a1f7",
+    "checker_environment": "Python 3.13, networkx 3.6.1, model-free local container",
+    "readback_result": "PASS_FROZEN_MASK_HASH_AND_GRAPH_12_GATES",
+    "full_pairs": 138,
+    "word_disjoint_pairs": 37,
+    "verified_full_mask_sha256": "8ba5b07bea73cfc6784de940378d5726be9cc8dab2ecc32daa4a5a3555bf91b1",
+    "verified_core_sha256": "b280478feb9f7359c261944e5c54c7808c96e05bd14558657044fe6f35a2ee2c",
+    "graph_connected_component_sizes": [
+      76,
+      2
+    ],
+    "source_file_provenance_reconstructed_from_original_full_publisher_zip": false,
+    "human_gold_rating_values_read": false,
+    "model_forward": false,
+    "training": false,
+    "nature": "INDEPENDENT_MASK_HASH_GRAPH_AUDIT_NOT_CONFIRMATORY_SCIENCE"
+  }
 }
