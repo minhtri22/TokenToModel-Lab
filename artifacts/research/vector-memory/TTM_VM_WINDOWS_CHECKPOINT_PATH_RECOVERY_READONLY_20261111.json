@@ -1,0 +1,31 @@
+{
+  "schema": "ttm.vm.windows_checkpoint_path_recovery.readonly.v1",
+  "operation": "TTM_VM_EXTERNAL_FACTS_CPU_PILOT_OWNER_ONE_SHOT_EXECUTION_DECISION",
+  "status": "HOLD_LOCAL_CHECKPOINT_ABSENT__ORIGINAL_RECOVERED_IN_DRIVE",
+  "windows_observation": {
+    "research_worktree_head_after_sync": "c41b6c8bc01a4c367bf619a6df6e05e5e2fb9d47",
+    "preexec_error": "HOLD_MISSING_CHECKPOINT",
+    "expected_checkpoint_local_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\vector-memory\\checkpoint.pt",
+    "local_directory_exists": false,
+    "one_shot_output_not_created_at_prior_readback": true
+  },
+  "source_recovery": {
+    "provider": "Google Drive (owner connected source)",
+    "drive_hierarchy": "ttm-small-pilot/ttm_small4m_step1024_to1280_exploratory_v1/checkpoints/step_1280/checkpoint.pt",
+    "file_bytes": 45075275,
+    "ready_manifest_step": 1280,
+    "expected_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "retrieved_checkpoint_sha256_verified": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "hash_matches_frozen_pilot": true
+  },
+  "authorization": {
+    "cpu_train_executed": false,
+    "dev_scored": false,
+    "test_opened": false,
+    "gpu_used": false,
+    "main_changed": false,
+    "training_release": "HOLD_UNTIL_LOCAL_HASHED_CHECKPOINT_READBACK",
+    "recovery": "Owner copies same verified checkpoint to exact private local path, re-runs existing fixed preexec; no code change, no new scientific prereg, no TEST access"
+  },
+  "lineage_action": "NONE_INFRASTRUCTURE_DIAGNOSTIC_ONLY"
+}
