@@ -33,7 +33,57 @@ if ($LASTEXITCODE -ne 0 -or $actualHead -ne $source) { throw 'S2_SOURCE_HEAD_CHA
 $dirty = @(& git -C $wt status --porcelain=v1 --untracked-files=all)
 if ($LASTEXITCODE -ne 0 -or $dirty.Count -ne 0) { throw 'S2_WORKTREE_DIRTY' }
 $actualScoreSha = (Get-FileHash -LiteralPath $s1File -Algorithm SHA256).Hash.ToLowerInvariant()
-if ($actualScoreSha -ne $s1SHA) { throw "S2_SCORE_SHA_DRIFT: $actualScoreSha" }
+if ($actualScoreSha -ne $s1SHA) {
+    # Transport-specific correction ONLY. The first RemoteDesktop text write
+    # converted original UTF-8 LF bytes to CRLF; original scores are unchanged.
+    # Never update the S1 Git anchor, overwrite the source, or rescore.
+    $expectedCrlfSHA = 'b33e3c11a9634985ba33de8d5bda2b9ec1ecdc99fb904c6dc2df26d82afc5952'
+    if ($actualScoreSha -ne $expectedCrlfSHA) {
+        throw "S2_UNRECOGNIZED_S1_SHA_DRIFT_PRESERVE: $actualScoreSha"
+    }
+    $canonicalPath = Join-Path $dir 'TTM_FRESH16_V2_S1_SCORES_EXACT_LOCKED_LF_PRIVATE.json'
+    if (-not (Test-Path -LiteralPath $canonicalPath)) {
+        # Lossless, BYTE-LEVEL reversal of precisely CRLF -> LF.
+        # Validate the candidate SHA before creating a new private file.
+        $inputBytes = [System.IO.File]::ReadAllBytes($s1File)
+        $buffer = New-Object System.IO.MemoryStream
+        try {
+            for ($i = 0; $i -lt $inputBytes.Length; $i++) {
+                if (($inputBytes[$i] -eq 13) -and (($i + 1) -lt $inputBytes.Length) -and ($inputBytes[$i + 1] -eq 10)) {
+                    continue
+                }
+                $buffer.WriteByte($inputBytes[$i])
+            }
+            $restoredBytes = $buffer.ToArray()
+        } finally {
+            $buffer.Dispose()
+        }
+        $digest = [System.Security.Cryptography.SHA256]::Create()
+        try {
+            $candidateSHA = ([System.BitConverter]::ToString($digest.ComputeHash($restoredBytes))).Replace('-','').ToLowerInvariant()
+        } finally {
+            $digest.Dispose()
+        }
+        if ($candidateSHA -ne $s1SHA) {
+            throw "S2_LF_RESTORATION_SHA_NOT_LOCKED_PRESERVE: $candidateSHA"
+        }
+        # Exclusive creation; old CRLF file is never modified or deleted.
+        $stream = [System.IO.File]::Open($canonicalPath,[System.IO.FileMode]::CreateNew,[System.IO.FileAccess]::Write,[System.IO.FileShare]::None)
+        try {
+            $stream.Write($restoredBytes,0,$restoredBytes.Length)
+            $stream.Flush($true)
+        } finally {
+            $stream.Dispose()
+        }
+    }
+    $s1File = $canonicalPath
+    $actualScoreSha = (Get-FileHash -LiteralPath $s1File -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($actualScoreSha -ne $s1SHA) {
+        throw "S2_RESTORED_OR_EXISTING_S1_COPY_NOT_SHA_LOCKED_PRESERVE: $actualScoreSha"
+    }
+    Write-Host 'FRESH16_S1_LF_TRANSPORT_RECOVERY=PASS_EXACT_LOCKED_BYTES'
+    Write-Host "FRESH16_S1_LOCKED_CANONICAL_PRIVATE=$s1File"
+}
 $actualMapSha = (Get-FileHash -LiteralPath $mapFile -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($actualMapSha -ne $mapSHA) { throw 'S2_MAP_SHA_DRIFT' }
 $finished = Get-Content -LiteralPath $finishedFile -Raw -Encoding UTF8 | ConvertFrom-Json

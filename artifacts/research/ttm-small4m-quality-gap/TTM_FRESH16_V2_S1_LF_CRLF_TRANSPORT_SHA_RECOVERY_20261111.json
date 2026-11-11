@@ -1,0 +1,18 @@
+{
+  "schema": "ttm.fresh16.v2.s1_transport_line_endings_recovery.v1",
+  "operation": "TTM_FRESH16_V2_S2_SCORE_SHA_CRLF_TRANSPORT_RECOVERY",
+  "date": "2026-11-11",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "original_s1_score_sha256_locked": "d08d59a9fe9738ef798aa2e0449345cb76e5c9f24f825a37685f928052028d35",
+  "windows_remote_text_copy_observed_sha256": "b33e3c11a9634985ba33de8d5bda2b9ec1ecdc99fb904c6dc2df26d82afc5952",
+  "reproduced_by_independent_raw_attachment_bytes": "SHA256(original_utf8.replace(LF,CRLF)) EXACTLY MATCHES WINDOWS observed SHA",
+  "original_file_bytes": 21431,
+  "crlf_copy_bytes": 21885,
+  "cause": "Remote text write changed original LF bytes into CRLF while keeping scored content unchanged",
+  "s1_sha_lock_git_commit": "5fd1d923de52d18709a39332400e3e98e6dfb31d",
+  "safe_recovery": "Only if existing SHA equals the observed CRLF digest, remove 0x0D immediately before 0x0A at byte level to new exclusive private file, first verify SHA exactly equals original immutable locked S1 digest, never overwrite original CRLF file; packet gate consumes canonical private file",
+  "scientific_execution": "NO_NEW_INFERENCE_OR_RESCORING",
+  "S2_packet": "NOT_YET_CREATED_AT_THIS_RECEIPT",
+  "change_scope": "S2 Windows launcher and this transport-recovery receipt only; frozen runner, map, S1 score anchor, lineage and main unchanged",
+  "privacy": "No S1 scores, raw outputs, mapping or checkpoint labels in commit"
+}
