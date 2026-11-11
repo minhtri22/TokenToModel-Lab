@@ -1,0 +1,122 @@
+{
+  "schema": "ttm.small4m.d1.new_dev.executable_prereg.single_owner_go_hold.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_D1_NEW_DEV_STIMULUS_AND_EXECUTABLE_PREREG_SINGLE_OWNER_GO_HOLD",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source": {
+    "d1_design_base_head": "94d5a671a9f0ec136c7dd7dae104dcdf8e6648e5",
+    "github_head_before_this_receipt": "49338ace5e57f75300dd5db271bb00c22c098450",
+    "main_head": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "e0_windows_local_ref": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "lineage_blob": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "lineage_last": "L0015_FRESH16_V2_FAIL_SCOPED",
+    "original_step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "t1_bpe_manifest_internal_sha256": "6da22cf79c3a6cfd08d80a768eb1074125a753164ccf62a164e79545956e94c6",
+    "source_t2_bpe_git_blob": "see_private_qa_verifier_origin_E0"
+  },
+  "private_artifacts": {
+    "stimulus_pack_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_SMALL4M_D1_NEW_DEV_PRIVATE_20261111.json",
+    "verifier_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_D1_PRIVATE_DEV_READONLY_QA_20261111.py",
+    "public_verifier_git_path": "tools/pilot_t4/d1_static_qa/ttm_d1_private_dev_readonly_qa.py",
+    "public_verifier_git_blob": "94f8b1c33416c3d1f80c68d34e673ec1438d908d",
+    "remote_writer_character_count": 259676,
+    "readback_segments": 39,
+    "readback_content_lf_normalized_sha256": "de5c0acae9a863e255922963d9644623ff6b1cbfedc0ff9edd7d8225cbac7603",
+    "readback_lf_normalized_character_count": 259676,
+    "raw_windows_file_sha256": "NOT_VERIFIED_READ_ONLY_EXECUTOR_MANAGED_TASK_REQUIRED",
+    "exact_windows_file_bytes": "NOT_VERIFIED_CRLF_TRANSPORT_POSSIBLE",
+    "sharing": "PRIVATE_NOT_UPLOADED_TO_PUBLIC_GITHUB"
+  },
+  "dev_pack": {
+    "generated_new_scenarios": true,
+    "origin": "AI_AUTHORED_IN_THIS_OPERATION_NO_PUBLIC_PROMPT_COPY",
+    "new_family_count": 16,
+    "category_family_counts": {
+      "entity_location": 4,
+      "causal_reasoning": 4,
+      "rule_constraint": 4,
+      "goal_persistence": 4
+    },
+    "new_prompt_count": 128,
+    "neutral_prior_prompt_count": 64,
+    "teacher_forced_candidate_evaluations_planned": 384,
+    "candidate_strings_count": 32,
+    "blind_generation_mapping_records": 512,
+    "seeds_private_locked_in_pack": 3,
+    "greedy_outputs_planned": 128,
+    "sampling_outputs_planned": 384,
+    "sampling_config": {
+      "top_p": 0.9,
+      "temperature": 0.8
+    },
+    "max_context": 256,
+    "max_prompt": 192,
+    "max_generation": 64,
+    "max_optimizer_steps": 0,
+    "max_generated_and_scored_target_tokens": 37376,
+    "fixed_checkpoint_only": true
+  },
+  "source_qa": {
+    "generator_bpe_pair_ids": "COMPLETE_1791_FROM_FROZEN_T1_WINDOWS_MANIFEST",
+    "generator_tokenizer": "JS_ASCII_EQUIVALENT_RANKED_GPT2_PRETOK_BPE_SOURCE_READBACK",
+    "generator_assertions": "PASS_SCOPED_0_OF_0_ISSUES",
+    "bpe_fact_candidate_parity": "PASS_SCOPED_ALL_16_FAMILIES",
+    "candidate_bpe_range_requirement": "PASS_ALL_3_TO_12",
+    "prompt_length_short_observed": [
+      74,
+      92
+    ],
+    "prompt_length_long_observed": [
+      168,
+      186
+    ],
+    "cue_distance_near_observed": [
+      17,
+      28
+    ],
+    "cue_distance_short_far_observed": [
+      51,
+      62
+    ],
+    "cue_distance_long_far_observed": [
+      145,
+      156
+    ],
+    "context_overflow_count": 0,
+    "duplicate_prompt_bytes_count": 0,
+    "public_historical_files_checked": [
+      "TTM_FRESH_CONTINUATION_PROMPT_SET_CANDIDATE_V1_20261111.json",
+      "TTM_FRESH16_ALLOWED_PUBLIC_HISTORICAL_PROMPTS_20261111.json"
+    ],
+    "public_historical_exact_scene_overlap_count": 0,
+    "public_historical_near_semantic_duplicate_full_check": "NOT_VERIFIED",
+    "private_historical_test_q1q2_ac_fresh16_semantic_overlap": "NOT_VERIFIED_NO_SEALED_DATA_OPENED",
+    "rights_provenance": "NEW_AI_AUTHORED_NO_EXTERNAL_COPIED_MATERIAL_INTENTIONAL",
+    "owner_rights_attestation": "NOT_SIGNED",
+    "independent_python_bpe_readonly_verifier": "STAGED_NOT_EXECUTED_TOOL_MANAGED_MODE_REQUIRES_TASK_JOB",
+    "private_windows_raw_sha256": "NOT_EXECUTED",
+    "blinding_mapping": "PRESENT_512_PRIVATE_HIDDEN_FROM_FUTURE_SCORER",
+    "reviewer_role_custody": "UNASSIGNED",
+    "private_seed_custody": "PRESENT_OWNER_PRIVATE_NOT_SEPARATELY_ATTESTED"
+  },
+  "single_owner_decision": {
+    "decision": "HOLD_SCIENCE_EXECUTION_SINGLE_FINAL_PREEXEC",
+    "protocol_design": "GO_DESIGN_FROZEN_PRESERVED",
+    "dataset_creation": "COMPLETE_PRIVATE_DRAFT",
+    "data_bpe_qa": "PASS_GENERATOR_SCOPED_NOT_INDEPENDENT",
+    "executable_prereg": "HOLD_INCOMPLETE_EVIDENCE",
+    "owner_GO": "NOT_GRANTED",
+    "root_cause": "RAW_SHA_SOURCE_NOVELTY_PRIVATE_RATER_AND_OWNER_ATTESTATION_NOT_CLOSED",
+    "inference_executed": false,
+    "training_executed": false,
+    "GPU_used": false,
+    "test_opened": false,
+    "q1q2_opened": false,
+    "fresh16_rerun": false,
+    "lineage_appended": false,
+    "main_merged": false,
+    "worktree_e0_changed": false
+  },
+  "next_operation": "TTM_SMALL4M_D1_PRIVATE_PACK_INDEPENDENT_QA_AND_SINGLE_OWNER_RELEASE_READBACK_NO_SCIENCE"
+}
