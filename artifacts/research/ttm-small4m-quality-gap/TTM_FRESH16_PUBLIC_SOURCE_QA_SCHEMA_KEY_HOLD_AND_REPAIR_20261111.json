@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.fresh16.public_source_static_qa_repair_receipt.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_PROMPT_ADHERENCE_FRESH16_INTEGRATED_OFFLINE_QA_SCHEMA_KEY_RECOVERY",
+  "failure_observed_by_owner": {
+    "status": "HOLD_TECHNICAL_OFFLINE_UNIT_QA",
+    "tests_total": 9,
+    "tests_passed": 7,
+    "tests_errored": 2,
+    "error_type": "KeyError",
+    "error_key": "source",
+    "origin_file": "tools/research/ttm_small4m_quality_gap/ttm_fresh16_integrated_offline_review.py",
+    "origin_line_approx": 98,
+    "checkpoint1024_local_sha_status": "PASS_CONFIRMED_OWNER_PS51",
+    "checkpoint1280_local_sha_status": "PASS_CONFIRMED_OWNER_PS51",
+    "BPE_and_integrated_readback": "NOT_EXECUTED_UNIT_QA_STOP",
+    "science": "NOT_EXECUTED"
+  },
+  "cause": {
+    "historical_header_schema": "history.sources[].name",
+    "source_read_before_fix": "history.sources[].source",
+    "historical_git_blob": "6b35ec8ae377a9dbdb778766756a32e8ad4bcbc8",
+    "wrong_field_reference_causes_both_unit_test_errors": true
+  },
+  "repair": {
+    "replace_exactly_one_field_access": true,
+    "old_expression": "hdict={x[\"source\"]:x[\"git_blob_sha\"] for x in history[\"sources\"]}",
+    "new_expression": "hdict={x[\"name\"]:x[\"git_blob_sha\"] for x in history[\"sources\"]}",
+    "additional_tests": [
+      "test_historical_header_uses_name_not_source",
+      "test_historical_source_name_tamper_detected"
+    ],
+    "H1_H2_source_unchanged": true,
+    "prompt_set_unchanged": true,
+    "tokenizer_source_unchanged": true,
+    "checkpoint_pin_unchanged": true,
+    "lineage_unchanged": true,
+    "QA_reexecution_permitted": "ONLY_OFFLINE_UNIT_AND_BPE_CHECKPOINT_READBACK",
+    "one_shot_science_reexecution": false
+  },
+  "outcome": {
+    "fix_status": "SOURCE_PATCHED_NOT_YET_EXECUTED_ON_OWNER_WINDOWS",
+    "postfix_offline_tests_expected": 11,
+    "science_gate": "HOLD_REVIEWER_CUSTODY_UNASSIGNED",
+    "TEST": "NOT_READ",
+    "training": false,
+    "inference": false,
+    "next": "FAST_FORWARD_EXACT_RESEARCH_BRANCH_AND_RERUN_OFFLINE_QA_ONCE"
+  }
+}

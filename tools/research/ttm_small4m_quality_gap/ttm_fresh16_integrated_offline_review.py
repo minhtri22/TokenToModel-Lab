@@ -95,7 +95,7 @@ def assess_public(prompts,history,rubric):
             and rubric["fixture_contract"]["primary"]["H2"]["require_min_one_pass_each_of_four_categories"],
             "H1_H2_PREREG_CHANGED")
     require(rubric["status"].startswith("SOURCE_AND_METRIC_RULES_FROZEN"),"NOT_FROZEN_RUBRIC")
-    hdict={x["source"]:x["git_blob_sha"] for x in history["sources"]}
+    hdict={x["name"]:x["git_blob_sha"] for x in history["sources"]}
     require(hdict==EXPECTED_HIST_BLOBS,"HIST_SOURCE_PIN_CHANGED")
     comparisons=[]
     exact=0

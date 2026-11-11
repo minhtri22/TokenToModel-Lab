@@ -16,6 +16,17 @@ class StaticReviewQA(unittest.TestCase):
     def test_counts_and_sources(self):
         r=M.assess_public(PROMPTS,HISTORY,RUBRIC)
         self.assertEqual((r["prompt_count"],r["historical_count"],r["exact_collisions"]),(16,28,0))
+    def test_historical_header_uses_name_not_source(self):
+        self.assertEqual({item["name"]:item["git_blob_sha"] for item in HISTORY["sources"]},
+                         M.EXPECTED_HIST_BLOBS)
+        self.assertTrue(all("source" not in item for item in HISTORY["sources"]))
+        self.assertEqual(M.assess_public(PROMPTS,HISTORY,RUBRIC)["status"],
+                         "PASS_PUBLIC_FROZEN_SOURCE")
+    def test_historical_source_name_tamper_detected(self):
+        altered=json.loads(json.dumps(HISTORY))
+        altered["sources"][0]["name"]="UNEXPECTED_PUBLIC_SOURCE"
+        with self.assertRaisesRegex(ValueError,"HIST_SOURCE_PIN_CHANGED"):
+            M.assess_public(PROMPTS,altered,RUBRIC)
     def test_near_duplicate_boundary(self):
         a=M.gramset("red cat sleeps on the mat",3)
         self.assertEqual(M.jaccard(a,a),1.)
