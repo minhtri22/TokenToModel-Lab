@@ -1,0 +1,81 @@
+{
+  "schema": "ttm.small4m.post_fresh16.nll_adherence_successor_single_decision.design_only.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_POST_FRESH16_NEGATIVE_RESULT_SCIENCE_GAP_RECONCILE_DESIGN_ONLY",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_fresh16_head": "4c3731573f3091300d3dd00dc67f4e2940aec4a3",
+  "status": "DESIGN_REVIEW_COMPLETED_NO_NEW_SCIENCE_EXECUTION",
+  "source_pins": {
+    "frozen_E0_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "frozen_runner_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+    "frozen_pair_gate_blob": "244c49c188c4645825af9f1bd048fbad535019d3",
+    "final_fresh16_adjudication_commit": "4c3731573f3091300d3dd00dc67f4e2940aec4a3",
+    "final_tally_sha256": "64ec345fef6ef2f1c8b08e847047e3d3ac53f7bcca83fe39ae10d27e69b6f181",
+    "post_cf1_prior_review_branch": "research/ttm-small4m-post-cf1-language-fresh-gap-reconcile-20261111",
+    "post_cf1_prior_review_head": "33dbb3aa84a4eff738dec9bbea8b505bdaba77ea",
+    "ac_design_branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "ac_design_head": "837289fda82b41653a61b74e476f76a0b4c4137c",
+    "ac_2x2_design_blob": "6f8553e7054078d449bad6b2979c3b07d392eb48",
+    "ac_preexec_blob": "0c83b23c13c588a7787dd64a6c3d9ed5da22c5ce"
+  },
+  "evidence": {
+    "T4_VAL": "PASS_H1_CONFIRMATORY_VAL_SCOPE_NLL_3_5223388517_VS_BIGRAM_3_9972314170",
+    "T4_TEST": "PASS_TEST_HOLDOUT_DESCRIPTIVE_SCOPED_CONSUMED",
+    "FRESH12": "WEAK_ADHERENCE_SCOPED_35_OF_48_ZERO",
+    "CF1_DEV36": "FAIL_SCOPED_NO_SWITCH_0_OF_36_LEXICAL_AND_POSITION_CONFOUNDS",
+    "FRESH16_V2": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED_H1_0_16_H2_0_8",
+    "S1_all32_distribution": {
+      "0": 4,
+      "1": 28,
+      "ge2": 0
+    },
+    "H2_dependency": "ALL_S1_BELOW_2_MAKES_H2_ZERO_DETERMINISTIC_NOT_INDEPENDENT_CAUSAL_EVIDENCE",
+    "runner_inference_no_context_overflow": "PROMPT_LE_192_PLUS_64_NEW_LE_256_CONTEXT",
+    "step1280": "DESCRIPTIVE_ONLY"
+  },
+  "hypothesis_identification": {
+    "data": "NOT_IDENTIFIED__AC_B_MINUS_A_TESTS_FIRST_WINDOW_POLICY_NOT_DATASET_SIZE_OR_DIVERSITY",
+    "objective": "NOT_IDENTIFIED__EXISTING_AC_C_MINUS_A_TESTS_POSITION_WEIGHTED_CE_ONLY",
+    "capacity": "NOT_IDENTIFIED__CONTROLLED_SCALE_TRAIN_REQUIRED_DEFER",
+    "context": "HARD_TRUNCATION_IN_FRESH16_RULED_OUT_BY_FROZEN_SOURCE_CAP__FACT_USE_AND_DISTANCE_OPEN",
+    "decoding": "ONLY_GREEDY_OBSERVED__NO_INDEPENDENT_DECODER_CONTRAST",
+    "serialization": "FIRST_TOKEN_LEXICAL_ABLATION_EXISTING__NOT_PROVEN_SEMANTIC_GAIN"
+  },
+  "successor_candidate": {
+    "name": "D1_FIXED_CHECKPOINT_FACT_SENSITIVITY_VS_ROLLOUT_DIAGNOSTIC",
+    "stage": "DESIGN_ONLY_NOT_PREREGISTERED",
+    "design_new_dev": {
+      "fact_pair_families": 16,
+      "categories": 4,
+      "prompt_variants_per_pair": 2,
+      "short_long_within_256": true,
+      "greedy_vs_seeded_nucleus": true,
+      "seed_replicates_stochastic": 3,
+      "teacher_forced_fact_margin": true
+    },
+    "triggers": "Differential likelihood/rollout context-decoding contrasts precede any training root cause claims",
+    "not_executable_now": true
+  },
+  "existing_training_design": {
+    "A_C_effect": "C_MINUS_A_SUFFIX_POSITION_WEIGHTED_CE_WITH_MATCHED_DRAWS",
+    "B_D_effect": "B_MINUS_A_AND_D_MINUS_C_FIRST_STORY_WINDOW_POLICY",
+    "two_by_two_interaction": "(D-B)-(C-A)",
+    "AC_status": "NO_GO_PREEXEC_EXTERNAL_AND_NATIVE_GATES_OPEN",
+    "new_training_permit": false,
+    "O1_deferred": true
+  },
+  "single_decision": {
+    "research_direction": "GO_NEXT_CAUSAL_DIAGNOSTIC_DESIGN_ONLY",
+    "new_inference": "HOLD_NO_AUTHORIZATION",
+    "new_training": "HOLD_NO_AUTHORIZATION",
+    "AC_train": "HOLD_NO_GO_PREEXEC",
+    "full_2x2": "DESIGN_ONLY_NOT_AUTHORIZED",
+    "capacity_upgrade": "DEFER",
+    "main_merge": "NO",
+    "lineage_append": "NO",
+    "existing_science_results_immutable": true
+  },
+  "primary_report_path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_POST_FRESH16_NLL_ADHERENCE_ROOT_CAUSE_DISCRIMINATION_SINGLE_SUCCESSOR_DECISION_20261111.md",
+  "next_operation": "TTM_SMALL4M_D1_FIXED_CHECKPOINT_FACT_CONDITIONING_VS_DECODING_NEW_DEV_SINGLE_FROZEN_DESIGN_OWNER_GO_HOLD"
+}
