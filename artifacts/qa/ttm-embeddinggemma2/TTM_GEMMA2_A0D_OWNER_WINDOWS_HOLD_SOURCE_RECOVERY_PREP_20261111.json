@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.gemma2.a0d.owner_windows_source_handoff.v1",
+  "date": "2026-11-11",
+  "owner_output": {
+    "readback_status": "HOLD_NO_EXACT_DONOR_SOURCE_ON_WINDOWS",
+    "receipt_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\artifacts\\qa\\ttm-embeddinggemma2\\a0d_owner_local_readback\\TTM_GEMMA2_A0D_OWNER_READBACK_20261111_101555_075.json",
+    "receipt_sha256_as_reported_by_owner": "B57826A860F44D95A71275B4572500983622D58A34DCA8C5BCD863EE9FFB9CD4",
+    "receipt_file_bytes_read_independently": false,
+    "status_inferred_from_receipt_content": false
+  },
+  "prior_official_cpu_ci": {
+    "run_id": 42968236741,
+    "conclusion": "SUCCESS",
+    "source_pins_verified_3_of_3": true,
+    "official_class_instantiated_without_forward": true,
+    "mapping_T1_executed": false
+  },
+  "next_source_recovery": {
+    "action": "DOWNLOAD_SOURCE_ONLY_3_FILES_EXACT_REVISION_WITH_SHA256_AND_SIZE_VALIDATION",
+    "revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "source_files": [
+      {
+        "file": "config.json",
+        "bytes": 4455,
+        "sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3"
+      },
+      {
+        "file": "tokenizer.json",
+        "bytes": 32170510,
+        "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4"
+      },
+      {
+        "file": "tokenizer_config.json",
+        "bytes": 1599,
+        "sha256": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874"
+      }
+    ],
+    "destination": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_gemma2_a0d_owner_readback\\official_donor_source_f9972ac22e696a105c482202646979e33e4b5a1e",
+    "powershell_source": "tools/embeddinggemma2_swap/semantics_origin_a0/Invoke-TTM-GEMMA2-A0D-ExactDonor-RecoveryAndReadback-PS51.ps1",
+    "powershell_git_blob_sha1": "3d3b516b0304d6e8408f200e842e880900193156",
+    "expected_source_total_bytes": 32176564,
+    "reuses_original_owner_readback_script": true,
+    "original_owner_script_is_authority_for_training_free_source_audit": true,
+    "will_not_download_weights": true,
+    "will_not_train_or_infer": true,
+    "local_executed_in_this_turn": false,
+    "owner_Python312_or_modules_admissibility_after_download": "NOT_YET_MEASURED"
+  },
+  "adjudication": {
+    "official_source_ci": "PASS",
+    "owner_windows_source": "HOLD",
+    "owner_exact_T1_mapping": "NOT_EXECUTED",
+    "T4_science_authorization": "HOLD",
+    "lineage_science_append": "NOT_PERMITTED",
+    "main_branch": "DO_NOT_CHANGE"
+  }
+}
