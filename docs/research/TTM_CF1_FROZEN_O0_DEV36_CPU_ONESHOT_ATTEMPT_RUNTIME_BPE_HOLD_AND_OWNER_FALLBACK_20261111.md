@@ -38,6 +38,22 @@ if (-not (Test-Path -LiteralPath $script)) {
 if ($LASTEXITCODE -ne 0) { throw 'CF1_DEV_ONLY_ONESHOT_NOT_PASS' }
 ```
 
+**Nếu local checkout vẫn ở main (không có runner trên disk):** trước khi gọi đoạn lệnh trên, có thể lấy chính xác blob runner vào **`_tmp` trong project** mà không chuyển nhánh hoặc sửa main:
+
+```powershell
+$root='D:\WORK\RESEARCH\TokenToModel-Lab'
+$python='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
+git -C $root fetch origin research/ttm-o0-narrative-cf1-source-scorer-blind-readiness-20261111
+if ($LASTEXITCODE -ne 0) { throw 'CF1_PINNED_SOURCE_FETCH_FAILED' }
+$blob='14109c8d4e27a874e1832a480a0d7eeebed78b2f'
+$script=Join-Path $root '_tmp\cf1_dev_only_one_shot_owner_cpu.py'
+if (Test-Path -LiteralPath $script) { throw 'ONE_SHOT_RUNNER_ALREADY_STAGED' }
+& $python -c 'import pathlib,subprocess,sys,hashlib; b=subprocess.check_output(["git","-C",sys.argv[1],"cat-file","blob",sys.argv[3]]); h=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest(); assert h==sys.argv[3]; pathlib.Path(sys.argv[2]).write_bytes(b)' $root $script $blob
+if ($LASTEXITCODE -ne 0) { throw 'CF1_RUNNER_GIT_BLOB_PIN_FAILED' }
+```
+
+Sau đó chạy phần tìm `$checkpoint` và lệnh `& $python $script --repo-root $root --checkpoint $checkpoint` ở trên; không sử dụng dòng `$script=Join-Path ... tools\research ...` nếu file đó chưa có ở local checkout. Việc fetch chỉ thêm Git objects/ref tracking; không checkout, không merge.
+
 **Chú ý:** Git objects cần đã được fetch về local repo; nếu thiếu object, script FAIL trước khi tạo output. Không chạy lại khi có `_tmp\TTM_CF1_STEP1024_DEV36_ONE_SHOT_20261111`; kiểm tra output/receipt thay vì đổi tên job hoặc chạy thêm lần.
 
 ## 4. Phán quyết khoa học
