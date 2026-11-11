@@ -19,9 +19,9 @@ if ($LASTEXITCODE -ne 0) { throw 'PRIMARY_SOURCE_QA_FAILED' }
 if ($LASTEXITCODE -ne 0) { throw 'INDEPENDENT_SOURCE_QA_FAILED' }
 $a = Get-Content -LiteralPath $primary -Raw | ConvertFrom-Json
 $b = Get-Content -LiteralPath $secondary -Raw | ConvertFrom-Json
-if ($a.status -ne 'PASS_SOURCE_ONLY_SYNTHETIC_QA' -or $a.checks_passed -ne 35 -or $b.status -ne 'PASS_INDEPENDENT_SOURCE_ONLY' -or $b.checks_passed -ne 15) { throw 'ORACLE_QA_UNEXPECTED_STATUS' }
-Write-Output 'TTM_VM_ORACLE_READER_SOURCE_QA=PASS_35_35'
-Write-Output 'TTM_VM_ORACLE_READER_INDEPENDENT_QA=PASS_15_15'
+if ($a.status -ne 'PASS_SOURCE_ONLY_SYNTHETIC_QA' -or $a.checks_passed -ne 36 -or $b.status -ne 'PASS_INDEPENDENT_SOURCE_ONLY' -or $b.checks_passed -ne 16) { throw 'ORACLE_QA_UNEXPECTED_STATUS' }
+Write-Output 'TTM_VM_ORACLE_READER_SOURCE_QA=PASS_36_36'
+Write-Output 'TTM_VM_ORACLE_READER_INDEPENDENT_QA=PASS_16_16'
 Write-Output ('PRIMARY_SHA256=' + (Get-FileHash -Algorithm SHA256 -LiteralPath $primary).Hash)
 Write-Output ('INDEPENDENT_SHA256=' + (Get-FileHash -Algorithm SHA256 -LiteralPath $secondary).Hash)
 Write-Output 'TEST=NOT_OPENED; TRAINING=NOT_EXECUTED; GPU=NOT_USED'
