@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.cf1.dev36.owner_local_oneshot.transport_and_project_kind_block.v1",
+  "date": "2026-11-11",
+  "task": "TTM_CF1_DEV36_OWNER_LOCAL_ONESHOT_EXECUTION_AND_GITHUB_READBACK",
+  "status": "HOLD_MANAGED_PROJECT_KIND_CONFLICT__NO_ONESHOT_SUBMITTED__NO_NEURAL_SCORES",
+  "source_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "research_branch": "research/ttm-o0-narrative-cf1-source-scorer-blind-readiness-20261111",
+    "pin_source_commit": "a7ede429dad2607a77c43cecbee9694f99c4f1cc",
+    "PS51_wrapper_path": "tools/research/narrative_cf1/Run-TTM-CF1-DEV36-Once-Owner-PS51-20261111.ps1",
+    "PS51_wrapper_git_blob": "59a7e90e7e1284303bda716937b4632094d77693",
+    "python_inner_runner_git_blob": "14109c8d4e27a874e1832a480a0d7eeebed78b2f",
+    "expected_evidence_branch": "evidence/ttm-cf1-step1024-dev36-once-20261111",
+    "expected_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "expected_T1_BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "expected_DEV_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed"
+  },
+  "observations": {
+    "remote_device": {
+      "name": "machine-1",
+      "hostname": "DESKTOP-4PSD0G2",
+      "state": "ONLINE",
+      "heartbeat": "FRESH",
+      "authoritative_active_jobs": 0,
+      "authoritative_unresolved_jobs": 0,
+      "physical_process_blockers": 0
+    },
+    "workspace": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "T1_private_manifest_file_present": true,
+    "T1_private_manifest_sha256_in_this_attempt": "NOT_COMPUTED__DO_NOT_ASSUME_PASS",
+    "original_oneshot_run_directory": "NOT_PRESENT_AT_REMOTE_LIST_DIR",
+    "local_staged_PS51_script": "NOT_EXECUTED",
+    "evidence_remote_branch": "NOT_FOUND_AT_GITHUB_BRANCH_LOOKUP_BEFORE_SUBMISSION",
+    "direct_run_command": "DENIED_MANAGED_MODE_REQUIRES_TASK_JOB_SUBMIT",
+    "old_remote_binding": {
+      "project_id": "prj_7ff9a13a92022806cecf44b7",
+      "project_kind": "NON_GIT",
+      "eligible_for_new_tasks": true,
+      "active_tasks": 0
+    },
+    "project_register_error": "PAIRED_EXECUTION_DEVICES_REQUIRE_PROJECT_REGISTER_ON_DEVICE",
+    "project_register_on_device_error": "REMOTE_PROJECT_KIND_CHANGED",
+    "managed_task_created": false,
+    "managed_job_submitted": false,
+    "dev_scoring_attempted": false,
+    "dev_pairs_scored": 0,
+    "torch_eval_results": "NOT_AVAILABLE",
+    "github_main_at_readback": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "PR13_draft_at_readback": true,
+    "PR13_head_at_readback": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+    "PR13_previous_head_in_old_evidence": "8399406cfca7855626a20e031d1cfb3c767d606f",
+    "PR13_change_origin": "NOT_ATTRIBUTED_TO_THIS_TASK"
+  },
+  "decision": {
+    "verdict": "HOLD_TRANSPORT_PROJECT_KIND_NO_LOCAL_CPU_ONESHOT_YET",
+    "scoped_cpu_DEV36_still_allowed": true,
+    "one_shot_consumed_by_this_turn": false,
+    "next": "EXECUTE_EXACT_PINNED_PS51_LOCALLY_ON_OWNER_WINDOWS_AND_GITHUB_READBACK",
+    "no_automatic_replay": true,
+    "do_not_create_replacement_job_id": true,
+    "do_not_change_project_binding_as_part_of_science_task": true,
+    "do_not_create_worktrees_outside_TTM_root": true,
+    "no_approximate_BPE": true,
+    "train_new_steps": 0,
+    "gpu_jobs": 0,
+    "final_unseal": false,
+    "original_TTM_TEST_Q1Q2_reads": 0,
+    "main_written": false,
+    "pr13_written": false,
+    "lineage_written": false
+  },
+  "interpretation": "This is a transport/admission HOLD, not neural model FAIL/PASS. No accuracy or NLL is reported."
+}
