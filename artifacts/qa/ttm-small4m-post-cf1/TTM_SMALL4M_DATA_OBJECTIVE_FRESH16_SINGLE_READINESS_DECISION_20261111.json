@@ -1,0 +1,117 @@
+{
+  "schema": "ttm.small4m.post_cf1.integrated_science_readiness_causal_identifiability.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_DATA_OBJECTIVE_EXISTING_AC_AND_FRESH16_SINGLE_INTEGRATED_SCIENCE_READINESS_GAP_REVIEW_DESIGN_ONLY",
+  "report_branch": "research/ttm-small4m-post-cf1-language-fresh-gap-reconcile-20261111",
+  "report_commit": "818a443f75596334d7622755140d1b6ae8632feb",
+  "audit_mode": "SOURCE_ONLY_DESIGN_REVIEW_NO_NEW_QA_NO_INFERENCE_NO_TRAINING",
+  "source_pins": {
+    "prior_cf1_report_blob": "d1e823818b81618b32e6d9a4f99bff2fcd0338c7",
+    "ac_2x2_design_blob": "6f8553e7054078d449bad6b2979c3b07d392eb48",
+    "ac_preexec_blob": "0c83b23c13c588a7787dd64a6c3d9ed5da22c5ce",
+    "fresh16_v2_receipt_blob": "1dd2ddd7d3ca5c054fedefa5b7ea574d98e4a660",
+    "fresh16_original_prompt_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "fresh16_original_rubric_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "ac_private_train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "main_observed": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "ac_source_branch_head": "837289fda82b41653a61b74e476f76a0b4c4137c",
+    "fresh16_source_branch_head": "202477787a14cd2c30649bb9dab8f630573479f0"
+  },
+  "baseline_status": {
+    "T4_VAL_H1": "PASS_H1_CONFIRMATORY_VAL_SCOPE",
+    "FRESH12": "WEAK_ADHERENCE_SCOPED_CONSUMED",
+    "CF1": "FAIL_SCOPED_PRESERVED_CONFOUNDED_DEV",
+    "FRESH16": "NOT_EXECUTED",
+    "AC": "NO_GO_PREEXEC",
+    "O1": "DEFER",
+    "TEST_Q1Q2": "UNTOUCHED"
+  },
+  "causal_comparisons": {
+    "FRESH16": {
+      "question": "O0_LOCAL_PROMPT_CONDITIONED_CONTINUATION",
+      "identifies_data_effect": false,
+      "identifies_objective_effect": false,
+      "identifies_architecture_effect": false,
+      "metric": "H1_12_OF_16_H2_6_OF_8_CATEGORY_COVERAGE",
+      "science_status": "NOT_EXECUTED"
+    },
+    "A_C": {
+      "question": "SUFFIX_POSITION_LOSS_WEIGHT_EFFECT_HOLDING_INPUT_DRAWS_FIXED",
+      "identifies_data_effect": false,
+      "identifies_objective_position_weighting_intervention": true,
+      "identifies_semantic_supervision_effect": false,
+      "arm_steps": 128,
+      "exposures_per_arm": 524288,
+      "total_exposures": 1048576,
+      "science_status": "NOT_EXECUTED"
+    },
+    "factorial_2x2": {
+      "question": "FIRST_WINDOW_DATA_SAMPLER_POLICY_VS_SUFFIX_POSITION_LOSS_AND_INTERACTION",
+      "design_only": true,
+      "arms": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "data_effects": [
+        "B-A",
+        "D-C"
+      ],
+      "loss_effects": [
+        "C-A",
+        "D-B"
+      ],
+      "interaction": "(D-B)-(C-A)",
+      "total_planned_valid_target_exposures": 2097152,
+      "identifies_corpus_size_effect": false,
+      "identifies_semantic_data_quality_effect": false,
+      "BD_ready": false
+    }
+  },
+  "open_science_conditions": {
+    "fresh16": [
+      "OWNER_ADOPTION_IF_AMENDMENT_APPLIED",
+      "INDEPENDENT_RATER_AND_PAIR_ADJUDICATOR_CUSTODY",
+      "BLIND_PAIR_LOCKS_AND_CPU_RUNNER_SOURCE",
+      "ONE_OWNER_CPU_EXECUTION_DECISION"
+    ],
+    "ac": [
+      "OWNER_PRIVATE_PACK_RIGHTS",
+      "PRIVATE_ESCROW_KEY_CUSTODY",
+      "INDEPENDENT_RATER",
+      "WINDOWS_V2_NATIVE_QA_RECEIPT",
+      "T4_ZERO_STEP_SMOKE_AND_ACTUAL_INTERRUPTED_RESUME_PARITY",
+      "ONE_OWNER_TRAINING_DECISION"
+    ],
+    "source_qa_previously_passed": "NOT_REPEATED",
+    "ac_v1_windows_failure": "PS51_STDERR_CAPTURE_INCIDENT_NOT_SCIENCE_FAIL",
+    "ac_v2_native": "NOT_VERIFIED_AS_PASS"
+  },
+  "decisions": {
+    "design_review": "GO_COMPLETE",
+    "successor_training": "HOLD",
+    "fresh16_cpu32": "NO_GO_HOLD_PENDING_OTHER_AGENT_AND_OWNER",
+    "ac_training_2arm": "NO_GO_PREEXEC",
+    "full_2x2": "DESIGN_ONLY_NOT_AUTHORIZED",
+    "new_toy": "NO",
+    "new_architecture": "DEFER",
+    "no_micro_permit": true
+  },
+  "governance": {
+    "source_branches_modified": false,
+    "main_modified": false,
+    "pr13_modified": false,
+    "lineage_modified": false,
+    "local_repo_modified": false,
+    "test_reused": false,
+    "q1q2_reused": false,
+    "fresh12_reused": false,
+    "cf1_reused": false,
+    "new_training_steps": 0,
+    "new_inference_tokens": 0,
+    "GPU": "NO"
+  },
+  "next": "TTM_SMALL4M_POST_CF1_OWNER_SINGLE_SUCCESSOR_RESEARCH_PRIORITY_DECISION_ON_EXISTING_FRESH16_AND_AC"
+}
