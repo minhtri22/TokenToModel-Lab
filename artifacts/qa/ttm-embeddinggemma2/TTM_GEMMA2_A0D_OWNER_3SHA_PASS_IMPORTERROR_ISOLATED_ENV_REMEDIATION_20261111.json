@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.gemma2.a0d.owner_3sha_importerror_isolated_env_remediation.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_GEMMA2_A0D_OWNER_LOCAL_PINNED_DONOR_TOKENIZER_AND_OFFICIAL_TRANSFORMERS_CLASS_ONE_INTEGRATED_READBACK",
+  "owner_receipt_observed_via_authenticated_read_only_connector": {
+    "relative_path": "artifacts/qa/ttm-embeddinggemma2/a0d_owner_local_readback/TTM_GEMMA2_A0D_OWNER_READBACK_20261111_103151_259.json",
+    "sha256_user_reported_not_independently_recomputed": "ACAFB99EDEBB9979F5BA5872B459B3F1C00978A44D0142C6B21F49367D524B90",
+    "source_python_git_blob": "6258b9f824e3ff8aabb1baba899f2a37894e8599",
+    "official_python_exit_code": 2,
+    "python_version_field_in_receipt": "312",
+    "T1_manifest_found": true,
+    "source_import_error_gate": "OFFICIAL_CLASS_IMPORT_ImportError",
+    "official_python_report_status": "HOLD_FAIL_CLOSED",
+    "owner_readback_status": "HOLD_OFFICIAL_CPU_SOURCE_READBACK_FAILED",
+    "source_tensor_mapping_executed": false,
+    "model_training": false,
+    "model_forward": false
+  },
+  "owner_artifact_sha_user_output": {
+    "artifact_zip_SHA": "PASS",
+    "donor_sources_three": "PASS_SHA256_3_OF_3",
+    "offline_donor_source": "PASS_SHA256_3_OF_3",
+    "offline_readback_status": "HOLD_OWNER_READBACK_NOT_COMPLETE",
+    "offline_receipt_relative_path": "artifacts/qa/ttm-embeddinggemma2/a0d_owner_local_readback/TTM_GEMMA2_A0D_OFFLINE_ARTIFACT_READBACK_20261111_103151_338.json",
+    "offline_receipt_sha_user_reported": "BBCE7293C5FF40621E96A48B7DD31B20324A73D033BA91F01AD2453D0DCA28D3"
+  },
+  "diagnosis": {
+    "actual_gate": "OFFICIAL_CLASS_IMPORT_ImportError",
+    "cause_is_not_missing_source": true,
+    "root_import_error_message_captured_in_original_receipt": false,
+    "installed_transformers_version_on_owner": "UNVERIFIED",
+    "remediation_strategy": "PROJECT_LOCAL_NEW_VENV_WITH_EXISTING_PYTHON312_AND_SYSTEM_TORCH_USING_OFFLINE_VERIFIED_WHEELS",
+    "global_python_install_modified": false,
+    "no_inference_or_model_training": true
+  },
+  "offline_artifact": {
+    "source_workflow": ".github/workflows/ttm-gemma2-a0d-py312-windows-offline-transformers-wheels.yml",
+    "run_id": 43005191658,
+    "run_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43005191658",
+    "run_conclusion": "success",
+    "head_commit": "07d2e0e7760625b7f984f53c91fd61512158daab",
+    "artifact_id": 13846859761,
+    "artifact_name": "TTM_GEMMA2_A0D_WINDOWS_PY312_TRANSFORMERS_5_19_OFFLINE_WHEELS_20261111",
+    "artifact_sha256": "17b292711ec27df09513c51013fd654155de9fe0a24b3534f56cd43b3b3a8b44",
+    "artifact_bytes": 38855386,
+    "artifact_expiration": "2026-11-18T10:37:43Z",
+    "windows_cp312_wheels": 31,
+    "sum_uncompressed_wheel_bytes": 39458861,
+    "contains_torch_wheels": false,
+    "contains_pretrained_weight_files": false,
+    "owner_downloaded_or_installed": false
+  },
+  "owner_offline_runner": {
+    "path": "tools/embeddinggemma2_swap/semantics_origin_a0/Invoke-TTM-GEMMA2-A0D-IsolatedOfflinePy312-OwnerReadback-PS51.ps1",
+    "script_git_blob": "2dc280ffe52b46fba168564d42291bceb8c1a7a2",
+    "scope": "TTM project _tmp venv only, verified donor SHA files, verified T1 SHA, pinned original official readback Python",
+    "windows_ps51_static_ci": {
+      "run_id": 43005706705,
+      "status": "SUCCESS",
+      "head_sha": "159765cd64decba1d9e589a9a76b303e540d11b9",
+      "powershell_parse": "PASS",
+      "safety_assertions": "PASS"
+    },
+    "executed_on_owner_this_turn": false
+  },
+  "adjudication": {
+    "three_source_SHA_on_owner": "PASS",
+    "owner_official_class": "HOLD_IMPORTERROR",
+    "owner_T1_mapping": "NOT_EXECUTED",
+    "py312_offline_wheelhouse": "PASS_CI_ARTIFACT_READY",
+    "owner_offline_isolated_class_readback": "NOT_EXECUTED",
+    "T4_2X2": "HOLD",
+    "new_science": false,
+    "lineage_append": false,
+    "main_changed_by_this_operation": false
+  }
+}
