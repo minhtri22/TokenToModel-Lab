@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.fresh16.v2.s1_score_sha_anchor.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_S1_32_INDEPENDENT_SCORES_SHA_LOCK_AND_S2_PACKET_RELEASE",
+  "research_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "source_E0_runner_git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+  "sealed_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+  "map_anchor_git_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+  "CPU32_finished_integrity_git_commit": "d849f010740a47fd9bcc353f6b54aedfc2096fe0",
+  "s1_packet_sha256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+  "s1_score_file_sha256": "d08d59a9fe9738ef798aa2e0449345cb76e5c9f24f825a37685f928052028d35",
+  "s1_score_file_bytes": 21431,
+  "s1_score_file_schema": "ttm.fresh16.v2.s1_individual_scores.v1",
+  "s1_score_rater_identity_and_version": "OpenAI GPT-6 · S1-FRESH16-NEW-CHAT-20261111 · independent blind individual rater",
+  "s1_score_file_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/TTM_FRESH16_V2_S1_SCORES_PRIVATE.json",
+  "score_receipt_provenance": "Owner-uploaded UTF-8 JSON, actual SHA256 verified from mounted raw uploaded file bytes, no reserialization; checked 32 unique score IDs exactly match 32 unique source packet IDs",
+  "validation": {
+    "status": "PASS_INTEGRITY_ONLY",
+    "records": 32,
+    "unique_opaque_ids": 32,
+    "all_ids_match_original_packet": true,
+    "all_four_0_to_3_score_fields_valid": true,
+    "all_boolean_flags_type_checked": true,
+    "all_reason_for_score_nonempty": true,
+    "event_span_evidence_for_scores_ge2_checked": true,
+    "blind_rater_substantive_decisions_not_regraded": true
+  },
+  "lock": {
+    "s1_score_status": "SHA256_LOCKED_NO_EDITS",
+    "s2_pair_packet_status": "NOT_CREATED_YET_AT_TIME_OF_S1_LOCK",
+    "s2_pair_release_condition": "ONLY_AFTER_THIS_COMMIT_AND_PRIVATE_SCORE_BYTE_HASH_VERIFIED",
+    "S2_role": "FRESH16_S2_PAIR_ADJUDICATOR_FRESH_DISTINCT_SESSION",
+    "unblinding": "FORBIDDEN_UNTIL_S2_SCORE_SHA_LOCK",
+    "model_quality": "NOT_ADJUDICATED",
+    "lineage_append": "NOT_PERFORMED",
+    "private_score_contents_published": false,
+    "private_original_outputs_published": false,
+    "private_map_contents_published": false,
+    "no_inference_rerun": true
+  }
+}
