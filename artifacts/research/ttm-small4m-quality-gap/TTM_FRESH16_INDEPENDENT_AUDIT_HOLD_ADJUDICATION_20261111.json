@@ -1,0 +1,98 @@
+{
+  "schema": "ttm.fresh16.independent_protocol_review_intake_and_candidate_scoring_remediation.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_RATER_CUSTODY_AND_SCORING_INTERPRETATION_FINAL_GATE",
+  "independent_review": {
+    "source": "USER_SUPPLIED_INDEPENDENT_PROTOCOL_REVIEW_TEXT",
+    "reviewer_claim": "ChatGPT / GPT-6 — independent protocol/source reviewer",
+    "is_independent_output_rater": false,
+    "frozen_source_head": "1583c5b475407799bfca75b503ddf359de7fda69",
+    "verdict": "HOLD",
+    "single_run_recommendation": "NO_GO_HOLD",
+    "R1": "HOLD",
+    "R2": "PASS_SCOPED",
+    "R3": "HOLD",
+    "R4": "HOLD",
+    "R5": "HOLD",
+    "R6": "HOLD",
+    "R7": "PASS_DESIGN_ONLY",
+    "R8": "PASS_SCOPED",
+    "counts": {
+      "PASS": 3,
+      "HOLD": 5,
+      "FAIL": 0
+    },
+    "findings": [
+      {
+        "id": "F01",
+        "severity": "HIGH",
+        "issue": "Cloze completion falsely credited as new narrative continuation",
+        "affected_pairs": [
+          "CP01",
+          "CP02",
+          "CP05",
+          "CP06",
+          "CP07"
+        ]
+      },
+      {
+        "id": "F02",
+        "severity": "HIGH",
+        "issue": "Common valid behaviors obscure counterfactual discrimination",
+        "affected_pairs": [
+          "CP04",
+          "CP08"
+        ]
+      },
+      {
+        "id": "F03",
+        "severity": "MEDIUM",
+        "issue": "H1/H2 scoped screening cannot establish general causal reasoning or story coherence"
+      },
+      {
+        "id": "F04",
+        "severity": "HIGH",
+        "issue": "Output rater unassigned; blind packet, scoring lock and adjudication absent"
+      }
+    ],
+    "source_reviewer_report_raw_windows_sha_rehash": "NOT_VERIFIED_BY_SOURCE_REVIEWER",
+    "source_reviewer_claim_receipt_SHA256": "41407fa954f322879759a04562fdf8ac7b2cc05545a9bcbb734ee5404603c017"
+  },
+  "previous_evidence": {
+    "owner_native_QA": "PASS_NATIVE_16_PROMPTS_BPE_AND_2_CHECKPOINTS",
+    "owner_unit_QA": "PASS_11_OF_11",
+    "previous_independent_source_audit": "R1_R3_HOLD_BY_DIFFERENT_VERIFICATION_SCOPE",
+    "prompt_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+    "rubric_git_blob": "69668664df23d2246cd65935ab049054aea43e7a",
+    "source_main_unchanged": "5d52e32f20021e36f08f284ef9864d3ba36dbead"
+  },
+  "amendment": {
+    "path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_PROSPECTIVE_SCORING_INTERPRETATION_CANDIDATE_20261111.md",
+    "status": "PROSPECTIVE_AMENDMENT_CANDIDATE_NOT_ADOPTED",
+    "changes_interpretation": true,
+    "rubric_source_changed": false,
+    "H1_H2_changed": false,
+    "prompts_changed": false,
+    "not_valid_without_owner_acceptance_and_protocol_review": true,
+    "cloze_only_cap_proposed": 1,
+    "H2_common_valid_action": "0_NO_OBSERVED_DISTINCT_ACTION_WITH_FLAG_NOT_MODEL_ERROR",
+    "count_all_8_pairs_in_original_denominator": true,
+    "generated_text_only": true,
+    "outputs_seen_for_this_amendment": false
+  },
+  "single_gate": {
+    "protocol_review_of_candidate": "NOT_EXECUTED",
+    "owner_amendment_approval": "NOT_ISSUED",
+    "independent_output_rater_identity": "UNASSIGNED",
+    "scoring_packet_blind_map": "NOT_LOCKED",
+    "runner_cpu_source_lock": "NOT_EXECUTED",
+    "owner_32_CPU_output_execution_permission": "NOT_ISSUED",
+    "execution_decision": "NO_GO_HOLD",
+    "source_QA_rerun_required": false,
+    "TEST_read": false,
+    "training": false,
+    "inference": false,
+    "lineage_edit": false,
+    "main_edit": false
+  }
+}
