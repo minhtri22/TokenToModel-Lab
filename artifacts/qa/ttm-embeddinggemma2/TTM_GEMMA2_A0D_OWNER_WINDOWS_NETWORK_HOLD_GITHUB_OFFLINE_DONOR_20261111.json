@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.gemma2.a0d.owner_windows_network_hold_offline_recovery.v1",
+  "date": "2026-11-11",
+  "owner_result_from_user": {
+    "status": "HOLD_SOURCE_RECOVERY_OR_READBACK",
+    "error": "The underlying connection was closed: An unexpected error occurred on a send.",
+    "receipt_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\artifacts\\qa\\ttm-embeddinggemma2\\a0d_owner_local_readback\\TTM_GEMMA2_A0D_RECOVERY_READBACK_20261111_102342_425.json",
+    "sha256_reported_not_independently_read": "0CE5B6606C24A3CCA1DD0CDE3BF9C23844EF44894962F346DD70280EFCD3F958",
+    "classification": "WINDOWS_HTTPS_SEND_TRANSPORT_ERROR_NO_NEW_SOURCE_OR_MODEL_VERDICT",
+    "source_received_on_windows": false,
+    "owner_mapping_executed": false
+  },
+  "alternative": {
+    "mechanism": "SIGNED_UPLOADED_GITHUB_ACTIONS_ARTIFACT_SOURCE_ONLY",
+    "run_id": 43003480291,
+    "run_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43003480291",
+    "run_conclusion": "success",
+    "head_commit": "e4bb2a30cb62f3e33205f502bea392ec6d1be6c8",
+    "artifact_id": 13846504053,
+    "artifact_name": "TTM_GEMMA2_A0D_EXACT_DONOR_3FILES_20261111",
+    "artifact_archive_sha256": "ca468f2304970db650beb56794621516b22250d205546b60dda5889d032b44ba",
+    "artifact_size_bytes": 5550754,
+    "artifact_expiration": "2026-11-18T10:25:31Z",
+    "source_repo": "google/embeddinggemma-2",
+    "source_revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "files": [
+      {
+        "name": "config.json",
+        "size_bytes": 4455,
+        "sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3"
+      },
+      {
+        "name": "tokenizer.json",
+        "size_bytes": 32170510,
+        "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "size_bytes": 1599,
+        "sha256": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874"
+      }
+    ],
+    "source_code_only_workflow": ".github/workflows/ttm-gemma2-a0d-exact-source-offline-artifact.yml",
+    "bundle_includes_private_T1_manifest": false,
+    "bundle_includes_pretrained_model_weights": false,
+    "local_script_path": "/mnt/data/ttm_a0d_owner_readback/Invoke-TTM-GEMMA2-A0D-OfflineArtifact-Readback-PS51.ps1",
+    "local_script_sha256": "cfb624be92a1845dd9145bfa7965d71beaedd07c1634bf68b80cce656530ef71",
+    "local_script_git_blob_sha1": "a027111acac34a7575397b766484e06da7b0ffab",
+    "local_script_executed_on_owner": false,
+    "local_requirements": "download GitHub UI artifact ZIP, move to D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp; run source SHA validation + original owner script"
+  },
+  "decisions": {
+    "OFFICIAL_SOURCE_ON_CI": "PASS_SHA256_3_OF_3",
+    "OFFICIAL_CLASS_ON_CI": "PASS_ALREADY_FROZEN",
+    "OFFLINE_SOURCE_ARTIFACT": "PASS_BUNDLE_CREATED_AND_SHA_VERIFIED",
+    "WINDOWS_SOURCE": "HOLD_NOT_YET_IMPORTED",
+    "T1_MAPPING_ON_OWNER": "NOT_EXECUTED",
+    "T4_2X2": "HOLD",
+    "new_science": false,
+    "lineage_append": false,
+    "training_executed": false
+  }
+}
