@@ -1,0 +1,259 @@
+{
+  "schema": "ttm.small4m.fresh_continuation_prompt_adherence.design_candidate.v1",
+  "date": "2026-11-11",
+  "study": "TTM_SMALL4M_FRESH_CONTINUATION_QUALITY_GAP_REVIEW_DESIGN_ONLY",
+  "status": "DESIGN_ONLY_CANDIDATE_NOT_SCIENCE_LOCKED_NO_INFERENCE",
+  "version": "candidate_v1",
+  "language": "en",
+  "prompt_owner": "TTM project authored for this design",
+  "source_refs": {
+    "main_sha": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "original_step1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_step1280_checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "bpe_pairs_merges_sha256": "aea0e2a1a1bc1943f20b767ba2f879e3a47f0cb43b8b66026b1a34a038e014af",
+    "prior_q1_git_blob": "0a7cb5c2125b69b062d8e5559dbbe47cb07eb788",
+    "prior_fresh12_public_git_blob": "919c43f2c919fa733b20a9be5d6b965e9649339c"
+  },
+  "design": {
+    "n_counterfactual_pairs": 8,
+    "n_prompt_variants": 16,
+    "group_counts": {
+      "entity_location": 2,
+      "causal_reasoning": 2,
+      "rule_constraint": 2,
+      "goal_persistence": 2
+    },
+    "intervention": "Change one short phrase inside same authored prompt; keep prefix/suffix and terminal bytes identical inside each pair.",
+    "condition_A_B": "Labels are arbitrary contrast variants; A/B not treated as random treatment assignment.",
+    "continuation_model": "decoder-only continuation, NOT instruction-following",
+    "serialization": "Use exact prompt_text, UTF-8, no trailing ASCII space, no chat template, no system wrapper, no leading generation whitespace injection; raw P02 tokenizer and model",
+    "sampling_if_future_authorized": {
+      "decoder": "greedy_argmax",
+      "max_new_tokens": 64,
+      "stop_eos_id": 256,
+      "num_context": 256,
+      "seed_role": "recorded_for_reproducibility_only_greedy"
+    },
+    "frozen_checkpoints_for_candidate": [
+      "step1024",
+      "step1280"
+    ],
+    "primary_checkpoint": "step1024",
+    "secondary_checkpoint": "step1280_descriptive_only",
+    "max_future_generated_sequences": 32,
+    "max_future_generated_tokens": 2048,
+    "future_estimated_cost_not_actual": "max 32 * 64 tokens, CPU-only one batch; cap execution separately before permit",
+    "primary_endpoints": [
+      "prompt_adherence_grade_0_to_3_per_output",
+      "counterfactual_pair_correct_distinction_per_pair"
+    ],
+    "secondary_endpoints": [
+      "coherence_0_to_3",
+      "entity_consistency_0_to_3",
+      "causal_continuation_0_to_3",
+      "unjustified_fact_contradiction_rate",
+      "repeat_3gram_rate"
+    ]
+  },
+  "future_candidate_gate": {
+    "status_if_thresholds_met": "QUALITY_CANDIDATE_SCOPED_STEP1024_NOT_PRODUCT_READY",
+    "min_primary_adherence_ge2": "12/16 of 1024 outputs",
+    "min_pairwise_fact_sensitive": "6/8 pairs on step1024",
+    "min_category_coverage": "at least one pair passes in each of four categories",
+    "coherence_ge2_report_only": true,
+    "no_formal_significance_test": true,
+    "fail_label": "NO_DEMONSTRATED_PROMPT_ADHERENCE_SCOPED_OR_INCONCLUSIVE",
+    "must_lock_before_inference": true,
+    "no_posthoc_prompt_swap": true
+  },
+  "new_prompts": [
+    {
+      "id": "CP01-A",
+      "pair_id": "CP01",
+      "category": "entity_location",
+      "variant": "A",
+      "prompt_text": "Lily put her hat in the box before lunch. When Lily came back, she needed the hat again. She went to look inside the",
+      "contrast_fact": "in the box",
+      "target_semantic_criterion": "Lily retrieves or seeks the hat inside the box",
+      "failure_cue": "mentions the wrong container or abandons the hat-search goal"
+    },
+    {
+      "id": "CP01-B",
+      "pair_id": "CP01",
+      "category": "entity_location",
+      "variant": "B",
+      "prompt_text": "Lily put her hat in the bag before lunch. When Lily came back, she needed the hat again. She went to look inside the",
+      "contrast_fact": "in the bag",
+      "target_semantic_criterion": "Lily retrieves or seeks the hat inside the bag",
+      "failure_cue": "mentions the wrong container or abandons the hat-search goal"
+    },
+    {
+      "id": "CP02-A",
+      "pair_id": "CP02",
+      "category": "entity_location",
+      "variant": "A",
+      "prompt_text": "Sam gave the small drum to Mom before everyone sat down to eat. After dinner Sam wanted the drum again. He went to ask",
+      "contrast_fact": "Mom",
+      "target_semantic_criterion": "Sam asks Mom for the drum",
+      "failure_cue": "wrong holder of the drum or role reversal"
+    },
+    {
+      "id": "CP02-B",
+      "pair_id": "CP02",
+      "category": "entity_location",
+      "variant": "B",
+      "prompt_text": "Sam gave the small drum to Dad before everyone sat down to eat. After dinner Sam wanted the drum again. He went to ask",
+      "contrast_fact": "Dad",
+      "target_semantic_criterion": "Sam asks Dad for the drum",
+      "failure_cue": "wrong holder of the drum or role reversal"
+    },
+    {
+      "id": "CP03-A",
+      "pair_id": "CP03",
+      "category": "causal_reasoning",
+      "variant": "A",
+      "prompt_text": "Dad made soup, but when he tasted it he found that it was too hot. His little boy was hungry and wanted to eat soon. Before giving him the soup, Dad decided to",
+      "contrast_fact": "too hot",
+      "target_semantic_criterion": "Dad cools or waits for the soup to become safe",
+      "failure_cue": "serves dangerously hot soup or confuses hot/cold causal remedy"
+    },
+    {
+      "id": "CP03-B",
+      "pair_id": "CP03",
+      "category": "causal_reasoning",
+      "variant": "B",
+      "prompt_text": "Dad made soup, but when he tasted it he found that it was too cold. His little boy was hungry and wanted to eat soon. Before giving him the soup, Dad decided to",
+      "contrast_fact": "too cold",
+      "target_semantic_criterion": "Dad warms the soup before serving it",
+      "failure_cue": "serves dangerously hot soup or confuses hot/cold causal remedy"
+    },
+    {
+      "id": "CP04-A",
+      "pair_id": "CP04",
+      "category": "causal_reasoning",
+      "variant": "A",
+      "prompt_text": "The front door was locked when the children got home. They wanted to go into the house without breaking anything. When the children reached the door, they",
+      "contrast_fact": "locked",
+      "target_semantic_criterion": "children look for key, ask an adult, or wait instead of walking through a locked door",
+      "failure_cue": "door state contradicted; unlocked/open response despite locked premise"
+    },
+    {
+      "id": "CP04-B",
+      "pair_id": "CP04",
+      "category": "causal_reasoning",
+      "variant": "B",
+      "prompt_text": "The front door was open when the children got home. They wanted to go into the house without breaking anything. When the children reached the door, they",
+      "contrast_fact": "open",
+      "target_semantic_criterion": "children can enter using the open door",
+      "failure_cue": "door state contradicted; unlocked/open response despite locked premise"
+    },
+    {
+      "id": "CP05-A",
+      "pair_id": "CP05",
+      "category": "rule_constraint",
+      "variant": "A",
+      "prompt_text": "There were two bags, one red and one blue. Only the red bag was strong enough to carry the heavy books. The other bag had a hole. When Lily left the room, she put the books into the",
+      "contrast_fact": "red",
+      "target_semantic_criterion": "red bag carries the books",
+      "failure_cue": "books placed in the holed bag despite explicit constraint"
+    },
+    {
+      "id": "CP05-B",
+      "pair_id": "CP05",
+      "category": "rule_constraint",
+      "variant": "B",
+      "prompt_text": "There were two bags, one red and one blue. Only the blue bag was strong enough to carry the heavy books. The other bag had a hole. When Lily left the room, she put the books into the",
+      "contrast_fact": "blue",
+      "target_semantic_criterion": "blue bag carries the books",
+      "failure_cue": "books placed in the holed bag despite explicit constraint"
+    },
+    {
+      "id": "CP06-A",
+      "pair_id": "CP06",
+      "category": "rule_constraint",
+      "variant": "A",
+      "prompt_text": "A cat and a dog were sitting by the door. Mom said the cat was sick and should stay inside to rest. When the children went outside to play, they left the",
+      "contrast_fact": "cat",
+      "target_semantic_criterion": "cat stays home to rest",
+      "failure_cue": "sick animal joins play outdoors or wrong animal stays home"
+    },
+    {
+      "id": "CP06-B",
+      "pair_id": "CP06",
+      "category": "rule_constraint",
+      "variant": "B",
+      "prompt_text": "A cat and a dog were sitting by the door. Mom said the dog was sick and should stay inside to rest. When the children went outside to play, they left the",
+      "contrast_fact": "dog",
+      "target_semantic_criterion": "dog stays home to rest",
+      "failure_cue": "sick animal joins play outdoors or wrong animal stays home"
+    },
+    {
+      "id": "CP07-A",
+      "pair_id": "CP07",
+      "category": "goal_persistence",
+      "variant": "A",
+      "prompt_text": "Sam promised Mom that he would feed the dog before playing with his friends. His friends were already calling him from the yard. Sam remembered his promise and first went to",
+      "contrast_fact": "feed the dog",
+      "target_semantic_criterion": "Sam feeds the dog before playing",
+      "failure_cue": "plays first without fulfilling promised task or substitutes other task"
+    },
+    {
+      "id": "CP07-B",
+      "pair_id": "CP07",
+      "category": "goal_persistence",
+      "variant": "B",
+      "prompt_text": "Sam promised Mom that he would water the flowers before playing with his friends. His friends were already calling him from the yard. Sam remembered his promise and first went to",
+      "contrast_fact": "water the flowers",
+      "target_semantic_criterion": "Sam waters the flowers before playing",
+      "failure_cue": "plays first without fulfilling promised task or substitutes other task"
+    },
+    {
+      "id": "CP08-A",
+      "pair_id": "CP08",
+      "category": "goal_persistence",
+      "variant": "A",
+      "prompt_text": "Tom found that his only blanket was wet. His little sister was cold and needed to be warm right away. Tom wanted to help her, so he",
+      "contrast_fact": "wet",
+      "target_semantic_criterion": "avoids simply wrapping sister in a wet blanket; dries it or seeks other safe way to warm her",
+      "failure_cue": "the response ignores wet/dry condition and contradicts the blanket state"
+    },
+    {
+      "id": "CP08-B",
+      "pair_id": "CP08",
+      "category": "goal_persistence",
+      "variant": "B",
+      "prompt_text": "Tom found that his only blanket was dry. His little sister was cold and needed to be warm right away. Tom wanted to help her, so he",
+      "contrast_fact": "dry",
+      "target_semantic_criterion": "can use dry blanket to warm sister",
+      "failure_cue": "the response ignores wet/dry condition and contradicts the blanket state"
+    }
+  ],
+  "static_checks": {
+    "status": "PASS_DESIGN_SOURCE_ONLY",
+    "prior_public_prompt_sets_comparison": {
+      "fresh12_count": 12,
+      "q1_count": 16,
+      "exact_normalized_duplicate_count": 0
+    },
+    "all_prompt_ids_unique": true,
+    "all_prompt_texts_unique": true,
+    "all_no_trailing_whitespace": true,
+    "max_prompt_character_length": 182,
+    "sum_prompt_character_lengths": 2375,
+    "not_verified_against_private_TEST": true,
+    "not_verified_against_entire_private_TRAIN": true,
+    "tokenization_BPE_length_not_executed": true,
+    "full_similarity_or_near_duplicate_audit_not_executed": true,
+    "no_inference": true,
+    "no_training": true
+  },
+  "governance": {
+    "old_ollama_source_ref": "PRESENT_NOT_RETIRED_OWNER_HAS_NOT_RUN_POWERSHELL",
+    "ollama_archive_ref": "PRESERVED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "no_old_science_replay": true,
+    "design_branch_separate": true
+  }
+}

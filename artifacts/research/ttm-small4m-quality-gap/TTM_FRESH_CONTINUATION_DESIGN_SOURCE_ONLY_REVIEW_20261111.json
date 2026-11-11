@@ -1,0 +1,51 @@
+{
+  "schema": "ttm.small4m.prompt_adherence.design_only.owner_request.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_SMALL4M_FRESH_CONTINUATION_QUALITY_GAP_REVIEW_DESIGN_ONLY",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "base_main": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "source_prior": {
+    "Q1_git_blob": "0a7cb5c2125b69b062d8e5559dbbe47cb07eb788",
+    "FRESH12_git_blob": "919c43f2c919fa733b20a9be5d6b965e9649339c",
+    "Q1_count": 16,
+    "FRESH12_count": 12
+  },
+  "source_validation": {
+    "prompt_count": 16,
+    "pair_count": 8,
+    "prompt_ids_unique": 16,
+    "texts_unique": 16,
+    "exact_text_overlap_with_28_public_existing": 0,
+    "no_trailing_space": 16,
+    "all_groups_balanced_2_pairs": true,
+    "all_pairs_prefix_suffix_identical": true,
+    "not_compared_to_sealed_TEST": true,
+    "not_compared_to_full_TRAIN": true,
+    "BPE_token_count_not_executed": true,
+    "non_exact_similarity_audit_not_executed": true
+  },
+  "preregister_status": "CANDIDATE_DESIGN_NOT_SCIENCE_LOCKED",
+  "rubric_status": "PROPOSED_NOT_BLIND_SCORE_LOCKED",
+  "science_execution": {
+    "training": false,
+    "inference": false,
+    "gpu": false,
+    "colab": false,
+    "test_read": false,
+    "past_one_shot_replay": false
+  },
+  "negative_results_preserved": [
+    "FRESH12_NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED",
+    "Q1_V1_V2_HOLD_CONSUMED_NO_V3",
+    "TTM_T5_STRICT_FAIL_7_OF_8",
+    "TTM_L0013_FAIL_32_OF_32",
+    "TTM_VECTOR_MEMORY_NEGATIVE_SCOPED"
+  ],
+  "branch_references": {
+    "ollama_research_ref": "PRESENT_UNRETIRED",
+    "ollama_archive_ref": "archive/ttm-ollama-full-logits-scoped-20261111",
+    "main_unchanged": true,
+    "lineage_unchanged": true
+  },
+  "next_task": "TTM_SMALL4M_PROMPT_ADHERENCE_FRESH16_PREREG_SOURCE_AND_RUBRIC_INTEGRATED_OFFLINE_REVIEW"
+}
