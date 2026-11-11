@@ -1,0 +1,11 @@
+test_01_scoped_roundtrip_and_no_overwrite (__main__.ResumeFixture.test_01_scoped_roundtrip_and_no_overwrite) ... ok
+test_02_orphan_rejected (__main__.ResumeFixture.test_02_orphan_rejected) ... ok
+test_03_changed_pin_rejected (__main__.ResumeFixture.test_03_changed_pin_rejected) ... ok
+test_04_mutated_checkpoint_rejected (__main__.ResumeFixture.test_04_mutated_checkpoint_rejected) ... ok
+test_05_noncontiguous_rejected (__main__.ResumeFixture.test_05_noncontiguous_rejected) ... ok
+test_06_cpu_toy_adamw_rng_exact_resume (__main__.ResumeFixture.test_06_cpu_toy_adamw_rng_exact_resume) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 5.004s
+
+OK
