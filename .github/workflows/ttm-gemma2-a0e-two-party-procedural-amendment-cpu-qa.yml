@@ -30,3 +30,21 @@ jobs:
         run: python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_cross_origin_scalar_amendment_audit_v1.py --fixture
       - name: Fail-closed amended preexecution with real file byte verification fixture
         run: python tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py --fixture
+      - name: Actual amended A0E manifest must fail closed before pilot (EXPECTED NO-GO)
+        run: |
+          python - <<'PY'
+          import json,subprocess,sys
+          command=[sys.executable,
+            "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0e_two_party_preexec_guard_v2.py",
+            "--manifest","artifacts/qa/ttm-embeddinggemma2/TTM_GEMMA2_A0E_TWO_PARTY_AMENDED_PREEXEC_MANIFEST_SOURCE_ONLY_20261111.json",
+            "--root","."]
+          p=subprocess.run(command,capture_output=True,text=True)
+          assert p.returncode==2, "HOLD_NOT_ENFORCED_OR_BAD_EXIT"
+          r=json.loads(p.stdout.strip())
+          assert r["status"]=="NO_GO_HOLD" and r["T4_authorized"] is False
+          assert r["third_party_gold_custodian_required"] is False
+          assert any(k.startswith("REAL_SHA_") for k in r["missing"])
+          print("A0E_REAL_AMENDED_MANIFEST=PASS_EXPECTED_NO_GO_HOLD")
+          print("A0E_GATES_PASS_COUNT="+str(r["passed"]))
+          print("A0E_GATES_MISSING_COUNT="+str(len(r["missing"])))
+          PY
