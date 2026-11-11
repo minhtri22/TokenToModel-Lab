@@ -1,0 +1,22 @@
+﻿{
+    "schema":  "ttm.ac.native.py312.stderr_capture_recovery.v2",
+    "pinned_commit":  "6628401b08ea7682cf34aa5078546e1d18e4d2cc",
+    "recovery_of":  "TTM_AC_NATIVE_PREEXEC_6628401b08ea",
+    "failure_class":  "POWERSHELL51_UNITTEST_STDERR_CAPTURE_V1",
+    "status":  "PASS_SCOPED_NATIVE_PY312_SOURCE_AND_CPU_TOY_RESUME",
+    "python312":  "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "source_git_blob_exact":  true,
+    "syntax_compile":  true,
+    "source_qa":  true,
+    "synthetic_resume_tests":  true,
+    "synthetic_resume_exit_code":  0,
+    "synthetic_resume_stdout_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_NATIVE_PREEXEC_STDERR_FIX_V2_6628401b08ea\\SYNTHETIC_RESUME_STDOUT.txt",
+    "synthetic_resume_stderr_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_NATIVE_PREEXEC_STDERR_FIX_V2_6628401b08ea\\SYNTHETIC_RESUME_STDERR.txt",
+    "synthetic_resume_log_path":  "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_NATIVE_PREEXEC_STDERR_FIX_V2_6628401b08ea\\SYNTHETIC_RESUME_TEST_LOG.txt",
+    "t4_smoke":  "NOT_EXECUTED",
+    "real_model_train":  "NOT_EXECUTED",
+    "original_TEST":  "UNTOUCHED",
+    "original_OOD":  "UNTOUCHED",
+    "original_Q1Q2":  "UNTOUCHED",
+    "error":  ""
+}
