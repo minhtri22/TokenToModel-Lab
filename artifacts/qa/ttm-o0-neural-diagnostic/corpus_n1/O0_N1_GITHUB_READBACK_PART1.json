@@ -1,0 +1,67 @@
+{
+  "schema": "ttm.o0.n1.public_corpus_git_readback_part1.v1",
+  "status": "PASS_12_OF_12_EXACT_TEXT_CONTENT",
+  "checks": [
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_01_MODEL_INPUT_ONLY.json",
+      "git_blob": "652df39d8299bc7d1aaba73551c5d49b3d66ac24",
+      "bytes": 184078
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_01_PUBLIC_ORACLE.json",
+      "git_blob": "bc5aafb9e7f4006a6aa256c7dd09645ffdda4414",
+      "bytes": 258109
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_02_MODEL_INPUT_ONLY.json",
+      "git_blob": "dbfef68626f7015b89b4a7aff53e4eb01291af3f",
+      "bytes": 183456
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_02_PUBLIC_ORACLE.json",
+      "git_blob": "33dc5103f00e66c12a3582584ccc525395ea1bed",
+      "bytes": 257238
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_03_MODEL_INPUT_ONLY.json",
+      "git_blob": "9802e8e2c370430f5e81aa6a0e4efbfc8eccc715",
+      "bytes": 184096
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_03_PUBLIC_ORACLE.json",
+      "git_blob": "8301c2597d0fdd0921a8e9522c4122e2ee1f5f5e",
+      "bytes": 257586
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_04_MODEL_INPUT_ONLY.json",
+      "git_blob": "d95c37bc8a8b0b99ff16e1a6bfcd1ef928b3fb8d",
+      "bytes": 184410
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/shards/TRAIN_04_PUBLIC_ORACLE.json",
+      "git_blob": "6d4574da8b5a1b6a5a956f46111eb22404c6c6f8",
+      "bytes": 257936
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/DEV_IID_MODEL_INPUT_ONLY.json",
+      "git_blob": "266c2dc410c38a08d7bde84f52119688ba703fca",
+      "bytes": 92130
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/DEV_IID_PUBLIC_ORACLE.json",
+      "git_blob": "3c95d2479b7cc63edf9cc46a7553fc9f38512f64",
+      "bytes": 130040
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/DEV_STRUCT_MODEL_INPUT_ONLY.json",
+      "git_blob": "00528e21b2dd21eea481ee96b95b72e5abdf0d2c",
+      "bytes": 92646
+    },
+    {
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/corpus_n1/DEV_STRUCT_PUBLIC_ORACLE.json",
+      "git_blob": "7c8f6322ba488e825c08832424a883b0250ac326",
+      "bytes": 132206
+    }
+  ],
+  "original_generator_git_blob": "008936285e511446ec61be8668aa7c3480b1a785"
+}
