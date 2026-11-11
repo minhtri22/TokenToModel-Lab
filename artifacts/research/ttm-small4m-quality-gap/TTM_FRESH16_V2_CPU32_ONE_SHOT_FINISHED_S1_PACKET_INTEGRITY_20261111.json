@@ -1,0 +1,76 @@
+{
+  "schema": "ttm.fresh16.v2.cpu32_one_shot_finished.s1_packet_integrity.v1",
+  "operation": "TTM_FRESH16_V2_CPU32_ONE_SHOT_NATIVE_READBACK_AND_S1_PACKET_HANDOFF",
+  "date": "2026-11-11",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "provenance": {
+    "owner_explicit_GO": "GO_32_CPU_ONE_SHOT",
+    "owner_GO_git_commit": "d123fbb8b41d53fe76ad1ff14d4ac4e8907c31ea",
+    "GO_permit_local_sha256": "6f7f06c649fd4219535d8ecf7b0d201e3a6789656495d8189ecc790a415ed900",
+    "original_E0_frozen_source_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "original_E0_runner_git_blob": "f069f2bdaa2d9691a1ce6c9746ff8f2923beb1d8",
+    "sealed_private_map_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+    "sealed_private_map_sha256": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+    "owner_native_console_readback": "FRESH16_CPU32_RUN=PASS_ONE_SHOT_32_OUTPUTS",
+    "remote_windows_readback": "RUN_STARTED.json and RUN_FINISHED.json read by connected RemoteDesktop; files and provenance agree with owner log",
+    "blinded_S1_packet_attachment_check": "raw bytes of user-uploaded S1_BLIND_PACKET_PRIVATE.json independently SHA256 checked in current model container"
+  },
+  "execution": {
+    "status": "PASS_ONE_SHOT_32_OUTPUTS_COMPLETE",
+    "science_inference_executed": true,
+    "training_executed": false,
+    "run_started_recorded": true,
+    "run_finished_recorded": true,
+    "run_seconds": 8.89100000000326,
+    "original_outputs": 32,
+    "expected_outputs": 32,
+    "no_retry": true,
+    "raw_outputs_sha256": "6108b695f3b5a5daf2cf62ae252ffce955c80720cca265c6b46825e7f1d3c7f7",
+    "raw_outputs_location_kind": "PRIVATE_WINDOWS_PROJECT_ROOT_ONLY",
+    "raw_outputs_relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/RAW_OUTPUTS_PRIVATE.jsonl",
+    "raw_output_hash_provenance": "owner native console and Windows RUN_FINISHED.json; not directly independently rehashed by current assistant"
+  },
+  "S1_packet": {
+    "status": "PASS_BLIND_PACKET_INTEGRITY_READY_FOR_EXPLICIT_S1_HANDOFF",
+    "schema": "ttm.fresh16.v2.s1_packet.v1",
+    "sha256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+    "sha256_verified_independently_from_user_upload": true,
+    "record_count": 32,
+    "opaque_ids_unique": 32,
+    "opaque_ids_all_32_lowercase_hex": true,
+    "record_fields_exact": [
+      "opaque_id",
+      "prompt_text",
+      "generated_text_only"
+    ],
+    "checkpoint_labels_in_packet": false,
+    "pair_ids_in_packet": false,
+    "raw_generated_ids_in_packet": false,
+    "generated_text_count": 32,
+    "location_kind": "PRIVATE_WINDOWS_PROJECT_ROOT_AND_OWNER_PROVIDED_CHAT_ATTACHMENT",
+    "relative_path": "_tmp/ttm_fresh16_v2_e0_20261111/S1_BLIND_PACKET_PRIVATE.json",
+    "private_packet_published_to_public_git": false,
+    "only_S1_rater_may_receive_packet": true,
+    "S1_scoring_status": "NOT_EXECUTED",
+    "S1_scores_sha_anchor": "NOT_CREATED"
+  },
+  "S2": {
+    "S2_packet": "NOT_CREATED",
+    "S2_scoring_status": "NOT_EXECUTED",
+    "gate": "PACKAGE_ONLY_AFTER_S1_COMPLETE_JSON_SHA256_GIT_ANCHORED",
+    "checkpoint_unblind": "NOT_AUTHORIZED"
+  },
+  "scientific_adjudication": {
+    "H1": "NOT_SCORED",
+    "H2": "NOT_SCORED",
+    "model_quality_PASS_FAIL": "NOT_ADJUDICATED",
+    "lineage_append": "NOT_APPLICABLE_UNTIL_FINAL_S1_S2_UNBLIND_TALLY"
+  },
+  "privacy": {
+    "public_record_has_private_map_contents": false,
+    "public_record_has_generated_text": false,
+    "public_record_has_output_token_ids": false,
+    "public_record_has_original_prompt_text": false
+  }
+}
