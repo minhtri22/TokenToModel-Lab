@@ -82,9 +82,9 @@ $helper = Join-Path $root '_tmp\ttm_fresh16_v2_go32_permit_materializer_20261111
 if (Test-Path -LiteralPath $helper) {
     throw 'FRESH16_GO_HELPER_ALREADY_EXISTS_PRESERVE_NO_OVERWRITE'
 }
-$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $helperBytes = $utf8NoBom.GetBytes($pythonCode + [Environment]::NewLine)
-$helperStream = New-Object System.IO.FileStream($helper, [System.IO.FileMode]::CreateNew, [System.IO.FileAccess]::Write, [System.IO.FileShare]::None)
+$helperStream = [System.IO.File]::Open($helper, [System.IO.FileMode]::CreateNew, [System.IO.FileAccess]::Write, [System.IO.FileShare]::None)
 try {
     $helperStream.Write($helperBytes, 0, $helperBytes.Length)
     $helperStream.Flush($true)
