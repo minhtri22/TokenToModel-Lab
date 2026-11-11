@@ -1,0 +1,97 @@
+{
+  "schema": "ttm.gemma2.a0b_a0c.integrated_cpu_gate.v1",
+  "operation": "TTM_GEMMA2_SEMANTICS_ORIGIN_A0B_COVARIANCE_MATCH_AND_A0C_NONPRETRAINED_SOURCE_LEXICAL_PROBE_INTEGRATED_CPU_GATE",
+  "date": "2026-11-11",
+  "classification": "TECHNICAL_CPU_FEASIBILITY_NOT_SCIENCE",
+  "single_T4_2x2_decision": "HOLD_A0C_NONPRETRAINED_AND_LEXICAL_PROBE_NOT_ADMITTED",
+  "source_pins": {
+    "private_zip_sha256": "2c6cb72f35eba72d6014f15914d6e9792cbf0bf6774d93e3ff5c53e5c6b9ba9a",
+    "candidate_initialization_sha256": "c9fc798d8880c7e76636258052e9885dbb086d7b462a5b6bee5cff8b582973c3",
+    "T4_TRAIN_only_windows_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "donor_model": "google/embeddinggemma-2",
+    "donor_revision_from_pinned_source": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "donor_safetensors_sha256_from_pinned_source": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79",
+    "donor_config_sha256_from_pinned_source": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+    "donor_tokenizer_sha256_from_pinned_source": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4",
+    "TTM_T1_BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "all_three_raw_private_source_sha_verified": true
+  },
+  "A0B": {
+    "method": "Constrained Stiefel moment-matched residual randomization on 1917x512 donor, rank-256 projector. Fix B cross-moments for projected input, TRAIN-only log-frequency, squared log-frequency, frequency and residual norm quartiles. Alternate per-row residual norm and covariance-Gram constraints.",
+    "random_seed": 2026111142,
+    "predeclared_covariance_target": 0.05,
+    "previous_random_derangement_covariance_drift": 0.48401038004373853,
+    "simple_4_frequency_x4_norm_optimal_assignment_covariance_drift": 0.34406972,
+    "mathematical_validation_real_private_donor_by_equivalent_independent_CPU_implementation": {
+      "mapped_tokens": 1917,
+      "max_projected_input_abs_FP64": 2.220446049250313e-16,
+      "max_rownorm_abs_FP64": 4.440892098500626e-16,
+      "max_projected_input_abs_FP32": 1.1920928955078125e-7,
+      "max_rownorm_abs_FP32": 1.1920928955078125e-7,
+      "global_covariance_relative_fro": 2.6087363779834547e-15,
+      "global_mean_relative_l2": 1.9099629417728523e-15,
+      "mean_residual_cosine_change": 0.7665599696536823,
+      "fraction_residual_change_greater_than_0p3": 1,
+      "residual_top10_neighbor_overlap": 0.034220135628586335,
+      "source_algorithm_150_iteration_qa": "PASS_64_ITERATION_CAP_SUFFICIENT_PER_CONVERGENCE_AT_ITER_20_TO_40"
+    },
+    "verdict": "PASS_SCOPED_MATHEMATICAL_FEASIBILITY_ONLY",
+    "limits": "Semantic corruption is a hypothesis; no lexical ground truth or science loss was used. Exact GitHub source was tested with fixtures; private donor verification used independent equivalent CPU method."
+  },
+  "A0C": {
+    "source_pretrained": {
+      "status": "PINNED_PRETRAINED_INPUT_EMBEDDING_SOURCE_DOCUMENTED",
+      "model_embedding_width": 512,
+      "contextual_embedding_output_width": 768,
+      "model_text_config_reference": "https://huggingface.co/google/embeddinggemma-2/blob/main/config.json",
+      "model_card": "https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2",
+      "untrained_same_architecture_model_weights": "NONE_VERIFIED"
+    },
+    "untrained_control": {
+      "status": "HOLD_SOURCE_NOT_ADMITTED",
+      "official_config_constructor_possible": "https://huggingface.co/docs/transformers/model_doc/embedding_gemma2",
+      "separate_nonpretrained_embedding_checkpoint_sha256": null,
+      "actual_deterministic_untrained_262144x512_source_constructed": false,
+      "full_same_tokenizer_mapping_verified": false,
+      "matched_pretraining_counterfactual_scientific_test": false
+    },
+    "lexical_probe": {
+      "status": "HOLD_LEXICAL_TOKEN_MANIFEST_AND_SEMANTIC_LABELS_NOT_ADMITTED",
+      "mapped_UTF8_valid": 1917,
+      "mapped_multi_donor_id": 50,
+      "mapped_single_donor_id": 1867,
+      "invalid_incomplete_UTF8": 130,
+      "EOS_unmapped": 1,
+      "TRAIN_seen_mapped": 1822,
+      "TRAIN_unseen_mapped": 95,
+      "TRAIN_mapped_frequency_ge10": 1718,
+      "TRAIN_mapped_frequency_ge50": 1309,
+      "TRAIN_mapped_frequency_ge100": 790,
+      "true_whole_word_token_count": "UNKNOWN",
+      "independently_validated_semantic_anchors": 0,
+      "control_label_pairs_verified": 0,
+      "semantic_probe_executed": false,
+      "warning": "1,718 is an upper bound under frequency>=10 screening, NOT 1,718 semantically valid whole-word anchors."
+    }
+  },
+  "QA": {
+    "source_GitHub_workflow_run_id": 42954626798,
+    "workflow_conclusion": "SUCCESS",
+    "source_python_compile": "PASS",
+    "source_synthetic_positive_and_negative_checks": "PASS",
+    "source_code": "tools/embeddinggemma2_swap/semantics_origin_a0/ttm_a0b_constrained_moment_residual_cpu.py",
+    "training": false,
+    "model_forward_calls": 0,
+    "OOD256_rescored": false,
+    "fresh_scientific_claim": false,
+    "private_arrays_committed": false
+  },
+  "governance": {
+    "L0020": "UNCHANGED",
+    "L0021": "UNCHANGED",
+    "lineage_git_blob_expected": "02835041fbd90f8dec61e8a6e1478e6d2fb5eec2",
+    "Ood256_claim": "CONSUMED_NO_RERUN",
+    "main": "UNCHANGED",
+    "next_step": "A0C_VALIDATE_PRIVATE_T1_LEXICAL_MANIFEST_AND_PROVENANCE_PINNED_UNTRAINED_INPUT_INIT_CPU_ONLY"
+  }
+}
