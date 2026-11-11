@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.fresh16.v2.s2_new_readiness_intake.v1",
+  "date": "2026-11-11",
+  "operation": "TTM_FRESH16_V2_S2_INDEPENDENT_READINESS_INTAKE_AND_NEXT_SINGLE_GO_NO_GO",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_head_for_native_E0": "c05872354d892a9656f8f98642866f7eebfd0f50",
+  "mapping_sha_anchor_commit": "d95b09f894dd7ef975b375a794f50a1d7905e0d6",
+  "previous_S1_S2_intake_commit": "d4734f864cd3e3ded75d2c747e44e75be13680ee",
+  "report_provenance": "USER_PASTED_S2_REVIEW_AGAIN_IN_CURRENT_CONVERSATION_NOT_DIRECTLY_RETRIEVED_FROM_EXTERNAL_AGENT_SESSION",
+  "S2": {
+    "role": "FRESH16_S2_PAIR_ADJUDICATOR",
+    "agent_claimed": "ChatGPT / GPT-6",
+    "handoff_commit": "89dcbe1af040802472428ed73eaf2b4e030013b0",
+    "handoff_read_reported": true,
+    "operational_rules_acknowledged": true,
+    "ready_for_packet": true,
+    "pair_scoring": "NOT_PERFORMED_0_OF_16",
+    "s1_sha_lock": "NOT_VERIFIED_NOT_CREATED",
+    "input_16_pairs": "NOT_RECEIVED",
+    "role_isolation": "NEW_INDEPENDENT_REVIEW_REPORTED_BY_OWNER_SESSION_ID_NOT_PROVIDED",
+    "role_isolation_independently_verified": false,
+    "metadata_note": "Previous mixed-role S1/S2 conversation remains ineligible as clean isolated scoring instance; this new S2 review is separately reported and may serve as S2 readiness, provided it is a genuinely distinct chat from the actual S1 scoring session."
+  },
+  "S1": {
+    "previous_report": "READY_FOR_S1_PACKET_0_OF_32",
+    "session_id": "NOT_PROVIDED",
+    "actual_future_scoring_session": "SEPARATE_FROM_S2_REQUIRED",
+    "risk": "Previous reported S1 conversation also reviewed S2; do not use it as clean isolated S1 scoring session if it received S2 instructions.",
+    "remediation": "Use a dedicated new S1 scoring conversation. No extra protocol review or E0 rerun required."
+  },
+  "E0": {
+    "native_prepare": "PASS_SOURCE_ONLY_NO_FORWARD",
+    "blind_map_anchor_sha": "eb570460b1423bb4b2355ccb5b7b56862c641721d5ecf62f7136224b71ea20a8",
+    "source_qa_rerun": false,
+    "private_blind_map_disclosed": false
+  },
+  "science": {
+    "owner_GO_32_CPU_ONE_SHOT": "NOT_ISSUED",
+    "inference": "NOT_EXECUTED",
+    "training": "NOT_EXECUTED",
+    "S1_scoring": "NOT_EXECUTED",
+    "S2_scoring": "NOT_EXECUTED",
+    "TEST_access": false,
+    "single_decision": "NO_GO_HOLD_UNTIL_OWNER_EXPLICIT_SINGLE_CPU_GO_AND_TWO_DISTINCT_RATER_SESSIONS",
+    "future_workflow": "single CPU run 32 outputs, S1 individual score lock, S2 pair score lock, then unblind and tally",
+    "no_rubric_change": true,
+    "no_main_or_lineage_change": true
+  }
+}
