@@ -1,0 +1,68 @@
+{
+  "schema": "ttm.small4m.ac.two_arm.t4_real_science_and_bpe_custody.readback.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_OWNER_T4_A_C_TRAIN_COMPLETION_AND_FINAL24_BPE_MANIFEST_RECOVERY",
+  "source": "Original private Google Drive receipts, independent raw-byte checkpoint SHA-256 readback, original BPE manifest raw-byte SHA and Drive copy readback",
+  "science_run_id": "TTM_SMALL4M_AC_OBJECTIVE_ONLY_V1",
+  "owner_lock_sha256": "4088f6d5ae1512e746d07e4c851f6ee14354bf798cb0b50ab1896fc249305051",
+  "source_runner_sha256": "512578d9f3b87380bf70cacba5d74a7974b18ca40b9945dec57416818420d197",
+  "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "arms": {
+    "A": {
+      "final_step": 1152,
+      "train_updates": 128,
+      "valid_train_target_exposures": 524288,
+      "final_receipt_status": "TRAINED_CHECKPOINT_UNADJUDICATED",
+      "final_and_ready_shas_consistent": true,
+      "actual_checkpoint_bytes": 45087641,
+      "actual_checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+      "raw_binary_hash_verified": true,
+      "checkpoint_file_id": "1TjqZKEr8MSGyNq7c7ddRmKrD1Lo6gZuc"
+    },
+    "C": {
+      "final_step": 1152,
+      "train_updates": 128,
+      "valid_train_target_exposures": 524288,
+      "final_receipt_status": "TRAINED_CHECKPOINT_UNADJUDICATED",
+      "final_and_ready_shas_consistent": true,
+      "actual_checkpoint_bytes": 45087641,
+      "actual_checkpoint_sha256": "b6a9d1fb14016cd03ae1d77a49492af660859e9223041b066f13fccc65107317",
+      "raw_binary_hash_verified": true,
+      "checkpoint_file_id": "1-mRF05Xw_F_z4Yzy-0ShSfFeruFbRhwC"
+    }
+  },
+  "private_owner_report_status": "TRAINED_CHECKPOINTS_UNADJUDICATED",
+  "private_val_nll": "OWNER_ONLY_NOT_PUBLISHED_TO_RATER_CONTEXT",
+  "original_TEST_Q1_Q2_OOD_access": false,
+  "BPE_manifest": {
+    "filename": "T1_BPE2048_REAL_TRAIN_MANIFEST.json",
+    "original_source_folder": "TTM_Small4M_EmbeddingSwap_Input",
+    "original_source_file_id": "1np9Qu8tpX-GnjVBQgRPwuxBLuw4nqN7c",
+    "owner_target_folder": "ttm_small4m_ac_objective_only_v1",
+    "owner_copy_file_id": "177lb1DgHF6yV4OyeFsHS7kVXJfxOFXtO",
+    "owner_copy_url": "https://drive.google.com/file/d/177lb1DgHF6yV4OyeFsHS7kVXJfxOFXtO/view?usp=drivesdk",
+    "size_bytes": 34589,
+    "sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "sha256_matches_frozen_Cell5": true,
+    "source_raw_bytes_verified": true,
+    "owner_copy_raw_bytes_verified": true,
+    "manifest_schema": "ttm.gpt2.pretokenized.byte-bpe.2048.v1",
+    "vocab_size": 2048,
+    "retrained_or_reconstructed": false
+  },
+  "final24": {
+    "raw_outputs_expected": 48,
+    "prompt_pairs_expected": 24,
+    "owner_raw_generation_created": false,
+    "rater_packet_created": false,
+    "rater_scores_created": false,
+    "encrypted_A_C_mapping_unsealed": false,
+    "hold_reason_before_copy": "HOLD_OWNER_PRIVATE_BPE_MANIFEST_NOT_ON_DRIVE",
+    "current_preparation_status": "BPE_MANIFEST_OWNER_DRIVE_PRESENT_SHA256_VERIFIED__OWNER_CELL5_READY_TO_RUN",
+    "reviewer_identity": "ChatGPT GPT-6 self-attested, exploratory scoped AI review",
+    "next": "Owner in same Colab T4 notebook run frozen Cell 5 only; verify exactly 48 outputs and SHA-256; never pass raw A/C-labelled file to blind rater; neutralize R01-R24 using encrypted original mapping in separate owner context and freeze hash before sending"
+  },
+  "decision": "PASS_SCOPED_TWO_ARM_TRAIN_COMPLETENESS_AND_BPE_CUSTODY__SCIENCE_OUTCOME_NOT_ADJUDICATED",
+  "original_main_lineage_unmodified": true
+}
