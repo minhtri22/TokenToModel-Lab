@@ -1,0 +1,135 @@
+{
+  "schema": "ttm.vm.topk.nontest_cpu_probe.independent_full_perstory_recomputation.v1",
+  "operation": "TTM_VM_TOPK_NONTEST_CPU_ONESHOT_RESULT_INDEPENDENT_RECOMPUTATION_AND_SCIENTIFIC_ADJUDICATION",
+  "study": "Non-TEST frozen Reader PROBE 128; single scientific evaluation, exploratory",
+  "decision": "FAIL_RETRIEVAL_SCOPED",
+  "qa": {
+    "status": "PASS_INDEPENDENT_FULL_PERSTORY_RECOMPUTATION",
+    "checks_passed": 22,
+    "checks_total": 22,
+    "checks": {
+      "01_actual_perstory_records_128": true,
+      "02_all_unique_and_expected_ids": true,
+      "03_all_answer_tokens_400": true,
+      "04_all_six_nll_arms_finite": true,
+      "05_all_six_gate_arms_finite": true,
+      "06_no_memory_gate_zero": true,
+      "07_recall1_subset_recall3": true,
+      "08_lex1_subset_lex3": true,
+      "09_wrong_value_no_effect_if_target_missed_top1": true,
+      "10_wrong_value_no_effect_if_target_missed_top3": true,
+      "11_recall_consistency": true,
+      "12_nll_consistency": true,
+      "13_deltas_consistency": true,
+      "14_original_bootstraps_95pct_lower_positive": true,
+      "15_independent_bootstraps_95pct_lower_positive": true,
+      "16_bootstrap_original_and_independent_within_expected_resampling_variability": true,
+      "17_oracle_upper_bound_beats_baseline": true,
+      "18_retrieval_recall_3_below_threshold": true,
+      "19_original_verdict_matches_frozen_priority": true,
+      "20_no_optimizer_test_dev": true,
+      "21_reader_and_backbone_unchanged_reported": true,
+      "22_exact_source_pins": true
+    }
+  },
+  "sources": {
+    "project": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-vector-memory-architecture-20261111",
+    "science_source_commit": "9e46bb4662fcffc66f85ae7d4d479a017f69b293",
+    "source_runner_git_blob": "d6e2cb2b087342234f8f722de70b6de429c550c3",
+    "source_probe_git_blob": "b08e2120a2ac9d4e270ee48fdca77e4a4743e22c",
+    "private_reader_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "probe_sha256": "88c558a8f1844ee1e55bff64f30c2b801c8bf3e54ef0cbc537f9fd81e51e9c11",
+    "windows_run_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_evidence\\vector-memory\\TTM_VM_TOPK_NONTEST_FROZEN_READER_PROBE_ONCE_V1",
+    "private_perstory_file": "PER_STORY_QA_PRIVATE.json",
+    "public_aggregate_file": "PROBE_AGGREGATE_PUBLIC.json",
+    "marker_file": "ONE_SHOT_STARTED.json",
+    "aggregate_sha256_owner": "c65692d19b8e48687102f664f24690c5b151a07d69f9a0a3f297b8fab06b3ffa",
+    "aggregate_sha256_reconstructed_crlf_with_final_eol": "c65692d19b8e48687102f664f24690c5b151a07d69f9a0a3f297b8fab06b3ffa",
+    "sha_verification_limit": "Connector text lines normalized LF; exact native Windows SHA matches reconstruction using CRLF + final CRLF, but not a separate raw-binary read."
+  },
+  "metrics": {
+    "perstory_records": 128,
+    "cases_unique": 128,
+    "answer_tokens_per_arm": 400,
+    "recall_hits": {
+      "R_FULL_COSINE_TOP1": 43,
+      "R_FULL_COSINE_TOP3": 107,
+      "R_LEX_TRIGRAM_TOP1": 128,
+      "R_LEX_TRIGRAM_TOP3": 128
+    },
+    "recall_rate": {
+      "R_FULL_COSINE_TOP1": 0.3359375,
+      "R_FULL_COSINE_TOP3": 0.8359375,
+      "R_LEX_TRIGRAM_TOP1": 1,
+      "R_LEX_TRIGRAM_TOP3": 1
+    },
+    "threshold_recall_at_3": 0.95,
+    "hits_needed_for_threshold": 122,
+    "top3_hit_shortfall": 15,
+    "top3_misses": 21,
+    "mean_story_answer_only_nll": {
+      "A_NO_MEMORY": 6.959491420537233,
+      "O1_ORACLE_TOP1": 3.8215356841683388,
+      "B1_COSINE_TOP1_CORRECT": 4.7850405015051365,
+      "C1_COSINE_TOP1_WRONG": 5.208137892186642,
+      "B3_COSINE_TOP3_CORRECT": 4.535291496664286,
+      "C3_COSINE_TOP3_WRONG": 4.956644399091601
+    },
+    "paired_mean_delta": {
+      "A_minus_B3": 2.4241999238729477,
+      "C3_minus_B3": 0.4213529024273157
+    },
+    "reported_bootstrap95": {
+      "A_minus_B3": [
+        2.21246607969515,
+        2.6217374737840147
+      ],
+      "C3_minus_B3": [
+        0.25030811512842777,
+        0.6339838543441146
+      ]
+    },
+    "independent_resample95": {
+      "method": "1000 paired story-level resamples with replacement; 128 draws/resample; seeds 20261114 and 20261115; mulberry32 PRNG instead of NumPy PCG64; NumPy linear quantile interpolation; an independent corroborating resample, NOT exact same bootstrap replicates.",
+      "A_minus_B3": [
+        2.2311086208093913,
+        2.608043568301946
+      ],
+      "C3_minus_B3": [
+        0.2340420066844672,
+        0.6216202415525913
+      ]
+    },
+    "oracle_vs_baseline_gain_nats": 3.1379557363688946,
+    "target_missed_topk_value_swap_no_effect": true,
+    "top3_hit_conditional_wrong_minus_correct_mean": 0.5040483318756674,
+    "top3_miss_conditional_wrong_minus_correct_mean": 0
+  },
+  "interpretation": {
+    "primary_criterion_recall3_pass": false,
+    "paired_nll_conditions_pass": true,
+    "reader_has_value_use_signal": true,
+    "semantic_retrieval_demonstrated": false,
+    "lexical_control_128_of_128": "Literal alias in question yields perfect trigram retrieval on this public synthetic PROBE; descriptive control only. Do not retrospectively switch primary retriever or claim recovered science PASS.",
+    "scope_limit": "A specific frozen full-question mean-T1 embedding cosine retriever, 32 records (4 one-character hard negatives), 128 synthetic cases, one Reader checkpoint. Does not falsify external memory in general.",
+    "per_story_data_public": false
+  },
+  "run_integrity": {
+    "one_shot_marker_seen": true,
+    "perstory_output_seen": true,
+    "aggregate_output_seen": true,
+    "new_optimizer_steps": 0,
+    "model_forward_reruns_by_auditor": 0,
+    "dev_rescored": false,
+    "test_opened": false,
+    "gpu_used": false,
+    "backbone_unchanged_reported": true,
+    "reader_unchanged_reported": true,
+    "one_shot_consumed": true,
+    "no_retry": true
+  },
+  "lineage_action": "APPEND_L0021_ON_RESEARCH_BRANCH_ONLY",
+  "next_action": "ONE_NEW_NONTEST_SCOPED_RETRIEVER_DESIGN_OR_STOP_NO_REUSE_OF_EVALUATED_PROBE_AS_CONFIRMATORY"
+}
