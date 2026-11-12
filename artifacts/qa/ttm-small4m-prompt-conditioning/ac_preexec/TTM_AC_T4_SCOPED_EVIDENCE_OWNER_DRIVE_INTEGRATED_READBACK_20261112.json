@@ -1,0 +1,99 @@
+{
+  "schema": "ttm.small4m.ac.t4.owner_drive.scoped_evidence_integrated_readback.v1",
+  "date": "2026-11-12",
+  "review_mode": "EXACT_RECEIPT_METADATA_READBACK_NO_SCIENCE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+  "owner_drive_folder": "ttm_small4m_ac_objective_only_v1/qa_preexec",
+  "origin": "USER_COLAB_RUN_RECEIPTS_IN_CONNECTED_OWNER_GOOGLE_DRIVE",
+  "receipts": [
+    {
+      "filename": "COLAB_ENVIRONMENT.json",
+      "sha256": "29d5076dbc4bbac94d9b07db2e4730f677d618b4750cbf37bdc19226b35a62ae",
+      "bytes": 578,
+      "torch": "2.14.1+cu130",
+      "python": "3.13.16",
+      "device": "Tesla T4",
+      "science_optimizer_steps": 0,
+      "source_pins_checked": true
+    },
+    {
+      "filename": "T4_FP16_ZERO_STEP.json",
+      "sha256": "3bea99fe32a7cb8f1e9376c5b6d8b56a18ae3660d48f3bdefefbf993970093ed",
+      "bytes": 506,
+      "status": "PASS_T4_FP16_ZERO_SCIENCE_STEP",
+      "real_p02_params": 3749376,
+      "training_steps": 0,
+      "test_access": false
+    },
+    {
+      "filename": "AC_REAL_P02_T4_FP16_RESUME_PARITY.json",
+      "sha256": "c4fead8605dc8b5a134d8930ccdf3ef89fecdc0005cb4f621a511e2306c3de92",
+      "bytes": 2174,
+      "status": "PASS_REAL_P02_T4_SYNTHETIC_RELOAD_PARITY_SCOPED",
+      "actual_AC_resume_gate": "NOT_GRANTED_BY_THIS_SYNTHETIC_QA",
+      "real_parent_step": 1024,
+      "qa_step1_attempts": [
+        {
+          "scale_before": 65536,
+          "scale_after": 32768,
+          "optimizer_step_before": 1024,
+          "optimizer_step_after": 1024
+        },
+        {
+          "scale_before": 32768,
+          "scale_after": 32768,
+          "optimizer_step_before": 1024,
+          "optimizer_step_after": 1025
+        }
+      ],
+      "qa_step2_optimizer_step_after": 1026,
+      "qa_resumed_optimizer_step_after": 1026,
+      "qa_step2_and_resumed_attempts_exact_match": true,
+      "snapshot_sha256": "cb463e576d44700a6b05002c96256597d5bc2358970d585b9cbc85004992348e",
+      "synthetic_qa_optimizer_updates": 3,
+      "private_train_labels_scored": 0,
+      "science_train_steps": 0
+    },
+    {
+      "filename": "FINAL24_EVAL_SOURCE_FREEZE.json",
+      "sha256": "cd21dd2cbcec396e0e1876136fa1d1db679212cad7ecef372f9859b545c9a7fb",
+      "bytes": 374,
+      "status": "PASS_24_PROMPT_BLIND_FREEZE",
+      "final_count": 24,
+      "scoring": "NOT_EXECUTED",
+      "test_access": false
+    }
+  ],
+  "source_pins": {
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "private_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "private_pack_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "p02_source_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "ac_science_runner_blob": "ad7d88672c65c6778f5956e6fc7aa656b78b998f"
+  },
+  "causal_boundary": {
+    "A_science_training": "NOT_EXECUTED",
+    "C_science_training": "NOT_EXECUTED",
+    "scoped_synthetic_full_model_resume": "PASS",
+    "actual_science_full_training_resume_parity": "NOT_PROVEN",
+    "C_minus_A": "NOT_ESTIMABLE",
+    "scientific_fail": "NOT_ESTABLISHED",
+    "note": "Notebook-V4 synthetic QA adapted FP16 overflow. Frozen science runner still aborts if GradScaler skips; the observed T4 synthetic first attempt had one skipped optimizer update at scale 65536. Real TRAIN might differ, so actual science failure cannot be claimed in advance."
+  },
+  "one_packet_unmet": {
+    "owner_private_source_rights": "NOT_ATTESTED",
+    "independent_reviewer": "NOT_ASSIGNED",
+    "owner_private_aes_key_acl": "NOT_ATTESTED",
+    "actual_AC_science_resume_parity": "NOT_ATTESTED",
+    "one_owner_science_lock": "NOT_ISSUED",
+    "A_C_final24_adjudication": "NOT_EXECUTED"
+  },
+  "decision": "GO_ACCEPT_T4_SCOPED_TECHNICAL_READBACK_HOLD_AC_SCIENCE_PENDING_INTEGRATED_OWNER_SIGNOFF_AND_SCIENCE_RUNNER_FP16_REVIEW",
+  "do_not_rerun_native_qa": true,
+  "no_new_toy_science": true,
+  "no_BD": true,
+  "no_O1": true,
+  "no_test_q1q2": true,
+  "main_or_lineage_modified": false
+}
