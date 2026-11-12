@@ -1,0 +1,98 @@
+{
+  "schema": "ttm.small4m.d1.private_nonoverlap_rights_rater.single_owner_gate.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_PRIVATE_NONOVERLAP_RIGHTS_RATER_CUSTODY_SINGLE_OWNER_ADJUDICATION",
+  "review_mode": "READ_ONLY_NO_SCIENCE_NO_SEALED_DATA",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_pins": {
+    "previous_head": "f71911d9aa0175fecc4deb5d1b83d46bb64c0519",
+    "design_git_blob": "a1ffb8ccbdc35ef73ec68c7e7f534aa15a2f4dc2",
+    "prior_postflight_receipt_blob": "7371146306fe29cd68af3255f162ba3edfc0d2de",
+    "private_v2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "private_v2_lf_sha256": "1553d186eb55699506b6b920153d5c7af7f0ad26a186e1d58ffef0d1e7b4eb2e",
+    "blind_rater_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "lineage_blob": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "lineage_last_entry": "L0015",
+    "main_head": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "original_windows_science_ref": "c05872354d892a9656f8f98642866f7eebfd0f50"
+  },
+  "technical_gate": {
+    "version2_rekey": "PASS_SCOPED",
+    "version2_postflight": "PASS_SCOPED_OWNER_WINDOWS",
+    "source_bpe": "PASS_SCOPED_OWNER_WINDOWS",
+    "counts": {
+      "families": 16,
+      "prompts": 128,
+      "neutral_prior": 64,
+      "blind_cases": 512
+    },
+    "seed_rekey_rerun": false,
+    "dev_stimuli_changed": false,
+    "mapped_secret_material_uploaded_to_public_github": false
+  },
+  "integrated_adjudication": [
+    {
+      "gate": "PRIVATE_NONOVERLAP",
+      "result": "HOLD_NOT_CERTIFIED",
+      "available_evidence": "ZERO_FOUND_IN_TWO_PUBLIC_HISTORICAL_FILES_SCOPED",
+      "missing": "No private semantic/exact nonoverlap attestation covering FRESH12 FRESH16 CF1 AC FINAL24 and protected TEST Q1Q2",
+      "constraints": "No TEST/Q1Q2 opened in this turn; original raw sealed materials left intact",
+      "to_close": "Owner or independent authorized custodian supplies scoped signed private-side nonoverlap certificate or pre-existing frozen-fingerprint proof"
+    },
+    {
+      "gate": "OWNER_RIGHTS",
+      "result": "HOLD_ATTESTATION_PENDING",
+      "available_evidence": "V2 metadata AI_AUTHORED_NEW_CONTENT_OWNER_FINAL_ATTESTATION_PENDING",
+      "missing": "Named owner provenance/rights and permitted evaluation use statement",
+      "to_close": "Owner signs origin, permitted use and source boundaries of newly drafted D1 stimuli"
+    },
+    {
+      "gate": "INDEPENDENT_RATER_AND_BLIND_CUSTODY",
+      "result": "HOLD_NOT_ATTESTED",
+      "available_evidence": "Private scorer template reports TEMPLATE_ONLY_RATER_UNASSIGNED_NO_OUTPUTS; static blinding PASS_SCOPED",
+      "missing": "Independent rater acceptance, separation from generator and from mapping/seed, access custodian attestation",
+      "to_close": "Independent rater and custodian accept roles and sign access separation; score lock before unblind"
+    }
+  ],
+  "evidence_search": {
+    "windows_v2_private_metadata": "READ_ONLY_CHECKED",
+    "windows_v2_private_static_receipt": "READ_ONLY_CHECKED",
+    "github_frozen_design": "CHECKED",
+    "github_owner_postflight_receipt": "CHECKED",
+    "github_default_branch_index_search": [
+      "TTM_SMALL4M_D1_PRIVATE_NONOVERLAP",
+      "D1_OWNER_RIGHTS",
+      "D1_RATER_INDEPENDENCE",
+      "D1_BLIND_CUSTODY"
+    ],
+    "default_branch_matches": 0,
+    "qualification": "Default-branch search is not exhaustive of all branch/local attestations; private V2 metadata confirms pending state",
+    "sealed_test_or_q1q2_contents_read": false,
+    "fresh16_reexecuted": false,
+    "private_mapping_read": false,
+    "rater_template_contents_published": false,
+    "external_rater_contacted": false
+  },
+  "science_state": {
+    "frozen_design": "GO_DESIGN_FROZEN",
+    "model_training_executed": false,
+    "model_inference_executed": false,
+    "optimization_steps": 0,
+    "planned_rollouts": 512,
+    "planned_candidate_scores": 384,
+    "outputs_completed": 0,
+    "main_changed": false,
+    "lineage_changed": false
+  },
+  "final_single_owner_decision": {
+    "verdict": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "science_go_authorized": false,
+    "all_512_rollouts_authorized": false,
+    "reason": "THREE_REQUIRED_SIGNED_EVIDENCE_GATES_MISSING",
+    "technical_gate_status": "CLOSED_PASS_SCOPED",
+    "no_micro_permits": true,
+    "no_new_seed_rekey": true,
+    "classification": "PREEXEC_GOVERNANCE_HOLD_NOT_SCIENTIFIC_FAIL",
+    "next_action": "One consolidated rights, private nonoverlap and independent blind-rater/custodian certificate; one owner GO/HOLD with no rekey or sealed TEST/Q1Q2 reopening"
+  }
+}
