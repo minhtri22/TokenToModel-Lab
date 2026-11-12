@@ -1,0 +1,44 @@
+{
+  "schema": "ttm.small4m.hdec_r1.owner_go_one_shot_release_decision.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_HDEC_R1_OWNER_GO_RATER_DEFERRED_ONE_SHOT_RELEASE",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "owner_explicit_consent": "OWNER_HDEC_R1_NEW_RUN_GO=YES",
+  "owner_rights_scope": "one internal no-training inference on existing A1152, 12 DEV+24 NEW FINAL, D0/D1; no dataset redistribution or original TEST/Q1/Q2/OOD",
+  "owner_authorization_is_cryptographic_signature": false,
+  "rater_preacceptance_policy": "NOT_A_PRECONDITION_OWNER_EXPLICITLY_DEFERRED",
+  "rater_requirement": "A new independent rater must be handed the neutral LEFT/RIGHT packet after generation; must freeze 144 scores and 24 notes with SHA before unblind",
+  "locked_source": {
+    "previous_T4_pin_source_commit": "c784b4a0687f6b0fd840f41d3bbf93e5c31038a7",
+    "Colab_T4_readback_sha256": "65bfd3b08fbb9fa8454292171e3f1767a36ed14563a99d35112f11d0e0e02142",
+    "checkpoint_A_1152_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "new_owner_eval_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "decoder_sha256": "64a812a49f8d82d2c797d9150b2d3278763d411fff3e3b53424e650711092e85",
+    "escrow_SHA256": "812e7e23cdc3eba4735bfb0b8ff43b2a7420fbaac4fa0edfc2fe4a944cb8c3b7",
+    "owner_go_receipt_sha256": "48f805d2840e86edea07d3ac3c277b9ee496d947f9f0d12b581e0c76cc355a75",
+    "new_one_shot_runner_sha256": "ddb8ce935326ee792285e14488f7217e2bebf61e4c4aef8d8c687b1c2a9ce4aa"
+  },
+  "preexec_gates": {
+    "decoder_BPE_context": "PASS_SCOPED",
+    "T4_source_pin": "PASS_10_OF_10_REAL",
+    "escrow": "PASS_SEALED",
+    "owner_new_run_scope": "PASS_EXPLICIT_CHAT_CONSENT",
+    "rater_pre_acceptance": "NOT_REQUIRED",
+    "one_shot_runner_static_QA": "PASS_46_OF_46",
+    "real_one_shot_runner_model_forward": "NOT_EXECUTED"
+  },
+  "release": "GO_ONE_SHOT_INFERENCE_AUTHORIZED_NOT_EXECUTED",
+  "constraints": {
+    "no_training": true,
+    "one_shot_no_retry": true,
+    "no_automatic_execution_in_this_chat": true,
+    "no_public_private_output_or_mapping": true,
+    "blind_scores_before_unblind": true,
+    "old_FINAL24_closed": true,
+    "main_unchanged": true,
+    "lineage_unchanged": true
+  },
+  "science_result": "NOT_EXECUTED",
+  "next": "Owner executes exactly one source-pinned Colab T4 run; owner validates 72 outputs and SHA; only then handoff rater in separate ChatGPT session; no unblind until score freeze."
+}
