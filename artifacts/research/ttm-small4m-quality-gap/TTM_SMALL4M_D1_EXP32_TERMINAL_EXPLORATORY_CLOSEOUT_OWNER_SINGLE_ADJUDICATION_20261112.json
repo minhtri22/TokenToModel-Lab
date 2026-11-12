@@ -1,0 +1,119 @@
+{
+  "schema": "ttm.small4m.d1.exp32.terminal_exploratory_closeout.owner_single_adjudication.v1",
+  "operation": "TTM_SMALL4M_D1_EXP32_TERMINAL_EXPLORATORY_CLOSEOUT_NO_RESCORE_NO_RESEED",
+  "adjudication_date": "2026-11-12",
+  "baseline_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "baseline_git_head": "0f565ed494a985c727d1dbe817217a1452787ffd",
+  "scope": "EXPLORATORY_SCOPED_DEV32_SHORT_NEAR_CPU_ONE_NUCLEUS_SEED",
+  "status": "CLOSED_EXPLORATORY_SCOPED_PROVISIONAL_INPUT_PROVENANCE",
+  "owner_decision": "CLOSE_DEV32_NO_RESCORE_NO_RESEED_NO_NEW_SCIENCE_EXECUTION",
+  "facts": {
+    "checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "D1_V2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "fingerprint_index_private_sha256": "66a987550fdeb5b6ff3711d49ab673578be68418a1978b33126f6127deed763c",
+    "Dev32_safe_summary_sha256": "7bb65aaee2d44ee2705a6911234ab980d8b02957278a547e7ffda9e90c9cb86d",
+    "owner_raw_generation_sha256": "ebdde253504c0af94ad3fce55731220707e5420f7dd1bbec2b0084b8dde56eee",
+    "blind64_source_packet_sha256": "4288c311f22147a85a414fd436fbeba1287464bb60d745ca64e5ce07839158f1",
+    "rater_score_file_sha256": "d6ef3780ca72ffe5fcc7a67bcfe85abf3a87b92b4fee30bcf9b88460734885d4",
+    "rater_receipt_sha256": "97720785d460bb919be063be117f70f66fc68ebdf8cdb33abc79e368c97f8795",
+    "rater_score_sha_verified_from_file_bytes": true,
+    "rater_receipt_score_sha_matches": true,
+    "rater_scored_records": 64,
+    "rater_unique_ids": 64,
+    "deterministic_opaque_id_match": 64,
+    "scoring_input_bytes_verified": false,
+    "scoring_input_provenance": "USER_PASTED_BLIND_RECORDS_NOT_INDEPENDENTLY_CONTENT_MATCHED_TO_ORIGINAL_BLIND_PACKET",
+    "no_grade_changes": true,
+    "owner_unblind_after_freeze": true
+  },
+  "teacher_forced": {
+    "candidate_score_calls": 96,
+    "families": 16,
+    "both_fact_conditions_positive": 1,
+    "both_fact_conditions_positive_prior_adjusted": 2,
+    "status": "WEAK_FACT_CONDITIONING_EXPLORATORY_SIGNAL"
+  },
+  "free_running": {
+    "total_generated": 64,
+    "greedy": {
+      "n": 32,
+      "grade0": 30,
+      "grade1": 2,
+      "grade2": 0,
+      "grade3": 0,
+      "adherence_ge2": 0,
+      "mean_grade": 0.0625,
+      "early_eos": 14,
+      "repeated_trigram_windows": 213
+    },
+    "nucleus": {
+      "n": 32,
+      "grade0": 9,
+      "grade1": 23,
+      "grade2": 0,
+      "grade3": 0,
+      "adherence_ge2": 0,
+      "mean_grade": 0.71875,
+      "early_eos": 0,
+      "repeated_trigram_windows": 8
+    },
+    "paired_prompt_grade_comparison": {
+      "nucleus_greater": 22,
+      "greedy_greater": 1,
+      "ties": 9
+    },
+    "pair_success_both_fact_variants": {
+      "greedy": 0,
+      "nucleus": 0
+    },
+    "conclusion": "NUCLEUS_MORE_RECOGNIZABLE_ACTIONS_AND_LESS_REPETITION_DESCRIPTIVE_ONLY; FACT_ADHERENCE_NOT_RESCUED",
+    "strong_decoder_rescue": "NOT_SUPPORTED",
+    "rater_type": "GPT6_AI_SELF_ATTESTED"
+  },
+  "interpretation_limits": [
+    "One fixed checkpoint at step 1024, short/near only",
+    "One frozen nucleus seed, not robust multi-seed proof",
+    "Input shown to blind rater was pasted; its original file bytes were not verified by rater or owner",
+    "Deterministic opaque ID set matching does not establish text content equality",
+    "Scores are exploratory AI judgments, not a human blind evaluation",
+    "No causal attribution among data, training objective, model capacity or decoder",
+    "Confirmatory D1 512-output design remains frozen and HOLD",
+    "TEST/Q1Q2 remained sealed"
+  ],
+  "preserved_gates": {
+    "dev32_execution": "EXECUTED_PASS_SCOPED",
+    "rater_score_sha": "VERIFIED",
+    "opaque_id_64": "PASS",
+    "owner_unblind": "COMPLETED_AFTER_FROZEN_SCORE_SHA",
+    "factual_adherence": "ZERO_OF_32_BOTH",
+    "original_rater_input_byte_provenance": "NOT_VERIFIED",
+    "d1_confirmatory_512": "HOLD_UNCHANGED",
+    "test_q1q2": "SEALED",
+    "science_run_repeated": false,
+    "scored_again": false,
+    "new_seed_created": false,
+    "new_inference": false,
+    "new_training": false,
+    "independent_rater_mapping_exposed": false,
+    "lineage": "UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "next_research_guidance": {
+    "status": "DESIGN_DISCUSSION_ONLY_NO_NEW_SCIENCE_AUTHORIZATION",
+    "priority_order": [
+      "DATA_AND_COUNTERFACTUAL_COVERAGE",
+      "TRAINING_OBJECTIVE_FOR_FACT_CONDITIONING",
+      "MODEL_CAPACITY_AFTER_SAME_BUDGET_BASELINES"
+    ],
+    "rationale": "Fact-conditioned answer preference was weak before free-running decoding; changing decoder alone has not demonstrated factual rescue",
+    "suggested_future_design": "Small preregistered matched-budget controlled study on new DEV data with fixed checkpoint/data custody and one-variable-at-a-time comparisons; baseline vs targeted factual/counterfactual examples, objective ablation, then capacity only if needed",
+    "no_posthoc_seed_or_prompt_selection": true,
+    "no_next_experiment_started": true
+  },
+  "related_repository_evidence": [
+    "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_EXP32_INDEPENDENT_RATER_SCORE_RECOVERY_PROVENANCE_AND_PROVISIONAL_OWNER_ADJUDICATION_20261112.md",
+    "artifacts/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_EXP32_BLIND64_RECOVERED_SCORE_SHA_ID_MATCH_OWNER_PROVISIONAL_ADJUDICATION_20261112.json",
+    "artifacts/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_EXP32_ACTUAL_CPU_ONE_SHOT_OWNER_SAFE_SUMMARY_20261112.json"
+  ]
+}
