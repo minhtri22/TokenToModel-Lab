@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.small4m.d1.v2.owner_existing_postflight.adopted_final_gate.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_V2_EXISTING_POSTFLIGHT_OWNER_PASS_SCOPED_ADOPTION_AND_RELEASE_GATE",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "kind": "OWNER_TERMINAL_RECEIPT_ADOPTION_NO_NEW_EXECUTION",
+  "parent_head": "3183f49168600ef4c753e53432e5406547a19d40",
+  "owner_supplied_receipt": {
+    "postflight_status": "TTM_D1_V2_EXISTING_POSTFLIGHT=PASS_SCOPED",
+    "dev_v2_sha256_raw": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "dev_v2_sha256_lf": "1553d186eb55699506b6b920153d5c7af7f0ad26a186e1d58ffef0d1e7b4eb2e",
+    "scorer_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "no_rekey_rerun": true,
+    "stimulus_unchanged": true,
+    "blind_custody_static": "PASS_SCOPED",
+    "private_overlap": "NOT_VERIFIED",
+    "rater_independence": "NOT_ATTESTED",
+    "science_executed": false,
+    "owner_single_release": "HOLD"
+  },
+  "connected_readback": {
+    "private_static_receipt_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_SMALL4M_D1_V2_VERSIONED_PRIVATE_REKEY_STATIC_RECEIPT_20261111.json",
+    "private_static_receipt_schema": "ttm.small4m.d1.versioned_private_seed_rekey_static_qa_receipt.v1",
+    "receipt_dev_raw_sha_matches_owner": true,
+    "receipt_dev_lf_sha_matches_owner": true,
+    "receipt_scorer_sha_matches_owner": true,
+    "receipt_statement": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "receipt_model_training": "NO",
+    "receipt_model_inference": "NO",
+    "privacy": "ONLY_PUBLIC_HASHES_AND_COUNTS_COMMITTED_NO_PRIVATE_MAPPING_OR_SEEDS"
+  },
+  "frozen_inputs": {
+    "families": 16,
+    "dev_prompts": 128,
+    "neutral_priors": 64,
+    "blind_cases": 512,
+    "dev_v2_raw_bytes": 267645,
+    "scorer_template_raw_bytes": 349900,
+    "checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "local_science_worktree_head": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "github_main_head_at_readback": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "lineage_sha": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "lineage_last_entry": "L0015_FRESH16_V2_SCOPED_FAIL"
+  },
+  "gate_status": {
+    "v1_qa": "PASS_SCOPED",
+    "v2_seed_rotation": "PASS_SCOPED",
+    "v2_raw_integrity": "PASS_SCOPED_FROM_OWNER_TERMINAL_AND_LOCAL_STATIC_RECEIPT",
+    "v2_postflight": "PASS_SCOPED_OWNER_TERMINAL",
+    "blinding_static": "PASS_SCOPED",
+    "public_history_overlap": "ZERO_OF_TWO_FILES_SCOPED",
+    "private_fresh16_ac_q1q2_semantic_overlap": "NOT_VERIFIED_NO_SEALED_DATA_OPENED",
+    "independent_rater": "NOT_ATTESTED",
+    "rights_owner_attestation": "NOT_ATTESTED",
+    "independent_custody": "NOT_ATTESTED",
+    "scientific_evaluation": "NOT_EXECUTED",
+    "no_fresh16_rerun": true,
+    "no_test_access": true,
+    "training_executed": false,
+    "inference_executed": false
+  },
+  "single_adjudication": {
+    "science_decision": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "reason": "PRIVATE_OVERLAP_INDEPENDENT_RATER_RIGHTS_AND_CUSTODY_MISSING",
+    "technical_v2_rekey_recovery": "CLOSED_PASS_SCOPED",
+    "new_seed_rekey_needed": false,
+    "next_stage": "ONE_PACKET_NONLEAKAGE_AND_INDEPENDENT_RATER_OWNER_ATTESTATION_ADJUDICATION",
+    "authorizes_512_outputs": false,
+    "lineage_change": "NONE",
+    "main_merge": "NONE",
+    "scientific_claims": "NONE_NEW"
+  }
+}
