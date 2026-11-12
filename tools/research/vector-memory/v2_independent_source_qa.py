@@ -174,6 +174,5 @@ def main():
     print(json.dumps({'status':report['status'],'checks':f'{len(checks)}/{len(checks)}',
                       'probe_retrieval_evaluated':False,'test_opened':False},sort_keys=True))
 
-
 if __name__=='__main__':
     main()
