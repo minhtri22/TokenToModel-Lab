@@ -1,0 +1,203 @@
+{
+  "schema": "ttm.vm.v3.non_test_256_ai_amended.one_shot.independent_perstory_adjudication.v1",
+  "operation": "TTM_VM_V3_NONTEST_256_ONE_SHOT_RESULT_INDEPENDENT_RECOMPUTATION_AND_ADJUDICATION",
+  "date": "2026-11-12",
+  "decision": "PASS_NONTEST_V3_SYNTHETIC_AMBIGUITY_EXPLORATORY_SCOPED",
+  "runner_verdict": "GO_CANDIDATE_NONTEST_AMBIGUITY_SCOPED",
+  "classification": "AI_ASSISTED_EXPLORATORY_SCOPED_NOT_HUMAN_REVIEW_NOT_TEST",
+  "scientific_source": {
+    "commit": "e258f117d0422e2e83d9cf5937aad889f187a2bf",
+    "runner_git_blob": "32e2a15ba56916958102294efe4d91c4fbc812e4",
+    "V3_fixture_source_git_blob": "5f51b8b464e54a370f3a3fa99d91307118f52f46",
+    "V3_retriever_source_git_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+    "P1_AI_custody_source_blob": "ede2ee6438dc9b5ba106195e529eb3124d53f31b",
+    "private_V3_fixture_SHA256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+    "reader_L0020_SHA256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "P02_checkpoint_SHA256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "T1_manifest_SHA256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "AI_A_raw_SHA256": "46c9fad4b77065cf086213c64ee04145704efa8d6dd3cfbad56d80c9e1d68ed6",
+    "AI_B_raw_SHA256": "fd719ada13d2e44a72d29af04d18bb5d839547b288046ce410cfa9e5b7e49cdf",
+    "AI_amendment_doc": "docs/research/vector-memory/TTM_VM_V3_AI_SUBSTITUTION_PROSPECTIVE_AMENDMENT_20261112.md",
+    "owner_preauthorization": "OWNER_NATIVE_PREEXEC_PASS_99_SOURCE_100_SCORER_AI_32_32_SHA_READER_P02_T1_PASS"
+  },
+  "windows_inputs": {
+    "one_shot_dir": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_evidence\\vector-memory\\TTM_VM_V3_NONTEST_256_FROZEN_READER_CPU_ONESHOT_V1",
+    "one_shot_marker": "ONE_SHOT_STARTED.json",
+    "private_per_story": "PER_STORY_QA_PRIVATE.json",
+    "public_aggregate": "PROBE_AGGREGATE_PUBLIC.json",
+    "public_aggregate_SHA256_owner_native": "579f9a568196d9ab704a4fdfaedb8e12ed08b80c6c4ffc9bb8acc26409538dd8",
+    "public_aggregate_SHA256_readback_CRLF_terminal_reconstructed": "579f9a568196d9ab704a4fdfaedb8e12ed08b80c6c4ffc9bb8acc26409538dd8",
+    "public_aggregate_integrity": "MATCH_OWNER_RAW_SHA_AFTER_CRLF_TERMINAL_RECONSTRUCTION",
+    "private_perstory_retrieved_via": "READ_ONLY_WINDOWS_REMOTE_TEXT_256_OF_256_RECORDS",
+    "private_perstory_readback_lines": 4994,
+    "private_perstory_native_SHA256": "NOT_YET_INDEPENDENTLY_VERIFIED",
+    "private_perstory_uploaded_GitHub": false
+  },
+  "independent_checks": {
+    "status": "PASS_73_OF_73_SOURCE_PERSTORY_AGGREGATE_CONSISTENCY",
+    "number_passed": 73,
+    "number_total": 73,
+    "error_found_in_own_QA": "CHECK_41 initially compared JSON.stringify(reason_counts) with key insertion order. The expected and observed maps were semantically equal with different field order.",
+    "self_QA_remediation": "Recheck reason counts as unordered key->count maps for all eight strata; confirm 8/8 exact. Original other 72 checks were PASS and unchanged; reran 10/10 critical safeguards and 256/256 per-story read.",
+    "postfix_all_reason_maps_match": 8,
+    "postfix_checks_passed": 10,
+    "postfix_checks_total": 10,
+    "NLL_recomputed_from_each_positive_story": true,
+    "paired_deltas_recomputed_from_96_story_vectors": true,
+    "independent_bootstrap_recomputed_2000_resamples": true,
+    "reason_code_counts_recomputed_per_8_strata": true,
+    "negative_records_verified_no_NLL_or_Reader_calls": 128,
+    "one_shot_science_reruns_by_auditor": 0
+  },
+  "metric_strata": {
+    "P0_KNOWN_WIRING": {
+      "cases": 32,
+      "correct_select": 32,
+      "control_only": true,
+      "answer_tokens": 100
+    },
+    "P1_UNSEEN_PARAPHRASE": {
+      "cases": 32,
+      "correct_select": 32,
+      "answer_tokens": 100
+    },
+    "P2_PROVENANCE_UNIQUE": {
+      "cases": 32,
+      "correct_select": 32,
+      "answer_tokens": 100
+    },
+    "P3_NEGATION_UNIQUE": {
+      "cases": 32,
+      "correct_select": 32,
+      "answer_tokens": 100
+    },
+    "N0_UNDERSPECIFIED": {
+      "cases": 32,
+      "correct_abstain": 32,
+      "false_select": 0,
+      "reason": "MULTIPLE_PUBLIC_MATCHES"
+    },
+    "N1_DUPLICATE_MATCH": {
+      "cases": 32,
+      "correct_abstain": 32,
+      "false_select": 0,
+      "reason": "MULTIPLE_PUBLIC_MATCHES"
+    },
+    "N2_CONTRADICTORY_QUERY": {
+      "cases": 32,
+      "correct_abstain": 32,
+      "false_select": 0,
+      "reason": "CONTRADICTORY_POSITIVE_NEGATIVE_CONSTRAINT"
+    },
+    "N3_UNRESOLVABLE_OOV_OR_EXCLUSION": {
+      "cases": 32,
+      "correct_abstain": 32,
+      "false_select": 0,
+      "reason_count": {
+        "UNSUPPORTED_OOV_MATERIAL_EXPRESSION": 16,
+        "CONTRADICTORY_POSITIVE_NEGATIVE_CONSTRAINT": 16
+      }
+    }
+  },
+  "primary_actions": {
+    "positive_primary_denominator": 96,
+    "positive_correct_select": 96,
+    "positive_correct_select_rate": 1,
+    "positive_min_correct_72": true,
+    "P1_unseen_n": 32,
+    "P1_correct": 32,
+    "P1_min_correct_20": true,
+    "negative_primary_denominator": 128,
+    "negative_correct_abstain": 128,
+    "negative_rate": 1,
+    "negative_min_correct_122": true,
+    "negative_false_select": 0,
+    "max_negative_false_select_6": true,
+    "diagnostic_cost": 0,
+    "wilson95_positive": [
+      0.9615244121423243,
+      1
+    ],
+    "wilson95_negative": [
+      0.9708630437264916,
+      1
+    ]
+  },
+  "primary_reader": {
+    "population": "P1_P2_P3_PRIMARY_POSITIVE_ONLY",
+    "cases": 96,
+    "answer_only_token_total_per_arm": 300,
+    "mean_story_nll": {
+      "A": 6.98217814664046,
+      "O1": 3.9252460598945618,
+      "B1": 3.9252460598945618,
+      "C1": 5.378724733988444,
+      "B3": 3.9252460598945618,
+      "C3": 5.378724733988444
+    },
+    "paired_mean_nats": {
+      "A_minus_B1": 3.056932086745898,
+      "C1_minus_B1": 1.4534786740938823,
+      "A_minus_O1": 3.056932086745898
+    },
+    "threshold_min_mean": 0.05,
+    "bootstrap_draws": 2000,
+    "bootstrap_seeds": {
+      "A_minus_B1": 20261120,
+      "C1_minus_B1": 20261121
+    },
+    "bootstrap_95_runner": {
+      "A_minus_B1": [
+        2.8170127306754393,
+        3.321249547662834
+      ],
+      "C1_minus_B1": [
+        0.8661692519361773,
+        2.0791262958819665
+      ]
+    },
+    "bootstrap_95_independent_mulberry32": {
+      "A_minus_B1": [
+        2.815340967910985,
+        3.320688444872697
+      ],
+      "C1_minus_B1": [
+        0.8929001674676935,
+        2.1098398956159747
+      ]
+    },
+    "independent_method": "Paired percentile 95% intervals from exactly 96 per-story NLL differences, 2000x96 with Mulberry32 seeded above; different RNG from frozen NumPy PCG64, intervals need not be bit-identical.",
+    "both_CI_lower_positive": true,
+    "Oracle_positive_control_pass": true,
+    "B1_O1_equal_all_128_positive_stories": true,
+    "B3_C3_status": "DIAGNOSTIC_CLONES_OF_B1_C1_NOT_REAL_TOP3",
+    "negative_cases_have_NLL": false
+  },
+  "integrity": {
+    "one_shot_consumed": true,
+    "science_executed_by_owner": true,
+    "new_training": false,
+    "optimizer_steps": 0,
+    "GPU_used": false,
+    "TEST_opened": false,
+    "DEV_rescored": false,
+    "old_PROBE_rescored": false,
+    "reader_and_backbone_unchanged_reported": true,
+    "reader_and_backbone_post_run_independent_binary_hash_recheck": "NOT_DONE",
+    "human_review_gate_satisfied": false,
+    "owner_AI_substitution_accepted_prospective_to_science": true,
+    "source_scientific_thresholds_unchanged": true,
+    "lineage_append_target": "L0023",
+    "main_unchanged": true
+  },
+  "limitations": [
+    "Scientific scope is synthetic fixed-format, grammar-aware, closed/exposed V3 vocabulary; P1 new only relative to the older V2 dictionary. Proposed P1 phrases were already in V3 ranker before science.",
+    "Perfect abstention is on deliberately generated missing/duplicate/contradictory/OOV query conditions, not real-world calibrated uncertainty or open-world trustworthiness.",
+    "V3 retrieval outcomes were logged as correct_select/hit1 and selected_count, not selected_key/selected_index; auditor recomputed all logged action rates, NLL and CIs, inspected frozen runner's derivation of hit1 from selected public index versus private target. Auditor could not independently compare each selected key to gold from per-story output alone.",
+    "Reader unchanged/TEST sealed reported by pinned runner and owner guards, no independent post-run binary hashing by this audit.",
+    "Two AI raters (not two humans) approved by owner after observing the AI results but before V3 science. Inter-session independence remains self-reported.",
+    "Negative cases are action-only, no valid answer; no reader NLL. B3/C3 are duplicate singleton arms, not independent Top3 retrieval.",
+    "Passing the frozen NON-TEST screen does not negate L0021 cosine retrieval FAIL or prove learned semantic retrieval/generalizable RAG. No sealed TEST was run."
+  ],
+  "next_operation": "TTM_VM_V4_NATURAL_LANGUAGE_OOD_AMBIGUITY_UNSEEN_RELATIONS_PREREG_DESIGN_ONLY"
+}
