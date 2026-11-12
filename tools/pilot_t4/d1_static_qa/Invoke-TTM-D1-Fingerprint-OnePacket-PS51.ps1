@@ -15,15 +15,30 @@ if (-not (Test-Path -LiteralPath (Join-Path $Root '_tmp\TTM_D1_FINGERPRINT_AC_FI
 }
 & $Py -c 'import sys; assert sys.version_info[:2] == (3,12)'
 if ($LASTEXITCODE -ne 0) { throw 'WRONG_PYTHON_VERSION' }
-$actualBlob = (& git hash-object --no-filters -- $Script).Trim().ToLowerInvariant()
-if ($LASTEXITCODE -ne 0) { throw 'SOURCE_GIT_HASH_FAILED' }
+# Git blob SHA-1 in .NET: UTF-8 bytes, normalized CRLF, terminal LF if transport removed it.
+# No embedded Python -c string (PowerShell 5.1 strips its quotes).
+$sourceText = [System.IO.File]::ReadAllText($Script, [System.Text.Encoding]::UTF8)
+$newline = [string][char]10
+$windowsNewline = ([string][char]13) + $newline
+$canonicalText = $sourceText.Replace($windowsNewline, $newline)
+if (-not $canonicalText.EndsWith($newline)) {
+    $canonicalText += $newline
+}
+[byte[]]$sourceBytes = [System.Text.Encoding]::UTF8.GetBytes($canonicalText)
+[byte[]]$headerBytes = [System.Text.Encoding]::ASCII.GetBytes("blob $($sourceBytes.Length)")
+[byte[]]$blobBytes = [byte[]]::new($headerBytes.Length + 1 + $sourceBytes.Length)
+[System.Array]::Copy($headerBytes, 0, $blobBytes, 0, $headerBytes.Length)
+$blobBytes[$headerBytes.Length] = [byte]0
+[System.Array]::Copy($sourceBytes, 0, $blobBytes, $headerBytes.Length + 1, $sourceBytes.Length)
+$sha1 = [System.Security.Cryptography.SHA1]::Create()
+try {
+    $actualBlob = ([System.BitConverter]::ToString($sha1.ComputeHash($blobBytes))).Replace('-', '').ToLowerInvariant()
+}
+finally {
+    $sha1.Dispose()
+}
 if ($actualBlob -cne $ExpectedGitBlob) {
-    # Transport may change LF to CRLF. The normalized blob must still match Git.
-    $normCode = 'import hashlib,pathlib,sys; b=pathlib.Path(sys.argv[1]).read_bytes().replace(b"\r\n",b"\n"); b=b if b.endswith(b"\n") else b+b"\n"; print(hashlib.sha1(b"blob "+str(len(b)).encode()+b"\x00"+b).hexdigest())'
-    $actualBlob = (& $Py -c $normCode $Script).Trim().ToLowerInvariant()
-    if ($LASTEXITCODE -ne 0 -or $actualBlob -cne $ExpectedGitBlob) {
-        throw 'FINGERPRINT_SOURCE_GIT_BLOB_MISMATCH'
-    }
+    throw 'FINGERPRINT_SOURCE_GIT_BLOB_MISMATCH'
 }
 Write-Host "FINGERPRINT_SOURCE_GIT_BLOB=$actualBlob"
 if ((Test-Path -LiteralPath $Private -PathType Leaf) -and (Test-Path -LiteralPath $Safe -PathType Leaf)) {
