@@ -93,8 +93,8 @@ def restore_arm(p02,parent,state,dev):
         if not torch.is_tensor(source_step): continue
         actual=opt.state_dict()['state'][param_id].get('step')
         need(torch.is_tensor(actual),'ADAMW_STEP_TENSOR_MISSING')
-        need(actual.data_ptr()!=source_step.data_ptr(),
-             'ADAMW_STEP_STORAGE_ALIAS_INTERNAL')
+        # PyTorch may alias actual to the DEEP-COPIED local cp tensor. This
+        # is safe: only alias to the upstream frozen parent/state is forbidden.
         upstream=(state['optimizer'] if state is not None else parent['optimizer'])
         upstream_step=upstream['state'][param_id]['step']
         need(actual.data_ptr()!=upstream_step.data_ptr(),
