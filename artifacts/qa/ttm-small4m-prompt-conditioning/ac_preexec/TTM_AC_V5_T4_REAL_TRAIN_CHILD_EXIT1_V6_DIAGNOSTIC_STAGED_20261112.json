@@ -1,0 +1,46 @@
+{
+  "schema": "ttm.small4m.ac.preexec.v5.child_error.v6.diagnostic_staged.v1",
+  "date": "2026-11-12",
+  "user_colab_observation": {
+    "cell": "Cell 2B",
+    "source_QA": "PASS_SCOPED_7_OF_7",
+    "failure_exception": "subprocess.CalledProcessError",
+    "child_exit_status": 1,
+    "child_executable": "/usr/bin/python3",
+    "child_entrypoint": "ttm_ac_fp16_v2_actual_train_resume_parity_preexec.py",
+    "child_stderr_traceback": "NOT_INCLUDED_IN_USER_TRACEBACK",
+    "scientific_root_cause": "NOT_ESTABLISHED",
+    "actual_real_T4_resume_qa_receipt": "NOT_FOUND_ON_OWNER_DRIVE"
+  },
+  "owner_drive_readback": {
+    "qa_preexec_directory_exists": true,
+    "scope_only_source_QA_receipt": "AC_FP16_V2_AST_FAKE_BACKEND_7_OF_7.json",
+    "real_resume_success_receipt_absent": true,
+    "new_science_directory_not_found": true
+  },
+  "remediation": {
+    "v6_notebook_ref": "3a70f1fad2d2939c851f612b3c4881507e0fa893",
+    "v6_notebook_git_blob": "1301b894e35452ae01b3e889e6dbd7c0dc2a00ae",
+    "v6_notebook_path": "tools/pilot_t4/prompt_conditioning_2x2/TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_20261111.ipynb",
+    "notebook_only_change": "CELL_2B_SUBPROCESS_ERROR_CAPTURE_AND_OWNER_PRIVATE_DIAGNOSTIC",
+    "v2_runner_git_blob": "6bbd8b7190f843685197f6203b574a6c76977f3a",
+    "original_v1_runner_git_blob": "ad7d88672c65c6778f5956e6fc7aa656b78b998f",
+    "modified_science_runner": false,
+    "original_inputs_or_checkpoint_modified": false,
+    "qa_source_code_modified": false,
+    "reexecute_native_QA": false,
+    "ci_run_id": 43164838581,
+    "ci_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43164838581",
+    "ci_result": "SUCCESS_SCOPED_PYTHON_SYNTAX_GATE_AND_7_NEGATIVE_SOURCE_CASES",
+    "diagnostic_path_pattern": "owner Drive /qa_preexec/AC_FP16_V2_T4_CHILD_ERROR_*_*.json",
+    "no_public_error_log_upload": true,
+    "on_failure": "PRINT_LAST_12000_CHARS_OF_CHILD_STDERR_AND_RECORD_IN_OWNER_PRIVATE_QA",
+    "science_auto_GO": false,
+    "next": "REEXECUTE_UPDATED_CELL_2B_ONLY_WITH_EXISTING_COLAB_SESSION_AND_GET_CHILD_TRACEBACK"
+  },
+  "decision": "HOLD_ACTUAL_T4_REAL_TRAIN_QA_CHILD_EXIT1_ROOT_CAUSE_UNDETERMINED",
+  "A_science_training": 0,
+  "C_science_training": 0,
+  "C_minus_A": "NOT_ESTIMABLE",
+  "main_or_lineage_changed": false
+}
