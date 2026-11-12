@@ -1,0 +1,98 @@
+{
+  "schema": "ttm.small4m.ac.owner_drive.exploratory_intermediate_cleanup_execution.v1",
+  "operation": "TTM_AC_OWNER_GOOGLE_DRIVE_SPACE_RECOVERY_FOR_SCIENCE_2GIB_GATE",
+  "date": "2026-11-12",
+  "scope": "only 24 obsolete INTERMEDIATE checkpoint snapshots of two completed exploratory DirectSwap runs (1024 and 2048), NOT original P02 or AC science",
+  "original_colab_quota_measurement": {
+    "owner_drive_free_gib": 1.079,
+    "owner_drive_total_gib": 15,
+    "science_dir_exists": false
+  },
+  "deleted": {
+    "mode": "Google Drive connector delete_file PERMANENT (not Trash)",
+    "study_1024": {
+      "run_id": "ttm_small4m_gemma2_directswap_1024x4096_t4_gpu_20261109_v1",
+      "arms": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "intermediate_steps": [
+        256,
+        512,
+        768
+      ],
+      "checkpoint_files": 12,
+      "ready_markers": 12,
+      "bytes": 607247964,
+      "all_12_leaf_folders_verified_empty": true,
+      "predelete_manifest": "artifacts/qa/ttm-small4m-prompt-conditioning/drive_cleanup/TTM_DRIVE_DIRECTSWAP1024_INTERMEDIATE_PREDELETE_20261112.json"
+    },
+    "study_2048": {
+      "run_id": "ttm_small4m_gemma2_directswap_2048x4096_t4_gpu_20261109_v1",
+      "arms": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "intermediate_steps": [
+        1280,
+        1536,
+        1792
+      ],
+      "checkpoint_files": 12,
+      "ready_markers": 12,
+      "bytes": 607360680,
+      "all_12_leaf_folders_verified_empty": true,
+      "predelete_manifest": "artifacts/qa/ttm-small4m-prompt-conditioning/drive_cleanup/TTM_DRIVE_DIRECTSWAP2048_INTERMEDIATE_PREDELETE_20261112.json"
+    },
+    "total_files_deleted": 48,
+    "checkpoints_deleted": 24,
+    "ready_markers_deleted": 24,
+    "bytes_deleted_from_affected_study_folders": 1214608644,
+    "estimated_gib_removed": 1.1312,
+    "drive_folder_containers_kept_empty": 24,
+    "owner_file_ids_in_public_report": false
+  },
+  "postdelete_readback": {
+    "directswap_1024_final_A_B_C_D_1024": [
+      "READY.json",
+      "checkpoint.pt"
+    ],
+    "directswap_2048_final_A_B_C_D_2048": [
+      "READY.json",
+      "checkpoint.pt"
+    ],
+    "all_eight_final_leaf_folders_present_and_complete": true,
+    "final_SHA256_matched_prior_READY_RESULT": true,
+    "original_P02_1024": [
+      "READY.json",
+      "progress.json",
+      "checkpoint.pt"
+    ],
+    "owner_AC_science_folder_present": false,
+    "owner_rights_reviewer_resume_aes_lock_files_preserved": true,
+    "private_train_val_pack_untouched": true,
+    "semantic4x3_all_scientific_intermediates_untouched": true,
+    "causal6_all_scientific_intermediates_untouched": true,
+    "SIX_related_files_untouched": true
+  },
+  "estimated_quota": {
+    "from_owner_before_free_gib": 1.079,
+    "removed_gib": 1.1312,
+    "expected_free_gib_if_quota_reconciles": 2.2102,
+    "not_directly_measured_after_cleanup": true,
+    "runner_required_min_gib": 2,
+    "note": "Only the owner Colab runtime can measure shutil.disk_usage mounted Drive's updated free bytes; actual Drive quota may lag."
+  },
+  "decision": "CLEANUP_EXECUTED_SCOPED__AWAIT_OWNER_COLAB_STORAGE_GATE_READBACK",
+  "science_gate_lock": "UNMODIFIED_OWNER_LOCK_SHA4088f6d5...",
+  "A_science_optimizer_updates": 0,
+  "C_science_optimizer_updates": 0,
+  "final24_generated": false,
+  "unblind_performed": false,
+  "next": "owner re-run read-only disk_usage(OWNER) on SAME Colab T4 runtime, do NOT start new science run until PASS_2GIB and reasonable checkpoint margin; if PASS rerun exact locked Cell3 only",
+  "main_lineage_unmodified": true
+}
