@@ -1,0 +1,154 @@
+{
+  "schema": "ttm.small4m.d1.existing_sealed_fingerprint_index.uncertifiable_owner_closeout.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_EXISTING_SEALED_FINGERPRINT_INDEX_OR_UNCERTIFIABLE_COVERAGE_OWNER_CLOSEOUT",
+  "mode": "FINAL_SINGLE_READ_ONLY_METADATA_INDEX_CLOSEOUT_NO_SCIENTIFIC_EXECUTION",
+  "source_branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "source_baseline_head": "6cd1a30d0b82f01674105fd504cfac83d5dfc4ed",
+  "frozen": {
+    "preregistration": "GO_DESIGN_FROZEN_UNCHANGED",
+    "d1_v2_sha256_raw": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "d1_v2_sha256_lf": "1553d186eb55699506b6b920153d5c7af7f0ad26a186e1d58ffef0d1e7b4eb2e",
+    "scorer_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "original_checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "original_bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "lineage_blob_sha1": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "lineage_last_entry": "L0015"
+  },
+  "metadata_index_inventory": [
+    {
+      "source": "Q1Q2_PUBLISHED_FILES_SHA256_V1",
+      "github_ref": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "path": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V1/PUBLISHED_FILES_SHA256.json",
+      "git_blob_sha1": "fabf5656d28c341e43f0cfe00b9989e6cf97e2eb",
+      "metadata_entries": [
+        "RESULT.json",
+        "CLAIM.json"
+      ],
+      "comparable_canonical_per_prompt_fingerprint_index": false,
+      "conclusion": "PUBLIC_RESULT_CLAIM_FILE_HASHES_NOT_PROMPT_INDEX"
+    },
+    {
+      "source": "Q1Q2_PUBLISHED_FILES_SHA256_V2",
+      "github_ref": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "path": "artifacts/qa/q1q2/TTM_Q1Q2_ONCE_V2/PUBLISHED_FILES_SHA256.json",
+      "git_blob_sha1": "4933ea77dfe099930e1db3bf04dab1ada67cb355",
+      "metadata_entries": [
+        "raw/Q1-E02-S101.json",
+        "raw/Q1-E01-S101.json",
+        "raw/Q1-E01-G0.json",
+        "raw/Q1-E02-G0.json",
+        "CLAIM.json",
+        "raw/Q1-E01-S102.json",
+        "RESULT.json"
+      ],
+      "comparable_canonical_per_prompt_fingerprint_index": false,
+      "conclusion": "RAW_OUTPUT_AND_CLAIM_FILE_HASHES_NOT_SOURCE_PROMPT_INDEX",
+      "raw_output_contents_opened": false
+    },
+    {
+      "source": "FRESH12_AUTHOR_AND_EXECUTOR_RECEIPTS",
+      "github_ref": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "executor_qa_path": "artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_EXECUTOR_PACKET_QA_20261110.json",
+      "executor_qa_git_blob": "02680ca1393a3e96633442259cae8883a9dfdcb8",
+      "author_audit_path": "artifacts/qa/ttm-original1280/fresh12/TTM_FRESH12_AUTHOR_SIDE_SEPARATE_AUDIT_20261110.json",
+      "author_audit_git_blob": "cd4576473dba4037f4a0dad83427e27d52dccab",
+      "source_raw_sha256": "729bb83d177835e8283262210d857e6a012db44c2beed62e967fa8f8fa5a4fa5",
+      "reviewer_packet_md_sha256": "85fec5d290d6639809ca6ba437982fa8bb11cd5e7e0fbcf412d40f7bc9c3a037",
+      "reviewer_score_template_sha256": "82adbde1d9d942fee9c1761be6f7bf0860cf409725d8b523aedf82022ed2a37d",
+      "comparable_canonical_per_prompt_fingerprint_index": false,
+      "conclusion": "SIGNED_PACKET_CUSTODY_AND_FILE_HASHES_EXIST_BUT_NOT_COMPLETE_CROSS_D1_PROMPT_FINGERPRINT_INDEX"
+    },
+    {
+      "source": "FRESH16_ALREADY_CONSUMED_TOKEN_FINGERPRINTS",
+      "local_read_only_receipt_path": "_tmp/ttm_fresh16_integrated_offline_review_20261111/INTEGRATED_OFFLINE_REVIEW_RECEIPT.json",
+      "prompt_count_with_existing_token_sha256": 16,
+      "bpe_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "prior_s1_packet_sha256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+      "lexical_nonoverlap_previous_check": "PASS_SCOPED_16x16",
+      "same_encoding_and_complete_D1_serialized_prompt_fingerprint_coverage": false,
+      "semantic_overlap_certification": false,
+      "conclusion": "REAL_PER_PROMPT_TOKEN_HASHES_EXIST_BUT_NOT_COMPLETE_ALL_SOURCE_EQUIVALENCE_PROOF"
+    },
+    {
+      "source": "CF1_DEV36_ALREADY_CONSUMED",
+      "previous_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+      "previous_model_input_git_blob": "4fac79c16bc337926060fa21a6e22944d74259b7",
+      "previous_16x72_lexical_comparison": "PASS_SCOPED_1152_PAIRS",
+      "comparable_per_prompt_hash_index": false,
+      "conclusion": "SOURCE_GLOBAL_HASH_AND_ALLOWED_PRIVATE_DEV_LEXICAL_SCREEN_ONLY"
+    },
+    {
+      "source": "AC_FINAL24_FROZEN_PUBLIC",
+      "github_ref": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+      "public_source": "docs/research/TTM_SMALL4M_2X2_NEW_DEV12_BLIND_FINAL24_PROMPTS_FROZEN_20261110.json",
+      "public_git_blob_sha1": "f08f15c5049baf77771bed463a5119136566373b",
+      "all_24_final_individual_utf8_sha256_frozen": true,
+      "prior_16x24_lexical_comparison": "PASS_SCOPED_384_PAIRS",
+      "identical_comparable_per_D1_prompt_utf8_sha_index": "NOT_FOUND_IN_EXISTING_D1_RECEIPT",
+      "semantic_overlap_certification": false,
+      "conclusion": "AC_PUBLIC_PROMPT_HASHES_GROUNDED_BUT_D1_FULL_CANONICAL_COMPARABLE_INDEX_NOT_AVAILABLE"
+    },
+    {
+      "source": "T4_PRIVATE_TRAIN_VAL_PACK",
+      "local_manifest_path": "_tmp/ttm_t4_data_pack_v1/T4_PRIVATE_PACK_MANIFEST.json",
+      "verified_manifest_property_contains_test": false,
+      "private_train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+      "privatepack_qa_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+      "privatepack_qa_status": "PASS_INDEPENDENT_PRIVATE_PACK_INTEGRITY_AND_PROVISIONAL_CAPACITY",
+      "conclusion": "TRAIN_VAL_ARCHIVE_NOT_VALID_TEST_SOURCE_FINGERPRINT_INDEX"
+    },
+    {
+      "source": "PROTECTED_TEST_AND_Q1Q2",
+      "previous_frozen_test_index_with_per_prompt_comparable_canonical_fingerprints": "NOT_IDENTIFIED_IN_SCOPED_METADATA_INVENTORY",
+      "original_sealed_prompt_contents_read": false,
+      "fresh_sha_from_sealed_data_created": false,
+      "conclusion": "UNVERIFIABLE_WITHOUT_SEALED_ACCESS_IN_PRESENT_EVIDENCE_CONTRACT",
+      "caveat": "Search is scoped to known repository branch file inventories, frozen receipt metadata, and known Windows project evidence directories; not a proof of nonexistence globally."
+    }
+  ],
+  "cross_source_logic": {
+    "source_hashes_are_not_semantic_novelty_certification": true,
+    "full_dataset_raw_hash_not_per_prompt_index": true,
+    "file_of_model_outputs_hash_not_prompt_hash": true,
+    "train_val_pack_hash_not_test_fingerprint": true,
+    "different_canonicalizations_not_comparable": true,
+    "d1_v2_full_128_serialized_prompt_bytes_frozen": true,
+    "d1_full_128_per_prompt_canonical_cross_corpus_index_not_found": true,
+    "source_TRAIN_VAL_TEST_content_read": false,
+    "source_Q1Q2_raw_or_sealed_prompt_bytes_read": false,
+    "old_FRESH16_raw_outputs_scores_mapping_read": false,
+    "no_new_seed_or_blind_mapping_generated": true
+  },
+  "owner_scoped_gate": {
+    "V2_REKEY": "PASS_SCOPED",
+    "POSTFLIGHT": "PASS_SCOPED",
+    "FRESH16_CF1_AC_LEXICAL": "PASS_SCOPED",
+    "FULL_NONOVERLAP": "UNVERIFIABLE_WITHOUT_SEALED_ACCESS",
+    "RIGHTS_ORIGIN": "PASS_SCOPED",
+    "RIGHTS_USE_SCOPE": "NOT_FULLY_CERTIFIED",
+    "INDEPENDENT_RATER": "PREEXEC_READY_SCOPED_FINAL_ISOLATION_STAGED",
+    "SCIENCE": "HOLD",
+    "TRAINING": "NO",
+    "INFERENCE": "NO",
+    "FINAL24_512_OUTPUTS_PREPARED": false,
+    "test_q1q2_access": "NONE",
+    "fresh16_reexecution": false,
+    "lineage": "UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "terminal_single_owner_adjudication": {
+    "decision": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "closeout": "CLOSED_PREEXEC_UNCERTIFIABLE_WITHOUT_SEALED_ACCESS",
+    "scientific_interpretation": "NO_SCIENCE_NEW_RESULT; NOT_MODEL_FAILURE",
+    "authorized_new_rollouts": 0,
+    "expected_future_rollouts": 512,
+    "rights_attestation_requested": false,
+    "rater_extra_acceptance_requested": false,
+    "micro_permits_created": false,
+    "new_science_dispatch": false,
+    "future_scope_rule": "Do not repeat small preexec evidence discovery loops. Reopen only upon materially new preexisting canonical fingerprint index or a separately preregistered new study; this closeout does not authorize bypassing sealed tests.",
+    "no_lineage_append": true,
+    "no_main_merge": true
+  }
+}
