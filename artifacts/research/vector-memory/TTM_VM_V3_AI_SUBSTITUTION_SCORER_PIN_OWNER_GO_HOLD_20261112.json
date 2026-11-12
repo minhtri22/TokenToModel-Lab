@@ -1,0 +1,74 @@
+{
+  "schema": "ttm.vm.v3.owner_ai_substitution.science_source_onepacket_release.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_VM_V3_P1_HUMAN_GATE_OR_PROSPECTIVE_AI_AMENDMENT_AND_PINNED_SCORER_OWNER_GO_HOLD",
+  "owner_directive": "Accept two independent ChatGPT AI rater reviews instead of human reviewers for solo internal exploratory V3 study",
+  "chronology": "AI A/B results and aggregate gold agreement known BEFORE amendment; amendment authorized BEFORE any V3 CPU science",
+  "research_class": "AI_ASSISTED_EXPLORATORY_SCOPED",
+  "human_review_gate": "NOT_SATISFIED_0_OF_2",
+  "amended_AI_gate": "TWO_DISTINCT_AI_BLIND_REVIEWS_SHA_PINNED_AND_GOLD_CHECKED",
+  "amended_AI_verdict": "PASS_32_OF_32_EACH",
+  "AI_independence_limit": "Self-reported independent AI sessions, not verified human or cryptographic separation",
+  "source_pins": {
+    "scientific_source_commit": "e258f117d0422e2e83d9cf5937aad889f187a2bf",
+    "reviewer_custody_gate": {
+      "path": "tools/research/vector-memory/v3_ai_review_custody_amendment.py",
+      "git_blob": "ede2ee6438dc9b5ba106195e529eb3124d53f31b",
+      "sha256": "c57893dca3d8d6d4101e9a593fea1d59ab85bd9bfb014def1c54f8cd146408b3"
+    },
+    "frozen_reader_one_shot": {
+      "path": "tools/research/vector-memory/v3_ai_amended_frozen_reader_cpu_one_shot.py",
+      "git_blob": "32e2a15ba56916958102294efe4d91c4fbc812e4",
+      "sha256": "8de527c60cd5c903947dba0f3b9da4afc184654d8c9b2498446a850eec2b741d"
+    },
+    "independent_scorer_mock_QA": {
+      "path": "tools/research/vector-memory/v3_ai_amended_independent_scorer_qa.py",
+      "git_blob": "a4c87edf055d4dbc97f2fc9721f3cb798df003b5",
+      "sha256": "bc5a8593ccad89d6f1c1eed9cdd7c0601ac56911e22b0a5a92e793748846c9f1"
+    },
+    "owner_PS51": {
+      "path": "tools/research/vector-memory/Invoke-TTM-VM-V3-AI-Amended-Owner-OneShot-PS51.ps1",
+      "git_blob": "573064f60838fded7c414768d58e923902f5759c",
+      "sha256": "e7faf0eabf63b9bdcbaa8183f966c150073b7f00d4abdec884b510f3e87eeadf"
+    },
+    "source_and_mock_qa_receipt": "artifacts/research/vector-memory/TTM_VM_V3_AI_AMENDED_SCORER_INDEPENDENT_MOCK_QA_20261112.json",
+    "prereg_amendment": "docs/research/vector-memory/TTM_VM_V3_AI_SUBSTITUTION_PROSPECTIVE_AMENDMENT_20261112.md",
+    "frozen_original_v3_fixture_git_blob": "5f51b8b464e54a370f3a3fa99d91307118f52f46",
+    "frozen_original_v3_retriever_git_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+    "frozen_reader_L0020_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "frozen_GPT_P02_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "fixture_256_sha256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+    "AI_A_raw_sha256": "46c9fad4b77065cf086213c64ee04145704efa8d6dd3cfbad56d80c9e1d68ed6",
+    "AI_B_raw_sha256": "fd719ada13d2e44a72d29af04d18bb5d839547b288046ce410cfa9e5b7e49cdf"
+  },
+  "qa": {
+    "original_V3_source_owner_windows": "PASS_99_OF_99",
+    "original_native_qa_sha256_owner": "fe0cf99c8cbbfb85e07ce0f57f760cee7f24a2c8c4e01d3a21f90b4e9214b6",
+    "AI_A_B_review_structural_gold_A_B": "PASS_24_OF_24_AND_32_OF_32_EACH",
+    "amended_scorer_mock_source_QA": "PASS_100_OF_100",
+    "amended_scorer_mock_QA_local_receipt_sha256": "4366b85e14711010c354bf4e0be6078de5a923dc1763fee988a0598d4e073814",
+    "amended_scorer_mock_only": true,
+    "trained_reader_loaded_during_new_QA": false,
+    "new256_retriever_scored": false,
+    "new256_reader_inference": false,
+    "native_V3_AI_gate_status": "NOT_EXECUTED",
+    "native_V3_scorer_mock_QA_status": "NOT_EXECUTED",
+    "owner_worktree_exact_source_checkout": "PENDING_NATIVE_PREEXEC"
+  },
+  "decision": {
+    "source_prereg_release": "PASS_PINNED_SOURCE_AND_PROSPECTIVE_AI_AMENDMENT",
+    "owner_one_shot": "GO_SCOPED_CONDITIONAL_ON_NATIVE_PREEXEC",
+    "actual_science_dispatch": "NOT_EXECUTED",
+    "default_owner_script_mode": "PREFLIGHT_ONLY",
+    "actual_CPU_GO": "REQUIRES_OWNER_NATIVE_AI_SHA_FIXTURE_READER_T1_SOURCE_QA_PASS",
+    "on_failure": "HOLD_FAIL_CLOSED",
+    "on_existing_ONE_SHOT_STARTED": "DENY_NO_RETRY",
+    "TEST": "SEALED",
+    "GPU": "NO",
+    "training": "NO",
+    "main": "UNCHANGED",
+    "lineage": "L0022_UNCHANGED"
+  },
+  "next_owner_action": "Run pinned PS5.1 wrapper without -ExecuteOnce; inspect V3_AI_SUBSTITUTION_OWNER_NATIVE_PREEXEC=GO_SCOPED or fail-closed error before any science authorization"
+}
