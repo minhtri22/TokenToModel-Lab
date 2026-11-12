@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.small4m.d1.independent_chatgpt_blind_rater_role_owner_designation.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_AGENT_BLIND_RATER_HANDOFF_PREEXEC",
+  "owner_instruction": "Independent evaluator will be assigned to another ChatGPT agent",
+  "designation": "INDEPENDENT_CHATGPT_AGENT_TO_BE_ASSIGNED_BY_OWNER",
+  "acceptance": "NOT_YET_RECEIVED",
+  "rater_identity": "NOT_ASSIGNED",
+  "rater_model": "NOT_CONFIRMED",
+  "process_independence": "DESIGNATED_NOT_ATTESTED",
+  "blind_input_status": "TEMPLATE_ONLY_512_EMPTY_GENERATED_TEXT_FIELDS",
+  "source_pins": {
+    "private_v2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "blind_template_raw_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "prior_adjudication_commit": "1dd0ae34db428efba8c3048b58549f937b432d04",
+    "handoff_commit": "2de9677a43349fb860bc81e87a5e168d00a88eac",
+    "handoff_path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER_HANDOFF_20261112.md"
+  },
+  "role_boundaries": {
+    "source_and_science_designer": "OWNER_AGENT",
+    "blind_rater": "OTHER_CHATGPT_AGENT_NEW_SESSION_NO_MAPPING_OR_SEEDS",
+    "private_mapping_custodian": "OWNER_OR_SEPARATELY_DESIGNATED_CUSTODIAN",
+    "assignment_not_equivalent_to_independence_pass": true,
+    "no_data_shared_yet": true,
+    "scores_locked_before_unblind": true,
+    "AI_assisted_independent_review_not_external_human_review": true,
+    "new_science_execution": false
+  },
+  "remaining_owner_release_gates": [
+    "AUTHORIZED_PRIVATE_NONOVERLAP_SIGNED_CERTIFICATE",
+    "OWNER_RIGHTS_SIGNED_ATTESTATION",
+    "RATER_ACCEPTANCE_AND_INDEPENDENCE_SIGNED_ATTESTATION",
+    "MAPPING_AND_SEED_CUSTODY_ACCESS_SEPARATION_ATTESTATION"
+  ],
+  "single_science_release": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+  "test_and_q1q2": "SEALED",
+  "fresh16_rerun": false,
+  "training": false,
+  "inference": false,
+  "lineage": "UNCHANGED",
+  "main": "UNCHANGED"
+}
