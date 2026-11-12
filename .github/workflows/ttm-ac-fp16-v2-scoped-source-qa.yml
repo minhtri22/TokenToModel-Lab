@@ -7,6 +7,8 @@ on:
       - .github/workflows/ttm-ac-fp16-v2-scoped-source-qa.yml
       - tools/pilot_t4/prompt_conditioning_2x2/independent_ac_fp16_v2_ast_fake_backend_qa.py
       - tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_objective_runner_fp16_backoff_v2_REVIEW_CANDIDATE.py
+      - tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_fp16_v2_actual_train_resume_parity_preexec.py
+      - tools/pilot_t4/prompt_conditioning_2x2/TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_20261111.ipynb
   workflow_dispatch:
 permissions:
   contents: read
@@ -43,6 +45,29 @@ jobs:
           assert d['ac_science_training'] is False
           assert d['real_gpu_access'] is False
           print('CI_SCOPE=SOURCE_AST_AND_FAKE_SCALER_ONLY')
+          PY
+      - name: Compile V2 Colab integration and check no unsanctioned science
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile             tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_fp16_v2_actual_train_resume_parity_preexec.py             tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_objective_runner_fp16_backoff_v2_REVIEW_CANDIDATE.py
+          python - <<'PY'
+          import json,ast,pathlib
+          path=pathlib.Path('tools/pilot_t4/prompt_conditioning_2x2/TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_20261111.ipynb')
+          n=json.loads(path.read_text('utf-8'))
+          assert n['nbformat']==4
+          codes=[c['source'] for c in n['cells'] if c['cell_type']=='code']
+          assert len(codes)==6
+          scripts=[''.join(x) for x in codes]
+          for i,c in enumerate(scripts):
+              compile(c,f'colab-code-cell-{i+1}','exec')
+          assert 'ac_science_v2.lock_science(args)' in ''.join(scripts)
+          assert 'ac_science_v2.science(args,lock)' in ''.join(scripts)
+          assert 'PASS_REAL_P02_T4_REAL_TRAIN_TWO_STEP_RESUME_PARITY_SCOPED' in ''.join(scripts)
+          assert 'ACTUAL_AC_RESUME_INDEPENDENT_ADJUDICATION.json' in ''.join(scripts)
+          assert 'NO_GO_PREEXEC_MISSING_OWNER_ATTESTATION_REVIEWER_OR_LOCK' in ''.join(scripts)
+          assert 'ac.science(args,lock)' not in ''.join(scripts)
+          print('TTM_AC_COLAB_V5_AST_AND_PREEXEC_NO_GO_GATES=PASS_SCOPED')
           PY
       - name: Upload source-only QA receipt
         if: always()
