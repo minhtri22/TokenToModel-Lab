@@ -1,0 +1,146 @@
+{
+  "schema": "ttm.small4m.d1.exp32.blind64.recovered_score_sha.idset_owner_unblind.provisional_adjudication.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_EXP32_OWNER_INPUT_PROVENANCE_VERIFICATION_AND_SCOPED_POST_SCORE_UNBLIND",
+  "scope": "EXPLORATORY_SCOPED_AI_REVIEW_ONLY_NOT_CONFIRMATORY",
+  "rater_reported_operation": "TTM_SMALL4M_D1_EXP32_BLIND64_INDEPENDENT_SCORE_ONLY_FREEZE",
+  "rater": "GPT-6_SELF_ATTESTED_IN_SEPARATE_CHAT_NOT_HUMAN_REVIEWER",
+  "custody": {
+    "recovery_origin": "ChatGPT user library; prior-session generated full JSON artifacts recovered from file library without another attachment",
+    "score_file_original_byte_length": 19774,
+    "score_file_sha256_computed_from_original_bytes": "d6ef3780ca72ffe5fcc7a67bcfe85abf3a87b92b4fee30bcf9b88460734885d4",
+    "score_receipt_original_byte_length": 1269,
+    "score_receipt_sha256_computed_from_original_bytes": "97720785d460bb919be063be117f70f66fc68ebdf8cdb33abc79e368c97f8795",
+    "receipt_claimed_score_file_sha256": "d6ef3780ca72ffe5fcc7a67bcfe85abf3a87b92b4fee30bcf9b88460734885d4",
+    "score_sha_claim_match": true,
+    "scores_not_changed_after_sha_freeze": true,
+    "rater_source_input_bytes_available_to_rater": "NO_PASTED_TEXT_ONLY",
+    "rater_source_input_sha256_status": "NOT_VERIFIED_BY_RATER",
+    "owner_original_blind_packet_sha256_from_frozen_generation": "4288c311f22147a85a414fd436fbeba1287464bb60d745ca64e5ce07839158f1",
+    "owner_private_raw_sha256_from_frozen_generation": "ebdde253504c0af94ad3fce55731220707e5420f7dd1bbec2b0084b8dde56eee",
+    "full_text_equivalence_of_rater_pasted_input_to_original_blind64": "NOT_INDEPENDENTLY_PROVEN",
+    "per_record_identifiers_match_original_generation_formula": true,
+    "score_and_public_receipt_only_shared_to_github": true,
+    "original_full_score_json_and_private_blind_input_not_published_to_github": true
+  },
+  "frozen_generator_source": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+    "script": "tools/pilot_t4/d1_static_qa/ttm_d1_exploratory_dev32_once.py",
+    "git_blob_sha1": "4f7dddd52833362a52068527a3db78c2b0845578",
+    "D1_V2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "opaque_id_derivation": "sha256((D1_V2_SHA256+':'+str(sequence_index)+':EXP32').encode('ascii')).hexdigest()[:20]",
+    "generator_record_order": "32 original DEV prompts sorted family_id then condition A/B, each with GREEDY output followed by NUCLEUS output",
+    "score_SHA_verified_before_owner_decoder_label_reconstruction": true,
+    "private_mapping_file_not_read_for_unblind": true,
+    "new_seed_generation": false
+  },
+  "score_schema_qa": {
+    "schema": "ttm.d1.exploratory_dev32.blind64.scores.v1",
+    "records": 64,
+    "unique_opaque_ids": 64,
+    "opaque_id_membership_matches_frozen_generation": 64,
+    "missing_expected_ids": 0,
+    "unknown_ids": 0,
+    "scored_0": 39,
+    "scored_1": 25,
+    "scored_2": 0,
+    "scored_3": 0,
+    "unscorable": 0,
+    "rubric_fields_present_on_all_64": true,
+    "rater_input_sha256": null
+  },
+  "owner_after_freeze_decoder_aggregates": {
+    "GREEDY": {
+      "records": 32,
+      "score_0": 30,
+      "score_1": 2,
+      "score_ge_2": 0,
+      "mean_adherence": 0.0625,
+      "short_near_pair_success_families": 0
+    },
+    "NUCLEUS": {
+      "records": 32,
+      "score_0": 9,
+      "score_1": 23,
+      "score_ge_2": 0,
+      "mean_adherence": 0.71875,
+      "short_near_pair_success_families": 0
+    },
+    "matched_prompt_pairs": 32,
+    "nucleus_greater_score_pairs": 22,
+    "greedy_greater_score_pairs": 1,
+    "equal_score_pairs": 9,
+    "by_category": {
+      "causal_reasoning": {
+        "GREEDY": {
+          "score_0": 6,
+          "score_1": 2
+        },
+        "NUCLEUS": {
+          "score_0": 2,
+          "score_1": 6
+        }
+      },
+      "entity_location": {
+        "GREEDY": {
+          "score_0": 8,
+          "score_1": 0
+        },
+        "NUCLEUS": {
+          "score_0": 1,
+          "score_1": 7
+        }
+      },
+      "goal_persistence": {
+        "GREEDY": {
+          "score_0": 8,
+          "score_1": 0
+        },
+        "NUCLEUS": {
+          "score_0": 4,
+          "score_1": 4
+        }
+      },
+      "rule_constraint": {
+        "GREEDY": {
+          "score_0": 8,
+          "score_1": 0
+        },
+        "NUCLEUS": {
+          "score_0": 2,
+          "score_1": 6
+        }
+      }
+    }
+  },
+  "frozen_owner_before_rater": {
+    "teacher_forced_candidate_calls": 96,
+    "teacher_forced_both_positive_families": 1,
+    "teacher_forced_both_positive_prior_adjusted_families": 2,
+    "rollout_greedy_repeated_trigram_windows": 213,
+    "rollout_nucleus_repeated_trigram_windows": 8,
+    "rollout_greedy_eos_early_count": 14,
+    "rollout_nucleus_eos_early_count": 0
+  },
+  "scientific_scope_and_decision": {
+    "status": "PROVISIONAL_SCOPED_AI_RATER_ADJUDICATION_WITH_ORIGINAL_RATER_INPUT_BYTE_GAP",
+    "scored_original_file_sha256": "VERIFIED",
+    "identity_linkage_by_opaque_id": "PASS_64_OF_64",
+    "rater_input_byte_level_sha": "NOT_VERIFIED",
+    "factual_adherence_ge2_both_decoders": "ZERO_OF_32_EACH",
+    "nucleus_improves_score_0_to_1_descriptively": true,
+    "nucleus_rescues_factual_adherence": false,
+    "strong_decoder_rescue_claim": "NOT_SUPPORTED",
+    "model_fact_conditioning_signal": "WEAK_EXPLORATORY",
+    "confirmatory_D1_512": "HOLD_UNCHANGED",
+    "test_q1q2": "SEALED",
+    "new_training": "NO",
+    "new_inference": "NO",
+    "new_blind_scoring": "NO",
+    "lineage": "UNCHANGED",
+    "no_score_revisions": true,
+    "no_repeated_micro_gate_requested": true
+  },
+  "future_evidence_needed_only_if_strict_original_input_verification_required": "A content-for-content or byte-identical audit of the pasted 64-record rater input; existing source file SHA and 64/64 ID match do not by themselves prove all prompt/generated text were identical in rater context."
+}
