@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.vm.v3.ai.owner_preexec.native_source_QA_pin_recovery.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_VM_V3_AI_OWNER_NATIVE_SOURCE_QA_SHA_MISMATCH_FAIL_CLOSED_RECOVERY",
+  "status": "PATCHED_STATICALLY_OWNER_REEXEC_PREEXEC_PENDING",
+  "original_error": "INPUT_SHA_MISMATCH:V3_OWNER_SOURCE_QA_99",
+  "classification": "OWNER_PREFLIGHT_BUG_NO_SCIENCE",
+  "owner_input": "Get-FileHash from V3 99/99 source QA receipt on Windows: fe0cf99c8cbbfb85e07ce0f57f760ceede7f24a2c8c4e01d3a21f90b4e9214b6",
+  "native_99": {
+    "path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_evidence\\vector-memory\\TTM_VM_V3_FRESH256_OWNER_SOURCE_QA_20261112.json",
+    "owner_reported_raw_sha256": "fe0cf99c8cbbfb85e07ce0f57f760ceede7f24a2c8c4e01d3a21f90b4e9214b6",
+    "content_read_via_RemoteDesktop": true,
+    "schema": "ttm.vm.v3.independent_fixture_truth_and_nonoracle_negative_qa.v1",
+    "status": "PASS_SOURCE_STRUCTURAL_AND_MOCK_RETRIEVER_QA",
+    "qa_passed": 99,
+    "qa_total": 99,
+    "all_99_boolean_checks_true": true,
+    "fixture_sha256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+    "fixture_bytes": 2128853,
+    "actual_probe_retrieval_calls": 0,
+    "Reader_forward_calls": 0,
+    "optimizer_steps": 0,
+    "dev_scored": false,
+    "old_probe_scored": false,
+    "test_opened": false,
+    "gpu_used": false
+  },
+  "wrapper_patch": {
+    "path": "tools/research/vector-memory/Invoke-TTM-VM-V3-AI-Amended-Owner-OneShot-PS51.ps1",
+    "previous_git_blob": "573064f60838fded7c414768d58e923902f5759c",
+    "new_git_blob": "57b297e8f2355d78e5ea8fcd70756e6252b2e3fc",
+    "correction_commit": "438cdeb187c7f12aec714d555ceafb484d09e0b2",
+    "wrong_preexec_literal_sha256": "fe0cf99c8cbbfb85e07ce0f57f760cee7f24a2c8c4e01d3a21f90b4e9214b6",
+    "correct_literal_sha256": "fe0cf99c8cbbfb85e07ce0f57f760ceede7f24a2c8c4e01d3a21f90b4e9214b6",
+    "wrong_json_fields": [
+      "checks_passed",
+      "checks_total"
+    ],
+    "correct_json_fields": [
+      "qa_passed",
+      "qa_total"
+    ],
+    "strict_additional_checks": [
+      "status",
+      "schema",
+      "all99BooleanChecks",
+      "fixtureSHA",
+      "fixtureBytes",
+      "cases",
+      "NoRetrieverScoring",
+      "NoReaderForward",
+      "NoDEV",
+      "NoOldPROBE",
+      "NoTEST",
+      "NoGPU",
+      "NoTraining"
+    ],
+    "failure_semantics": "Fail closed; never accept mismatch or modify historical receipt",
+    "preexec_default_only": true,
+    "explicit_ExecuteOnce_required_for_science": true,
+    "science_source_commit_unchanged": "e258f117d0422e2e83d9cf5937aad889f187a2bf"
+  },
+  "verification": {
+    "static_wrapper_assertions_pass": 10,
+    "static_wrapper_assertions_total": 10,
+    "native_source_qa_checks_read": 99,
+    "native_source_qa_all_true": true,
+    "new_wrapper_native_QA": "NOT_EXECUTED",
+    "one_shot_run_directory": "ABSENT_AT_READBACK",
+    "science_executed": false,
+    "human_review_gate": "NOT_SATISFIED_AI_AMENDMENT_ONLY",
+    "ai_reviews": "PASS_32_OF_32_EACH_AI_EXPLORATORY",
+    "TEST": "SEALED",
+    "lineage": "L0022_UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "decision": "HOLD_OWNER_NATIVE_RECHECK_REQUIRED_PREEXEC_ONLY",
+  "next_action": "Owner fetches repaired pinned PowerShell wrapper to a NEW filename, verifies new Git blob, runs WITHOUT -ExecuteOnce; only a fresh reported GO_SCOPED may authorize subsequent CPU one-shot."
+}
