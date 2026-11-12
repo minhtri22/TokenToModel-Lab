@@ -1,0 +1,33 @@
+{
+  "FINAL24_text_printed": false,
+  "checks": [
+    "PIN_GIT_BLOB_AND_SHA_decoder",
+    "PIN_GIT_BLOB_AND_SHA_scorer",
+    "PIN_GIT_BLOB_AND_SHA_BPE_source",
+    "PIN_GIT_BLOB_AND_SHA_P02_source",
+    "PIN_GIT_BLOB_AND_SHA_public_escrow",
+    "PIN_GIT_BLOB_AND_SHA_public_prompt_commitment",
+    "PIN_OWNER_BYTE_SHA256_A1152_checkpoint",
+    "PIN_OWNER_BYTE_SHA256_BPE_manifest",
+    "PIN_OWNER_BYTE_SHA256_new_owner_eval",
+    "READY_FINAL_A_1152_AND_TARGETS"
+  ],
+  "checks_count": 10,
+  "cuda_version": "13.0",
+  "gpu_name": "Tesla T4",
+  "model_forward": 0,
+  "model_loaded": false,
+  "nvidia_smi_gpu": "Tesla T4, 15360 MiB",
+  "old_FINAL24_reopened": false,
+  "optimizer_updates": 0,
+  "owner_files": "EXACT_BYTES_SHA_MATCH",
+  "owner_inference_GO_granted": false,
+  "owner_rights_signature_assumed": false,
+  "rater_acceptance_assumed": false,
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "schema": "ttm.small4m.hdec_r1.owner_colab_t4.preinference_source_pin.v1",
+  "source_git_commit": "c784b4a0687f6b0fd840f41d3bbf93e5c31038a7",
+  "source_pins": "EXACT_GIT_BLOB_AND_SHA_MATCH",
+  "torch_version": "2.14.1+cu130",
+  "verdict": "PASS_RUNTIME_SOURCE_PIN_ONLY__SCIENCE_RELEASE_HOLD_PENDING_REAL_OWNER_AND_RATER"
+}
