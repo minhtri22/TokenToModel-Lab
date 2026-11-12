@@ -1,0 +1,75 @@
+{
+  "AES_secret_in_report": false,
+  "NOTES_COUNT": 24,
+  "QA_class": "INDEPENDENT_IMPLEMENTATION_READBACK_NOT_EXTERNAL_PEER_REVIEW",
+  "SCORES_COUNT": 144,
+  "SCORE_FROZEN_SHA": "6ba3420b8863c435ef1fc71d9706826221455d5254c87ea4e789b852b908a682",
+  "checker_checks_failed": 0,
+  "checker_checks_passed": 360,
+  "date": "2026-11-12",
+  "fixed_candidate_gates": {
+    "D1_under8_not_more_than_D0": true,
+    "D1_wins_at_least_16": true,
+    "bootstrap_upper_below_zero": true,
+    "coherence_D1_minus_D0_ge_minus_0_25": true,
+    "consistency_D1_minus_D0_ge_minus_0_25": true,
+    "prompt_adherence_D1_minus_D0_ge_minus_0_25": true,
+    "repeat_delta_at_most_minus_0_10": true
+  },
+  "guardrail_mean_D1_minus_D0": {
+    "coherence": 0.041666666666666664,
+    "consistency": 0.0,
+    "prompt_adherence": 0.0
+  },
+  "independent_metric": {
+    "CI95_bootstrap_paired_descriptive": [
+      -0.31026832687906614,
+      -0.18957060771446313
+    ],
+    "D0_mean": 0.2860416650087178,
+    "D0_wins": 1,
+    "D1_mean": 0.037883542327400765,
+    "D1_wins": 23,
+    "delta": -0.248158122681317,
+    "ties": 0
+  },
+  "main_or_lineage_changed_during_QA": false,
+  "mapping_plaintext_sha256_ONLY": "603bccaf0060f8a8a577302353ea6cac831281ad17596603ffa7eb6630ce20a3",
+  "operation": "TTM_NEXT24_POST_FROZEN_SCORES_INDEPENDENT_IMPLEMENTATION_QA_AND_CANDIDATE_ADJUDICATION",
+  "original_scorer_modified": false,
+  "pass_all_gates": true,
+  "per_pair_mapping_in_report": false,
+  "private_key_sha256_ONLY": "3e2b381fce29753621baec956b993b8c01e951925717c1730feb7aca0a548911",
+  "private_unblind_report_sha256": "f27fa923463d11d212e03dadd1a265d068a1e0bdfa0c8a91469a25008319e1a0",
+  "public_safe_aggregate_sha256": "43001643914dc6a1539f93421d68d865ba3e39367e49c2d054a4673807ec6724",
+  "rater_self_attested_AI": true,
+  "review_class": "EXPLORATORY_SCOPED_AI_REVIEW",
+  "schema": "ttm.small4m.hdec_r1.next24.independent_implementation_scientific_QA.v1",
+  "scientific_interpretation": "Reduces word trigram repetition on 24 prompts with exact decoder settings; limited to one checkpoint, one one-shot generation, self-attested AI rater; not confirmatory improvement or equivalence.",
+  "semantic_quality_verdict": "PROMPT_ADHERENCE_REMAINS_NEAR_ZERO_NO_SEMANTIC_IMPROVEMENT_DEMONSTRATED",
+  "source_sha256": {
+    "escrow": "812e7e23cdc3eba4735bfb0b8ff43b2a7420fbaac4fa0edfc2fe4a944cb8c3b7",
+    "eval": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "generation_receipt": "bdd1a513fef9de45fc66873795b6a04551ebde9b08f9b1b7a37d4d028d51735a",
+    "owner": "e09572c29993af8379a57cfc26c905912525e6238510f2803af5c9a81cc2f208",
+    "packet": "e28049bf770ddab879fdd10ac5805b9b5bf2e60fa0f8f9264ba641abab82dd22",
+    "receipt": "27b759413e4aae07d90ddd84aa7f84b6253be93547ed1cbf03e5a198f46d16cc",
+    "score": "6ba3420b8863c435ef1fc71d9706826221455d5254c87ea4e789b852b908a682"
+  },
+  "stop_counts": {
+    "CAP64": {
+      "D0": 16,
+      "D1": 16
+    },
+    "EOS": {
+      "D0": 8,
+      "D1": 8
+    }
+  },
+  "tech_candidate_verdict": "H_DEC_R1_EXPLORATORY_CANDIDATE_PASS",
+  "under8_words": {
+    "D0": 0,
+    "D1": 0
+  },
+  "verdict": "PASS_SCOPED_INDEPENDENT_IMPLEMENTATION_QA__TECHNICAL_CANDIDATE_PASS_SEMANTIC_BENEFIT_NOT_SHOWN"
+}
