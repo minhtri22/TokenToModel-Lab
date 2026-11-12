@@ -1,0 +1,70 @@
+{
+  "schema": "ttm.small4m.d1.external_chatgpt_rater_preexec_receipt_adoption.v1",
+  "operation": "TTM_SMALL4M_D1_EXTERNAL_CHATGPT_RATER_PREEXEC_RECEIPT_ADOPTION",
+  "date": "2026-11-12",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "review_mode": "OWNER_SUPPLIED_FILE_INSPECTION_AND_PUBLIC_METADATA_COMMIT_NO_SCIENCE",
+  "attachment": {
+    "uploaded_name": "TTM_SMALL4M_D1_BLIND_RATER_PREEXEC_RECEIPT_20261112(2).json",
+    "verified_raw_bytes": 1237,
+    "verified_raw_sha256": "ca6061b7c8a454698449ff0d3a26ff87b0885c84efe34fab1662b2870ff354fb",
+    "trust_scope": "USER_UPLOADED_EXTERNAL_AGENT_RECEIPT_NOT_INDEPENDENTLY_AUTHENTICATED_AGENT_SESSION",
+    "receipt_created_utc": "2026-11-12T06:20:39.780442+00:00"
+  },
+  "handoff": {
+    "commit": "682f9ad523393f1e844865a5b3340427d9b5e27e",
+    "path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER_HANDOFF_20261112.md",
+    "current_blob_verified": "00e18dc9345cbf4f6519a5226b326389c6a10277",
+    "signature_or_separate_acceptance_required": false,
+    "automatic_execution_on_receipt": "SCOPED_PREEXEC_READINESS_PERFORMED",
+    "scoring_started": false
+  },
+  "original_receipt_fields": {
+    "operation": "TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_AGENT_BLIND_RATER_HANDOFF_PREEXEC",
+    "rater_role": "AI-assisted independent blind rater",
+    "agent_model_reported": "GPT-6",
+    "expected_total_records": 512,
+    "blind_input_received": false,
+    "blind_input_sha256": "NOT_VERIFIED",
+    "total_records": "NOT_VERIFIED",
+    "scored_records": 0,
+    "unscorable_records": "NOT_VERIFIED",
+    "score_sha256": "NOT_VERIFIED",
+    "blindness_integrity": "NOT_VERIFIED",
+    "mapping_seed_decoder_access": "NOT_ACCESSED_DURING_THIS_TASK",
+    "rubric_changed": false,
+    "scoring_started": false,
+    "science_execution_started": false,
+    "execution_status": "RATER_PREEXEC_READY_SCOPED",
+    "blocked_reason": "AUTHORIZED_FROZEN_512_GENERATED_OUTPUTS_NOT_PROVIDED",
+    "earlier_context_independence": "NOT_INDEPENDENTLY_ESTABLISHED_BY_RATER"
+  },
+  "scientific_pins": {
+    "frozen_v2_dev_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "frozen_v2_rater_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "original_d1_scientific_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "lineage_blob_sha1": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "last_lineage_entry": "L0015",
+    "main_sha_at_readback": "5d52e32f20021e36f08f284ef9864d3ba36dbead"
+  },
+  "owner_gate": {
+    "handoff_transferred": "YES_OWNER_PROVIDED_RATER_RESPONSE",
+    "rater_preexec_readiness": "PASS_SCOPED",
+    "rater_independence": "NOT_VERIFIED_PRIOR_CONVERSATION_CONTEXT_REPORTED",
+    "no_rater_signature_required": true,
+    "rater_actual_scoring": "NOT_STARTED",
+    "missing_scoring_input": "512_AUTHORIZED_FROZEN_MODEL_OUTPUTS_AND_SHA",
+    "private_nonoverlap": "NOT_CERTIFIED",
+    "content_rights": "OWNER_ATTESTATION_NOT_RECORDED",
+    "seed_mapping_custody": "STATIC_SCOPED_BUT_INDEPENDENT_RATER_NONACCESS_NOT_PROVEN_FOR_FUTURE_SESSION",
+    "science_release": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "planned_output_count": 512,
+    "actual_outputs_new": 0,
+    "training_or_inference_this_operation": false,
+    "test_q1q2_opened": false,
+    "fresh16_rerun": false,
+    "lineage_changed": false,
+    "main_changed": false
+  },
+  "next_step": "REUSE_EXISTING_HANDOFF_IN_CONTEXT_ISOLATED_RATER_SESSION_AFTER_SINGLE_OWNER_GO_AND_512_GENERATION; CLOSE_SOURCE_RIGHTS_NONOVERLAP_IN_SAME_ONE_PACKET_NO_SIGNATURES"
+}
