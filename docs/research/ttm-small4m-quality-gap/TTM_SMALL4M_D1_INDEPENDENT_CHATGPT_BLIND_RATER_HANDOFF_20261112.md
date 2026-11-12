@@ -5,7 +5,7 @@
 **Dự án:** `minhtri22/TokenToModel-Lab`  
 **Nhánh lưu giao thức:** `research/ttm-small4m-prompt-adherence-continuation-design-20261111`  
 **Vai trò:** AI-assisted independent blind rater (*agent chấm mù độc lập có hỗ trợ AI*).  
-**Trạng thái:** **ROLE_DESIGNATED_BY_OWNER — RATER_NOT_YET_ACCEPTED / SCIENCE_HOLD**.
+**Trạng thái:** **HANDOFF_READY — AUTO_START_ON_RECEIPT; SCORING_WAITING_FOR_AUTHORIZED_GENERATED_OUTPUTS / SCIENCE_HOLD**.
 
 ## 1. Phạm vi ủy nhiệm
 
@@ -39,32 +39,25 @@ Ghi thêm `first_event_fact_match`, `goal_retention`, `serious_contradiction`, `
 
 Một biên nhận scoring có ít nhất: `rater_role`, `model_or_agent_identifier`, thời điểm bắt đầu/kết thúc, `blind_input_sha256`, số bản ghi nhận/đã chấm/không thể chấm, `scored_output_sha256`, xác nhận không truy cập mapping/seed/decoder và xác nhận không thay rubric. Nơi lưu điểm phải riêng tư, không ghi dữ liệu mẫu lên repo công khai.
 
-## 4. Phiếu chấp nhận nhiệm vụ (điền trước khi nhận output thật)
+## 4. Lệnh thực thi ngay khi nhận handoff (auto-start on receipt)
 
-```text
-operation=TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER
-rater_identity_or_agent_instance=<cung cấp bởi bên tiếp nhận>
-rater_model=<mô hình thực tế tại thời điểm chấm>
-accepts_scoring_only=YES/NO
-has_seen_seed_decoder_mapping_answer_key=YES/NO
-had_role_in_prompt_design_or_generation=YES/NO
-has_access_to_private_repository_or_evaluation_history=YES/NO
-rubric_and_scoring_contract_accepted=YES/NO
-agrees_to_lock_scored_output_sha_before_unblind=YES/NO
-accepted_at=<timestamp>
-signature_or_owner_countersign=<receipt source>
-```
+**Không cần ký tên, phiếu chấp nhận, xác nhận riêng hoặc yêu cầu chủ dự án cấp micro-permit.** Handoff là lệnh công việc cho ChatGPT agent được giao: khi chủ dự án chuyển handoff sang phiên agent khác, agent **bắt đầu ngay** những bước đã đủ bằng chứng trong phạm vi vai trò của mình, không chờ lời mời xác nhận.
 
-**Điều kiện hợp lệ:** rater có thể chấm chỉ khi `accepts_scoring_only=YES`, `has_seen_seed_decoder_mapping_answer_key=NO`, `had_role_in_prompt_design_or_generation=NO`, `has_access_to_private_repository_or_evaluation_history=NO`, `rubric_and_scoring_contract_accepted=YES`, `agrees_to_lock_scored_output_sha_before_unblind=YES` và có receipt chấp nhận được owner/custodian xác minh.
+Agent phải thực hiện theo thứ tự:
 
-## 5. Điều kiện GO/HOLD
+1. Kiểm tra đúng phiên làm việc độc lập và gói đầu vào đã được chuyển; **không tự tìm đọc** seed, mapping, đáp án, lịch sử FRESH16/AC hoặc dữ liệu TEST/Q1Q2.
+2. Nếu chỉ nhận được **mẫu V2 với `generated_text=null`**, kiểm tra cấu trúc chấm, số bản ghi và mô tả rubric; xuất **`RATER_PREEXEC_READY_SCOPED`** hoặc **`RATER_BLOCKED`** cùng lý do; **không tự sinh 512 outputs, không tự chấm văn bản chưa có**.
+3. Khi một gói **512 outputs sinh thực sự đã được chủ dự án phát hành sau science GO** được bàn giao, đối chiếu SHA đầu vào, chấm mù trực tiếp 512 bản theo rubric khóa, lưu kết quả và SHA-256 **trước khi giải mù**. Không cần một cuộc ký nhận riêng.
+4. Xuất biên nhận kết quả tự mô tả bằng máy: `agent_model` nếu biết, `input_sha256`, `total_records`, `scored_records`, `unscorable_records`, `score_sha256`, `blindness_integrity`, `execution_status`, `blocked_reason` nếu có. Các trường chưa thể quan sát phải ghi `NOT_VERIFIED`, không suy diễn PASS.
+5. Trả kết quả về chủ dự án dưới dạng tệp private và biên nhận public đã loại dữ liệu nhạy cảm. **Không chuyển mapping hoặc nhãn hệ thống cho agent chấm**.
 
-Tài liệu này **chỉ chuẩn bị bàn giao**, không chứng minh rater đã nhận nhiệm vụ và không cấp GO science. Cần một gói chứng thực tổng hợp gồm:
+**Tiêu chuẩn độc lập:** một ChatGPT agent/phiên khác, không có thông tin mapping/seed/decoder hay vai trò trong việc thiết kế và sinh đầu ra. Biên nhận tự mô tả **không chứng minh được các quyền truy cập mà agent không quan sát**, nên chủ dự án vẫn cần kiểm soát quyền tệp và xác minh quy trình tách biệt. Không yêu cầu chữ ký hoặc xác nhận cá nhân, nhưng cũng không biến một lời khẳng định thiếu căn cứ thành PASS.
 
-1. Chủ sở hữu chứng nhận nguồn và quyền dùng văn bản D1 mới;
-2. Người có thẩm quyền chứng nhận không trùng các nguồn private, trong phạm vi được phép và **không mở lại TEST/Q1Q2**;
-3. ChatGPT agent độc lập ký tiếp nhận vai trò chấm mù; owner/custodian ký quy tắc bảo quản mapping/seed và khóa scores trước giải mù.
+## 5. Điều kiện GO/HOLD ngoài phạm vi người chấm
 
-Nếu bất kỳ điều kiện nào thiếu: `HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE`. Chỉ khi các điều kiện đóng cùng lúc mới xem xét phát hành 512 outputs trong một owner GO/HOLD riêng. Không micro-permit, không tái khóa seed, không chỉnh `lineage.md`, không mở lại FRESH16.
+- **Handoff không phải science GO.** Người chấm được tự động kiểm tra sẵn sàng ngay; chỉ chấm sau khi có đầu ra thực do một lượt science đã được cấp GO.
+- Quyền sử dụng nội dung D1 cần **bằng chứng xuất xứ và xác nhận chủ dự án theo hình thức receipt**, không cần chữ ký riêng. Kiểm tra không trùng nguồn private cần bằng chứng từ bên được phép theo phạm vi đã đóng băng; không được tự mở lại TEST/Q1Q2.
+- Kiểm soát bảo quản mapping/seed bằng **phân quyền thực tế và SHA biên nhận**, không bằng nghi thức ký nhận; chấm trước, khóa điểm, rồi mới giải mù.
+- Chừng nào `PRIVATE_NONOVERLAP` hoặc `RIGHTS` chưa được xác minh, quyết định chung vẫn **`HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE`**. Không mở micro-permit, không tái khóa seed, không sửa `lineage.md`.
 
-**Bước thực hiện tiếp theo:** `TTM_SMALL4M_D1_ONE_PACKET_NONOVERLAP_RIGHTS_CHATGPT_RATER_ACCEPTANCE_AND_MAPPING_CUSTODY_OWNER_RELEASE`.
+**Bước thực hiện tiếp theo:** `TTM_SMALL4M_D1_AUTO_HANDOFF_RATER_READINESS_THEN_ONE_PACKET_OWNER_GO_HOLD`. Khi người dùng đưa handoff vào ChatGPT agent khác, agent thực hiện bước kiểm tra khả năng chấm ngay, trả receipt; phần science vẫn do owner GO/HOLD một lần cho batch.
