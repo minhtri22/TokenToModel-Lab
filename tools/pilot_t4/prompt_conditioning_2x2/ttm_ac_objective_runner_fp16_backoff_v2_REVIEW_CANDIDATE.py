@@ -12,7 +12,7 @@ Science refuses missing exact owner lock. Same-run resume consumes only a verifi
 READY boundary. An observed in-flight step beyond READY is HOLD, never replayed.
 """
 from __future__ import annotations
-import argparse, json, os, shutil
+import argparse, copy, json, os, shutil
 from pathlib import Path
 import numpy as np
 import torch
@@ -73,15 +73,33 @@ def state_dump(model,opt,sch,sampler,scaler,step,history,arm):
             'numpy_rng':(q[0],q[1].tolist(),int(q[2]),int(q[3]),float(q[4]))}
 
 def restore_arm(p02,parent,state,dev):
-    cp=dict(parent)
+    # AdamW.load_state_dict can retain the *exact* source CPU tensor for
+    # optimizer.state[p]['step'] (PyTorch policy for non-capturable AdamW).
+    # Shallow cp=dict(parent) silently leaks optimizer steps across A and C.
+    # Deep-copy the entire parent and every resumed field before constructing
+    # each arm, so A, C, and the original step1024 state cannot share storage.
+    cp=copy.deepcopy(parent)
     if state is not None:
         need(state.get('schema')=='ttm.small4m.ac.resume.v1','RESUME_STATE_SCHEMA_MISMATCH')
         fields=('model','optimizer','scheduler','sampler_state','grad_scaler_state',
                 'torch_cpu_rng','torch_cuda_rng','python_rng','numpy_rng')
         for field in fields:
             need(field in state,'RESUME_STATE_INCOMPLETE')
-            cp[field]=state[field]
-    return base.clone_parent(p02,cp,dev)
+            cp[field]=copy.deepcopy(state[field])
+    model,opt,sch,sampler,scaler=base.clone_parent(p02,cp,dev)
+    # Prove the source optimizer step tensors are isolated, not just equal.
+    for param_id,source_state in cp['optimizer']['state'].items():
+        source_step=source_state.get('step')
+        if not torch.is_tensor(source_step): continue
+        actual=opt.state_dict()['state'][param_id].get('step')
+        need(torch.is_tensor(actual),'ADAMW_STEP_TENSOR_MISSING')
+        need(actual.data_ptr()!=source_step.data_ptr(),
+             'ADAMW_STEP_STORAGE_ALIAS_INTERNAL')
+        upstream=(state['optimizer'] if state is not None else parent['optimizer'])
+        upstream_step=upstream['state'][param_id]['step']
+        need(actual.data_ptr()!=upstream_step.data_ptr(),
+             'ADAMW_STEP_STORAGE_ALIAS_UPSTREAM')
+    return model,opt,sch,sampler,scaler
 
 def write_once(path,obj):
     with Path(path).open('x',encoding='utf-8') as fp:
@@ -192,7 +210,12 @@ def science(a,lock):
                           data['train_story_index'].astype(np.int64),cp)
     dev=torch.device('cuda')
     for arm in ARMS:
+        # Both A/C must begin from the SAME immutable step1024 parent.
+        need(all(float(v['step'])==START for v in cp['optimizer']['state'].values()),
+             'SOURCE_PARENT_ADAMW_STEP_CHANGED_BEFORE_ARM')
         result=run_arm(root,arm,data,p02,cp,plans,dev,a.resume,a.owner_lock_sha,source_sha)
+        need(all(float(v['step'])==START for v in cp['optimizer']['state'].values()),
+             'SOURCE_PARENT_ADAMW_STEP_CHANGED_AFTER_ARM')
         print('AC_ARM_FINAL_RECEIPT=',arm,result['status'])
     print('AC_TWO_ARMS_UNADJUDICATED_REQUIRES_INDEPENDENT_SCIENCE_AND_QUALITY_REVIEW')
 
