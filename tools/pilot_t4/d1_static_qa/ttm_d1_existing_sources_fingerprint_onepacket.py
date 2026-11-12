@@ -156,8 +156,9 @@ def main() -> None:
         fail("PROJECT_ROOT_NOT_FOUND")
     d1, prior, pins = source_records()
     normalized_d1 = {norm(q["text"]) for q in d1}
-    if len(normalized_d1) != len(d1):
-        fail("D1_NORMALIZED_DUPLICATES")
+    # D1's frozen QA guarantees unique DEV strings, not unique neutral priors.
+    # Record any cross-record equality, but do not invent a new admission gate.
+    duplicate_normalized_in_d1 = len(d1) - len(normalized_d1)
     # Private hashes are held only locally. Never print texts, IDs or digests.
     index = {
         "schema": "ttm.d1.owner_private_fingerprint_index.v1",
@@ -216,6 +217,7 @@ def main() -> None:
         "source_sha256": pins,
         "private_fingerprint_index_sha256": sha(private_blob),
         "private_fingerprint_record_count": len(index["records"]),
+        "d1_normalized_duplicate_record_count": duplicate_normalized_in_d1,
         "source_counts": {
             "D1_DEV": 128, "D1_NEUTRAL_PRIOR": 64,
             "FRESH16_USED": 16, "CF1_DEV36": 72, "Q1_FRESH12_PUBLIC": 28,
