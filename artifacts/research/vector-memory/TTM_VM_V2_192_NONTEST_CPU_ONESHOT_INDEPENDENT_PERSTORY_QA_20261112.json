@@ -1,0 +1,210 @@
+{
+  "schema": "ttm.vm.v2.nontest192.frozen_reader.independent_perstory_science_adjudication.v1",
+  "operation": "TTM_VM_V2_NONTEST_CPU_ONE_SHOT_RESULT_READ_ONLY_INDEPENDENT_RECOMPUTATION_AND_ADJUDICATION",
+  "adjudication_date": "2026-11-12",
+  "decision": "PASS_NONTEST_S2_CLOSED_VOCAB_DESCRIPTION_SCREEN_SCOPED",
+  "runner_verdict": "GO_CANDIDATE_NONTEST_DESCRIPTION_SCOPED",
+  "source_pins": {
+    "scientific_source_commit": "df7865a420cbd5d58d5f24a55b85f99c9242038e",
+    "runner_blob": "e9e29c35e4eeeda6ed3ad5a4481a75b51e5b4eab",
+    "reader_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "backbone_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "real_T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "fixture_v2_sha256": "1d7c02ab082a3c34345953dc5146e5a93f8c6f44e11132ea8abb0594efcc0b9d",
+    "owner_source_mock_QA": "PASS_78_78"
+  },
+  "windows_original": {
+    "run_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_evidence\\vector-memory\\TTM_VM_V2_NONTEST_192_FROZEN_READER_CPU_ONESHOT_V1",
+    "start_marker": "ONE_SHOT_STARTED.json",
+    "private_per_story": "PER_STORY_QA_PRIVATE.json",
+    "public_aggregate": "PROBE_AGGREGATE_PUBLIC.json",
+    "public_aggregate_owner_SHA256": "ddd516dce2717fbacb95704e631a5e9094128a5cc971801b6f7fc2ea2506744d",
+    "readback_text_SHA256_reconstructed_CRLF_and_final_CRLF": "ddd516dce2717fbacb95704e631a5e9094128a5cc971801b6f7fc2ea2506744d",
+    "original_sha_scope": "Owner-native SHA reported on Windows; reconstructed full text CRLF+terminal CRLF matches. Not separate raw binary file access.",
+    "private_perstory_uploaded_to_GitHub": false
+  },
+  "independent_readback": {
+    "status": "PASS_39_OF_39",
+    "checks_passed": 39,
+    "checks_total": 39,
+    "checks": {
+      "01_marker_run_id_correct": true,
+      "02_marker_192_and_TEST_sealed": true,
+      "03_actual_192_cases": true,
+      "04_all_unique_ids": true,
+      "05_exact_64_each_stratum": true,
+      "06_each_200_answer_tokens": true,
+      "07_nll_all_six_arms_finite": true,
+      "08_gate_all_six_arms_finite": true,
+      "09_A_bypass_gate_zero": true,
+      "10_hit1_implies_hit3": true,
+      "11_coverage_status_consistency_k1": true,
+      "12_coverage_status_consistency_k3": true,
+      "13_s0_hit_64": true,
+      "14_s1_hit_64": true,
+      "15_s2_hit_64": true,
+      "16_s2_no_abstentions": true,
+      "17_s2_lexical_no_fallback": true,
+      "18_s2_b1_oracle_bit_exact": true,
+      "19_s2_b1_c1_some_difference": true,
+      "20_all_mean_nll_agree_aggregate": true,
+      "21_all_hit_and_coverage_counts_agree_aggregate": true,
+      "22_paired_A_minus_B1_agrees": true,
+      "23_paired_C1_minus_B1_agrees": true,
+      "24_original_bootstrap_CI_lower_positive": true,
+      "25_independent_bootstrap_CI_lower_positive": true,
+      "26_bootstrap_independence_direction_and_overlap": true,
+      "27_oracle_gain_positive_over_005": true,
+      "28_nll_both_thresholds_positive": true,
+      "29_recall_threshold_58_of_64": true,
+      "30_original_verdict_go_candidate": true,
+      "31_no_optimizer_or_rescored_dev_oldprobe": true,
+      "32_no_TEST_or_GPU": true,
+      "33_model_weights_reported_unchanged": true,
+      "34_original_reader_sha_matches": true,
+      "35_original_probe_sha_matches": true,
+      "36_fixed_2000_bootstrap_and_seeds": true,
+      "37_S0_identity_only_control": true,
+      "38_S1_alias_only_control": true,
+      "39_S2_structured_lex_first": true
+    },
+    "per_story_records_read": 192,
+    "per_story_text_lines": 5954,
+    "per_story_unique_case_ids": 192,
+    "strata_sizes": {
+      "S0_ID_LITERAL": 64,
+      "S1_ALIAS_LOOKUP": 64,
+      "S2_DESC_PARAPHRASE": 64
+    },
+    "answer_tokens_each_arm_per_stratum": 200,
+    "method1_count": {
+      "R_EXACT_ID": 64,
+      "R_EXACT_ALIAS": 64,
+      "R_HYBRID_LEX_FIRST": 64
+    },
+    "S2_cause1": {
+      "LEXICAL_TRIGRAM": 64
+    },
+    "S2_fallback1_count": 0,
+    "S2_abstain1_count": 0,
+    "S2_exact_equivalence_B1_O1_per_story": 64,
+    "original_model_forward_calls_by_auditor": 0,
+    "one_shot_repeat_execution": 0
+  },
+  "independent_metrics": {
+    "hits1": {
+      "S0_ID_LITERAL": 64,
+      "S1_ALIAS_LOOKUP": 64,
+      "S2_DESC_PARAPHRASE": 64
+    },
+    "hits3": {
+      "S0_ID_LITERAL": 64,
+      "S1_ALIAS_LOOKUP": 64,
+      "S2_DESC_PARAPHRASE": 64
+    },
+    "coverage1": {
+      "S0_ID_LITERAL": 64,
+      "S1_ALIAS_LOOKUP": 64,
+      "S2_DESC_PARAPHRASE": 64
+    },
+    "answer_only_mean_story_nll": {
+      "S0_ID_LITERAL": {
+        "A": 6.822965495288372,
+        "O1": 3.826271828263998,
+        "B1": 3.826271828263998,
+        "C1": 5.277804307639599,
+        "B3": 3.826271828263998,
+        "C3": 5.277804307639599
+      },
+      "S1_ALIAS_LOOKUP": {
+        "A": 7.100874066352844,
+        "O1": 3.8706149980425835,
+        "B1": 3.8706149980425835,
+        "C1": 5.408457659184933,
+        "B3": 3.8706149980425835,
+        "C3": 5.408457659184933
+      },
+      "S2_DESC_PARAPHRASE": {
+        "A": 6.894291564822197,
+        "O1": 3.815273191779852,
+        "B1": 3.815273191779852,
+        "C1": 5.26436909660697,
+        "B3": 4.527257312089205,
+        "C3": 5.039288375526667
+      }
+    },
+    "S2_primary": {
+      "n": 64,
+      "recall_at1": 1,
+      "hit_at1": 64,
+      "minimum_hit_at1": 58,
+      "screen_pass_recall": true,
+      "mean_pair_deltas_nats": {
+        "A_minus_B1": 3.079018373042345,
+        "C1_minus_B1": 1.449095904827118
+      },
+      "minimum_delta_nats": 0.05,
+      "runner_bootstrap95": {
+        "A_minus_B1": [
+          2.792866479046643,
+          3.3864670290611683
+        ],
+        "C1_minus_B1": [
+          0.8043780642561614,
+          2.1780459645204244
+        ]
+      },
+      "independent_bootstrap95": {
+        "A_minus_B1": [
+          2.803337201010436,
+          3.381846783682704
+        ],
+        "C1_minus_B1": [
+          0.7997411417774856,
+          2.1723743378184732
+        ]
+      },
+      "bootstrap_method": "Two independent 2000x64 paired-resample percentile 95% CIs from each per-story delta vector; independent Mulberry32 PRNG, different from runner NumPy PCG64. Samples are not identical, positive lower bounds corroborate.",
+      "bootstrap_seeds": [
+        20261116,
+        20261117
+      ],
+      "oracle_gain_A_minus_O1": 3.079018373042345,
+      "screen_pass_NLL_and_CI": true,
+      "status": "PASS_SCOPED_CLOSED_VOCAB_DESCRIPTORS"
+    }
+  },
+  "interpretation": {
+    "one_shot_consumed": true,
+    "scientific_conclusion": "Valid preregistered positive NONTEST exploratory screen for selecting the correct single record by public closed-vocabulary three-attribute description and using frozen L0020 Reader.",
+    "not_proven": [
+      "unconstrained semantic retrieval",
+      "learned vector retrieval",
+      "RAG on external real sources",
+      "general natural-language paraphrase robustness",
+      "new Reader training",
+      "heldout TEST/generalization",
+      "fallback cosine success"
+    ],
+    "critical_mechanism": "R_HYBRID_LEX_FIRST parses three canonical attributes and requires exactly one indexed record with that signature, then verifies that lexical trigram ranks it first. This behaves like structured deterministic key lookup, akin to Oracle after normalization; all 64 S2 used lexical branch, 0 fallback.",
+    "S0_S1": "Engineering identity/alias controls only",
+    "previous_L0021_FAIL_remains_valid": true,
+    "former_128_PROBE_reused_for_model_selection": false,
+    "new_192_PROBE_now_consumed_not_for_confirmatory_reuse": true,
+    "no_test_unseal_authorized": true
+  },
+  "integrity": {
+    "optimizer_steps": 0,
+    "dev_rescored": false,
+    "old_probe_rescored": false,
+    "test_opened": false,
+    "gpu_used": false,
+    "backbone_unchanged_reported": true,
+    "reader_unchanged_reported": true,
+    "no_science_execution_by_auditor": true,
+    "source_branch_only": "research/ttm-vector-memory-architecture-20261111",
+    "lineage_next": "APPEND_L0022",
+    "main_unchanged": true
+  },
+  "next_operation": "TTM_VM_V3_NONORACLE_AMBIGUITY_AND_UNSEEN_PARAPHRASE_PREREG_DESIGN_ONLY"
+}
