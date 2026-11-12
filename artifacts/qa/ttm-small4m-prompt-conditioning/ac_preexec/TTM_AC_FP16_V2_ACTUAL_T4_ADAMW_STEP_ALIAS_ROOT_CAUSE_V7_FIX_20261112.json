@@ -1,0 +1,74 @@
+{
+  "schema": "ttm.small4m.ac.fp16.v2.actual_T4_adamw_step_alias_root_cause_v7.v1",
+  "date": "2026-11-12",
+  "incident_source": "OWNER_RETURNED_COLAB_V6_CELL_2B_CHILD_TRACEBACK",
+  "incident": "TENSOR_DRIFT:optimizer.state.0.step",
+  "incident_scope": "REAL_P02_T4_REAL_TRAIN_TWO_STEP_PREEXEC_QA_ONLY",
+  "preexec_source_checks": "PASS_SCOPED_7_OF_7",
+  "incident_diag_private_file": "AC_FP16_V2_T4_CHILD_ERROR_20261112T061012Z_171f1c9b.json",
+  "root_cause": {
+    "evidence": "BASE_CLONE_PARENT_ADAMW_LOAD_STATE_DICT_CAN_ALIAS_CPU_OPTIMIZER_STEP_TENSOR_TO_SOURCE_CHECKPOINT_STATE",
+    "direct_code_fault": "V2 restore_arm originally cp=dict(parent), shallow copy; then base.clone_parent loads the shared state.",
+    "observed_colab_failure": "optimizer.state.0.step tensor differs after direct vs save-load-resumed test",
+    "minimal_cpu_reproduction": {
+      "runtime": "PyTorch 2.10.0+cpu in isolated analysis container",
+      "original_behavior": "two separately constructed AdamW optimizers loaded from same state_dict share step data_ptr with parent and each other; advancing optimizer1 advances optimizer2 and original",
+      "corrected_behavior": "load from separately deep-copied state_dict for each clone; optimizer1 step increases while optimizer2 and parent do not",
+      "result": "PASS_CPU_REPRO_AND_DEEPCOPY_ISOLATION",
+      "not_a_T4_test": true
+    },
+    "T4_root_cause_inferred_from_matching_source_and_error": true,
+    "T4_fix_validation": "NOT_EXECUTED"
+  },
+  "fix": {
+    "v2_science_candidate_source": "tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_objective_runner_fp16_backoff_v2_REVIEW_CANDIDATE.py",
+    "v2_candidate_git_blob": "f8b74f8439d70504028cdb94a5b01cb058a6107c",
+    "new_restore_policy": "copy.deepcopy(parent) plus deepcopy of each resumed state field BEFORE base.clone_parent",
+    "memory_alias_guard": "reject alias of AdamW step tensor with upstream frozen parent or resumed checkpoint state; local deep-copied object may alias local optimizer",
+    "parent_step_gate": "require frozen source step1024 untouched before and after A and C",
+    "old_v1_runner_changed": false,
+    "data_loss_plans_budget_changed": false,
+    "real_qa_script_path": "tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_fp16_v2_actual_train_resume_parity_preexec.py",
+    "real_qa_git_blob": "1ca7092847c28d525203e1045394ce9caf4a86dc",
+    "real_qa_added_checks": [
+      "source_parent_immutable_1024",
+      "step_storage_not_aliased",
+      "direct_vs_resumed_model_optimizer_scheduler_scaler_rng_bit_exact"
+    ],
+    "source_ast_fake_qa_script_git_blob": "c027ab9228fd88024d9e27db6e6f178e63b63aef",
+    "notebook_version": "V7",
+    "notebook_git_blob": "03e6fc6c97115201d7548d04b5133fbbf93cde4f",
+    "code_git_pin": "b9b265bbfc104c22a93d4c102fc3c9b9b2aeec7b",
+    "notebook_work": "/content/ttm_ac_objective_only_v7",
+    "old_cache_overwritten": false,
+    "new_owner_preexec_receipt_names": [
+      "AC_FP16_V2_PARENT_ISOLATED_AST_7_OF_7_V7.json",
+      "AC_FP16_V2_PARENT_ISOLATED_REAL_P02_REAL_TRAIN_TWO_STEP_PARITY_V7.json"
+    ],
+    "notebook_local_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_V7_20261112.ipynb"
+  },
+  "verification": {
+    "github_ci_run_id": 43166914964,
+    "github_ci_link": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43166914964",
+    "github_ci_status": "PASS",
+    "github_ci_checks": [
+      "EXACT_CANDIDATE_GIT_BLOB",
+      "7_FAKE_GRAD_SCALER_CASES",
+      "PARENT_DEEPCOPY_STATIC_GATE",
+      "V7_6_CODE_CELL_PYTHON_COMPILE",
+      "SCIENCE_GATE_PRESENT"
+    ],
+    "ci_uses_GPU": false,
+    "ci_real_train": false,
+    "colab_v7_executed": false,
+    "actual_T4_real_train_two_step_parity": "PENDING",
+    "native_source_QA_rerun": false
+  },
+  "next": "OWNER_RUN_V7_COLAB_CELL1_CELL2_CELL2B_ON_T4; RETURN_REAL_TRAIN_QA_RECEIPT_OR_PRIVATE_DIAGNOSTIC_ERROR",
+  "science": "HOLD",
+  "A_science_steps": 0,
+  "C_science_steps": 0,
+  "unblind_or_reviewer_scoring": "NOT_EXECUTED",
+  "C_minus_A": "NOT_ESTIMABLE",
+  "main_lineage_postcf1_modified": false
+}
