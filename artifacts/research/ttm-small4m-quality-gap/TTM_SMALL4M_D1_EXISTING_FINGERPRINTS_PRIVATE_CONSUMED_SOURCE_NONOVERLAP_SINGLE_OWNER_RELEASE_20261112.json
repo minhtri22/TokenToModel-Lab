@@ -1,0 +1,175 @@
+{
+  "schema": "ttm.small4m.d1.frozen_fingerprint_readback.private_consumed_nonoverlap.single_owner_release.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_EXISTING_FINGERPRINTS_PRIVATE_CONSUMED_SOURCE_NONOVERLAP_ONE_OWNER_RELEASE_READBACK",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+  "procedure": "READ_ONLY_EXISTING_RECEIPT_AND_SCOPED_NONSEALED_SOURCE_FINGERPRINT_SCREEN; SINGLE_OWNER_GO_HOLD; NO_SCIENCE",
+  "frozen": {
+    "pre_operation_branch_head": "21a93d968e6ebe6386013bcef72d25627fae8266",
+    "D1_stimulus_private_v2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "D1_stimulus_private_v2_lf_sha256": "1553d186eb55699506b6b920153d5c7af7f0ad26a186e1d58ffef0d1e7b4eb2e",
+    "D1_blind_scoring_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "frozen_D1_design_git_blob": "a1ffb8ccbdc35ef73ec68c7e7f534aa15a2f4dc2",
+    "model_checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "t1_original_bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "lineage_git_blob": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "main_head_at_review": "5d52e32f20021e36f08f284ef9864d3ba36dbead"
+  },
+  "source_fingerprint_ledger": [
+    {
+      "source": "FRESH12_BLIND_REVIEW_R01_R24",
+      "count": 24,
+      "fingerprint_type": "FULL_BLIND_REVIEW_PACKET_SHA256_ONLY",
+      "packet_sha256": "85fec5d290d6639809ca6ba437982fa8bb11cd5e7e0fbcf412d40f7bc9c3a037",
+      "evidence": "_tmp/fresh12_review_20261110/TTM_FRESH12_GITHUB_READBACK_RECEIPT.md",
+      "per_prompt_comparable_fingerprints_verified": false,
+      "read_raw_generation_or_scores": false,
+      "interpretation": "Source provenance confirmed only. Full-packet hash cannot prove per-prompt nonoverlap."
+    },
+    {
+      "source": "FRESH16_V2_ALREADY_CONSUMED_S1",
+      "count": 16,
+      "packet_sha256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+      "per_prompt_token_sha256_count_in_existing_receipt": 16,
+      "receipt_path": "_tmp/ttm_fresh16_integrated_offline_review_20261111/INTEGRATED_OFFLINE_REVIEW_RECEIPT.json",
+      "lexical_comparison_prior_result": {
+        "d1_family_cores": 16,
+        "previous_unique_prompts": 16,
+        "comparisons": 256,
+        "exact_matches": 0,
+        "contiguous_five_word_overlaps": 0,
+        "max_word_jaccard": 0.133
+      },
+      "equivalent_D1_token_hash_basis": "NOT_PREVIOUSLY_FROZEN_PER_PROMPT",
+      "full_semantic_nonoverlap_certified": false,
+      "mapping_or_score_files_read": false,
+      "interpretation": "PASS_SCOPED_LEXICAL_ONLY."
+    },
+    {
+      "source": "CF1_DEV36_ALREADY_CONSUMED",
+      "count": 36,
+      "global_model_input_sha256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+      "model_input_source_git_blob": "4fac79c16bc337926060fa21a6e22944d74259b7",
+      "evidence_branch": "evidence/ttm-cf1-step1024-dev36-once-20261111",
+      "evidence_file": "artifacts/qa/ttm-narrative-cf1/dev36_owner_once_20261111/CF1_DEV36_OWNER_LOCAL_ADJUDICATION.json",
+      "raw_nonsealed_source_path": "_tmp/TTM_CF1_STEP1024_DEV36_ONE_SHOT_20261111/CF1_DEV_MODEL_INPUT_ONLY.json",
+      "lexical_comparison_current_result": {
+        "d1_family_cores": 16,
+        "cf1_pair_records": 36,
+        "cf1_contexts": 72,
+        "comparisons": 1152,
+        "exact_matches": 0,
+        "contiguous_five_word_overlaps": 0,
+        "comparisons_jaccard_ge_0_18": 0,
+        "max_word_jaccard": 0.088
+      },
+      "per_prompt_fingerprint_comparability": "NOT_CERTIFIED_PER_RECORD",
+      "scores_or_test_read": false,
+      "interpretation": "PASS_SCOPED_LEXICAL_ONLY_NON_SEALED_CF1_DEV."
+    },
+    {
+      "source": "AC_FINAL24_ALREADY_CONSUMED_FROZEN_SOURCE",
+      "count": 24,
+      "ac_parent_git_branch": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+      "public_prompt_file": "docs/research/TTM_SMALL4M_2X2_NEW_DEV12_BLIND_FINAL24_PROMPTS_FROZEN_20261110.json",
+      "public_prompt_file_git_blob": "f08f15c5049baf77771bed463a5119136566373b",
+      "public_file_total_prompt_count": 36,
+      "public_file_DEV_prompt_count": 12,
+      "public_file_BLIND_FINAL_prompt_count": 24,
+      "all_public_prompt_per_item_utf8_sha256_present": true,
+      "blind_packet_frozen_receipt_git_blob": "e66c5793483d7d4f45706268a053843f613e9af3",
+      "lexical_comparison_current_result": {
+        "d1_family_cores": 16,
+        "ac_final24_public_prompts": 24,
+        "comparisons": 384,
+        "exact_matches": 0,
+        "contiguous_five_word_overlaps": 0,
+        "comparisons_jaccard_ge_0_18": 0,
+        "max_word_jaccard": 0.095
+      },
+      "d1_same_normalization_per_prompt_sha256_records": "NOT_AVAILABLE_IN_EXISTING_D1_RECEIPT",
+      "protected_or_secret_mapping_read": false,
+      "interpretation": "PASS_SCOPED_LEXICAL_ONLY_AC_FINAL24_SOURCE."
+    },
+    {
+      "source": "Q1_PUBLIC_PLUS_FRESH12_PUBLIC_ALLOWED_HISTORY",
+      "count": 28,
+      "prompt_source_git_blob": "6b35ec8ae377a9dbdb778766756a32e8ad4bcbc8",
+      "public_history_file": "artifacts/research/ttm-small4m-quality-gap/TTM_FRESH16_ALLOWED_PUBLIC_HISTORICAL_PROMPTS_20261111.json",
+      "previous_16_family_screen": "PASS_SCOPED",
+      "test_or_q1q2_sealed_read": false,
+      "interpretation": "Allowed public comparison only; no sealed coverage."
+    },
+    {
+      "source": "FRESH16_DESIGN_CANDIDATE_NOT_EXECUTED",
+      "count": 16,
+      "source_git_blob": "6299a073f0b7c7f8ea890ba9d9b29eaed9442f1f",
+      "source_file": "artifacts/research/ttm-small4m-quality-gap/TTM_FRESH_CONTINUATION_PROMPT_SET_CANDIDATE_V1_20261111.json",
+      "previous_16_family_screen": "PASS_SCOPED",
+      "interpretation": "Design-only, not prior consumed science; does not replace consumed-source check."
+    },
+    {
+      "source": "PROTECTED_TEST_AND_Q1Q2",
+      "count": null,
+      "existing_exhaustive_per_prompt_fingerprints_sufficient_for_D1_verification": "NOT_ESTABLISHED",
+      "read_test_or_q1q2_raw_input": false,
+      "new_hashes_computed_from_sealed_data": false,
+      "interpretation": "HOLD; no sealed source reopened; cannot assert exact or semantic nonoverlap for sealed sets."
+    }
+  ],
+  "screening_method": {
+    "D1_comparison_unit": "16 family cores (scene, fact_A, fact_B, continuation_A and continuation_B); not all 128 serialized DEV prompts nor 64 neutral prior prompts",
+    "word_set_similarity": "Jaccard on lower-cased English content-word sets after stopword removal",
+    "contiguous_match": "Lower-cased 5-word consecutive windows including common words",
+    "threshold_0_18": "POSTHOC_EXPLORATORY_SCREEN_NOT_SCIENCE_THRESHOLD",
+    "cannot_claim": "Whole-record SHA inequality, scene-level lexical PASS or matching hash types with different serialization proves semantic novelty",
+    "exact_sha_per_prompt_D1_vs_all_prior": "NOT_COMPLETED",
+    "complete_semantic_comparison": "NOT_COMPLETED",
+    "limitations": "Fingerprint inventories and lexical screens cover only known permitted inputs. Missing sealed lineage and canonical per-prompt cross-corpus hashes prevent full independent novelty certificate."
+  },
+  "rights": {
+    "D1_origin_metadata": "AI_AUTHORED_ORIGINAL_TEST_MATERIAL_NOT_EXTRACTED_FROM_CORPUS",
+    "D1_rights_metadata": "AI_AUTHORED_NEW_CONTENT_OWNER_FINAL_ATTESTATION_PENDING",
+    "origin_evidence": "PASS_SCOPED",
+    "own_project_research_instruction": "YES",
+    "formal_signature_required": false,
+    "specific_use_rights_cleared_without_qualification": false,
+    "status": "PASS_SCOPED_ORIGIN_HOLD_USE_SCOPE_FINAL"
+  },
+  "rater": {
+    "independent_external_chatgpt_agent_preexec": "RATER_PREEXEC_READY_SCOPED",
+    "previous_chat_context_independence": "NOT_VERIFIED",
+    "final_isolation_protocol": "NEW_CONTEXT_SEPARATE_FROM_SCIENTIFIC_DESIGN_RESEARCH_ONLY_LOCKED_RUBRIC_AND_FROZEN_BLIND_INPUTS",
+    "actual_independent_final_session": "NOT_STARTED",
+    "scored_records": 0,
+    "mapping_seed_decoder_disclosed_to_rater": false,
+    "rubric_modified": false,
+    "no_separate_signature_required": true
+  },
+  "runtime": {
+    "device": "DESKTOP-4PSD0G2",
+    "science_dispatch_allowed": false,
+    "read_only_runtime_reason": "RESEARCH_ADAPTER_DISABLED; managed mode requires task_job_submit",
+    "sci_job_dispatched_this_operation": false,
+    "training_executed": false,
+    "inference_executed": false,
+    "fresh16_rerun": false,
+    "test_q1q2_opened": false,
+    "seed_rotation_rerun": false
+  },
+  "final_owner_single_decision": {
+    "status": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "decision_basis": "More consumed-source evidence now available (FRESH16, CF1 and AC FINAL24), but complete nonoverlap against all relevant private/TEST/Q1Q2 sources remains unproven; source-use rights and actual rater isolation are still scoped/staged; science dispatch not available.",
+    "evidence_delta": "FRESH12_PACKET_HASH_PLUS_CF1_GLOBAL_INPUT_SHA_PLUS_AC_FINAL24_PER_PROMPT_PINS_AND_SCOPED_CF1_1152_AC_384_EXPLORATORY_SCREENS",
+    "verified_technical_v2": "PASS_SCOPED",
+    "full_source_nonoverlap": "HOLD_INCOMPLETE_SEALED_SOURCE_AND_FULL_128_PROMPT_COVERAGE",
+    "all_512_outputs_authorized": false,
+    "permitted_rollouts": 0,
+    "expected_future_rollouts": 512,
+    "scientific_result": "NOT_EXECUTED",
+    "no_new_lineage_entry": true,
+    "no_main_merge": true,
+    "next_step": "RECONCILE_PREEXISTING_SEALED_FINGERPRINT_INDEX_OR_RECORD_UNCERTIFIABLE_COVERAGE; ONE_OWNER_DECISION_NO_MICRO_PERMITS"
+  }
+}
