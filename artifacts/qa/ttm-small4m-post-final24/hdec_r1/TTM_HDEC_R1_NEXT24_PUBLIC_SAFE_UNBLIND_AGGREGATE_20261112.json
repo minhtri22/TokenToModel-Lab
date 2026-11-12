@@ -1,0 +1,110 @@
+{
+  "AES_key_published": false,
+  "AI_rater_independence": "SELF_ATTESTED_NOT_HUMAN_AND_NOT_PLATFORM_INDEPENDENTLY_VERIFIED",
+  "TEST_Q1_Q2_OOD_accessed": false,
+  "candidate_pass": true,
+  "candidate_verdict": "H_DEC_R1_EXPLORATORY_CANDIDATE_PASS",
+  "date": "2026-11-12",
+  "endpoint": "paired_mean_word_trigram_repeat_fraction_D1_minus_D0_on_NEW_FINAL24",
+  "frozen_metric_source_sha256": "1c5cecf97cc86da1d833c9c4959d4532c989d5c0e604a1490e88c684870828f1",
+  "independent_science_QA_and_final_adjudication": "PENDING",
+  "main_lineage_mutated": false,
+  "method_limitations": [
+    "One checkpoint/one generation run/24 new prompts/one AI-assisted blind rater",
+    "Not a human or institutionally independent scientific peer review",
+    "Bootstrap CI descriptive and not a confirmatory multi-seed estimate",
+    "Effects not proof of semantic prompt following or generalization"
+  ],
+  "metric": {
+    "CI95_paired_bootstrap_descriptive": [
+      -0.31026832687906614,
+      -0.18957060771446313
+    ],
+    "D0_mean": 0.2860416650087178,
+    "D0_strict_wins": 1,
+    "D1_mean": 0.037883542327400765,
+    "D1_minus_D0": -0.248158122681317,
+    "D1_strict_wins": 23,
+    "ties": 0
+  },
+  "new_inference": "COMPLETED_72_ONCE_NO_RETRAIN",
+  "original_blind_packet_sha256": "e28049bf770ddab879fdd10ac5805b9b5bf2e60fa0f8f9264ba641abab82dd22",
+  "original_escrow_sha256": "812e7e23cdc3eba4735bfb0b8ff43b2a7420fbaac4fa0edfc2fe4a944cb8c3b7",
+  "original_generation_sha256": "e09572c29993af8379a57cfc26c905912525e6238510f2803af5c9a81cc2f208",
+  "original_mapping_plaintext_sha256_DIGEST_ONLY": "603bccaf0060f8a8a577302353ea6cac831281ad17596603ffa7eb6630ce20a3",
+  "other_metrics": {
+    "D0": {
+      "eos_stops": 8,
+      "max_64_stops": 16,
+      "mean_axis": {
+        "coherence": 0.9583333333333334,
+        "consistency": 1.0,
+        "prompt_adherence": 0.041666666666666664
+      },
+      "mean_new_bpe_tokens": 55.541666666666664,
+      "mean_repetition_fraction": 0.2860416650087178,
+      "mean_word_count": 40.916666666666664,
+      "median_repetition_fraction": 0.2940687361419069
+    },
+    "D1": {
+      "eos_stops": 8,
+      "max_64_stops": 16,
+      "mean_axis": {
+        "coherence": 1.0,
+        "consistency": 1.0,
+        "prompt_adherence": 0.041666666666666664
+      },
+      "mean_new_bpe_tokens": 53.791666666666664,
+      "mean_repetition_fraction": 0.037883542327400765,
+      "mean_word_count": 38.416666666666664,
+      "median_repetition_fraction": 0.021507863089731738
+    },
+    "semantic_qualitative_axes": {
+      "coherence": {
+        "D0_win": 3,
+        "D1_win": 4,
+        "mean_D1_minus_D0": 0.041666666666666664,
+        "ties": 17
+      },
+      "consistency": {
+        "D0_win": 0,
+        "D1_win": 0,
+        "mean_D1_minus_D0": 0.0,
+        "ties": 24
+      },
+      "prompt_adherence": {
+        "D0_win": 0,
+        "D1_win": 0,
+        "mean_D1_minus_D0": 0.0,
+        "ties": 24
+      }
+    }
+  },
+  "per_pair_D0_D1_mapping_published": false,
+  "preregistered_candidate_thresholds": {
+    "D1_under8words_not_more_than_D0": true,
+    "D1_wins_ge_16_of_24": true,
+    "bootstrap_CI_upper_lt_zero": true,
+    "repetition_delta_le_minus_0_10": true,
+    "semantic_axis_no_drop_below_minus_0_25": true
+  },
+  "preregistered_gates": {
+    "D1_strict_better_ge_16": true,
+    "bootstrap_upper_lt_zero": true,
+    "coherence_drop_not_below_minus_0_25": true,
+    "consistency_drop_not_below_minus_0_25": true,
+    "mean_delta_le_minus_0_10": true,
+    "no_D1_short_under8_excess": true,
+    "prompt_adherence_drop_not_below_minus_0_25": true
+  },
+  "rater_review_classification": "EXPLORATORY_SCOPED_AI_REVIEW",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "schema": "ttm.small4m.hdec_r1.next24.public_safe_unblind_aggregate.v1",
+  "scores": {
+    "canonical_scores_array_sha256": "891225c539ffc46522e06a711fc1e8d60038d7dfba0195ac64c5d7754289543a",
+    "count": 144,
+    "notes": 24,
+    "original_sidecar_received": false,
+    "sha256": "6ba3420b8863c435ef1fc71d9706826221455d5254c87ea4e789b852b908a682"
+  }
+}
