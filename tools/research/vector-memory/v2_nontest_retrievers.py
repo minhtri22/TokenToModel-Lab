@@ -162,3 +162,30 @@ def mask(result: Retrieval, *, n: int=32) -> tuple[bool,...]:
         raise ValueError('INDEX_OUT_OF_RANGE')
     chosen=set(result.indices)
     return tuple(i in chosen for i in range(n))
+
+
+def frozen_description_cosine(question: str, cards: Sequence[Mapping[str,str]],
+                              text_to_ids: Callable[[str],Sequence[int]],
+                              frozen_embedding) -> list[float]:
+    """Frozen T1/P02 embedding fallback on descriptor, NOT on private value.
+
+    For future CPU science only; technical QA can supply mock T1 + random
+    embeddings. Does not load a checkpoint or create any model weights.
+    """
+    import torch
+    from torch.nn import functional as F
+    if frozen_embedding.shape != (2048,256) or frozen_embedding.device.type != 'cpu':
+        raise ValueError('FROZEN_EMBEDDING_SHAPE_DEVICE')
+    if frozen_embedding.requires_grad:
+        raise ValueError('FROZEN_EMBEDDING_REQUIRES_GRAD')
+    if len(cards)!=32:
+        raise ValueError('FROZEN_BANK_SIZE')
+    def enc(txt):
+        ids=list(text_to_ids(txt))
+        if not ids or len(ids)>256 or any(type(x) is not int or x<0 or x>=2048 for x in ids):
+            raise ValueError('INVALID_REAL_T1_IDS')
+        t=torch.tensor(ids,dtype=torch.long,device='cpu')
+        return F.normalize(F.embedding(t,frozen_embedding.detach()).mean(0),dim=0)
+    with torch.no_grad():
+        q=enc(question)
+        return [float(torch.dot(q,enc(c['retrieval_text']))) for c in cards]
