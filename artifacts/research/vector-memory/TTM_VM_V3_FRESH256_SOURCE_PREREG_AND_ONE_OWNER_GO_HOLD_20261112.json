@@ -1,0 +1,185 @@
+{
+  "schema": "ttm.vm.v3.nonoracle_fresh256.source_truth_qa_freeze_release.v1",
+  "operation": "TTM_VM_V3_FRESH256_NEGATIVE_GROUND_TRUTH_AND_NONORACLE_SOURCE_ONEPACKET_QA_FREEZE",
+  "date": "2026-11-12",
+  "source_freeze": {
+    "commit": "51268b205648060ad0fa13276d67180c2fcaddbb",
+    "branch": "research/ttm-vector-memory-architecture-20261111",
+    "sources": {
+      "generator": {
+        "path": "tools/research/vector-memory/v3_fresh256_fixture.py",
+        "git_blob": "5f51b8b464e54a370f3a3fa99d91307118f52f46",
+        "sha256": "7d69a9d2f3fddabd6c8626135e6e705b8026fad568cb10014f3c905d60e8d8eb"
+      },
+      "retriever": {
+        "path": "tools/research/vector-memory/v3_nonoracle_retriever.py",
+        "git_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+        "sha256": "74d63190a24c1c11411253d0beff20b7f15a65a7c4176db3eeedc53ffee88388"
+      },
+      "review_validator": {
+        "path": "tools/research/vector-memory/v3_p1_reviewer_custody.py",
+        "git_blob": "beaaa78126282439c94b2d0d525297e6b35266a5",
+        "sha256": "5d33c900ffc2d19e745992206f0dcbdec59f293a46ce99b4563b476febbbcd4d"
+      },
+      "independent_qa": {
+        "path": "tools/research/vector-memory/v3_independent_source_qa.py",
+        "git_blob": "041e174579e5a842a0d4dfa46637fe036e9954ec",
+        "sha256": "a20325e7709f3b728e56a6331268df4e531a8236ce20b6929f0496e8a2e3a5ef"
+      }
+    },
+    "owner_packet_script": {
+      "path": "tools/research/vector-memory/Invoke-TTM-VM-V3-Source-Freezer-OnePacket-PS51.ps1",
+      "git_blob": "fb0063f18ddcbdb56cbddd055908509088ee2675"
+    },
+    "lineage_blob_pin": "2d526cf4c6dae2dfbbbad1722f5cd77d7e7efd82"
+  },
+  "fixture_custody": {
+    "run_id": "TTM_VM_V3_NONTEST_256_NONORACLE_UNSEEN_AMBIGUITY_V1",
+    "schema": "ttm.vm.v3.nontest256.provenance_negation_abstention.v1",
+    "seed": "TTM_VM_V3_FRESH256_NONTEST_SEED_FROZEN_20261112_A1",
+    "private_sha256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+    "bytes": 2128853,
+    "cases_total": 256,
+    "strata": {
+      "P0_KNOWN_WIRING": 32,
+      "P1_UNSEEN_PARAPHRASE": 32,
+      "P2_PROVENANCE_UNIQUE": 32,
+      "P3_NEGATION_UNIQUE": 32,
+      "N0_UNDERSPECIFIED": 32,
+      "N1_DUPLICATE_MATCH": 32,
+      "N2_CONTRADICTORY_QUERY": 32,
+      "N3_UNRESOLVABLE_OOV_OR_EXCLUSION": 32
+    },
+    "bank_size": 32,
+    "unique_public_keys": 8192,
+    "object_key_namespace": "obju + 11 consonants (disjoint from earlier obj... and obja... known namespaces)",
+    "positive": 128,
+    "primary_positive": 96,
+    "negative": 128,
+    "negative_gold_target": null,
+    "negative_gold_answer": null,
+    "negative_correct_wrong_memory": null,
+    "generated_in_sandbox_for_structural_SHA": true,
+    "generated_on_owner_D": false,
+    "uploaded_to_GitHub": false,
+    "retrieval_scored_on_256": false,
+    "reader_inference_on_256": false,
+    "sealed_TEST_overlap_checked": false
+  },
+  "independent_qa": {
+    "status": "PASS_99_OF_99_SOURCE_AND_MOCK_RETRIEVER",
+    "public_receipt": "artifacts/research/vector-memory/TTM_VM_V3_FRESH256_SOURCE_INDEPENDENT_NEGATIVE_QA_20261112.json",
+    "local_receipt_sha256": "4f7fcade732cbd0f9ab161ec06b0c64147860e3ed0536c5b94290455f912149d",
+    "checks_passed": 99,
+    "total": 99,
+    "positive_truth": "P0–P3 all exactly one valid public candidate each per independent structured predicate",
+    "negative_truth": "N0/N1 >=2 matching; N2/N3 zero/invalid",
+    "retriever_negative_QA": "HANDCRAFTED_MOCK_32_ONLY_NOT_ACTUAL_NEW256",
+    "source_fix_before_freeze": [
+      "Fixed P3 wrong negative-sample collision: before freeze there were two valid candidates in 32/32 P3 cases; changed hard-negative axis to eliminate extra match",
+      "Replaced two proposed P1 phrases containing exact v2 lexemes (ink-blue, snailshell-coiled); SHA recomputed before freeze"
+    ],
+    "untrusted_semantic_mapping_remains_pending": true
+  },
+  "reviewer_custody": {
+    "status": "HOLD_PENDING_TWO_INDEPENDENT_P1_HUMAN_REVIEWS",
+    "P1_cases": 32,
+    "blind_packets": "GENERATE_OWNER_D_WITH_V3_P1_REVIEWER_CUSTODY",
+    "rubric": "docs/research/vector-memory/TTM_VM_V3_P1_INDEPENDENT_BLIND_REVIEW_RUBRIC_20261112.md",
+    "human_review_receipts_exist": false,
+    "reviewer_identities": "NOT_COLLECTED",
+    "gold_exposed_to_reviewers": false,
+    "validator_requires": "two distinct independently attested reviewers, 32/32 concordance and agreement with private structural gold, never auto-fills reviewer decisions",
+    "limits": "User-provided attestations are not cryptographically verified; two independent humans have not been observed/claimed"
+  },
+  "retriever_contract": {
+    "name": "R_V3_SYMBOLIC_PROVENANCE_NEGATION",
+    "inputs": [
+      "question",
+      "public_index[].key",
+      "public_index[].source_id",
+      "public_index[].retrieval_text"
+    ],
+    "forbidden": [
+      "target_key",
+      "gold_action",
+      "answer",
+      "value",
+      "wrong_memory",
+      "case_id",
+      "stratum",
+      "Reader_logits"
+    ],
+    "outputs": [
+      "SELECT(unique index)",
+      "ABSTAIN(no index)"
+    ],
+    "negative_no_reader_forward": true,
+    "P1_new_surface_caveat": "Proposed V3 novel paraphrases are already mapped in the V3 source, not a test of an unseen phrase to this Retriever",
+    "retrieval_scored_on_real_256": false
+  },
+  "scientific_prereg": {
+    "source_schema_seed_SHA_frozen": true,
+    "success_screen_intended_pre_source": true,
+    "primary_positive_96_min_hits": 72,
+    "P1_32_min_hits": 20,
+    "negative_128_min_correct_abstentions": 122,
+    "negative_max_false_selections": 6,
+    "positive_A_minus_B1_min": 0.05,
+    "positive_C1_minus_B1_min": 0.05,
+    "positive_oracle_A_minus_O1_min": 0.05,
+    "bootstrap_reps": 2000,
+    "bootstrap_seeds": [
+      20261120,
+      20261121
+    ],
+    "bootstrap_lower95_gt_zero": true,
+    "negative_NLL_prohibited": true,
+    "future_scorer_implemented": false,
+    "future_scorer_SHA": "NOT_IMPLEMENTED",
+    "one_shot_cpu_authorized": false
+  },
+  "one_owner_decision": {
+    "source_code_QA": "PASS_99_OF_99",
+    "fixture_structural_validation": "PASS_256_OF_256",
+    "human_P1_semantic_adjudication": "HOLD",
+    "source_GO_HOLD": "HOLD_PENDING_TWO_P1_INDEPENDENT_HUMAN_REVIEWS",
+    "CPU_science_GO_HOLD": "HOLD_NO_PINNED_SCORER_OR_OWNER_ONE_SHOT_RELEASE",
+    "may_run_science_now": false,
+    "owner_windows_readback": "PENDING",
+    "no_microp_remits": true,
+    "L0021_and_L0022_protected": true,
+    "lineage": "L0022_UNCHANGED",
+    "main": "UNCHANGED",
+    "TEST": "SEALED",
+    "gpu": "NO",
+    "training": "NO",
+    "old_probes": "CONSUMED_NOT_REUSED"
+  },
+  "next_operation": "TTM_VM_V3_P1_TWO_REVIEWER_CUSTODY_AND_FROZEN_SCORER_ONEPACKET_FINAL_GO_HOLD",
+  "manifest_consistency": {
+    "status": "PASS_INTERNAL_20_OF_20",
+    "checks": {
+      "source_frozen_commit": true,
+      "eight_strata_32": true,
+      "total_256": true,
+      "positive_128": true,
+      "primary_positive_96": true,
+      "negative_128": true,
+      "negative_null_gold": true,
+      "fixed_sha64": true,
+      "qa_99": true,
+      "reviewer_pending_not_claimed": true,
+      "source_released_HOLD": true,
+      "science_not_authorized": true,
+      "negative_nll_prohibited": true,
+      "metrics_72_20_122": true,
+      "threshold_false6": true,
+      "bootstrap_2000": true,
+      "retrieval_non_scored": true,
+      "reader_non_executed": true,
+      "test_sealed": true,
+      "lineage_preserved": true
+    }
+  }
+}
