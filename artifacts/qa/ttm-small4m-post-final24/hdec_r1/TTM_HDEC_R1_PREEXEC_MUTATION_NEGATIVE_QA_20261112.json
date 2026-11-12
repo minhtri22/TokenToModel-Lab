@@ -1,0 +1,31 @@
+{
+  "all_PASS": true,
+  "count": 4,
+  "no_model_forward": true,
+  "no_optimizer_steps": true,
+  "no_private_prompt_or_key_published": true,
+  "schema": "ttm.small4m.hdec_r1.negative_source_lock_qa.v1",
+  "status": "PASS_NEGATIVE_MUTATION_REJECT_ALL",
+  "tests": [
+    {
+      "PASS": true,
+      "case": "owner_sha",
+      "expected_failure": "OWNER_EXACT_SHA"
+    },
+    {
+      "PASS": true,
+      "case": "commitment_sha",
+      "expected_failure": "PUBLIC_COMMITMENT_EXACT_SHA"
+    },
+    {
+      "PASS": true,
+      "case": "bpe_manifest_sha",
+      "expected_failure": "BPE_EXACT_SHA"
+    },
+    {
+      "PASS": true,
+      "case": "decoder_source_sha",
+      "expected_failure": "DECODER_EXACT_SHA"
+    }
+  ]
+}
