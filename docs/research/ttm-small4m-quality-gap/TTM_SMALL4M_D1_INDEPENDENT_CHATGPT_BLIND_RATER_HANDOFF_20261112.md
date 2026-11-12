@@ -39,6 +39,14 @@ Ghi thêm `first_event_fact_match`, `goal_retention`, `serious_contradiction`, `
 
 Một biên nhận scoring có ít nhất: `rater_role`, `model_or_agent_identifier`, thời điểm bắt đầu/kết thúc, `blind_input_sha256`, số bản ghi nhận/đã chấm/không thể chấm, `scored_output_sha256`, xác nhận không truy cập mapping/seed/decoder và xác nhận không thay rubric. Nơi lưu điểm phải riêng tư, không ghi dữ liệu mẫu lên repo công khai.
 
+### Cô lập ngữ cảnh chấm cuối (final rater isolation)
+
+Biên nhận preexec ChatGPT đầu tiên chỉ đạt `RATER_PREEXEC_READY_SCOPED` và tự khai báo đã có ngữ cảnh nghiên cứu trước đó; **không dùng chính cuộc trò chuyện đó làm căn cứ chứng nhận độc lập**. Đây không phải lý do yêu cầu chấm lại preexec.
+
+Khi **và chỉ khi** có 512 đầu ra thực được phát hành trong một science batch đã GO, chủ dự án mở **ChatGPT Temporary Chat mới, chọn Unpersonalized trước tin nhắn đầu** (không dùng memory/custom instructions/plugins cho cá nhân hóa), dán trực tiếp rubric/handoff tối thiểu và đính kèm duy nhất **gói chấm mù đã khóa**. Không đưa GitHub nghiên cứu, các bản đồ seed/decoder, keys hoặc transcript agent sinh vào phiên đó. Handoff được coi là lệnh thực hiện, không đòi hỏi chữ ký; chấm ngay 512 văn bản rồi xuất private scores và SHA trước giải mù.
+
+Tài liệu hỗ trợ của OpenAI: https://help.openai.com/en/articles/8914046-temporary-chat-in-chatgpt — Temporary Chat có hai chế độ, chỉ **Unpersonalized** mới không tham chiếu memory, custom instructions và plugins. Cách này giảm nhiễm ngữ cảnh, không phải bằng chứng độc lập tuyệt đối về thiên lệch của cùng họ mô hình. Nếu không thể nhận tệp vì Temporary Chat thiếu plugin, đính kèm gói file trực tiếp; không bật plugin để đọc private mapping.
+
 ## 4. Lệnh thực thi ngay khi nhận handoff (auto-start on receipt)
 
 **Không cần ký tên, phiếu chấp nhận, xác nhận riêng hoặc yêu cầu chủ dự án cấp micro-permit.** Handoff là lệnh công việc cho ChatGPT agent được giao: khi chủ dự án chuyển handoff sang phiên agent khác, agent **bắt đầu ngay** những bước đã đủ bằng chứng trong phạm vi vai trò của mình, không chờ lời mời xác nhận.
