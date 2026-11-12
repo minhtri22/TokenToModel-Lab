@@ -1,0 +1,35 @@
+{
+  "schema": "ttm.small4m.hdec_r1.owner_rights_and_independent_rater_acceptance.pending.v1",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "date": "2026-11-12",
+  "not_an_attestation": true,
+  "rights": {
+    "owner_new_run_consent": "PENDING_OWNER_EXPLICIT_CONSENT",
+    "existing_A_C_rights_attestation_scope": "INTERNAL_A_C_ONLY_NOT_AUTOMATICALLY_APPLICABLE",
+    "source_dataset": "roneneldan/TinyStories",
+    "source_revision_pin": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "dataset_card_declared_license": "cdla-sharing-1.0",
+    "license_reference": "https://huggingface.co/datasets/roneneldan/TinyStories/blob/main/README.md",
+    "license_comment": "Dataset declares CDLA-Sharing-1.0; source license metadata is not owner authorization, nor a legal opinion or unrestricted redistributability of checkpoints.",
+    "requested_scope": "Internal no-training H-DEC-R1 inference on existing A step1152 only; 12 new DEV and 24 new private FINAL; no raw data redistribution; no TEST/Q1/Q2/OOD access",
+    "rights_status": "HOLD_NEW_SCOPE_OWNER_CONFIRMATION_NOT_RECEIVED"
+  },
+  "reviewer": {
+    "required_type": "INDEPENDENT_BLIND_AI_RATER_SEPARATE_SESSION_OR_HUMAN_AS_ACTUALLY_CONFIRMED",
+    "reviewer_identity": null,
+    "reviewer_session_reference": null,
+    "acceptance_utc": null,
+    "not_seen_owner_key_or_blind_mapping": null,
+    "will_score_24_pairs_48_texts_144_integer_scores_and_24_notes": null,
+    "score_freeze_SHA_before_unblind": true,
+    "blind_packet_received": false,
+    "acceptance_status": "NOT_ACCEPTED_NEW_STUDY",
+    "independence_scope": "NOT_VERIFIED"
+  },
+  "owner_release": {
+    "decision": "HOLD",
+    "new_go_receipt": null,
+    "owner_go_authorized_in_this_preexec": false,
+    "must_not_use_A_C_old_signatures_as_new_owner_go": true
+  }
+}
