@@ -94,9 +94,9 @@
       "local_manifest_path": "_tmp/ttm_t4_data_pack_v1/T4_PRIVATE_PACK_MANIFEST.json",
       "verified_manifest_property_contains_test": false,
       "private_train_val_npz_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
-      "privatepack_qa_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
       "privatepack_qa_status": "PASS_INDEPENDENT_PRIVATE_PACK_INTEGRITY_AND_PROVISIONAL_CAPACITY",
-      "conclusion": "TRAIN_VAL_ARCHIVE_NOT_VALID_TEST_SOURCE_FINGERPRINT_INDEX"
+      "conclusion": "TRAIN_VAL_ARCHIVE_NOT_VALID_TEST_SOURCE_FINGERPRINT_INDEX",
+      "private_pack_manifest_sha256_from_independent_qa": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650"
     },
     {
       "source": "PROTECTED_TEST_AND_Q1Q2",
