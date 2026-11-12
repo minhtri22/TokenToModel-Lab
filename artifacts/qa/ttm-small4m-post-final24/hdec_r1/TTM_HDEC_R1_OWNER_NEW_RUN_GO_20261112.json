@@ -1,0 +1,30 @@
+{
+  "schema": "ttm.small4m.hdec_r1.owner_explicit_chat_consent.v1",
+  "date": "2026-11-12",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "owner_explicit_instruction": "OWNER_HDEC_R1_NEW_RUN_GO=YES",
+  "authorization_source": "user authored message in this conversation, 2026-11-12; NOT cryptographic signature",
+  "owner_authorizes_one_shot_inference": true,
+  "scope": {
+    "checkpoint": "A_1152",
+    "checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "tokenizer_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "D0": "frozen deterministic greedy",
+    "D1": "frozen greedy with continuation-only repetition penalty 1.15",
+    "new_DEV": 12,
+    "new_BLIND_FINAL": 24,
+    "max_new_BPE_tokens": 64,
+    "training_steps": 0,
+    "no_raw_redistribution": true,
+    "no_TEST_Q1_Q2_OOD_access": true,
+    "new_eval_private_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f"
+  },
+  "reviewer_acceptance_before_inference_required": false,
+  "reviewer_requirement_deferred_to_after_generation_before_blind_scoring": true,
+  "reviewer_actual_identity": null,
+  "frozen_escrow_must_remain_private": true,
+  "blind_scoring_hash_lock_required_before_unblinding": true,
+  "release_one_shot_authorized": true,
+  "automatic_inference_executed_in_chat": false,
+  "main_and_lineage_mutated": false
+}
