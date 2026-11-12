@@ -153,6 +153,31 @@ def audit():
     ck('62_negative_bad_result_mask_rejected',rejected(lambda:retriever.mask(retriever.Retrieval('R','SELECTED','SELECTED','SOURCE'))))
     ck('63_no_answer_gold_target_in_signatures',all(bad not in retriever.hybrid_description.__code__.co_varnames[:retriever.hybrid_description.__code__.co_argcount] for bad in ('answer','gold','target_key','wrong_memory','value')))
     ck('64_source_not_writing_any_science_outcomes',not any(x in src+ret_src for x in ('loss.backward(', 'torch.load(', 'F.cross_entropy(', 'read_aggregate(')))
+    # Frozen-cosine fallback is checked only with random mock weights and the
+    # handcrafted bank. It is not called on the new 192 PROBE.
+    import torch
+    torch.manual_seed(20261112)
+    mock_weights=torch.randn(2048,256).float()*.02
+    mock_encoder=lambda s:list(s.encode('ascii'))
+    scores=retriever.frozen_description_cosine(q2,bank,mock_encoder,mock_weights)
+    ck('65_mock_frozen_cosine_32_finite_scores',len(scores)==32 and all(math.isfinite(x) and -1.01<=x<=1.01 for x in scores))
+    changed_scores=retriever.frozen_description_cosine(q2,changed,mock_encoder,mock_weights)
+    ck('66_frozen_cosine_value_blind',scores==changed_scores)
+    ck('67_frozen_cosine_no_embedding_grad',mock_weights.grad is None)
+    ck('68_frozen_cosine_bad_shape_rejected',rejected(lambda:retriever.frozen_description_cosine(q2,bank,mock_encoder,mock_weights[:100])))
+    ck('69_frozen_cosine_trainable_weights_rejected',rejected(lambda:retriever.frozen_description_cosine(q2,bank,mock_encoder,mock_weights.clone().requires_grad_())))
+    original_grams=retriever.key_grams
+    try:
+        # Adversarial synthetic forcing of all-zero lexical overlap to prove
+        # explicit fallback routing without querying any real PROBE outcomes.
+        retriever.key_grams=lambda _:set()
+        fallback=lambda q,c: [1.0 if i==0 else -0.2 for i in range(32)]
+        fallback_result=retriever.hybrid_description(q2,bank,fallback_cosine=fallback)
+        ck('70_hybrid_fallback_when_all_scores_zero',fallback_result.status=='SELECTED' and fallback_result.indices==(0,) and fallback_result.cause=='FROZEN_COSINE_FALLBACK')
+        ck('71_hybrid_missing_fallback_abstains',retriever.hybrid_description(q2,bank).status=='ABSTAIN')
+        ck('72_hybrid_invalid_fallback_scores_rejected',rejected(lambda:retriever.hybrid_description(q2,bank,fallback_cosine=lambda q,c:[float('nan')]*32)))
+    finally:
+        retriever.key_grams=original_grams
     return checks,hashlib.sha256(blob).hexdigest()
 
 
