@@ -1,0 +1,47 @@
+{
+  "schema": "ttm.small4m.ac.v8.owner_science.disk_preflight_halt.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_V8_OWNER_ONE_SHOT_A_C_T4_SCIENCE_DISK_PREFLIGHT_RECOVERY",
+  "source": "owner-supplied Colab traceback plus current GitHub frozen runner and owner Drive directory readback",
+  "owner_lock_status": "PASS_SHA256_VERIFIED_PRIOR",
+  "owner_science_lock_sha256": "4088f6d5ae1512e746d07e4c851f6ee14354bf798cb0b50ab1896fc249305051",
+  "exception": "RuntimeError: DISK_SPACE_BELOW_2GIB",
+  "source_function": "science",
+  "source_guard": "root.parent.is_dir() and shutil.disk_usage(root.parent).free >= 2*1024**3",
+  "runner_git_blob": "f8b74f8439d70504028cdb94a5b01cb058a6107c",
+  "runner_source_modified": false,
+  "source_check_happens_before": [
+    "base.check_input(pack,manifest,checkpoint)",
+    "run_manifest(root,lock_sha,source_sha,resume)",
+    "any optimizer update"
+  ],
+  "science_output_dir": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_ac_objective_only_v1/TTM_SMALL4M_AC_OBJECTIVE_ONLY_V1_SCIENCE",
+  "science_output_dir_present_at_drive_readback": false,
+  "A_science_optimizer_updates": 0,
+  "C_science_optimizer_updates": 0,
+  "root_cause": "THE_RUNNING_FILESYSTEM_GATE_REPORTED_LESS_THAN_2_GIB_FREE_OR_BAD_PARENT; OWNER_DIRECTORY_EXISTS, EXACT_MOUNT_FREE_BYTES_NOT_REPORTED",
+  "filesystem_quota_classification": "PENDING_READONLY_OWNER_COLAB_PROBE",
+  "read_only_probe": {
+    "path": "tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_v8_disk_space_guard_readonly_probe.py",
+    "source_commit": "aa1e8df8eb439d449396895ace02ed3e4e7e9db6",
+    "source_git_blob": "4971e1433f747d3b4d6fb461ca7579b502cc67ce",
+    "reads": [
+      "owner_drive_mount_disk_usage",
+      "colab_content_disk_usage",
+      "colab_tmp_disk_usage",
+      "science_root_existence"
+    ],
+    "writes": false
+  },
+  "prohibited_shortcuts": [
+    "do_not_edit_or_bypass_frozen_2GiB_guard_without_independent_lock_amendment",
+    "do_not_delete_unverified_drive_content",
+    "do_not_change_output_to_ephemeral_content_without_durable_ready_checkpoint_reliability",
+    "do_not_retrain_or_restart_as_new_run"
+  ],
+  "decision": "HOLD_DISK_SPACE_BELOW_2GIB__SOURCE_AND_OWNER_LOCK_PRESERVED",
+  "science_release": "PREVIOUS_OWNER_GATE_PASS_DOES_NOT_OVERRIDE_DISK_GUARD",
+  "next": "OWNER_RUN_READ_ONLY_DISK_PROBE_ON_SAME_COLAB_RUNTIME_THEN_SELECT_STORAGE_RECOVERY",
+  "main_lineage_unchanged": true,
+  "C_minus_A": "NOT_ESTIMABLE"
+}
