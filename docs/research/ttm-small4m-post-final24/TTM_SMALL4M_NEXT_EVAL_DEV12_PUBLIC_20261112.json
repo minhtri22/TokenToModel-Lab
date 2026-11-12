@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-12",
+  "prompts": [
+    {
+      "cohort": "DEV",
+      "id": "ND01",
+      "prompt": "At the museum entrance, Clara was given a numbered wooden tag for her coat. She put it in her pocket so she could retrieve her coat later.",
+      "prompt_utf8_sha256": "0ed5df1e936a2d38b9f232f4375b34d9aba4380685fa523475588cf671375b06",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND02",
+      "prompt": "Alva found a brass thimble beside the workbench and recognized the mark on it. She wrapped it in cloth to return it to the tailor.",
+      "prompt_utf8_sha256": "ca254e4d4727a1046215003c21a2b74468d60e11f98245443591285fc13fab20",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND03",
+      "prompt": "A young goat caught its small bell on a fence hook. The farmer brought a soft cloth and walked over to free the goat without hurting it.",
+      "prompt_utf8_sha256": "b3b4f0c1e23ced3e141b55dfcc84d4cb490ce3532f55ae71424d29678b81a762",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND04",
+      "prompt": "Edda borrowed a paintbrush from her class partner before art time. When the bell rang, she looked for her partner to give it back.",
+      "prompt_utf8_sha256": "652fa7bf0b6b435a3944ec0b83ec854b5db6bb21c5358b14e56cf936d305c1af",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND05",
+      "prompt": "The twins carried two lunch boxes with different labels. At the playground, they noticed they had taken the wrong boxes and agreed to trade back.",
+      "prompt_utf8_sha256": "fb5438fee5585ac7e2f6cc3be2332145f7481e26f44721b74805e1c31d85de90",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND06",
+      "prompt": "Mr. Vale saw a new pupil trying to reach a high shelf in the classroom. He offered a small stool and stayed nearby to help.",
+      "prompt_utf8_sha256": "76178f98d73eaa8adece5e7fd77930a79d052d020feaf34ff1f0a5856fe42d26",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND07",
+      "prompt": "Nessa made a paper lantern for the evening fair. A dark cloud appeared, so she searched for a covered place to keep the lantern dry.",
+      "prompt_utf8_sha256": "6ac82d38eb4735d8fc58c521eb91db9a1c24fd8035dde8a25db93288da870f02",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND08",
+      "prompt": "The gardener lifted a watering can and saw a stream coming from its bottom. He set it down and looked for a way to stop the leak.",
+      "prompt_utf8_sha256": "a5616a0c56bc45a9d4589a987d46ef3b1909169b3e05b0662c43ec58681d3dde",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND09",
+      "prompt": "Pavel wanted to move a heavy box into the shed, but the cart could not climb the doorstep. He went to fetch a wooden ramp.",
+      "prompt_utf8_sha256": "16b0786020d8b692b2d6d09e88b2207d1cd64b5cfa97e43f64cd52c175e208a3",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND10",
+      "prompt": "Tilda had two blue flags for the village game. She was told to raise the first before breakfast and keep the second folded until after lunch.",
+      "prompt_utf8_sha256": "a22bf22bd75c64315eb94e21345437f968452cfeee47fcb2ca2f97c9355207ed",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND11",
+      "prompt": "The librarian sorted story cards into trays marked yesterday and today. Before opening the new tray, she made sure the old cards were put away.",
+      "prompt_utf8_sha256": "70d3cf8fdda69f382d65b4e3040896d595bd21f2d9388680908710902f2f5709",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "DEV",
+      "id": "ND12",
+      "prompt": "Hugo shaped three clay bowls on Monday. His teacher said the first bowl had to dry completely before Hugo could paint it on Tuesday.",
+      "prompt_utf8_sha256": "9275b957b92c9593d1d9b0ab25e8627d8ec5a3970759159f8a9e4125677b5632",
+      "stratum": "temporal_rule"
+    }
+  ],
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "schema": "ttm.small4m.post.final24.next_eval.dev12_public.v1",
+  "status": "SOURCE_FROZEN_DEV_ONLY"
+}
