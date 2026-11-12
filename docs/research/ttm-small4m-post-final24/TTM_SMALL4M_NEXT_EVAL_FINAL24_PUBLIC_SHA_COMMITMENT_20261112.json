@@ -1,0 +1,190 @@
+{
+  "date": "2026-11-12",
+  "dev12_public_sha256": "5d24d4ad9a5cb4c7d0db9efa9fbddbb2d34f321d67df602d2f4b6bca3d183193",
+  "dev_count": 12,
+  "exact_duplicate_screen_prior36": true,
+  "final_count": 24,
+  "format_no_trailing_space": true,
+  "model_forward_count": 0,
+  "novelty": {
+    "exact_match_count": 0,
+    "max_pairwise_word_trigram_jaccard_within": 0.043478,
+    "max_word_trigram_jaccard_against_public_prior36": 0.057143,
+    "not_screened_against": "private TRAIN, original T4 TEST, sealed Q2/OOD, uninspected private sources; no universal novelty claim",
+    "reference_set": "36 public prompts: 24 consumed A/C FINAL24 (Git blob f08f...) + 12 consumed FRESH12 (Git blob 919c...)"
+  },
+  "original_authoring_not_TinyStories_excerpt": true,
+  "owner_private_eval_file_bytes": 18076,
+  "owner_private_eval_file_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+  "pending": [
+    "owner rights confirmation",
+    "independent private set SHA readback",
+    "runtime source pin and deterministic decoder QA",
+    "BPE round-trip and max_seq_len <=256 verification",
+    "reviewer and blinded assignment escrow",
+    "owner one-shot GO"
+  ],
+  "restrictions": [
+    "No BLIND_FINAL prompt in training or tuning",
+    "No BLIND_FINAL inference before single GO",
+    "No source TEST Q1 Q2 OOD inference or reuse",
+    "No model attribution in reviewer packet",
+    "Blind scoring frozen before unblind"
+  ],
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "schema": "ttm.small4m.post.final24.next_eval.final24_commitment.v1",
+  "science_execution_permit": "NOT_GRANTED",
+  "sha256_per_final_prompt": [
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF01",
+      "prompt_utf8_sha256": "251b5f1d63e074d4054e2a01c3de0193d74005cb2a080ed0c2739d1109a6a6fd",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF02",
+      "prompt_utf8_sha256": "3b5423387823698ae8fe782b9e3456827b71c5d731d3b04437607e9785865276",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF03",
+      "prompt_utf8_sha256": "528c2fd79b3a3f8dea4adce0c9ec8ba0b453df1f263a5587253929b1646e8c61",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF04",
+      "prompt_utf8_sha256": "d110026f14fe5a93fe17f32ccd8cee5e35839ff982a6a02be2f11b9f88923ff4",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF05",
+      "prompt_utf8_sha256": "59060f35bac60b2323a175a01adb70ae39c2436508e53d6c022c6325cff13cd3",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF06",
+      "prompt_utf8_sha256": "d05f155e4d3508ef296252a81e9334c75fadb4443fbed7794c9ddbbfdf88ada9",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF07",
+      "prompt_utf8_sha256": "2054fa536d04086cd777d474525d2abb44e199b10989c507353e1a057579e032",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF08",
+      "prompt_utf8_sha256": "03a8581c2b069173f427e7542c75189d06bcfe5a7ddde185a3b06892c286a1d7",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF09",
+      "prompt_utf8_sha256": "7deadca66ba215f529d673a1691f46f4e3d63c158675b6e2c4eda7225b87a43e",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF10",
+      "prompt_utf8_sha256": "40516efbf1a7a92d5b231a867813c5749550148841c9a499ff67985ab6f2be00",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF11",
+      "prompt_utf8_sha256": "f6dc5896a1140646c98db487fd839016e0795dff9b832ceb538dc99056936ee0",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF12",
+      "prompt_utf8_sha256": "1a197494699534da41a44e54a96871c39e879aa7096d3bef719358f069aab37c",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF13",
+      "prompt_utf8_sha256": "998d1ec0d4f19350f6cf120c90012504b55d76981cb3fb1652abcbcd49d8b27f",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF14",
+      "prompt_utf8_sha256": "1800caba0a0ad66c821a77a569a67622512ce556fa0f6006dada444feb6d68c7",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF15",
+      "prompt_utf8_sha256": "a0f2d3278a851dbd4ca9ecd2efcf8940e74886afa28105c0da7e19a5cf0b6ace",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF16",
+      "prompt_utf8_sha256": "471f5a591f069c3db23a7c1ce26599abbdfc1eb8fcf2dc2675c96cc8a78ce662",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF17",
+      "prompt_utf8_sha256": "d6c32b4e70e628424d83075bf0ec4f18d3b2150009ffec94d74da6ab33afd970",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF18",
+      "prompt_utf8_sha256": "03e1ba770771c315a69343a8543b2c5163e61b3397779e049d50840d1ff41a11",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF19",
+      "prompt_utf8_sha256": "dfa61ba48e9fd8735cca9dc3033b2fa9ad6f63ccd580977ebbf6f7f4030c51e1",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF20",
+      "prompt_utf8_sha256": "b9bf62ef664a0a55bde3656941a0ffef8d215f576b9576425e7a075de118e2e0",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF21",
+      "prompt_utf8_sha256": "b5b202c33dff714118fa138d314bf4307b9b89f264dbf28f1ef78851972085af",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF22",
+      "prompt_utf8_sha256": "d1747524d516c98c4bca82cd7e6fa25c4c5b1f480f771c357ee4d8d4824147d7",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF23",
+      "prompt_utf8_sha256": "08e0c28f9e48a7ac25f772b8409717e96e68ad52398cedbb5499138f1cde4f14",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "BLIND_FINAL",
+      "id": "NF24",
+      "prompt_utf8_sha256": "463900f09b37b30b240facc1b14c300a0d6e94c64d89b4e36c5f2ce9bb054338",
+      "stratum": "temporal_rule"
+    }
+  ],
+  "status": "FROZEN_BEFORE_ANY_NEW_MODEL_FORWARD",
+  "stratum_balance": {
+    "causal_obstacle": 6,
+    "object_custody": 6,
+    "social_relation": 6,
+    "temporal_rule": 6
+  }
+}
