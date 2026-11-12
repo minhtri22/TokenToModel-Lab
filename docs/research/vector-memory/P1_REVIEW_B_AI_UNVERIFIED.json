@@ -1,0 +1,5419 @@
+{
+  "attest_independent_semantic_mapping": false,
+  "attest_no_gold_or_other_review_access": false,
+  "cases": [
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0000",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objufwfmjfbqfwz",
+          "retrieval_text": "color indigo; shape ridged; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucmmqwccctrs",
+          "retrieval_text": "color copper; shape oval; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusgbmmknpmwx",
+          "retrieval_text": "color ochre; shape cubic; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzhshhjkctvm",
+          "retrieval_text": "color indigo; shape cubic; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuznbskslnrgq",
+          "retrieval_text": "color ochre; shape rectangular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objugcvnjwfmrnw",
+          "retrieval_text": "color ochre; shape round; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objulzcrqqpxstv",
+          "retrieval_text": "color copper; shape cubic; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqztdjwjhmnb",
+          "retrieval_text": "color ivory; shape cubic; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwrmzbdzpnfr",
+          "retrieval_text": "color copper; shape round; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuntkpwjqjlkz",
+          "retrieval_text": "color ivory; shape tubular; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqnkbkchktbm",
+          "retrieval_text": "color pearl; shape tubular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujgmkmtznpmq",
+          "retrieval_text": "color pearl; shape square; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqmfqpzdxmwt",
+          "retrieval_text": "color indigo; shape conical; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqblxdwpmtrh",
+          "retrieval_text": "color amber; shape cubic; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulqcwgnpltrr",
+          "retrieval_text": "color crimson; shape arched; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxsgbwwxkkhn",
+          "retrieval_text": "color amber; shape rectangular; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwdjnxkchglh",
+          "retrieval_text": "color silver; shape hexagonal; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudnkdcnckddl",
+          "retrieval_text": "color ivory; shape rectangular; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objupwbvdnczlkz",
+          "retrieval_text": "color copper; shape spiral; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumctdgkjxdpg",
+          "retrieval_text": "color ivory; shape rectangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvlpnscwcdsl",
+          "retrieval_text": "color coral; shape tubular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumkqqmzdctqq",
+          "retrieval_text": "color ochre; shape square; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxcdxnxhqtzh",
+          "retrieval_text": "color ochre; shape spiral; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvhzvwllrtwn",
+          "retrieval_text": "color sable; shape oval; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuljwqlgnctcv",
+          "retrieval_text": "color indigo; shape triangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwvxrlwchfth",
+          "retrieval_text": "color jade; shape spiral; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqnqkfgdcnjj",
+          "retrieval_text": "color silver; shape tubular; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufgnfnndtksp",
+          "retrieval_text": "color azure; shape ridged; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurxjzcgrnhhg",
+          "retrieval_text": "color silver; shape rectangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxpsfwqzbxdt",
+          "retrieval_text": "color pearl; shape conical; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwjzrxqfndmm",
+          "retrieval_text": "color ivory; shape spiral; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objugbxsdkqwxzd",
+          "retrieval_text": "color silver; shape rectangular; material leather",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the bone-pale long-four-cornered tanned-skin archive item? Answer:",
+      "reason": "bone-pale ≈ ivory; long-four-cornered ≈ rectangular; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objumctdgkjxdpg"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0001",
+      "confidence": 2,
+      "public_index": [
+        {
+          "key": "objugxhmzjsjvwr",
+          "retrieval_text": "color ivory; shape round; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objummzspbclxwq",
+          "retrieval_text": "color copper; shape spiral; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujvfqcbjwzmh",
+          "retrieval_text": "color amber; shape round; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxqkqtvdhxqw",
+          "retrieval_text": "color crimson; shape rectangular; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhdvqsztqtjq",
+          "retrieval_text": "color indigo; shape rectangular; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhrszjfkhnln",
+          "retrieval_text": "color indigo; shape square; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxmjhgsxrhlf",
+          "retrieval_text": "color copper; shape round; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurqnwpcgcxdp",
+          "retrieval_text": "color sable; shape rectangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzcmftsrnxrb",
+          "retrieval_text": "color copper; shape arched; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuspvtlqqcjpr",
+          "retrieval_text": "color jade; shape round; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhvsskpfngxg",
+          "retrieval_text": "color crimson; shape spiral; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunntcbvrfqhx",
+          "retrieval_text": "color amber; shape oval; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurkgcqxsgpfp",
+          "retrieval_text": "color indigo; shape triangular; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufdfrdmmphrh",
+          "retrieval_text": "color amber; shape conical; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumjmswdfsnvs",
+          "retrieval_text": "color crimson; shape hexagonal; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuppqjtdvxvdx",
+          "retrieval_text": "color copper; shape tubular; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqpsxcwttkrb",
+          "retrieval_text": "color crimson; shape round; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objupfvrlwhgmfn",
+          "retrieval_text": "color ochre; shape triangular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumdjmkwgwdhc",
+          "retrieval_text": "color silver; shape round; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujwdmbstmdgr",
+          "retrieval_text": "color silver; shape spiral; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunwgtrszxrqq",
+          "retrieval_text": "color amber; shape oval; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutdwszxfblhl",
+          "retrieval_text": "color copper; shape ridged; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutzbrnxgxrnc",
+          "retrieval_text": "color ivory; shape rectangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulscbxrbhdxb",
+          "retrieval_text": "color pearl; shape cubic; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvqzjnqkbzdr",
+          "retrieval_text": "color indigo; shape round; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objughfmdkhdrbc",
+          "retrieval_text": "color silver; shape tubular; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqmgzqtvxsch",
+          "retrieval_text": "color indigo; shape round; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvsqpcxrcfwr",
+          "retrieval_text": "color copper; shape spiral; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukgmgvmbsnbf",
+          "retrieval_text": "color pearl; shape round; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurfzgkpdkqkp",
+          "retrieval_text": "color azure; shape rectangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objultslbwprkwm",
+          "retrieval_text": "color jade; shape spiral; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxgdvjvzdgrj",
+          "retrieval_text": "color azure; shape spiral; material granite",
+          "source_id": "src-west"
+        }
+      ],
+      "question": "Which tag belongs to the night-hued disklike tanned-skin archive item? Answer:",
+      "reason": "night-hued ≈ indigo (màu xanh đêm); disklike ≈ round; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuvqzjnqkbzdr"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0002",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objujghjhktmslb",
+          "retrieval_text": "color ivory; shape spiral; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukltfprspbgn",
+          "retrieval_text": "color azure; shape rectangular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumrrqbllfwmv",
+          "retrieval_text": "color azure; shape spiral; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuljhzsfdtvvl",
+          "retrieval_text": "color azure; shape rectangular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurppdnhfbkzb",
+          "retrieval_text": "color ochre; shape conical; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufbgtpqcvbsq",
+          "retrieval_text": "color ivory; shape conical; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuckpchblxcxm",
+          "retrieval_text": "color amber; shape triangular; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzvskxmmppfk",
+          "retrieval_text": "color azure; shape triangular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwfhtndvtpzh",
+          "retrieval_text": "color ochre; shape rectangular; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusjfwcvbglqt",
+          "retrieval_text": "color sable; shape ridged; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhjrlvksjqpz",
+          "retrieval_text": "color amber; shape round; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuctfprxztgqr",
+          "retrieval_text": "color copper; shape ridged; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudkdxxhpmmxd",
+          "retrieval_text": "color azure; shape spiral; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufvjqgwlsspk",
+          "retrieval_text": "color ivory; shape triangular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujpxncgqsbwr",
+          "retrieval_text": "color jade; shape tubular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusnzzqpmxskb",
+          "retrieval_text": "color crimson; shape hexagonal; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxmvxbpdhbbs",
+          "retrieval_text": "color jade; shape triangular; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvncncmjvjmr",
+          "retrieval_text": "color crimson; shape conical; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objugzqjwsxnxqz",
+          "retrieval_text": "color indigo; shape spiral; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuplhkztvcfxf",
+          "retrieval_text": "color crimson; shape spiral; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhfrbnnqbghd",
+          "retrieval_text": "color crimson; shape rectangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukslshctzksm",
+          "retrieval_text": "color coral; shape square; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqcqmtqwrtrb",
+          "retrieval_text": "color ochre; shape oval; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucbfhxfcwccf",
+          "retrieval_text": "color crimson; shape cubic; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunzrwvzkmxdj",
+          "retrieval_text": "color coral; shape triangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzlzfgtsqcpm",
+          "retrieval_text": "color azure; shape cubic; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhkvfssspjlq",
+          "retrieval_text": "color ivory; shape hexagonal; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutgvdzcnqkfb",
+          "retrieval_text": "color coral; shape hexagonal; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxmzgnngbjwr",
+          "retrieval_text": "color sable; shape hexagonal; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqjgbwngsfbj",
+          "retrieval_text": "color silver; shape spiral; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukcnbvmcrntk",
+          "retrieval_text": "color crimson; shape spiral; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujcdxnrqmtqt",
+          "retrieval_text": "color pearl; shape round; material bronze",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued snailshell-turning tanned-skin archive item? Answer:",
+      "reason": "sky-hued ≈ azure; snailshell-turning ≈ spiral; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objumrrqbllfwmv"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0003",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuzjlflsrfjfv",
+          "retrieval_text": "color ochre; shape square; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugwhdsgjbrpc",
+          "retrieval_text": "color jade; shape conical; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukqdkgdvfgzv",
+          "retrieval_text": "color ivory; shape rectangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulppvcvlzgjn",
+          "retrieval_text": "color crimson; shape round; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objusvmvzdpvtqv",
+          "retrieval_text": "color crimson; shape tubular; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhptljrnjphk",
+          "retrieval_text": "color coral; shape spiral; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvtdtcptrzkx",
+          "retrieval_text": "color pearl; shape conical; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutjcdzrlzddb",
+          "retrieval_text": "color amber; shape tubular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucbbpsgqszkm",
+          "retrieval_text": "color coral; shape arched; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxpzjczswlsh",
+          "retrieval_text": "color crimson; shape spiral; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudjsshjhsqgf",
+          "retrieval_text": "color azure; shape oval; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhwvtffpfrgr",
+          "retrieval_text": "color jade; shape cubic; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufhxsfpvkgtt",
+          "retrieval_text": "color indigo; shape spiral; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvzwhrlnggbb",
+          "retrieval_text": "color pearl; shape rectangular; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwxvnmxtgfht",
+          "retrieval_text": "color silver; shape ridged; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudvzccbqwggb",
+          "retrieval_text": "color copper; shape spiral; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxbqndmskcph",
+          "retrieval_text": "color coral; shape cubic; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuggkcgdnhbct",
+          "retrieval_text": "color silver; shape hexagonal; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunfrklpmwfgg",
+          "retrieval_text": "color amber; shape triangular; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurnsdgxfdpwp",
+          "retrieval_text": "color pearl; shape ridged; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurzvtgjdvrdw",
+          "retrieval_text": "color ivory; shape rectangular; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objublpjsdpbzdm",
+          "retrieval_text": "color jade; shape hexagonal; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurhtvpltlgrd",
+          "retrieval_text": "color jade; shape square; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupdmfqkjtvxc",
+          "retrieval_text": "color pearl; shape arched; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunjkwsltcngz",
+          "retrieval_text": "color indigo; shape conical; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqzvswwkssjw",
+          "retrieval_text": "color copper; shape tubular; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunkhkrzqrshk",
+          "retrieval_text": "color silver; shape cubic; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurhdhcdrrhph",
+          "retrieval_text": "color ochre; shape round; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxjnmgfhhcmk",
+          "retrieval_text": "color coral; shape arched; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurjfgwwmrjht",
+          "retrieval_text": "color crimson; shape spiral; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujssjcgwfgzc",
+          "retrieval_text": "color amber; shape arched; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objubmfnjzzhshr",
+          "retrieval_text": "color crimson; shape rectangular; material glass",
+          "source_id": "src-central"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned snailshell-turning silica-clear archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; snailshell-turning ≈ spiral; silica-clear ≈ glass. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuxpzjczswlsh"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0004",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuzzhmdtcdpzs",
+          "retrieval_text": "color ivory; shape tubular; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuksrjpdqkwqn",
+          "retrieval_text": "color indigo; shape oval; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvfmjpfdrxdh",
+          "retrieval_text": "color jade; shape triangular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqjgjpnpmttp",
+          "retrieval_text": "color silver; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufxfllvbwbrw",
+          "retrieval_text": "color crimson; shape arched; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukxxbjzhqrpt",
+          "retrieval_text": "color ochre; shape hexagonal; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumpvpkbcxggz",
+          "retrieval_text": "color indigo; shape spiral; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuclbcdwlqxxn",
+          "retrieval_text": "color amber; shape rectangular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufwgwhzwkwtr",
+          "retrieval_text": "color ochre; shape hexagonal; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhcmcfftkdxk",
+          "retrieval_text": "color amber; shape spiral; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunnwqwsdgnnh",
+          "retrieval_text": "color silver; shape rectangular; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufxlgwlfstfz",
+          "retrieval_text": "color sable; shape spiral; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufcrmqcppfjk",
+          "retrieval_text": "color crimson; shape conical; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzwnncglrdxw",
+          "retrieval_text": "color amber; shape spiral; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwjcwmbzsrpk",
+          "retrieval_text": "color copper; shape tubular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objustrktnrmbqg",
+          "retrieval_text": "color azure; shape cubic; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulbzgtrkbvbf",
+          "retrieval_text": "color silver; shape rectangular; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujvjvchgcmfx",
+          "retrieval_text": "color azure; shape square; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukwtzqcqtwwx",
+          "retrieval_text": "color ivory; shape arched; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuzkbgsxtgdhn",
+          "retrieval_text": "color crimson; shape rectangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubspknblsclx",
+          "retrieval_text": "color azure; shape rectangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumxlbccjjtfc",
+          "retrieval_text": "color ivory; shape triangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukswwbfdltjx",
+          "retrieval_text": "color copper; shape ridged; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objusbcrtrrnrcs",
+          "retrieval_text": "color copper; shape tubular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukpctwmphttm",
+          "retrieval_text": "color crimson; shape conical; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukgwwjnzzpzv",
+          "retrieval_text": "color jade; shape arched; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhtxrtxfbvtb",
+          "retrieval_text": "color pearl; shape square; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujvzpnnkkktg",
+          "retrieval_text": "color indigo; shape tubular; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuggrdbzdttnt",
+          "retrieval_text": "color indigo; shape arched; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumhsprwrkbzw",
+          "retrieval_text": "color azure; shape rectangular; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxxwdsxqcgkq",
+          "retrieval_text": "color coral; shape triangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objugrxmzgmwcgx",
+          "retrieval_text": "color amber; shape oval; material bronze",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued long-four-cornered tanned-skin archive item? Answer:",
+      "reason": "sky-hued ≈ azure; long-four-cornered ≈ rectangular; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objumhsprwrkbzw"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0005",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuskjcfbrrdrt",
+          "retrieval_text": "color ivory; shape tubular; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqdwlbktwbwh",
+          "retrieval_text": "color pearl; shape arched; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupjsndjnwhdj",
+          "retrieval_text": "color copper; shape triangular; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudpjznbgnmnq",
+          "retrieval_text": "color indigo; shape cubic; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupcrstcpcvdx",
+          "retrieval_text": "color amber; shape hexagonal; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objupjtnfhrvkmc",
+          "retrieval_text": "color azure; shape tubular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumvqbfrtjkqz",
+          "retrieval_text": "color coral; shape hexagonal; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutsslhgfmnqs",
+          "retrieval_text": "color sable; shape oval; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulttpvclgjql",
+          "retrieval_text": "color pearl; shape tubular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuccmhzsrrdhp",
+          "retrieval_text": "color pearl; shape oval; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxztvstsqjrb",
+          "retrieval_text": "color ochre; shape tubular; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzffxjsbftrs",
+          "retrieval_text": "color jade; shape ridged; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuffqvbqxftlk",
+          "retrieval_text": "color ivory; shape round; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzpbczjthwgr",
+          "retrieval_text": "color azure; shape spiral; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujzmldbsrhrl",
+          "retrieval_text": "color pearl; shape arched; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucptwllnnbrm",
+          "retrieval_text": "color jade; shape oval; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objublwwdzrkmbr",
+          "retrieval_text": "color silver; shape square; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objusvbxdrwbfcq",
+          "retrieval_text": "color indigo; shape oval; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqbgwfbsptvj",
+          "retrieval_text": "color amber; shape square; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudkbrmxhnbht",
+          "retrieval_text": "color ochre; shape conical; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxvvchmtjffd",
+          "retrieval_text": "color crimson; shape square; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqqhmlppdvkp",
+          "retrieval_text": "color jade; shape round; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvvgjqcfhrnt",
+          "retrieval_text": "color sable; shape cubic; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqdvkfgrvhhl",
+          "retrieval_text": "color ivory; shape tubular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugqjxrnwqnvf",
+          "retrieval_text": "color indigo; shape ridged; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujtrlgwfvzpz",
+          "retrieval_text": "color silver; shape triangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzrqtmhswjgm",
+          "retrieval_text": "color azure; shape square; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objugxdtswknhhf",
+          "retrieval_text": "color ochre; shape oval; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuncwgkshvhgg",
+          "retrieval_text": "color azure; shape square; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutbgqvtvrsld",
+          "retrieval_text": "color pearl; shape round; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuncsbfbhgfht",
+          "retrieval_text": "color ochre; shape ridged; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujprbfmmbpfx",
+          "retrieval_text": "color ivory; shape round; material timber",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued equal-four-sided tree-derived archive item? Answer:",
+      "reason": "sky-hued ≈ azure; equal-four-sided ≈ square; tree-derived ≈ timber. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuncwgkshvhgg"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0006",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objugfwkngtthqr",
+          "retrieval_text": "color amber; shape ridged; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukzspcnpbxns",
+          "retrieval_text": "color ochre; shape triangular; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucgtgjxbczjd",
+          "retrieval_text": "color crimson; shape rectangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudbvtlkgwfms",
+          "retrieval_text": "color crimson; shape oval; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunjzcbgqjhzj",
+          "retrieval_text": "color pearl; shape spiral; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurcnftkckgqj",
+          "retrieval_text": "color silver; shape ridged; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubcrxhgmmwfz",
+          "retrieval_text": "color ochre; shape square; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupktsptggvpk",
+          "retrieval_text": "color amber; shape oval; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurznpvqflcjn",
+          "retrieval_text": "color jade; shape square; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudnqdwtdbjqh",
+          "retrieval_text": "color sable; shape round; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objupdfknwggzxq",
+          "retrieval_text": "color ochre; shape spiral; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuzfggsdlmjbf",
+          "retrieval_text": "color crimson; shape cubic; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzdzpsthnvzp",
+          "retrieval_text": "color coral; shape conical; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhhpcwxjqtmm",
+          "retrieval_text": "color crimson; shape triangular; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujdfffptqmzq",
+          "retrieval_text": "color ivory; shape hexagonal; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurjvxmgtwjtz",
+          "retrieval_text": "color ivory; shape rectangular; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurxrvrxjjhwv",
+          "retrieval_text": "color sable; shape ridged; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvnjlxfzvmkh",
+          "retrieval_text": "color pearl; shape hexagonal; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objunrxqqxtrwlp",
+          "retrieval_text": "color pearl; shape arched; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqxbwrlzvfxw",
+          "retrieval_text": "color jade; shape arched; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumgkpsnrgxlj",
+          "retrieval_text": "color indigo; shape rectangular; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuddxqlctnsjx",
+          "retrieval_text": "color ivory; shape ridged; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurfptjrdkbzx",
+          "retrieval_text": "color copper; shape rectangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objugfsnnrhbvcq",
+          "retrieval_text": "color amber; shape rectangular; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucjqxwqqtscp",
+          "retrieval_text": "color coral; shape conical; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujhdsmkhnmcb",
+          "retrieval_text": "color sable; shape arched; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxlvzbhkfxvs",
+          "retrieval_text": "color azure; shape cubic; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqjrfcwjtdfr",
+          "retrieval_text": "color crimson; shape rectangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurhvztppbpnp",
+          "retrieval_text": "color coral; shape cubic; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudchrxqfvwks",
+          "retrieval_text": "color jade; shape tubular; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurgpzztvsntl",
+          "retrieval_text": "color indigo; shape oval; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhhfpjdrqjhp",
+          "retrieval_text": "color indigo; shape ridged; material bronze",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned long-four-cornered plant-fluff archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; long-four-cornered ≈ rectangular; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuqjrfcwjtdfr"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0007",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuqwmvlhxkdcv",
+          "retrieval_text": "color ivory; shape conical; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objusbgrhclmtgj",
+          "retrieval_text": "color silver; shape rectangular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujkfqwfzhzxc",
+          "retrieval_text": "color ivory; shape tubular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuchhkzbnghjb",
+          "retrieval_text": "color ochre; shape round; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurdbznvswptw",
+          "retrieval_text": "color crimson; shape spiral; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubrpcslrbrjh",
+          "retrieval_text": "color sable; shape conical; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudhjccgkvpbd",
+          "retrieval_text": "color azure; shape conical; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujphpzdgsrdn",
+          "retrieval_text": "color coral; shape oval; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuctttccfdmbj",
+          "retrieval_text": "color ivory; shape round; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucsfbjfbfwsz",
+          "retrieval_text": "color silver; shape tubular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurqztqtbzswq",
+          "retrieval_text": "color copper; shape conical; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxrrdrrnpckt",
+          "retrieval_text": "color ochre; shape cubic; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubzffmtkqhhg",
+          "retrieval_text": "color ochre; shape square; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhqqzmxxscsf",
+          "retrieval_text": "color jade; shape tubular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqjffqnvkzsc",
+          "retrieval_text": "color pearl; shape tubular; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxczzjcrwksh",
+          "retrieval_text": "color silver; shape round; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunjcsqdlwpjp",
+          "retrieval_text": "color jade; shape ridged; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudmjsvhwjkvb",
+          "retrieval_text": "color pearl; shape square; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupxmddsjtdll",
+          "retrieval_text": "color pearl; shape arched; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunbfvskskkbg",
+          "retrieval_text": "color ivory; shape triangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulffvrsxcfzg",
+          "retrieval_text": "color jade; shape hexagonal; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutwkvlvfwssr",
+          "retrieval_text": "color crimson; shape ridged; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugjqwxzllqkx",
+          "retrieval_text": "color ivory; shape round; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwzfkmwnncqx",
+          "retrieval_text": "color ivory; shape oval; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumtqxbzzgxhd",
+          "retrieval_text": "color amber; shape spiral; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objughpbmdmvrdx",
+          "retrieval_text": "color sable; shape conical; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudjgghjjhwrf",
+          "retrieval_text": "color silver; shape hexagonal; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurpmbvqpmkkq",
+          "retrieval_text": "color sable; shape arched; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudrnpkkfnhnn",
+          "retrieval_text": "color pearl; shape round; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukcbvsxkpwrn",
+          "retrieval_text": "color azure; shape round; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvjssblwqtkr",
+          "retrieval_text": "color jade; shape spiral; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudqhrslqcktn",
+          "retrieval_text": "color pearl; shape cubic; material rubber",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the bone-pale disklike plant-fluff archive item? Answer:",
+      "reason": "bone-pale ≈ ivory; disklike ≈ round; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuctttccfdmbj"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0008",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuxrjcsvlvxtx",
+          "retrieval_text": "color silver; shape triangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucqrmjwjlgzl",
+          "retrieval_text": "color silver; shape ridged; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxkrtstqhhdl",
+          "retrieval_text": "color pearl; shape triangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhrtbqkmmdvp",
+          "retrieval_text": "color sable; shape round; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqwdzsngdqrq",
+          "retrieval_text": "color copper; shape hexagonal; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwqbccjbjvfn",
+          "retrieval_text": "color crimson; shape round; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujssnwgqkdwp",
+          "retrieval_text": "color ivory; shape oval; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhgcntmhjlks",
+          "retrieval_text": "color ochre; shape rectangular; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvvddqfpcwdw",
+          "retrieval_text": "color pearl; shape square; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurpwlrnxvmbw",
+          "retrieval_text": "color indigo; shape round; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurbcqkjlwfjr",
+          "retrieval_text": "color amber; shape arched; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulgtwxtxqpvb",
+          "retrieval_text": "color pearl; shape conical; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudwvvfmnbmlk",
+          "retrieval_text": "color crimson; shape ridged; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqvscqqchtqv",
+          "retrieval_text": "color indigo; shape hexagonal; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumhbpdxvqbjj",
+          "retrieval_text": "color amber; shape conical; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurhzhcfvdkpn",
+          "retrieval_text": "color sable; shape round; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubtfllwbbltq",
+          "retrieval_text": "color indigo; shape tubular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunnvwwbnrqnm",
+          "retrieval_text": "color pearl; shape rectangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusxwcmgvbbgq",
+          "retrieval_text": "color pearl; shape ridged; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurfmfchkvxqp",
+          "retrieval_text": "color sable; shape square; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukqgddjtwczs",
+          "retrieval_text": "color indigo; shape triangular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurmzvnqnhgqw",
+          "retrieval_text": "color crimson; shape round; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwtkpxqbqxhc",
+          "retrieval_text": "color silver; shape hexagonal; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukxmqzvkpkgn",
+          "retrieval_text": "color sable; shape square; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukpgxrczhcnm",
+          "retrieval_text": "color ivory; shape round; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumxmwmkqqttw",
+          "retrieval_text": "color copper; shape round; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuwchszhkhrhh",
+          "retrieval_text": "color sable; shape hexagonal; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objupqpmqkzjvxp",
+          "retrieval_text": "color ivory; shape tubular; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqhblzjsqpcc",
+          "retrieval_text": "color amber; shape hexagonal; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuclqkhrdnmcr",
+          "retrieval_text": "color ivory; shape conical; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqfpzdbtvxwl",
+          "retrieval_text": "color amber; shape arched; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objummsgjjrwqrv",
+          "retrieval_text": "color crimson; shape triangular; material glass",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned disklike silica-clear archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; disklike ≈ round; silica-clear ≈ glass. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuwqbccjbjvfn"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0009",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objusxrxmglbmsq",
+          "retrieval_text": "color amber; shape rectangular; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvbxdwvkfbdh",
+          "retrieval_text": "color indigo; shape conical; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunhsjfnzkqtn",
+          "retrieval_text": "color pearl; shape square; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubmxmbvdkpzw",
+          "retrieval_text": "color amber; shape rectangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurrjjmfthrck",
+          "retrieval_text": "color azure; shape triangular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhbccfnrdqqn",
+          "retrieval_text": "color azure; shape spiral; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhnplsvgjhjt",
+          "retrieval_text": "color amber; shape oval; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwhzprjsvcwp",
+          "retrieval_text": "color copper; shape triangular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupccvlzczgrc",
+          "retrieval_text": "color coral; shape conical; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvrrdlcvfcwr",
+          "retrieval_text": "color ochre; shape tubular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulwnfxptpjxs",
+          "retrieval_text": "color azure; shape rectangular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutgmqjqnmgdj",
+          "retrieval_text": "color sable; shape ridged; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqcmxczxphgs",
+          "retrieval_text": "color silver; shape arched; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutfschxvrhfr",
+          "retrieval_text": "color amber; shape ridged; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objughhjfskqfqq",
+          "retrieval_text": "color ivory; shape rectangular; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxgmxfscwwsl",
+          "retrieval_text": "color amber; shape cubic; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulfnvkcmwtpm",
+          "retrieval_text": "color ivory; shape hexagonal; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwdjhvngvfmg",
+          "retrieval_text": "color indigo; shape spiral; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurswvbntvmrc",
+          "retrieval_text": "color ivory; shape square; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupxvqttncmmq",
+          "retrieval_text": "color amber; shape tubular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutknrndkxvdg",
+          "retrieval_text": "color coral; shape round; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxddqffhtpcd",
+          "retrieval_text": "color sable; shape arched; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutszgxsjtsvw",
+          "retrieval_text": "color silver; shape conical; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudbjgngqhjpf",
+          "retrieval_text": "color jade; shape tubular; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwwzccdfgljk",
+          "retrieval_text": "color ochre; shape spiral; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuprthfkdlrrt",
+          "retrieval_text": "color ivory; shape round; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujdtwgnhgnwj",
+          "retrieval_text": "color jade; shape rectangular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunwgtmpjkpts",
+          "retrieval_text": "color sable; shape triangular; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujwtkhvsjsvd",
+          "retrieval_text": "color copper; shape ridged; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvcbfgqpcjph",
+          "retrieval_text": "color copper; shape ridged; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujxqnpgrdthl",
+          "retrieval_text": "color coral; shape spiral; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupvslscmlzqc",
+          "retrieval_text": "color coral; shape arched; material marble",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued long-four-cornered silica-clear archive item? Answer:",
+      "reason": "honey-hued ≈ amber; long-four-cornered ≈ rectangular; silica-clear ≈ glass. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objubmxmbvdkpzw"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0010",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuqrvwdjxlmxr",
+          "retrieval_text": "color indigo; shape rectangular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugwdjckrrvlx",
+          "retrieval_text": "color pearl; shape spiral; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvdlrqjmqfzg",
+          "retrieval_text": "color ivory; shape spiral; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqcwkxbrxtvh",
+          "retrieval_text": "color pearl; shape conical; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objusjhvpjgddkk",
+          "retrieval_text": "color ochre; shape conical; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqsphzvhdhlw",
+          "retrieval_text": "color azure; shape ridged; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objutdvdnlgmmdl",
+          "retrieval_text": "color jade; shape hexagonal; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhjkjfdlgmsd",
+          "retrieval_text": "color crimson; shape rectangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwrrlfnlsgfc",
+          "retrieval_text": "color ochre; shape rectangular; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudltnhscbpns",
+          "retrieval_text": "color azure; shape cubic; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwwgrkxhctfr",
+          "retrieval_text": "color indigo; shape arched; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujnmxxfgcjmh",
+          "retrieval_text": "color jade; shape conical; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubpkxsgcmwnw",
+          "retrieval_text": "color crimson; shape hexagonal; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufzzzpxktcjm",
+          "retrieval_text": "color azure; shape tubular; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuskkbgrzvzvs",
+          "retrieval_text": "color coral; shape rectangular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objundjtkdvdnvk",
+          "retrieval_text": "color ochre; shape square; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupsqjrphzwwg",
+          "retrieval_text": "color copper; shape conical; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugdzrgsmxxrr",
+          "retrieval_text": "color copper; shape arched; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwxzgkfrmckf",
+          "retrieval_text": "color pearl; shape arched; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubxkqlqpthhr",
+          "retrieval_text": "color indigo; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvsqvczsvmhr",
+          "retrieval_text": "color indigo; shape ridged; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhjjwkfcdvxn",
+          "retrieval_text": "color crimson; shape rectangular; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuftfrqgktrgr",
+          "retrieval_text": "color pearl; shape triangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutrvqcfvwmsh",
+          "retrieval_text": "color copper; shape hexagonal; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqfpqjcrtnsg",
+          "retrieval_text": "color ochre; shape oval; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudjknwddbwjp",
+          "retrieval_text": "color ivory; shape oval; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumsmtzkkkjvx",
+          "retrieval_text": "color sable; shape hexagonal; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufznpbzkrncn",
+          "retrieval_text": "color silver; shape triangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhqvlxfnkvff",
+          "retrieval_text": "color copper; shape rectangular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudkksbnqbsmq",
+          "retrieval_text": "color pearl; shape triangular; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuslqtcmgrbkh",
+          "retrieval_text": "color crimson; shape conical; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuczfqzpxmmlr",
+          "retrieval_text": "color crimson; shape cubic; material glass",
+          "source_id": "src-west"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned long-four-cornered silica-clear archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; long-four-cornered ≈ rectangular; silica-clear ≈ glass. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuhjkjfdlgmsd"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0011",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objukwljstvdmmj",
+          "retrieval_text": "color ivory; shape rectangular; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objummmgbwrbxnh",
+          "retrieval_text": "color azure; shape hexagonal; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxczlwhxjpcr",
+          "retrieval_text": "color copper; shape triangular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufcxdwmlchlh",
+          "retrieval_text": "color amber; shape conical; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objufvrscjwdsgm",
+          "retrieval_text": "color azure; shape arched; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubthwzhqtpzv",
+          "retrieval_text": "color sable; shape arched; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusbwgqxmrrcf",
+          "retrieval_text": "color ochre; shape rectangular; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objufhrjqssxfhw",
+          "retrieval_text": "color copper; shape arched; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubzxbzjwcgfc",
+          "retrieval_text": "color indigo; shape square; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhnpzkcnhdtl",
+          "retrieval_text": "color pearl; shape spiral; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objungntnltthjt",
+          "retrieval_text": "color pearl; shape arched; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupckkjzzxkts",
+          "retrieval_text": "color coral; shape oval; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqpggfbdccqd",
+          "retrieval_text": "color sable; shape conical; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objugwccfqxcnwf",
+          "retrieval_text": "color amber; shape conical; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudwjggbqqdxs",
+          "retrieval_text": "color amber; shape oval; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujrxxlvdwhpg",
+          "retrieval_text": "color ochre; shape oval; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvfbrmdvjzrt",
+          "retrieval_text": "color copper; shape oval; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucdkhndxvmdq",
+          "retrieval_text": "color ivory; shape tubular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulvdnhqdsfjt",
+          "retrieval_text": "color jade; shape cubic; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutnkvdjwfqmq",
+          "retrieval_text": "color ivory; shape round; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufrxcbwkqbhm",
+          "retrieval_text": "color ivory; shape ridged; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objursksfbfgxjp",
+          "retrieval_text": "color ivory; shape oval; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulltndcwdpvd",
+          "retrieval_text": "color silver; shape triangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudhbdjmkpzvn",
+          "retrieval_text": "color azure; shape ridged; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulwhnpzcknmg",
+          "retrieval_text": "color crimson; shape triangular; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuthnvlsvvklf",
+          "retrieval_text": "color azure; shape oval; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunbtfhswwjpx",
+          "retrieval_text": "color amber; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuggpntkqcrnt",
+          "retrieval_text": "color crimson; shape ridged; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuwrrjqcrqgxk",
+          "retrieval_text": "color silver; shape conical; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukhkjmdvwbvc",
+          "retrieval_text": "color silver; shape arched; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxgghddgtqdc",
+          "retrieval_text": "color amber; shape ridged; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvzkfcjkvzgh",
+          "retrieval_text": "color azure; shape cubic; material granite",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued eggform fired-earth archive item? Answer:",
+      "reason": "honey-hued ≈ amber; eggform ≈ oval; fired-earth ≈ ceramic. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objudwjggbqqdxs"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0012",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objujbbqlwprtfp",
+          "retrieval_text": "color indigo; shape hexagonal; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufndppdhhtgr",
+          "retrieval_text": "color amber; shape tubular; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudtfwhqpfvtg",
+          "retrieval_text": "color ochre; shape cubic; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhjjnmzgvldd",
+          "retrieval_text": "color crimson; shape round; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumkzkkfnwzqw",
+          "retrieval_text": "color copper; shape triangular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhqwdnkrtvhx",
+          "retrieval_text": "color jade; shape triangular; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzjrbqfjvbmd",
+          "retrieval_text": "color ochre; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxpfktggbnzg",
+          "retrieval_text": "color sable; shape rectangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujpgbsbgxmds",
+          "retrieval_text": "color crimson; shape triangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujvzfjvndhww",
+          "retrieval_text": "color azure; shape arched; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objultxlpszkgwt",
+          "retrieval_text": "color silver; shape conical; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxdjcxwvklqt",
+          "retrieval_text": "color coral; shape conical; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzlbtdvmggmf",
+          "retrieval_text": "color copper; shape round; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objucnlzdptvpxx",
+          "retrieval_text": "color ivory; shape tubular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzqvkvnlkfkk",
+          "retrieval_text": "color coral; shape cubic; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujqhgrnfnmwm",
+          "retrieval_text": "color ivory; shape rectangular; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqdzfnbhddwp",
+          "retrieval_text": "color sable; shape triangular; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucbwtdhbdnxr",
+          "retrieval_text": "color azure; shape spiral; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxqgnvvpqkzq",
+          "retrieval_text": "color crimson; shape round; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxkssskfgfzh",
+          "retrieval_text": "color ochre; shape round; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqlrxlqwrkbb",
+          "retrieval_text": "color coral; shape triangular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvtlmfdgqzpb",
+          "retrieval_text": "color crimson; shape round; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugnfmnlxhbrh",
+          "retrieval_text": "color jade; shape triangular; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubxwsdwdldvp",
+          "retrieval_text": "color sable; shape rectangular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvtnfnffxrcm",
+          "retrieval_text": "color ochre; shape tubular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusggfcjlmzwt",
+          "retrieval_text": "color crimson; shape round; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubbwgdjbvvxl",
+          "retrieval_text": "color copper; shape oval; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunfnztnjzbqw",
+          "retrieval_text": "color indigo; shape triangular; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupgrpjhgmcbd",
+          "retrieval_text": "color pearl; shape triangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujxbdkkhfgdz",
+          "retrieval_text": "color indigo; shape round; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvjlmjcmvfvv",
+          "retrieval_text": "color amber; shape triangular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufzccsckxkbw",
+          "retrieval_text": "color jade; shape rectangular; material timber",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned disklike tanned-skin archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; disklike ≈ round; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objusggfcjlmzwt"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0013",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuqvmxhtgqksz",
+          "retrieval_text": "color crimson; shape arched; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunlwqrhshqhs",
+          "retrieval_text": "color ivory; shape cubic; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumznkhndvtsm",
+          "retrieval_text": "color ivory; shape arched; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumdrtglghzkv",
+          "retrieval_text": "color azure; shape rectangular; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucztlqjktmmp",
+          "retrieval_text": "color silver; shape spiral; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujlwjjrfxctk",
+          "retrieval_text": "color copper; shape square; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusqjxtbpmpnc",
+          "retrieval_text": "color ivory; shape rectangular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuchtnmdvtxsr",
+          "retrieval_text": "color amber; shape rectangular; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugrldjfmlgwz",
+          "retrieval_text": "color ivory; shape ridged; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudbfddfgrxrn",
+          "retrieval_text": "color amber; shape cubic; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objublxzxqgbscz",
+          "retrieval_text": "color silver; shape ridged; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukstsxwdghlk",
+          "retrieval_text": "color copper; shape conical; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunkdkkkzrghk",
+          "retrieval_text": "color silver; shape triangular; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqqpwczghcml",
+          "retrieval_text": "color amber; shape round; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurlxqlgskjmv",
+          "retrieval_text": "color amber; shape oval; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugcpjkdrnwdk",
+          "retrieval_text": "color sable; shape ridged; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzxrdnzpsmmp",
+          "retrieval_text": "color sable; shape square; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqvfnvhwrvfg",
+          "retrieval_text": "color pearl; shape conical; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukjxtrvkswpj",
+          "retrieval_text": "color amber; shape cubic; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objughgcztmfckh",
+          "retrieval_text": "color jade; shape rectangular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzsmxvqlvhdl",
+          "retrieval_text": "color azure; shape ridged; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objusphtbsbwjfg",
+          "retrieval_text": "color pearl; shape cubic; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objulwwcwngnqhs",
+          "retrieval_text": "color crimson; shape conical; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujwncdzsgfvx",
+          "retrieval_text": "color amber; shape rectangular; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objulwmlhnkrscc",
+          "retrieval_text": "color ivory; shape hexagonal; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhrzwpdpvmfg",
+          "retrieval_text": "color coral; shape oval; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucftghpwqbkr",
+          "retrieval_text": "color crimson; shape hexagonal; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwfmzvbvlwln",
+          "retrieval_text": "color azure; shape tubular; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulwdpgbgzfgj",
+          "retrieval_text": "color copper; shape square; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutgdcmlmfbkw",
+          "retrieval_text": "color jade; shape oval; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurngsddzlssb",
+          "retrieval_text": "color pearl; shape square; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhbwlzgcskkz",
+          "retrieval_text": "color jade; shape tubular; material marble",
+          "source_id": "src-west"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued long-four-cornered hard-igneous-rock archive item? Answer:",
+      "reason": "honey-hued ≈ amber; long-four-cornered ≈ rectangular; hard-igneous-rock ≈ granite. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objujwncdzsgfvx"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0014",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objubgvznhgwqbf",
+          "retrieval_text": "color copper; shape hexagonal; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupgmglfscpfp",
+          "retrieval_text": "color jade; shape hexagonal; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumhbqkklkbns",
+          "retrieval_text": "color indigo; shape oval; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwtkgpkxpmhp",
+          "retrieval_text": "color ivory; shape hexagonal; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objucptmpqjqdfr",
+          "retrieval_text": "color jade; shape cubic; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuplzncvvwdxp",
+          "retrieval_text": "color amber; shape triangular; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objutkjzgwrxgck",
+          "retrieval_text": "color ochre; shape ridged; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvdldznntkgv",
+          "retrieval_text": "color silver; shape oval; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucqppdfsghgj",
+          "retrieval_text": "color copper; shape oval; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubbpdmlgqxfl",
+          "retrieval_text": "color jade; shape spiral; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objusqcnktbnbpj",
+          "retrieval_text": "color amber; shape oval; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuskzghrlhzhj",
+          "retrieval_text": "color amber; shape hexagonal; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurcrcshddfdg",
+          "retrieval_text": "color ochre; shape cubic; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufrhgtwdkrnc",
+          "retrieval_text": "color indigo; shape conical; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvmqvrrsvftd",
+          "retrieval_text": "color sable; shape ridged; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objupcltmpbhsqd",
+          "retrieval_text": "color indigo; shape tubular; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumwftgmgbwjt",
+          "retrieval_text": "color jade; shape spiral; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusdzmjzzgvdc",
+          "retrieval_text": "color crimson; shape conical; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxqttfdvgplg",
+          "retrieval_text": "color azure; shape tubular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvldpnpkdndl",
+          "retrieval_text": "color silver; shape ridged; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumkzsddltbkr",
+          "retrieval_text": "color copper; shape ridged; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzxdthrjhnfj",
+          "retrieval_text": "color amber; shape round; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujcqbfshrkvd",
+          "retrieval_text": "color ochre; shape spiral; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuctlxmrxjxdp",
+          "retrieval_text": "color azure; shape square; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumwcscjxsnvv",
+          "retrieval_text": "color crimson; shape oval; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumvgxbdcbqxn",
+          "retrieval_text": "color crimson; shape oval; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzjmhpsqbnch",
+          "retrieval_text": "color silver; shape square; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objugmdjqpmxcxn",
+          "retrieval_text": "color sable; shape rectangular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumrdnqkdqrsb",
+          "retrieval_text": "color indigo; shape ridged; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubwdpbqkhxgm",
+          "retrieval_text": "color silver; shape square; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuddwbkfwsqsj",
+          "retrieval_text": "color ochre; shape rectangular; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxgpfmgdwvnf",
+          "retrieval_text": "color jade; shape hexagonal; material slate",
+          "source_id": "src-west"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned eggform hard-igneous-rock archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; eggform ≈ oval; hard-igneous-rock ≈ granite. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objumwcscjxsnvv"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0015",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuhgnkpwnjfst",
+          "retrieval_text": "color pearl; shape oval; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxwzmtlprtvz",
+          "retrieval_text": "color crimson; shape triangular; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhwsrfdxbkmt",
+          "retrieval_text": "color crimson; shape rectangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhcvclbftnlb",
+          "retrieval_text": "color jade; shape hexagonal; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqsgfxrgcbbw",
+          "retrieval_text": "color silver; shape oval; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwvvwftrplmh",
+          "retrieval_text": "color sable; shape spiral; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufkpllmszwxz",
+          "retrieval_text": "color jade; shape tubular; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubzjnbmpwvrr",
+          "retrieval_text": "color jade; shape conical; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuffgsslrmvrr",
+          "retrieval_text": "color silver; shape round; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujvxkjxjlhbq",
+          "retrieval_text": "color coral; shape oval; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwtwcbvtmrzn",
+          "retrieval_text": "color crimson; shape rectangular; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumqbwblhxvlw",
+          "retrieval_text": "color pearl; shape conical; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumctpgrwkklg",
+          "retrieval_text": "color coral; shape square; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucwrswttwjpv",
+          "retrieval_text": "color sable; shape oval; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuskrpdqqvhmc",
+          "retrieval_text": "color amber; shape triangular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukfrmjxdgjwl",
+          "retrieval_text": "color indigo; shape rectangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvkgpmhcwknk",
+          "retrieval_text": "color azure; shape square; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuphfzbplcbsc",
+          "retrieval_text": "color ivory; shape arched; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucbvslchbxwl",
+          "retrieval_text": "color indigo; shape tubular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutjkmnhhxbvk",
+          "retrieval_text": "color crimson; shape cubic; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuspqkjncgvlg",
+          "retrieval_text": "color ivory; shape ridged; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurzlmmhllcjv",
+          "retrieval_text": "color indigo; shape triangular; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunnthjnmwrdt",
+          "retrieval_text": "color jade; shape conical; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvtxlkqqrjqx",
+          "retrieval_text": "color crimson; shape rectangular; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujwnjpddrkjj",
+          "retrieval_text": "color amber; shape oval; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumldjtmhrvmx",
+          "retrieval_text": "color copper; shape rectangular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudpstfqpfkmz",
+          "retrieval_text": "color ochre; shape hexagonal; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulsrzfsgpfhl",
+          "retrieval_text": "color azure; shape conical; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujptbvpbbqcf",
+          "retrieval_text": "color silver; shape triangular; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objummrbzvwzcqs",
+          "retrieval_text": "color azure; shape oval; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhjvmltpflxk",
+          "retrieval_text": "color amber; shape spiral; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubbvmvjkvqll",
+          "retrieval_text": "color ochre; shape conical; material ceramic",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned long-four-cornered tree-derived archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; long-four-cornered ≈ rectangular; tree-derived ≈ timber. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuhwsrfdxbkmt"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0016",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objurmtjxhtxzcs",
+          "retrieval_text": "color copper; shape spiral; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objultrbcqvkmjp",
+          "retrieval_text": "color amber; shape rectangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuldggttjftvf",
+          "retrieval_text": "color crimson; shape rectangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objupjvxqbjvngf",
+          "retrieval_text": "color ivory; shape spiral; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudzsbcjmjvhv",
+          "retrieval_text": "color amber; shape cubic; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubqcnpwbsrfh",
+          "retrieval_text": "color azure; shape conical; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxshqbqdnthp",
+          "retrieval_text": "color pearl; shape square; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukgxbhzzqbkc",
+          "retrieval_text": "color copper; shape arched; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubxmjdtgsrdz",
+          "retrieval_text": "color crimson; shape tubular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurlhvzwjxfcd",
+          "retrieval_text": "color coral; shape cubic; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucqhqvfvgtzb",
+          "retrieval_text": "color azure; shape tubular; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhzbgnjblkns",
+          "retrieval_text": "color silver; shape square; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhfpcpqcvkhf",
+          "retrieval_text": "color ochre; shape conical; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuffbmrhkkdbf",
+          "retrieval_text": "color ochre; shape ridged; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubdvmnvkzzzs",
+          "retrieval_text": "color copper; shape tubular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objupjqqbqcrmpt",
+          "retrieval_text": "color jade; shape ridged; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubcbrskpjcpx",
+          "retrieval_text": "color pearl; shape tubular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukrrrptclnrs",
+          "retrieval_text": "color silver; shape square; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxwpmjvfxkjm",
+          "retrieval_text": "color ochre; shape hexagonal; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuzmjjljrrghl",
+          "retrieval_text": "color amber; shape oval; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objustmfhwbshfv",
+          "retrieval_text": "color crimson; shape tubular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubpkpplbrxtv",
+          "retrieval_text": "color amber; shape hexagonal; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxdqxxlvdzfl",
+          "retrieval_text": "color amber; shape spiral; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubzdnwjckzcq",
+          "retrieval_text": "color sable; shape round; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubszcpkmxtpr",
+          "retrieval_text": "color pearl; shape square; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurtbndqtlwmp",
+          "retrieval_text": "color amber; shape ridged; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwzglxdsdfbq",
+          "retrieval_text": "color coral; shape round; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumbjwgncsjvr",
+          "retrieval_text": "color azure; shape spiral; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhmjzpnsptgr",
+          "retrieval_text": "color crimson; shape spiral; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuscwhhxwbtht",
+          "retrieval_text": "color amber; shape spiral; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudzdtvphknbm",
+          "retrieval_text": "color amber; shape ridged; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvgpdgcdmpdp",
+          "retrieval_text": "color amber; shape oval; material granite",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued snailshell-turning tanned-skin archive item? Answer:",
+      "reason": "honey-hued ≈ amber; snailshell-turning ≈ spiral; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuxdqxxlvdzfl"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0017",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuwnrhzqpgwpp",
+          "retrieval_text": "color silver; shape square; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulnbrfzmhtrq",
+          "retrieval_text": "color coral; shape ridged; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucwmttkpmqmf",
+          "retrieval_text": "color silver; shape conical; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuklwlkxqqxdh",
+          "retrieval_text": "color sable; shape hexagonal; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumwmnrsvtbzz",
+          "retrieval_text": "color crimson; shape hexagonal; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucddjhvnctdt",
+          "retrieval_text": "color ivory; shape oval; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuplnkfjpsvbb",
+          "retrieval_text": "color azure; shape spiral; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubfvdtnqwdng",
+          "retrieval_text": "color coral; shape hexagonal; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumnrldxkltlq",
+          "retrieval_text": "color amber; shape round; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumhmljmjgffh",
+          "retrieval_text": "color crimson; shape ridged; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqrjlzclgtkj",
+          "retrieval_text": "color jade; shape triangular; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulsjddrmfvtz",
+          "retrieval_text": "color ochre; shape spiral; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objubqcxgrkcktv",
+          "retrieval_text": "color crimson; shape rectangular; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubzbqpspttxl",
+          "retrieval_text": "color crimson; shape tubular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunhnfbfskfwl",
+          "retrieval_text": "color jade; shape tubular; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugzbfdglzzhq",
+          "retrieval_text": "color crimson; shape spiral; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujqmmzzpzbsm",
+          "retrieval_text": "color silver; shape cubic; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqfpsssdnnxt",
+          "retrieval_text": "color crimson; shape rectangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukrgzstbdlxl",
+          "retrieval_text": "color silver; shape rectangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunzzpjzfxdff",
+          "retrieval_text": "color copper; shape tubular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuztfrlfbqtfz",
+          "retrieval_text": "color ivory; shape square; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objublsbrvmmhjw",
+          "retrieval_text": "color crimson; shape cubic; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqwnwbwqvtsn",
+          "retrieval_text": "color copper; shape rectangular; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunztbcbghkhs",
+          "retrieval_text": "color ivory; shape rectangular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzkmxgdlzrtc",
+          "retrieval_text": "color ivory; shape spiral; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudcvgrhmbhkn",
+          "retrieval_text": "color pearl; shape rectangular; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutcngsmchsdh",
+          "retrieval_text": "color copper; shape round; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhzdpdnjvpzs",
+          "retrieval_text": "color indigo; shape rectangular; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvsmqcjvhljs",
+          "retrieval_text": "color amber; shape round; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujhvhffddpkw",
+          "retrieval_text": "color pearl; shape conical; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucqxrrlkjckd",
+          "retrieval_text": "color jade; shape arched; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvnnhwjwftvd",
+          "retrieval_text": "color coral; shape conical; material leather",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned long-four-cornered tree-derived archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; long-four-cornered ≈ rectangular; tree-derived ≈ timber. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuqfpsssdnnxt"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0018",
+      "confidence": 2,
+      "public_index": [
+        {
+          "key": "objuxnbvsvfwjxx",
+          "retrieval_text": "color indigo; shape square; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudkrwbqcltjc",
+          "retrieval_text": "color azure; shape round; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukfglggpkrkk",
+          "retrieval_text": "color amber; shape tubular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objubvvlbzzrzrt",
+          "retrieval_text": "color coral; shape tubular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujqdqgnbjfmt",
+          "retrieval_text": "color jade; shape square; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusvlqqlmzvlf",
+          "retrieval_text": "color pearl; shape square; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumnqkqtrtfft",
+          "retrieval_text": "color amber; shape square; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objufdhlfhqdjqh",
+          "retrieval_text": "color sable; shape rectangular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubdbgttzwgnr",
+          "retrieval_text": "color jade; shape triangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objushmkzjkhztn",
+          "retrieval_text": "color indigo; shape triangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufkcqwqkqkvq",
+          "retrieval_text": "color sable; shape triangular; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukvbbpswmlzq",
+          "retrieval_text": "color indigo; shape arched; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudkbfmwgcsrx",
+          "retrieval_text": "color amber; shape rectangular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunmqmsdnjgwl",
+          "retrieval_text": "color sable; shape rectangular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwrpplpdfhwh",
+          "retrieval_text": "color silver; shape oval; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurrqlxkvspzs",
+          "retrieval_text": "color sable; shape hexagonal; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufhjrtwgtftk",
+          "retrieval_text": "color copper; shape rectangular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufvjbqwwnkpw",
+          "retrieval_text": "color indigo; shape oval; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukmdmdmtjwvb",
+          "retrieval_text": "color pearl; shape conical; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhldczvzfjqq",
+          "retrieval_text": "color silver; shape arched; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumtsrrqzkrtc",
+          "retrieval_text": "color jade; shape cubic; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugqtlcfbnmbq",
+          "retrieval_text": "color coral; shape arched; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudrbblfmxdkp",
+          "retrieval_text": "color pearl; shape square; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudhzqcnskxhs",
+          "retrieval_text": "color silver; shape arched; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhtkgbcmfqkl",
+          "retrieval_text": "color ivory; shape triangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuwsmfqtrkcrv",
+          "retrieval_text": "color indigo; shape spiral; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukrqsfklsswq",
+          "retrieval_text": "color indigo; shape hexagonal; material granite",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutrdhgsbxlms",
+          "retrieval_text": "color sable; shape square; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzhpskpnzzpx",
+          "retrieval_text": "color pearl; shape triangular; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqmbwqflhcmx",
+          "retrieval_text": "color indigo; shape spiral; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzsqvqbtdcqc",
+          "retrieval_text": "color indigo; shape triangular; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxbxjvmlhcgj",
+          "retrieval_text": "color ochre; shape cubic; material bronze",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the night-hued three-pointed tree-derived archive item? Answer:",
+      "reason": "night-hued ≈ indigo (màu xanh đêm); three-pointed ≈ triangular; tree-derived ≈ timber. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objushmkzjkhztn"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0019",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objucczmflpfdcz",
+          "retrieval_text": "color pearl; shape triangular; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutbkzrqcnbxl",
+          "retrieval_text": "color azure; shape triangular; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objucjktghlxpjl",
+          "retrieval_text": "color azure; shape round; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhhndhwzpxbs",
+          "retrieval_text": "color silver; shape cubic; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufpbswkvmbfp",
+          "retrieval_text": "color copper; shape triangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusnkdclxtfqk",
+          "retrieval_text": "color pearl; shape tubular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudrfdrktftnd",
+          "retrieval_text": "color silver; shape oval; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhkvgvqwhskl",
+          "retrieval_text": "color ivory; shape spiral; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuskdmnbrgxbc",
+          "retrieval_text": "color ivory; shape conical; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzrddccbdhdl",
+          "retrieval_text": "color azure; shape ridged; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurklqqwwmvwd",
+          "retrieval_text": "color copper; shape round; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubnfrffhnrdg",
+          "retrieval_text": "color ochre; shape hexagonal; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujzfrgbqrzdn",
+          "retrieval_text": "color silver; shape rectangular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurqxsvfkwrbg",
+          "retrieval_text": "color ivory; shape tubular; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudnhkfhdpgbr",
+          "retrieval_text": "color pearl; shape triangular; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqrqwjwwbtbm",
+          "retrieval_text": "color silver; shape triangular; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumncjjmwkfvk",
+          "retrieval_text": "color sable; shape square; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugjwnvkswstl",
+          "retrieval_text": "color copper; shape conical; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurhdzjdbxdrr",
+          "retrieval_text": "color sable; shape round; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqjwkdhlttxw",
+          "retrieval_text": "color crimson; shape triangular; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucxprmlvsrvz",
+          "retrieval_text": "color silver; shape triangular; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuglkcvzvbkch",
+          "retrieval_text": "color copper; shape triangular; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujkzllkgxjpz",
+          "retrieval_text": "color indigo; shape round; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumlnsftbfrbw",
+          "retrieval_text": "color amber; shape cubic; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurkdwdwqrmkm",
+          "retrieval_text": "color crimson; shape tubular; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugrfvqdxmczc",
+          "retrieval_text": "color silver; shape ridged; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objufbfgnqqgrrr",
+          "retrieval_text": "color ivory; shape cubic; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudcxnxbmxggs",
+          "retrieval_text": "color copper; shape triangular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurfnbdjhglxk",
+          "retrieval_text": "color pearl; shape arched; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxtdbnhhwqmn",
+          "retrieval_text": "color jade; shape hexagonal; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhmfkxrnbjqh",
+          "retrieval_text": "color pearl; shape round; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxtbsxxjsrgc",
+          "retrieval_text": "color coral; shape spiral; material timber",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the moon-metallic three-pointed tree-derived archive item? Answer:",
+      "reason": "moon-metallic ≈ silver; three-pointed ≈ triangular; tree-derived ≈ timber. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuqrqwjwwbtbm"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0020",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuqhbhnrtxqlz",
+          "retrieval_text": "color coral; shape conical; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objugrkfzkrfxpl",
+          "retrieval_text": "color crimson; shape oval; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwchrzpgzhhd",
+          "retrieval_text": "color azure; shape oval; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucjchjbpkqtf",
+          "retrieval_text": "color ochre; shape arched; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupfclhxknmhz",
+          "retrieval_text": "color silver; shape ridged; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukxnvnnlxpst",
+          "retrieval_text": "color jade; shape oval; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugjqgxqzdqdl",
+          "retrieval_text": "color azure; shape conical; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzmgthlgdtqt",
+          "retrieval_text": "color sable; shape oval; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvvtcfrhgjwv",
+          "retrieval_text": "color copper; shape square; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujdgfglkcvms",
+          "retrieval_text": "color pearl; shape square; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqgwgqdlscfk",
+          "retrieval_text": "color sable; shape cubic; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumjhtjhwjtvf",
+          "retrieval_text": "color silver; shape tubular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhcjdxcrkgvd",
+          "retrieval_text": "color pearl; shape spiral; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objusmjpgfvxqgt",
+          "retrieval_text": "color crimson; shape ridged; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukrxsmbwhcxb",
+          "retrieval_text": "color pearl; shape ridged; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumjgjtbbfsqw",
+          "retrieval_text": "color coral; shape oval; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwhhghnvpncl",
+          "retrieval_text": "color silver; shape oval; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurtslfxdlkrq",
+          "retrieval_text": "color copper; shape oval; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufjdbzlpblgm",
+          "retrieval_text": "color sable; shape triangular; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objumlgkqdvmtvs",
+          "retrieval_text": "color ivory; shape triangular; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuszkfsgrggvd",
+          "retrieval_text": "color indigo; shape cubic; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurvkknhjhgtn",
+          "retrieval_text": "color sable; shape spiral; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunmqxkfqffjb",
+          "retrieval_text": "color amber; shape round; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuppfdgdlfptj",
+          "retrieval_text": "color coral; shape hexagonal; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuskmfwhvprws",
+          "retrieval_text": "color jade; shape conical; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxcnbhcdgppm",
+          "retrieval_text": "color ochre; shape cubic; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvlsdgmkgxdg",
+          "retrieval_text": "color jade; shape hexagonal; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objucdshlwhzxlk",
+          "retrieval_text": "color ivory; shape arched; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudjthmcxdnmf",
+          "retrieval_text": "color copper; shape tubular; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuncvfplzvwks",
+          "retrieval_text": "color azure; shape oval; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumjkldrwtdbx",
+          "retrieval_text": "color ivory; shape ridged; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzgxpxhrrrnk",
+          "retrieval_text": "color amber; shape round; material slate",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued eggform plant-fluff archive item? Answer:",
+      "reason": "sky-hued ≈ azure; eggform ≈ oval; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuncvfplzvwks"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0021",
+      "confidence": 2,
+      "public_index": [
+        {
+          "key": "objuzbxgwdsghhl",
+          "retrieval_text": "color crimson; shape spiral; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukzqklwjjzbr",
+          "retrieval_text": "color azure; shape arched; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxrfslqfwnfm",
+          "retrieval_text": "color crimson; shape arched; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzdvpdrslhll",
+          "retrieval_text": "color crimson; shape ridged; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqlffkmncflq",
+          "retrieval_text": "color pearl; shape rectangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugxspktstkqs",
+          "retrieval_text": "color indigo; shape tubular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunnmlhtwdtfs",
+          "retrieval_text": "color indigo; shape oval; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunhknqsbmdbn",
+          "retrieval_text": "color ochre; shape hexagonal; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurdfhhxchdfm",
+          "retrieval_text": "color azure; shape hexagonal; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukzflklscldj",
+          "retrieval_text": "color coral; shape tubular; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucfvhcfmmrdv",
+          "retrieval_text": "color indigo; shape conical; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufpbpfptdmpf",
+          "retrieval_text": "color silver; shape rectangular; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objughtdqddjjfm",
+          "retrieval_text": "color copper; shape tubular; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqlbptvnffkg",
+          "retrieval_text": "color coral; shape spiral; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudqtlcvrvxnp",
+          "retrieval_text": "color jade; shape oval; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxpvmbbkzwxq",
+          "retrieval_text": "color indigo; shape spiral; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufmzqcjspzzf",
+          "retrieval_text": "color silver; shape ridged; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuckbrrbkrhlf",
+          "retrieval_text": "color indigo; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objunnfhddspfzh",
+          "retrieval_text": "color pearl; shape square; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumxptbmlfvcn",
+          "retrieval_text": "color silver; shape oval; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugbdcmmvplqx",
+          "retrieval_text": "color ivory; shape spiral; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhptcgnsmpch",
+          "retrieval_text": "color sable; shape ridged; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurkdvqklmcrp",
+          "retrieval_text": "color jade; shape oval; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhnrvssnxfng",
+          "retrieval_text": "color ivory; shape oval; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutdvzxdtrdtf",
+          "retrieval_text": "color amber; shape cubic; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuftkjmflsffn",
+          "retrieval_text": "color pearl; shape ridged; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objughmzhrwrksp",
+          "retrieval_text": "color azure; shape ridged; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objusgfgjrwcmwp",
+          "retrieval_text": "color crimson; shape conical; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqdffbzfdlfb",
+          "retrieval_text": "color amber; shape hexagonal; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukmxzrhfrkpx",
+          "retrieval_text": "color indigo; shape conical; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxtjdwgfstrr",
+          "retrieval_text": "color copper; shape square; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqzsrdtxllgn",
+          "retrieval_text": "color jade; shape arched; material rubber",
+          "source_id": "src-west"
+        }
+      ],
+      "question": "Which tag belongs to the night-hued eggform tanned-skin archive item? Answer:",
+      "reason": "night-hued ≈ indigo (màu xanh đêm); eggform ≈ oval; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuckbrrbkrhlf"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0022",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objupxqwsrjffnl",
+          "retrieval_text": "color amber; shape spiral; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuszkpbcgcdjt",
+          "retrieval_text": "color copper; shape triangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuglxqjwbmglw",
+          "retrieval_text": "color crimson; shape ridged; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucmkkmkbsftj",
+          "retrieval_text": "color azure; shape conical; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objubwfpjjmxnld",
+          "retrieval_text": "color silver; shape triangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumqkxnrtcdph",
+          "retrieval_text": "color coral; shape tubular; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurbkdkgqjvqj",
+          "retrieval_text": "color crimson; shape cubic; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhrkchlcnnbj",
+          "retrieval_text": "color copper; shape hexagonal; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxrgqnqqcqjv",
+          "retrieval_text": "color silver; shape oval; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukrbmwcwntjq",
+          "retrieval_text": "color azure; shape rectangular; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objulmwzbpvqnfx",
+          "retrieval_text": "color ivory; shape round; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwkkpklbkppk",
+          "retrieval_text": "color pearl; shape triangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukzrjncwksfr",
+          "retrieval_text": "color silver; shape oval; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubnmsbcrmjmf",
+          "retrieval_text": "color pearl; shape tubular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuthsqqmdhwng",
+          "retrieval_text": "color azure; shape conical; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukbxpgrbztkk",
+          "retrieval_text": "color indigo; shape conical; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufhhljddpbzp",
+          "retrieval_text": "color jade; shape ridged; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutwrcmswztzb",
+          "retrieval_text": "color crimson; shape oval; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudtnjbwdkdwt",
+          "retrieval_text": "color silver; shape triangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubqgzfclvhcc",
+          "retrieval_text": "color amber; shape tubular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubjjhvcbgcsx",
+          "retrieval_text": "color amber; shape rectangular; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurnstczzbnqq",
+          "retrieval_text": "color jade; shape spiral; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucczfcxckxth",
+          "retrieval_text": "color amber; shape arched; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objupjvfhvkhblk",
+          "retrieval_text": "color jade; shape cubic; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufqtghjfwbtl",
+          "retrieval_text": "color copper; shape square; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujldrzdrbpmx",
+          "retrieval_text": "color azure; shape square; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujxjvkmsjpnl",
+          "retrieval_text": "color sable; shape rectangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxqqsjsjjtgt",
+          "retrieval_text": "color ochre; shape round; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufszjrhzxjnc",
+          "retrieval_text": "color azure; shape triangular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuhgprhvtjksb",
+          "retrieval_text": "color crimson; shape ridged; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukxlrqkfxxzs",
+          "retrieval_text": "color coral; shape round; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubtgrhrzkdxr",
+          "retrieval_text": "color indigo; shape square; material linen",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the moon-metallic three-pointed hard-igneous-rock archive item? Answer:",
+      "reason": "moon-metallic ≈ silver; three-pointed ≈ triangular; hard-igneous-rock ≈ granite. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objubwfpjjmxnld"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0023",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuwdknmcvfjcj",
+          "retrieval_text": "color copper; shape triangular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumdhwkbrzlfm",
+          "retrieval_text": "color copper; shape arched; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuztrjmjvmcjc",
+          "retrieval_text": "color copper; shape triangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvmhkkstrnfg",
+          "retrieval_text": "color crimson; shape oval; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucgmpnbvzlql",
+          "retrieval_text": "color silver; shape hexagonal; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhrngjhlvpkn",
+          "retrieval_text": "color ivory; shape triangular; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuskqktzhzfvc",
+          "retrieval_text": "color coral; shape cubic; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvpjjsxbxghf",
+          "retrieval_text": "color ochre; shape spiral; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunfjmcmfvpgp",
+          "retrieval_text": "color crimson; shape oval; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutnczcpdddzl",
+          "retrieval_text": "color azure; shape conical; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqvjvdwcwnxk",
+          "retrieval_text": "color jade; shape spiral; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objupzvqfrmjmmm",
+          "retrieval_text": "color azure; shape triangular; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumtxsfdclzgf",
+          "retrieval_text": "color crimson; shape triangular; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objunltscrtlqfg",
+          "retrieval_text": "color coral; shape rectangular; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutwrwxscknxf",
+          "retrieval_text": "color crimson; shape triangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubqzlkgcsprr",
+          "retrieval_text": "color azure; shape arched; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objusmxplxtnqlg",
+          "retrieval_text": "color coral; shape spiral; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucvhcdlklxqp",
+          "retrieval_text": "color copper; shape triangular; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvfrnbjwgwwg",
+          "retrieval_text": "color azure; shape hexagonal; material slate",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objutvrxqbptzgw",
+          "retrieval_text": "color indigo; shape hexagonal; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucncmzxjjdzl",
+          "retrieval_text": "color ivory; shape spiral; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugnrppxtjvks",
+          "retrieval_text": "color indigo; shape triangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzmzlpbknjpm",
+          "retrieval_text": "color copper; shape square; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudqrkftcjvfs",
+          "retrieval_text": "color coral; shape hexagonal; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulkgmshwjnvk",
+          "retrieval_text": "color azure; shape conical; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwvjsjffwwlf",
+          "retrieval_text": "color amber; shape square; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objufjnpdkcmdtn",
+          "retrieval_text": "color silver; shape cubic; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujrbcgpxztrd",
+          "retrieval_text": "color coral; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudfhrlrkbbpb",
+          "retrieval_text": "color pearl; shape oval; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzqrxjsqqdzf",
+          "retrieval_text": "color azure; shape square; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucbdjnwpngjz",
+          "retrieval_text": "color ochre; shape round; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucbzbjmcmjms",
+          "retrieval_text": "color jade; shape rectangular; material paper",
+          "source_id": "src-central"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned three-pointed plant-fluff archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; three-pointed ≈ triangular; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objumtxsfdclzgf"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0024",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objussdswmkrrtq",
+          "retrieval_text": "color ochre; shape spiral; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulvpwfmbsbzw",
+          "retrieval_text": "color coral; shape arched; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujhgcktbwxkm",
+          "retrieval_text": "color sable; shape square; material bronze",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objufffppgwtpnt",
+          "retrieval_text": "color copper; shape oval; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukvqvwqdgjmm",
+          "retrieval_text": "color indigo; shape spiral; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvbxhttxnhld",
+          "retrieval_text": "color crimson; shape round; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutqfxzgjpjbt",
+          "retrieval_text": "color copper; shape spiral; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objudpncsxxgwpq",
+          "retrieval_text": "color crimson; shape conical; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujlkcrhmrnmd",
+          "retrieval_text": "color copper; shape tubular; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objupntrtlrrgnd",
+          "retrieval_text": "color coral; shape triangular; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhcwgqjldqkr",
+          "retrieval_text": "color amber; shape arched; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqndzbjjkhmp",
+          "retrieval_text": "color azure; shape round; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuggvdtncmlxr",
+          "retrieval_text": "color crimson; shape oval; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubjwlpmnlwcb",
+          "retrieval_text": "color indigo; shape ridged; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxpttjldwswt",
+          "retrieval_text": "color ivory; shape hexagonal; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhxrntzbdzgg",
+          "retrieval_text": "color silver; shape tubular; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutkzkbkhmssk",
+          "retrieval_text": "color coral; shape hexagonal; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objushdqrqrnggc",
+          "retrieval_text": "color copper; shape triangular; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objucwmtbdpbrxw",
+          "retrieval_text": "color pearl; shape triangular; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objunxtbjbcctzc",
+          "retrieval_text": "color crimson; shape oval; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhmnpqqxlxcf",
+          "retrieval_text": "color jade; shape ridged; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumhqlrnfhnmx",
+          "retrieval_text": "color ivory; shape arched; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuncspzbklglf",
+          "retrieval_text": "color ivory; shape tubular; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutrqjcsfkqwf",
+          "retrieval_text": "color pearl; shape hexagonal; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucflzlxsrpqx",
+          "retrieval_text": "color indigo; shape oval; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujsvhcrxfjxl",
+          "retrieval_text": "color pearl; shape spiral; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objufqmmtfsppzk",
+          "retrieval_text": "color ivory; shape cubic; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxtdfmcwnjpr",
+          "retrieval_text": "color copper; shape cubic; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulhqxjcxzhbw",
+          "retrieval_text": "color ivory; shape ridged; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumvqkfsdkqpd",
+          "retrieval_text": "color copper; shape square; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubdmrpprwwdb",
+          "retrieval_text": "color crimson; shape oval; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugkldhzmtxsn",
+          "retrieval_text": "color azure; shape triangular; material paper",
+          "source_id": "src-central"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned eggform fired-earth archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; eggform ≈ oval; fired-earth ≈ ceramic. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objunxtbjbcctzc"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0025",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objujqwrbfxpkrc",
+          "retrieval_text": "color sable; shape rectangular; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzppdnzkppjx",
+          "retrieval_text": "color silver; shape round; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumzfxcbncgrt",
+          "retrieval_text": "color pearl; shape oval; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqgfwwxmwpvh",
+          "retrieval_text": "color crimson; shape round; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumwdxvqszbrg",
+          "retrieval_text": "color ochre; shape spiral; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujtlkqvlcmrh",
+          "retrieval_text": "color jade; shape square; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupjztnzvszhf",
+          "retrieval_text": "color silver; shape hexagonal; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulptsckvmjpz",
+          "retrieval_text": "color azure; shape spiral; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutkdnlwhvlcr",
+          "retrieval_text": "color amber; shape cubic; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubnplpzhfpmg",
+          "retrieval_text": "color silver; shape triangular; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurkcgbgfrtcl",
+          "retrieval_text": "color sable; shape rectangular; material linen",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufsnttzndflx",
+          "retrieval_text": "color copper; shape ridged; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuttxdhzrcshz",
+          "retrieval_text": "color coral; shape rectangular; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objundgbddnbkhs",
+          "retrieval_text": "color indigo; shape rectangular; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumdsvgxkphjs",
+          "retrieval_text": "color ochre; shape rectangular; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumcxptxtwvvd",
+          "retrieval_text": "color sable; shape arched; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objutbwvqdvhgrx",
+          "retrieval_text": "color azure; shape round; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqzbqhfhhwdw",
+          "retrieval_text": "color crimson; shape round; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudmkdcdxrmrh",
+          "retrieval_text": "color azure; shape round; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurwvlwtmpfjn",
+          "retrieval_text": "color jade; shape triangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqnzzrfcnlrt",
+          "retrieval_text": "color indigo; shape square; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufvzsdlzrmlh",
+          "retrieval_text": "color ochre; shape square; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objumkqvxcqzvnc",
+          "retrieval_text": "color azure; shape arched; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulpvvlfhhgrv",
+          "retrieval_text": "color indigo; shape arched; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqqjcwnmffxv",
+          "retrieval_text": "color amber; shape oval; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurxggzfslbxs",
+          "retrieval_text": "color sable; shape square; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqfpvsvlxfhw",
+          "retrieval_text": "color indigo; shape oval; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objunctqvwrkjjq",
+          "retrieval_text": "color pearl; shape arched; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurlwfsshqxfc",
+          "retrieval_text": "color jade; shape spiral; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvhczwzgwnjd",
+          "retrieval_text": "color azure; shape triangular; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objupcfbxbvclhk",
+          "retrieval_text": "color silver; shape hexagonal; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukbqpptzxnsz",
+          "retrieval_text": "color ochre; shape cubic; material leather",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued disklike plant-fluff archive item? Answer:",
+      "reason": "sky-hued ≈ azure; disklike ≈ round; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objudmkdcdxrmrh"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0026",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objubmsswsjvpnv",
+          "retrieval_text": "color crimson; shape spiral; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzbrgwrbvwrx",
+          "retrieval_text": "color copper; shape cubic; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqfzlwlkfxpp",
+          "retrieval_text": "color ivory; shape triangular; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzksrvtrgqqt",
+          "retrieval_text": "color jade; shape ridged; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhfjsfqxtdpb",
+          "retrieval_text": "color ochre; shape square; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuffrfksmbmst",
+          "retrieval_text": "color indigo; shape square; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurlwlsbscsrf",
+          "retrieval_text": "color sable; shape round; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzmrwbqznqwg",
+          "retrieval_text": "color copper; shape spiral; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxhshqpxrztp",
+          "retrieval_text": "color jade; shape round; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucsvqrkqbrgm",
+          "retrieval_text": "color copper; shape rectangular; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulwbcvjdxnzz",
+          "retrieval_text": "color copper; shape square; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objusxsfgnlgksv",
+          "retrieval_text": "color pearl; shape spiral; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumcwnsqftdrh",
+          "retrieval_text": "color crimson; shape square; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhtgcwzglbtm",
+          "retrieval_text": "color copper; shape triangular; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvzqgphbjrzk",
+          "retrieval_text": "color indigo; shape square; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objunptdgmxtgmm",
+          "retrieval_text": "color amber; shape ridged; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuvmchxrpkwsw",
+          "retrieval_text": "color ivory; shape round; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuwjmhtjmtjth",
+          "retrieval_text": "color jade; shape spiral; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objubqkgkdplwbl",
+          "retrieval_text": "color copper; shape hexagonal; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqsglkvnlpjm",
+          "retrieval_text": "color jade; shape conical; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuktfvtsmvzrj",
+          "retrieval_text": "color sable; shape triangular; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugltvnnptflq",
+          "retrieval_text": "color crimson; shape spiral; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukfpnnrwxcnc",
+          "retrieval_text": "color ivory; shape cubic; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutgbgphsknxg",
+          "retrieval_text": "color crimson; shape square; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwvdnthtbqsc",
+          "retrieval_text": "color copper; shape round; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objundlkjdqwjmz",
+          "retrieval_text": "color indigo; shape spiral; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqhzgbcppdhv",
+          "retrieval_text": "color ivory; shape arched; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucnhrtrmcxmg",
+          "retrieval_text": "color indigo; shape conical; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqddhscvbgfv",
+          "retrieval_text": "color indigo; shape spiral; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuvhxlrqgkvsb",
+          "retrieval_text": "color pearl; shape round; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objusgkcccdcmbg",
+          "retrieval_text": "color pearl; shape oval; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurltssncmxfj",
+          "retrieval_text": "color copper; shape tubular; material marble",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the scarlet-toned equal-four-sided tanned-skin archive item? Answer:",
+      "reason": "scarlet-toned ≈ crimson; equal-four-sided ≈ square; tanned-skin ≈ leather. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objutgbgphsknxg"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0027",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objuhdqnfjgjrtn",
+          "retrieval_text": "color jade; shape hexagonal; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujxfwvzcvkkj",
+          "retrieval_text": "color amber; shape round; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudqgxxsvpvmw",
+          "retrieval_text": "color amber; shape spiral; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzwsbndmtqlj",
+          "retrieval_text": "color jade; shape rectangular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubtcjcvrqkdt",
+          "retrieval_text": "color azure; shape rectangular; material slate",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujbmxftbwmwm",
+          "retrieval_text": "color silver; shape spiral; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxfdmbfjcqcx",
+          "retrieval_text": "color ochre; shape oval; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuftrbpbsbbdq",
+          "retrieval_text": "color jade; shape square; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurjslstvpzbd",
+          "retrieval_text": "color amber; shape arched; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugnpggglslpd",
+          "retrieval_text": "color ivory; shape hexagonal; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objurflsdcpsnqn",
+          "retrieval_text": "color jade; shape square; material rubber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulqstmjbspsl",
+          "retrieval_text": "color silver; shape triangular; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhqfjjcbxtzc",
+          "retrieval_text": "color silver; shape spiral; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuprrwccmfvpb",
+          "retrieval_text": "color indigo; shape ridged; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwxbznvtjkzn",
+          "retrieval_text": "color silver; shape rectangular; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudffwxljbnkd",
+          "retrieval_text": "color jade; shape rectangular; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulnmdjxbbgvs",
+          "retrieval_text": "color sable; shape hexagonal; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunglhbwpbqbh",
+          "retrieval_text": "color crimson; shape arched; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumkttjqgkkjr",
+          "retrieval_text": "color indigo; shape tubular; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxlfdjnptqwg",
+          "retrieval_text": "color coral; shape spiral; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxfkczvpzsht",
+          "retrieval_text": "color sable; shape cubic; material paper",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuwgnmmqcgfqd",
+          "retrieval_text": "color pearl; shape spiral; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusdhtmpvlkdn",
+          "retrieval_text": "color azure; shape triangular; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objukvbqjwbmfht",
+          "retrieval_text": "color amber; shape spiral; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukngggfhrkmv",
+          "retrieval_text": "color crimson; shape triangular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objujgntgvdxtns",
+          "retrieval_text": "color crimson; shape cubic; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxfvwqlbfndl",
+          "retrieval_text": "color pearl; shape spiral; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutcfqfvwmcff",
+          "retrieval_text": "color azure; shape square; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objupcwbpqbrndc",
+          "retrieval_text": "color copper; shape spiral; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvqqqtqnqshm",
+          "retrieval_text": "color sable; shape spiral; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxknpwznrjpq",
+          "retrieval_text": "color copper; shape arched; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukmhksndszzb",
+          "retrieval_text": "color azure; shape cubic; material cotton",
+          "source_id": "src-east"
+        }
+      ],
+      "question": "Which tag belongs to the moon-metallic snailshell-turning plant-fluff archive item? Answer:",
+      "reason": "moon-metallic ≈ silver; snailshell-turning ≈ spiral; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuhqfjjcbxtzc"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0028",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objulhkpvmfrbzh",
+          "retrieval_text": "color jade; shape square; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuhmglpdkhqnw",
+          "retrieval_text": "color pearl; shape tubular; material marble",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugmmmmjqrwvp",
+          "retrieval_text": "color pearl; shape hexagonal; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuvbrnzgsvnnb",
+          "retrieval_text": "color indigo; shape round; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuwncjgrnwbnz",
+          "retrieval_text": "color azure; shape square; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objufkxlnlplhzj",
+          "retrieval_text": "color silver; shape round; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulhjzrqqkkrl",
+          "retrieval_text": "color ivory; shape rectangular; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuhrmvmsdrxbm",
+          "retrieval_text": "color azure; shape hexagonal; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukxmcbkfshlg",
+          "retrieval_text": "color coral; shape round; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objujzzzcdqqdvt",
+          "retrieval_text": "color amber; shape oval; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudrnhxfdfszn",
+          "retrieval_text": "color jade; shape oval; material rubber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucpkkspszcxw",
+          "retrieval_text": "color azure; shape triangular; material cotton",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuhkhqbbkxknc",
+          "retrieval_text": "color sable; shape hexagonal; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhhfbkrmswzq",
+          "retrieval_text": "color ochre; shape spiral; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuhcbhlxhbvzt",
+          "retrieval_text": "color azure; shape conical; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objusnprmchndkt",
+          "retrieval_text": "color amber; shape square; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objunpggxkhsszv",
+          "retrieval_text": "color sable; shape triangular; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuczwmvttgprk",
+          "retrieval_text": "color amber; shape cubic; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufqshfzzsmpd",
+          "retrieval_text": "color silver; shape oval; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objulcmkpqxkzmn",
+          "retrieval_text": "color jade; shape oval; material leather",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzlwnmkblbnh",
+          "retrieval_text": "color silver; shape tubular; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujrhlthtrqsn",
+          "retrieval_text": "color crimson; shape round; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudlwtgtbxbdf",
+          "retrieval_text": "color sable; shape square; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurtxsphxslvh",
+          "retrieval_text": "color sable; shape arched; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objumlxxqrbjszp",
+          "retrieval_text": "color amber; shape square; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubdqwshppcdp",
+          "retrieval_text": "color indigo; shape cubic; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objungfjtvcqswz",
+          "retrieval_text": "color amber; shape spiral; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubksflkpzsjv",
+          "retrieval_text": "color ochre; shape rectangular; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objujzptpdhjmsj",
+          "retrieval_text": "color ivory; shape square; material leather",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucfqsmjswqcp",
+          "retrieval_text": "color amber; shape spiral; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucfwdnqpbmrj",
+          "retrieval_text": "color ivory; shape square; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuwrlqqlwsxmp",
+          "retrieval_text": "color pearl; shape oval; material granite",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued equal-four-sided silica-clear archive item? Answer:",
+      "reason": "honey-hued ≈ amber; equal-four-sided ≈ square; silica-clear ≈ glass. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objusnprmchndkt"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0029",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objukcbpmdfqfjv",
+          "retrieval_text": "color azure; shape spiral; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objurfdqxpmqsbf",
+          "retrieval_text": "color indigo; shape conical; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objucwrszhphzsx",
+          "retrieval_text": "color indigo; shape hexagonal; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuxtcvkbmdcsh",
+          "retrieval_text": "color sable; shape oval; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucfbjmzfzpwl",
+          "retrieval_text": "color sable; shape cubic; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objufjgblnvfrgl",
+          "retrieval_text": "color copper; shape ridged; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubqpjgwpfhjz",
+          "retrieval_text": "color coral; shape conical; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutvlglzscmlr",
+          "retrieval_text": "color crimson; shape rectangular; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objulzxdmbfszcj",
+          "retrieval_text": "color silver; shape spiral; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objurmnpkhkgjlt",
+          "retrieval_text": "color crimson; shape round; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objusxwqwtrsqmd",
+          "retrieval_text": "color azure; shape rectangular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuwjhfjdmbwjp",
+          "retrieval_text": "color amber; shape square; material leather",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqdrpmxsgkfb",
+          "retrieval_text": "color amber; shape square; material glass",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujzxvgbxmhxf",
+          "retrieval_text": "color crimson; shape arched; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuprxqrpldtsb",
+          "retrieval_text": "color indigo; shape oval; material linen",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutcwhwtgkdgh",
+          "retrieval_text": "color crimson; shape oval; material paper",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubqwzhdbjckm",
+          "retrieval_text": "color ochre; shape cubic; material ceramic",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxzfxqbpmqrh",
+          "retrieval_text": "color copper; shape round; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutrpspfpvszs",
+          "retrieval_text": "color azure; shape spiral; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objullljrzdqjnf",
+          "retrieval_text": "color pearl; shape oval; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuqbmlnkbqnkj",
+          "retrieval_text": "color ochre; shape cubic; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objulvwshfpmcfm",
+          "retrieval_text": "color silver; shape oval; material linen",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuqpjggnbcmhv",
+          "retrieval_text": "color indigo; shape rectangular; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objulmstwfbjhnl",
+          "retrieval_text": "color ivory; shape cubic; material slate",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuktbsjswcbnd",
+          "retrieval_text": "color indigo; shape square; material linen",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujmbhmdqswrm",
+          "retrieval_text": "color coral; shape ridged; material glass",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objupdlcvkvqwmz",
+          "retrieval_text": "color crimson; shape spiral; material granite",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuzhvbhstlpcz",
+          "retrieval_text": "color coral; shape triangular; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objutjgwhxgbbdj",
+          "retrieval_text": "color copper; shape round; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objunkqfrgxrjdx",
+          "retrieval_text": "color sable; shape spiral; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuflvtgrqxpfb",
+          "retrieval_text": "color crimson; shape hexagonal; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumjtxqbpmtbq",
+          "retrieval_text": "color ivory; shape tubular; material paper",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the sky-hued snailshell-turning hard-igneous-rock archive item? Answer:",
+      "reason": "sky-hued ≈ azure; snailshell-turning ≈ spiral; hard-igneous-rock ≈ granite. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objukcbpmdfqfjv"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0030",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objufnnvsvlfhft",
+          "retrieval_text": "color amber; shape cubic; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvxpfcmkdpgh",
+          "retrieval_text": "color ivory; shape tubular; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuqzcmmtdkzbr",
+          "retrieval_text": "color silver; shape rectangular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objumxrfbmmddcp",
+          "retrieval_text": "color indigo; shape conical; material paper",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzhjsblsmxnf",
+          "retrieval_text": "color pearl; shape rectangular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objucmlrsrhpwwb",
+          "retrieval_text": "color azure; shape conical; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukwbjvjwnjmm",
+          "retrieval_text": "color amber; shape rectangular; material marble",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudjstkrghsvs",
+          "retrieval_text": "color azure; shape tubular; material granite",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuxpwzccdjqww",
+          "retrieval_text": "color copper; shape triangular; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objulhssdwbkrvg",
+          "retrieval_text": "color indigo; shape conical; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuvjwhbxqvqnz",
+          "retrieval_text": "color crimson; shape oval; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objublshtlfwnsc",
+          "retrieval_text": "color indigo; shape spiral; material marble",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuqctfhhdwwwk",
+          "retrieval_text": "color ivory; shape round; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxdhjfchmkvk",
+          "retrieval_text": "color silver; shape cubic; material granite",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuwlgnmgqrnkp",
+          "retrieval_text": "color coral; shape hexagonal; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujlvdhfwnpnp",
+          "retrieval_text": "color ochre; shape arched; material ceramic",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objudkttdcfxbmg",
+          "retrieval_text": "color silver; shape rectangular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubntppsxtmsw",
+          "retrieval_text": "color crimson; shape cubic; material paper",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objukmvwkklpqlw",
+          "retrieval_text": "color copper; shape conical; material glass",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objutfwmpmnfccn",
+          "retrieval_text": "color azure; shape tubular; material timber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurjqdwffgtmz",
+          "retrieval_text": "color jade; shape hexagonal; material slate",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objubhdbjgrpjrs",
+          "retrieval_text": "color silver; shape cubic; material timber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuxjgpddkcmvr",
+          "retrieval_text": "color silver; shape spiral; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuwnhxsfzldfj",
+          "retrieval_text": "color silver; shape hexagonal; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuzdvdrldmccm",
+          "retrieval_text": "color coral; shape ridged; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzqqbpxqtltr",
+          "retrieval_text": "color pearl; shape cubic; material rubber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objullmcljbklzq",
+          "retrieval_text": "color copper; shape cubic; material rubber",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutfszrhpznnm",
+          "retrieval_text": "color jade; shape ridged; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objugvlzcnrrwrz",
+          "retrieval_text": "color sable; shape arched; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objugztcrmbshss",
+          "retrieval_text": "color jade; shape triangular; material bronze",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucxmlgnglljn",
+          "retrieval_text": "color copper; shape rectangular; material granite",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuxfrtdjzqnmp",
+          "retrieval_text": "color sable; shape cubic; material marble",
+          "source_id": "src-north"
+        }
+      ],
+      "question": "Which tag belongs to the moon-metallic long-four-cornered hard-igneous-rock archive item? Answer:",
+      "reason": "moon-metallic ≈ silver; long-four-cornered ≈ rectangular; hard-igneous-rock ≈ granite. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objuqzcmmtdkzbr"
+    },
+    {
+      "case_id": "vm3-P1_UNSEEN_PARAPHRASE-0031",
+      "confidence": 3,
+      "public_index": [
+        {
+          "key": "objubggwlhcmkhj",
+          "retrieval_text": "color ivory; shape triangular; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuzhknmgqmmtr",
+          "retrieval_text": "color copper; shape rectangular; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objudgppzlxkmbx",
+          "retrieval_text": "color sable; shape round; material slate",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objucwzptprgqwt",
+          "retrieval_text": "color indigo; shape arched; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuchcvbswtgfx",
+          "retrieval_text": "color pearl; shape round; material leather",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objurpdfvrlslzr",
+          "retrieval_text": "color coral; shape tubular; material ceramic",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objudlkpmkcxkrn",
+          "retrieval_text": "color amber; shape rectangular; material cotton",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objuqztzdbrtqkb",
+          "retrieval_text": "color ivory; shape tubular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objukncchsfqfsf",
+          "retrieval_text": "color azure; shape ridged; material marble",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objukqvmlwjvrwj",
+          "retrieval_text": "color copper; shape arched; material paper",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objugjxxzvkwhsj",
+          "retrieval_text": "color copper; shape triangular; material glass",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvnkzzlwsqkt",
+          "retrieval_text": "color pearl; shape conical; material bronze",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objutkpjblxfttl",
+          "retrieval_text": "color crimson; shape rectangular; material timber",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objubnjtgwlmsfr",
+          "retrieval_text": "color amber; shape ridged; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objuzwsczszkmbn",
+          "retrieval_text": "color ochre; shape square; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuvdrcgxrgdzm",
+          "retrieval_text": "color silver; shape square; material ceramic",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objudgbftkmfkmm",
+          "retrieval_text": "color ochre; shape oval; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunvmrntrhwnf",
+          "retrieval_text": "color ivory; shape spiral; material linen",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objugshcsrffxfh",
+          "retrieval_text": "color copper; shape rectangular; material ceramic",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objukzvzbbdpctg",
+          "retrieval_text": "color ivory; shape square; material leather",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objurgrjlnldfqj",
+          "retrieval_text": "color ivory; shape conical; material timber",
+          "source_id": "src-east"
+        },
+        {
+          "key": "objujzttvmwschb",
+          "retrieval_text": "color ivory; shape rectangular; material cotton",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objuxmnsndvdrfd",
+          "retrieval_text": "color azure; shape square; material bronze",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objumrszqbjfpjx",
+          "retrieval_text": "color coral; shape arched; material glass",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objucttrbmvsmwc",
+          "retrieval_text": "color sable; shape round; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objuclmknrbsqbl",
+          "retrieval_text": "color silver; shape oval; material timber",
+          "source_id": "src-north"
+        },
+        {
+          "key": "objubprrcdnjsfv",
+          "retrieval_text": "color azure; shape spiral; material rubber",
+          "source_id": "src-south"
+        },
+        {
+          "key": "objubtsqdzvbqxj",
+          "retrieval_text": "color azure; shape rectangular; material cotton",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objupblhjnwqppf",
+          "retrieval_text": "color silver; shape hexagonal; material bronze",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objujlptcmgjlqt",
+          "retrieval_text": "color crimson; shape rectangular; material marble",
+          "source_id": "src-west"
+        },
+        {
+          "key": "objunsrncjzjwxt",
+          "retrieval_text": "color amber; shape cubic; material cotton",
+          "source_id": "src-central"
+        },
+        {
+          "key": "objuzrbnqlkhrqx",
+          "retrieval_text": "color amber; shape rectangular; material glass",
+          "source_id": "src-south"
+        }
+      ],
+      "question": "Which tag belongs to the honey-hued long-four-cornered plant-fluff archive item? Answer:",
+      "reason": "honey-hued ≈ amber; long-four-cornered ≈ rectangular; plant-fluff ≈ cotton. Chỉ một bản ghi công khai khớp cả ba đặc điểm.",
+      "selected_key": "objudlkpmkcxkrn"
+    }
+  ],
+  "fixture_sha256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+  "rater_id": "CHATGPT_AI_RATER_B",
+  "reviewed_at_iso8601": "2026-11-12T17:23:02+07:00",
+  "schema": "ttm.vm.v3.p1.blinded_independent_human_review.v1",
+  "slot": "B"
+}
