@@ -20,8 +20,8 @@
     "owner_private_raw_sha256_from_frozen_generation": "ebdde253504c0af94ad3fce55731220707e5420f7dd1bbec2b0084b8dde56eee",
     "full_text_equivalence_of_rater_pasted_input_to_original_blind64": "NOT_INDEPENDENTLY_PROVEN",
     "per_record_identifiers_match_original_generation_formula": true,
-    "score_and_public_receipt_only_shared_to_github": true,
-    "original_full_score_json_and_private_blind_input_not_published_to_github": true
+    "original_full_score_json_and_private_blind_input_not_published_to_github": true,
+    "only_safe_aggregate_receipt_shared_to_github": true
   },
   "frozen_generator_source": {
     "repository": "minhtri22/TokenToModel-Lab",
