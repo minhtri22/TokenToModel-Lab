@@ -1,0 +1,32 @@
+{
+  "schema": "ttm.small4m.hdec_r1.owner_preexec_instruction_rights_release_pending.v1",
+  "date": "2026-11-12",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "source": "Current user turn explicitly requests completing new owner-consent/reviewer-acceptance/runtime-source-pin pre-execution workflow and expressly prohibits automatic inference",
+  "owner_preexec_work_authorized": true,
+  "owner_rights_new_science_signed": false,
+  "new_science_owner_go_authorized": false,
+  "old_A_C_rights_may_be_reused": false,
+  "legacy_rights_receipt_flag_internal_A_C_only": true,
+  "requested_future_scope": {
+    "model": "TTM Small4M pre-existing A step-1152 only",
+    "checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "tokenizer_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "data": "12 new DEV + 24 owner-private blind FINAL with sha pinned before inference",
+    "D0": "unchanged deterministic greedy",
+    "D1": "continuation-only unique token repetition penalty 1.15, deterministic greedy",
+    "maximum_new_bpe_tokens": 64,
+    "new_training_allowed": false,
+    "private_raw_data_redistribution_allowed": false,
+    "original_TEST_Q1_Q2_OOD_access_allowed": false,
+    "inference_allowed_by_this_document": false
+  },
+  "upstream_source":"roneneldan/TinyStories",
+  "upstream_declared_license":"cdla-sharing-1.0",
+  "rights_status":"PENDING_NEW_RUN_OWNER_EXPLICIT_INFERENCE_AUTHORIZATION",
+  "reviewer_acceptance_status":"PENDING_ACTUAL_SEPARATE_SESSION_RECEIPT",
+  "colab_t4_pin_status":"NOT_EXECUTED_THIS_CHAT",
+  "decision":"HOLD_NO_NEW_INFERENCE",
+  "not_a_cryptographic_owner_signature": true,
+  "next_required_action":"Owner supplies actual new-run science consent and separate reviewer acceptance; run read-only T4 source-pin cell before any model forward"
+}
