@@ -1,0 +1,79 @@
+{
+  "blind_mapping_or_seeds_published": false,
+  "comparisons": {
+    "AC_DEV12": {
+      "comparisons": 2304,
+      "d1_records": 192,
+      "exact_normalized_matches": 0,
+      "historical_prompt_records": 12,
+      "max_content_jaccard": 0.064516,
+      "pairs_content_jaccard_ge_0_18": 0,
+      "pairs_with_common_5gram": 0
+    },
+    "AC_FINAL24": {
+      "comparisons": 4608,
+      "d1_records": 192,
+      "exact_normalized_matches": 0,
+      "historical_prompt_records": 24,
+      "max_content_jaccard": 0.088235,
+      "pairs_content_jaccard_ge_0_18": 0,
+      "pairs_with_common_5gram": 0
+    },
+    "CF1_DEV36": {
+      "comparisons": 13824,
+      "d1_records": 192,
+      "exact_normalized_matches": 0,
+      "historical_prompt_records": 72,
+      "max_content_jaccard": 0.076923,
+      "pairs_content_jaccard_ge_0_18": 0,
+      "pairs_with_common_5gram": 0
+    },
+    "FRESH16_USED": {
+      "comparisons": 3072,
+      "d1_records": 192,
+      "exact_normalized_matches": 0,
+      "historical_prompt_records": 16,
+      "max_content_jaccard": 0.090909,
+      "pairs_content_jaccard_ge_0_18": 0,
+      "pairs_with_common_5gram": 0
+    },
+    "Q1_FRESH12_PUBLIC": {
+      "comparisons": 5376,
+      "d1_records": 192,
+      "exact_normalized_matches": 0,
+      "historical_prompt_records": 28,
+      "max_content_jaccard": 0.137931,
+      "pairs_content_jaccard_ge_0_18": 0,
+      "pairs_with_common_5gram": 0
+    }
+  },
+  "d1_normalized_duplicate_record_count": 0,
+  "full_semantic_nonoverlap": "NOT_CERTIFIED_BY_LEXICAL_HASH_SCREEN",
+  "model_inference_executed": false,
+  "model_training_executed": false,
+  "only_local_private_sha_and_counts_for_publication": true,
+  "operation": "TTM_SMALL4M_D1_GENERATE_NEW_CANONICAL_FINGERPRINTS_OWNER_LOCAL_ONE_SHOT",
+  "private_fingerprint_index_sha256": "66a987550fdeb5b6ff3711d49ab673578be68418a1978b33126f6127deed763c",
+  "private_fingerprint_record_count": 344,
+  "private_flag_count": 0,
+  "protected_TEST_Q1Q2": "NOT_READ_NOT_CERTIFIED",
+  "schema": "ttm.d1.fingerprint_static_onepacket_receipt.v1",
+  "science_release": "HOLD_PENDING_FROZEN_PREREG_NONOVERLAP_GOVERNANCE",
+  "source_counts": {
+    "AC_DEV12": 12,
+    "AC_FINAL24": 24,
+    "CF1_DEV36": 72,
+    "D1_DEV": 128,
+    "D1_NEUTRAL_PRIOR": 64,
+    "FRESH16_USED": 16,
+    "Q1_FRESH12_PUBLIC": 28
+  },
+  "source_sha256": {
+    "AC_FROZEN_PUBLIC_RAW_SHA256": "7d1da3bfdb023e0cbc5fb55e297a7215182f4678ac436722cc1b62a4eeeefc4f",
+    "CF1_MODEL_INPUT_RAW_SHA256": "81e9849226029a1cb017c87da4202347be42dc92039db8c0d430d7115b68b4ed",
+    "D1_DEV_V2_RAW_SHA256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "FRESH16_S1_RAW_SHA256": "2dc1fd7cda1262168cbdca4ca0773327e4153642c39a9981f3462dddad9aaccb",
+    "Q1_FRESH12_PUBLIC_RAW_SHA256": "b52d0c89f04567e71c4274ee6bc10f1aaac75ff82e9d59787dee6b04a8b5a9b5"
+  },
+  "status": "PASS_SCOPED_SOURCE_FINGERPRINTS_ONLY"
+}
