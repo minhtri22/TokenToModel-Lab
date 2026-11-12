@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.small4m.d1.chatgpt_rater.handoff_autostart_no_signature_amendment.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_CHATGPT_RATER_HANDOFF_AUTOSTART_NO_SIGNATURE_AMENDMENT",
+  "owner_instruction": "A handoff handed to another ChatGPT agent is sufficient to start authorized assigned tasks; no separate signed acceptance is required",
+  "preceding_documentation": {
+    "historic_designation_commit": "addf382cea721053ab9728bffbfcc669eda0b963",
+    "old_handoff_blob": "9c6564187cc47b7c42f3ef63116034367776b7af",
+    "revised_handoff_commit": "39d1db863fb0428a735f5668fbcebc744c3f0389",
+    "revised_handoff_blob": "00e18dc9345cbf4f6519a5226b326389c6a10277",
+    "revised_path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER_HANDOFF_20261112.md"
+  },
+  "procedural_decision": {
+    "separate_signoff_required": false,
+    "acceptance_form_required": false,
+    "micro_permit_required": false,
+    "receiving_chatgpt_agent_behavior": "START_AUTHORIZED_WORK_IMMEDIATELY_ON_OWNER_HANDOFF_DELIVERY",
+    "no_claim_of_automatic_remote_launch_from_github_commit": true,
+    "if_only_blind_empty_template": "VERIFY_READY_AND_REPORT_RATER_PREEXEC_READY_SCOPED_OR_BLOCKED_NO_SCORING",
+    "if_authorized_frozen_512_real_outputs_present": "BLIND_SCORE_512_AND_HASH_SCORES_BEFORE_UNBLIND",
+    "independent_agent_new_context_required": true,
+    "blind_mapping_seed_decoder_secret_access": false,
+    "audit_receipt_instead_of_signature": true
+  },
+  "invariants": {
+    "frozen_science_design_unchanged": true,
+    "private_v2_raw_sha256": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "rater_template_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "rights_and_private_overlap_gates": "STILL_REQUIRE_EVIDENCE_NO_CEREMONIAL_SIGNATURE",
+    "science_execution": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "new_inference": false,
+    "new_training": false,
+    "sealed_test_q1q2_untouched": true,
+    "lineage_unchanged": true,
+    "main_unchanged": true
+  }
+}
