@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.small4m.ac.final24.score_freeze.owner_git_evidence.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_AC_FINAL24_INDEPENDENT_AI_RATER_FROZEN_SCORE_OWNER_ACCEPTANCE",
+  "review_classification": "EXPLORATORY_SCOPED_AI_REVIEW",
+  "source_rater_identity": "OpenAI ChatGPT GPT-6 (AI-assisted blind rater; not a human reviewer)",
+  "source_rater_session_reference": "GPT6-FINAL24-20261112T090451Z-d36902dbf77c",
+  "source_rater_independence": "SELF_ATTESTED_NOT_PLATFORM_INDEPENDENTLY_VERIFIED",
+  "source_blind_zip_sha256": "577f58ef101645febee25e959497d9d883400565ec65d4b8902516d8059daf00",
+  "source_blind_packet_sha256": "b325567addf4a4498c7384309281c53525e8548fc18fa35221140bbdd0901be9",
+  "score_file_sha256": "386d455bc3768c81b0728f4b3903ecd7e73fed6d8adabf8eaf934316bd8a91be",
+  "canonical_scores_array_sha256": "f4cd13c915d2a423e21fcd74ea3fa2127ada45023292d84782614a54624f3369",
+  "rater_receipt_file_sha256": "a0ae78a805f102a4086f7e36a81f85d95e28716589cca0192ca501a1df7a4935",
+  "checks": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "score_integers": 144,
+    "score_axes": 3,
+    "texts": 48,
+    "pairs": 24,
+    "nonempty_notes": 24,
+    "identical_texts_equal_scores": true,
+    "origin_hash_match": true,
+    "receipt_consistent": true
+  },
+  "original_reviewer_sha256_sidecar_received": false,
+  "owner_reconstructed_sha256_sidecar": {
+    "filename": "TTM_SMALL4M_AC_FINAL24_BLIND_SCORES_FROZEN_OWNER_RECONSTRUCTED_20261112.sha256",
+    "sha256": "d6cd95a4d9776a2dcd101dbc7579336d0f1a4b1cc18d426bfa5130f668a1738e",
+    "derivation": "Exact immutable score file bytes and independent receipt hash, explicitly NOT the missing original reviewer sidecar"
+  },
+  "owner_independent_readback_sha256": "b045877c04b299d9c8cb71404e2ae40c23d303ac7cb6e729bfade489e4ad30bd",
+  "owner_drive_folder_id": "1WXsoMZlsrDvK6dMBa4u09PqcJou4Wgm0",
+  "owner_drive_folder_visibility": "not_shared",
+  "owner_drive_files_count": 4,
+  "owner_drive_filenames": [
+    "TTM_SMALL4M_AC_FINAL24_BLIND_SCORES_FROZEN.json",
+    "TTM_SMALL4M_AC_FINAL24_RATER_RECEIPT.json",
+    "TTM_SMALL4M_AC_FINAL24_BLIND_SCORES_FROZEN_OWNER_RECONSTRUCTED_20261112.sha256",
+    "TTM_AC_FINAL24_OWNER_SCORE_FREEZE_ADMISSION_20261112.json"
+  ],
+  "owner_score_file_bytes_preserved": true,
+  "private_AES_key_accessed": false,
+  "mapping_accessed": false,
+  "unblinding_executed": false,
+  "science_outcome": "UNADJUDICATED",
+  "C_minus_A": "NOT_ESTIMABLE_UNTIL_UNBLIND",
+  "verdict": "PASS_FROZEN_SCOPED_AI_SCORES_ACCEPTED_FOR_OWNER_POST_FREEZE_UNBLIND",
+  "next": "Separate owner unblind using original frozen AES escrow after verifying exact score and custody SHA; independent QA scientific adjudication remains separate",
+  "main_lineage_unmodified": true
+}
