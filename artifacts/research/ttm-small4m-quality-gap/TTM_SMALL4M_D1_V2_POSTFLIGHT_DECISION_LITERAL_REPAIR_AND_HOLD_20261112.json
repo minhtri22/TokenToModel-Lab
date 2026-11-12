@@ -1,0 +1,67 @@
+{
+  "schema": "ttm.small4m.d1.v2.postflight.decision_literal_repair_no_rerun.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_D1_V2_EXISTING_PACKET_POSTFLIGHT_DIAGNOSTIC_AND_RECOVERY_NO_RERUN",
+  "provenance": {
+    "owner_terminal_power_shell_output": "USER_SUPPLIED_2026-11-12",
+    "connected_windows_private_receipt": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_SMALL4M_D1_V2_VERSIONED_PRIVATE_REKEY_STATIC_RECEIPT_20261111.json",
+    "previous_git_head": "e6c6ebc48b8db770cbca16cf38fbc01f67b6ee18",
+    "original_launcher_git_blob": "f33dc273572260f19eaec4b61fd4f5937df3e80e",
+    "new_read_only_postflight_git_blob": "c7860b1dd33f068422dd251552ef270f67921f11",
+    "new_postflight_github_path": "tools/pilot_t4/d1_static_qa/Read-TTM-D1-V2-Existing-Postflight-PS51.ps1",
+    "new_postflight_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\Read-TTM-D1-V2-Existing-Postflight-PS51.ps1",
+    "original_scientific_e0_worktree_ref": "c05872354d892a9656f8f98642866f7eebfd0f50",
+    "lineage_blob": "9110d101601e6ebfb64d9804f3704a90cb284420"
+  },
+  "incident": {
+    "diagnosis": "CONTRACT_LITERAL_MISMATCH_ONLY_AT_POSTFLIGHT_ASSERTION",
+    "python_generator_ran": true,
+    "old_powershell_expected": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE",
+    "actual_private_receipt_decision": "HOLD_SINGLE_FULL_BATCH_NO_SCIENCE_RELEASE",
+    "receipt_scientific_execution": "NO",
+    "original_launcher_failed_line": 63,
+    "reason": "Expected suffix _RELEASE was inadvertently omitted from launcher assertion; the private receipt and Python generator agree on the longer literal.",
+    "SHA_checks_before_that_line": "ORIGINAL_POWERSHELL_GET_FILE_HASH_V2_AND_SCORER_BOTH_PASSED_RELATIVE_TO_PRIVATE_RECEIPT",
+    "warning": "DO_NOT_RERUN_GENERATOR_OR_ORIGINAL_ONE_SHOT_LAUNCHER"
+  },
+  "actual_private_v2": {
+    "exists_on_windows": true,
+    "sha256_raw": "f381ae8ab9c67c8590092f85445ab2fbe95a3b1c6a646ec18ee26b6b13ac92b8",
+    "raw_bytes": 267645,
+    "sha256_lf": "1553d186eb55699506b6b920153d5c7af7f0ad26a186e1d58ffef0d1e7b4eb2e",
+    "blind_scorer_template_raw_sha256": "ae85dddbb12b299f2f9252ad3b1df426eb7bd0af6ae52fbb73b5825c646833d4",
+    "blind_scorer_template_raw_bytes": 349900,
+    "families": 16,
+    "prompts": 128,
+    "neutral_priors": 64,
+    "blind_map_records": 512,
+    "seed_rotation": "PASS_GENERATOR_SCOPED_THREE_NEW_SEEDS_NO_REUSE",
+    "exact_stimulus_unchanged": "PASS_GENERATOR_SCOPED",
+    "bpe_source_original": "PASS_GENERATOR_SCOPED",
+    "public_historical_overlap": "0_OF_TWO_SOURCES_SCOPED",
+    "private_fresh16_ac_q1q2_test_overlap": "NOT_VERIFIED",
+    "scorer_independent_assigned": false,
+    "rater_access_custody_attested": false,
+    "owner_rights_attestation": false,
+    "model_inference_executed": false,
+    "model_training_executed": false
+  },
+  "recovery": {
+    "no_seed_rotation_rerun": true,
+    "postflight_mode": "READ_ONLY_EXISTING_FILES",
+    "checks": "SOURCE_PINNED_RAW_SHA256_V1_V2_SCORER; NORMALIZED_SHA; RECEIPT_HOLD_STRING; VERSION_CHAIN; EXACT_V1_V2_STIMULUS_EQUALITY; NEW_SEED_DISJOINT; BLIND_ID_UNIQUE; SCORER_WITHOUT_PRIVATE_FIELDS",
+    "script_staged_on_windows": true,
+    "script_executed": false,
+    "previous_one_shot_generator_should_never_run_again": true
+  },
+  "single_decision": {
+    "result": "HOLD_D1_SCIENCE_EXECUTION_SINGLE_BATCH",
+    "qa_status": "PASS_SCOPED_WITH_POSTFLIGHT_ASSERTION_BUG_RECOVERABLE_NO_SCIENCE_DAMAGE",
+    "future_science_512_outputs_authorized": false,
+    "reason": "INDEPENDENT_RATER_AND_PRIVATE_SOURCE_NONOVERLAP_RIGHTS_CUSTODY_NOT_ATTESTED",
+    "no_test_access": true,
+    "no_fresh16_rerun": true,
+    "no_lineage_append": true,
+    "no_main_merge": true
+  }
+}
