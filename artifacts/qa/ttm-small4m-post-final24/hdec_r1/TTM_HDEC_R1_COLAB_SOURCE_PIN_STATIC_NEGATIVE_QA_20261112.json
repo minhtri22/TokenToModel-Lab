@@ -1,0 +1,33 @@
+{
+  "schema": "ttm.small4m.hdec_r1.owner_colab_no_forward_preexec_static_qa.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_H_DEC_R1_OWNER_SINGLE_NEW_RUN_CONSENT_AND_INDEPENDENT_RATER_ACCEPTANCE_THEN_ONE_SHOT_RELEASE",
+  "qa_environment": "offline non-Colab CPU runtime; Colab T4 runtime still not exercised",
+  "checks": [
+    "AST_PARSE",
+    "NO_TORCH_LOAD",
+    "NO_MODEL_FORWARD",
+    "NO_AUTO_INFERENCE",
+    "PINS_DECODER",
+    "PINS_CHECKPOINT",
+    "PINS_OWNER_FINAL",
+    "HASH_ROUNDTRIP",
+    "GIT_BLOB_ROUNDTRIP",
+    "NEGATIVE_CHECK_FAILURE",
+    "PREREG_HOST_NOT_COLAB",
+    "CPU_RUNTIME_FAIL_CLOSED",
+    "NO_RECEIPT_WRITTEN"
+  ],
+  "passed": 13,
+  "failed": 0,
+  "new_model_forwards": 0,
+  "optimizer_steps": 0,
+  "new_final_outcomes_seen": false,
+  "colab_readback": "NOT_EXECUTED",
+  "rater_acceptance": "NOT_RECEIVED",
+  "owner_new_inference_GO": "NOT_GRANTED",
+  "status": "PASS_STATIC_NEGATIVE_QA_ONLY__RELEASE_HOLD",
+  "script_sha256": "21162562c3154d12ccbdc526bb2823d5d35e8879497b600d5b87bb266bee19ec",
+  "rater_handoff_sha256": "60aa29cb4446dcca4fb22ea563136ef990f448f857443981284baf7b2d4e01ac",
+  "owner_scope_sha256": "6ab42b88abf9d9d43e2e26bfed17aac5aa5e0d4a46ec33f2b0cea604da226fdd"
+}
