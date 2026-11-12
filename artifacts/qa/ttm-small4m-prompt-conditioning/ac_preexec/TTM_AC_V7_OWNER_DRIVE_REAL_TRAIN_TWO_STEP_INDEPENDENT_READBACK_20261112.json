@@ -1,0 +1,65 @@
+{
+  "schema": "ttm.small4m.ac.v7.real_train_t4_two_step.independent_readback.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_FP16_V2_INDEPENDENT_QA_OWNER_SCIENCE_RELEASE_AND_A_C_T4_EXECUTION",
+  "source": "Owner Google Drive qa_preexec, independently re-read exact JSON bytes and compared source pins, arm states and scopes.",
+  "source_file": "AC_FP16_V2_PARENT_ISOLATED_REAL_P02_REAL_TRAIN_TWO_STEP_PARITY_V7.json",
+  "source_receipt_bytes": 2494,
+  "source_receipt_sha256": "dd1fb780db5a48c2f3a958c4f234582a5fd7d162d746f03d7d6a99b6d82d1a2d",
+  "source_status": "PASS_REAL_P02_T4_REAL_TRAIN_TWO_STEP_RESUME_PARITY_SCOPED",
+  "source_git_blob": "f8b74f8439d70504028cdb94a5b01cb058a6107c",
+  "source_ast_sha256": "549310b109c5d9403c0d74f2755fef3524e4e26824424ee56cef3704c11d80b3",
+  "source_python_T4_torch": "2.14.1+cu130",
+  "real_private_train_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "source_fake_qa": {
+    "file": "AC_FP16_V2_PARENT_ISOLATED_AST_7_OF_7_V7.json",
+    "sha256": "7a87fa97767745eb0281351b17869f3624c72d06b2e8b51c4d1699d27b45f466",
+    "status": "PASS_SCOPED_SOURCE_AST_FAKE_BACKEND_7_OF_7",
+    "all_seven_cases_pass": true,
+    "parent_optimizer_isolation_ast_check": true
+  },
+  "arm_results": {
+    "A": {
+      "source_step": 1024,
+      "checked_steps": [
+        1025,
+        1026
+      ],
+      "state_parity_exact": true,
+      "parent_immutable": true,
+      "step_storage_unaliased": true,
+      "skipped_fp16_attempts_direct": 0,
+      "skipped_fp16_attempts_resumed": 0,
+      "checkpoint_sha256": "5c3fa33d90741fa75af9fe1d1e98ca6c930e16bda59818e5aadd94c2c770e3ad"
+    },
+    "C": {
+      "source_step": 1024,
+      "checked_steps": [
+        1025,
+        1026
+      ],
+      "state_parity_exact": true,
+      "parent_immutable": true,
+      "step_storage_unaliased": true,
+      "skipped_fp16_attempts_direct": 0,
+      "skipped_fp16_attempts_resumed": 0,
+      "checkpoint_sha256": "d6487a105091d552322b5a270b18c57ffa338f358a09513d13e91cd5d5c52d32"
+    }
+  },
+  "qa_optimizer_updates_total": 8,
+  "science_optimizer_updates_total": 0,
+  "original_TEST_Q1Q2_OOD_access": false,
+  "full_128_step_interrupt_resume_tested": false,
+  "scope_qualification": "Real TRAIN on T4, exact 2-step A/C save-load-resume parity; does not establish 128-step interruption/recovery at each READY boundary.",
+  "technical_adjudication": "PASS_SCOPED_REAL_TRAIN_TWO_STEP_PARITY",
+  "independent_review_scope": "Assistant readback of separate runtime QA receipt and source contracts; not independent human QA or security attestation.",
+  "owner_chat_consent": "AFFIRMATIVE_INTERNAL_AC_AND_FP16_V2_AMENDMENT_REVIEW",
+  "reviewer": "ChatGPT GPT-6 self-attested; originally nominated Codex, identity reconciliation pending",
+  "blind_escrow_Aes_key_custody": "NOT_VERIFIED",
+  "signoffs_and_owner_science_lock": "NOT_ON_OWNER_DRIVE",
+  "science_decision": "HOLD_PREEXEC_NOT_ALL_NONTECHNICAL_GATES_CLOSED",
+  "final24_scores": "NOT_EXECUTED",
+  "C_minus_A": "NOT_ESTIMABLE",
+  "main_lineage_modified": false
+}
