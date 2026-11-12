@@ -1,0 +1,26 @@
+{
+  "check_count": 14,
+  "checks": [
+    "NUMPY_VERSION_FIXED",
+    "REPEAT_SHORT_ZERO",
+    "REPEAT_UNIQUE_ZERO",
+    "REPEAT_RECURRING_GT_ZERO",
+    "SINGLE_QUOTED_WORD",
+    "LOWERCASE",
+    "CI_CONSTANT_NEGATIVE",
+    "CI_CONSTANT_ZERO",
+    "NEG_BAD_CI_SIZE",
+    "NEG_NONFINITE",
+    "CANDIDATE_SYNTHETIC_ALL_PASS",
+    "NEG_PAIR_IDS",
+    "NEG_BAD_TEXT",
+    "NEG_INVALID_RATER"
+  ],
+  "metric_source_sha256": "1c5cecf97cc86da1d833c9c4959d4532c989d5c0e604a1490e88c684870828f1",
+  "model_forward": 0,
+  "new_eval_final_prompt_read": false,
+  "numPy_version": "2.3.5",
+  "operation": "TTM_SMALL4M_H_DEC_R1_PREEXEC_METRIC_SYNTHETIC_ONLY",
+  "scientific_result": "NOT_EXECUTED",
+  "verdict": "PASS_SYNTHETIC_METRIC_QA"
+}
