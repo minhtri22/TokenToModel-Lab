@@ -60,14 +60,14 @@
     "total_unique_aliases": 6144,
     "new_object_key_prefix": "obja",
     "former_object_key_namespace": "obj + 12 non-vowel consonants (excludes 'a')",
-    "fromer_test_overlap_by_direct_read": "NOT_CHECKED_TEST_SEALED",
     "generated_once_in_sandbox_for_byte_sha": true,
     "generated_on_owner_D": "PENDING_OWNER_PACKET",
     "uploaded_to_GitHub": false,
     "structural_QA_allowed": true,
     "real_retriever_scoring_on_new_fixture": false,
     "Reader_inference_on_new_fixture": false,
-    "old_probe_used_for_science_or_tuning": false
+    "old_probe_used_for_science_or_tuning": false,
+    "former_test_overlap_by_direct_read": "NOT_CHECKED_TEST_SEALED"
   },
   "retriever_contract": {
     "S0": {
