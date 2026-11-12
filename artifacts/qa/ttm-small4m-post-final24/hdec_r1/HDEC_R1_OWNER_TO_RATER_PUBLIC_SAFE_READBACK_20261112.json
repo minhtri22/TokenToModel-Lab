@@ -1,0 +1,81 @@
+{
+  "blind_custody": {
+    "AES_GCM_digest_and_authentication_verified": true,
+    "AES_key_published": false,
+    "all_72_grid_entries_unique": true,
+    "all_prompt_and_continuation_SHA256_match": true,
+    "identical_text_pairs": 0,
+    "left_right_balanced_12_12": true,
+    "no_new_random_mapping": true,
+    "original_AES_mapping_reused": true,
+    "owner_raw_outputs_published": false,
+    "per_stratum_3_3": true,
+    "secret_mapping_published": false
+  },
+  "date": "2026-11-12",
+  "generation": {
+    "DEV": 24,
+    "FINAL": 48,
+    "frozen_pairs": 24,
+    "model_forward_calls": 4040,
+    "optimizer_updates": 0,
+    "rater_notes": 0,
+    "score_count": 0,
+    "total": 72
+  },
+  "main_lineage_unchanged": true,
+  "next": "Give ONLY neutral ZIP or its neutral contents to fresh ChatGPT blind rater; freeze 144 integer scores/24 notes with hashes before owner-only AES unblind.",
+  "operation": "TTM_HDEC_R1_OWNER_ONE_SHOT_72_READBACK_AND_ORIGINAL_AES_24_PAIR_BLIND_HANDOFF_FREEZE",
+  "qa": {
+    "checks_failed": 0,
+    "checks_passed": 708,
+    "no_new_model_forward_for_packet": true,
+    "no_training": true,
+    "raw_owner_bytes_independently_hashed": true,
+    "zip_testzip_pass": true
+  },
+  "rater_bundle": {
+    "byte_length": 10975,
+    "filename": "TTM_NEXT24_CHATGPT_BLIND_RATER.zip",
+    "files": [
+      {
+        "filename": "TTM_NEXT24_BLIND_PACKET.json",
+        "sha256": "e28049bf770ddab879fdd10ac5805b9b5bf2e60fa0f8f9264ba641abab82dd22",
+        "size": 15288
+      },
+      {
+        "filename": "TTM_NEXT24_BLIND_PACKET.md",
+        "sha256": "6841c2b4e1029d5b2a4a8dc18dfec75c7fa0e7416761e9b02e44f0d502d68a14",
+        "size": 13597
+      },
+      {
+        "filename": "TTM_NEXT24_SCORE_TEMPLATE.json",
+        "sha256": "c4263874e84e47ad613905531991e058e1f8481d1f3b7468153493abcbdb1b7b",
+        "size": 7173
+      },
+      {
+        "filename": "TTM_NEXT24_INDEPENDENT_GPT6_HANDOFF.md",
+        "sha256": "b4bc3d50efefca2c6a98eb19028cec632ba0de2f91bc1064b57e93298938f8df",
+        "size": 4159
+      }
+    ],
+    "manifest_sha256": "1e86974a36bdaaba89722658f962f4cedd40dffd6fa11a47a56425776b3e2ce1",
+    "sha256": "9ec48639974575e1cdebb28fcf9b2a0393a3318fb954dc9c5824e2f8bace927a"
+  },
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "schema": "ttm.small4m.hdec_r1.owner_generation_to_blind_packet.public_safe_receipt.v1",
+  "science_effect": "NOT_ESTIMABLE",
+  "scoring": "NOT_STARTED",
+  "source": {
+    "checkpoint_A_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "model_source_commit": "c784b4a0687f6b0fd840f41d3bbf93e5c31038a7",
+    "original_AES_escrow_sha256": "812e7e23cdc3eba4735bfb0b8ff43b2a7420fbaac4fa0edfc2fe4a944cb8c3b7",
+    "original_mapping_plaintext_sha256_HASH_ONLY": "603bccaf0060f8a8a577302353ea6cac831281ad17596603ffa7eb6630ce20a3",
+    "owner_72_raw_sha256": "e09572c29993af8379a57cfc26c905912525e6238510f2803af5c9a81cc2f208",
+    "owner_begin_sha256": "c7354afd44df8b0c29fdf9ae2a4d0e400b3e77b09cb6eda26822ebdcee84973e",
+    "owner_eval_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "owner_generation_receipt_sha256": "bdd1a513fef9de45fc66873795b6a04551ebde9b08f9b1b7a37d4d028d51735a"
+  },
+  "unblind": "NOT_EXECUTED",
+  "verdict": "PASS_OWNER_GENERATIONS_72_AND_BLIND_PACKET_24_PAIRS_48_TEXTS_SHA_FROZEN_RATER_READY"
+}
