@@ -1,0 +1,125 @@
+{
+  "schema": "ttm.vm.v3.p1.two_ai_blind_rater.agreement_ground_truth_aggregate.v1",
+  "operation": "TTM_VM_V3_P1_TWO_CHATGPT_AI_RATER_RECEIPTS_INDEPENDENT_AGREEMENT_AND_CUSTODY_QA",
+  "date": "2026-11-12",
+  "result": "PASS_AI_AGREEMENT_AND_P1_GOLD_32_OF_32_EXPLORATORY",
+  "scientific_release": "HOLD_HUMAN_REVIEW_AND_PINNED_SCIENCE_SCORER",
+  "classification": "EXPLORATORY_SCOPED_AI_REVIEW_NOT_HUMAN_ATTESTATION",
+  "inputs": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-vector-memory-architecture-20261111",
+    "rater_A": {
+      "path": "docs/research/vector-memory/P1_REVIEW_A_AI_UNVERIFIED.json",
+      "git_blob": "034d1511a2b971726b2607ba63f08e2be92682c3",
+      "raw_sha256": "46c9fad4b77065cf086213c64ee04145704efa8d6dd3cfbad56d80c9e1d68ed6",
+      "utf8_bytes": 184616,
+      "rater_id": "CHATGPT_AI_RATER_A",
+      "reviewed_at_iso8601": "2026-11-12T17:19:35+07:00"
+    },
+    "rater_B": {
+      "path": "docs/research/vector-memory/P1_REVIEW_B_AI_UNVERIFIED.json",
+      "pinned_ref": "f518a6149e3514c5223002726d4805d715333112",
+      "git_blob": "be9c573ae480455e860d331f112e2b3f94c69036",
+      "raw_sha256": "fd719ada13d2e44a72d29af04d18bb5d839547b288046ce410cfa9e5b7e49cdf",
+      "utf8_bytes": 185451,
+      "rater_id": "CHATGPT_AI_RATER_B",
+      "reviewed_at_iso8601": "2026-11-12T17:23:02+07:00"
+    },
+    "source_fixture_sha256": "d473292d40dfb475d0b44f7d393341e19d846308820dcb4f5cbac6acb2c0e543",
+    "frozen_fixture_source_git_blob": "5f51b8b464e54a370f3a3fa99d91307118f52f46",
+    "p1_packet_source_git_blob": "beaaa78126282439c94b2d0d525297e6b35266a5",
+    "original_v3_source_commit": "51268b205648060ad0fa13276d67180c2fcaddbb",
+    "public_projection_fingerprint": {
+      "canonicalization": "32 ordered cases, each {case_id,public_index,question}, recursively key-sorted compact UTF-8 JSON; FNV-1a 64-bit used as secondary cross-runtime content check, NOT a cryptographic hash",
+      "git_json_fingerprint": "b57f314b7b872e9c",
+      "regenerated_source_fingerprint": "b57f314b7b872e9c"
+    }
+  },
+  "metrics": {
+    "rater_A": {
+      "cases": 32,
+      "records": 1024,
+      "selected": 32,
+      "abstain": 0,
+      "confidence_2": 3,
+      "confidence_3": 29,
+      "valid_reasons": 32,
+      "selected_keys_in_public_index": 32,
+      "match_regenerated_private_gold": 32
+    },
+    "rater_B": {
+      "cases": 32,
+      "records": 1024,
+      "selected": 32,
+      "abstain": 0,
+      "confidence_2": 3,
+      "confidence_3": 29,
+      "valid_reasons": 32,
+      "selected_keys_in_public_index": 32,
+      "match_regenerated_private_gold": 32
+    },
+    "pairwise_exact_agreement": 32,
+    "pairwise_denominator": 32,
+    "inter_rater_agreement_rate": 1,
+    "disagreements": 0,
+    "gold_agreement_cases": 32,
+    "gold_label_leakage_to_public_receipt": false
+  },
+  "qa_assertions": {
+    "sha_A_matches_agent_report": true,
+    "sha_B_matches_agent_report": true,
+    "file_A_32_cases": true,
+    "file_B_32_cases": true,
+    "each_bank_has_32_public_cards": true,
+    "row_keys_and_schema_valid": true,
+    "rater_ids_distinct_and_declared_AI": true,
+    "both_timestamp_fields_present": true,
+    "reason_min_length_8_each": true,
+    "confidence_integer_in_0_to_3": true,
+    "selected_key_in_local_public_index": true,
+    "identical_A_B_input_order_question_and_index": true,
+    "fixture_SHA_both_match_pinned": true,
+    "source_frozen_generator_git_blob_verified_locally": true,
+    "fixture_bytes_regenerated_SHA256_match_owner": true,
+    "source_public_projection_fingerprint_match": true,
+    "A_B_identical_all_32_choices": true,
+    "A_vs_regenerated_gold_32_of_32": true,
+    "B_vs_regenerated_gold_32_of_32": true,
+    "two_human_attestation_fields_are_false_for_both": true,
+    "no_inference_or_training_by_this_QA": true,
+    "lineage_still_L0022": true,
+    "main_unchanged_at_validation": true,
+    "V3_scorer_not_pinned_on_research_branch": true
+  },
+  "qa_count": {
+    "checked": 24,
+    "passed": 24
+  },
+  "custody": {
+    "blindness": "SELF_REPORTED_CLEAN_ONLY; NO_INDEPENDENT_SESSION_LOG_ATTESTATION",
+    "rater_types": [
+      "AI",
+      "AI"
+    ],
+    "human_reviewer_count": 0,
+    "human_required_count": 2,
+    "human_gate": "HOLD_HUMAN_REVIEW_0_OF_2",
+    "AI_handoff_compliance": "PASS_SCOPE_AI_REVIEW",
+    "interpretation": "32/32 exact AI-A/AI-B agreement and 32/32 match frozen synthetic P1 targets, not proof of independent human review or open-ended semantic generalization",
+    "independent_gold_reference": "Ground truth derived in separate local Python process from source generator whose Git blob and resulting fixture SHA256 matched the locked source. Only aggregate counts are published.",
+    "protected_private_data": "No case-level answer/target_key, private 256-case fixture, or human identity published in this receipt.",
+    "reader_inference_executed": false,
+    "TEST_opened": false,
+    "GPU_used": false,
+    "science_one_shot_executed": false,
+    "lineage": "L0022_UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "scorer": {
+    "draft_qa": "PASS_85_OF_85_LOCAL_MOCK_FROM_PRIOR_REPORTED_ARTIFACT",
+    "github_pinned_v3_science_scorer": false,
+    "native_windows_scorer_QA": "NOT_EXECUTED",
+    "cpu_release": "HOLD"
+  },
+  "next_action": "TTM_VM_V3_P1_TWO_HUMAN_REVIEWS_OR_PROSPECTIVE_AI_SUBSTITUTION_AMENDMENT_AND_FROZEN_SCORER_OWNER_RELEASE"
+}
