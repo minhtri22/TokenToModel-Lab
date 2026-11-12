@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 $Root = 'D:\WORK\RESEARCH\TokenToModel-Lab'
 $Py = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 $Script = Join-Path $Root '_tmp\TTM_D1_FINGERPRINT_ONEPACKET_20261112.py'
-$ExpectedGitBlob = '9d6dfd13c2e55cf121097c14f9b6b2b95667ae15'
+$ExpectedGitBlob = 'ec4a45e3bed4863475caf1d0d0915dcefe8e12d6'
 $Out = Join-Path $Root '_tmp\TTM_D1_ONEPACKET_FINGERPRINT_20261112'
 $Private = Join-Path $Out 'D1_PRIVATE_FINGERPRINT_INDEX.json'
 $Safe = Join-Path $Out 'D1_PUBLIC_SAFE_SUMMARY.json'
@@ -19,7 +19,7 @@ $actualBlob = (& git hash-object --no-filters -- $Script).Trim().ToLowerInvarian
 if ($LASTEXITCODE -ne 0) { throw 'SOURCE_GIT_HASH_FAILED' }
 if ($actualBlob -cne $ExpectedGitBlob) {
     # Transport may change LF to CRLF. The normalized blob must still match Git.
-    $normCode = 'import hashlib,pathlib,sys; b=pathlib.Path(sys.argv[1]).read_bytes().replace(b"\r\n",b"\n"); print(hashlib.sha1(b"blob "+str(len(b)).encode()+b"\x00"+b).hexdigest())'
+    $normCode = 'import hashlib,pathlib,sys; b=pathlib.Path(sys.argv[1]).read_bytes().replace(b"\r\n",b"\n"); b=b if b.endswith(b"\n") else b+b"\n"; print(hashlib.sha1(b"blob "+str(len(b)).encode()+b"\x00"+b).hexdigest())'
     $actualBlob = (& $Py -c $normCode $Script).Trim().ToLowerInvariant()
     if ($LASTEXITCODE -ne 0 -or $actualBlob -cne $ExpectedGitBlob) {
         throw 'FINGERPRINT_SOURCE_GIT_BLOB_MISMATCH'
