@@ -1,0 +1,96 @@
+{
+  "schema": "ttm.small4m.hdec_r1.integrated_single_gate.owner_release_decision.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_H_DEC_R1_INTEGRATED_SOURCE_QA_BPE_CONTEXT_CHECK_RIGHTS_REVIEWER_AND_SINGLE_OWNER_GO_HOLD_PREEXEC_NO_INFERENCE",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "branch": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+  "pinned_old_negative_final24_commit": "16d00b23d9190a1331058a5b407700b6cb3c3a20",
+  "source_contract": {
+    "D0": "GREEDY_ARGMAX_TIE_LOWEST_ID",
+    "D1": "SIGN_AWARE_CONTINUATION_ONLY_UNIQUE_TOKEN_REPETITION_PENALTY_1_15_GREEDY_ARGMAX",
+    "vocab_size": 2048,
+    "eos_id": 256,
+    "max_generated_tokens": 64,
+    "model": "SAME_A_1152_CHECKPOINT_NO_WEIGHT_CHANGES",
+    "checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "checkpoint_bytes": 45087641,
+    "checkpoint_tensors": 53,
+    "checkpoint_unique_parameters": 3749376,
+    "p02_source_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "BPE2048_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "original_BPE_python_git_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6"
+  },
+  "new_eval_commitment": {
+    "owner_private_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "owner_private_file_bytes": 18076,
+    "public_final24_commitment_sha256": "3c6d484d40eba4cbdf0d122d032e228b02fa67af48647830a273f93a54f32060",
+    "dev_count": 12,
+    "final_count": 24,
+    "roundtrip_pass": 36,
+    "prefix_tokens_min": 35,
+    "prefix_tokens_max": 49,
+    "prefix_plus_64_max": 113,
+    "context_limit": 256,
+    "old_final24_consumed_no_reuse": true
+  },
+  "scoped_QA": {
+    "source_BPE_context_checks": 207,
+    "synthetic_frozen_metric_checks": 14,
+    "negative_mutations_correctly_rejected": 4,
+    "A1152_checkpoint_actual_raw_bytes_sha256_match": true,
+    "checkpoint_weights_only_cpu_metadata_read": true,
+    "new_optimizer_steps": 0,
+    "new_model_forwards": 0,
+    "real_T4_runner_end_to_end_test": "NOT_EXECUTED",
+    "status": "PASS_SCOPED_SOURCE_ONLY"
+  },
+  "source_sha256": {
+    "decoder": "64a812a49f8d82d2c797d9150b2d3278763d411fff3e3b53424e650711092e85",
+    "source_QA": "381d3b9939f2b031f94a7002b617b4112c35e915c98df639ad391640888edbb8",
+    "frozen_metric": "1c5cecf97cc86da1d833c9c4959d4532c989d5c0e604a1490e88c684870828f1",
+    "blind_escrow_manager": "431865463c70c0874ea095b044e47620c306fa4f99cd70d1efd3df384f75a571"
+  },
+  "escrow": {
+    "cipher": "AES-256-GCM",
+    "public_ciphertext_file_sha256": "812e7e23cdc3eba4735bfb0b8ff43b2a7420fbaac4fa0edfc2fe4a944cb8c3b7",
+    "original_mapping_plaintext_sha256_only": "603bccaf0060f8a8a577302353ea6cac831281ad17596603ffa7eb6630ce20a3",
+    "private_owner_key_file_sha256_only": "3e2b381fce29753621baec956b993b8c01e951925717c1730feb7aca0a548911",
+    "pairs": 24,
+    "balanced_left_right": "12_D0_LEFT_12_D1_LEFT",
+    "per_stratum": "3_D0_LEFT_3_D1_LEFT",
+    "private_drive_folder": "https://drive.google.com/drive/folders/1MRBVM9I0yL4aMmwWaOcbSLfJBgnw_mjc",
+    "private_drive_files_not_shared": true,
+    "raw_key_or_mapping_published": false,
+    "packet_not_generated": true
+  },
+  "rights_gate": {
+    "upstream_dataset": "roneneldan/TinyStories",
+    "upstream_declared_license": "cdla-sharing-1.0",
+    "upstream_repository_revision": "f54c09fd23315a6f9c86f9dc80f725de7d8f9c64",
+    "upstream_source_url": "https://huggingface.co/datasets/roneneldan/TinyStories/blob/main/README.md",
+    "old_A_C_receipt_scope": "internal_A_C_only=true",
+    "owner_new_H_DEC_R1_specific_authorization": "NOT_RECEIVED",
+    "decision": "HOLD"
+  },
+  "reviewer_gate": {
+    "new_review_session_accepted": false,
+    "identity": null,
+    "human_claim": false,
+    "reviewer_packet_received": false,
+    "blind_scores_created": 0,
+    "score_freeze_before_unblind_required": true,
+    "decision": "HOLD"
+  },
+  "runtime_gate": {
+    "Colab_T4_source_pinned_end_to_end": "NOT_EXECUTED",
+    "driver_owner_release": "NOT_GRANTED",
+    "model_forward": 0,
+    "decision": "HOLD"
+  },
+  "single_owner_decision": "HOLD_NEW_OWNER_RIGHTS_RATER_ACCEPTANCE_RUNTIME_RELEASE",
+  "qa_type": "INDEPENDENT_IMPLEMENTATION_NOT_THIRD_PARTY; SOURCE_ONLY",
+  "main": "UNCHANGED",
+  "lineage": "UNCHANGED_L0015_PRESERVED",
+  "TEST_Q1_Q2_OOD_access": "NONE_THIS_PREEXEC",
+  "next": "OWNER_SINGLE_NEW_RUN_CONSENT_AND_NEW_INDEPENDENT_RATER_ACCEPTANCE_PLUS_RUNTIME_SOURCE_PIN_THEN_FRESH_GO_HOLD; NO AUTO_INFERENCE"
+}
