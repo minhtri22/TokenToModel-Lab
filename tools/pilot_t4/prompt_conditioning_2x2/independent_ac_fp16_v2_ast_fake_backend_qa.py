@@ -6,7 +6,7 @@ from pathlib import Path
 from types import SimpleNamespace
 import numpy as np
 
-CANDIDATE_GIT_BLOB='6bbd8b7190f843685197f6203b574a6c76977f3a'
+CANDIDATE_GIT_BLOB='f8b74f8439d70504028cdb94a5b01cb058a6107c'
 def check(cond,code):
     if not cond: raise AssertionError(code)
 def git_blob(b):
@@ -20,6 +20,18 @@ def static_qa(tree,source):
     required=('run_arm','science','lock_science','run_manifest','restore_arm','source_qa','main')
     check(all(x in fs for x in required),'MISSING_SOURCE_FUNCTION')
     run=ast.get_source_segment(source,fs['run_arm'])
+    restore=ast.get_source_segment(source,fs['restore_arm'])
+    science=ast.get_source_segment(source,fs['science'])
+    # Independent guard against PyTorch CPU step-tensor aliasing between A/C.
+    check('cp=copy.deepcopy(parent)' in restore,
+          'PARENT_CHECKPOINT_OPTIMIZER_NOT_DEEP_COPIED')
+    check('cp[field]=copy.deepcopy(state[field])' in restore,
+          'RESUMED_CHECKPOINT_STATE_NOT_DEEP_COPIED')
+    check('ADAMW_STEP_STORAGE_ALIAS_UPSTREAM' in restore,
+          'UPSTREAM_STEP_STORAGE_ALIAS_UNGUARDED')
+    check('SOURCE_PARENT_ADAMW_STEP_CHANGED_BEFORE_ARM' in science and
+          'SOURCE_PARENT_ADAMW_STEP_CHANGED_AFTER_ARM' in science,
+          'PARENT_STEP_IMMUTABILITY_NOT_GUARDED')
     lock=ast.get_source_segment(source,fs['lock_science'])
     main=ast.get_source_segment(source,fs['main'])
     manifest=ast.get_source_segment(source,fs['run_manifest'])
@@ -150,6 +162,7 @@ def main():
         'status':'PASS_SCOPED_SOURCE_AST_FAKE_BACKEND_7_OF_7',
         'candidate_git_blob':CANDIDATE_GIT_BLOB,
         'candidate_sha256':hashlib.sha256(raw).hexdigest(),
+        'parent_optimizer_isolation_ast_check':True,
         'cases':records,'private_train_access':False,'real_gpu_access':False,
         'real_model_forward':False,'ac_science_training':False,
         'actual_t4_resume_parity':'NOT_EXECUTED',
