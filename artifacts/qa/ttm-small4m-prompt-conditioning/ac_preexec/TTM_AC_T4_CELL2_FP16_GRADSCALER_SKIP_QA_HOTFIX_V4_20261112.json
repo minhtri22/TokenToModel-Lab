@@ -1,0 +1,69 @@
+{
+  "schema": "ttm.small4m.ac.t4.cell2.fp16_gradscaler_skip_source_hotfix.v4",
+  "date": "2026-11-12",
+  "incident": "COLAB_CELL2_FP16_GRAD_SCALER_SKIPPED_QA_STEP",
+  "user_observation": "Colab T4 traceback at full_step(parts,x,y), first synthetic actual-P02 QA optimizer update; scaler reduced scale; assertion scaler.new>=old aborted cell",
+  "science_context": "NO_AC_SCIENCE_TRAINING_CONFIRMED",
+  "source": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+    "existing_colab_notebook_path": "tools/pilot_t4/prompt_conditioning_2x2/TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_20261111.ipynb",
+    "latest_hotfix_commit": "399d745fe97d9bf577b3036d2f2fba1fd070ef8f",
+    "hotfix_notebook_git_blob": "829101bec613b98211959eed4db4b77116550544",
+    "prior_notebook_blob": "05cc058ccbf2f502683a53ff3e99868f20f39bc7",
+    "frozen_ac_science_runner_blob": "ad7d88672c65c6778f5956e6fc7aa656b78b998f",
+    "frozen_ac_science_runner_modified": false,
+    "frozen_data_objective_budget_changed": false,
+    "isolated_change": "NOTEBOOK_CELL2_SYNTHETIC_FP16_QA_ONLY"
+  },
+  "root_cause_analysis": {
+    "observed": "GRADSCALER_SCALE_DECREASED_DURING_FP16_SYNTHETIC_QA",
+    "mechanism": "GRADSCALER_MAY_DETECT_NONFINITE_GRADIENT_AND_SKIP_OPTIMIZER_STEP",
+    "optimizer_step_skipped_independently_observed": "NOT_RECORDED_BY_OLD_CELL",
+    "offending_assumption": "NEW_SCALE_MUST_NOT_BE_LOWER_THAN_OLD_SCALE_ON_ANY_SYNTHETIC_QA_ATTEMPT",
+    "direct_impact": "ABORTED_QA_BEFORE_P02_SNAPSHOT_AND_PARITY_RECEIPT",
+    "root_cause_of_nonfinite_gradient": "NOT_ESTABLISHED_WITHOUT_SCALER_SCALE_AND_GRADIENT_DIAGNOSTICS",
+    "public_source": "https://docs.pytorch.org/docs/main/notes/amp_examples.html"
+  },
+  "source_fix": {
+    "scope": "SYNTHETIC_INPUT_FP16_REAL_P02_MODEL_QA",
+    "max_scale_backoffs": 12,
+    "same_synthetic_batch_retry": true,
+    "clear_grad_each_retry": true,
+    "dynamic_scaler_backoff_only_if_skip": true,
+    "detect_true_optimizer_step_increase": 1,
+    "scheduler_step_only_after_true_optimizer_step": true,
+    "reject_other_step_drift": true,
+    "record_original_scale_and_each_transition": true,
+    "model_optimizer_scheduler_rng_resume_parity_still_required": true,
+    "remains_scoped_not_actual_AC_resume_parity": true,
+    "bit_exact_parity_test_enabled": true,
+    "no_automatic_science_lock": true,
+    "no_change_to_science_runner_overflow_abort": true,
+    "prior_native_v2_source_qa_rerun": false
+  },
+  "local_staging": {
+    "windows_project_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "notebook_under_tmp": "_tmp\\TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_V4_20261112.ipynb",
+    "remote_write": true,
+    "remote_file_readback_partial": true,
+    "colab_v4_executed": false,
+    "colab_v4_pass_not_claimed": true
+  },
+  "correctness_boundaries": {
+    "old_colab_open_tab_not_automatically_updated": true,
+    "rerun_cell2_only_if_cell1_inputs_and_pins_are_still_loaded": true,
+    "checkpoint_and_science_state_not_to_be_reset_by_qahotfix": true,
+    "do_not_delete_existing_qa_snapshot_unless_independently_adjudicated": true,
+    "no_synthetic_qa_pass_if_no_real_optimizer_update": true,
+    "science_runner_original_skip_policy_may_still_abort_on_fp16_nonfinite_grads": true,
+    "if_backoff_present_record_as_science_run_risk": true,
+    "no_original_TEST_Q1Q2_OOD": true,
+    "no_BD_or_O1": true,
+    "no_model_training": true,
+    "no_new_final24_generation": true,
+    "main_and_lineage_unchanged": true
+  },
+  "decision": "GO_APPLY_SOURCE_HOTFIX_CELL2_QA_ONLY__HOLD_AC_SCIENCE_AND_CAUSAL_C_MINUS_A",
+  "next": "RUN_UPDATED_CELL2_ON_SAME_T4_SESSION_AND_RETURN_SCOPED_RESUME_RECEIPT_OR_EXACT_FAILURE_LOG"
+}
