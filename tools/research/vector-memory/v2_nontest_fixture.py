@@ -172,6 +172,5 @@ def main() -> None:
                       'banksize':BANK,'sha256':hashlib.sha256(blob).hexdigest(),
                       'test_opened':False,'training':False,'inference':False},sort_keys=True))
 
-
 if __name__ == '__main__':
     main()
