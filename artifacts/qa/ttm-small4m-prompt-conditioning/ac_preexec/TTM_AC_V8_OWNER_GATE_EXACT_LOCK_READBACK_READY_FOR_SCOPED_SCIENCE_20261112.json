@@ -1,0 +1,72 @@
+{
+  "schema": "ttm.small4m.ac.v8.owner_gate.exact_science_lock_readback.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_V8_OWNER_RUNTIME_ATTESTATION_EXACT_SCIENCE_LOCK_READBACK_BEFORE_CELL3",
+  "source": "owner_report_plus_independent_google_drive_readback_and_local_sha256",
+  "run_id": "TTM_SMALL4M_AC_OBJECTIVE_ONLY_V1",
+  "owner_gate_stdout": "PASS_OWNER_RUNTIME_ATTESTED_SCOPED_AI_REVIEW",
+  "original_escrow_decrypt_stdout": "PASS_NO_SECRET_EXPOSURE",
+  "v7_scoped_qa_stdout": "PASS_TWO_STEP_REAL_TRAIN_ONLY",
+  "lock": {
+    "file": "OWNER_AC_SCIENCE_LOCK.json",
+    "sha256": "4088f6d5ae1512e746d07e4c851f6ee14354bf798cb0b50ab1896fc249305051",
+    "owner_approved_utc": "2026-11-12T07:02:43.025625+00:00",
+    "arms": [
+      "A",
+      "C"
+    ],
+    "steps_per_arm": 128,
+    "valid_targets_per_step": 4096,
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "private_train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "runner_source_sha256": "512578d9f3b87380bf70cacba5d74a7974b18ca40b9945dec57416818420d197",
+    "fp16_backoff_amendment": "OWNER_APPROVED_PRE_SCIENCE_FP16_V2_MAX12_NO_SKIPPED_OPTIMIZER_SCHEDULER_ADVANCE",
+    "torch_version": "2.14.1+cu130",
+    "no_test": true,
+    "no_q1q2": true,
+    "no_ood": true,
+    "free_colab_t4_only": true
+  },
+  "independently_verified_receipt_sha256": [
+    {
+      "role": "owner_rights_runtime_not_crypto_signature",
+      "file": "RIGHTS_OWNER_SIGNED.json",
+      "sha256": "c5695a4358c7048ce95d685a6464dd64f5982054b1f7b23387fa48ccdf34d877",
+      "matches_lock": true
+    },
+    {
+      "role": "reviewer_ai_self_attested_not_human",
+      "file": "REVIEWER_INDEPENDENCE_SIGNED.json",
+      "sha256": "7db341725ad506e222856317d89b08aec287fbdd2d3f59928616c9326da9732e",
+      "matches_lock": true
+    },
+    {
+      "role": "scoped_two_step_real_train_resume_not_all_128",
+      "file": "ACTUAL_AC_RESUME_INDEPENDENT_ADJUDICATION.json",
+      "sha256": "fe62bcbb156d56c05da3b3c0a9549d439dc6ea707ffd8f33569eb30c3ebb37c6",
+      "matches_lock": true
+    },
+    {
+      "role": "original_aes_escrow_key_custody_no_secret_bytes",
+      "file": "OWNER_ONLY_AC_BLIND_KEY_CUSTODY.json",
+      "sha256": "6e35c1b0cf15d17161aed21b72418266220b5b40f2349c872cae0ab771d12f4e",
+      "matches_lock": true
+    }
+  ],
+  "qa_scope": {
+    "actual_t4_two_step_real_train": "PASS_SCOPED_A_C_1025_1026",
+    "full_128_step_interrupt_resume": "NOT_EXECUTED",
+    "science_steps_before_cell3": 0,
+    "final24_generation": "NOT_EXECUTED",
+    "reviewer": "ChatGPT (OpenAI) GPT-6 SELF_ATTESTED_SCOPED_AI_REVIEW",
+    "not_confirmatory_human_review": true
+  },
+  "decision": "GO_OWNER_SCOPED_AC_SCIENCE_CELL3_ALLOWED_BY_EXACT_LOCK_RECHECK; NO_REMOTE_GPU_DISPATCH_FROM_ASSISTANT",
+  "condition": "Colab Cell3 must call the unchanged V2 lock_science() and fail closed on any local drift",
+  "science_training_observed": "NOT_STARTED_AT_READBACK",
+  "owner_drive_science_folder_present_at_readback": false,
+  "post_train_FINAL24_BPE_manifest": "NOT_PRESENT_ON_OWNER_DRIVE_AT_READBACK",
+  "next": "OWNER_RUN_V8_CELL3_ON_SAME_T4_SESSION; RETURN_AC_ARM_FINAL_RECEIPT_A_C_OR_EXACT_FAILURE",
+  "no_secret_material_published": true,
+  "main_lineage_unchanged": true
+}
