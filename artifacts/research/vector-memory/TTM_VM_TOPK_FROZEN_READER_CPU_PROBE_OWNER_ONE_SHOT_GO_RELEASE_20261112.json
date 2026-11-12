@@ -1,0 +1,85 @@
+{
+  "schema": "ttm.vm.topk_frozen_reader.nontest_cpu_one_shot.owner_release.v1",
+  "operation": "TTM_VM_TOPK_FROZEN_READER_CPU_PROBE_RUNNER_ONE_SHOT_INTEGRATED_QA_AND_OWNER_GO",
+  "review_date": "2026-11-12",
+  "decision": "GO_SCOPED_CPU_PROBE_ONCE_WITH_FAIL_CLOSED_PREEXEC",
+  "science_source_commit": "9e46bb4662fcffc66f85ae7d4d479a017f69b293",
+  "code_pins": {
+    "runner_git_blob": "d6e2cb2b087342234f8f722de70b6de429c550c3",
+    "runner_sha256": "af47c3a73dccec1bd60e1c3433f7875c2c505046a872093b96f8ca4889fde935",
+    "independent_qa_script_git_blob": "11d98c4d8528f0d1312652242362cc5e867e327f",
+    "independent_qa_script_sha256": "de4e18fc1ada98f6e789fad15374fec7f2ba73f4722bb5c0c552e8be5cf44a88",
+    "independent_qa_result_git_blob": "76a976605ff1adddca4d83d6d8700469cffae7e9",
+    "independent_qa_result_sha256": "935d544101cbebaf041dca90af35a257a561128444c1cf10ff1d2290ab0aa01e",
+    "primary_topk_integration_git_blob": "ccab713f8c5a4b913259088225daffcf5382be41",
+    "original_reader_source_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "original_p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "original_t1_source_git_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "cpu_backbone_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "owner_reader_l0020_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "owner_reader_custody_receipt_sha256": "5e9bf97ba03f85c888b7f0e1bbf5a7f2197ca9256bdb96582d959663942b9fc7",
+    "probe_generated_sha256": "88c558a8f1844ee1e55bff64f30c2b801c8bf3e54ef0cbc537f9fd81e51e9c11",
+    "ps51_integrated_gate_blob": "356eee62e229a776e8c537aa33de67d1aba73249"
+  },
+  "technical_evidence": {
+    "previously_passed_source_qa": "42_OF_42",
+    "previously_passed_second_qa": "28_OF_28",
+    "owner_windows_private_reader": "PASS_8_OF_8_STEP_128_SOURCE_SHA",
+    "new_independent_scorer_source_qa": "PASS_66_OF_66",
+    "full_runner_binary_source_commit_readback": "PASS",
+    "independent_source_qa_scope": "Random CPU tensors, mock ASCII tokenizer, same frozen Reader class source; no trained Reader forward",
+    "native_windows_new_66_qa_readback": "PENDING_AT_ACTUAL_OWNER_PREFLIGHT"
+  },
+  "fixed_experiment": {
+    "run_id": "TTM_VM_TOPK_NONTEST_FROZEN_READER_PROBE_ONCE_V1",
+    "cases": 128,
+    "memory_cards_per_case": 32,
+    "learned_reader": "FROZEN_L0020_STEP128",
+    "retriever": "FULL_QUESTION_FROZEN_T1_P02_MEAN_EMBEDDING_COSINE_VS_KEY",
+    "arms": [
+      "A_NO_MEMORY",
+      "O1_ORACLE_TOP1",
+      "B1_TOP1_CORRECT",
+      "C1_TOP1_WRONG",
+      "B3_TOP3_CORRECT",
+      "C3_TOP3_WRONG"
+    ],
+    "primary_recall_min": 0.95,
+    "primary_topk": 3,
+    "min_nll_delta": 0.05,
+    "bootstrap_replicates": 1000,
+    "paired_bootstrap_seeds": [
+      20261114,
+      20261115
+    ],
+    "bootstrap_lower_bound_gt_zero": true,
+    "cpu_threads": 2,
+    "model_fp32": true,
+    "no_optimizer": true,
+    "no_prior_dev_scoring": true,
+    "no_test_access": true,
+    "no_gpu": true,
+    "no_retries": true
+  },
+  "release_scope": {
+    "allowed": "ONE_CPU_FP32_EVALUATION_ON_128_FRESH_NONTEST_PROBE_AFTER_INTEGRATED_OWNER_PREFLIGHT_PASS",
+    "must_fail_closed_on": [
+      "MISSING_ANY_SHA_PIN",
+      "DIRTY_WORKTREE",
+      "WRONG_REPO_OR_COMMIT",
+      "QA_NOT_66_OF_66",
+      "EXISTING_ONE_SHOT_OUTPUT",
+      "MISSING_PRIVATE_READER",
+      "SOURCE_OR_INPUT_DRIFT"
+    ],
+    "default_script": "PREFLIGHT_ONLY",
+    "explicit_science_script_switch": "-ExecuteOnce",
+    "main_unchanged": true,
+    "lineage_unchanged": "L0020",
+    "test_sealed": true
+  },
+  "execution_status": "NOT_EXECUTED",
+  "scientific_result": "NOT_YET_MEASURED",
+  "next_after_one_shot": "READ_ONLY_RESULT_INDEPENDENT_RECOMPUTATION_AND_ADJUDICATION_FROM_PRIVATE_PER_STORY_AND_PUBLIC_AGGREGATE_NO_RERUN"
+}
