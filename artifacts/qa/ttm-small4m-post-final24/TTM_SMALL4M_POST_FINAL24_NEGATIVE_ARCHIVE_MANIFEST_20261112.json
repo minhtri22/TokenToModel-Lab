@@ -1,0 +1,56 @@
+{
+  "archive_pins": {
+    "A_1152_checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "C_1152_checkpoint_sha256": "b6a9d1fb14016cd03ae1d77a49492af660859e9223041b066f13fccc65107317",
+    "blind_rater_packet_sha256": "b325567addf4a4498c7384309281c53525e8548fc18fa35221140bbdd0901be9",
+    "decrypted_mapping_sha256_hash_only": "68d4e303efd2c5809bf0e89f5564f70e1114349b463b5458174c1407e8deda1d",
+    "encrypted_escrow_sha256": "519f3185d6202052ce1e5c98a7e7fa58a813d87ce9d9e2d173eb25f6a05f9f1c",
+    "independent_QA_107_checks_report_sha256": "27b9d6069cad1bf06b5fdba3c6def5f011fb8020e119f7818d17bd197ca22bfa",
+    "independent_QA_checker_source_sha256": "c92e7c9ab30a06c247562c327862a802c7876af7f1df51e722bdd272e3933f9f",
+    "owner_raw_48_sha256": "9d158c9e8a7d590ebc9315d716e3b072f5bf94e06cf5061d63ab15e014c36570",
+    "owner_science_lock_sha256": "4088f6d5ae1512e746d07e4c851f6ee14354bf798cb0b50ab1896fc249305051",
+    "parent_P02_1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "score_array_sha256": "f4cd13c915d2a423e21fcd74ea3fa2127ada45023292d84782614a54624f3369",
+    "scores_frozen_file_sha256": "386d455bc3768c81b0728f4b3903ecd7e73fed6d8adabf8eaf934316bd8a91be"
+  },
+  "date": "2026-11-12",
+  "final24_status": "CLOSED_CONSUMED_NO_REUSE",
+  "historical_branch_head_frozen_before_next_design": "16d00b23d9190a1331058a5b407700b6cb3c3a20",
+  "historical_lineage_entry": "L0015",
+  "next_eval_owner_file_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+  "operation": "TTM_SMALL4M_POST_FINAL24_NEGATIVE_RESULT_ARCHIVE_AND_NEW_HYPOTHESIS_DESIGN",
+  "operational_status": {
+    "archive_manifest": "READY_SOURCE_ONLY",
+    "drive_archives": "EXISTING_CUSTODY_PRESERVED",
+    "lineage_old": "UNCHANGED",
+    "main": "UNCHANGED",
+    "science_new_work": "NOT_EXECUTED"
+  },
+  "owner_private_drive_folders": {
+    "final24_blind_only_rater_packet": "https://drive.google.com/drive/folders/17ku-ReN28UcYzUN14mUshVBxq5swHsoN",
+    "frozen_scoring": "https://drive.google.com/drive/folders/1WXsoMZlsrDvK6dMBa4u09PqcJou4Wgm0",
+    "independent_QA": "https://drive.google.com/drive/folders/1WIzlMrnZq9HbQmcYee9CR0sljcjaP3l0",
+    "original_owner_science": "https://drive.google.com/drive/folders/1LlUb4h6rYlLaOwcQ7h3ys3FKd5RO4J6r",
+    "post_unblind_private": "https://drive.google.com/drive/folders/13VyddHiLNi2fSJgPmYAy5_SPBFMN5HsY"
+  },
+  "protected": [
+    "no private key or per-pair mapping committed",
+    "no raw TRAIN/VAL/TEST or full owner outputs committed",
+    "no rerun/re-score/reinterpret FINAL24 as fresh final",
+    "no deletion or cleanup of frozen owner sources"
+  ],
+  "published_sources": [
+    "docs/research/TTM_AC_FINAL24_INDEPENDENT_QA_AND_FORMAL_ADJUDICATION_20261112.md",
+    "artifacts/qa/ttm-small4m-prompt-conditioning/ac_postfreeze/TTM_AC_FINAL24_INDEPENDENT_POSTUNBLIND_QA_20261112.json",
+    "lineage.md#L0015"
+  ],
+  "schema": "ttm.small4m.post.final24.negative_result.archival_manifest.v1",
+  "scientific_status": {
+    "candidate_efficacy": "FAIL_NO_DEMONSTRATED_C_GAIN",
+    "classification": "EXPLORATORY_SCOPED_AI_REVIEW_SINGLE_SEED",
+    "implementation_qa": "PASS_SCOPED_107_OF_107",
+    "not_equivalence_proof": true,
+    "retrain_allowed": false
+  },
+  "source_read_only_event": "During 2026-11-12 design discovery, a public GitHub Q1_ORIGINAL_PROMPTS metadata file was read for source inventory; this was a prompt-file read (not model inference/re-scoring/training). Record as a scope deviation from stricter no-Q1-read wording; exclude Q1 content from prompt selection, novelty calculations and new evaluation. No Q2, TEST or OOD inspected."
+}
