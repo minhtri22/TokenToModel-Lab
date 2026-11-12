@@ -1,0 +1,237 @@
+{
+  "schema": "ttm.vector_memory.topk_v2.identity_alias_description.design_contract.v1",
+  "operation": "TTM_VM_TOPK_FAILURE_CAUSE_AND_NEW_NONTEST_RETRIEVER_REDRAFT_DESIGN_ONLY",
+  "date": "2026-11-12",
+  "status": "DESIGN_ONLY_PASS_SCOPED",
+  "baseline": {
+    "scientific_lineage": "L0021",
+    "previous_trial": "TTM_VM_TOPK_NONTEST_FROZEN_READER_PROBE_ONCE_V1",
+    "previous_trial_one_shot": "CONSUMED_NO_RETRY",
+    "previous_trial_result": "FAIL_RETRIEVAL_SCOPED",
+    "previous_recall_cosine_top1": {
+      "hits": 43,
+      "total": 128
+    },
+    "previous_recall_cosine_top3": {
+      "hits": 107,
+      "total": 128
+    },
+    "previous_recall_lexical_top1": {
+      "hits": 128,
+      "total": 128
+    },
+    "previous_nll_A": 6.959491420537233,
+    "previous_nll_O1": 3.8215356841683388,
+    "previous_nll_B3": 4.535291496664286,
+    "previous_nll_C3": 4.956644399091601,
+    "baseline_use_policy": "MOTIVATION_AND_REPORTED_AGGREGATE_ONLY_NO_REEVALUATION_OR_RETUNING"
+  },
+  "fixed_inputs": {
+    "reader_private_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "reader_step": 128,
+    "reader_source_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "topk_integration_source_git_blob": "ccab713f8c5a4b913259088225daffcf5382be41",
+    "reader_trainable_new_parameters": 0,
+    "optimizer_steps": 0
+  },
+  "new_probe_proposal": {
+    "id": "TTM_VM_V2_NONTEST_NEW192_ID_ALIAS_DESC_20261112",
+    "status": "NOT_GENERATED",
+    "cases_total": 192,
+    "cases_per_stratum": 64,
+    "labels": 16,
+    "each_label_per_stratum": 4,
+    "cards_per_case": 32,
+    "target_cards": 1,
+    "hard_negative_cards": 4,
+    "other_distractor_cards": 27,
+    "splits": [
+      {
+        "stratum": "S0_ID_LITERAL",
+        "n": 64,
+        "question_contains": "exact public obj identifier",
+        "index_fields": [
+          "key"
+        ],
+        "purpose": "ENGINEERING_ORACLE_EQUIVALENT_CONTROL",
+        "primary_science": false
+      },
+      {
+        "stratum": "S1_ALIAS_LOOKUP",
+        "n": 64,
+        "question_contains": "exact public alias but NOT obj identifier",
+        "index_fields": [
+          "lookup_alias",
+          "key"
+        ],
+        "purpose": "EXPLICIT_EXTERNAL_ALIAS_LOOKUP_CONTROL",
+        "primary_science": false
+      },
+      {
+        "stratum": "S2_DESC_PARAPHRASE",
+        "n": 64,
+        "question_contains": "paraphrased 3-attribute description and NO literal obj identifier or alias",
+        "index_fields": [
+          "retrieval_text",
+          "key"
+        ],
+        "purpose": "PRIMARY_EXPLORATORY_DESCRIPTION_RETRIEVAL",
+        "primary_science": true
+      }
+    ],
+    "new_generator_source": "NOT_IMPLEMENTED",
+    "new_fixture_sha256": "NOT_GENERATED",
+    "new_seed": "NOT_LOCKED_UNTIL_GENERATOR_QA",
+    "test_overlap_check": "NO_TEST_READ_PERMITTED; SPLIT_NAMESPACE_SEPARATION_ONLY",
+    "reused_prior_question_ids": false,
+    "reused_prior_probe_outcomes": false,
+    "fresh_probe_is_blind_confirmatory": false
+  },
+  "retrievers": [
+    {
+      "id": "R_EXACT_ID",
+      "strata": [
+        "S0_ID_LITERAL"
+      ],
+      "allowed_inputs": [
+        "question",
+        "cards[].key"
+      ],
+      "policy": "unique normalized key literal match; ambiguous/missing=>ABSTAIN",
+      "scientific_label": "ORACLE_EQUIVALENT_ON_LITERAL_IDENTIFIER",
+      "primary": false
+    },
+    {
+      "id": "R_EXACT_ALIAS",
+      "strata": [
+        "S1_ALIAS_LOOKUP"
+      ],
+      "allowed_inputs": [
+        "question",
+        "cards[].lookup_alias",
+        "cards[].key"
+      ],
+      "policy": "unique exact public alias; ambiguous/missing=>ABSTAIN",
+      "scientific_label": "EXPLICIT_ALIAS_IDENTITY_LOOKUP",
+      "primary": false
+    },
+    {
+      "id": "R_HYBRID_LEX_FIRST",
+      "strata": [
+        "S2_DESC_PARAPHRASE"
+      ],
+      "allowed_inputs": [
+        "question",
+        "cards[].retrieval_text",
+        "cards[].key",
+        "frozen_t1",
+        "frozen_p02_embedding"
+      ],
+      "policy": "normalized character 3grams overlap / |card trigrams|, fallback cosine question vs retrieval_text only if all lexical scores zero; tie lexical key; no score tuning",
+      "scientific_label": "DESCRIPTION_RETRIEVAL_EXPLORATORY",
+      "primary": true
+    }
+  ],
+  "reader_routing": {
+    "active_records_primary": 1,
+    "top3": "DIAGNOSTIC_ONLY_NOT_PRIMARY",
+    "original_reader_source_and_weights_unchanged": true,
+    "reader_card_features": [
+      "key",
+      "value"
+    ],
+    "retrieval_only_features": [
+      "lookup_alias",
+      "retrieval_text"
+    ],
+    "retrieval_api_forbidden_inputs": [
+      "target_key",
+      "answer",
+      "value",
+      "gold",
+      "target_index",
+      "wrong_memory"
+    ],
+    "wrong_arm_same_rank_order_mask": true,
+    "baseline_A_exact_bypass": true,
+    "positive_control_O1": true,
+    "primary_arms": [
+      "A",
+      "O1",
+      "B1",
+      "C1"
+    ],
+    "diagnostic_arms": [
+      "B3",
+      "C3"
+    ]
+  },
+  "proposed_readout_not_yet_science_preregistered": {
+    "primary_stratum": "S2_DESC_PARAPHRASE",
+    "primary_k": 1,
+    "recall_at_1_threshold": 0.9,
+    "hit_count_min": 58,
+    "no_false_positive_ambiguous_missing_keys": true,
+    "mean_nll_A_minus_B1_min": 0.05,
+    "mean_nll_C1_minus_B1_min": 0.05,
+    "bootstrap_lower95_gt": 0,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seeds": [
+      20261116,
+      20261117
+    ],
+    "oracle_domain_shift_control_nll_A_minus_O1_min": 0.05,
+    "sample_unit": "STORY",
+    "priority": [
+      "INVALID_EVIDENCE_HOLD",
+      "ORACLE_DOMAIN_SHIFT_HOLD",
+      "S2_RECALL_FAILURE",
+      "S2_READER_NLL_FAILURE",
+      "GO_NONTEST_CANDIDATE"
+    ],
+    "note": "Proposed thresholds in DESIGN ONLY; cannot become science release until generator, seed, fixtures, scorer, independent QA and complete prereg are pinned before any data scoring."
+  },
+  "explicit_prohibitions": {
+    "rerun_consumed_l0021": false,
+    "re_score_prior_128_probe": false,
+    "use_old_perstory_for_tuning": false,
+    "read_old_DEV_or_TEST": false,
+    "read_TEST_key_or_escrow": false,
+    "train_or_retune_reader": false,
+    "train_or_modify_backbone": false,
+    "gpu": false,
+    "merge_main": false,
+    "modify_lineage_for_design": false,
+    "generate_or_score_new_probe_in_this_operation": false
+  },
+  "next_operation": "TTM_VM_V2_NEW_NONTEST_FIXTURE_RETRIEVER_SOURCE_ONEPACKET_QA_AND_PREREG_FREEZE",
+  "science_execution": "NOT_EXECUTED",
+  "lineage": "L0021_UNCHANGED",
+  "internal_static_design_consistency": {
+    "status": "PASS_INTERNAL_STATIC_CONSISTENCY",
+    "checks_passed": 18,
+    "checks_total": 18,
+    "checks": {
+      "01_status_design_only": true,
+      "02_new_probe_192": true,
+      "03_three_64_strata": true,
+      "04_stratum_sum": true,
+      "05_label_balance": true,
+      "06_bank_32": true,
+      "07_single_primary_stratum": true,
+      "08_single_primary_retriever": true,
+      "09_primary_uses_description_not_key_only": true,
+      "10_primary_no_gold_or_value": true,
+      "11_reader_frozen": true,
+      "12_top1_primary": true,
+      "13_recall_threshold_integer": true,
+      "14_no_old_probe_rescoring": true,
+      "15_test_no_read": true,
+      "16_new_probe_not_generated": true,
+      "17_proposed_not_full_prereg": true,
+      "18_lineage_stays_L0021": true
+    }
+  }
+}
