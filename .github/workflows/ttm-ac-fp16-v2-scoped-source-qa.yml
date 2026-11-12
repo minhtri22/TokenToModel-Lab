@@ -57,7 +57,7 @@ jobs:
           n=json.loads(path.read_text('utf-8'))
           assert n['nbformat']==4
           codes=[c['source'] for c in n['cells'] if c['cell_type']=='code']
-          assert len(codes)==6
+          assert len(codes)==7
           scripts=[''.join(x) for x in codes]
           for i,c in enumerate(scripts):
               compile(c,f'colab-code-cell-{i+1}','exec')
@@ -67,7 +67,17 @@ jobs:
           assert 'ACTUAL_AC_RESUME_INDEPENDENT_ADJUDICATION.json' in ''.join(scripts)
           assert 'NO_GO_PREEXEC_MISSING_OWNER_ATTESTATION_REVIEWER_OR_LOCK' in ''.join(scripts)
           assert 'ac.science(args,lock)' not in ''.join(scripts)
-          print('TTM_AC_COLAB_V5_AST_AND_PREEXEC_NO_GO_GATES=PASS_SCOPED')
+          assert 'AESGCM(key).decrypt' in ''.join(scripts)
+          assert 'OWNER_KEY=OWNER/' in ''.join(scripts)
+          assert 'OWNER_CONSENT_GITBLOB' in ''.join(scripts)
+          assert 'PASS_OWNER_ATTESTED' in ''.join(scripts)
+          assert 'PASS_INDEPENDENT_REVIEWER_LOCKED' in ''.join(scripts)
+          assert 'PASS_ACTUAL_AC_RESUME_PARITY' in ''.join(scripts)
+          assert 'ORIGINAL_AES_KEY_NOT_ON_OWNER_DRIVE' in ''.join(scripts)
+          assert 'owner_gate_ready' in ''.join(scripts)
+          assert 'KEY_CUSTODY' in ''.join(scripts)
+          assert 'OWNER_AC_SCIENCE_LOCK.json' in ''.join(scripts)
+          print('TTM_AC_COLAB_V8_AST_OWNER_ESCROW_AND_SCIENCE_GATES=PASS_SCOPED')
           PY
       - name: Upload source-only QA receipt
         if: always()
