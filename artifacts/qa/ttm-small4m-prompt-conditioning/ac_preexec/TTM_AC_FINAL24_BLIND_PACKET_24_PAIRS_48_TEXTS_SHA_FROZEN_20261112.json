@@ -1,0 +1,94 @@
+{
+  "schema": "ttm.small4m.ac.final24.blind_packet.owner_package_public_receipt.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_FINAL24_OWNER48_FROZEN_ORIGINAL_AES_BLIND_PACKET_AND_RATER_HANDOFF",
+  "source": {
+    "raw_generation_status": "UNADJUDICATED_OWNER_ONLY",
+    "raw_generation_sha256": "9d158c9e8a7d590ebc9315d716e3b072f5bf94e06cf5061d63ab15e014c36570",
+    "raw_generation_output_count": 48,
+    "original_eval_git_blob": "f08f15c5049baf77771bed463a5119136566373b",
+    "original_encrypted_escrow_sha256": "519f3185d6202052ce1e5c98a7e7fa58a813d87ce9d9e2d173eb25f6a05f9f1c",
+    "decrypted_mapping_sha256_verified": "68d4e303efd2c5809bf0e89f5564f70e1114349b463b5458174c1407e8deda1d",
+    "AES_key_exposed_to_reviewer": false,
+    "original_frozen_mapping_reused": true,
+    "original_blind_positions_balanced_12_12": true,
+    "new_seeding_or_mapping": false,
+    "frozen_prompt_sha256_24_of_24": true
+  },
+  "rater_only_artifacts": [
+    {
+      "filename": "TTM_SMALL4M_AC_FINAL24_BLIND_RATER_PACKET_20261112.json",
+      "size_bytes": 16032,
+      "sha256": "b325567addf4a4498c7384309281c53525e8548fc18fa35221140bbdd0901be9"
+    },
+    {
+      "filename": "TTM_SMALL4M_AC_FINAL24_BLIND_RATER_PACKET_20261112.md",
+      "size_bytes": 13592,
+      "sha256": "4e3dcfaf5117b4e8050b2ccd1f0fc0e87f2f270a7e9b37068096beba568982f2"
+    },
+    {
+      "filename": "TTM_SMALL4M_AC_FINAL24_BLIND_SCORE_TEMPLATE_20261112.json",
+      "size_bytes": 7143,
+      "sha256": "6a6d4d1fb037c3bf4131e3b2a18a307eb2ad46640ca1bd38be0357ab043e06b9"
+    },
+    {
+      "filename": "TTM_SMALL4M_AC_FINAL24_RATER_HANDOFF_20261112.zip",
+      "size_bytes": 7426,
+      "sha256": "577f58ef101645febee25e959497d9d883400565ec65d4b8902516d8059daf00"
+    }
+  ],
+  "owner_private_custody": {
+    "owner_receipt_file": "TTM_SMALL4M_AC_FINAL24_OWNER_PACKET_CUSTODY_20261112.json",
+    "sha256": "f8570cbbadd0a910a4d29e619926d7310478ea8e4fd7a98b9b1844330b9fd1b0",
+    "owner_private_raw_generation_retained": true,
+    "original_AES_key_retained_owner_only": true,
+    "unblind_mapping_not_published": true
+  },
+  "drive": {
+    "parent_folder_id": "1LlUb4h6rYlLaOwcQ7h3ys3FKd5RO4J6r",
+    "rater_only_folder_id": "17ku-ReN28UcYzUN14mUshVBxq5swHsoN",
+    "rater_only_folder_title": "FINAL24_RATER_HANDOFF_BLIND_ONLY",
+    "rater_only_folder_contains_exactly_four_files": true,
+    "rater_only_folder_shared": false,
+    "rater_only_folder_contains_secret_or_owner_mapping": false,
+    "rater_handoff_bundle_file_id": "1Cs44p_qNwm0DZfzdXKPhttyZR2g82axj"
+  },
+  "verification": {
+    "raw_binary_sha256_match": true,
+    "all_48_raw_text_sha256_match": true,
+    "all_24_prompt_utf8_sha256_match": true,
+    "all_24_mapping_pairs_unique": true,
+    "all_24_neutral_R01_R24_unique": true,
+    "all_24_original_prompt_Q01_Q24_unique": true,
+    "left_right_positions_original_not_rerandomized": true,
+    "balanced_A_left_C_left_private_check": true,
+    "rater_artifact_leak_negative_tests": "PASS_NO_EXPLICIT_ARM_MAPPING_KEY_CHECKPOINT_SHA_IN_RATER_ARTIFACTS",
+    "all_files_exist_in_private_Drive_folder": true,
+    "reviewer_has_received_packet": false,
+    "score_count": 0,
+    "note_count": 0
+  },
+  "scoring_contract": {
+    "reviewer": "ChatGPT GPT-6 self-attested; independent chat session only",
+    "scope": "EXPLORATORY_SCOPED_AI_REVIEW",
+    "neutral_pairs": 24,
+    "texts": 48,
+    "integer_scores_required": 144,
+    "notes_required": 24,
+    "axes": [
+      "prompt_adherence",
+      "coherence",
+      "consistency"
+    ],
+    "score_range": [
+      0,
+      3
+    ],
+    "score_sha256_before_unblinding": true
+  },
+  "decision": "PASS_OWNER_PACKET_CONSTRUCTION_AND_BLIND_INTEGRITY__READY_TO_HANDOFF_IN_SEPARATE_RATER_CONTEXT",
+  "science_result": "TRAINED_UNADJUDICATED",
+  "causal_C_minus_A": "NOT_ESTIMABLE",
+  "test_q1q2_ood_read": false,
+  "main_lineage_unchanged": true
+}
