@@ -1,0 +1,54 @@
+name: TTM AC FP16 V2 scoped source QA
+on:
+  push:
+    branches:
+      - research/ttm-small4m-prompt-conditioning-objective-design-20261110
+    paths:
+      - .github/workflows/ttm-ac-fp16-v2-scoped-source-qa.yml
+      - tools/pilot_t4/prompt_conditioning_2x2/independent_ac_fp16_v2_ast_fake_backend_qa.py
+      - tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_objective_runner_fp16_backoff_v2_REVIEW_CANDIDATE.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ttm-ac-fp16-v2-scoped-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  scoped-source-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated test dependency
+        run: python -m pip install --disable-pip-version-check numpy==2.4.4
+      - name: Verify exact candidate AST and 7 fake GradScaler negative cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pilot_t4/prompt_conditioning_2x2/independent_ac_fp16_v2_ast_fake_backend_qa.py \
+            --candidate tools/pilot_t4/prompt_conditioning_2x2/ttm_ac_objective_runner_fp16_backoff_v2_REVIEW_CANDIDATE.py \
+            --out "$RUNNER_TEMP/AC_FP16_V2_AST_FAKE_BACKEND_SCOPED_QA.json"
+          python - "$RUNNER_TEMP/AC_FP16_V2_AST_FAKE_BACKEND_SCOPED_QA.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1],encoding='utf-8'))
+          assert d['status']=='PASS_SCOPED_SOURCE_AST_FAKE_BACKEND_7_OF_7'
+          assert len(d['cases'])==7 and all(c['pass'] for c in d['cases'])
+          assert d['ac_science_training'] is False
+          assert d['real_gpu_access'] is False
+          print('CI_SCOPE=SOURCE_AST_AND_FAKE_SCALER_ONLY')
+          PY
+      - name: Upload source-only QA receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ttm-ac-fp16-v2-source-fake-qa
+          path: ${{ runner.temp }}/AC_FP16_V2_AST_FAKE_BACKEND_SCOPED_QA.json
+          if-no-files-found: warn
+          retention-days: 30
