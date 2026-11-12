@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-CANDIDATE_BLOB='6bbd8b7190f843685197f6203b574a6c76977f3a'
+CANDIDATE_BLOB='f8b74f8439d70504028cdb94a5b01cb058a6107c'
 def need(cond,code):
     if not cond:raise RuntimeError(code)
 def git_blob(raw):return hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()
@@ -69,7 +69,20 @@ def pair_check(arm,plans,data,candidate,base,p02,cp,step,device):
         x,y=base.fixed_batch(data,plan,arm)
         need(int((y!=-100).sum())==4096,'REAL_4096_VALID_TARGETS_CHANGED')
         batches.append((x,y))
-    def fresh():return base.clone_parent(p02,cp,device)
+    # Independent guard: prove that A/C and their resume states cannot mutate
+    # the exact frozen step1024 source parent through AdamW 'step' CPU aliasing.
+    original_optimizer=copy.deepcopy(cp['optimizer'])
+    def assert_parent_unchanged(where):
+        equivalent(cp['optimizer'],original_optimizer,'immutable_step1024_parent:'+where)
+        need(all(float(v['step'])==1024 for v in cp['optimizer']['state'].values()),
+             'FROZEN_PARENT_ADAMW_STEP_DRIFT:'+where)
+    def fresh():
+        pieces=candidate.restore_arm(p02,cp,None,device)
+        upstream=next(iter(cp['optimizer']['state'].values()))['step']
+        actual=next(iter(pieces[1].state.values()))['step']
+        need(actual.data_ptr()!=upstream.data_ptr(),'UPSTREAM_STEP_STORAGE_ALIASED')
+        assert_parent_unchanged('after_clone')
+        return pieces
     def update(parts,xy):
         subtotal,skipped,attempts=step(parts[0],parts[1],parts[2],parts[4],
                                       xy[0],xy[1],arm,device)
@@ -77,10 +90,12 @@ def pair_check(arm,plans,data,candidate,base,p02,cp,step,device):
     # Uninterrupted parent -> 1025 -> 1026.
     direct=fresh()
     direct_logs=[update(direct,xy) for xy in batches]
+    assert_parent_unchanged('after_two_direct_optimizer_updates')
     direct_end=candidate.state_dump(*direct,1026,[],arm)
     # Fresh identical parent -> 1025 -> serialize/deserialize -> 1026.
     staged=fresh()
     first=update(staged,batches[0])
+    assert_parent_unchanged('after_staged_optimizer_update')
     with tempfile.TemporaryDirectory(prefix='TTM_AC_V2_PRIVATE_QA_') as tmp:
         path=Path(tmp)/'real_model_real_train_qa_step1025.pt'
         snapshot=candidate.state_dump(*staged,1025,[],arm)
@@ -92,6 +107,7 @@ def pair_check(arm,plans,data,candidate,base,p02,cp,step,device):
              'RESUME_SNAPSHOT_SCOPE_CHANGED')
     resumed=candidate.restore_arm(p02,cp,readback,device)
     second=update(resumed,batches[1])
+    assert_parent_unchanged('after_resumed_optimizer_update')
     resumed_end=candidate.state_dump(*resumed,1026,[],arm)
     for key in ('model','optimizer','scheduler','sampler_state','grad_scaler_state',
                 'torch_cpu_rng','torch_cuda_rng','python_rng','numpy_rng'):
@@ -102,6 +118,8 @@ def pair_check(arm,plans,data,candidate,base,p02,cp,step,device):
             'real_parent_step':1024,'verified_step_pair':[1025,1026],
             'checkpoint_roundtrip_sha256':digest,
             'exact_tensor_optimizer_scheduler_scaler_rng_parity':True,
+            'frozen_step1024_parent_optimizer_immutable':True,
+            'parent_step_tensor_storage_unaliased':True,
             'direct_optimizer_updates':2,'resumed_path_optimizer_updates':2,
             'qa_optimizer_updates_total':4,
             'direct_scaler_skipped_attempts':sum(x['skipped'] for x in direct_logs),
