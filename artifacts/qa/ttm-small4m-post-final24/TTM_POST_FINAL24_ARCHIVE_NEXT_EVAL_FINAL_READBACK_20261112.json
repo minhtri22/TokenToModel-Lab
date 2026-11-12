@@ -1,0 +1,61 @@
+{
+  "schema": "ttm.small4m.post.final24.archive.evalfreeze.final_readback.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_POST_FINAL24_NEGATIVE_RESULT_ARCHIVE_AND_NEW_HYPOTHESIS_DESIGN",
+  "old_ac_closed_commit": "16d00b23d9190a1331058a5b407700b6cb3c3a20",
+  "new_design_branch": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+  "new_design_prior_head": "0de775205ad6aeef7f9b1e2811842c4085a58741",
+  "main_head_at_readback": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+  "lineage_blob_preserved": "e20522a410d48020e904f2edbd7820e6fcca6251",
+  "old_final24_status": "CLOSED_CONSUMED_NO_REUSE",
+  "old_scientific_negative": "NO_DEMONSTRATED_C_GAIN_C_MINUS_A_ZERO",
+  "qa": {
+    "independent_old_final24_checks": 107,
+    "new_eval_source_static_checks": 23,
+    "new_eval_negative_mutation_checks": 2,
+    "new_eval_static_qa_result": "PASS_STATIC_QA_NEW_EVAL_HASHES_AND_ARCHIVE_SCOPE",
+    "new_model_forwards": 0,
+    "new_optimizer_steps": 0
+  },
+  "new_eval": {
+    "id_namespace": "ND01..ND12; NF01..NF24",
+    "dev_count": 12,
+    "blind_final_count": 24,
+    "balanced_final_strata_6_each": true,
+    "owner_private_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "private_drive_raw_readback_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "private_drive_bytes": 18076,
+    "private_drive_raw_byte_equal_source": true,
+    "owner_private_folder_url": "https://drive.google.com/drive/folders/1xFEdW12estq_dfU_LybqAXXPtrE8cNhZ",
+    "private_drive_visibility": "not_shared",
+    "public_dev_sha256": "5d24d4ad9a5cb4c7d0db9efa9fbddbb2d34f321d67df602d2f4b6bca3d183193",
+    "public_commitment_sha256": "3c6d484d40eba4cbdf0d122d032e228b02fa67af48647830a273f93a54f32060",
+    "novelty_reference": "24 prior FINAL24 + 12 prior FRESH12 public prompts, only",
+    "exact_prior_prompt_duplicates": 0,
+    "max_within_word_trigram_jaccard": 0.043478,
+    "max_against_prior_word_trigram_jaccard": 0.057143,
+    "not_checked_against_private_TEST_Q2_OOD": true,
+    "final_plaintext_published_on_github": false,
+    "public_source_blobs": {
+      "postmortem": "46953a5911afea92252403f2c6ed809fab547df5",
+      "archive_manifest": "6aa9184f1c85a3e028c448c55cd0bdb3895068c6",
+      "public_dev": "f15131df3eb7a0044a544733fb68d7af4753b6d6",
+      "public_final_sha": "8b38514939c6f940924986c7572c5da2c93fb0a4",
+      "validator": "d1e538b35715e8bc0556d1bd99fbffc79a70b369",
+      "source_static_qa": "791c1a9d9ef58ce568cb544edebe610a2bcc2640"
+    }
+  },
+  "selected_next_hypothesis": "H_DEC_R1_DETERMINISTIC_REPETITION_PENALTY_1_15_VS_GREEDY_SAME_A_STEP1152",
+  "next_study_permission": "HOLD_OWNER_GO_AND_RUNTIME_SOURCE_QA",
+  "pending": [
+    "exact BPE tokenizer roundtrip and context budget",
+    "decoder source SHA and negative QA",
+    "owner rights and model/Drive custody",
+    "independent blind-rater acceptance and AES mapping frozen",
+    "one integrated owner GO/HOLD"
+  ],
+  "scope_deviation_logged": "Public Q1 prompt file was opened during source discovery; no Q1 model execution and no Q1 source used in new prompt novelty computations",
+  "lineage_edit_this_operation": false,
+  "main_edit_this_operation": false,
+  "decision": "PASS_ARCHIVE_AND_EVAL_SOURCE_FREEZE__HOLD_NEW_SCIENCE"
+}
