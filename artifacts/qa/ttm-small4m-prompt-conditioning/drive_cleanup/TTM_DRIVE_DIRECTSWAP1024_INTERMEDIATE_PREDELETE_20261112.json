@@ -1,0 +1,125 @@
+{
+  "schema": "ttm.drive_cleanup.directswap1024.intermediate_predelete.v1",
+  "date": "2026-11-12",
+  "study": "ttm_small4m_gemma2_directswap_1024x4096_t4_gpu_20261109_v1",
+  "science": "EXPLORATORY_COMPLETED_UNADJUDICATED",
+  "purpose": "free owner Drive capacity for scoped A/C science",
+  "candidate": "intermediate checkpoints only",
+  "status": "PREDELETE_MANIFEST_LOCKED",
+  "all_leaves_exactly_ready_plus_checkpoint": true,
+  "final_1024_SHA_from_RESULT_and_READY_verified": {
+    "A": "95bb69de752bf051958f0d8e19a388528d2cc102f02258c88d756526a9406aa2",
+    "B": "8ecca1e181726965d4f6e76c8e725b612706d5242accd408a9386964939191d1",
+    "C": "cb77a5c2e435dd8cf1f61259f560a22964bc8c8c06889b0494cb961ed76bc9ac",
+    "D": "81003fa2fe194a7e22b30d1b3e330fc65ec0ae486a08511d17c367ec5c25f69f"
+  },
+  "deletion_targets": [
+    {
+      "arm": "A",
+      "step": 256,
+      "checkpoint_bytes": 45093275,
+      "checkpoint_sha256": "25e59c5e7434c9b5140ac8cecd626ee353fcff725f14ecbb15704cbd8b875210",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "A",
+      "step": 512,
+      "checkpoint_bytes": 45095579,
+      "checkpoint_sha256": "5585b39f12656ffa96fac46d4fa7580cb57b6a9c6a047d4f7a0e9d909bb772fa",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "A",
+      "step": 768,
+      "checkpoint_bytes": 45097883,
+      "checkpoint_sha256": "cc83498cd06ed8d5be75e4c3daff9dcdbb9459639341c3a2754bb327e4c1fb18",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "B",
+      "step": 256,
+      "checkpoint_bytes": 51386355,
+      "checkpoint_sha256": "bc98cff2db9d443c70b13e472489085fc55f7c121bb21099a9437509c1f8f469",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "B",
+      "step": 512,
+      "checkpoint_bytes": 51388659,
+      "checkpoint_sha256": "0062dbee6cb30a287836bd666383bf653a78421968383e17d190493c8a15ca5c",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "B",
+      "step": 768,
+      "checkpoint_bytes": 51390963,
+      "checkpoint_sha256": "82e4ad470bcf4b68bb07bf93c8a1eff9903e8e5e019621cc9ea21480ae01f180",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "C",
+      "step": 256,
+      "checkpoint_bytes": 52962629,
+      "checkpoint_sha256": "eecbac54155b10ff2f0c3933ab5dd05357cbc6582cb897a1a4ba636d9e16d504",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "C",
+      "step": 512,
+      "checkpoint_bytes": 52964933,
+      "checkpoint_sha256": "6164d8ec629130060bb888a2363dd40c347aaa390f35944b807a69f1758df065",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "C",
+      "step": 768,
+      "checkpoint_bytes": 52967237,
+      "checkpoint_sha256": "cec30afb7aec6ef7040f3ce8a091a7f46a4b225cff19e933b9457309ceae63bc",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "D",
+      "step": 256,
+      "checkpoint_bytes": 52962629,
+      "checkpoint_sha256": "ae2dd996e222f1738478432bbf3ab9556181a4a5e25d0458895b408ca2193fdc",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "D",
+      "step": 512,
+      "checkpoint_bytes": 52964933,
+      "checkpoint_sha256": "95379a146577cc7903d0e3887e17fa0419d29e28fc66d9afc96821b7915a1f49",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    },
+    {
+      "arm": "D",
+      "step": 768,
+      "checkpoint_bytes": 52967237,
+      "checkpoint_sha256": "4f0af10035cacbf7a396aa5083d09d619f081fe3ef190e1e4503278a9f2e18f6",
+      "ready_verified": true,
+      "ready_schema": "ttm.gemma2.directswap1024.checkpoint.ready.last.v1"
+    }
+  ],
+  "expected_reclaim_bytes": 607247964,
+  "planned_destruction": "permanently remove 12 checkpoint subfolders with their READY.json only after manifest checkpoint",
+  "owner_Drive_ids_logged": false,
+  "protected": [
+    "all four final step1024 checkpoints and READY",
+    "RESULT.json",
+    "TRAIN private pack",
+    "P02 step1024",
+    "all AC receipts and AES key",
+    "all Semantic4x3 checkpoints"
+  ]
+}
