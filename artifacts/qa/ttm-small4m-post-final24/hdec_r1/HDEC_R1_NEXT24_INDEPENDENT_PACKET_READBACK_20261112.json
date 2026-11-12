@@ -1,0 +1,21 @@
+{
+  "all_48_texts_exact_match": true,
+  "all_prompts_exact_match": true,
+  "checks_failed": 0,
+  "checks_passed": 220,
+  "date": "2026-11-12",
+  "generation_receipt_sha256": "bdd1a513fef9de45fc66873795b6a04551ebde9b08f9b1b7a37d4d028d51735a",
+  "model_forward": 0,
+  "no_arm_labels_or_key_in_bundle": true,
+  "original_AES_mapping_reused": true,
+  "pairs": 24,
+  "rater_packet_json_sha256": "e28049bf770ddab879fdd10ac5805b9b5bf2e60fa0f8f9264ba641abab82dd22",
+  "rater_zip_sha256": "9ec48639974575e1cdebb28fcf9b2a0393a3318fb954dc9c5824e2f8bace927a",
+  "schema": "ttm.small4m.hdec_r1.next24.independent_blind_packet_check.v1",
+  "scores": 0,
+  "source_72_sha256": "e09572c29993af8379a57cfc26c905912525e6238510f2803af5c9a81cc2f208",
+  "source_TEST_Q1_Q2_OOD_not_accessed": true,
+  "texts": 48,
+  "unblind": "NOT_EXECUTED",
+  "verdict": "PASS_INDEPENDENT_PACKET_READBACK_READY_FOR_BLIND_RATING"
+}
