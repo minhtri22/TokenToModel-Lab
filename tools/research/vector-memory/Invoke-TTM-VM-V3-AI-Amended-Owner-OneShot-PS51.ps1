@@ -102,9 +102,31 @@ RequireSHA $fixture $fixtureSHA 'V3_PRIVATE_256_FIXTURE'
 RequireSHA $reader 'c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f' 'READER_L0020'
 RequireSHA $ck 'ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc' 'P02_FROZEN'
 RequireSHA $t1 'cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc' 'REAL_T1_MANIFEST'
-RequireSHA $nativeSourceQA 'fe0cf99c8cbbfb85e07ce0f57f760cee7f24a2c8c4e01d3a21f90b4e9214b6' 'V3_OWNER_SOURCE_QA_99'
+# Frozen owner-native source receipt: this is the SHA256 actually produced on Windows
+# on 2026-11-12. Do NOT skip the byte pin or alter the historical receipt.
+RequireSHA $nativeSourceQA 'fe0cf99c8cbbfb85e07ce0f57f760ceede7f24a2c8c4e01d3a21f90b4e9214b6' 'V3_OWNER_SOURCE_QA_99'
 $sourceQA = Get-Content -LiteralPath $nativeSourceQA -Raw -Encoding UTF8 | ConvertFrom-Json
-if ($sourceQA.checks_passed -ne 99 -or $sourceQA.checks_total -ne 99) { throw 'NATIVE_V3_SOURCE_QA_99_MISMATCH' }
+# Native source QA uses qa_passed/qa_total, NOT scorer-QA checks_passed/checks_total.
+if ($sourceQA.schema -ne 'ttm.vm.v3.independent_fixture_truth_and_nonoracle_negative_qa.v1' -or
+    $sourceQA.status -ne 'PASS_SOURCE_STRUCTURAL_AND_MOCK_RETRIEVER_QA' -or
+    $sourceQA.qa_passed -ne 99 -or $sourceQA.qa_total -ne 99 -or
+    $sourceQA.cases -ne 256 -or
+    $sourceQA.private_fixture_sha256 -ne $fixtureSHA -or
+    $sourceQA.private_fixture_bytes -ne 2128853 -or
+    $sourceQA.Reader_forward_calls -ne 0 -or
+    $sourceQA.actual_v3_probe_retrieval_calls -ne 0 -or
+    $sourceQA.optimizer_steps -ne 0 -or
+    $sourceQA.dev_scored -ne $false -or
+    $sourceQA.old_probe_scored -ne $false -or
+    $sourceQA.test_opened -ne $false -or
+    $sourceQA.gpu_used -ne $false) {
+    throw 'NATIVE_V3_SOURCE_QA_RECEIPT_INVALID'
+}
+$sourceChecks = @($sourceQA.checks.PSObject.Properties)
+if ($sourceChecks.Count -ne 99 -or
+    @($sourceChecks | Where-Object { $_.Value -ne $true }).Count -ne 0) {
+    throw 'NATIVE_V3_SOURCE_QA_99_BOOLEAN_CHECKS_NOT_ALL_TRUE'
+}
 
 & $py -B -c 'import sys,torch,numpy,regex; assert sys.version_info[:2]==(3,12); assert torch.__version__'
 if ($LASTEXITCODE -ne 0) { throw 'PY312_TORCH_DEPENDENCY_GATE_FAIL' }
