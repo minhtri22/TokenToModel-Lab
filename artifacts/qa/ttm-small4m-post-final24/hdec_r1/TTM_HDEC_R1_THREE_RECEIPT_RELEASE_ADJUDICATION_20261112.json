@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.small4m.hdec_r1.three_receipt.release_adjudication.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_HDEC_R1_THREE_RECEIPT_SINGLE_RELEASE_ADJUDICATION_NO_AUTO_INFERENCE",
+  "run_id": "TTM_SMALL4M_POST_FINAL24_DECODING_REPETITION_DIAGNOSTIC_V1",
+  "branch": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+  "scientific_scope": {
+    "checkpoint": "ARM_A_step1152_only",
+    "checkpoint_sha256": "ae9f05c5234ac98e3f9150e3f27501d217c1942a381650bec5aef91a1f56196b",
+    "tokenizer_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "original_eval_owner_private_sha256": "9480ba73cbbe425fc9b61cc3253df81b32d52b0c35127d6e4392e5b5d6b0d54f",
+    "D0": "greedy exact baseline",
+    "D1": "unique-continuation-token-only sign-aware penalty 1.15 greedy",
+    "new_dev_prompts": 12,
+    "new_final_prompts": 24,
+    "max_generated_tokens": 64,
+    "training": 0,
+    "original_FINAL24": "CLOSED_CONSUMED_NO_REUSE",
+    "TEST_Q1_Q2_OOD": "NO_REUSE"
+  },
+  "gates": {
+    "source_qa": {
+      "status": "PASS_SCOPED_SYNTHETIC_AND_STATIC",
+      "earlier_source_BPE_context_tests": 207,
+      "earlier_metric_synthetic_tests": 14,
+      "earlier_mutation_negative_tests": 4
+    },
+    "owner_colab_t4_runtime_source_pin": {
+      "status": "PASS_EXACT_RUNTIME_SOURCE_PIN",
+      "checks_passed": 10,
+      "gpu": "Tesla T4",
+      "gpu_memory_mib": 15360,
+      "torch_version": "2.14.1+cu130",
+      "cuda_version": "13.0",
+      "actual_receipt_sha256": "65bfd3b08fbb9fa8454292171e3f1767a36ed14563a99d35112f11d0e0e02142",
+      "actual_receipt_git_blob_sha1": "2eaafb2c9fb6095f73cceab0c88950e232a81ab3",
+      "owner_drive_file_id": "18wIF1LKL7WgAp2UwgtxQfbT4_tCS8YVP",
+      "source_code_commit": "c784b4a0687f6b0fd840f41d3bbf93e5c31038a7",
+      "source_pins": "EXACT_GIT_BLOB_AND_SHA_MATCH",
+      "owner_private_inputs": "EXACT_BYTES_SHA_MATCH",
+      "model_loaded": false,
+      "model_forward": 0,
+      "optimizer_updates": 0,
+      "receipt_schema": "ttm.small4m.hdec_r1.owner_colab_t4.preinference_source_pin.v1",
+      "note": "Source pin verification does NOT verify actual model-forward integration or grant inference."
+    },
+    "owner_new_run_inference_rights": {
+      "status": "HOLD_EXPLICIT_OWNER_GO_NOT_RECEIVED",
+      "old_AC_rights_reuse": false,
+      "existing_owner_consent": "PREEXEC_ONLY",
+      "signed_new_scope_receipt": false,
+      "required": "Owner explicitly authorizes this single run as internal inference with frozen A-1152 D0/D1 on new ND12/NF24 only; no training or source redistributions; no TEST/Q1/Q2/OOD."
+    },
+    "independent_rater_acceptance": {
+      "status": "HOLD_ACTUAL_NEW_SEPARATE_SESSION_ACCEPTANCE_NOT_RECEIVED",
+      "current_rater_handoff": "docs/research/ttm-small4m-post-final24/TTM_HDEC_R1_INDEPENDENT_RATER_PRE_DATA_ACCEPTANCE_HANDOFF_20261112.md",
+      "rater_packet_received": false,
+      "scored_outputs": 0,
+      "must_freeze_144_integer_scores_24_notes_before_unblind": true,
+      "self_attestation_not_human_verification": true,
+      "required": "New separate rater actually accepts task, returns own identity/session/UTC/no prior arm mapping exposure; no outputs or owner keys."
+    },
+    "actual_inference": {
+      "status": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "model_forward": 0,
+      "final24_generated": false
+    }
+  },
+  "verdict": "HOLD_ONLY_NEW_OWNER_INFERENCE_GO_AND_NEW_RATER_ACCEPTANCE",
+  "release_go": false,
+  "automatic_inference": false,
+  "runner_preexec_runtime": "SOURCE_PIN_PASS_ONLY_NO_MODEL_FORWARD",
+  "checkpoint_and_decoder_source_frozen": true,
+  "private_mapping_and_AES_key_not_published": true,
+  "lineage": "UNCHANGED_L0015",
+  "main": "UNCHANGED",
+  "next": "After actual owner consent and actual rater acceptance, compare receipts and issue ONE final GO/HOLD; no inference in this operation."
+}
