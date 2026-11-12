@@ -1,0 +1,125 @@
+{
+  "schema": "ttm.small4m.fc01.single_research_design.owner_decision_receipt.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_SMALL4M_FACT_CONDITIONING_DATA_OBJECTIVE_CAPACITY_SINGLE_RESEARCH_DESIGN",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "source_frozen_parent_commit": "0ec28d44587fde9ad4acba8cccae65648e367181",
+  "decision": "GO_DESIGN_FREEZE_ONLY",
+  "scientific_execution": "HOLD_PREEXEC",
+  "design_document_path": "docs/research/ttm-small4m-fact-conditioning/TTM_SMALL4M_FC01_DATA_OBJECTIVE_CAPACITY_SINGLE_PREREG_DESIGN_20261112.md",
+  "design_document_git_blob": "af80eddfb2175b58a90c2a9761f0ed339e03678a",
+  "studies": {
+    "FC01": {
+      "type": "EXPLORATORY_CONTROLLED_STUDY_DESIGN_ONLY",
+      "question": "effect of within-family A/B counterfactual coverage and contrastive answer-choice objective on novel-family fact switch",
+      "arms": [
+        {
+          "id": "A_BASE_MLE",
+          "data": "D0_SINGLETON_BALANCED",
+          "objective": "NEXT_TOKEN_CE"
+        },
+        {
+          "id": "B_CF_MLE",
+          "data": "D1_WITHIN_FAMILY_PAIRED_A_B",
+          "objective": "NEXT_TOKEN_CE"
+        },
+        {
+          "id": "C_CF_CONTRAST",
+          "data": "SAME_EXACT_D1_AS_B",
+          "objective": "CE_PLUS_MARGIN_SOFTPLUS_LAMBDA0_2_TAU1"
+        }
+      ],
+      "common_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "bpe_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "p02_source_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "parameter_count": 3749376,
+      "train_data": {
+        "train_families": 256,
+        "val_families": 64,
+        "eval_holdout_families": 64,
+        "categories": 4,
+        "train_families_per_category": 64,
+        "val_families_per_category": 16,
+        "eval_families_per_category": 16,
+        "core_token_slots_fraction": 0.75,
+        "synthetic_token_slots_fraction": 0.25,
+        "source_data_bytes_frozen": false,
+        "family_split_bytes_frozen": false,
+        "EVAL_prompt_bytes_frozen": false,
+        "training_corpus_rights_fully_attested": false,
+        "admission_decision": "PENDING_ONE_PACKET_READINESS"
+      },
+      "training_budget": {
+        "arms": 3,
+        "updates_per_arm": 256,
+        "effective_batch_sequences": 16,
+        "context_tokens": 256,
+        "gradient_accumulation_steps": 4,
+        "microbatch_sequences": 4,
+        "core_sequences_per_step": 12,
+        "synthetic_sequences_per_step": 4,
+        "token_slots_per_arm": 1048576,
+        "total_token_slots": 3145728,
+        "optimizer_updates_total": 768,
+        "candidate_score_calls_per_eval_arm": 384,
+        "candidate_score_calls_total": 1152,
+        "temperature_for_secondary_rollouts": null,
+        "secondary_decoder": "GREEDY_FIXED",
+        "secondary_rollouts_per_arm": 32,
+        "secondary_rollouts_total": 96,
+        "max_new_tokens_per_secondary_rollout": 32,
+        "T4_gpu_hours_ceiling_total": 3,
+        "monetary_paid_cost_ceiling_USD": 0,
+        "matched_basis": "MAIN_LM_TOKEN_SLOTS_AND_UPDATES",
+        "compute_matched": false,
+        "added_candidate_compute_in_C": true,
+        "runtime": "COLAB_FREE_T4_PYTORCH_FP32_RESUME_EXACT_ON_DRIVE",
+        "training_seed_preregistered": 20261112,
+        "bootstrap_seed_preregistered": 20261113
+      },
+      "objective_details": {
+        "contrastive_lambda": 0.2,
+        "contrastive_temperature": 1,
+        "negative_candidate_source": "OPPOSITE_FACT_TRUE_CONTINUATION_WITHIN_SAME_TRAIN_FAMILY",
+        "candidate_pair_BPE_length_equal": true,
+        "scoring": "MEAN_TEACHER_FORCED_LOGPROB_PER_ANSWER_TOKEN",
+        "primary": "FACT_SWITCH_BOTH_A_AND_B_POSITIVE_PER_NEW_EVAL_FAMILY",
+        "delta_data": "S_B_MINUS_S_A",
+        "delta_objective": "S_C_MINUS_S_B",
+        "CI": "PAIRED_STRATIFIED_FAMILY_BOOTSTRAP_10000",
+        "meaningful_exploratory_delta_min": 0.125,
+        "lower_bound_CI_required_above_zero": true,
+        "general_validation_NLL_max_degradation_nats_per_token": 0.05,
+        "no_posthoc_hyperparameter_or_seed_selection": true
+      }
+    },
+    "FC02_CAPACITY": {
+      "status": "NOT_OPENED_CONDITIONAL_DESIGN_ONLY",
+      "possible_prototype": "P02_WIDTH384_LAYERS4_HEADS6_UNVERIFIED_PARAM_COUNT",
+      "missing_comparable_pretraining": "YES",
+      "comparability_requirement": "MATCHED_PRETRAINING_EXPOSURE_REQUIRED_BEFORE_CAPACITY_ATTRIBUTION"
+    }
+  },
+  "QA_design_readback": {
+    "verified_preexisting_DEV32_closeout": true,
+    "DEV32_parent_closeout": "CLOSED_EXPLORATORY_SCOPED_PROVISIONAL_INPUT_PROVENANCE",
+    "rater_input_bytes_verified": false,
+    "confirmatory_D1_512": "HOLD_UNCHANGED",
+    "Q1Q2_TEST": "SEALED",
+    "lineage_md": "UNCHANGED",
+    "main_branch": "UNCHANGED",
+    "checkpoint_model_modified": false,
+    "new_training_executed": false,
+    "new_inference_executed": false,
+    "gpu_calls_executed": 0,
+    "paid_API_calls_executed": 0,
+    "any_new_seed_executed": false,
+    "authorized_code_execution": "DESIGN_DOCS_ONLY",
+    "independent_dynamic_QA": "NOT_EXECUTED",
+    "source_bytes_read_for_FC01": "NOT_CREATED"
+  },
+  "one_next_step": "TTM_SMALL4M_FC01_ONE_PACKET_DATA_RIGHTS_CORPUS_RUNNER_SOURCE_QA_SINGLE_OWNER_GO_HOLD_NO_GPU",
+  "scientific_release_requirement": "SINGLE_OWNER_INTEGRATED_READINESS_GO_HOLD_AFTER_SOURCE_BYTE_FREEZE",
+  "no_repeated_micro_permits": true
+}
