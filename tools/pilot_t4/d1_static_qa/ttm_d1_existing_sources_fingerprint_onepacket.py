@@ -51,7 +51,9 @@ def read_pinned(path: Path, sha256: str = "", git_sha1: str = "") -> tuple[dict,
     if sha256 and sha(raw) != sha256:
         fail("PINNED_SOURCE_SHA_MISMATCH_" + path.name)
     canonical = raw.replace(b"\r\n", b"\n")
-    if git_sha1 and git_blob(raw) != git_sha1 and git_blob(canonical) != git_sha1:
+    # Some read/write transports remove exactly one final LF from text files.
+    candidates = (raw, canonical, canonical if canonical.endswith(b"\n") else canonical + b"\n")
+    if git_sha1 and not any(git_blob(c) == git_sha1 for c in candidates):
         fail("GIT_BLOB_MISMATCH_" + path.name)
     try:
         obj = json.loads(raw.decode("utf-8-sig"))
