@@ -1,0 +1,74 @@
+{
+  "schema": "ttm.small4m.ac.v7.real_train.pass_v8_owner_science_gate_staged.v1",
+  "date": "2026-11-12",
+  "operation": "TTM_AC_FP16_V2_INDEPENDENT_QA_OWNER_SCIENCE_RELEASE_AND_A_C_T4_EXECUTION",
+  "ac_source_branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+  "verified_owner_drive_receipts": [
+    {
+      "file": "AC_FP16_V2_PARENT_ISOLATED_REAL_P02_REAL_TRAIN_TWO_STEP_PARITY_V7.json",
+      "sha256": "dd1fb780db5a48c2f3a958c4f234582a5fd7d162d746f03d7d6a99b6d82d1a2d",
+      "status": "PASS_REAL_P02_T4_REAL_TRAIN_TWO_STEP_RESUME_PARITY_SCOPED",
+      "scope": "A/C real-TRAIN two-step 1025-1026 exact model optimizer scheduler scaler RNG state parity",
+      "scientific_training_steps": 0
+    },
+    {
+      "file": "AC_FP16_V2_PARENT_ISOLATED_AST_7_OF_7_V7.json",
+      "sha256": "7a87fa97767745eb0281351b17869f3624c72d06b2e8b51c4d1699d27b45f466",
+      "status": "PASS_SCOPED_SOURCE_AST_FAKE_BACKEND_7_OF_7",
+      "seven_negative_tests_pass": true,
+      "scientific_training_steps": 0
+    }
+  ],
+  "blind_key_recovery": {
+    "location": "USER_PRIVATE_CHATGPT_LIBRARY_FILE_NOT_GITHUB",
+    "filename": "TTM_SMALL4M_AC_BLIND24_OWNER_PRIVATE_KEY_20261111.json",
+    "owner_library_bytes": 544,
+    "private_file_sha256": "c216ec0e9b815eb231e58c80cbb2d5ccc956cf4c66d481c7b3aa4488e19a897e",
+    "aes_key_length_bytes": 32,
+    "expected_ciphertext_sha256": "519f3185d6202052ce1e5c98a7e7fa58a813d87ce9d9e2d173eb25f6a05f9f1c",
+    "expected_plaintext_sha256": "68d4e303efd2c5809bf0e89f5564f70e1114349b463b5458174c1407e8deda1d",
+    "key_bytes_logged_or_committed": false,
+    "original_escrow_decrypt_test_from_library": "NOT_EXECUTED_LOCAL_METADATA_ONLY",
+    "owner_colab_original_escrow_decrypt_gate": "STAGED_V8",
+    "owner_drive_private_key_file_present": false
+  },
+  "notebook": {
+    "path": "tools/pilot_t4/prompt_conditioning_2x2/TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_20261111.ipynb",
+    "git_blob": "5857de47257c1057db905660f4b618c3d165eeb3",
+    "version": "V8",
+    "cells": 8,
+    "one_owner_gate_cell": "2C",
+    "owner_approve_from_explicit_prior_chat": "YES_IF_OWNER_EXECUTES_V8",
+    "reviewer_identity_selected": "ChatGPT (OpenAI) GPT-6, session TTM-FINAL24-RATER-GPT6-20261112-052054Z",
+    "reviewer_verified_independence": "SELF_ATTESTED_ONLY",
+    "earlier_reviewer_codex_intent": "DIFFERENT_NAME_RECONCILED_BY_OWNER_EXECUTION_IF_ACCEPTED",
+    "only_claim_after_review": "EXPLORATORY_SCOPED_AI_REVIEW",
+    "owner_files_generated_only_if_original_private_key_decrypts": [
+      "RIGHTS_OWNER_SIGNED.json",
+      "REVIEWER_INDEPENDENCE_SIGNED.json",
+      "ACTUAL_AC_RESUME_INDEPENDENT_ADJUDICATION.json",
+      "OWNER_AC_SCIENCE_LOCK.json"
+    ],
+    "scoped_actual_qa_receipt_clearly_marks_full_128_step_resume_not_tested": true,
+    "same_run_resume": "ONLY_EXISTING_MATCHING_RUN_MANIFEST_AND_READY_BOUNDARY",
+    "no_code_change_to_v2_science_runner": true,
+    "no_train_or_unblind_when_gate_fails": true,
+    "local_windows_copy": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_AC_2ARM_ONE_PACKET_T4_OWNER_COLAB_V8_20261112.ipynb"
+  },
+  "ci": {
+    "run_id": 43170197142,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43170197142",
+    "result": "SUCCESS",
+    "coverage": "SOURCE_AST_7_OF_7_AND_NOTEBOOK_7_PYTHON_CELLS_COMPILE_AND_OWNER_ESCROW_GATE_PRESENT",
+    "real_T4_training": false,
+    "blind_escrow_decrypt": false
+  },
+  "release_decision": "GO_OWNER_ONEPACKET_COLAB_V8_GATE_ONLY__SCIENCE_HOLD_UNTIL_OWNER_EXECUTES_AND_ORIGINAL_AES_KEY_VERIFIED",
+  "science_A_steps": 0,
+  "science_C_steps": 0,
+  "final24_generation": "NOT_EXECUTED",
+  "final24_scoring": "NOT_EXECUTED",
+  "C_minus_A": "NOT_ESTIMABLE",
+  "main_or_lineage_modified": false,
+  "next": "OWNER_TRANSFER_ORIGINAL_PRIVATE_KEY_FROM_LIBRARY_TO_COLAB_OWNER_DRIVE_AND_RUN_V8_CELL2C_THEN_CELL3_IF_GATE_PASS"
+}
