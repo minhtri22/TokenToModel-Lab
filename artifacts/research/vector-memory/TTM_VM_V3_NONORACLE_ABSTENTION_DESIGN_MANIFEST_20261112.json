@@ -1,0 +1,283 @@
+{
+  "schema": "ttm.vm.v3.nonoracle_unseen_ambiguity_abstention.design_contract.v1",
+  "operation": "TTM_VM_V3_NONORACLE_AMBIGUITY_AND_UNSEEN_PARAPHRASE_PREREG_DESIGN_ONLY",
+  "date": "2026-11-12",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-vector-memory-architecture-20261111",
+  "source_basis": {
+    "lineage_latest": "L0022",
+    "baseline_positive": "L0022_PASS_NONTEST_S2_CLOSED_VOCAB_DESCRIPTION_SCREEN_SCOPED",
+    "baseline_negative": "L0021_FAIL_RETRIEVAL_SCOPED",
+    "v2_reader_source_git_blob": "7ce728b2874284b87933237c890e54ce3d9fd651",
+    "v2_retriever_source_git_blob": "dc733eda42d768d695309e3a1d5df25aeabb28b7",
+    "v2_science_source_commit": "df7865a420cbd5d58d5f24a55b85f99c9242038e",
+    "read_only_basis_only": true,
+    "v2_192_probe_one_shot_consumed": true,
+    "l0021_128_probe_one_shot_consumed": true
+  },
+  "decision": {
+    "status": "PASS_DESIGN_CONTRACT_INTERNAL_CONSISTENCY",
+    "science_readiness": "HOLD",
+    "science_dispatch_authorized": false,
+    "why_hold": "NO_V3_FIXTURE_GENERATOR_SOURCE_OR_SEED_OR_SHA_NO_V3_RETRIEVER_OR_SCIENCE_SCORER_OR_INDEPENDENT_QA",
+    "full_prereg_frozen": false,
+    "design_metrics_prospectively_specified": true,
+    "new_probes_generated": 0,
+    "reader_forward_calls": 0,
+    "optimizer_steps": 0,
+    "old_dev_or_probe_rescored": false,
+    "test_sealed": true,
+    "gpu_used": false,
+    "main_modified": false,
+    "lineage_modified": false
+  },
+  "new_probe_design": {
+    "planned_run_id": "TTM_VM_V3_NONTEST_256_NONORACLE_UNSEEN_AMBIGUITY_V1",
+    "fixture_bytes_sha256": "NOT_GENERATED",
+    "fixture_generator_git_blob": "NOT_IMPLEMENTED",
+    "seed": "NOT_SELECTED_UNTIL_SOURCE_FREEZE",
+    "total": 256,
+    "bank_size": 32,
+    "positive": [
+      {
+        "id": "P0_KNOWN_WIRING",
+        "n": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": false,
+        "phenomenon": "KNOWN_CLOSED_VOCAB_UNIQUE",
+        "novelty": "CONTROL"
+      },
+      {
+        "id": "P1_UNSEEN_PARAPHRASE",
+        "n": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "phenomenon": "NEW_SURFACE_OUTSIDE_V2_DICTIONARY_TEMPLATE",
+        "novelty": "TWO_INDEPENDENT_REVIEWERS_REQUIRED"
+      },
+      {
+        "id": "P2_PROVENANCE_UNIQUE",
+        "n": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "phenomenon": "DUPLICATE_DESCRIPTION_ACROSS_SOURCES_QUERY_EXPLICIT_SOURCE",
+        "novelty": "PROVENANCE_CONSTRAINT"
+      },
+      {
+        "id": "P3_NEGATION_UNIQUE",
+        "n": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "phenomenon": "NEGATED_ATTRIBUTE_OR_SOURCE_LEAVES_ONE_VALID_CARD",
+        "novelty": "NEGATIVE_CONSTRAINT"
+      }
+    ],
+    "negative": [
+      {
+        "id": "N0_UNDERSPECIFIED",
+        "n": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "phenomenon": "ONE_TWO_ATTRIBUTES_AT_LEAST_TWO_COMPATIBLE_CARDS"
+      },
+      {
+        "id": "N1_DUPLICATE_MATCH",
+        "n": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "phenomenon": "TWO_OR_MORE_FULL_MATCHES_WITH_SAME_PROVENANCE_WHEN_SPECIFIED"
+      },
+      {
+        "id": "N2_CONTRADICTORY_QUERY",
+        "n": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "phenomenon": "MUTUALLY_EXCLUSIVE_ATTRIBUTE_VALUES_OR_X_AND_NOT_X"
+      },
+      {
+        "id": "N3_UNRESOLVABLE_OOV_OR_EXCLUSION",
+        "n": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "phenomenon": "UNVALIDATED_OOV_OR_ZERO_CANDIDATES_AFTER_EXCLUSION"
+      }
+    ],
+    "primary_positive_count": 96,
+    "positive_control_count": 32,
+    "primary_negative_count": 128,
+    "new_namespace_required": true,
+    "old_probes_can_be_training_or_tuning": false,
+    "test_overlap_bytewise_checked": false,
+    "test_overlap_policy": "DO_NOT_OPEN_SEALED_TEST; NAMESPACE_SEPARATION_ONLY",
+    "two_independent_paraphrase_raters_required": true,
+    "unresolvable_pre_source_annotation": "HOLD_DATA_ADJUDICATION_BEFORE_FIXTURE_FREEZE",
+    "positive_outcomes": {
+      "gold_action": "SELECT",
+      "gold_target": "ONE_UNIQUE_KEY",
+      "gold_answer": "PRESENT_PRIVATE_SCORER_ONLY"
+    },
+    "negative_outcomes": {
+      "gold_action": "ABSTAIN",
+      "gold_target": null,
+      "gold_answer": null,
+      "reader_nll_scored": false
+    },
+    "model_values_decoupled_from_source_and_card_position": true
+  },
+  "retrieval_contract": {
+    "primary": "R_V3_SYMBOLIC_PROVENANCE_NEGATION",
+    "baseline": "R_V2_FROZEN",
+    "diagnostic": "R_FROZEN_EMBEDDING_DIAGNOSTIC",
+    "primary_source_git_blob": "NOT_IMPLEMENTED",
+    "allowed_inputs": [
+      "question",
+      "cards[].key",
+      "cards[].retrieval_text",
+      "cards[].source_id",
+      "frozen_public_dictionary"
+    ],
+    "forbidden_inputs": [
+      "gold_action",
+      "target_key",
+      "answer",
+      "value",
+      "wrong_memory",
+      "case_id",
+      "stratum",
+      "old_probe_perstory_results",
+      "model_logits"
+    ],
+    "output_schema": {
+      "status": [
+        "SELECT",
+        "ABSTAIN"
+      ],
+      "selected_indices_count_for_select": 1,
+      "selected_indices_count_for_abstain": 0,
+      "reason_code_required": true
+    },
+    "no_auto_select_when_multiple_matches": true,
+    "no_fallback_bypassing_safety_gate": true,
+    "no_trained_reader_calls_for_negative": true,
+    "no_oracle_rank_in_real_primary": true,
+    "reader_only_uses_key_and_value_after_retrieval": true
+  },
+  "proposed_scientific_gate": {
+    "primary_pos_strata": [
+      "P1_UNSEEN_PARAPHRASE",
+      "P2_PROVENANCE_UNIQUE",
+      "P3_NEGATION_UNIQUE"
+    ],
+    "primary_neg_strata": [
+      "N0_UNDERSPECIFIED",
+      "N1_DUPLICATE_MATCH",
+      "N2_CONTRADICTORY_QUERY",
+      "N3_UNRESOLVABLE_OOV_OR_EXCLUSION"
+    ],
+    "positive_correct_select_min_rate": 0.75,
+    "positive_correct_select_min_hits": 72,
+    "positive_primary_denominator": 96,
+    "P1_unseen_min_hits": 20,
+    "P1_unseen_denominator": 32,
+    "negative_correct_abstain_min_rate": 0.95,
+    "negative_correct_abstain_min_count": 122,
+    "negative_denominator": 128,
+    "negative_max_false_selection": 6,
+    "abstain_on_positive_counts_as_miss": true,
+    "select_on_negative_counts_as_false_selection": true,
+    "only_positive_nll_scored": true,
+    "positive_abstain_nll_scoring": "OFFLINE_FROZEN_GPT_BYPASS_INCLUDED_INTENTION_TO_TREAT",
+    "positive_nll_story_unit": 96,
+    "positive_mean_A_minus_B1_min": 0.05,
+    "positive_mean_C1_minus_B1_min": 0.05,
+    "bootstrap_pair_draws": 2000,
+    "bootstrap_seeds": [
+      20261120,
+      20261121
+    ],
+    "bootstrap_95_lower_gt_zero": true,
+    "oracle_A_minus_O1_min": 0.05,
+    "fixed_arms_positive": [
+      "A",
+      "O1",
+      "B1",
+      "C1"
+    ],
+    "diagnostic_arms_positive": [
+      "B3",
+      "C3"
+    ],
+    "negative_action_only": true,
+    "diagnostic_cost_formula": "3 * number_of_negative_false_selections + 1 * number_of_primary_positive_misses",
+    "report_wilson95_for_positive_and_negative_rates": true,
+    "decision_order": [
+      "HOLD_INVALID_EVIDENCE",
+      "HOLD_READER_DOMAIN_SHIFT",
+      "FAIL_UNSAFE_SELECTION_SCOPED",
+      "FAIL_UNSEEN_OR_COMPOSITIONAL_RETRIEVAL_SCOPED",
+      "FAIL_FROZEN_READER_TRANSFER_SCOPED",
+      "GO_CANDIDATE_NONTEST_AMBIGUITY_SCOPED"
+    ],
+    "success_not_test_pass": true,
+    "thresholds_not_yet_authorized_as_executable_prereg": true
+  },
+  "frozen_model_custody": {
+    "reader_L0020_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "backbone_P02_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "real_T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "planned_fp32_cpu_threads": 2,
+    "new_training": 0,
+    "new_optimizer_steps": 0,
+    "test_opened": false
+  },
+  "one_shot_future": {
+    "science_run_id": "NOT_ASSIGNED_OR_DISPATCHABLE",
+    "one_shot_marker_before_first_science_case": true,
+    "no_retry_after_started_marker": true,
+    "owner_single_GO_HOLD_required": true,
+    "private_per_story_public_aggregate_separate": true,
+    "no_promise_of_science_without_source_and_QA": true
+  },
+  "documents": {
+    "prereg_design": "docs/research/vector-memory/TTM_VM_V3_NONORACLE_AMBIGUITY_UNSEEN_PARAPHRASE_DESIGN_PREREG_20261112.md",
+    "manifest": "artifacts/research/vector-memory/TTM_VM_V3_NONORACLE_ABSTENTION_DESIGN_MANIFEST_20261112.json"
+  },
+  "next_operation": "TTM_VM_V3_FRESH256_NEGATIVE_GROUND_TRUTH_AND_NONORACLE_SOURCE_ONEPACKET_QA_FREEZE",
+  "internal_design_consistency": {
+    "status": "PASS_INTERNAL_SCHEMA_CONSISTENCY",
+    "checks_passed": 30,
+    "checks_total": 30,
+    "checks": {
+      "01_total_strata8": true,
+      "02_each_stratum_32": true,
+      "03_total256": true,
+      "04_positive128": true,
+      "05_negative128": true,
+      "06_control32": true,
+      "07_primary_positive96": true,
+      "08_primary_negative128": true,
+      "09_pos_threshold_exact": true,
+      "10_P1_threshold_20": true,
+      "11_negative_threshold_exact": true,
+      "12_negative_false_limit6": true,
+      "13_negative_no_answer": true,
+      "14_negative_no_target": true,
+      "15_negative_abstain_gold": true,
+      "16_negative_NLL_disabled": true,
+      "17_positive_abstain_miss": true,
+      "18_wrong_negative_select_false": true,
+      "19_one_hot_select": true,
+      "20_zero_hot_abstain": true,
+      "21_value_target_gold_forbidden": true,
+      "22_no_previous_data_reuse": true,
+      "23_no_fixture_generated": true,
+      "24_no_science_or_GUP": true,
+      "25_test_still_sealed": true,
+      "26_lineage_unchanged": true,
+      "27_full_prereg_not_falsely_frozen": true,
+      "28_no_owner_science_release": true,
+      "29_thresholds_nll_included": true,
+      "30_boostrap_fixed": true
+    }
+  }
+}
