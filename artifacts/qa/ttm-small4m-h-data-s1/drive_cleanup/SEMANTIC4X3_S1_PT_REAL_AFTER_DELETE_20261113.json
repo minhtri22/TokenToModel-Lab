@@ -1,0 +1,23 @@
+{
+  "schema": "ttm.drive.cleanup.after_delete.v1",
+  "seed": "S1",
+  "arm": "PT-REAL",
+  "status": "PASS_DELETED_INTERMEDIATE_ONLY",
+  "before_archive_commit": "a15b14a29c068536e0e960af6a7f28d45ef2fe46",
+  "before_archive_blob": "0ca27f97de2dd1996d134cea2ece4d8393052a47",
+  "removed_steps": [
+    256,
+    512,
+    768,
+    1024,
+    1280
+  ],
+  "removed_checkpoint_bytes_claimed": 264680385,
+  "keep_step_folders": [
+    1536,
+    1792,
+    2048
+  ],
+  "verified_after_deletion": true,
+  "private_checkpoint_bytes_uploaded_to_github": false
+}
