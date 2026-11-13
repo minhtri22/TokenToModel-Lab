@@ -96,7 +96,9 @@ def assemble(project_root:Path, authored_bundle:Path, rights_file:Path,
             raise ValueError("CAL_PRIVATE_BUNDLE_BAD_SCHEMA")
         if threshold["CAL64_sha256"]!=hash_obj(cal):
             raise ValueError("HOLD_CAL_PRIVATE_BYTES_NOT_FROZEN_THRESHOLD_RECEIPT")
-        if threshold["source_rights_receipt_sha256"]!=lock["rights_manifest_sha256"]:
+        # PROBE rights can refer to new independently authored sources. Do not
+        # incorrectly require a PROBE rights manifest to equal the earlier CAL rights.
+        if threshold["source_rights_receipt_sha256"]!=lock.get("cal_rights_manifest_sha256"):
             raise ValueError("HOLD_CAL_RIGHTS_CUSTODY_HASH_MISMATCH")
         disjoint=check_disjoint(cal["cases"],cases)
     else:
