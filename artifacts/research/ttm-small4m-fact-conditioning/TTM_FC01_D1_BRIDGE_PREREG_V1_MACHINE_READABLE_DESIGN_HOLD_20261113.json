@@ -1,0 +1,181 @@
+{
+  "schema": "ttm.fc01.d1_bridge.structural_ood.freegen.multiseed.prereg_design.v1",
+  "operation": "TTM_SMALL4M_FC01_POSTHOC_EVIDENCE_ARCHIVE_AND_D1_BRIDGE_PREREG_DESIGN_ONLY_NO_GPU",
+  "date": "2026-11-13",
+  "review_status": "DESIGN_CANDIDATE_SOURCE_ONLY_FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "scientific_execution_release": "HOLD",
+  "existing_D1_protocol": "IMMUTABLE_NOT_OPENED_OR_REPLACED",
+  "existing_D1_handoff_path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER_HANDOFF_20261112.md",
+  "research_scope": "TTM_SMALL4M_4_CATEGORIES_STRUCTURAL_TEMPLATE_GENERALIZATION_ONLY",
+  "motivation_from_fc01": {
+    "scope": "EXPLORATORY_ONLY_NOT_CONFIRMATORY",
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "data_objective_C_minus_B_primary_pp": 54.6875,
+    "free_generation_full_32_outputs_each": {
+      "A": 4,
+      "B": 4,
+      "C": 8
+    },
+    "free_generation_correct_only_category": "rule_constraint",
+    "claim_outside_old_semantic_templates": "NOT_PROVEN"
+  },
+  "arms": {
+    "A_BASE_MLE": {
+      "data": "SINGLETON_BALANCED_PER_LABEL_AND_LEXICAL_CUE",
+      "objective": "MLE"
+    },
+    "B_CF_MLE": {
+      "data": "COUNTERFACTUAL_COMPLETE_PAIR",
+      "objective": "MLE"
+    },
+    "C_CF_CONTRAST": {
+      "data": "BYTE_IDENTICAL_TO_B",
+      "objective": "MLE_PLUS_FROZEN_CONTRASTIVE"
+    }
+  },
+  "frozen_parent_constraints": {
+    "tokenizer": "T1_BPE2048_REAL_TRAIN_MANIFEST",
+    "parent_checkpoint_step": 1024,
+    "same_initial_parent_per_seed": true,
+    "FP32_only": true,
+    "optimizer_updates_per_arm_per_seed": 256,
+    "no_best_checkpoint_selection": true,
+    "final_checkpoint_step": 256,
+    "same_input_token_budget_per_arm": true,
+    "B_C_identical_data_and_episode_order_required": true,
+    "source_rights_review_required": true,
+    "science_runtime_unverified_for_new_design": true
+  },
+  "categories": [
+    "entity_location",
+    "causal_reasoning",
+    "rule_constraint",
+    "goal_persistence"
+  ],
+  "structural_splits": {
+    "semantics": "GRAPH_AST_STRUCTURE_NOT_LEXICAL_REPHRASE",
+    "train_skeletons_per_category": 4,
+    "ood_eval_skeletons_per_category": 4,
+    "train_lexical_worlds_per_skeleton": 32,
+    "val_lexical_worlds_per_train_skeleton": 8,
+    "ood_eval_lexical_worlds_per_skeleton": 16,
+    "train_paired_families": 512,
+    "val_paired_families": 128,
+    "ood_eval_paired_families": 256,
+    "conditions_per_family": 2,
+    "ood_eval_prompts_per_arm_seed": 512,
+    "data_created_in_current_operation": false,
+    "evaluator_gold_created_in_current_operation": false,
+    "anti_leakage_requirements": [
+      "train_eval_no_semantic_graph_isomorphism",
+      "no_structural_skeleton_id_overlap",
+      "no_prompt_or_answer_key_exposed_to_trainer",
+      "no_shortcut_from_lexical_cues_to_condition",
+      "AB_fact_swap_symmetry",
+      "BC_dataset_exact_bytes_match",
+      "family_split_distinct",
+      "rights_and_pii_verification_before_training"
+    ]
+  },
+  "seeds": [
+    20261120,
+    20261121,
+    20261122,
+    20261123,
+    20261124
+  ],
+  "planned_science": {
+    "seed_count": 5,
+    "arm_count": 3,
+    "planned_optimizer_updates_total": 3840,
+    "planned_eval_generated_texts_total": 7680,
+    "all_conditional_on_future_owner_go": true,
+    "gpu_calls_now": 0,
+    "optimizer_updates_now": 0,
+    "input_data_generated_now": 0
+  },
+  "decoder_and_primary": {
+    "generation": "GREEDY_ARGMAX",
+    "max_new_tokens": 32,
+    "max_total_tokens": 256,
+    "single_short_action_sentence": true,
+    "scorer": "FROZEN_DETERMINISTIC_CANONICAL_ACTION_PARSER_NOT_LLM_RATER",
+    "parser_normalization": "UTF8_WHITESPACE_PUNCTUATION_FROZEN_SYNONYM_WHITELIST_ONLY",
+    "ambiguous_or_invalid_or_truncated": "SCORE_ZERO_KEEP_DENOMINATOR",
+    "per_family_success": "correct_on_both_fact_A_and_fact_B",
+    "denominator_per_arm_seed": 256,
+    "estimator": "AVERAGE_SEED_OF_EQUAL_CATEGORY_WEIGHTED_DELTA_C_MINUS_B",
+    "H1": "contrastive_objective_C_improves_pairwise_free_generation_success_on_unseen_semantic_skeletons",
+    "H0": "C_minus_B_seed_paired_effect_not_positive"
+  },
+  "statistical_gate": {
+    "primary_test": "EXACT_ONE_SIDED_PAIRED_SIGN_FLIP_ON_FIVE_SEED_LEVEL_DELTAS",
+    "alpha": 0.05,
+    "fixed_seeds": 5,
+    "minimum_exact_one_sided_p_if_all_positive": 0.03125,
+    "required_p_leq": 0.05,
+    "required_observed_grand_delta_ge": 0.1,
+    "category_mean_delta_C_minus_B_all_four_ge": 0,
+    "category_mean_delta_C_minus_B_ge_0p05_at_least": 3,
+    "absolute_C_category_success_rate_ge_0p25_for_all_four": true,
+    "require_all_five_seed_results": true,
+    "clustered_bootstrap_descriptive_only": {
+      "rng_seed": 20261201,
+      "draws": 10000,
+      "ci95_method": "percentile",
+      "resampling_hierarchy": [
+        "seed",
+        "semantic_skeleton",
+        "lexical_family"
+      ],
+      "may_not_replace_exact_sign_flip": true
+    },
+    "interpretation_note": "Magnitude>=0.10 is a combined decision threshold; the sign-flip test rejects only zero and is not itself a test of the 0.10 margin.",
+    "only_one_primary_hypothesis": true,
+    "secondary_B_minus_A_descriptive_only": true
+  },
+  "secondary_metrics": [
+    "freegen_pair_success_B_minus_A",
+    "teacher_forced_margin_C_minus_B_ood",
+    "invalid_parser_rate",
+    "early_eos_rate",
+    "truncation_rate",
+    "val_nll_descriptive",
+    "per_category_confidence_intervals",
+    "fluency_optional_blind_external_rater_no_primary_override"
+  ],
+  "independence_and_custody": {
+    "owner_holds_train_val": true,
+    "eval_structure_and_gold_sealed_with_separate_custodian_role": true,
+    "fresh_session_or_human_blind_rater_for_optional_fluency": true,
+    "rater_may_not_see_arms_seeds_aggregates_or_mapping": true,
+    "scoring_sha_frozen_before_unblind": true,
+    "no_external_human_rater_claim_now": true,
+    "no_private_corpus_or_gold_on_public_github": true,
+    "new_eval_content_created_now": false
+  },
+  "future_one_packet_owner_release_requires": [
+    "formal_protocol_source_review_and_signed_sha",
+    "actual_new_structure_generator_AST_source_negative_QA",
+    "exact_T1_BPE_rights_pii_nonoverlap_validation",
+    "frozen_parser_and_independent_parser_negative_QA",
+    "private_train_val_eval_custody_SHA",
+    "paired_seed_and_equal_budget_integration",
+    "zero_step_runtime_and_real_runner_resume_contract",
+    "free_T4_paid_zero_cost_capacity_preflight",
+    "one_owner_GO_HOLD_for_entire_five_seed_three_arm_plan"
+  ],
+  "current_decision": {
+    "archive_FC01": "GO_CLOSE_SCOPED_EXPLORATORY",
+    "D1_bridge_design": "GO_SOURCE_ONLY_DRAFT_FOR_INDEPENDENT_REVIEW",
+    "D1_science": "HOLD",
+    "D1_existing": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC02": "NOT_OPENED",
+    "DEV32": "CLOSED",
+    "FC01_training_rerun": "PROHIBITED",
+    "main_merge": "NOT_AUTHORIZED_BY_THIS_OPERATION",
+    "lineage_append": "AUTHORIZED_ARCHIVE_BRANCH_ONLY",
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_SOURCE_ONLY_INDEPENDENT_PREREG_REVIEW_AND_GO_HOLD_NO_GPU"
+  }
+}
