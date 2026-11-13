@@ -1,0 +1,64 @@
+name: TTM H-DATA S1 scoped no-GPU source QA
+on:
+  push:
+    branches:
+      - research/ttm-small4m-h-data-s1-matched-budget-prereg-20261113
+    paths:
+      - .github/workflows/ttm-hdata-s1-preexec-source-qa.yml
+      - tools/pilot_t4/hdata_s1/**
+      - artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_OWNER_CONSENT_SOURCE_AES_T4_PENDING_20261113.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout source only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fixed source bytes and fail-closed entrypoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import ast,hashlib,json,pathlib,subprocess
+          base=pathlib.Path('tools/pilot_t4/hdata_s1')
+          names={
+            'aes_source':'ttm_hdata_s1_owner_blind_escrow_v1.py',
+            'native_t4_resume_QA_source':'ttm_hdata_s1_native_t4_h0_h1_resume_qa_v1.py',
+            'two_arm_science_runner_candidate':'ttm_hdata_s1_two_arm_science_runner_candidate_v1.py'}
+          manifest=json.loads(pathlib.Path('artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_OWNER_CONSENT_SOURCE_AES_T4_PENDING_20261113.json').read_bytes())
+          for key,name in names.items():
+              data=(base/name).read_bytes()
+              tree=ast.parse(data,filename=name)
+              rec=manifest['source_pins'][key]
+              assert hashlib.sha256(data).hexdigest()==rec['sha256'],key+'_SHA256'
+              assert hashlib.sha1(('blob '+str(len(data))+'\0').encode()+data).hexdigest()==rec['git_blob_sha1'],key+'_GIT_BLOB'
+              assert any(isinstance(t,ast.FunctionDef) and t.name=='main' for t in tree.body),key+'_MAIN_MISSING'
+              print('PASS_SHA_PIN_AST='+name)
+          qa=ast.parse((base/names['native_t4_resume_QA_source']).read_text())
+          science=ast.parse((base/names['two_arm_science_runner_candidate']).read_text())
+          def fn(t,n):
+              return next(x for x in t.body if isinstance(x,ast.FunctionDef) and x.name==n)
+          for t in (qa,science):
+              m=fn(t,'main')
+              calls=[x for x in ast.walk(m) if isinstance(x,ast.Call)]
+              assert any(isinstance(x.func,ast.Attribute) and x.func.attr=='parse_args' for x in calls)
+          assert "EXPLICIT_T4_QA_ONLY_FLAG_REQUIRED" in (base/names['native_t4_resume_QA_source']).read_text()
+          assert "ONE_SHOT_OWNER_GO_LOCK_NOT_GRANTED" in (base/names['two_arm_science_runner_candidate']).read_text()
+          assert "ESCROW_REQUIRED_BEFORE_FORWARD" in (base/names['native_t4_resume_QA_source']).read_text()
+          assert "H_DATA_S1_ESCROW_HOLD" in (base/names['aes_source']).read_text()
+          gitfiles=subprocess.check_output(['git','ls-files'],text=True).splitlines()
+          assert not any('AES_KEY_PRIVATE' in f or 'OWNER_PRIVATE_ESCROW_BACKUP' in f for f in gitfiles)
+          assert manifest['scope']['science_optimizer_steps']==0
+          assert manifest['scope']['science_model_forwards']==0
+          assert manifest['gates']['final_science_one_shot_release']=='HOLD'
+          print('HDATA_S1_PREEXEC_SOURCE_QA=PASS_SCOPED_NO_GPU_NO_TRAIN')
+          PY
