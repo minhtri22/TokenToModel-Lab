@@ -1,0 +1,41 @@
+{
+  "schema": "ttm.fc01.colab.zero_step.owner_console_first_receipt_hold.v1",
+  "operation": "TTM_SMALL4M_FC01_T4_FP32_DRIVE_RESUME_RIGHTS_SINGLE_INTEGRATED_SCIENCE_RELEASE_GO_HOLD_ZERO_TRAIN_STEPS",
+  "date": "2026-11-13",
+  "receipt_name": "FC01_T4_FP32_DRIVE_ZERO_STEP_READINESS_20261113T130259Z.json",
+  "receipt_reported_path": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_fc01_fact_conditioning_20261113/preexec_receipts/FC01_T4_FP32_DRIVE_ZERO_STEP_READINESS_20261113T130259Z.json",
+  "receipt_reported_sha256": "69b74ca15292ec1119f6522b6832a53ae6db02d3186ccd265d7e6a15a12749a8",
+  "receipt_custody": "OWNER_CONSOLE_ATTESTED_NOT_INDEPENDENTLY_FETCHED_OR_REHASHED",
+  "owner_reported": {
+    "drive_mount": "ALREADY_MOUNTED",
+    "preflight_status": "HOLD_PREEXEC",
+    "blocker": "RuntimeError:FC01_OWNER_RIGHTS_NOT_ACCEPTED_NO_ASSUMPTION",
+    "science_release": "NOT_GRANTED_BY_ZERO_STEP_NOTEBOOK",
+    "optimizer_steps": 0
+  },
+  "tool_readback": {
+    "drive_input_folder_search": "NO_FILES_RETURNED_AT_TIME_OF_CHECK",
+    "drive_receipts_folder_search": "NO_FILES_RETURNED_AT_TIME_OF_CHECK",
+    "exact_reported_json_bytes": "UNAVAILABLE_TO_CONNECTOR",
+    "do_not_infer_missing_file_from_search": true
+  },
+  "gate_interpretation": {
+    "actual_t4_gpu": "NOT_TESTED_STOPPED_BEFORE_GPU_TEST",
+    "p02_checkpoint_load": "NOT_TESTED",
+    "drive_snapshot_save_reload": "NOT_TESTED",
+    "owner_rights_acknowledgement": "FALSE",
+    "owner_free_t4_flag": "UNKNOWN_NOT_REACHED",
+    "v2_source_qa": "PASS_SCOPED_PRIOR",
+    "owner_single_science_verdict": "HOLD_PREEXEC",
+    "new_optimizer_steps": 0
+  },
+  "next_action": "OWNER_REVIEW_OFFICIAL_CDLA_LICENSE_AND_DATASET_CARD_THEN_SET_OWNER_RIGHTS_ACCEPTED_TRUE_ONLY_IF_PERSONALLY_APPROVED; VERIFY_FREE_T4_AND_SET_SECOND_FLAG_TRUE_ONLY_IF_FREE_T4; VERIFY_ALL_SEVEN_INPUT_FILES_IN_DRIVE_INPUT; RE_RUN_SAME_NOTEBOOK_ZERO_STEPS; RETURN_FULL_SAFE_RECEIPT_OR_OUTPUT_FOR_INDEPENDENT_REVIEW",
+  "preserve": {
+    "DEV32": "CLOSED",
+    "D1_CONFIRMATORY": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "GPU_TRAINING": "NO",
+    "LINEAGE": "UNCHANGED",
+    "MAIN": "UNCHANGED"
+  }
+}
