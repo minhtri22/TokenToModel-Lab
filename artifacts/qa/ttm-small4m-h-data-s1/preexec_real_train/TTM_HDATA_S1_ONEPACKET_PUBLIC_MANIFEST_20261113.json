@@ -1,0 +1,52 @@
+{
+  "contains_checkpoint": false,
+  "contains_final_prompt_text": false,
+  "contains_private_train_npz": false,
+  "date": "2026-11-13",
+  "files": {
+    "TTM_HDATA_S1_DEV_BPE_PARENT_STRUCTURAL_QA_20261113.json": {
+      "bytes": 896,
+      "sha256": "95717431c6aaf488b3f7ee9b4114ab2d2fa28c0c853b6995c5beec9856db746e"
+    },
+    "TTM_HDATA_S1_INDEPENDENT_REAL_METADATA_QA_20261113.json": {
+      "bytes": 836,
+      "sha256": "8542b1d92cbc490d123ef1ecfe8a4524369af3fd1f0a10aa90dfa00e575eb238"
+    },
+    "TTM_HDATA_S1_INTEGRATED_PREEXEC_OWNER_GO_HOLD_20261113.json": {
+      "bytes": 5778,
+      "sha256": "bdb5f97154dd3921a4f3df257ccabae32aa2e98b3d5f2148d834f2d9e0b68b53"
+    },
+    "TTM_HDATA_S1_INTEGRATED_REAL_TRAIN_PREEXEC_AND_OWNER_HOLD_20261113.md": {
+      "bytes": 9256,
+      "sha256": "4c8ed2772ccfc6fde13c6c445c7a954ed12a665b5004832d884d6fb09105c12a"
+    },
+    "TTM_HDATA_S1_REAL_TRAIN_METADATA_SAMPLER_QA_20261113.json": {
+      "bytes": 2598,
+      "sha256": "74b0e46bee7ab4f435b2fc7b800f5058fcc6085791b3dfe2f5205c91e07831e2"
+    },
+    "ttm_hdata_s1_bpe_resume_preexec_v1.py": {
+      "bytes": 5775,
+      "sha256": "d06711f2bfce3f3c9fb2b34dc5c6e45c90796afc52ea06bc562f0652561da909"
+    },
+    "ttm_hdata_s1_independent_metadata_qa_v1.py": {
+      "bytes": 7036,
+      "sha256": "e445728d77ba3e8545a8b2ac003df64655aa922d66be18f3d5cdfff2bd474868"
+    },
+    "ttm_hdata_s1_integrated_readback_v1.py": {
+      "bytes": 8940,
+      "sha256": "149d446d9d2d74f02c6a31f0473195d72b8404abaef053a275f976ab7ac4f6d0"
+    },
+    "ttm_hdata_s1_real_metadata_preexec_v1.py": {
+      "bytes": 9774,
+      "sha256": "473f3f74c847e9b6072ff8d4931844e3139e5827a9327e47b02b1e3c744f6707"
+    },
+    "ttm_hdata_s1_t4_source_only_readback_v1.py": {
+      "bytes": 4626,
+      "sha256": "d10d69860ced02b27685b690c24e0646c8d2cb7c13ebb8978f80b10436edc4c2"
+    }
+  },
+  "main_mutated": false,
+  "one_owner_decision": "HOLD_NO_GO_TRAINING",
+  "schema": "ttm.hdata_s1.preexec.public_safe_one_packet.manifest.v1",
+  "science_training_executed": false
+}
