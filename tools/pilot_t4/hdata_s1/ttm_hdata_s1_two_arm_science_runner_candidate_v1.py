@@ -18,6 +18,7 @@ PLAN="bcb354d29540e3a348b76173cdad1a6e2832dc81f995c717b68be6926d456591"
 T4_QA_SOURCE="7db0f999934036fc4f87beda9cd5a131377147d7307e9de5ac3a52b547882e62"
 EXPECTED_TORCH="2.14.1+cu130";ARMS=("H0","H1");FIRST=1025;END=1152;CHECKPOINT_EVERY=32
 BUDGET=4096;WINDOWS=2928;SLOTS=749568
+SCIENCE_RUN_ROOT='/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/science_one_shot_v1'
 
 def need(x,why):
     if not x:raise RuntimeError("HDATA_S1_SCIENCE_HOLD:"+why)
@@ -43,6 +44,9 @@ def gate(a):
          lock.get("steps_each")==128 and lock.get("targets_per_step")==BUDGET,
          "ONE_SHOT_OWNER_GO_LOCK_NOT_GRANTED")
     need(lock.get("science_runner_sha256")==sha(__file__),"SCIENCE_SOURCE_NOT_LOCKED")
+    need(lock.get('science_run_root')==SCIENCE_RUN_ROOT and
+         str(pathlib.Path(a.root).resolve())==SCIENCE_RUN_ROOT,
+         'ONE_SHOT_FIXED_RUN_ROOT_MISMATCH')
     need(lock.get("native_resume_qa_source_sha256")==T4_QA_SOURCE,"QA_SOURCE_PIN")
     need(lock.get("native_resume_qa_receipt_sha256")==sha(a.qa_receipt),"QA_RECEIPT_PIN")
     need(lock.get("new_hdata_rights_receipt_sha256")==sha(a.rights_receipt),"RIGHTS_RECEIPT_PIN")
@@ -149,7 +153,15 @@ def science(a,lock):
             # Verify schedule prefix by exact paired rows, then advance own sampler state.
             rows=q.one_step(sampler,gen,c,s,f,exp,step,plans[step-FIRST])
             json_new(d/("STEP_BEGIN_%04d.json"%step),{"step":step,"arm":arm})
-            q.train_step(parts,rows,arm,data,dev)
+            step_report=q.train_step(parts,rows,arm,data,dev)
+            # Original prereg requires exactly equal *forward* windows per step.
+            # GradScaler retries would re-forward the same windows; abort and
+            # quarantine this run rather than silently change compute exposure.
+            need(step_report.get('skipped_fp16_attempts')==0 and
+                 step_report.get('actual_optimizer_updates')==1 and
+                 step_report.get('windows')==len(rows) and
+                 step_report.get('targets')==BUDGET,
+                 'FP16_RETRY_OR_MISMATCHED_FORWARD_BUDGET_HOLD')
             json_new(d/("STEP_DONE_%04d.json"%step),{"step":step,"arm":arm})
             if step%CHECKPOINT_EVERY==0:
                 save_ready(d,arm,step,q.save_state(parts,step,arm),a.lock_sha)
