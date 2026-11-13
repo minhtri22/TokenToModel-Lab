@@ -36,3 +36,13 @@ Các ngưỡng khoa học không sửa: correct SELECT ≥60/96; P1 ≥18/32, P2
 ## Bước thực hiện tiếp theo
 
 `TTM_VM_V4_OWNER_SOURCE_MODEL_BYTES_RIGHTS_CAL64_RATER_AND_THRESHOLD_FREEZE_BEFORE_PROBE_ONEPACKET`: owner chạy 60 mock QA trên Windows, kiểm local BGE SHA và quyền nguồn, sau đó tạo CAL64 và hai AI blind review để khóa threshold. **Không sinh PROBE, Reader inference hoặc mở TEST trong bước này.**
+
+## Phụ lục nguồn/QA tích hợp (13/11/2026)
+
+Sau báo cáo nguồn ban đầu, đã bổ sung **bộ đóng gói owner-authored input** `tools/research/vector-memory/v4_cal_probe_private_packet_assembler.py` và `tools/research/vector-memory/v4_assembler_source_mock_qa.py` (20 source-only mock checks). `assemble()` chỉ đọc dữ liệu đã được owner cung cấp/attest, không tự tạo câu hỏi. `CAL` xuất private bundle và hai public AI-review packet. `PROBE` đòi receipt threshold CAL đã khóa, kiểm SHA của private CAL, source-rights custody **CAL riêng** và 4 family-disjoint axes trước khi được phép đóng gói.
+
+**Cảnh báo:** trường `cal_rights_manifest_sha256` trong source-lock PROBE phải giữ hash quyền CAL đã khóa; `rights_manifest_sha256` là hash quyền của nguồn PROBE mới. Không ép hai manifest phải bằng nhau, vì nguồn V4 được thiết kế không trùng. Cần kiểm Git commit chronology độc lập; verifier Python chỉ xác minh hash/schema và các khai báo.
+
+Script chủ máy mới **thay** bản kiểm mock 60 đơn lẻ: `tools/research/vector-memory/Invoke-TTM-VM-V4-Integrated-Source-OnePacket-QA-PS51.ps1`. Script pin source commit `df31f91925c76753c4413a8bd58e727c7af7df89`, chạy **60 + 20 = 80 mock source checks** và tạo biên nhận `TTM_VM_V4_NATIVE_SOURCE_QA80_HOLD_RECEIPT_20261113.json`. Đây là source-only/mock QA, **KHÔNG phải CAL64, PROBE256 hoặc scientific execution**. Tại lúc cập nhật, 80 mock tests **đã định nghĩa nhưng chưa có owner native receipt**. Không dùng `PASS_80/80` trước khi chính chủ máy chạy kiểm định.
+
+**Phán quyết giữ nguyên:** `HOLD_OWNER_RIGHTS_MODEL_BYTES_CAL_THRESHOLD_AND_PROBE_CUSTODY`; no Reader, training, GPU, sealed TEST, L0024 hoặc main merge.
