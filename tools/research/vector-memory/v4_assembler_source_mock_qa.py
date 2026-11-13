@@ -44,7 +44,7 @@ def audit():
     one("14_PROBE_requires_prior_CAL_and_threshold", "HOLD_THRESHOLD_AND_CAL_REQUIRED_BEFORE_PROBE" in src)
     one("15_PROBE_verifies_CAL_sha", "HOLD_CAL_PRIVATE_BYTES_NOT_FROZEN_THRESHOLD_RECEIPT" in src)
     one("16_PROBE_verifies_rights_hash", "HOLD_CAL_RIGHTS_CUSTODY_HASH_MISMATCH" in src)
-    one("17_split_four_family_disjoint_check", "check_disjoint(cal[\\"cases\\"],cases)" in src or "check_disjoint(cal[\"cases\"],cases)" in src)
+    one("17_split_four_family_disjoint_check", 'check_disjoint(cal["cases"],cases)' in src)
     one("18_source_output_confined_to_project", "is_relative_to(root)" in src)
     one("19_private_no_overwrite", "FileExistsError" in src and "open(\"xb\")" in src)
     one("20_no_model_or_science_execution", "model.forward(" not in src and
