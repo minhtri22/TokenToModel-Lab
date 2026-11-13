@@ -6,7 +6,7 @@ param()
 $ErrorActionPreference = 'Stop'
 $Root = 'D:\WORK\RESEARCH\TokenToModel-Lab'
 $Branch = 'research/ttm-vector-memory-architecture-20261111'
-$CodeCommit = 'f1b30e4e19192be51e707f110af688cb21113edb'
+$CodeCommit = 'df31f91925c76753c4413a8bd58e727c7af7df89'
 $Py = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 $Stage = Join-Path $Root '_tmp\TTM_VM_V4_INTEGRATED_SOURCE_QA_20261113'
 $Evidence = Join-Path $Root '_evidence\vector-memory'
@@ -17,7 +17,7 @@ $Pin = [ordered]@{
  'v4_fixed_retrieval_calibration.py' = 'e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327'
  'v4_source_rights_annotation_custody.py' = '63feab1c9a9e3c5feeffb9f438f8d4b1d6c50f06'
  'v4_independent_source_mock_qa.py' = 'd576cbe0586af14d747085c1589b1a30b6bc0d12'
- 'v4_cal_probe_private_packet_assembler.py' = '70875eb9aacab21eb8c7b9d14cc2835b5b9b5c2f'
+ 'v4_cal_probe_private_packet_assembler.py' = 'd6a29172051ccd667f0e86c314705cee7547cd4c'
  'v4_assembler_source_mock_qa.py' = '37761198db30ffdf682de83d51420fd215c29fa1'
 }
 
