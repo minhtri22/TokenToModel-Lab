@@ -36,6 +36,11 @@
       "path": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py",
       "git_blob_sha1": "2ca2be5f95f42972701f29e005337c2ca5675cc1",
       "sha256": "1874aebf904a57782acad963838db86f01556d2fe287927e616574b5700985a7"
+    },
+    "new_hdata_internal_rights_receipt": {
+      "path": "artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_NEW_OWNER_RIGHTS_INTERNAL_CDLA_SCOPED_20261113.json",
+      "sha256": "f1ae54c94d8c6a4a55febd4544b7c474ae73f060e8e9f64b426b5ca91740de2f",
+      "git_blob_sha1": "56b9d9eee0e7dcaf28d7708658ca55e648eb1e84"
     }
   },
   "owner_private_AES_escrow": {
@@ -47,7 +52,7 @@
     "owner_private_zip_sha256": "c5c5d6eae6ce38d892348878ae200d5bbcd42406b53f7b0c43e8876a145d48d4",
     "uploaded_to_existing_HDATA_owner_private_folder": true,
     "drive_metadata_not_shared": true,
-    "owner_drive_zip_exact_byte_sha256_readback": "PENDING",
+    "owner_drive_zip_exact_byte_sha256_readback": "PASS_EXACT_4159_BYTES_C5C5D6EAE6CE38D892348878AE200D5BBCD42406B53F7B0C43E8876A145D48D4",
     "private_key_on_GitHub": false,
     "final_plaintext_opened": false
   },
@@ -57,15 +62,15 @@
     "new_source_created_and_GitHub_SHA_pinned": "PASS",
     "escrow_created_and_cryptographically_roundtripped": "PASS_LOCAL",
     "owner_drive_escrow_uploaded_metadata": "PASS",
-    "owner_drive_escrow_exact_sha256_readback": "PENDING",
-    "source_native_static_Python_QA": "PENDING",
+    "owner_drive_escrow_exact_sha256_readback": "PASS",
+    "source_native_static_Python_QA": "PASS_SCOPED_GITHUB_ACTIONS_43422638525_NO_GPU",
     "actual_colab_T4_full_model_resume_parity_H0_H1": "NOT_EXECUTED",
     "production_128_step_two_arm_training_runner": "SOURCE_CANDIDATE_FROZEN__QA_AND_RELEASE_PENDING",
-    "source_license_and_HDATA_rights_independent_readback": "PENDING",
+    "source_license_and_HDATA_rights_independent_readback": "PASS_SCOPED_OWNER_INTERNAL_CDLA_DECLARATION_NOT_LEGAL_OPINION",
     "final_science_one_shot_release": "HOLD",
     "production_runner_byte_sha_pinned": "PASS_SOURCE_ONLY"
   },
-  "owner_single_gate_decision": "HOLD_NO_AUTO_TRAIN_PENDING_NATIVE_T4_RESUME_QA_AND_FINAL_SOURCE_RIGHTS_BYTE_READBACK",
+  "owner_single_gate_decision": "HOLD_NO_AUTO_TRAIN_PENDING_T4_REAL_FP16_RESUME_PARITY_AND_INDEPENDENT_FINAL_RELEASE",
   "scope": {
     "science_optimizer_steps": 0,
     "science_model_forwards": 0,
