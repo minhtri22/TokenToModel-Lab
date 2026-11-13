@@ -1,0 +1,208 @@
+{
+  "schema": "ttm.drive.cleanup.owner_storage_consolidated_adjudication.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_OWNER_GOOGLE_DRIVE_STORAGE_CHECKPOINT_REVIEW_ARCHIVE_THEN_REMOVE",
+  "target": "TTM/ttm-small-pilot",
+  "status": "PASS_60_INTERMEDIATE_CHECKPOINT_FOLDERS_PERMANENTLY_DELETED_AFTER_GITHUB_SHA_ARCHIVE",
+  "science_study_gc": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "total_study_arms": 12,
+  "intermediate_steps_deleted_per_arm": [
+    256,
+    512,
+    768,
+    1024,
+    1280
+  ],
+  "total_checkpoint_folders_deleted": 60,
+  "expected_parent_folder_children_deleted": 120,
+  "checkpoint_binary_bytes_removed_by_metadata": 3176164620,
+  "bytes_removed_gib": 2.95803,
+  "retained_each_arm": [
+    1536,
+    1792,
+    2048
+  ],
+  "verified_all_12_arm_folders_final_listing": true,
+  "verified_12_last_checkpoint_folders_have_checkpoint_and_READY": true,
+  "study_independent_prior_review": {
+    "all_ready_metadata_count": 96,
+    "all_final_binary_sha256_verified_before_cleanup": true,
+    "status": "PASS_SCOPED_DONOR_RESIDUAL_STRUCTURE"
+  },
+  "receipts": [
+    {
+      "arm": "S1_PT_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S1_PT_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "ac573cc22fe0e851602913be63ca4a86d9100c9a",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S1_PT_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S1_PT_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "9d85a83339f4e4a21512382dde0313538add09ba",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S1_NULL_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S1_NULL_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "1e971fc00de07511b8311aad31ec4fde2953200b",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S1_NULL_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S1_NULL_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "97f1c3c9b3e7a0cde3d9740a3d35d1b4d12220a4",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S2_PT_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S2_PT_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "a1a526a82514c6312abbd0437b8bd0bc8007def4",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S2_PT_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S2_PT_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "828f5f33ea4c391b23915c46c696a936d8248369",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S2_NULL_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S2_NULL_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "49cf617c199447452ce3a2a47b5c2c7876068b74",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S2_NULL_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S2_NULL_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "c1eb2857e93ab2be955c1a144f0480ad6abb952e",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S3_PT_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S3_PT_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "4d58884546ce2417d4bcae37392c55b83ec5ec27",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S3_PT_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S3_PT_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "8180f5c2d800abab80633287ff64908918712ccf",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S3_NULL_REAL",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S3_NULL_REAL_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "6b75c50f9ca4ab4d0cf5024f8e860107baca29f4",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    },
+    {
+      "arm": "S3_NULL_PERM",
+      "receipt": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/SEMANTIC4X3_S3_NULL_PERM_AFTER_DELETE_20261113.json",
+      "git_blob_sha1": "9ab40b5df14211f2971af5be811222f076957b92",
+      "deleted_steps": [
+        256,
+        512,
+        768,
+        1024,
+        1280
+      ],
+      "checkpoint_bytes_removed_claimed": 264680385
+    }
+  ],
+  "github_archive_is_manifest_only_not_model_binary": true,
+  "sha_of_deleted_binary_from_original_READY_not_rehashed_now": true,
+  "reversibility": "Deleted intermediate model/optimizer-state bytes are not backed up in GitHub and cannot be recovered from SHA; final checkpoint and study result kept.",
+  "sensitive_data_moved_to_public_github": false,
+  "protected_existing_inputs_and_receipts": [
+    "TTM/H-DATA-S1: owner-private AES escrow ZIP, Colab T4 QA receipt and NEW FINAL24 owner file",
+    "TTM: exact original frozen TRAIN/VAL NPZ and pack manifest",
+    "TTM: P02 step-1024 READY and checkpoint.pt",
+    "TTM/FC01: all three final step256 checkpoint.pt"
+  ],
+  "other_branches_deleted": false,
+  "hdata_science_one_shot_root_exists_from_last_authenticated_drive_listing": false,
+  "drive_space_before_gib_from_owner_colab": 1.269,
+  "drive_space_after_gib": "NOT_MEASURED_LIVE_IN_COLAB",
+  "capacity_scope_note": "Google Drive file deletion was authenticated; does not prove Colab Drive FUSE disk_usage immediately reflects reclaimed quota. User must rerun disk_usage in Colab.",
+  "owner_hdata_dispatch": "HOLD_UNTIL_POSTCLEAN_STORAGE_READBACK_AND_EXACT_SOURCE_GO_GATE",
+  "new_final": "SEALED",
+  "main": "UNCHANGED"
+}
