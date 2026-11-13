@@ -1,0 +1,67 @@
+{
+  "BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+  "P02_1024_parent_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "T4_model": {
+    "BPE_vocab": 2048,
+    "architecture_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "context": 256,
+    "parameters": 3749376
+  },
+  "TRAIN_VAL_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "date": "2026-11-13",
+  "decoding_primary_eval": "same greedy max64 EOS, no repetition penalty, no decoder tuning",
+  "historical_metadata": {
+    "TRAIN_stories": 2048,
+    "TRAIN_unique_target_labels": 498287,
+    "TRAIN_windows": 2691,
+    "caution": "first-window replacement B/D is NOT a diversity treatment",
+    "prior_A_C_distinct_story_control": 1493,
+    "prior_first_window_replacement_distinct_stories": 1363
+  },
+  "matching": {
+    "context_slots_per_window": 256,
+    "control_step_forward_slots_equals_treatment": true,
+    "control_step_window_draw_count_equals_treatment": true,
+    "position_of_valid_targets": "same count per corresponding draw, candidate count>=control scored count, truncate/mask extra targets with -100; fail closed if impossible",
+    "same_optimizer_scheduler_loss_seed_and_rng_initialization": true,
+    "same_parent": true,
+    "target_labels_per_optimizer_step": 4096,
+    "target_presentations_per_arm": 524288,
+    "total_both_arms_target_presentations": 1048576,
+    "train_unique_target_labels_are_NOT_new_token_exposures": true,
+    "training_steps_per_arm": 128
+  },
+  "new_science_owner_go": "NOT_GRANTED",
+  "no_inference_authorized": true,
+  "no_raw_PRIVATE_files_on_GitHub": true,
+  "no_training_authorized": true,
+  "preexec_manipulation_checks": {
+    "early_window_fraction_absolute_gain_min": 0.1,
+    "equal_step_targets_and_draws": true,
+    "if_unachievable": "HOLD_REVISE_SOURCE_BEFORE_SCIENCE_PERMISSION, NOT silently fall back to different unmatched budget",
+    "require_balanced_baseline_seed_frozen": true,
+    "same_data_split": true,
+    "same_forward_slots": true,
+    "same_loss": true,
+    "story_coverage_relative_gain_min": 0.05
+  },
+  "rater_before_training_required": false,
+  "reference_tokens": "No new dataset generation or raw TRAIN processing in design-only stage",
+  "research_base_commit": "37165ce6eea0bb4b04d316e2998da579c91d13cf",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "runtime_T4_qa": "NOT_EXECUTED",
+  "sampler_real_metadata_qa": "NOT_EXECUTED",
+  "schema": "ttm.small4m.hdata_s1.source_budget_contract.v1",
+  "selection_algorithm_candidate_v0": {
+    "caveat": "priority order and feasibility must be locked in compiled source+SHA BEFORE any training; source-only description is NOT executable sampler",
+    "no_TEST_Q1_Q2_OOD": true,
+    "no_VAL_for_selection": true,
+    "seed": 20261113,
+    "selection": "from eligible TRAIN windows with count>=baseline_draw_count; lexicographic priority: minimize prior story draws, prefer offset-0, minimize baseline-window replacement mismatch, SHA256(run_id|step|draw|candidate_window|seed) tie breaker; cache per-step deterministic schedule"
+  },
+  "treatment": {
+    "H0": "original per-window uniform draw schedule from P02-1024 sampler state",
+    "H1": "story-aware coverage-balanced preferential early-context policy within same TRAIN pack, deterministic pairwise matched-target draw substitutions",
+    "one_manipulated_factor": "whole sampling policy (story coverage + early-context priority), NOT separately identifiable components"
+  }
+}
