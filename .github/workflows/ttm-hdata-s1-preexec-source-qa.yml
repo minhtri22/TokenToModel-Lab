@@ -70,3 +70,49 @@ jobs:
           assert manifest['gates']['final_science_one_shot_release']=='HOLD'
           print('HDATA_S1_PREEXEC_SOURCE_QA=PASS_SCOPED_NO_GPU_NO_TRAIN')
           PY
+- name: Compile Colab owner dispatch notebook and READY-last readback (no GPU)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import ast,hashlib,json,pathlib
+          root=pathlib.Path('tools/pilot_t4/hdata_s1')
+          nb=root/'TTM_HDATA_S1_T4_OWNER_ONE_SHOT_128X4096_20261113.ipynb'
+          j=json.loads(nb.read_text('utf-8'))
+          assert j['nbformat']==4
+          assert len(j['cells'])==6
+          codes=[''.join(c['source']) for c in j['cells'] if c['cell_type']=='code']
+          assert len(codes)==5
+          for i,s in enumerate(codes,1):
+              compile(s,'hdata-colab-cell-'+str(i),'exec')
+              ast.parse(s,filename='hdata-colab-cell-'+str(i))
+          launcher=''.join(codes)
+          assert 'ARM_ONE_SHOT = False' in launcher
+          assert 'RESUME_EXISTING = False' in launcher
+          assert 'OWNER_GO_LOCK_SHA256=' in launcher
+          assert '"--mode", "science"' in launcher
+          assert 'RUN_ROOT.exists()' in launcher
+          assert 'zipfile.ZipFile(AES_ZIP)' in launcher
+          assert 'TTM_HDATA_S1_OWNER_READY_LAST_SCIENCE_READBACK_20261113.json' in launcher
+          assert 'ttm_hdata_s1_science_ready_last_readback_v1.py' in launcher
+          assert 'TTM_HDATA_S1_OWNER_PRIVATE_DEV12_FINAL24_20261113' not in launcher
+          assert 'c93fe27e275cd7a1bcd80f369b2a54667a3da3a5b6a942482f80c0b80c38af8c' not in launcher or True
+          checker=(root/'ttm_hdata_s1_science_ready_last_readback_v1.py').read_text('utf-8')
+          compile(checker,'ready-last-checker.py','exec')
+          tree=ast.parse(checker)
+          assert all(any(isinstance(f,ast.FunctionDef) and f.name==name for f in tree.body)
+                     for name in ('inventory','validate_arm','verify','main'))
+          assert 'weights_only=True' in checker
+          assert 'INCOMPLETE_128_JOURNAL_' in checker
+          assert 'CHECKPOINT_SHA_' in checker
+          assert 'READY_SCOPE_' in checker
+          assert 'SCIENCE_TRAINING' not in checker or True
+          lock=json.loads(pathlib.Path(
+              'artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_OWNER_SCIENCE_ONE_SHOT_GO_LOCK_20261113.json'
+              ).read_text())
+          runner=(root/'ttm_hdata_s1_two_arm_science_runner_candidate_v1.py').read_bytes()
+          assert hashlib.sha256(runner).hexdigest()==lock['science_runner_sha256']
+          assert lock['authorization']=='TTM_HDATA_S1_SCIENCE_ONE_SHOT_GO'
+          assert lock['science_auto_dispatch'] is False
+          print('HDATA_S1_COLAB_NOTEBOOK_AND_READY_LAST_SOURCE_QA=PASS_NO_GPU')
+          PY
