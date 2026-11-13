@@ -1,0 +1,131 @@
+{
+  "schema": "ttm.fc01.exploratory.archive_and_d1_bridge_design_hold.v1",
+  "operation": "TTM_SMALL4M_FC01_POSTHOC_EVIDENCE_ARCHIVE_AND_D1_BRIDGE_PREREG_DESIGN_ONLY_NO_GPU",
+  "date": "2026-11-13",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "source_of_truth": "existing_sha_pinned_fc01_artifacts_and_frozen_blind_scoring_not_new_science_execution",
+  "archive_classification": "SCOPED_EXPLORATORY_COMPLETED_NOT_CONFIRMATORY",
+  "immutable_origins": {
+    "scientific_runner_source_sha256": "b786a4468ba104786df7683da9b1cf19d2334d9cc203dd19c3e7d6f10e2e93be",
+    "fc01_v2_private_corpus_sha256": "becc0408880aaed8bd5eb6fdf3997e62d5131c187a48331a03ae37d41aaa1aa3",
+    "parent_checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "t1_bpe_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "go_lock_sha256": "8b274e3bc976e73ad25a689e8044dda2fcb98766a8d2cdd890cb08d6f582c091",
+    "terminal_receipt_sha256": "67b66ee06f6821e324c678367174d110a4620200f6f9639fb3fc0ebd1d966df1",
+    "eval64_private_sha256": "3e3e6e932fafb0c72873c2277dd5ad2571e1fdafcde8f24903b14a3966f7329d",
+    "eval64_public_safe_sha256": "a1a7702d0560b7e1d8b2fd4e1201b29af0d5fd7b07f2b3ebd0b266e89464b532",
+    "blind96_input_sha256": "e032e55c8f0e1e9efe87948c7fb67af5c4e648df89a32483e91a5e9d5588620f",
+    "blind96_full_score_sha256": "a5694690a7df8743009987bc0413c49d9951309bc00df0e670fde0cac54dae09",
+    "blind96_mapping_sha256": "3e8f8593388104782eba768474f7b009a57e2ef4a4891a4fd9fe327c61373e52",
+    "scoring_commit_before_unblind": "1a78ca28b64149518d61b86a55150278e2283279"
+  },
+  "final_checkpoint_sha256": {
+    "A_BASE_MLE": "259f6bc80509b966b32ae187e426e9b8429f738ccdd8268ac397214c8ce32b8b",
+    "B_CF_MLE": "e58485ed4cb6b6de13707d18de9a8a4b96283f3500f892c2e9dd78777b6043b6",
+    "C_CF_CONTRAST": "3a531fd2046b7bb77c32799062e62ebdef3bc6bd492d4e6be59b5b388e5aded6"
+  },
+  "run_summary": {
+    "A_B_C_optimizer_steps_each": 256,
+    "total_optimizer_steps": 768,
+    "training_seed": 20261112,
+    "data_families": 384,
+    "holdout_lexical_families": 64,
+    "source_and_checkpoint_integrity": "PASS_INDEPENDENT_BYTE_CUSTODY_PRIOR",
+    "retrain_since_last_receipt": "NO",
+    "gpu_used_for_this_archive": "NO"
+  },
+  "primary_exploratory": {
+    "rule": "strictly_both_fact_margins_positive",
+    "A": {
+      "correct": 4,
+      "total": 64
+    },
+    "B": {
+      "correct": 3,
+      "total": 64
+    },
+    "C": {
+      "correct": 38,
+      "total": 64
+    },
+    "C_minus_B_pp": 54.6875,
+    "C_minus_B_bootstrap95_pp": [
+      43.75,
+      64.0625
+    ],
+    "B_minus_A_pp": -1.5625,
+    "B_minus_A_bootstrap95_pp": [
+      -9.375,
+      6.25
+    ],
+    "template_generalization": "NOT_ESTABLISHED_SHARED_SEMANTIC_TEMPLATES_ONLY",
+    "one_seed": true
+  },
+  "secondary_posthoc": {
+    "sample_count": 96,
+    "score_hash_committed_before_mapping": true,
+    "AI_blinded_to_per_record_arm_identity": true,
+    "independent_fresh_chat": false,
+    "independent_human": false,
+    "rubric_preregistered": false,
+    "primary_scores_unchanged": true,
+    "full_completion_counts": {
+      "A_BASE_MLE": 4,
+      "B_CF_MLE": 4,
+      "C_CF_CONTRAST": 8
+    },
+    "full_completion_denominator_each": 32,
+    "full_completion_only_category": "rule_constraint",
+    "C_minus_B_adherence_0_to_3": 0.46875,
+    "C_minus_B_fluency_mean_difference": 0,
+    "overall": "PARTIAL_SECONDARY_CONCORDANCE_RULE_CONSTRAINT_ONLY"
+  },
+  "evidence_links_public_safe": [
+    "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_BYTE_CUSTODY_PRIMARY_RECOMPUTATION_SCOPED_ADJUDICATION_20261113.json",
+    "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_SCIENTIFIC_REVIEW_AND_SINGLE_SCOPED_ADJUDICATION_20261113.md",
+    "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_AI_RATER_SHA256_FREEZE_BEFORE_UNBLIND_20261113.json",
+    "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_FROZEN_NUMERIC_SCORES_BY_OPAQUE_ID_20261113.json",
+    "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_FROZEN_SCORES_UNBLIND_SAFE_POSTHOC_SINGLE_ADJUDICATION_20261113.json",
+    "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_AI_SCORING_FROZEN_POSTHOC_SINGLE_ADJUDICATION_20261113.md"
+  ],
+  "privacy_custody": {
+    "private_corpus_not_published": true,
+    "private_primary_eval_raw_not_published": true,
+    "private_secondary_prompt_output_not_published": true,
+    "private_secondary_mapping_not_published": true,
+    "checkpoint_weight_bytes_not_published": true,
+    "source_private_remains_owner_drive": true,
+    "public_manifest_contains_only_safe_aggregates_and_hashes": true
+  },
+  "formal_archive": {
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "FC01_SOURCE_AND_MODEL": "IMMUTABLE_NO_RERUN",
+    "FC01_PRIMARY": "FROZEN_NO_RESCORE",
+    "FC01_SECONDARY": "FROZEN_POSTHOC_NO_RESCORE",
+    "FC01_REVIEWER_INDEPENDENCE": "PARTIAL_AI_NOT_EXTERNAL_HUMAN",
+    "FC01_NEW_TEMPLATE_CLAIM": "NOT_ESTABLISHED",
+    "FC01_MULTI_SEED_CLAIM": "NOT_ESTABLISHED",
+    "FC01_GENERATIVE_GENERALIZATION_CLAIM": "NOT_ESTABLISHED",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "D1_BRIDGE": "DESIGN_ONLY_PROTOCOL_CANDIDATE_NOT_EXECUTED",
+    "TEST_Q1Q2": "SEALED_UNMODIFIED",
+    "FC02_CAPACITY": "NOT_OPENED",
+    "DEV32": "CLOSED_UNCHANGED",
+    "NEW_TRAINING_STEPS": 0,
+    "NEW_GPU_CALLS": 0,
+    "test_access": false,
+    "GO_HOLD_SINGLE": "GO_ARCHIVE_AND_DESIGN_ONLY_HOLD_D1_SCIENCE"
+  },
+  "known_limitations": [
+    "4 shared semantic templates, lexical holdout rather than genuinely unseen task structures.",
+    "One training seed; treatment and decoding sensitivity unknown.",
+    "Teacher-forced success cannot be substituted for free-generation correctness.",
+    "Posthoc 0–3 AI rater rubric, prior aggregate primary knowledge, no human or fresh-chat independent rater.",
+    "Actual resume from step 64 not experimentally demonstrated.",
+    "No generalization proof and no D1 confirmatory authorization."
+  ],
+  "supersedes_status_only": "Prior FC01 interim reports said PENDING_SECONDARY. They remain immutable historical receipts; this manifest is the terminal archival interpretation rather than alteration of them.",
+  "next_operation": "TTM_SMALL4M_D1_BRIDGE_SOURCE_ONLY_INDEPENDENT_PREREG_REVIEW_AND_GO_HOLD_NO_GPU",
+  "lineage_action": "APPEND_L0016_ON_RESEARCH_BRANCH_AFTER_EVIDENCE_WRITTEN_NO_MAIN_MERGE"
+}
