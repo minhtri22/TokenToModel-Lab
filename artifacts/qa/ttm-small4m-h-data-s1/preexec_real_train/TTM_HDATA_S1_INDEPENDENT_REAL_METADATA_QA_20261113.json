@@ -1,0 +1,22 @@
+{
+  "actual_training_resume": "NOT_EXECUTED",
+  "checks_failed": 0,
+  "checks_passed": 3205,
+  "control_first_fraction": 0.7599043715846995,
+  "control_unique_stories": 1493,
+  "draws_per_arm": 2928,
+  "forward_slots_per_arm": 749568,
+  "legacy_step_count_match": 128,
+  "metadata_resume_verified_by_primary": "PASS_EXACT_64_64",
+  "paired_step_target_count_match": 128,
+  "raw_data_content_published": false,
+  "schema": "ttm.hdata_s1.real_metadata_independent_implementation_qa.v1",
+  "science_execution": false,
+  "source": "source-locked TRAIN metadata from NPZ; no x,y,VAL,TEST",
+  "tamper_negative_count": 5,
+  "target_labels_per_arm": 524288,
+  "torch_cpu_version": "2.10.0+cpu",
+  "treatment_first_fraction": 1.0,
+  "treatment_unique_stories": 2048,
+  "verdict": "PASS_REAL_TRAIN_METADATA_INDEPENDENT_QA__NO_TRAIN_NO_FORWARD"
+}
