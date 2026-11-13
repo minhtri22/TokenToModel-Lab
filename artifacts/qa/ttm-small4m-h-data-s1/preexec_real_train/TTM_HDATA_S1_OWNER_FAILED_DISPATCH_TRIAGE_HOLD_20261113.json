@@ -1,0 +1,39 @@
+{
+  "schema": "ttm.hdata_s1.owner_science_failed_dispatch.readonly_triage.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_HDATA_S1_OWNER_T4_TWO_ARM_ONE_SHOT_128X4096_SCIENCE_DISPATCH_AND_READY_LAST_RECEIPT_NO_FINAL_INFERENCE",
+  "state": "HOLD_FAILED_DISPATCH_NO_AUTOMATIC_RERUN_OR_RESUME",
+  "reported_preflight": {
+    "private_pins_aes_ciphertext": "PASS",
+    "new_final": "SEALED",
+    "run_root_exists_before_dispatch": false,
+    "science_training_before_dispatch": "NOT_STARTED"
+  },
+  "reported_failure": {
+    "notebook_cell": "4",
+    "subprocess_exit_code": 1,
+    "command_line_mode": "--mode science",
+    "exception_type": "CalledProcessError",
+    "printed_dispatch_marker": true,
+    "child_stderr_or_original_runner_traceback": "NOT_INCLUDED_IN_SAVED_NOTEBOOK_OUTPUT",
+    "underlying_error_class": "UNKNOWN"
+  },
+  "source_revalidation": {
+    "pinned_checkout_commit": "7aec0d551c930936412b93eb49951bd1597d71b9",
+    "science_runner_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "GO_lock_sha256": "85e744a3da8d0e417079f726d95f059ad569a5f13e592ee56c1982dbce0aa540",
+    "owner_T4_preflight": "PASS_TESLA_T4_TORCH_2_14_1_CU130"
+  },
+  "external_owner_drive_listing": {
+    "science_one_shot_v1": "NOT_OBSERVED_IN_DRIVE_FOLDER_LIST",
+    "scientific_updates_from_listing": "NOT_INFERABLE",
+    "needs_colab_live_root_inspect": true
+  },
+  "risk_note": "Saved owner Colab notebook has extra FC01 cell with previous running-training outputs. Concurrency not confirmed. Do not run H-DATA alongside FC01 or change FC01 state.",
+  "next_diagnostic": "RUN_METADATA_ONLY_TRIAGE_AND_IMPORT_SOURCE_GATE__NO_SCIENCE_STEP__DO_NOT_TOUCH_RUN_ROOT",
+  "no_training_reexecution_by_reviewer": true,
+  "evidence_writes_only": "GITHUB_RESEARCH_BRANCH_PUBLIC_SAFE_RECEIPT_AND_METADATA_TRIAGE_SCRIPT",
+  "no_science_claim": true,
+  "no_final_opened": true,
+  "no_cleanup_or_new_run_id_authorized": true
+}
