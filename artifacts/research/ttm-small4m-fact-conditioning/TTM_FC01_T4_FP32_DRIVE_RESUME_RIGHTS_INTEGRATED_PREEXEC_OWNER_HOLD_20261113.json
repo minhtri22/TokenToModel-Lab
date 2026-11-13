@@ -1,0 +1,88 @@
+{
+  "schema": "ttm.fc01.t4_fp32_drive_rights_preexec.integrated_owner_single_decision.v1",
+  "operation": "TTM_SMALL4M_FC01_T4_FP32_DRIVE_RESUME_RIGHTS_SINGLE_INTEGRATED_SCIENCE_RELEASE_GO_HOLD_ZERO_TRAIN_STEPS",
+  "date": "2026-11-13",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "source_readiness": {
+    "FC01_V2_source_QA": "PASS_OWNER_SCOPED",
+    "exact_T1_BPE": "PASS",
+    "independent_static_contract_QA": "PASS_16_OF_16_SELF_AUTHORED_SEPARATE_CHECKER",
+    "runner_source_only_audit": "PASS",
+    "v2_private_corpus_sha256": "becc0408880aaed8bd5eb6fdf3997e62d5131c187a48331a03ae37d41aaa1aa3",
+    "checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "BPE_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "T4_train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "P02_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "A_B_C_arms": [
+      "A_BASE_MLE",
+      "B_CF_MLE",
+      "C_CF_CONTRAST"
+    ],
+    "A_B_C_256_updates_per_arm_fixed": true
+  },
+  "source_rights": {
+    "dataset": "roneneldan/TinyStories",
+    "dataset_card": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "license_record": "CDLA-Sharing-1.0",
+    "official_license": "https://cdla.dev/sharing-1-0/",
+    "upstream_train_sha256": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "license_declared_publicly": "VERIFIED_ON_2026_11_13",
+    "local_source_bytes_pinned_by_owner": "PASS_PREVIOUS_READINESS",
+    "license_conditions": "Use allowed under Section 2 subject to Section 3; publication of data/enhanced data triggers licensing notices and attribution; computational results separately defined",
+    "owner_legal_rights_attestation": "NOT_RECEIVED",
+    "owner_attestation_default_in_notebook": false,
+    "permission_to_publish_private_input": "NOT_REQUESTED"
+  },
+  "colab_runtime": {
+    "status": "NOT_EXECUTED",
+    "free_T4_assignment": "NOT_VERIFIED",
+    "torch_cuda_FP32": "NOT_VERIFIED",
+    "P02_step1024_load": "NOT_EXECUTED_IN_COLAB",
+    "zero_optimizer_step_save_restore": "NOT_EXECUTED",
+    "actual_model_optimizer_rng_cursor_Drive_roundtrip": "NOT_EXECUTED",
+    "real_runner_step64_resume": "NOT_EXECUTED_AND_NOT_PROVABLE_WITH_ZERO_STEPS_ALONE",
+    "runtime_input_bundle_in_drive": "NOT_FOUND_ON_SEARCH",
+    "paid_colab_cost": "NOT_QUERYABLE_BY_CONNECTOR",
+    "site_reference": "https://research.google.com/colaboratory/faq.html",
+    "note": "Colab free-tier GPU types and compute limits are dynamic, not guaranteed"
+  },
+  "drive_custody": {
+    "status": "EMPTY_FC01_PREFLIGHT_FOLDERS_CREATED",
+    "root_folder_id": "1F2zEU_nS36pJDIkdiznxOp4LUPG8UHxv",
+    "root_url": "https://drive.google.com/drive/folders/1F2zEU_nS36pJDIkdiznxOp4LUPG8UHxv",
+    "inputs_folder_id": "1U6JQ6I0ZJumRlnsyD3XB3-wsO2tznDwA",
+    "inputs_folder_url": "https://drive.google.com/drive/folders/1U6JQ6I0ZJumRlnsyD3XB3-wsO2tznDwA",
+    "receipts_folder_id": "1K5TpN299jEDFUeBu3n2kwKOwkaEkEzea",
+    "receipts_folder_url": "https://drive.google.com/drive/folders/1K5TpN299jEDFUeBu3n2kwKOwkaEkEzea",
+    "scientific_private_data_uploaded_by_assistant": false,
+    "notebook_git_path": "tools/pilot_t4/fc01/TTM_FC01_T4_FP32_DRIVE_ZERO_STEP_RIGHTS_ONEPACKET_20261113.ipynb",
+    "notebook_vetted_for_safe_defaults": "PUBLIC_SOURCE_PINNED_WITH_DEFAULT_OWNER_RIGHTS_AND_T4_COST_FLAGS_FALSE",
+    "notebook_claim_scope": "ZERO_STEP_COMPONENT_ROUNDTRIP_IF_EXECUTED_NOT_REAL_TRAIN_RESUME"
+  },
+  "scientific_decision": {
+    "owner_single_decision": "HOLD",
+    "reason": "OWNER_RIGHTS_ATTESTATION_AND_ACTUAL_COLAB_FREE_T4_FP32_DRIVE_ZERO_STEP_READBACK_NOT_YET_EXECUTED",
+    "science_GO": "NOT_GRANTED",
+    "rater_input_provenance": "HISTORICAL_DEV32_LIMITATION_UNCHANGED",
+    "new_sci_train_steps": 0,
+    "new_inference": 0,
+    "gpu_calls_executed_by_assistant": 0,
+    "three_arm_training": "NOT_AUTHORIZED",
+    "session_exit": "NO_APPROVAL_TO_START_TRAINING",
+    "source_only_completeness": "PASS",
+    "colab_zero_step": "PENDING_OWNER_NOTEBOOK_RUN",
+    "real_resume_semantics_proven": false,
+    "template_generalization_scope": "FOUR_SHARED_TEMPLATES_LEXICAL_VARIATION_ONLY",
+    "no_micro_permissions": true
+  },
+  "preserved": {
+    "DEV32": "CLOSED_EXPLORATORY_SCOPED",
+    "D1_CONFIRMATORY_512": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "FC02_CAPACITY": "NOT_OPENED",
+    "lineage_md": "UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "next_owner_one_step": "UPLOAD_EXACT_7_INPUTS_TO_DESIGNATED_PRIVATE_DRIVE_FOLDER_AND_RUN_ONE_COLAB_NOTEBOOK_INTERACTIVELY; REPORT_RECEIPT_SHA; DO_NOT_TRAIN"
+}
