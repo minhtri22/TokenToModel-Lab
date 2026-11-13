@@ -1,0 +1,435 @@
+{
+  "schema": "ttm.vm.v4.nl_ood_ambiguity.unseen_relations.design_prereg.v1",
+  "operation": "TTM_VM_V4_NATURAL_LANGUAGE_OOD_AMBIGUITY_UNSEEN_RELATIONS_PREREG_DESIGN_ONLY",
+  "date": "2026-11-13",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-vector-memory-architecture-20261111",
+  "source_basis": {
+    "lineage_last": "L0023",
+    "lineage_blob_at_design": "53721b54310671b944f946e228d7f927a3666413",
+    "main_head_at_design": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "prior_V3_adjudication": "PASS_NONTEST_V3_SYNTHETIC_AMBIGUITY_EXPLORATORY_SCOPED",
+    "prior_V3_qa": "PASS_73_OF_73",
+    "V3_science_source_commit": "e258f117d0422e2e83d9cf5937aad889f187a2bf",
+    "V3_frozen_retriever_git_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+    "V3_256_run": "CONSUMED_NO_RETRY",
+    "V2_192_run": "CONSUMED_NO_RETRY",
+    "L0021_cosine_verdict": "FAIL_RETRIEVAL_SCOPED",
+    "historical_checks_not_to_be_rerun": true
+  },
+  "research": {
+    "classification": "AI_ASSISTED_EXPLORATORY_SCOPED",
+    "query": "On independently authored out-of-grammar natural-language questions, can a frozen semantic retriever select one supported record or abstain appropriately, outperforming CAL-selected lexical/embedding baseline under equal information and a precommitted false-selection budget?",
+    "ood_definition": "Surface forms, relation expressions, and discourse patterns not in frozen retriever grammar/templates/dictionaries; does not assert OOD to pretrained encoder training distribution.",
+    "no_human_independence_claim": true,
+    "strict_non_test": true,
+    "evaluation_one_shot_only_when_future_owner_GO": true
+  },
+  "dataset_design": {
+    "cal": {
+      "id": "TTM_VM_V4_CAL64_NEW_SOURCE_FAMILIES",
+      "cases": 64,
+      "split": "CAL_ONLY",
+      "sha256": null,
+      "source_manifest_sha256": null
+    },
+    "probe": {
+      "id": "TTM_VM_V4_PROBE256_OOD_NATURAL_LANGUAGE",
+      "cases": 256,
+      "split": "NON_TEST_PROBE",
+      "sha256": null,
+      "source_manifest_sha256": null
+    },
+    "cards_per_case": 32,
+    "strata": [
+      {
+        "id": "P0_SEEN_WIRING_CONTROL",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": false,
+        "challenge": "V3_GRAMMAR_CONTROL",
+        "requires_independent_prose": false
+      },
+      {
+        "id": "P1_UNSEEN_NL_PARAPHRASE",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "challenge": "NATURAL_PHRASING_NOT_IN_CANDIDATE_GRAMMAR",
+        "requires_independent_prose": true
+      },
+      {
+        "id": "P2_CROSS_SENTENCE_RELATION",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "challenge": "COREFERENCE_AND_CROSS_SENTENCE_RELATION",
+        "requires_independent_prose": true
+      },
+      {
+        "id": "P3_PROVENANCE_TEMPORAL",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "SELECT_UNIQUE",
+        "primary": true,
+        "challenge": "SOURCE_AND_TIME_CONSTRAINTS",
+        "requires_independent_prose": true
+      },
+      {
+        "id": "N0_RELATION_UNDERSPECIFIED",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "challenge": "TWO_PLUS_SUPPORTED_CANDIDATES"
+      },
+      {
+        "id": "N1_CONFLICTING_EVIDENCE",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "challenge": "CONFLICTING_EQUALLY_TRUSTED_SOURCES"
+      },
+      {
+        "id": "N2_FALSE_PREMISE_NO_SUPPORT",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "challenge": "ZERO_SUPPORTED_CANDIDATES"
+      },
+      {
+        "id": "N3_NEAR_DUPLICATE_AMBIGUOUS",
+        "cal": 8,
+        "probe": 32,
+        "gold_action": "ABSTAIN",
+        "primary": true,
+        "challenge": "NEAR_DUPLICATE_BUT_UNRESOLVABLE_RELATION_SCOPE"
+      }
+    ],
+    "primary_positive_strata": [
+      "P1_UNSEEN_NL_PARAPHRASE",
+      "P2_CROSS_SENTENCE_RELATION",
+      "P3_PROVENANCE_TEMPORAL"
+    ],
+    "primary_negative_strata": [
+      "N0_RELATION_UNDERSPECIFIED",
+      "N1_CONFLICTING_EVIDENCE",
+      "N2_FALSE_PREMISE_NO_SUPPORT",
+      "N3_NEAR_DUPLICATE_AMBIGUOUS"
+    ],
+    "positive_control_stratum": "P0_SEEN_WIRING_CONTROL",
+    "primary_cal_positives": 24,
+    "primary_cal_negatives": 32,
+    "primary_probe_positives": 96,
+    "primary_probe_negatives": 128,
+    "all_probe_positive_including_control": 128,
+    "split_disjoint_by": [
+      "source_document_cluster",
+      "entity_family",
+      "author_style",
+      "paraphrase_family"
+    ],
+    "source_rights_required": true,
+    "accepted_source_classes_if_rights_proven": [
+      "OWNER_AUTHORED_NATURALISTIC",
+      "DOCUMENTS_WITH_EXPLICIT_PERMISSION"
+    ],
+    "external_world_claim_allowed_only_with_actual_external_evidence": false,
+    "no_sealed_TEST_access": true,
+    "no_old_V2_V3_heldout_data_for_calibration": true,
+    "negative_answer": null,
+    "negative_target_key": null,
+    "negative_reader_forward_calls": 0,
+    "positive_target_keys": "ONE_PRIVATE_SUPPORTED_RECORD",
+    "positive_reader_answer_vocabulary": "REUSE_L0020_TAG_DOMAIN_TO_LIMIT_READER_SHIFT",
+    "public_index_fields": [
+      "key",
+      "source_id",
+      "retrieval_text",
+      "optional_timestamp"
+    ],
+    "public_retriever_inputs": [
+      "question",
+      "public_index"
+    ],
+    "private_labels_not_passed": [
+      "gold_action",
+      "gold_target_key",
+      "answer",
+      "stratum",
+      "case_id",
+      "private_memory_values",
+      "gold_evidence_support_set"
+    ]
+  },
+  "source_annotation_custody": {
+    "author_and_candidate_freeze_order": "FREEZE_MODEL_CODE_EMBEDDING_TOKENIZER_GRAMMAR_PROMPTS_BASELINES_BEFORE_CAL_AND_PROBE_AUTHORING",
+    "cal_labeling_before_threshold_selection": true,
+    "thresholds_frozen_before_probe_authoring": true,
+    "owner_authored_vs_external_source_class_must_be_frozen": true,
+    "two_distinct_AI_blind_review_sessions_required": true,
+    "independence_level": "SELF_REPORTED_AI_NOT_HUMAN",
+    "rater_A_and_B_review_all_primary_cases": true,
+    "rater_input": "QUESTION_AND_PUBLIC_INDEX_ONLY",
+    "rater_forbidden": [
+      "retriever outputs",
+      "gold labels",
+      "candidate source",
+      "other agent review",
+      "private values"
+    ],
+    "disagreement_action": "HOLD_ANNOTATION_DISPUTE_BEFORE_SCIENCE; OPTIONAL_THIRD_AI_BLIND_ADJUDICATION; NO_POSTHOC_CASE_REMOVAL",
+    "rights_and_PII_filter_required": true,
+    "cal_probe_lexical_and_semantic_contamination_QA_required": true,
+    "private_gold_and_decision_raw_keys_not_to_be_published": true
+  },
+  "baselines_and_candidate": {
+    "legacy_symbolic": {
+      "id": "R_V3_FROZEN_SYMBOLIC",
+      "git_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+      "config": "FROZEN_NO_CAL_TUNING"
+    },
+    "BM25": {
+      "id": "R_BM25_LEXICAL",
+      "source_blob": null,
+      "tokenizer_sha256": null,
+      "score_config": null
+    },
+    "char3gram": {
+      "id": "R_CHAR3GRAM_LEXICAL",
+      "source_blob": null,
+      "unicode_normalization_sha256": null,
+      "score_config": null
+    },
+    "mean_T1": {
+      "id": "R_T1_MEAN_COSINE",
+      "source_blob": null,
+      "checkpoint_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+      "tokenizer_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc"
+    },
+    "V4_candidate": {
+      "id": "R_V4_SEMANTIC_CANDIDATE",
+      "model_or_encoder_id": null,
+      "weights_sha256": null,
+      "license_confirmation": null,
+      "source_blob": null,
+      "tokenizer_sha256": null,
+      "architecture": null,
+      "runner_sha256": null
+    },
+    "oracle": {
+      "id": "R_ORACLE_SCORER_ONLY",
+      "is_real_retriever": false
+    },
+    "equal_public_cards_and_order": true,
+    "equal_input_document_spans_and_context_budget": true,
+    "no_external_document_retrieval_at_scoring": true,
+    "CPU_FP32_only": true,
+    "download_model_during_one_shot": false,
+    "no_training_or_finetuning_on_CAL": true,
+    "candidate_missing": "HOLD_SEMANTIC_CANDIDATE_UNPINNED",
+    "semantic_claim_requires_non_symbolic_candidate": true
+  },
+  "calibration": {
+    "split": "CAL64",
+    "target": "SELECT/ABSTAIN threshold only",
+    "candidate_threshold_grid_source_blob": null,
+    "same_threshold_search_policy_for_score_based_methods": true,
+    "max_false_selection_on_32_negative_CAL": 1,
+    "maximize_correct_on_24_primary_positive_CAL": true,
+    "tie_order": [
+      "LOWER_SELECTION_COVERAGE",
+      "STRICTER_THRESHOLD"
+    ],
+    "always_abstain_allowed_and_scored": true,
+    "legacy_V3_symbolic_fixed_no_tuning": true,
+    "best_baseline_select_on_CAL_only": true,
+    "best_baseline_candidates": [
+      "R_BM25_LEXICAL",
+      "R_CHAR3GRAM_LEXICAL",
+      "R_T1_MEAN_COSINE"
+    ],
+    "best_baseline_tie_priority": [
+      "R_BM25_LEXICAL",
+      "R_CHAR3GRAM_LEXICAL",
+      "R_T1_MEAN_COSINE"
+    ],
+    "thresholds_sha256": null,
+    "thresholds_must_be_frozen_before_probe": true,
+    "posthoc_best_baseline_on_PROBE_forbidden": true
+  },
+  "prospective_primary_gate": {
+    "positive_n": 96,
+    "correct_select_min": 60,
+    "correct_select_min_rate": 0.625,
+    "P1_min_correct": 18,
+    "P2_min_correct": 16,
+    "P3_min_correct": 16,
+    "per_group_denominator": 32,
+    "negative_n": 128,
+    "correct_abstain_min": 120,
+    "correct_abstain_min_rate": 0.9375,
+    "negative_false_selections_max": 8,
+    "incremental_gain_vs_CAL_selected_best_baseline_min_cases": 10,
+    "incremental_gain_n": 96,
+    "paired_bootstrap_gain_lower_95_gt_zero": true,
+    "bootstrap_gain_draws": 2000,
+    "bootstrap_gain_seed": 20261125,
+    "reader_cases_positive_only": 96,
+    "reader_arm_A_minus_B1_min": 0.05,
+    "reader_arm_C1_minus_B1_min": 0.05,
+    "reader_oracle_A_minus_O1_min": 0.05,
+    "reader_paired_bootstrap_draws": 2000,
+    "reader_paired_bootstrap_seeds": [
+      20261126,
+      20261127
+    ],
+    "reader_two_lower_95_gt_zero": true,
+    "positive_ABSTAIN_counts_as_miss": true,
+    "positive_SELECT_WRONG_counts_as_miss": true,
+    "negative_SELECT_counts_as_error": true,
+    "negative_no_reader_nll": true,
+    "P0_excluded_primary": true,
+    "arm_definitions": {
+      "A": "NO_MEMORY_BYPASS",
+      "O1": "PRIVATE_GOLD_SINGLETON_SCORER_ONLY",
+      "B1": "SELECTED_SINGLETON_OR_BYPASS_IF_ABSTAIN",
+      "C1": "IDENTICAL_KEY_MASK_VS_B1_WITH_GOLD_TARGET_VALUE_SWAPPED_IN_PRIVATE_BANK; SAME_AS_B1_IF_GOLD_NOT_SELECTED"
+    },
+    "decision_precedence": [
+      "HOLD_INVALID_PROVENANCE_RIGHTS_OR_CUSTODY",
+      "HOLD_SEMANTIC_CANDIDATE_UNPINNED",
+      "HOLD_BASELINE_CALIBRATION_OR_SPLIT_INVALID",
+      "HOLD_READER_DOMAIN_SHIFT",
+      "FAIL_UNSAFE_FALSE_SELECTION_SCOPED",
+      "FAIL_OOD_RETRIEVAL_SCOPED",
+      "FAIL_NO_INCREMENTAL_SEMANTIC_GAIN_SCOPED",
+      "FAIL_FROZEN_READER_TRANSFER_SCOPED",
+      "GO_CANDIDATE_V4_NONTEST_NL_OOD_SCOPED"
+    ],
+    "V3_100percent_not_comparable_raw": true
+  },
+  "independent_QA_upgrade": {
+    "private_case_trace_required": [
+      "case_id",
+      "stratum",
+      "public_index_sha256",
+      "gold_action",
+      "gold_target_key",
+      "selected_key",
+      "selected_index",
+      "status",
+      "reason_code",
+      "evidence_support_key_hashes",
+      "score",
+      "threshold",
+      "method",
+      "Reader_forward_count",
+      "arm_nll",
+      "answer_tokens",
+      "decision_trace_sha256"
+    ],
+    "selected_key_vs_gold_case_by_case_independent_recompute": true,
+    "public_aggregate_no_private_key_or_gold": true,
+    "raw_native_perstory_sha256_required": true,
+    "postrun_reader_and_checkpoint_byte_rehash_required": true,
+    "no_outcome_boolean_only_adjudication": true,
+    "pre_science_source_mock_negative_QA_required": true,
+    "PROBE_not_to_be_scored_in_source_QA": true,
+    "one_shot_marker_before_first_PROBE_retrieval": true,
+    "one_shot_no_retry_after_marker": true
+  },
+  "frozen_models": {
+    "reader_L0020_sha256": "c458de3afae87b3c381274b8edd698187df63ceac4dbbc0e6d8bd44b85c1632f",
+    "backbone_P02_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+    "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc"
+  },
+  "release": {
+    "design": "PASS_V4_DESIGN_CONTRACT_SCOPED",
+    "full_executable_prereg": "NOT_FROZEN",
+    "source_rights": "NOT_REVIEWED",
+    "source_data_generated": false,
+    "cal_samples_generated": 0,
+    "probe_samples_generated": 0,
+    "candidate_source_pinned": false,
+    "baseline_source_pins_complete": false,
+    "thresholds_selected": false,
+    "AI_rater_appointments_completed": false,
+    "Reader_forward_calls": 0,
+    "optimizer_steps": 0,
+    "old_probe_reused": false,
+    "sealed_TEST_opened": false,
+    "GPU_used": false,
+    "main_modified": false,
+    "lineage_modified": false,
+    "scientific_release": "HOLD_NO_PINNED_MODEL_CAL_PROBE_REVIEW_RIGHTS"
+  },
+  "docs": {
+    "design": "docs/research/vector-memory/TTM_VM_V4_NATURAL_LANGUAGE_OOD_AMBIGUITY_UNSEEN_RELATIONS_PREREG_DESIGN_20261113.md",
+    "manifest": "artifacts/research/vector-memory/TTM_VM_V4_NATURAL_LANGUAGE_OOD_DESIGN_MANIFEST_20261113.json",
+    "QA": "artifacts/research/vector-memory/TTM_VM_V4_DESIGN_INTERNAL_CONSISTENCY_QA_20261113.json"
+  },
+  "next_operation": "TTM_VM_V4_CAL64_PROBE256_SOURCE_RIGHTS_ANNOTATION_CANDIDATE_PIN_AND_INTEGRATED_SOURCE_QA_ONEPACKET",
+  "internal_design_QA": {
+    "status": "PASS_50_OF_50_INTERNAL_CONSISTENCY_ONLY",
+    "checks_passed": 50,
+    "checks_total": 50,
+    "checks": {
+      "01_eight_strata": true,
+      "02_each_cal8": true,
+      "03_each_probe32": true,
+      "04_cal_total64": true,
+      "05_probe_total256": true,
+      "06_four_positive_strata": true,
+      "07_four_negative_strata": true,
+      "08_control_only_one": true,
+      "09_positive_control_cal8": true,
+      "10_positive_control_probe32": true,
+      "11_primary_cal_positive24": true,
+      "12_primary_probe_positive96": true,
+      "13_primary_cal_negative32": true,
+      "14_primary_probe_negative128": true,
+      "15_positive160split": true,
+      "16_positive_min60of96": true,
+      "17_negative_min120of128": true,
+      "18_false_selection_max8": true,
+      "19_P1P2P3_subgroup_thresholds": true,
+      "20_cal_negative_false_max1": true,
+      "21_best_baseline_Cal_only": true,
+      "22_cal_threshold_before_PROBE": true,
+      "23_no_CAL_weight_train": true,
+      "24_no_legacy_V3_tuning": true,
+      "25_three_baselines": true,
+      "26_two_separate_AI_reviewers": true,
+      "27_AI_review_not_human": true,
+      "28_negative_answer_null": true,
+      "29_negative_target_null": true,
+      "30_negative_no_reader": true,
+      "31_public_vs_private_separate": true,
+      "32_nonTEST_only": true,
+      "33_no_old_PROBE_CAL": true,
+      "34_source_rights_must_pass": true,
+      "35_frozen_reader_SHA": true,
+      "36_frozen_P02_SHA": true,
+      "37_outcome_no_recscoring": true,
+      "38_OOD_semantic_model_unpinned": true,
+      "39_no_cal_or_probe_generated": true,
+      "40_no_science_training_GPU_TEST": true,
+      "41_test_and_main_and_lineage_unchanged": true,
+      "42_preferred_decision_HOLD": true,
+      "43_baseline_gain_at_least_10": true,
+      "44_paired_bootstrap_3seeds": true,
+      "45_bootstrap_each_2000": true,
+      "46_answer_only_nll_thresholds": true,
+      "47_trace_selected_key_raw_required": true,
+      "48_native_hash_postrun_required": true,
+      "49_no_sourceQA_actual_PROBE": true,
+      "50_full_prereg_not_yet_frozen": true
+    }
+  }
+}
