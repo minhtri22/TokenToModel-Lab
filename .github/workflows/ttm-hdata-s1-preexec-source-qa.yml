@@ -35,10 +35,13 @@ jobs:
             'native_t4_resume_QA_source':'ttm_hdata_s1_native_t4_h0_h1_resume_qa_v1.py',
             'two_arm_science_runner_candidate':'ttm_hdata_s1_two_arm_science_runner_candidate_v1.py'}
           manifest=json.loads(pathlib.Path('artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_OWNER_CONSENT_SOURCE_AES_T4_PENDING_20261113.json').read_bytes())
+          v2=json.loads(pathlib.Path('artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_SCIENCE_RUNNER_STRICT_BUDGET_V2_SOURCE_LOCK_20261113.json').read_bytes())
           for key,name in names.items():
               data=(base/name).read_bytes()
               tree=ast.parse(data,filename=name)
-              rec=manifest['source_pins'][key]
+              rec=(manifest['source_pins'][key] if key!='two_arm_science_runner_candidate'
+                   else {'sha256':v2['runner_source_sha256'],
+                         'git_blob_sha1':v2['runner_git_blob_sha1']})
               assert hashlib.sha256(data).hexdigest()==rec['sha256'],key+'_SHA256'
               assert hashlib.sha1(('blob '+str(len(data))+'\0').encode()+data).hexdigest()==rec['git_blob_sha1'],key+'_GIT_BLOB'
               assert any(isinstance(t,ast.FunctionDef) and t.name=='main' for t in tree.body),key+'_MAIN_MISSING'
@@ -52,7 +55,12 @@ jobs:
               calls=[x for x in ast.walk(m) if isinstance(x,ast.Call)]
               assert any(isinstance(x.func,ast.Attribute) and x.func.attr=='parse_args' for x in calls)
           assert "EXPLICIT_T4_QA_ONLY_FLAG_REQUIRED" in (base/names['native_t4_resume_QA_source']).read_text()
-          assert "ONE_SHOT_OWNER_GO_LOCK_NOT_GRANTED" in (base/names['two_arm_science_runner_candidate']).read_text()
+          runner=(base/names['two_arm_science_runner_candidate']).read_text()
+          assert "ONE_SHOT_OWNER_GO_LOCK_NOT_GRANTED" in runner
+          assert "ONE_SHOT_FIXED_RUN_ROOT_MISMATCH" in runner
+          assert "FP16_RETRY_OR_MISMATCHED_FORWARD_BUDGET_HOLD" in runner
+          assert "step_report.get('skipped_fp16_attempts')==0" in runner
+          assert "science_one_shot_v1" in runner
           assert "ESCROW_REQUIRED_BEFORE_FORWARD" in (base/names['native_t4_resume_QA_source']).read_text()
           assert "H_DATA_S1_ESCROW_HOLD" in (base/names['aes_source']).read_text()
           gitfiles=subprocess.check_output(['git','ls-files'],text=True).splitlines()
