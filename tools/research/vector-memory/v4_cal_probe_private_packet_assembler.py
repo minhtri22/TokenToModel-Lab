@@ -94,6 +94,10 @@ def assemble(project_root:Path, authored_bundle:Path, rights_file:Path,
         cal=read_json(cal_private_file)
         if cal.get("schema")!=BUNDLE_SCHEMA or cal.get("split")!="CAL":
             raise ValueError("CAL_PRIVATE_BUNDLE_BAD_SCHEMA")
+        if threshold["CAL64_sha256"]!=hash_obj(cal):
+            raise ValueError("HOLD_CAL_PRIVATE_BYTES_NOT_FROZEN_THRESHOLD_RECEIPT")
+        if threshold["source_rights_receipt_sha256"]!=lock["rights_manifest_sha256"]:
+            raise ValueError("HOLD_CAL_RIGHTS_CUSTODY_HASH_MISMATCH")
         disjoint=check_disjoint(cal["cases"],cases)
     else:
         if threshold_freeze_file or cal_private_file:
