@@ -1,0 +1,21 @@
+{
+  "schema": "ttm.drive.cleanup.after_delete.v1",
+  "seed": "S3",
+  "arm": "PT-PERM",
+  "status": "PASS_DELETED_INTERMEDIATES",
+  "predelete_archive_blob": "bd820385c0356be8408604967ad027235327cf81",
+  "deleted_steps": [
+    256,
+    512,
+    768,
+    1024,
+    1280
+  ],
+  "checkpoint_bytes_removed_claimed": 264680385,
+  "retained": [
+    1536,
+    1792,
+    2048
+  ],
+  "postdelete_verified": true
+}
