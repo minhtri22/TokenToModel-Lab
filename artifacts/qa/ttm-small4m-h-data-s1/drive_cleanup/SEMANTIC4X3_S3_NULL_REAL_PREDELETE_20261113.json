@@ -1,0 +1,59 @@
+{
+  "schema": "ttm.drive.cleanup.before_delete.v1",
+  "date": "2026-11-13",
+  "status": "PREDELETE_ARCHIVED",
+  "study": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "seed": "S3",
+  "arm": "NULL-REAL",
+  "source_independent_readback": "96 READY confirmed and 12 final binary SHA checked in existing study report",
+  "delete_steps": [
+    256,
+    512,
+    768,
+    1024,
+    1280
+  ],
+  "keep_steps": [
+    1536,
+    1792,
+    2048
+  ],
+  "final_sha256_from_independent_readback": "b58a17f65d6ec949095a0d3d1ac3a91f26d3c71c7246a1ea64d2a4d224341c1e",
+  "items": [
+    {
+      "step": 256,
+      "checkpoint_bytes": 52931469,
+      "checkpoint_sha256_as_recorded_in_READY": "521db9481bf5593924332c6db6ea3d6e18eef1307f2b5913a891a7f2b93fd076",
+      "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2"
+    },
+    {
+      "step": 512,
+      "checkpoint_bytes": 52933773,
+      "checkpoint_sha256_as_recorded_in_READY": "ef377130f7df039c3749c63b81873863189605d19bab009ebca6994e2de194be",
+      "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2"
+    },
+    {
+      "step": 768,
+      "checkpoint_bytes": 52936077,
+      "checkpoint_sha256_as_recorded_in_READY": "65ad9b7cec2762ce1c94ad682b1ac7c31d6f6172a61a49eddbb495b59d6b6eae",
+      "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2"
+    },
+    {
+      "step": 1024,
+      "checkpoint_bytes": 52938381,
+      "checkpoint_sha256_as_recorded_in_READY": "70a020fa54b5fd494f80de504e547ac595ba0e3d29408368f18b048856b14e45",
+      "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2"
+    },
+    {
+      "step": 1280,
+      "checkpoint_bytes": 52940685,
+      "checkpoint_sha256_as_recorded_in_READY": "d8688a940bd56eb3fa124117601427e0a8b20fe778ef0acb9d7f53b5b943cd96",
+      "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2"
+    }
+  ],
+  "planned_reclaim_bytes": 264680385,
+  "checkpoint_raw_binary_backed_up_to_github": false,
+  "sha_provenance": "READY metadata (not rehashed binary)",
+  "irreversible_loss": "Deleted intermediate optimizer state cannot be restored from metadata",
+  "private_data_shared": false
+}
