@@ -1,0 +1,47 @@
+{
+  "schema": "ttm.hdata_s1.colab_cell4_namespace_collision_independent_adjudication.v1",
+  "operation": "TTM_HDATA_S1_FAILED_COLAB_DISPATCH_EXACT_ERROR_AND_ROOT_CUSTODY_SINGLE_GATE_NO_RERUN",
+  "date": "2026-11-13",
+  "source_log": {
+    "root_exists_in_user_diagnostic": false,
+    "root_is_dir_in_user_diagnostic": false,
+    "attempted_exact_science_gate": "NOT_REACHED",
+    "reported_diagnostic_error_type": "ModuleNotFoundError",
+    "reported_diagnostic_error_message": "No module named 'fc01_integrated_static_qa'",
+    "actual_imported_module_path": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_fc01_fact_conditioning_20261113/input/fc01_train_eval_once.py",
+    "original_cell4_child_argv_runner": "/content/TTM_HDATA_S1_SCIENCE_FROZEN/tools/pilot_t4/hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py",
+    "original_cell4_exit_code": 1,
+    "original_child_stderr": "NOT_OBSERVED"
+  },
+  "reasoning_and_scope": {
+    "diagnostic_failure_class": "COLAB_NOTEBOOK_GLOBAL_NAMESPACE_COLLISION_FC01_INSTEAD_OF_HDATA",
+    "original_HDATA_science_failure_class": "UNKNOWN_NOT_EXPLAINED_BY_FC01_DIAGNOSTIC",
+    "root_custody": "NOT_FOUND_IN_USER_COLAB_DIAGNOSTIC_AND_EXTERNAL_DRIVE_FOLDER_LIST; DOES_NOT_PROVE_ZERO_UPDATES",
+    "FC01_concurrent_run_with_HDATA": "UNKNOWN_NO_CROSS_STUDY_INFERENCE",
+    "no_rerun_or_resume_until_exact_HDATA_gate_and_root_custody": true,
+    "no_SOURCE_change_or_GO_lock_change": true,
+    "no_DELETE_MOVE_or_ESCROW_REKEY": true,
+    "NEW_FINAL": "SEALED",
+    "science_completion": "NOT_CONFIRMED"
+  },
+  "next_diag_source": {
+    "file": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_fc01_collision_exact_gate_diag_v1.py",
+    "git_blob_sha1": "7e53a4005813e46b9e63ac98bd88ea819e80f5df",
+    "release_commit": "a3bd10a1f1e486558355b64924012332f2e0a23b",
+    "read_only_persistent_science_state": true,
+    "temporary_ciphertext_only": true,
+    "fixed_source_runner_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "fixed_science_lock_sha256": "85e744a3da8d0e417079f726d95f059ad569a5f13e592ee56c1982dbce0aa540",
+    "does_not_call_science_runner": true,
+    "does_not_call_train_step": true,
+    "does_not_call_resume": true,
+    "expected_outputs": [
+      "HDATA_S1_IMPORTED_MODULE",
+      "HDATA_S1_EXACT_SCIENCE_GATE",
+      "HDATA_S1_ERROR_TYPE",
+      "HDATA_S1_ERROR_MESSAGE",
+      "HDATA_S1_RUN_ROOT_EXISTS"
+    ]
+  },
+  "adjudication": "HOLD_OWNER_SCIENCE_FAILURE_ORIGINAL_CAUSE_UNKNOWN_NO_RERUN"
+}
