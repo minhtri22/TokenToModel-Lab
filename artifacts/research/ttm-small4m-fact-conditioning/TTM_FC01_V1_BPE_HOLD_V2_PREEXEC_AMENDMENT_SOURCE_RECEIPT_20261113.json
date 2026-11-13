@@ -1,0 +1,95 @@
+{
+  "schema": "ttm.fc01.v1.bpe_hold.v2.versioned_preexec_source_amendment.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_FC01_V1_REAL_T1_BPE_FAIL_AND_V2_SOURCE_ONLY_AMENDMENT_ONE_PACKET",
+  "owner_v1_execution": {
+    "source_sha256_7_of_7": "PASS_EXACT_LF",
+    "pinned_tinystories_t1_checkpoint_t4_pack": "PASS",
+    "corpus_sha256": "7214213c79002943cbb9f7d0c6c25a81ba7f522c7218dcd4297a2c8465084bd6",
+    "families": 384,
+    "train": 256,
+    "val": 64,
+    "eval": 64,
+    "b_c_data_equal": true,
+    "real_T1_BPE": "FAIL_CANDIDATE_BPE_LENGTH_DIFFERS_ENTITY_LOCATION_13_12",
+    "science_train_not_executed": true,
+    "runner_audit_not_reached": true
+  },
+  "v1_other_BPE_from_readonly_real_merge_pair_analysis": {
+    "causal_reasoning": [
+      11,
+      11
+    ],
+    "rule_constraint": [
+      12,
+      12
+    ],
+    "goal_persistence": [
+      14,
+      14
+    ],
+    "note": "Only entity_location 13/12 observed in owner Python QA run; others computed by independent read-only replica of real 1791 pinned BPE merges"
+  },
+  "v2_preexec": {
+    "version": "v2_bpe_amended",
+    "design_only": true,
+    "predeclared_changes": [
+      "entity_location upper/lower -> upstairs/downstairs with equal 12-token answers",
+      "goal_persistence north/south counter -> north/south table with 12-token answers",
+      "D0 item-index parity label correlation -> row-and-column checkerboard-balanced",
+      "negative checker adds T16"
+    ],
+    "v2_private_corpus_candidate_sha256": "becc0408880aaed8bd5eb6fdf3997e62d5131c187a48331a03ae37d41aaa1aa3",
+    "private_v2_published_git": false,
+    "source_v1_preserved": true,
+    "trainer_checkpoint_unchanged": true,
+    "source_sha256": {
+      "fc01_build_private_corpus_py": "a9978a1961a2d062e5229ad91593eddb01f7fcfab00c4dfb55cc3df316053c98",
+      "fc01_integrated_static_qa_py": "f4f205ed4be0021faf99b3e73f4c0fb80ef4d1ce095ee5985507ca3f1e33cc3e",
+      "fc01_independent_contract_tests_py": "316b6d8a26881abbcc333aedbf14ef0342f65731b56690f8a09dbd24e34f8f6e",
+      "fc01_train_eval_once_py": "b786a4468ba104786df7683da9b1cf19d2334d9cc203dd19c3e7d6f10e2e93be",
+      "fc01_pinned_bpe_py": "d90ddbcdbea8450d7605cf7e65936efd032344b8d7793c2272d4d0870cfbff01",
+      "invoke_ps51": "cf8ad6aa83d83319201bb90e7d89cfa1adda18bb2e6dea8d5f6e88cc38c4678b",
+      "readme_historical_v1": "f0aa8bf7e31f627802aa8469ad67bd197c208c98991a82c840119f13d90b6231"
+    },
+    "source_only_structural_qa_pass": 16,
+    "BPE_readonly_simulated_candidates_by_category": {
+      "entity_location": [
+        12,
+        12
+      ],
+      "causal_reasoning": [
+        11,
+        11
+      ],
+      "rule_constraint": [
+        12,
+        12
+      ],
+      "goal_persistence": [
+        12,
+        12
+      ]
+    },
+    "BPE_readonly_simulated_prefix_mismatch": 0,
+    "BPE_readonly_simulated_context_overflow": 0,
+    "BPE_readonly_simulated_max_context_answer_tokens": 58,
+    "owner_actual_python_T1_BPE": "NOT_YET_EXECUTED",
+    "owner_actual_integrated_runner_audit": "NOT_YET_EXECUTED",
+    "stager_remote_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\FC01_V2_Preexec_Source_Amendment_And_OnePacket_QA_20261113.py",
+    "stager_git_path": "tools/pilot_t4/fc01/FC01_V2_Preexec_Source_Amendment_And_OnePacket_QA_20261113.py",
+    "source_output": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\fc01_onepacket_20261113_v2",
+    "private_output": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_FC01_OWNER_CORPUS_20261113_v2",
+    "bundle_output": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_FC01_SOURCE_BUNDLE_20261113_v2"
+  },
+  "verdict": "HOLD_FC01_SCIENCE_PENDING_V2_OWNER_SOURCE_BPE_AND_RUNNER_READBACK",
+  "training": "NO",
+  "GPU": "NO",
+  "new_inference": "NO",
+  "DEV32": "CLOSED_UNCHANGED",
+  "D1_CONFIRMATORY": "HOLD",
+  "TEST_Q1Q2": "SEALED",
+  "FC02_CAPACITY": "NOT_OPENED",
+  "lineage": "UNCHANGED",
+  "main": "UNCHANGED"
+}
