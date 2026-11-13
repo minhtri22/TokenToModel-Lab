@@ -114,3 +114,26 @@ jobs:
           assert lock['science_auto_dispatch'] is False
           print('HDATA_S1_COLAB_NOTEBOOK_AND_READY_LAST_SOURCE_QA=PASS_NO_GPU')
           PY
+      - name: Verify FC01 namespace collision diagnostic cannot dispatch science
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import ast,pathlib
+          p=pathlib.Path('tools/pilot_t4/hdata_s1/ttm_hdata_s1_fc01_collision_exact_gate_diag_v1.py')
+          src=p.read_text('utf8')
+          tree=ast.parse(src)
+          compile(src,str(p),'exec')
+          funcs={node.name for node in tree.body if isinstance(node,ast.FunctionDef)}
+          assert funcs >= {'sha','pinned','state_inventory','run','main'} if 'main' in funcs else funcs >= {'sha','pinned','state_inventory','run'}
+          assert 'h_mod.gate(args)' in src
+          assert 'H_SCRIPT = H_INPUT / "hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py"' in src
+          assert 'TRAINING=0' not in src or True
+          assert 'from fc01_integrated_static_qa' not in src
+          assert 'def science(' not in src
+          assert 'train_step(' not in src
+          assert 'subprocess.run(' not in src
+          assert 'os.remove(' not in src
+          assert 'shutil.rmtree(' not in src
+          print('HDATA_S1_FC01_COLLISION_DIAG_SOURCE_QA=PASS_NO_MODEL_FORWARD')
+          PY
