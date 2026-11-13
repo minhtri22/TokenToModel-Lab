@@ -1,0 +1,82 @@
+{
+  "abstain": "If text ambiguous choose zero for each uncertain binary component; never force arm-level wins",
+  "components_guardrails": {
+    "actor_mean_delta_min": -0.125,
+    "goal_mean_delta_strictly_gt": 0,
+    "object_mean_delta_min": -0.125
+  },
+  "date": "2026-11-13",
+  "outcome_if_all_gates": "H_DATA_S1_EXPLORATORY_SEMANTIC_CANDIDATE_PASS",
+  "outcome_otherwise": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT",
+  "primary_components": [
+    {
+      "name": "actor_retention",
+      "positive_if": "the continuation clearly keeps or uniquely refers to the original actor in a semantically consistent event; invented or ambiguous actor scores 0",
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "object_relation_retention",
+      "positive_if": "the original object or unambiguous synonym remains in an action/relation appropriate to the prompt; generic thematic mentions without relation score 0",
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "goal_or_rule_progress",
+      "positive_if": "the continuation advances, attempts or preserves the specified goal or temporal rule; ignoring or contradicting it scores 0",
+      "range": [
+        0,
+        1
+      ]
+    }
+  ],
+  "primary_endpoint": "delta_mean_anchor_preservation_score_H1_minus_H0_over_24_new_FINAL_prompt_pairs",
+  "primary_gate": {
+    "H1_strict_pair_wins_at_least": 16,
+    "bootstrap_resamples": 20000,
+    "bootstrap_rng_seed": 20261113,
+    "bootstrap_unit": "24 prompt pairs, not tokens",
+    "mean_H1_minus_H0_at_least": 0.5,
+    "paired_bootstrap_CI95_lower_gt": 0
+  },
+  "primary_text_score": "sum of three binary components, 0..3; rater must not use owner-provided anchor metadata",
+  "private_mapping": "owner generates before any model-forward, balanced 12/12 overall and 3/3 per stratum with AES256 GCM; no rekey or mapping publication",
+  "rater_class": "EXPLORATORY_SCOPED_AI_REVIEW if one AI rater; self-attested, not human review",
+  "rater_timing": "blind scoring AFTER owner one-shot generation, freeze 240 scores+24 notes+SHA before owner-side unblind",
+  "rater_visibility": "Neutral LEFT/RIGHT, 24 prompts, 48 continuations; never disclose arm/owner anchors or mapping",
+  "reviewer_acceptance_pre_generation_required": false,
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "schema": "ttm.small4m.hdata_s1.scoring_protocol.v1",
+  "score_file_method": "SHA256(exact frozen score file bytes) and canonical score-array hash: JSON ensure_ascii=False sort_keys=True separators=(comma,colon)",
+  "secondary_guardrails": {
+    "VAL_NLL_relative_regression_max": 0.05,
+    "coherence_mean_delta_min": -0.25,
+    "consistency_mean_delta_min": -0.25,
+    "report_EOS_and_cap64_counts": true,
+    "under8_word_H1_count_lte_H0": true
+  },
+  "secondary_scored_axes": [
+    {
+      "name": "coherence",
+      "range": [
+        0,
+        3
+      ],
+      "rubric": "0 unreadable;1 fragmented;2 mostly coherent;3 coherent"
+    },
+    {
+      "name": "consistency",
+      "range": [
+        0,
+        3
+      ],
+      "rubric": "0 direct contradictions;1 substantial drift;2 mostly consistent;3 consistent with prompt"
+    }
+  ],
+  "statistics": "descriptive bootstrap, not multi-seed confirmatory; no p-hacking, no prompt reuse",
+  "total_fields": "24 pairs x 2 sides x 5 axes = 240 integer judgments, plus 24 nonempty notes"
+}
