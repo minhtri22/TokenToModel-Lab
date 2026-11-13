@@ -45,7 +45,7 @@ Bốn category: `entity_location`, `causal_reasoning`, `rule_constraint`, `goal_
 
 ## 4. Primary — free-generation paired exact semantic action
 
-- Mỗi arm nhận riêng prompt không kèm `yA/yB` hay danh sách candidate. Greedy decoding **temperature không áp dụng, argmax token**, EOS hoặc tối đa **32 new tokens**, prompt context ≤256 tokens đã kiểm bằng tokenizer thật. Không thêm postprocess để cứu output.
+- Mỗi arm nhận riêng prompt không kèm `yA/yB` hay danh sách candidate. Greedy decoding **temperature không áp dụng, argmax token**, EOS hoặc tối đa **32 new tokens**, prompt ≤224 token để dành tối đa 32 new tokens trong context window 256, kiểm bằng tokenizer T1 thật. Không thêm postprocess để cứu output.
 - Output yêu cầu **một câu hành động ngắn**. Scorer độc lập, *deterministic parser phiên bản được khóa trước test*, chuẩn hóa chỉ UTF-8, whitespace, punctuation và danh sách synonym cố định; trích `agent`, `action`, `target` và ràng buộc điều kiện. Những câu thiếu hành động, lặp vô nghĩa, mâu thuẫn, nhiều đáp án, thiếu phân biệt tình huống hoặc parser ambiguous = **0**, không gọi LLM rater để sửa primary.
 - Với family `f` và arm `m`, định nghĩa `success(m,f)=1` **chỉ khi cả prompt điều kiện A và B đều được sinh câu đúng với gold riêng**; một câu đúng/ một câu sai → 0. Chấm ở mức family, không xem hai điều kiện là hai đơn vị độc lập.
 - Primary estimator per seed `d_s = mean_f(success_C - success_B)`, category-weighted đều 4 nhóm. Hiệu ứng xác nhận = `mean_s d_s` trên năm seed.
