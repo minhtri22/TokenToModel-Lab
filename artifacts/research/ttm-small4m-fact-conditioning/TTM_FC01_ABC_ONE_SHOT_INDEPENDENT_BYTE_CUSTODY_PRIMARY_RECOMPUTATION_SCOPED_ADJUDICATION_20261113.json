@@ -1,0 +1,211 @@
+{
+  "schema": "ttm.fc01.abc_one_shot.independent_ai_byte_custody_primary_recompute.scoped_adjudication.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_SMALL4M_FC01_ABC_ONE_SHOT_INDEPENDENT_BYTE_CUSTODY_PRIMARY_RECOMPUTATION_SINGLE_ADJUDICATION_NO_GPU",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "reviewer_classification": "AI_INDEPENDENT_CODE_AND_BYTES_AUDIT_NOT_EXTERNAL_HUMAN_REVIEWER",
+  "owner_execution": {
+    "operation": "TTM_SMALL4M_FC01_OWNER_SINGLE_GO_LOCK_AND_ABC_ONE_SHOT_T4_FP32_EXECUTION",
+    "status": "COMPLETED_SOURCE_LOCKED_PRIMARY_AND_UNSCORED_SECONDARY",
+    "start_utc": "2026-11-13T13:59:25Z",
+    "end_utc": "2026-11-13T14:02:18Z",
+    "total_wall_elapsed_seconds": 172.786,
+    "A_B_C_train_steps_256_each": true,
+    "total_optimizer_steps": 768,
+    "training_seed": 20261112,
+    "go_lock_sha256": "8b274e3bc976e73ad25a689e8044dda2fcb98766a8d2cdd890cb08d6f582c091",
+    "go_lock_byte_sha256_readback": "PASS",
+    "v2_corpus_sha256": "becc0408880aaed8bd5eb6fdf3997e62d5131c187a48331a03ae37d41aaa1aa3",
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "t1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "T4_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "P02_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "frozen_runner_source_sha256": "b786a4468ba104786df7683da9b1cf19d2334d9cc203dd19c3e7d6f10e2e93be",
+    "max_gpu_seconds_all_arms": 10800,
+    "paid_usd_cap": 0,
+    "owner_rights_attested": true,
+    "test_q1q2": "SEALED",
+    "d1_confirmatory": "HOLD",
+    "auto_retry": "NO"
+  },
+  "sha256_custody": {
+    "terminal": {
+      "file_name": "FC01_ABC_ONE_SHOT_TERMINAL_RECEIPT.json",
+      "drive_file_id": "1yLbk_EMuPjTY0pWgMb2FA1I8D_fH8jVs",
+      "sha256": "67b66ee06f6821e324c678367174d110a4620200f6f9639fb3fc0ebd1d966df1",
+      "readback": "PASS_INDEPENDENT_BYTES_SHA"
+    },
+    "primary_safe": {
+      "file_name": "FC01_EVAL64_PUBLIC_SAFE_RECEIPT.json",
+      "drive_file_id": "1Km3gVAPVb07qZtVgXV1mGUHigALf6qqJ",
+      "sha256": "a1a7702d0560b7e1d8b2fd4e1201b29af0d5fd7b07f2b3ebd0b266e89464b532",
+      "readback": "PASS_INDEPENDENT_BYTES_SHA"
+    },
+    "primary_private": {
+      "file_name": "FC01_EVAL64_OWNER_PRIVATE.json",
+      "drive_file_id": "1PylqahM2e84beuKEkJoS83To4q9PmySC",
+      "sha256": "3e3e6e932fafb0c72873c2277dd5ad2571e1fdafcde8f24903b14a3966f7329d",
+      "readback": "PASS_INDEPENDENT_BYTES_SHA",
+      "public_raw_content": "NOT_PUBLISHED"
+    },
+    "secondary_safe": {
+      "file_name": "FC01_SECONDARY_PUBLIC_SAFE_RECEIPT.json",
+      "drive_file_id": "1fVonm4iBZdtQTYMFzTW1FfVI1Fb0fSW4",
+      "sha256": "3917d2aaa0e592a0d414d9b04ad8ad45d0630bae19e95343a5b020313d9ba6e2",
+      "readback": "PASS_INDEPENDENT_BYTES_SHA"
+    },
+    "secondary_blind96": {
+      "drive_file_id": "1es5SkerEGTyqQc62Cu61CYXagMQUl99Z",
+      "sha256_claimed_by_safe_receipt": "e032e55c8f0e1e9efe87948c7fb67af5c4e648df89a32483e91a5e9d5588620f",
+      "byte_readback": "NOT_READ_TO_PRESERVE_BLIND_CUSTODY"
+    },
+    "secondary_mapping": {
+      "drive_file_id": "1YgPqTBBAFq8dpqXXSlidviUqrS3Vs7zf",
+      "sha256_claimed_by_safe_receipt": "3e8f8593388104782eba768474f7b009a57e2ef4a4891a4fd9fe327c61373e52",
+      "byte_readback": "NOT_READ_TO_PRESERVE_BLIND_CUSTODY"
+    }
+  },
+  "three_final_checkpoint_independent_bytes": [
+    {
+      "arm": "A_BASE_MLE",
+      "drive_file_id": "1lMUxwkLwNFL2u5Xz1ghf-LFyB_32I8W_",
+      "file_bytes": 45064539,
+      "sha256": "259f6bc80509b966b32ae187e426e9b8429f738ccdd8268ac397214c8ce32b8b",
+      "step": 256,
+      "optimizer_adam_param_state_count": 52,
+      "all_optimizer_param_steps": 256,
+      "nonfinite_tensors": 0,
+      "runner_elapsed_s": 34.89513523300002
+    },
+    {
+      "arm": "B_CF_MLE",
+      "drive_file_id": "1uurOojcJtJomGVwarZyqJ9iHM6bQTeG6",
+      "file_bytes": 45064043,
+      "sha256": "e58485ed4cb6b6de13707d18de9a8a4b96283f3500f892c2e9dd78777b6043b6",
+      "step": 256,
+      "optimizer_adam_param_state_count": 52,
+      "all_optimizer_param_steps": 256,
+      "nonfinite_tensors": 0,
+      "runner_elapsed_s": 34.03334801899996
+    },
+    {
+      "arm": "C_CF_CONTRAST",
+      "drive_file_id": "1_Iw2cRWtk7oPWTrDf9EZB6pP7PLlwJyF",
+      "file_bytes": 45065251,
+      "sha256": "3a531fd2046b7bb77c32799062e62ebdef3bc6bd492d4e6be59b5b388e5aded6",
+      "step": 256,
+      "optimizer_adam_param_state_count": 52,
+      "all_optimizer_param_steps": 256,
+      "nonfinite_tensors": 0,
+      "runner_elapsed_s": 59.560449098999925
+    }
+  ],
+  "checkpoint_payload_integrity": {
+    "python_torch_load_mode": "CPU_WEIGHTS_ONLY",
+    "schema": "ttm.fc01.frozen_resume.v1",
+    "model_state_dict_entries_each": 53,
+    "optimizer_adam_state_entries_each": 52,
+    "parent_sha_match": true,
+    "corpus_sha_match": true,
+    "go_lock_sha_match": true,
+    "cursor_each": {
+      "core_cursor": 3072,
+      "candidate_cursor": 1024,
+      "synth_cursor": 262144
+    },
+    "same_initial_frozen_sources": true,
+    "actual_step64_resume_triggered": false,
+    "note": "step64 intermediate snapshots exist but no resume from checkpoint was executed; no claim of resume reproducibility."
+  },
+  "primary_EVAL64_independent_recomputation": {
+    "scoring_rule": "mA > 0 AND mB > 0 on each exact frozen family",
+    "families_per_arm": 64,
+    "same_64_family_ids_across_arms": true,
+    "categories_16_each": true,
+    "candidate_scores_total": 1152,
+    "counts": {
+      "A_BASE_MLE": 4,
+      "B_CF_MLE": 3,
+      "C_CF_CONTRAST": 38
+    },
+    "success_by_category": {
+      "entity_location": {
+        "A_BASE_MLE": 1,
+        "B_CF_MLE": 0,
+        "C_CF_CONTRAST": 1,
+        "total_per_arm": 16
+      },
+      "causal_reasoning": {
+        "A_BASE_MLE": 0,
+        "B_CF_MLE": 1,
+        "C_CF_CONTRAST": 10,
+        "total_per_arm": 16
+      },
+      "rule_constraint": {
+        "A_BASE_MLE": 0,
+        "B_CF_MLE": 0,
+        "C_CF_CONTRAST": 16,
+        "total_per_arm": 16
+      },
+      "goal_persistence": {
+        "A_BASE_MLE": 3,
+        "B_CF_MLE": 2,
+        "C_CF_CONTRAST": 11,
+        "total_per_arm": 16
+      }
+    },
+    "data_effect_B_minus_A": {
+      "point_delta": -0.015625,
+      "CI95_percentile_bootstrap": [
+        -0.09375,
+        0.0625
+      ],
+      "inferred_result": "NO_DEMONSTRATED_GAIN"
+    },
+    "objective_effect_C_minus_B": {
+      "point_delta": 0.546875,
+      "CI95_percentile_bootstrap": [
+        0.4375,
+        0.640625
+      ],
+      "inferred_result": "LARGE_POSITIVE_WITHIN_FC01_LEXICAL_TEMPLATE_FAMILIES"
+    },
+    "bootstrap_recompute": "PASS_EXACT_MATCH_NUMPY_SEED_20261113_10000_REPS_4_CATEGORIES_STRATIFIED",
+    "margin_formula_recompute": "PASS_192_OF_192_ROWS",
+    "family_alignment": "PASS_64_UNIQUE",
+    "subgroup_heterogeneity": "LARGE_C_RULE_CONSTRAINT_16_OF_16_BUT_ENTITY_LOCATION_ONLY_1_OF_16",
+    "blinded_secondary_quality": "NOT_SCORED",
+    "independent_reviewer_human": "NOT_EXECUTED"
+  },
+  "validation_NLL_at_step256": {
+    "A_BASE_MLE": 3.5646156617349316,
+    "B_CF_MLE": 3.56488641249775,
+    "C_CF_CONTRAST": 3.5645642548790737,
+    "valid_target_count_each": 61122,
+    "claim": "descriptive_similarity_only_no_formal_noninferiority_test"
+  },
+  "scientific_limitations": [
+    "Only one fixed research seed and 64 lexical family holdouts from four shared semantic templates.",
+    "EVAL64 is a synthetic shared-template test; no evidence for novel-template or out-of-distribution causal reasoning.",
+    "Secondary blind96 not scored; private arm/family mapping deliberately NOT opened.",
+    "Do not claim external independent human scientific review from assistant recomputation.",
+    "Test/Q1Q2 and D1 confirmatory remain sealed/HOLD.",
+    "Actual step64 resume remains untested in this science run."
+  ],
+  "single_scoped_adjudication": {
+    "execution_integrity": "PASS_SOURCE_LOCKED_ABC_768_OF_768",
+    "model_checkpoint_byte_custody": "PASS_3_OF_3",
+    "primary_evaluation_independent_reproduction": "PASS_EXACT",
+    "within_FC01_objective_effect": "PASS_SCOPED_POSITIVE",
+    "within_FC01_data_only_effect": "NOT_DEMONSTRATED",
+    "generalization_beyond_shared_templates": "NOT_ESTABLISHED",
+    "secondary_blind_rater": "PENDING",
+    "overall": "PASS_SCOPED_EXPLORATORY_FC01_NO_CONFIRMATORY_RELEASE",
+    "next_stage_decision": "GO_INDEPENDENT_BLIND96_SCORING_ONLY",
+    "D1_confirmatory": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "lineage_md": "UNCHANGED_PENDING_FINAL_SECONDARY_REVIEW",
+    "no_GPU_reruns": true
+  }
+}
