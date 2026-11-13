@@ -1,0 +1,26 @@
+{
+  "schema": "ttm.hdata_s1.production_runner_strict_budget_v2.source_lock.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_HDATA_S1_COLAB_T4_NATIVE_2ARM_FP16_INTERRUPTED_RESUME_INDEPENDENT_READBACK_SINGLE_GATE_NO_SCIENCE",
+  "runner_source_path": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py",
+  "runner_source_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+  "runner_git_blob_sha1": "d9a80aea9a80f5bf2e98f2fe4b054e5830944823",
+  "previous_runner_sha256": "1874aebf904a57782acad963838db86f01556d2fe287927e616574b5700985a7",
+  "changes_no_science_outcome": {
+    "strict_no_fp16_forward_replay_on_gradscaler_skip": true,
+    "strict_one_locked_science_run_root": true,
+    "science_run_root": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/science_one_shot_v1",
+    "no_change_training_data_sampler_BPE_loss_optimizer_model": true,
+    "locked_source_v1_resumer_QA_unchanged": true,
+    "default_mode": "source-only",
+    "fail_closed_on_bad_forward_budget": true
+  },
+  "qa_references": {
+    "T4_owner_QA_receipt_sha256": "c93fe27e275cd7a1bcd80f369b2a54667a3da3a5b6a942482f80c0b80c38af8c",
+    "native_t4_resume_QA_source_sha256": "7db0f999934036fc4f87beda9cd5a131377147d7307e9de5ac3a52b547882e62",
+    "independent_QA_35_35": "PASS",
+    "rights_receipt_sha256": "f1ae54c94d8c6a4a55febd4544b7c474ae73f060e8e9f64b426b5ca91740de2f"
+  },
+  "release": "PENDING_STATIC_V2_QA_AND_FORMAL_GO_HOLD",
+  "training_started": false
+}
