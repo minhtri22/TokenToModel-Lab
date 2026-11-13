@@ -289,5 +289,4 @@ def choose_best_baseline(cal_receipts: Mapping[str,Mapping]) -> str:
     # By design: among safety-qualified methods, maximize correct CAL positives;
     # tie by priority BM25 > CHAR3GRAM > T1 (do not use PROBE).
     return max(choices,key=lambda m:(cal_receipts[m]["cal_correct_primary"],
-                                     -cal_receipts[m]["cal_negative_false_select"],
                                      -choices.index(m)))
