@@ -1,0 +1,85 @@
+{
+  "schema": "ttm.vm.v4.integrated_source_readiness.static_QA64.native_mock_QA80.pending.v1",
+  "operation": "TTM_VM_V4_CAL64_PROBE256_SOURCE_RIGHTS_ANNOTATION_CANDIDATE_PIN_AND_INTEGRATED_SOURCE_QA_ONEPACKET",
+  "date": "2026-11-13",
+  "status": "SOURCE_STATIC_PASS_64_OF_64_NATIVEMOCK_80_DEFINED_NOT_EXECUTED",
+  "scope": "SOURCE_ONLY_NOT_SCIENCE",
+  "source_code": {
+    "frozen_source_commit": "df31f91925c76753c4413a8bd58e727c7af7df89",
+    "files": {
+      "tools/research/vector-memory/v4_fixed_retrieval_calibration.py": "e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327",
+      "tools/research/vector-memory/v4_source_rights_annotation_custody.py": "63feab1c9a9e3c5feeffb9f438f8d4b1d6c50f06",
+      "tools/research/vector-memory/v4_independent_source_mock_qa.py": "d576cbe0586af14d747085c1589b1a30b6bc0d12",
+      "tools/research/vector-memory/v4_cal_probe_private_packet_assembler.py": "d6a29172051ccd667f0e86c314705cee7547cd4c",
+      "tools/research/vector-memory/v4_assembler_source_mock_qa.py": "37761198db30ffdf682de83d51420fd215c29fa1"
+    },
+    "owner_PS51_source_QA_script": "tools/research/vector-memory/Invoke-TTM-VM-V4-Integrated-Source-OnePacket-QA-PS51.ps1",
+    "owner_PS51_script_blob": "78a64d08cd7a069654293adf8f66dc1a02f4a907",
+    "model_and_baselines_upstream_pin": "artifacts/research/vector-memory/TTM_VM_V4_BGE_SMALL_UPSTREAM_CANDIDATE_AND_BASELINE_SOURCE_PIN_20261113.json",
+    "rights_template": "artifacts/research/vector-memory/TTM_VM_V4_SOURCE_RIGHTS_CUSTODY_OWNER_TEMPLATE_20261113.json",
+    "owner_report": "docs/research/vector-memory/TTM_VM_V4_SOURCE_CUSTODY_CPU_CANDIDATE_ONEPACKET_20261113.md"
+  },
+  "static_QA": {
+    "checks_total": 64,
+    "checks_passed": 64,
+    "failure_count": 0,
+    "full_detailed_checks": "Verified in authenticated GitHub readback before this receipt; no native Python runtime executed.",
+    "protected_contracts": [
+      "five GitHub source blobs pinned and strict PS51 exact-source-commit staging",
+      "pretrained BGE small MIT upstream commit & model.safetensors digest; local files only",
+      "BM25 char trigram T1 cosine and semantic candidate separate; CAL chooses best baseline",
+      "public question+32-index only; reject private answer/value/gold leakage",
+      "200 CAL thresholds + always abstain; maximum one false selection across CAL negatives",
+      "owner rights signature/PII/permission required; no inferred rights",
+      "four disjoint source/style/entity/paraphrase family axes CAL vs PROBE",
+      "future PROBE packet blocked until CAL64 private SHA and prior threshold receipts valid",
+      "future separate CAL rights SHA preserved even if PROBE source rights manifest differs",
+      "two AI blind review receipts identified as AI, never human",
+      "private per-case selected key/index and decision-trace hash required",
+      "60 source mocks +20 assembler mocks defined, NO real CAL/PROBE/TEST use",
+      "Lineage L0023 and main unchanged"
+    ],
+    "native_dynamic_QA_total_defined": 80,
+    "native_dynamic_QA_executed": 0,
+    "native_dynamic_QA_status": "NOT_EXECUTED",
+    "remote_managed_mode_reason": "RemoteDesktop managed mode requires task lease for job_submit; avoided unnecessary task/micro-permits."
+  },
+  "upstream_candidate": {
+    "id": "BAAI/bge-small-en-v1.5",
+    "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "license": "MIT",
+    "weights_sha256_expected": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+    "owner_weights_bytes_verified": false,
+    "tokenizer_local_sha256": null,
+    "config_local_sha256": null,
+    "python_transformers_native_compatibility_verified": false
+  },
+  "current_inputs": {
+    "source_rights_owner_signed": false,
+    "source_doc_external_license_custody_verified": false,
+    "source_data_authored_for_CAL": false,
+    "CAL64_data_generated": 0,
+    "CAL64_annotation_AI_A_completed": false,
+    "CAL64_annotation_AI_B_completed": false,
+    "CAL_baseline_scores_generated": false,
+    "CAL_thresholds_frozen": false,
+    "PROBE256_data_generated": 0,
+    "PROBE256_annotation_AI_A_completed": false,
+    "PROBE256_annotation_AI_B_completed": false,
+    "V4_actual_retrieval_calls": 0,
+    "V4_Reader_forward_calls": 0,
+    "training_steps": 0,
+    "GPU_used": false,
+    "TEST_opened": false,
+    "V2_V3_one_shot_rerun": false,
+    "main_modified": false,
+    "lineage_modified": false
+  },
+  "one_owner_decision": {
+    "status": "HOLD_OWNER_RIGHTS_MODEL_BYTES_CAL_THRESHOLD_AND_PROBE_CUSTODY",
+    "design_scope": "PASS_SOURCE_STATIC_64_64",
+    "native_source_only_QA": "PENDING_80_OF_80",
+    "CPU_science_release": "NOT_GRANTED",
+    "next_action": "TTM_VM_V4_OWNER_SOURCE_MODEL_BYTES_RIGHTS_CAL64_RATER_AND_THRESHOLD_FREEZE_BEFORE_PROBE_ONEPACKET"
+  }
+}
