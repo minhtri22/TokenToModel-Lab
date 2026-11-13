@@ -40,3 +40,15 @@
 **Bước thực hiện tiếp theo:** `TTM_FC01_OWNER_COLAB_ONE_NOTEBOOK_ZERO_STEP_RECEIPT_RETURN`; the user runs the one notebook and returns the receipt SHA or output. Never use the step0 QA snapshot as a training resume.
 
 **Canonical safe receipt:** `artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_T4_FP32_DRIVE_RESUME_RIGHTS_INTEGRATED_PREEXEC_OWNER_HOLD_20261113.json`.
+
+## 6. Windows staging trực tiếp, không ZIP
+
+PowerShell 5.1 đã được đặt vào `_tmp` qua RemoteMCP V2. Chủ dự án chạy:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\WORK\RESEARCH\TokenToModel-Lab\_tmp\Stage-TTM-FC01-Colab-ZeroStep-Inputs-PS51.ps1"
+```
+
+Script kiểm SHA-256 hoặc Git blob SHA1 của 7 tệp, tạo (hoặc dùng lại khi xác minh 7/7) thư mục `D:\WORK\RESEARCH\TokenToModel-Lab\_tmp\TTM_FC01_COLAB_ZERO_STEP_INPUT_STAGE_20261113`. Không sửa nguồn, không train, không ghi ngoài project. Sau đó owner chỉ cần upload 7 tệp trong thư mục này lên `input/` Google Drive đã tạo. Không có cách trực tiếp trong connector hiện tại để tự chuyển binary checkpoint từ máy Windows sang Google Drive.
+
+GitHub source: `tools/pilot_t4/fc01/Stage-TTM-FC01-Colab-ZeroStep-Inputs-PS51.ps1`.
