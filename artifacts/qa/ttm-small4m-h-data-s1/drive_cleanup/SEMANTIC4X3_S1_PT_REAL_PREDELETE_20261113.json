@@ -1,0 +1,84 @@
+{
+  "schema": "ttm.drive.cleanup.before_delete.v1",
+  "date": "2026-11-13",
+  "study": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "seed": "S1",
+  "arm": "PT-REAL",
+  "stage": "PREDELETE_ARCHIVE_ONLY",
+  "independent_original_readback": "PASS_SCOPED; all 96 READY metadata checked; all 12 final binaries SHA-checked previously",
+  "source": "Google Drive authenticated arm/checkpoint folder listings and READY JSON",
+  "data": [
+    {
+      "step": 256,
+      "folder": "step_0256",
+      "checkpoint_bytes": 52931469,
+      "checkpoint_sha256_claimed_by_READY": "bcbbd0c439356840dccd84e46f051ea61530ba8d6789cca5e4e66b4bceae0a02",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": false
+    },
+    {
+      "step": 512,
+      "folder": "step_0512",
+      "checkpoint_bytes": 52933773,
+      "checkpoint_sha256_claimed_by_READY": "d40ba4a1db9b1176a78e452581913e099df3b530d2585804bba7d50631f99051",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": false
+    },
+    {
+      "step": 768,
+      "folder": "step_0768",
+      "checkpoint_bytes": 52936077,
+      "checkpoint_sha256_claimed_by_READY": "f996888d44cdcdf645b5847d744711431961f298f6b77f9c2c9d72189817ee89",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": false
+    },
+    {
+      "step": 1024,
+      "folder": "step_1024",
+      "checkpoint_bytes": 52938381,
+      "checkpoint_sha256_claimed_by_READY": "1cc84fc1eaa63814d4cfbdef30cb098494073cd926429e2ea45d5a4a16df2ef3",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": false
+    },
+    {
+      "step": 1280,
+      "folder": "step_1280",
+      "checkpoint_bytes": 52940685,
+      "checkpoint_sha256_claimed_by_READY": "744cd4852be2a3bd702ded7bcfaf6ec7950c5c36e7b9101cd19773b102218b04",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": false
+    },
+    {
+      "step": 2048,
+      "folder": "step_2048",
+      "checkpoint_bytes": 52947597,
+      "checkpoint_sha256_claimed_by_READY": "cf3e6863215555b639fd4d3582f77f2b997c05dc5269cd411342bf660632cf46",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "keep": true
+    }
+  ],
+  "approved_delete_steps": [
+    256,
+    512,
+    768,
+    1024,
+    1280
+  ],
+  "retain_steps": [
+    1536,
+    1792,
+    2048
+  ],
+  "checkpoint_binary_sha_rehashed_now": false,
+  "checkpoint_content_archived_to_public_github": false,
+  "recoverability": "Intermediate binary states cannot be recovered from SHA metadata alone; this is approved garbage collection of completed-study intermediate states.",
+  "planned_delete_bytes": 264680385,
+  "deleted": false,
+  "privacy": "No private Drive IDs or model weights."
+}
