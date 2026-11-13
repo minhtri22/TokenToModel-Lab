@@ -1,0 +1,139 @@
+{
+  "schema": "ttm.vm.v4.external_semantic_model_upstream_pin_and_source_only_readiness.v1",
+  "operation": "TTM_VM_V4_CAL64_PROBE256_SOURCE_RIGHTS_ANNOTATION_CANDIDATE_PIN_AND_INTEGRATED_SOURCE_QA_ONEPACKET",
+  "frozen_on": "2026-11-13",
+  "science_class": "AI_ASSISTED_EXPLORATORY_SCOPED_NONTEST",
+  "candidate": {
+    "method_id": "R_V4_BGE_SMALL_FROZEN",
+    "architecture": "BERT_DENSE_RETRIEVAL_CLS_POOLING_L2_NORMALIZED",
+    "repository_id": "BAAI/bge-small-en-v1.5",
+    "repository_url": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "git_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "git_revision_url": "https://huggingface.co/BAAI/bge-small-en-v1.5/commit/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "license": "MIT",
+    "license_source_url": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "source_file": "model.safetensors",
+    "source_file_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+    "source_file_sha256_page": "https://huggingface.co/BAAI/bge-small-en-v1.5/blob/main/model.safetensors",
+    "approx_params_millions": 33.4,
+    "approx_weight_file_MB": 133,
+    "language_scope": "ENGLISH_ONLY_FIRST_V4",
+    "pretrained_weights_locked_by_hash": true,
+    "local_files_verified": false,
+    "model_local_directory": null,
+    "model_snapshot_tokenizer_json_sha256": null,
+    "model_snapshot_config_json_sha256": null,
+    "model_snapshot_vocab_txt_sha256": null,
+    "model_snapshot_special_tokens_sha256": null,
+    "model_snapshot_license_receipt_sha256": null,
+    "local_snapshot_complete": false,
+    "torch_versions_pinned_on_owner": false,
+    "transformers_version_pinned_on_owner": false,
+    "inference_device": "CPU_FP32_ONLY",
+    "inference_threads": 2,
+    "GPU_allowed": false,
+    "max_token_length": 256,
+    "pooling": "CLS_LAST_HIDDEN_STATE_POSITION_ZERO",
+    "normalize_embedding_L2": true,
+    "query_prefix": "",
+    "document_prefix": "",
+    "inference_online_downloads": false,
+    "fine_tuning_allowed": false,
+    "model_choice_frozen_prospectively_before_CAL": true,
+    "claim_limit": "Pretrained BGE v1.5 semantic score can be compared against baselines, but it is not a proof of out-of-training-distribution reasoning or provenance reasoning."
+  },
+  "source_code": {
+    "src": "tools/research/vector-memory/v4_fixed_retrieval_calibration.py",
+    "git_blob": "e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327",
+    "custody_source": "tools/research/vector-memory/v4_source_rights_annotation_custody.py",
+    "custody_git_blob": "63feab1c9a9e3c5feeffb9f438f8d4b1d6c50f06",
+    "source_only_mock_QA": "tools/research/vector-memory/v4_independent_source_mock_qa.py",
+    "source_only_mock_QA_git_blob": "d576cbe0586af14d747085c1589b1a30b6bc0d12",
+    "source_commit_before_QA_script": "d8d348c44605918f64e57e10f34225162d7349f7",
+    "PS51_owner_script": "tools/research/vector-memory/Invoke-TTM-VM-V4-Source-Only-OnePacket-QA-PS51.ps1",
+    "PS51_owner_script_git_blob": "f188689f486827d84b25e3e223fc39ee0237d6fd"
+  },
+  "baselines": {
+    "R_V3_FROZEN_SYMBOLIC": {
+      "source_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702",
+      "legacy_constraint": "Original V3 requires V3 structured descriptors; if a V4 public document violates that grammar, baseline must report ABSTAIN_UNSUPPORTED_SCHEMA rather than modify original parser."
+    },
+    "R_BM25_LEXICAL": {
+      "source_blob": "e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327",
+      "bank_size": 32,
+      "k1": 1.2,
+      "b": 0.75,
+      "tokenizer": "PYTHON_RE_UNICODE_WORDS_NFKC_CASEFOLD",
+      "idf": "LOG(1+(N-df+0.5)/(df+0.5))",
+      "external_package_required": false
+    },
+    "R_CHAR3GRAM_LEXICAL": {
+      "source_blob": "e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327",
+      "bank_size": 32,
+      "normalization": "NFKC_CASEFOLD_WHITESPACE_COLLAPSE",
+      "length": 3,
+      "scoring": "TF_IDF_COSINE"
+    },
+    "R_T1_MEAN_COSINE": {
+      "source_wrapper_blob": "e3d2fa5c0a95d1f1d32b6dda38bf82518dfa5327",
+      "legacy_retriever_source_blob": "dc733eda42d768d695309e3a1d5df25aeabb28b7",
+      "checkpoint_P02_sha256": "ee723407b2c25a18be20e26387a3dd8e4a18e2942d469279b6f0748ff86af0dc",
+      "T1_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "load_and_score_on_actual_CAL": false
+    }
+  },
+  "calibration_policy": {
+    "split": "CAL_ONLY_NOT_PROBE",
+    "n": 64,
+    "primary_positive_n": 24,
+    "negative_n": 32,
+    "grid": "THRESHOLDS_0_005_TO_1_000_INCLUSIVE_STEP_0_005_PLUS_ALWAYS_ABSTAIN",
+    "raw_score_reduction": "(TOP1_SCORE-TOP2_SCORE)/(1+ABS(TOP1_SCORE)+ABS(TOP2_SCORE))",
+    "false_select_negative_max": 1,
+    "maximize_primary_positive_hits": true,
+    "tie_break": [
+      "LOWER_COVERAGE",
+      "HIGHER_THRESHOLD"
+    ],
+    "always_abstain_eligible": true,
+    "baseline_choice_on_CAL_only": true,
+    "baseline_tie_priority": [
+      "R_BM25_LEXICAL",
+      "R_CHAR3GRAM_LEXICAL",
+      "R_T1_MEAN_COSINE"
+    ],
+    "thresholds_selected": false,
+    "CAL64_raw_bytes_sha256": null,
+    "CAL_rater_A_sha256": null,
+    "CAL_rater_B_sha256": null,
+    "threshold_freeze_receipt_sha256": null,
+    "PROBE_authoring_forbidden_until_threshold_freeze": true
+  },
+  "source_rights": {
+    "manifest_template": "artifacts/research/vector-memory/TTM_VM_V4_SOURCE_RIGHTS_CUSTODY_OWNER_TEMPLATE_20261113.json",
+    "external_documents_loaded": false,
+    "owner_authoring_attested": false,
+    "source_rights_verified": false,
+    "PII_scan_verified": false,
+    "cal_source_family_authoring": false,
+    "probe_source_family_authoring": false,
+    "allow_AI_rater_substitute_as_exploratory": true,
+    "AI_independence_claim": "SELF_REPORTED_NOT_HUMAN"
+  },
+  "release": {
+    "upstream_candidate_spec": "PINNED_REVISION_AND_WEIGHT_DIGEST",
+    "owner_model_bytes": "NOT_VERIFIED",
+    "baseline_source": "PINNED_ON_GITHUB",
+    "source_only_QA_code": "COMMITTED_NOT_NATIVE_EXECUTED",
+    "source_rights": "HOLD_UNATTESTED",
+    "CAL64": "NOT_GENERATED",
+    "PROBE256": "NOT_GENERATED",
+    "science_release": "HOLD_OWNER_SOURCE_RIGHTS_AND_MODEL_BYTES_AND_CAL_THRESHOLDS_AND_PROBE_AI_CUSTODY",
+    "Reader_forward_calls": 0,
+    "GPU_used": false,
+    "TEST_opened": false,
+    "main_modified": false,
+    "lineage_modified": false
+  },
+  "next_operation": "TTM_VM_V4_OWNER_SOURCE_MODEL_BYTES_RIGHTS_CAL64_RATER_AND_THRESHOLD_FREEZE_BEFORE_PROBE_ONEPACKET"
+}
