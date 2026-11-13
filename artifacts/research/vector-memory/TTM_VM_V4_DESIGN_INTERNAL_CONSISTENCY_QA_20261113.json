@@ -1,0 +1,70 @@
+{
+  "schema": "ttm.vm.v4.design_only.internal_consistency_qa.v1",
+  "operation": "TTM_VM_V4_NATURAL_LANGUAGE_OOD_AMBIGUITY_UNSEEN_RELATIONS_PREREG_DESIGN_ONLY",
+  "date": "2026-11-13",
+  "scope": "DESIGN_STATIC_ONLY_NOT_INDEPENDENT_SCIENCE_QA",
+  "status": "PASS_DESIGN_INTERNAL_QA_50_OF_50_AND_CROSS_DOC_20_OF_20",
+  "basis": {
+    "document": "docs/research/vector-memory/TTM_VM_V4_NATURAL_LANGUAGE_OOD_AMBIGUITY_UNSEEN_RELATIONS_PREREG_DESIGN_20261113.md",
+    "document_git_blob": "df1fc7a6e3417191d5a3fd31213a0440aea8363d",
+    "manifest": "artifacts/research/vector-memory/TTM_VM_V4_NATURAL_LANGUAGE_OOD_DESIGN_MANIFEST_20261113.json",
+    "manifest_git_blob": "af34094581569378e8f1bea8d04ca01527a6d763",
+    "lineage_blob_checked": "53721b54310671b944f946e228d7f927a3666413",
+    "lineage_last": "L0023",
+    "V3_retriever_frozen_blob": "68bfeaaf1d0acf0cf446e4d734e34368fbf8f702"
+  },
+  "qa": {
+    "manifest_structural_pass": 50,
+    "manifest_structural_total": 50,
+    "cross_document_pass": 20,
+    "cross_document_total": 20,
+    "cross_document_assertions": {
+      "operation_match": true,
+      "design_status": true,
+      "CAL64": true,
+      "PROBE256": true,
+      "strata_names_eight": true,
+      "positive_primary_min60": true,
+      "negative_primary_min120": true,
+      "three_positive_subgroup_minima": true,
+      "incremental_gain_min10": true,
+      "bootstrap_seeds_three_frozen": true,
+      "NLL_gates_frozen": true,
+      "AI_not_human_classification": true,
+      "source_rights_required": true,
+      "selected_key_raw_trace_required": true,
+      "no_dataset_generated": true,
+      "semantic_candidate_not_pinned": true,
+      "NO_sci_or_TEST_or_GPU": true,
+      "all50_manifest_checks_pass": true,
+      "V3_legacy_baseline_blob_match": true,
+      "lineage_L0023_preserved": true
+    },
+    "limitations": "Static self-consistency only. Does not verify any real data rights, annotated cases, candidate model, calibration threshold, test/run code, or science outcome.",
+    "source_input_independence_audited": false
+  },
+  "planned": {
+    "CAL64_generated": false,
+    "PROBE256_generated": false,
+    "candidate_model_pinned": false,
+    "semantic_candidate_model_sha256": null,
+    "baseline_models_all_pinned": false,
+    "CAL_selected_threshold_sha256": null,
+    "source_rights_confirmed": false,
+    "reviewer_AI_receipts_available": false,
+    "Reader_inference_calls": 0,
+    "training_steps": 0,
+    "test_opened": false,
+    "gpu_used": false,
+    "old_probe_reruns": 0,
+    "main_modified": false,
+    "lineage_modified": false
+  },
+  "decision": {
+    "design": "PASS_V4_DESIGN_CONTRACT_SCOPED",
+    "complete_executable_prereg": "HOLD_SOURCE_RIGHTS_CANDIDATE_CAL_PROBE_CUSTODY",
+    "CPU_science_release": "HOLD_NO_PINNED_MODEL_CAL_PROBE_REVIEW_RIGHTS",
+    "no_one_shot_authorized": true
+  },
+  "next_operation": "TTM_VM_V4_CAL64_PROBE256_SOURCE_RIGHTS_ANNOTATION_CANDIDATE_PIN_AND_INTEGRATED_SOURCE_QA_ONEPACKET"
+}
