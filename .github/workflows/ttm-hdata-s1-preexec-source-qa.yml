@@ -70,7 +70,7 @@ jobs:
           assert manifest['gates']['final_science_one_shot_release']=='HOLD'
           print('HDATA_S1_PREEXEC_SOURCE_QA=PASS_SCOPED_NO_GPU_NO_TRAIN')
           PY
-- name: Compile Colab owner dispatch notebook and READY-last readback (no GPU)
+      - name: Compile Colab owner dispatch notebook and READY-last readback (no GPU)
         shell: bash
         run: |
           set -euo pipefail
@@ -96,7 +96,6 @@ jobs:
           assert 'TTM_HDATA_S1_OWNER_READY_LAST_SCIENCE_READBACK_20261113.json' in launcher
           assert 'ttm_hdata_s1_science_ready_last_readback_v1.py' in launcher
           assert 'TTM_HDATA_S1_OWNER_PRIVATE_DEV12_FINAL24_20261113' not in launcher
-          assert 'c93fe27e275cd7a1bcd80f369b2a54667a3da3a5b6a942482f80c0b80c38af8c' not in launcher or True
           checker=(root/'ttm_hdata_s1_science_ready_last_readback_v1.py').read_text('utf-8')
           compile(checker,'ready-last-checker.py','exec')
           tree=ast.parse(checker)
@@ -106,7 +105,6 @@ jobs:
           assert 'INCOMPLETE_128_JOURNAL_' in checker
           assert 'CHECKPOINT_SHA_' in checker
           assert 'READY_SCOPE_' in checker
-          assert 'SCIENCE_TRAINING' not in checker or True
           lock=json.loads(pathlib.Path(
               'artifacts/qa/ttm-small4m-h-data-s1/preexec_real_train/TTM_HDATA_S1_OWNER_SCIENCE_ONE_SHOT_GO_LOCK_20261113.json'
               ).read_text())
