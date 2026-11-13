@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.hdata_s1.owner_scope_source_license_review.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_HDATA_S1_OWNER_RIGHTS_NATIVE_T4_TRAINER_RESUME_AES_ESCROW_SINGLE_PACKET_FINAL_RELEASE_NO_AUTO_TRAIN",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "status": "PASS_NEW_HDATA_SCOPE_AND_LICENSE",
+  "scope_note": "SCOPED OWNER INTERNAL COMPUTATIONAL RESEARCH ONLY; NO REDISTRIBUTION OF SOURCE OR RAW PRIVATE DATA; NOT LEGAL OPINION OR FULL THIRD-PARTY LICENSE AUDIT",
+  "authority": "Explicit owner authorization in current ChatGPT conversation; owner-chat attestation, not detached cryptographic signature",
+  "exact_original_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "source_dataset": {
+    "dataset_name": "roneneldan/TinyStories",
+    "upstream_dataset_url": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "upstream_license_declared": "cdla-sharing-1.0",
+    "upstream_license_card": "https://huggingface.co/datasets/roneneldan/TinyStories/blob/main/README.md",
+    "license_text": "https://cdla.dev/sharing-1-0/",
+    "source_identity_provenance": "Inherited from frozen T4 private TRAIN/VAL pack and parent T4 source custody; no new dataset; independent remapping to the originally downloaded upstream file NOT run",
+    "applicability": "Internal Computational Use and unmodified retained private pack; publication of Data or Enhanced Data must follow CDLA-Sharing-1.0 conditions; Results as defined by license are addressed separately"
+  },
+  "research_scope": {
+    "H0_H1_only": true,
+    "matched_budget_128_steps_4096_labels": true,
+    "keep_original_TRAIN_VAL_split": true,
+    "no_TEST_Q1_Q2_OOD": true,
+    "no_prior_FINAL24_or_NEXT24_reuse": true,
+    "no_public_raw_train_or_reversible_token_pack": true,
+    "no_public_AES_key_or_plain_mapping": true,
+    "no_auto_training": true
+  },
+  "obligations": {
+    "no_raw_TRAIN_publication_now": true,
+    "no_relicense_raw_data_as_permissive_or_private_restriction_on_redistribution": true,
+    "future_dataset_release_requires_CDLA_terms_attribution_and_change_notices": true,
+    "future_model_outputs_must_be_screened_for_verbatim_source_reproduction_before_publication": true,
+    "third_party_dataset_warranty_not_independently_guaranteed": true
+  },
+  "original_A_C_only_rights_not_reused_as_new_permission": true,
+  "separate_new_owner_chat_scope_granted": true,
+  "external_human_legal_review": "NOT_CLAIMED",
+  "final_science_release": "NOT_GRANTED_BY_THIS_RECEIPT",
+  "science_optimizer_steps": 0
+}
