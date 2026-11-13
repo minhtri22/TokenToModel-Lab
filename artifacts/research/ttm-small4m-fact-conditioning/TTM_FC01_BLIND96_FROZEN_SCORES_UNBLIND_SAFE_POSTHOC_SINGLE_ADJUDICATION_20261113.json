@@ -10,7 +10,6 @@
     "scores_committed_to_GitHub_before_mapping_access_commit": "1a78ca28b64149518d61b86a55150278e2283279",
     "frozen_numeric_score_representation_git_path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_FROZEN_NUMERIC_SCORES_BY_OPAQUE_ID_20261113.json",
     "mapping_sha256_after_freeze": "3e8f8593388104782eba768474f7b009a57e2ef4a4891a4fd9fe327c61373e52",
-    "mapping_private_drive_file_id": "1YgPqTBBAFq8dpqXXSlidviUqrS3Vs7zf",
     "mapping_content_published": false,
     "prompt_text_published": false,
     "generated_text_published": false,
@@ -18,7 +17,8 @@
     "per_arm_unique_records": 32,
     "per_arm_unique_semantic_families": 16,
     "groups_per_arm": 4,
-    "conditions_per_family": 2
+    "conditions_per_family": 2,
+    "mapping_private_path_published": false
   },
   "review_provenance": {
     "AI_rater_type": "BLIND_TO_PER_RECORD_ARM_IDENTITY",
