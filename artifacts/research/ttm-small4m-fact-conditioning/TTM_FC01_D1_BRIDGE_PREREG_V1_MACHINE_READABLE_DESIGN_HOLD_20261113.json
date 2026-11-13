@@ -106,7 +106,8 @@
     "denominator_per_arm_seed": 256,
     "estimator": "AVERAGE_SEED_OF_EQUAL_CATEGORY_WEIGHTED_DELTA_C_MINUS_B",
     "H1": "contrastive_objective_C_improves_pairwise_free_generation_success_on_unseen_semantic_skeletons",
-    "H0": "C_minus_B_seed_paired_effect_not_positive"
+    "H0": "C_minus_B_seed_paired_effect_not_positive",
+    "max_prompt_tokens": 224
   },
   "statistical_gate": {
     "primary_test": "EXACT_ONE_SIDED_PAIRED_SIGN_FLIP_ON_FIVE_SEED_LEVEL_DELTAS",
