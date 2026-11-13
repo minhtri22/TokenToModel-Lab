@@ -18,7 +18,7 @@ $Entries = @(
   @{Name='Invoke-TTM-FC01-Integrated-Readiness-PS51.ps1'; LF='714bbe2490d20eb6faddbfdaf983c352c09b886fd2259e76b23041bb4b7f864f'; CRLF='011f46df4476f73ca9cd4f3de28456288fa0b450737ee5e63875849bea3934ed'}
   @{Name='README_FC01_ONEPACKET_VI.md'; LF='f0aa8bf7e31f627802aa8469ad67bd197c208c98991a82c840119f13d90b6231'; CRLF='fd68742478c42025dbe45a2fc3d4364b2b479f67b7982edd71fb61ee6bba4b45'}
 )
-$UTF8 = New-Object System.Text.UTF8Encoding($false, $true)
+$UTF8 = [System.Text.UTF8Encoding]::new($false, $true)
 $Sha = [System.Security.Cryptography.SHA256]::Create()
 $Prepared = @()
 try {
