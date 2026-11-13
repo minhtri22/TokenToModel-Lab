@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-13",
+  "prompts": [
+    {
+      "cohort": "DEV",
+      "id": "HD01",
+      "prompt": "In the clock repair shop, Esra found a brass gear with an etched triangle. She placed it in a tiny envelope to return it to the watchmaker.",
+      "prompt_utf8_sha256": "5d3d7e1f434b5dfe92fab67784dec65070a0d276db8a6eb7a04be7cb4c87c6a2",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD02",
+      "prompt": "At the ice rink, Cato discovered a wool mitten under the scoreboard. He wrote the rink number on a paper tag before bringing it to the front desk.",
+      "prompt_utf8_sha256": "561d14e0782e1a16033314db2f22ed0abd854ae4c2ef10d7e1f3eb473dafae23",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD03",
+      "prompt": "A sketchbook marked with a blue spiral lay near the orchard gate. Nell carried it to the garden office without opening its pages.",
+      "prompt_utf8_sha256": "527968c9ad36bcd60b527b40a3eb0f6bb54d07308400b4090eae0c2d771a4e6c",
+      "stratum": "object_custody"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD04",
+      "prompt": "At a boat workshop, Anika held a measuring tape while her partner Bo cut a plank. She waited for him to mark the length before moving the tape.",
+      "prompt_utf8_sha256": "d87d0073d54b940cabfd2e4fa96d9dc72d1788e85bd19b71f6379de77b04e644",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD05",
+      "prompt": "Mei and Rafi were cleaning a telescope together. Mei handled the soft cloth while Rafi kept the lens cap safe in a case.",
+      "prompt_utf8_sha256": "d61aa4da8751d062b7443d345e0c43cb8a482b699a37637d1492bbf9a8043ab7",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD06",
+      "prompt": "The choir director asked Nila to show a shy newcomer where to stand. Nila made room beside her and pointed to the music stand.",
+      "prompt_utf8_sha256": "28d054b79141b321076effa62f7d476353773ffbb79eed00254a582089bd3048",
+      "stratum": "social_relation"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD07",
+      "prompt": "A paper boat was stuck in a narrow rain gutter. Finn looked for a smooth stick so he could lift it without tearing the paper.",
+      "prompt_utf8_sha256": "419dae24145b7c0e51ab343e1ce400fd11a751fc488cf1f6120c8f87d4d101b9",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD08",
+      "prompt": "The lantern at the dock flickered because its plug was loose. Eren switched it off before adjusting the cable.",
+      "prompt_utf8_sha256": "016966bedf531e2e0ed06729145d5a34c5f9b3091167c91a863e917ed402e915",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD09",
+      "prompt": "A box of paints slid toward the edge of a table. Rhea caught the corner and moved the box onto a dry tray.",
+      "prompt_utf8_sha256": "63780b8503f02c0a298d069b003d9fda6c14657c193edfabd951786c2c327bee",
+      "stratum": "causal_obstacle"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD10",
+      "prompt": "Mila was told to lock the bicycle shed before turning out the yard light. She checked the latch as the sun went down.",
+      "prompt_utf8_sha256": "9d5ad07ad7eaf70b9fe4d8b2aec34c7232eb970f212116d5974869374c87d930",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD11",
+      "prompt": "At a bird sanctuary, Theo had to feed the smaller birds first and open the larger pen only after sunrise. He arranged the bowls in order.",
+      "prompt_utf8_sha256": "fe2286f02050581616712dd2ad0249f91f050c1b68d0cc0152615b005feec194",
+      "stratum": "temporal_rule"
+    },
+    {
+      "cohort": "DEV",
+      "id": "HD12",
+      "prompt": "The festival steward asked Kian to roll out the red carpet after the rain stopped. He kept it wrapped while the clouds passed.",
+      "prompt_utf8_sha256": "0e5addfbc2c6feda7f6fe9fe250218b193a64b177512b2334c90423c45640640",
+      "stratum": "temporal_rule"
+    }
+  ],
+  "purpose": "format/QA only; no model selection after new FINAL results",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "schema": "ttm.small4m.hdata_s1.public_dev12.v1"
+}
