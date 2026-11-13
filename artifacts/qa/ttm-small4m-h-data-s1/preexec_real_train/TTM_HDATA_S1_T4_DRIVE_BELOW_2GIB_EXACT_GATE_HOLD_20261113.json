@@ -1,0 +1,52 @@
+{
+  "schema": "ttm.hdata_s1.owner_exact_gate_drive_capacity_adjudication.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_HDATA_S1_FAILED_COLAB_DISPATCH_EXACT_ERROR_AND_ROOT_CUSTODY_SINGLE_GATE_NO_RERUN",
+  "independent_readback_basis": "Owner supplied direct same-runtime Colab diagnostic and frozen GitHub science runner code",
+  "diagnostic": {
+    "diagnostic_source_pin": "PASS",
+    "colab_global_fc01_collision": "AVOIDED_BY_IMMUTABLE_ABSOLUTE_HDATA_PATH",
+    "canonical_root": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/science_one_shot_v1",
+    "science_run_root_exists": false,
+    "science_run_root_is_directory": false,
+    "drive_free_gib_observed": 1.269,
+    "runner_sha_pin": "PASS",
+    "owner_go_lock_sha_pin": "PASS",
+    "imported_module": "/content/TTM_HDATA_S1_SCIENCE_FROZEN/tools/pilot_t4/hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py",
+    "exact_gate": "PASS_NO_MODEL_FORWARD",
+    "diagnostic_science_dispatch": "NONE",
+    "new_final": "SEALED"
+  },
+  "frozen_source": {
+    "code_commit": "7aec0d551c930936412b93eb49951bd1597d71b9",
+    "runner_git_blob_sha1": "d9a80aea9a80f5bf2e98f2fe4b054e5830944823",
+    "runner_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "exact_hard_stop": "need(shutil.disk_usage(root.parent).free>=2*1024**3,\"DRIVE_FREE_BELOW_2_GIB\")",
+    "hard_stop_location": "Before root.mkdir(exist_ok=False), after exact science gate and source loading/sampler schedule",
+    "required_disk_free_gib": 2,
+    "actual_remaining_gib_below_gate": 0.731
+  },
+  "inference": {
+    "proven_current_blocker": "INSUFFICIENT_DRIVE_FREE_SPACE_BELOW_FROZEN_TWO_GIB_THRESHOLD",
+    "inferred_original_cell4_exit_cause": "CONSISTENT_WITH_DRIVE_FREE_BELOW_2_GIB_BUT_NOT_PROVEN_WITHOUT_CHILD_STDERR",
+    "no_run_root_observed": "TRUE_IN_COLAB_DIAGNOSTIC",
+    "science_optimizer_updates_observed": "NOT_VERIFIED_AS_ANY_EXECUTED; NO_RUN_ROOT_EVIDENCE",
+    "original_exit_code": "1",
+    "original_child_stderr": "NOT_CAPTURED",
+    "original_sci_result": "NOT_EXECUTED_OR_ADJUDICATED"
+  },
+  "owner_action": {
+    "status": "HOLD_CAPACITY_RECOVERY_AND_READONLY_PREEXEC",
+    "no_retrain_rerun_before_readback": true,
+    "cleanup_authorized": false,
+    "no_delete_move_or_overwrite": true,
+    "no_new_run_id": true,
+    "preserve_frozen_go_lock": true,
+    "recommended_operational_headroom_gib": 4,
+    "headroom_note": "Recommendation, not a prereg hard threshold. Strict frozen gate is 2 GiB.",
+    "future_single_gate": "After verifying free>=2GiB, root still absent and owner dispatch idle, owner can make a single evidence-based decision to attempt exact original run",
+    "new_final": "SEALED"
+  },
+  "release_decision": "HOLD_RESOURCE_BELOW_FROZEN_2_GIB_GUARD_NO_SCIENCE_RERUN",
+  "main_unchanged": true
+}
