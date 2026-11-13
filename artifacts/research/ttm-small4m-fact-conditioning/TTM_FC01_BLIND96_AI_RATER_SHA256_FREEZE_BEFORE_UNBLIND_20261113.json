@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.fc01.secondary.blind96.score_hash_commit_before_unblind.v1",
+  "operation": "TTM_SMALL4M_FC01_BLIND96_INDEPENDENT_AI_RATER_SCORING_FREEZE_AND_SINGLE_POSTHOC_ADJUDICATION_NO_GPU",
+  "date": "2026-11-13",
+  "source_blind_sha256": "e032e55c8f0e1e9efe87948c7fb67af5c4e648df89a32483e91a5e9d5588620f",
+  "blind_records": 96,
+  "score_file": "FC01_BLIND96_RATER_SCORES_FROZEN_20261113.json",
+  "score_file_sha256": "a5694690a7df8743009987bc0413c49d9951309bc00df0e670fde0cac54dae09",
+  "scores_frozen_before_mapping_access": true,
+  "score_axes": [
+    {
+      "field": "adherence_0_3",
+      "description": "0 contradiction/irrelevant/incoherent; 1 task-related cue only; 2 correct target partly but incomplete action; 3 explicit correct fact-conditioned action"
+    },
+    {
+      "field": "fluency_0_3",
+      "description": "0 gibberish/repeated malformed tokens; 1 severely ungrammatical/truncated; 2 partly coherent awkward; 3 grammatical complete sentence even if wrong"
+    }
+  ],
+  "rubric_scope": "NEW_EXPLORATORY_POSTHOC_SECONDARY_RUBRIC_NOT_FROZEN_OR_PREREGISTERED_IN_PRIMARY_PROTOCOL",
+  "score_distribution": {
+    "adherence_0_3": {
+      "0": 32,
+      "1": 48,
+      "2": 0,
+      "3": 16
+    },
+    "fluency_0_3": {
+      "0": 8,
+      "1": 35,
+      "2": 1,
+      "3": 52
+    }
+  },
+  "mapping_access_pre_freeze": "NO",
+  "per_record_arm_identity_visible_to_rater": "NO",
+  "reviewer_classification": "AI_BLIND_TO_PER_RECORD_ARM_MAPPING_BUT_KNOWS_AGGREGATE_PRIMARY_RESULTS_FROM_EARLIER_CONVERSATION_NOT_A_FRESH_CHAT_OR_INDEPENDENT_HUMAN",
+  "model_inference_by_rater": "NO_NEW_GPU",
+  "output_publication": "NO_PROMPT_TEXT_NO_GENERATED_TEXT_NO_ARM_MAPPING",
+  "terminal_phase": "SCORES_FROZEN_UNBLIND_NOT_STARTED",
+  "d1_confirmatory": "HOLD",
+  "test_q1q2": "SEALED"
+}
