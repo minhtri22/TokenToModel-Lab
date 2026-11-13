@@ -1,0 +1,50 @@
+{
+  "schema": "ttm.hdata_s1.independent_readback_colab_t4.qa.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_HDATA_S1_COLAB_T4_NATIVE_2ARM_FP16_INTERRUPTED_RESUME_INDEPENDENT_READBACK_SINGLE_GATE_NO_SCIENCE",
+  "classification": "INDEPENDENT_READBACK_SOURCE_AND_RECEIPT_ONLY__NOT_SECOND_T4_RERUN__NOT_HUMAN_PEER_REVIEW",
+  "input_receipt": {
+    "drive_file_id": "17DmRtYDX7NHp0Isejxl8GMEp60J0Cvnf",
+    "sha256": "c93fe27e275cd7a1bcd80f369b2a54667a3da3a5b6a942482f80c0b80c38af8c",
+    "bytes": 1735
+  },
+  "native_T4_QA_readback": "PASS_FULL_H0_H1_EXACT_INTERRUPTED_RESUME",
+  "checks_total": 35,
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "arms": [
+    {
+      "arm": "H0",
+      "steps": [
+        1025,
+        1026
+      ],
+      "parity": "PASS_FULL_STATE_EXACT",
+      "qa_updates": 4,
+      "science_updates": 0,
+      "ephemeral_checkpoint_deleted": true
+    },
+    {
+      "arm": "H1",
+      "steps": [
+        1025,
+        1026
+      ],
+      "parity": "PASS_FULL_STATE_EXACT",
+      "qa_updates": 4,
+      "science_updates": 0,
+      "ephemeral_checkpoint_deleted": true
+    }
+  ],
+  "expected_github_source_sha256": "7db0f999934036fc4f87beda9cd5a131377147d7307e9de5ac3a52b547882e62",
+  "original_matched_sampler_plan_sha256": "bcb354d29540e3a348b76173cdad1a6e2832dc81f995c717b68be6926d456591",
+  "flags": {
+    "new_training_started": false,
+    "new_inference_started": false,
+    "private_key_or_plaintext_mapping_read": false,
+    "TEST_Q1_Q2_OOD_read": false,
+    "old_FINAL24_NEXT24_reused": false
+  },
+  "limits": "Receipt attestations and code pins independently checked; actual T4 numeric execution was performed by owner Colab, not reproduced on second GPU.",
+  "owner_science_release": "AWAIT_INTEGRATED_GO_HOLD_SOURCE_QA_GUARD_READBACK"
+}
