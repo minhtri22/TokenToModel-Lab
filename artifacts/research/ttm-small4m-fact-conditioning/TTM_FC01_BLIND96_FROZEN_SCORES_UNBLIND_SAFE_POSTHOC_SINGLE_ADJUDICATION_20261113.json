@@ -1,0 +1,135 @@
+{
+  "schema": "ttm.fc01.secondary.blind96.frozen_scores_private_unblind_safe_posthoc.single_adjudication.v1",
+  "operation": "TTM_SMALL4M_FC01_BLIND96_INDEPENDENT_AI_RATER_SCORING_FREEZE_AND_SINGLE_POSTHOC_ADJUDICATION_NO_GPU",
+  "date": "2026-11-13",
+  "source_custody": {
+    "blind_file_name": "FC01_SECONDARY_BLIND96_PRIVATE.json",
+    "blind_sha256": "e032e55c8f0e1e9efe87948c7fb67af5c4e648df89a32483e91a5e9d5588620f",
+    "scores_file_name": "FC01_BLIND96_RATER_SCORES_FROZEN_20261113.json",
+    "scores_sha256": "a5694690a7df8743009987bc0413c49d9951309bc00df0e670fde0cac54dae09",
+    "scores_committed_to_GitHub_before_mapping_access_commit": "1a78ca28b64149518d61b86a55150278e2283279",
+    "frozen_numeric_score_representation_git_path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_BLIND96_FROZEN_NUMERIC_SCORES_BY_OPAQUE_ID_20261113.json",
+    "mapping_sha256_after_freeze": "3e8f8593388104782eba768474f7b009a57e2ef4a4891a4fd9fe327c61373e52",
+    "mapping_private_drive_file_id": "1YgPqTBBAFq8dpqXXSlidviUqrS3Vs7zf",
+    "mapping_content_published": false,
+    "prompt_text_published": false,
+    "generated_text_published": false,
+    "ids_matched_exactly_96_of_96": true,
+    "per_arm_unique_records": 32,
+    "per_arm_unique_semantic_families": 16,
+    "groups_per_arm": 4,
+    "conditions_per_family": 2
+  },
+  "review_provenance": {
+    "AI_rater_type": "BLIND_TO_PER_RECORD_ARM_IDENTITY",
+    "not_fresh_chat": true,
+    "prior_view_of_aggregate_primary_results": true,
+    "not_independent_external_human": true,
+    "rubric": "POSTHOC_EXPLORATORY_NOT_PREREG_PRIMARY",
+    "adherence_0_to_3": "0 irrelevant/contradicts;1 topical but incomplete;2 correct target partially;3 full correct action",
+    "fluency_0_to_3": "0 gibberish;1 malformed;2 awkward;3 grammatical",
+    "data_scored_by": "SOURCE_PROMPT_AND_GENERATED_TEXT_ONLY_NOT_MODEL_ID",
+    "GPU_calls": 0,
+    "new_train_steps": 0
+  },
+  "aggregate_by_arm": {
+    "A_BASE_MLE": {
+      "n": 32,
+      "mean_adherence_0_3": 0.90625,
+      "mean_fluency_0_3": 2.03125,
+      "full_adherence_3_count": 4,
+      "full_success_rate": 0.125,
+      "adherence0_count": 11
+    },
+    "B_CF_MLE": {
+      "n": 32,
+      "mean_adherence_0_3": 0.8125,
+      "mean_fluency_0_3": 2,
+      "full_adherence_3_count": 4,
+      "full_success_rate": 0.125,
+      "adherence0_count": 14
+    },
+    "C_CF_CONTRAST": {
+      "n": 32,
+      "mean_adherence_0_3": 1.28125,
+      "mean_fluency_0_3": 2,
+      "full_adherence_3_count": 8,
+      "full_success_rate": 0.25,
+      "adherence0_count": 7
+    }
+  },
+  "full_adherence3_by_category_8_each_per_arm": {
+    "entity_location": {
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    "causal_reasoning": {
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    "rule_constraint": {
+      "A": 4,
+      "B": 4,
+      "C": 8
+    },
+    "goal_persistence": {
+      "A": 0,
+      "B": 0,
+      "C": 0
+    }
+  },
+  "C_minus_B_posthoc": {
+    "adherence_mean_difference_points_0_to_3": 0.46875,
+    "paired_lexical_family_stratified_bootstrap_95_percentile": [
+      0.34375,
+      0.5625
+    ],
+    "fluency_mean_difference": 0,
+    "paired_lexical_family_fluency_bootstrap_95_percentile": [
+      -0.375,
+      0.25
+    ],
+    "strict_full_adherence_count_difference": 4,
+    "strict_full_adherence_rate_difference": 0.125,
+    "bootstrap_intervals_are_exploratory_not_pre_registered": true,
+    "all_strict_full_adherence_improvement_concentrated_in_rule_constraint": true
+  },
+  "B_minus_A_posthoc": {
+    "adherence_mean_difference_points_0_to_3": -0.09375,
+    "strict_full_adherence_count_difference": 0,
+    "fluency_mean_difference": -0.03125
+  },
+  "primary_EVAL64_preserved": {
+    "criterion": "BOTH_FACT_MARGINS_POSITIVE",
+    "A_4_of_64": true,
+    "B_3_of_64": true,
+    "C_38_of_64": true,
+    "C_minus_B_point_delta": 0.546875,
+    "primary_conclusion": "POSITIVE_SCOPED_OBJECTIVE_EFFECT",
+    "no_recomputation_or_change_now": true
+  },
+  "interpretation": {
+    "generated_strings_unique_of_96": 17,
+    "completed_secondary_action_16_of_96": true,
+    "strict_correctness_zero_in_entity_causal_goal_outputs_72": true,
+    "C_vs_B": "C shows stronger prompt adherence concentrated in rule_constraint; mean fluency not improved",
+    "primary_secondary_discrepancy": "Teacher-forced relative likelihood margin is not equivalent to greedy free-generation action completion",
+    "external_generalization": "NOT_DEMONSTRATED_ONLY_FOUR_SHARED_SEMANTIC_TEMPLATES_ONE_SEED",
+    "blindness_limit": "Rater already knew earlier aggregate primary effects, although per-record IDs remained masked during rating",
+    "new_metric_no_confirmatory_power": true
+  },
+  "single_decision": {
+    "adjudication": "PASS_SCOPED_FC01_BLIND96_COMPLETE_NO_D1_RELEASE",
+    "secondary_result": "PARTIAL_CONCORDANCE_STRONG_RULE_CONSTRAINT_ONLY",
+    "A_B_C_training": "CLOSED_NO_RERUN",
+    "GPU": "NOT_USED_FOR_RATING",
+    "DEV32": "CLOSED_UNCHANGED",
+    "D1_CONFIRMATORY": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "FC02": "NOT_OPENED",
+    "lineage_md": "UNCHANGED_PENDING_OWNER_ARCHIVE",
+    "further_external_review": "RECOMMENDED_FRESH_CHAT_HUMAN_OR_SEPARATE_AGENT_FOR_STRONGER_INDEPENDENCE_CLAIMS"
+  }
+}
