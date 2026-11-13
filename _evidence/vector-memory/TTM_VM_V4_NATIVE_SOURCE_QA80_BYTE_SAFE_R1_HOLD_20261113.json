@@ -1,0 +1,19 @@
+{
+    "schema":  "ttm.vm.v4.owner.native_source_byte_safe.qa80_hold.v1",
+    "status":  "PASS_NATIVE_SOURCE_MOCK_QA_80_80",
+    "runner_release_commit":  "1170a11bb15b1a5e830b7a6655fd0770867f125a",
+    "original_runner_blob":  "78a64d08cd7a069654293adf8f66dc1a02f4a907",
+    "code_commit":  "df31f91925c76753c4413a8bd58e727c7af7df89",
+    "extraction_method":  "PY312_SUBPROCESS_RAW_BYTES_GIT_BLOB_SHA1_VERIFIED",
+    "source_QA60_sha256":  "B7C89C2266D7067264886A55BBAC11ED5961C65E4E921BAF6C75E104068CDD81",
+    "assembler_QA20_sha256":  "341E4AD3BA1DACB1E28DE8294DA698AC9CE8DEE54D60F01B93326EA5D15A5A7B",
+    "mock_only":  true,
+    "CAL64_actual_scored":  false,
+    "PROBE256_actual_scored":  false,
+    "reader_forward_calls":  0,
+    "test_opened":  false,
+    "gpu_used":  false,
+    "owner_BGE_local_weight_SHA":  "NOT_VERIFIED",
+    "rights_attestation":  "NOT_EXECUTED",
+    "science_release":  "HOLD_OWNER_RIGHTS_MODEL_BYTES_CAL_THRESHOLD_AND_PROBE_CUSTODY"
+}
