@@ -31,6 +31,11 @@
       "path": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_native_t4_h0_h1_resume_qa_v1.py",
       "git_blob_sha1": "11659637df962ce2434c78d159baca9cbec97fc6",
       "sha256": "7db0f999934036fc4f87beda9cd5a131377147d7307e9de5ac3a52b547882e62"
+    },
+    "two_arm_science_runner_candidate": {
+      "path": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_two_arm_science_runner_candidate_v1.py",
+      "git_blob_sha1": "2ca2be5f95f42972701f29e005337c2ca5675cc1",
+      "sha256": "1874aebf904a57782acad963838db86f01556d2fe287927e616574b5700985a7"
     }
   },
   "owner_private_AES_escrow": {
@@ -55,9 +60,10 @@
     "owner_drive_escrow_exact_sha256_readback": "PENDING",
     "source_native_static_Python_QA": "PENDING",
     "actual_colab_T4_full_model_resume_parity_H0_H1": "NOT_EXECUTED",
-    "production_128_step_two_arm_training_runner": "NOT_RELEASED_QA_ONLY_SOURCE",
+    "production_128_step_two_arm_training_runner": "SOURCE_CANDIDATE_FROZEN__QA_AND_RELEASE_PENDING",
     "source_license_and_HDATA_rights_independent_readback": "PENDING",
-    "final_science_one_shot_release": "HOLD"
+    "final_science_one_shot_release": "HOLD",
+    "production_runner_byte_sha_pinned": "PASS_SOURCE_ONLY"
   },
   "owner_single_gate_decision": "HOLD_NO_AUTO_TRAIN_PENDING_NATIVE_T4_RESUME_QA_AND_FINAL_SOURCE_RIGHTS_BYTE_READBACK",
   "scope": {
@@ -65,6 +71,7 @@
     "science_model_forwards": 0,
     "original_FINAL_and_NEXT24": "CLOSED_NOT_REUSED",
     "main": "UNCHANGED",
-    "no_auto_train": true
+    "no_auto_train": true,
+    "science_source_default_mode": "SOURCE_ONLY_NO_TRAIN"
   }
 }
