@@ -1,0 +1,113 @@
+{
+  "schema": "ttm.fc01.one_packet.corpus_rights_runner_static_qa.owner_adjudication.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_SMALL4M_FC01_ONE_PACKET_DATA_RIGHTS_CORPUS_RUNNER_SOURCE_QA_SINGLE_OWNER_GO_HOLD_NO_GPU",
+  "owner_decision": "HOLD_INTEGRATED_PREEXEC_PENDING_EXACT_OWNER_BPE_AND_COLAB_RUNTIME",
+  "scope": "DESIGN_AND_LOCAL_STATIC_QA_ONLY",
+  "source_parent_design_head": "6ef5dbdf8c29dfafffee7dcecc871025521b8de4",
+  "corpus": {
+    "generated": true,
+    "generator": "ORIGINAL_DETERMINISTIC_ASSISTANT_AUTHORED_SOURCE_SCRIPT",
+    "private_data_sha256": "7214213c79002943cbb9f7d0c6c25a81ba7f522c7218dcd4297a2c8465084bd6",
+    "family_count": 384,
+    "train_families": 256,
+    "val_families": 64,
+    "eval_holdout_families": 64,
+    "source_scope": "FOUR_SHARED_SEMANTIC_TEMPLATES_LEXICAL_SCENE_VARIATIONS",
+    "counts_by_category": {
+      "entity_location": 96,
+      "causal_reasoning": 96,
+      "rule_constraint": 96,
+      "goal_persistence": 96
+    },
+    "train_episodes_per_arm": 512,
+    "train_fact_balance_per_arm": {
+      "A": 256,
+      "B": 256
+    },
+    "B_and_C_episodes_canonical_bytes_equal": true,
+    "private_corpus_published_in_git": false,
+    "strict_pinned_T1_BPE_equality": "NOT_EXECUTED",
+    "no_training_in_generation": true
+  },
+  "public_source": {
+    "upstream": "roneneldan/TinyStories",
+    "source_dataset_url": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "upstream_train_sha256": "c5cf5e22ff13614e830afbe61a99fbcbe8bcb7dd72252b989fa1117a368d401f",
+    "owner_manifest_train_sha256_same": true,
+    "owner_manifest_valid_sha256": "94e431816c4cce81ff71e4408ff8d3bda9a42e8d2663986697c3954288cb38b4",
+    "upstream_declared_license": "cdla-sharing-1.0",
+    "rights_full_legal_admission": "PENDING_OWNER_COPY_AND_LICENSE_RECHECK",
+    "owner_local_full_file_hash_recomputed_this_turn": false,
+    "TRAIN_VAL_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "TRAIN_VAL_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "TEST_in_pack": false
+  },
+  "model_pins": {
+    "checkpoint_step": 1024,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "tokenizer_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "p02_git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "parameters": 3749376,
+    "model_loaded_in_this_readiness": false
+  },
+  "runner": {
+    "source_archive_name": "TTM_FC01_ONEPACKET_SOURCE_QA_RUNNER_20261113.zip",
+    "source_archive_sha256": "601b9ded14c3db013f1c3d237461f4144ea3fbc86deffc2749e825a261043b36",
+    "owner_private_archive_name": "TTM_FC01_PRIVATE_CORPUS_384_FAMILIES_20261113.zip",
+    "owner_private_archive_sha256": "da579dd6d5f2e92baa9fba524c30177a32d2d340fad6b6f7ca71a8f4bc9004b1",
+    "script_sha256": {
+      "fc01_build_private_corpus.py": "1fc0000bfe507fdceebc0a595fc703b5c66fdb74a70f07dcc4e23a745e6a3b90",
+      "fc01_integrated_static_qa.py": "d3fec73129766a2ff1f95bc3690de41a85cb6621ff3b0abe0a945e86359284b0",
+      "fc01_pinned_bpe.py": "d90ddbcdbea8450d7605cf7e65936efd032344b8d7793c2272d4d0870cfbff01",
+      "fc01_independent_contract_tests.py": "419c3beca59193de2b29c8e26a9cfc9ba0583346f4da160c72ee17fc6b291d3f",
+      "fc01_train_eval_once.py": "b80c7fe84c22f3474520019a1649396f01d4dba9a757c5a9651279797c4434e7",
+      "Invoke-TTM-FC01-Integrated-Readiness-PS51.ps1": "714bbe2490d20eb6faddbfdaf983c352c09b886fd2259e76b23041bb4b7f864f"
+    },
+    "modes": [
+      "audit",
+      "train",
+      "evaluate",
+      "secondary"
+    ],
+    "source_files_committed_to_github": false,
+    "package_available_as_conversation_sandbox_artifact": true,
+    "runner_actual_owner_windows_audit": "NOT_EXECUTED",
+    "runner_colab_GPU_runtime": "NOT_EXECUTED",
+    "owner_GO_receipt_exists": false,
+    "training_seed": 20261112,
+    "bootstrap_seed": 20261113,
+    "max_three_arm_steps": 768,
+    "token_slots_total": 3145728,
+    "T4_gpu_hours_cap": 3,
+    "paid_USD_cap": 0
+  },
+  "static_qa": {
+    "tests_total": 15,
+    "tests_passed": 15,
+    "tests_failed": 0,
+    "negative_mutations_detected": true,
+    "source_byte_hash_checked_locally": true,
+    "sha_d1_unchanged": true,
+    "validation_type": "SEPARATE_SELF_AUTHORED_CHECKER_NOT_EXTERNAL_HUMAN_QA",
+    "strict_real_T1_BPE_tokenization": "NOT_EXECUTED",
+    "checkpoint_load_and_optimizer": "NOT_EXECUTED",
+    "no_GPU_calls": true
+  },
+  "gates": {
+    "exact_owner_T1_BPE_check": "HOLD_UNEXECUTED",
+    "owner_original_TinyStories_raw_file_rehash": "NOT_EXECUTED",
+    "train_runner_e2e_resume_colab": "NOT_EXECUTED",
+    "science_go": "NOT_GRANTED",
+    "new_training": "NO",
+    "new_inference": "NO",
+    "TEST_Q1Q2": "SEALED",
+    "DEV32": "CLOSED_UNCHANGED",
+    "D1_CONFIRMATORY": "HOLD_UNCHANGED",
+    "FC02_CAPACITY": "NOT_OPENED",
+    "lineage_md": "UNCHANGED",
+    "main": "UNCHANGED"
+  },
+  "next_integrated_owner_action": "EXTRACT_SOURCE_ZIP_UNDER_D_WORK_RESEARCH_TTM_ROOT_TMP_AND_EXECUTE_SINGLE_SOURCE_ONLY_POWERSHELL_QA",
+  "no_micro_permit_steps": true
+}
