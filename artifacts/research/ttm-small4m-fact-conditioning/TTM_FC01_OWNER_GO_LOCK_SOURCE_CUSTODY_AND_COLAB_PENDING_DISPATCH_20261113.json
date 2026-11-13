@@ -1,0 +1,104 @@
+{
+  "schema": "ttm.fc01.owner_go_lock_source_custody_and_pending_colab_dispatch.v1",
+  "date": "2026-11-13",
+  "operation": "TTM_SMALL4M_FC01_OWNER_SINGLE_GO_LOCK_AND_ABC_ONE_SHOT_T4_FP32_EXECUTION",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "user_authorization": {
+    "source": "EXPLICIT_USER_CHAT_APPROVAL_2026-11-13",
+    "exact_intent": "OWNER_SINGLE_GO_LOCK_AND_ABC_ONE_SHOT_T4_FP32_EXECUTION",
+    "crypto_signed_by_human": false
+  },
+  "scientific_readiness_go_prior": {
+    "one_go_all_three_arms": "GO_FOR_ALL_THREE_ARMS",
+    "adjudication_commit": "e7c780787bf8891484fd29bb873033444238533e",
+    "colab_zero_step_receipt_sha256": "f7d833493175a61e0e8cb13ec6805957b659e909d2d4fdd72d3d25796f4a23ac",
+    "colab_zero_step_drive_snapshot_sha256": "2a31952b268ddbbafff4f32500e866d5341a3ea576a6219dbe830b5304cec1fd"
+  },
+  "owner_go_lock": {
+    "filename": "FC01_OWNER_GO.json",
+    "sha256": "8b274e3bc976e73ad25a689e8044dda2fcb98766a8d2cdd890cb08d6f582c091",
+    "size_bytes": 1437,
+    "location": "PRIVATE_GOOGLE_DRIVE_FC01_INPUT",
+    "google_drive_uploaded": true,
+    "independent_drive_readback_sha256": "PASS_EXACT",
+    "runner_validate_go": "PASS_CPU_SOURCE_EXACT_V2",
+    "authorization": "FC01_ALL_THREE_ARMS_ONE_SHOT_GO",
+    "arms": [
+      "A_BASE_MLE",
+      "B_CF_MLE",
+      "C_CF_CONTRAST"
+    ],
+    "optimizer_steps_per_arm": 256,
+    "total_optimizer_steps_target": 768,
+    "maximum_gpu_seconds_per_arm": 3600,
+    "maximum_gpu_seconds_total": 10800,
+    "paid_USD_cap": 0,
+    "dataset_rights": "OWNER_SELF_ATTESTED_IN_ZERO_STEP_NOTEBOOK",
+    "no_retry_or_reseed": true,
+    "test_q1q2": "SEALED",
+    "d1_confirmatory": "HOLD"
+  },
+  "colab_private_input": {
+    "source_files_present": 10,
+    "GO_json_present": true,
+    "extra_python_dependencies_uploaded_without_owner_manual_step": [
+      {
+        "filename": "fc01_build_private_corpus.py",
+        "sha256": "a9978a1961a2d062e5229ad91593eddb01f7fcfab00c4dfb55cc3df316053c98"
+      },
+      {
+        "filename": "fc01_integrated_static_qa.py",
+        "sha256": "f4f205ed4be0021faf99b3e73f4c0fb80ef4d1ce095ee5985507ca3f1e33cc3e"
+      },
+      {
+        "filename": "fc01_pinned_bpe.py",
+        "sha256": "d90ddbcdbea8450d7605cf7e65936efd032344b8d7793c2272d4d0870cfbff01"
+      }
+    ],
+    "extra_python_dependencies_drive_sha256_readback": "PASS_3_OF_3",
+    "private_corpus_published_to_github": false
+  },
+  "one_shot_notebook": {
+    "path": "tools/pilot_t4/fc01/TTM_FC01_OWNER_GO_ABC_ONESHOT_T4_FP32_20261113.ipynb",
+    "one_cell_requires_owner_colab_T4_runtime": true,
+    "validates_owner_GO_sha256_and_previous_preexec": true,
+    "validates_all_ten_exact_files": true,
+    "source_audit_before_science": true,
+    "runs_frozen_runner_unmodified": true,
+    "order": [
+      "A_BASE_MLE_256",
+      "B_CF_MLE_256",
+      "C_CF_CONTRAST_256",
+      "EVAL64",
+      "SECONDARY_BLIND96"
+    ],
+    "separate_fresh_child_process_per_arm": true,
+    "cublas_workspace_config": ":4096:8",
+    "global_gpu_wall_cap_seconds": 10800,
+    "output_dir_name": "FC01_ABC_ONE_SHOT_V2_20261113",
+    "refuses_existing_output_or_modified_lock": true,
+    "no_auto_retry": true,
+    "no_novel_seed_or_hyperparam": true
+  },
+  "actual_execution": {
+    "colab_kernel_execution_api_in_current_session": "NOT_AVAILABLE",
+    "notebook_run_triggered": false,
+    "owner_go_lock_file_issued": true,
+    "colab_ABC_training": "NOT_STARTED",
+    "optimizer_steps_new": 0,
+    "checkpoints_new": 0,
+    "eval64_new": "NOT_EXECUTED",
+    "secondary_blind96_new": "NOT_EXECUTED",
+    "stage": "GO_LOCK_ISSUED_PENDING_OWNER_INTERACTIVE_COLAB_RUN",
+    "do_not_claim_scientific_result": true,
+    "next_action": "OPEN_PINNED_COLAB_ONE_SHOT_NOTEBOOK_AND_RUN_ITS_SINGLE_CELL_ON_FREE_T4_ONCE; RETURN_TERMINAL_RECEIPT_SHA"
+  },
+  "preserve": {
+    "D1_CONFIRMATORY": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "DEV32": "CLOSED",
+    "MAIN": "UNCHANGED",
+    "LINEAGE_MD": "UNCHANGED"
+  }
+}
