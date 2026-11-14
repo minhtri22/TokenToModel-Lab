@@ -1,0 +1,163 @@
+{
+  "schema": "ttm.drive.semantic4x3.step1536.predelete_sha_inventory.v1",
+  "operation": "TTM_DRIVE_SEMANTIC4X3_ADDITIONAL_INTERMEDIATE_STEP1536_CLEANUP_ARCHIVE_THEN_DELETE",
+  "date": "2026-11-14",
+  "scope": "TTM/ttm-small-pilot/ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2/S1,S2,S3/<four arms>/step_1536",
+  "owner_authorization": "User explicitly requested additional intermediate checkpoint deletion for Drive space while H-DATA FINAL24 owner launcher is pending.",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "study_result_status": "COMPLETED_PENDING_INDEPENDENT_ADJUDICATION",
+  "independent_readback_status": "PASS_INDEPENDENT_12_ARM_STORY_BOOTSTRAP_READBACK",
+  "independent_final_binary_sha256_verified": true,
+  "independent_ready_metadata_count_prior_cleanup": 96,
+  "candidate_step": 1536,
+  "checkpoint_bytes_per_arm": 52942989,
+  "entries": [
+    {
+      "seed": "S1",
+      "arm": "PT-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "fe7db7804a5c6956169df6cb73f0c5f51e818999a06a27436fbe5a24783617f7",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "final_step2048_sha256_existing_independent_receipt": "cf3e6863215555b639fd4d3582f77f2b997c05dc5269cd411342bf660632cf46"
+    },
+    {
+      "seed": "S1",
+      "arm": "PT-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "94f76b444f5d0b1b94f73123797640b3675bf720033c832be6bd2e5781111155",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "final_step2048_sha256_existing_independent_receipt": "dd62bf4695ec9dd4175817c1e3c663389b1282ead560a267f02c7d97a54960fb"
+    },
+    {
+      "seed": "S1",
+      "arm": "NULL-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "86dbd7c109a01fcb717a5671456225a06a66055bd8abf81e4e63c90c7afa8536",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "final_step2048_sha256_existing_independent_receipt": "59bb203f5ba2a02e56778200d21ec26c2898bed12a2644d9c860ae06aaffe9fb"
+    },
+    {
+      "seed": "S1",
+      "arm": "NULL-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "7c03a501138655f298a98ec72c0a09fed7bace38e275275a3eb5d725898fff42",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s1",
+      "final_step2048_sha256_existing_independent_receipt": "9365403b0a2f4499405f348639d8ebd37e9d8997d0d10894ef23d0d57dbddb21"
+    },
+    {
+      "seed": "S2",
+      "arm": "PT-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "936fffc5221bb23e585a372c28e83c0aae089d1c16bb800e38a7187ff0bcf101",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s2",
+      "final_step2048_sha256_existing_independent_receipt": "1ea877b7c62e0b17fc757881a54cd1a4bd829128c0e406543723e871c6f432f1"
+    },
+    {
+      "seed": "S2",
+      "arm": "PT-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "7322c4dc346bb5cdd051745d34a7945419bce956e86f32b47a28bd8f69d9c5c8",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s2",
+      "final_step2048_sha256_existing_independent_receipt": "f1dba5a83772d2346222083039012f928917351ba48bdf843f8d4814dc24b60a"
+    },
+    {
+      "seed": "S2",
+      "arm": "NULL-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "721df4c97e7bcb86cc87ba541b67112e96d782f7c7907f17c4fe17ae6422bdfa",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s2",
+      "final_step2048_sha256_existing_independent_receipt": "10ad0ffa8ffd58bee5276374562140e9e3bf580695a5a2e4f4d4bfc08ea42b25"
+    },
+    {
+      "seed": "S2",
+      "arm": "NULL-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "29d2bb95a76e5aa0d3deab83b2ccc1794e848d1ca3e966e4e72495af86662da8",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s2",
+      "final_step2048_sha256_existing_independent_receipt": "a2740d762abdf760483f460716464631caf68f577491946de6d264b206a4aa5f"
+    },
+    {
+      "seed": "S3",
+      "arm": "PT-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "952beaf3c20d548083a34efb2bb3f585051e142acebc01880e76c9ab24a8c3ac",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s3",
+      "final_step2048_sha256_existing_independent_receipt": "272fd3987d5f5505807662ab62153ede927d76f1c87333affa98df8c6f55fb93"
+    },
+    {
+      "seed": "S3",
+      "arm": "PT-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "7f4341f3dc66e3d55f2697c09c89b6d08003c00276000f1913128d0b6540d872",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s3",
+      "final_step2048_sha256_existing_independent_receipt": "c51a947f1d075e90a5199130e79a671c5257714d66a511fc2d9e78bbc7eac89d"
+    },
+    {
+      "seed": "S3",
+      "arm": "NULL-REAL",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "77fcc3b3887c52b4eebe5e0db5a723cd9bb8d80deddb9e9632498ef2cbcdef2e",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s3",
+      "final_step2048_sha256_existing_independent_receipt": "b58a17f65d6ec949095a0d3d1ac3a91f26d3c71c7246a1ea64d2a4d224341c1e"
+    },
+    {
+      "seed": "S3",
+      "arm": "NULL-PERM",
+      "step": 1536,
+      "checkpoint_filename": "checkpoint.pt",
+      "checkpoint_bytes": 52942989,
+      "checkpoint_sha256_claimed_by_READY": "00085553477ca05b2361d4769ad26347e3ca2f85d3d0b954cabdd2df332a4db6",
+      "READY_schema": "ttm.semantic4x3.ready.v1",
+      "run_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2_s3",
+      "final_step2048_sha256_existing_independent_receipt": "ac6fe6ed4510eb6212609c1e913d6102782a78dcb4cfc2aa7743f6151ef07235"
+    }
+  ],
+  "candidate_count": 12,
+  "candidate_total_checkpoint_bytes": 635315868,
+  "candidate_total_gib": 0.5916840098798275,
+  "retained_steps_per_arm": [
+    1792,
+    2048
+  ],
+  "keep_all_progress_journals_and_scientific_results": true,
+  "never_delete_HDATA_sci_or_new_final_root": true,
+  "never_delete_P02_parent_train_pack_or_FC01": true,
+  "this_manifest_is_not_a_binary_backup": true,
+  "source_of_intermediate_SHA": "READY.json fields; intermediate raw binary SHA not independently recomputed in this review",
+  "irreversibility": "Permanently deleted step1536 optimizer/model state cannot be restored from this SHA/metadata-only record.",
+  "status": "PREDELETE_GITHUB_ARCHIVE_COMMITTED_NO_DELETE_YET",
+  "deleted": false
+}
