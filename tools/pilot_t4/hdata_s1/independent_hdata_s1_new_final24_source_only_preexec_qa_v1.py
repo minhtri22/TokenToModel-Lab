@@ -32,7 +32,7 @@ def assert_qa():
     compile(src, str(SOURCE), "exec")
     funcs = {x.name:x for x in tree.body if isinstance(x,ast.FunctionDef)}
     needed = {"source_only","check_permit","generate_once","verify_private_prompts",
-              "decrypt_private_mapping","greedy64","write_new","main"}
+              "decrypt_private_mapping","validate_all_prompt_context","greedy64","write_new","main"}
     need(needed <= set(funcs), "GENERATOR_MISSING_FUNCTIONS")
     need("import torch" not in src[:src.index("def generate_once")], "TOPLEVEL_TORCH_IMPORT")
     main = funcs["main"]
@@ -46,6 +46,11 @@ def assert_qa():
          "aes_source.validate_pairs" in src and
          "FINAL_ROOT.mkdir(exist_ok=False)" in src and
          'p.open("xb")' in src, "PRIVATE_AND_NO_OVERWRITE_GUARDS")
+    need("prompt_context_gate = validate_all_prompt_context(prompts, bpe)" in src and
+         "FINAL_CONTEXT_GUARD:" in src and
+         src.index("prompt_context_gate = validate_all_prompt_context(prompts, bpe)") <
+         src.index("FINAL_ROOT.mkdir(exist_ok=False)"),
+         "ALL_FINAL_PROMPT_CONTEXT_MUST_PASS_BEFORE_FORWARD")
     need("torch.argmax(logits[0, -1, :])" in src and
          "MAX_NEW_TOKENS = 64" in src and
          "EOS_ID = 256" in src and
