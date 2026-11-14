@@ -1,0 +1,44 @@
+name: TTM VM R8 V4 non-R8 source-only QA
+on:
+  push:
+    branches:
+      - evidence/ttm-vm-v4-r8-v4-integrated-closure-20261114
+    paths:
+      - docs/research/vector-memory/r8/integrated_closure/**
+      - .github/workflows/ttm-vm-r8-integrated-closure-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scoped-nonr8-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact CPU source-QA dependencies
+        run: python -m pip install --disable-pip-version-check numpy==2.3.5 scipy==1.17.0 scikit-learn==1.8.0
+      - name: Read back exact versions and execute non-R8 symbolic QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python --version
+          python - <<'PY'
+          import platform,sklearn,numpy,scipy
+          print("QA_PLATFORM", platform.platform())
+          print("QA_SKLEARN",sklearn.__version__)
+          print("QA_NUMPY",numpy.__version__)
+          print("QA_SCIPY",scipy.__version__)
+          PY
+          python -m unittest discover -v \
+            -s docs/research/vector-memory/r8/integrated_closure \
+            -p 'test_integrated_source_only.py'
+      - name: Source SHA256 readbacks
+        shell: bash
+        run: |
+          sha256sum docs/research/vector-memory/r8/integrated_closure/*.py
+          printf '%s\n' 'R8_GENERATION=NOT_EXECUTED' 'GPU=NO' 'PRIVATE_GOLD=NOT_ACCESSED' 'READER=0'
