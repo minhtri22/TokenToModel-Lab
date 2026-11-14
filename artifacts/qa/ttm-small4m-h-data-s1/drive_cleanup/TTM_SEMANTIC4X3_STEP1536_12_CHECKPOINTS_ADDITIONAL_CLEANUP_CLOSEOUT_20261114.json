@@ -1,0 +1,86 @@
+{
+  "schema": "ttm.drive.semantic4x3.additional_intermediate_cleanup_final_adjudication.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_DRIVE_SEMANTIC4X3_ADDITIONAL_INTERMEDIATE_STEP1536_CLEANUP_ARCHIVE_THEN_DELETE",
+  "scope": "Only 12 Semantic4x3 S1,S2,S3 four-arm step_1536 checkpoint folders; all other Drive contents untouched",
+  "study_id": "ttm_gemma2_semantic4x3_3seed_2048x4096_h768_20261110_v2",
+  "prior_study_independent_status": "PASS_INDEPENDENT_12_ARM_STORY_BOOTSTRAP_READBACK",
+  "owner_authorization": "User requested more intermediate checkpoint deletion while waiting for owner NEW FINAL24 inference.",
+  "predelete_manifest": {
+    "path": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/TTM_SEMANTIC4X3_S1S2S3_STEP1536_PREDELETE_SHA_MANIFEST_20261114.json",
+    "git_blob_sha1": "906779b398af1555f346141b3f087bde0802a559",
+    "checkpoint_sha_provenance": "Existing READY.json fields, not SHA recomputed from raw binary",
+    "binary_backup": false
+  },
+  "postdelete_receipts": [
+    {
+      "seed": "S1",
+      "path": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/TTM_SEMANTIC4X3_S1_STEP1536_AFTER_DELETE_20261114.json",
+      "blob_sha1": "8fa4d367ba41fa2107ab164bee8e135fd6bc7e80",
+      "status": "PASS_DELETED_4_INTERMEDIATE_STEP1536",
+      "arms": [
+        "PT-REAL",
+        "PT-PERM",
+        "NULL-REAL",
+        "NULL-PERM"
+      ]
+    },
+    {
+      "seed": "S2",
+      "path": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/TTM_SEMANTIC4X3_S2_STEP1536_AFTER_DELETE_20261114.json",
+      "blob_sha1": "7b94279a42e6a99ba5db57f99f45e35fa852bc2e",
+      "status": "PASS_DELETED_4_INTERMEDIATE_STEP1536",
+      "arms": [
+        "PT-REAL",
+        "PT-PERM",
+        "NULL-REAL",
+        "NULL-PERM"
+      ]
+    },
+    {
+      "seed": "S3",
+      "path": "artifacts/qa/ttm-small4m-h-data-s1/drive_cleanup/TTM_SEMANTIC4X3_S3_STEP1536_AFTER_DELETE_20261114.json",
+      "blob_sha1": "edfdf17dcb0830b9c50988b13aa397f5e1a05b3b",
+      "status": "PASS_DELETED_4_INTERMEDIATE_STEP1536",
+      "arms": [
+        "PT-REAL",
+        "PT-PERM",
+        "NULL-REAL",
+        "NULL-PERM"
+      ]
+    }
+  ],
+  "scope_arms_count": 12,
+  "per_arm_deleted_step": 1536,
+  "deleted_intermediate_directories": 12,
+  "deleted_checkpoint_binary_bytes_from_google_metadata": 635315868,
+  "deleted_checkpoint_binary_gib": 0.5916840098798275,
+  "retained_in_each_arm": [
+    1792,
+    2048
+  ],
+  "all_twelve_final2048_with_CHECKPOINT_and_READY_verified_before_deletion": true,
+  "all_twelve_arm_parent_directory_retention_verified_after_deletion": true,
+  "protected_after_delete_google_drive_listing": {
+    "hdata_science_one_shot_root": "PRESERVED",
+    "hdata_owner_private_AES_escrow": "PRESERVED",
+    "hdata_OWNER_READY_LAST": "PRESERVED",
+    "hdata_NEW_FINAL24_source": "PRESERVED",
+    "p02_step1024_parent": "PRESERVED",
+    "original_TRAIN_VAL_pack": "PRESERVED",
+    "fc01_A_B_C_final_checkpoints": "PRESERVED",
+    "hdata_new_final24_one_shot_root_observed": "ABSENT_AT_AUDIT_END__NOT_PROOF_OF_FUTURE_OWNER_EXECUTION"
+  },
+  "all_logs_and_research_results_preserved": true,
+  "explicit_caveat": "SHA+READY metadata is not a byte backup of deleted checkpoint. The deleted step1536 optimizer state cannot be restored from this manifest; step1792 provides retained fallback per arm.",
+  "before_cleanup_colab_free_gib_last_owner_readback": 4.227,
+  "after_cleanup_colab_free_gib": "NOT_MEASURED_FROM_LIVE_COLAB",
+  "estimated_if_quota_immediately_reclaims_gib": 4.818684009879828,
+  "quota_estimate_not_ground_truth": true,
+  "other_branches_deleted": false,
+  "assistant_training_or_inference_executed": false,
+  "new_final_owner_go_previously_granted": true,
+  "no_unblind_or_blind_scores_executed": true,
+  "decision": "PASS_SCOPED_CHECKPOINT_CLEANUP__HOLD_FURTHER_DELETION",
+  "main_unchanged": true
+}
