@@ -1,0 +1,73 @@
+{
+  "schema": "ttm.vm.v4.r8.four_raters_hold_readback.v1",
+  "as_of": "2026-11-14",
+  "operation": "TTM_VM_V4_R8_FOUR_RATERS_HOLD_READBACK_AND_G0_SOURCE_REVIEW_HANDOFF_NO_GENERATION",
+  "input_provenance": "USER_REPORTED_RELAY_OF_FOUR_SEPARATE_CHAT_STATUSES_NOT_DIRECT_AGENT_API_VERIFICATION",
+  "handoff_source_commit": "55f22e87397fafd34ac22c15f5920d171f3bf5b4",
+  "records": [
+    {
+      "role": "A",
+      "reported_status": "HOLD_INPUT_NOT_RELEASED",
+      "detailed_attestation_received": false,
+      "score_records_received": 0,
+      "score_file_sha256": null
+    },
+    {
+      "role": "B",
+      "reported_status": "HOLD_INPUT_NOT_RELEASED",
+      "detailed_attestation_received": false,
+      "score_records_received": 0,
+      "score_file_sha256": null
+    },
+    {
+      "role": "C",
+      "reported_status": "HOLD_INPUT_NOT_RELEASED",
+      "detailed_attestation_received": true,
+      "reported_completed_cases": 0,
+      "expected_cases": 32,
+      "reported_unblinded": false,
+      "reported_packet": "NOT_RELEASED",
+      "reported_packet_sha256": null,
+      "reported_release_receipt": null,
+      "score_records_received": 0,
+      "score_file_sha256": null
+    },
+    {
+      "role": "D",
+      "reported_status": "HOLD_INPUT_NOT_RELEASED",
+      "detailed_attestation_received": false,
+      "score_records_received": 0,
+      "score_file_sha256": null
+    }
+  ],
+  "summary": {
+    "reported_hold_sessions": 4,
+    "reported_scored_sessions": 0,
+    "score_files_received": 0,
+    "blind_packet_release_evidence": "NONE",
+    "independent_session_verification": "NOT_EXECUTED",
+    "case_scoring_completeness": "NOT_STARTED",
+    "r8_generated": false
+  },
+  "github_protocol_readback": {
+    "source_commit": "55f22e87397fafd34ac22c15f5920d171f3bf5b4",
+    "G0": "HOLD_PENDING_DISTINCT_V4_REVIEW",
+    "G1": "HOLD_OWNER_SCOPE_RIGHTS",
+    "G2": "HOLD_PRIVATE_CUSTODY_VALIDATOR",
+    "G3": "NOT_AUTHORIZED",
+    "G4": "NOT_EXECUTED",
+    "G5": "SEALED",
+    "G6": "SEALED"
+  },
+  "protections": [
+    "NO_R8_GENERATION",
+    "NO_BLIND_PACKET_CREATION",
+    "NO_GOLD_ACCESS",
+    "NO_RATER_CROSS_REVIEW",
+    "NO_SCORE_FABRICATION",
+    "NO_PROBE256",
+    "NO_READER_GPU"
+  ],
+  "decision": "HOLD_INPUT_NOT_RELEASED_ALL_FOUR_ACKNOWLEDGED_USER_REPORTED",
+  "next_operation": "TTM_VM_V4_R8_V4_DISTINCT_G0_REVIEW_OWNER_SCOPE_AND_SOURCE_QA_SINGLE_GATE_NO_GENERATION"
+}
