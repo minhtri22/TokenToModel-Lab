@@ -1,0 +1,38 @@
+{
+  "schema": "ttm.vm.v4.r8.v2.protocol_adjudication.v1",
+  "operation": "TTM_VM_V4_R8_V2_BLOCKING_PROTOCOL_AMENDMENT_AND_FROZEN_INDEPENDENT_REVIEW_READBACK_NO_GENERATION",
+  "source_review": {
+    "source_commit": "c62d0d5fa9d8b87c2d508b36f0942a3fff3fce69",
+    "original_sha256": "cad0409a5d7e98c5e661ec2e2e3c83f0cee7ff617f7d282b89132ae853d0fbf0",
+    "size_bytes": 11705,
+    "review_decision": "HOLD_R8_PROTOCOL_AMENDMENT_REQUIRED_NO_GENERATION",
+    "reviewer_type": "AI_SELF_ATTESTED_SEPARATE_CHAT",
+    "review_original_frozen": true
+  },
+  "blockers": {
+    "B01": "V2_PROPOSED_ONTOLOGY_REQUIRES_G0_REVIEW",
+    "B02": "V2_PROPOSED_PAIRED_QUESTION_ONLY_SANITY_ONLY",
+    "B03": "V2_PROPOSED_PAIR_GRAPH_TEMPLATE_FOLDS",
+    "B04": "V2_PROPOSED_FROZEN_RESTRICTED_ORACLE_SUITE",
+    "B05": "V2_PROPOSED_TESTS_NULL_MULTIPLICITY_POWER_STILL_G0_HOLD",
+    "B06": "V2_PROPOSED_OWNER_RIGHTS_PRIVATE_CUSTODY_NOT_ATTESTED"
+  },
+  "v2_amendment_status": "COMMITTED_PROPOSED_NOT_APPROVED",
+  "gates": {
+    "G0": "HOLD_V2_INDEPENDENT_REVIEW_NOT_EXECUTED",
+    "G1": "HOLD_OWNER_RIGHTS_NOT_ATTESTED",
+    "G2": "HOLD_CUSTODY_VALIDATOR_NOT_EXECUTED",
+    "G3": "NOT_AUTHORIZED_R8_NOT_GENERATED",
+    "G4": "NOT_EXECUTED",
+    "G5": "SEALED",
+    "G6": "SEALED"
+  },
+  "r7": "FROZEN_FAIL",
+  "r8_generated": false,
+  "cal_threshold": "NOT_FROZEN",
+  "probe256": "SEALED",
+  "reader_calls": 0,
+  "gpu_used": false,
+  "decision": "HOLD_R8_V2_UNREVIEWED_OWNER_RIGHTS_CUSTODY_NO_GENERATION",
+  "next_operation": "TTM_VM_V4_R8_V2_DISTINCT_REVIEW_AND_OWNER_RIGHTS_CUSTODY_RELEASE_NO_GENERATION"
+}
