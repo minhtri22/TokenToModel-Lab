@@ -1,0 +1,212 @@
+{
+  "operation": "TTM_GLOBAL_UNVERIFIED_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_SINGLE_GATE",
+  "source_main": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+  "mode": "READ_ONLY_SOURCE_QA_AND_GOVERNANCE_DOCS_ONLY; NO SCIENCE EXECUTION",
+  "summary": {
+    "total": 65,
+    "prior_inventory": 64,
+    "prior_unverified_57_explained": "56 non-main branches + main",
+    "prior_unverified_still_branch_count": 56,
+    "current_new_admin_branch": 1,
+    "direct_source_pin_count": 23,
+    "lineage_source_pin_count": 4,
+    "missing_branch_terminal_science_qa_count": 23,
+    "no_delta_main_ancestor_count": 6,
+    "open_pr_draft_count": 3,
+    "per_family": {
+      "P01_DATA_SECURITY": 3,
+      "T5_INFERENCE": 5,
+      "R2_R3_O0_CF1": 12,
+      "QUALITY_CONTINUATION": 4,
+      "DOCUMENTATION_GOVERNANCE": 4,
+      "D1_R1_FC01": 8,
+      "VECTOR_MEMORY": 4,
+      "SIX_TTM": 12,
+      "T6_P07_P08": 3,
+      "OTHER_TTM": 2,
+      "EMBEDDING": 4,
+      "ARCHITECTURE": 1,
+      "H_DATA": 2,
+      "Q1Q2": 1
+    },
+    "per_priority": {
+      "P3_ARCHIVE_OR_DESIGN_ONLY": 39,
+      "P1_REVIEW_FIRST": 13,
+      "P2_CONDITIONAL": 13
+    },
+    "per_merge_decision": {
+      "NO_CODE_MERGE_AUTHORIZED": 55,
+      "NO_MERGE_NEEDED": 8,
+      "DOCS_PR_REVIEW_CANDIDATE_NOT_APPROVED": 2
+    }
+  },
+  "source_pins": [
+    {
+      "branch": "archive/p01-d1-prereg-draft-20261108",
+      "gate": "P01_D1_I0A_PREAUTH_HOLD_ACL",
+      "path": "docs/p01/P01_D1_I0A_PATH_ACL_WINDOWS_CONSOLE_ADJUDICATION_20261105.md",
+      "blob_sha1": "4d896f25ca69123cb82d3995fe367c34e1e6cf40"
+    },
+    {
+      "branch": "archive/ttm-ollama-full-logits-scoped-20261111",
+      "gate": "PASS_SCOPED_OLLAMA_CHILD_FULL_RAW_LOGITS_4_OF_4",
+      "path": "artifacts/qa/ttm-ollama-full-logits/TTM_OLLAMA_FULL_LOGITS_FL01_FL04_FINAL_SCIENCE_ADJUDICATION_20261111.json",
+      "blob_sha1": "737ae1012a343319ba0f20fd4e62cc95c9aae612"
+    },
+    {
+      "branch": "research/ttm-t5-ollama-full-logits-20261111",
+      "gate": "PASS_SCOPED_OLLAMA_CHILD_FULL_RAW_LOGITS_4_OF_4",
+      "path": "artifacts/qa/ttm-ollama-full-logits/TTM_OLLAMA_FULL_LOGITS_FL01_FL04_FINAL_SCIENCE_ADJUDICATION_20261111.json",
+      "blob_sha1": "737ae1012a343319ba0f20fd4e62cc95c9aae612"
+    },
+    {
+      "branch": "codex/ttm-r2a-adversarial-review-20261111",
+      "gate": "R2A_FIXTURE_PASS_36_OF_36; VALIDATOR_FAIL_SCOPED; SCIENCE_HOLD",
+      "path": "docs/research/TTM_R2A_CODEX_SCOPED_ADVERSARIAL_REVIEW_20261110.md",
+      "blob_sha1": "41dc4153070efe2113f13d3b089208891aeec5fb"
+    },
+    {
+      "branch": "docs/ttm-small4m-model-card-dataset-rights-20261109",
+      "gate": "PASS_SCOPED_DOCS_SOURCE_QA; DATA_RIGHTS_NOT_RELEASED",
+      "path": "artifacts/qa/docs_rights/TTM_SMALL4M_MODEL_DATA_RIGHTS_DOCS_SCOPED_QA_20261109.json",
+      "blob_sha1": "9a4beea67f31c78861b0dbff715f3c497fd1483c"
+    },
+    {
+      "branch": "evidence/ttm-vm-v4-r7-prospective-single-gate-20261114",
+      "gate": "FAIL_MARKER_SHORTCUT_HOLD_SCIENCE",
+      "path": "docs/research/vector-memory/r7/TTM_VM_V4_R7_ONE_SHOT_QA_FAIL_ADJUDICATION_20261114.md",
+      "blob_sha1": "73b78ebf6f8a94ee42a8bf74c189d50912833888"
+    },
+    {
+      "branch": "evidence/ttm-vm-v4-r8-g0-f01-f03-single-closure-20261114",
+      "gate": "R8_G0_HOLD_G1_HOLD_G2_HOLD_INTEGRATED",
+      "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G0_G1_G2_F01_F03_DISTINCT_INDEPENDENT_READBACK_ADJUDICATION_20261114.md",
+      "blob_sha1": "4b53bcb7cdccf14f5b01cf63bd2b9c014138036b"
+    },
+    {
+      "branch": "evidence/ttm-vm-v4-r8-v4-integrated-closure-20261114",
+      "gate": "R8_G0_HOLD_G1_HOLD_G2_HOLD_INTEGRATED",
+      "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G0_G1_G2_INTEGRATED_READBACK_AND_ADJUDICATION.md",
+      "blob_sha1": "d64162b20ddedd9791900862af6192ff228dbcf0"
+    },
+    {
+      "branch": "research/six-ttm4m-three-arm-exploratory-archive-20261110",
+      "gate": "EXPLORATORY_NO_CLEAR_GAIN; G1_SCIENCE_HOLD",
+      "path": "docs/research/six-ttm/TTM_SIX_TTM4M_THREE_ARM_FINAL_EXPLORATORY_ADJUDICATION_AND_ARCHIVE_20261110.md",
+      "blob_sha1": "97e94eaa2e31ab8860ba330959981fe273946efc"
+    },
+    {
+      "branch": "research/ttm-gemma2-token-alignment-pretraining-causality-20261111",
+      "gate": "A0E_NO_GO_HOLD; OOD256_PASS_SCOPED_IN_SEPARATE_TRACK",
+      "path": "docs/pilot/TTM_GEMMA2_A0E_OWNER_GOLD_CUSTODIAN_FOURARM_NULL_QA_FINAL_NO_GO_20261111.md",
+      "blob_sha1": "a704a1a1788d24553529b999fad117f2e697566b"
+    },
+    {
+      "branch": "feature/p07-paged-attention-kernel-design-20261107",
+      "gate": "P07_XPU_PASS_SCOPED; OVERALL_FAIL_OR_INCONCLUSIVE_NO_AUTORERUN",
+      "path": "artifacts/qa/p07/P07_ONE_SHOT_XPU_PASS_DISK_BUDGET_BLOCK_20261108.json",
+      "blob_sha1": "be29b57c231b8254c7bd3157699b0dedac5f9d29"
+    },
+    {
+      "branch": "research/ttm-r3a-adversarial-independent-review-20261111",
+      "gate": "R3A_384_REPLAY_PASS; GRAPH_REASONING_SHORTCUT_FAIL_SCOPED",
+      "path": "docs/research/TTM_R3A_PYTHON_FULL_REPLAY_AND_OWNER_SCOPED_ADJUDICATION_20261111.md",
+      "blob_sha1": "f6fc00d1d0783cc104d81b749b39c70a395aea28"
+    },
+    {
+      "branch": "review/ttm-cf1-dev36-one-shot-scoped-science-adjudication-20261111",
+      "gate": "CF1_DEV36_CONTEXT_SWITCHING_FAIL_SCOPED_0_OF_36",
+      "path": "docs/research/TTM_CF1_DEV36_ONE_SHOT_INDEPENDENT_SCORE_READBACK_AND_SCIENCE_ADJUDICATION_20261111.md",
+      "blob_sha1": "d6a094b2a9d0977728d5d2f13c7c945d7cb8ee96"
+    },
+    {
+      "branch": "implementation/ttm-six-g1-production-gates-methods-v1e-20261110",
+      "gate": "G1_SCIENCE_LOCK_HOLD; METHODS_REVIEW_HOLD",
+      "path": "docs/research/six-ttm/G1_SCIENCE_ASSURANCE_SCOPE_AND_ONE_BATCH_GATE_CLOSURE_DECISION_20261110.md",
+      "blob_sha1": "433459c7deea80e0943a943863acd23a70df9bda"
+    },
+    {
+      "branch": "research/ttm-six-g1-exploratory-public-dev-20261110",
+      "gate": "EXPLORATORY_NO_SIGNAL; ORIGINAL_G1_SCIENCE_HOLD",
+      "path": "docs/research/six-ttm/G1_EXPLORATORY_REAL_QWEN_T4_DEV_RESULTS_INDEPENDENT_RECOMPUTE_20261110.md",
+      "blob_sha1": "9e2e173c92702f0ea25465739533113e292507e0"
+    },
+    {
+      "branch": "research/ttm-gpt2-llama4-philosophy-architecture-round1-20261110",
+      "gate": "AUTHOR_SOURCE_QA_PASS_18_OF_18; SCIENCE_HOLD",
+      "path": "artifacts/qa/ttm-architecture-round1/TTM_ARCHITECTURE_R1_SOURCE_QA_AND_DECISION_RECEIPT_20261110.json",
+      "blob_sha1": "357a79325bd9c29b8b4be12478b0cc219e210117"
+    },
+    {
+      "branch": "research/ttm-small4m-q1q2-quality-single-batch-20261109",
+      "gate": "Q1Q2_HOLD_INCOMPLETE; QUALITY_NOT_ADJUDICATED",
+      "path": "docs/pilot/TTM_Q1Q2_V2_PARTIAL5_QUALITY_AND_HOLD_ADJUDICATION_20261109.md",
+      "blob_sha1": "4a3165168252b9ead4d866e89a7f59ca9f60605f"
+    },
+    {
+      "branch": "research/ttm-small4m-embeddinggemma2-ood-design-20261111",
+      "gate": "PASS_SCOPED_OOD_RESIDUAL_TRANSPORT",
+      "path": "artifacts/qa/ttm-embeddinggemma2/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENCE_ADJUDICATION_20261111.json",
+      "blob_sha1": "a823eb99fe12d862c12d0c5a9e91817f2299419f"
+    },
+    {
+      "branch": "research/ttm-small4m-post-final24-negative-archive-hypotheses-20261112",
+      "gate": "HDEC_REPETITION_CANDIDATE_PASS; SEMANTIC_GAIN_NOT_DEMONSTRATED",
+      "path": "docs/research/ttm-small4m-post-final24/TTM_HDEC_R1_NEXT24_FINAL_SCIENTIFIC_ADJUDICATION_20261112.md",
+      "blob_sha1": "6e4b6f101eb3140e91e88ce654bb699d93a8d3f7"
+    },
+    {
+      "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+      "gate": "FC01_PASS_SCOPED_EXPLORATORY; D1_CONFIRMATORY_HOLD",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_SCIENTIFIC_REVIEW_AND_SINGLE_SCOPED_ADJUDICATION_20261113.md",
+      "blob_sha1": "0a425cbadfaf644a117693fce1c9b80b069185a7"
+    },
+    {
+      "branch": "research/ttm-o0-n1-failed-gates-natural-narrative-redirect-20261111",
+      "gate": "O0_N1_FAIL_SCOPED; NO_UNBLIND; NEURAL_EXECUTION_HOLD",
+      "path": "artifacts/qa/ttm-o0-neural-diagnostic/research_redirect/TTM_O0_N1_FAILED_GATES_AND_NARRATIVE_CF1_OWNER_SCOPED_DECISION_20261111.json",
+      "blob_sha1": "2d7f0e23ff412a5a5c6af08b41962efdbdcbcce3"
+    },
+    {
+      "branch": "research/ttm-gemini-embedding2-gqa-pagedattention-feasibility-design-20261108",
+      "gate": "PASS_RGOLD_SCREEN_SCOPED_SYNTHETIC; NOT_GENERAL_RETRIEVAL",
+      "path": "docs/research/TTM_EMBEDDINGGEMMA2_D1_RGOLD_ONE_SHOT_INDEPENDENT_SCIENCE_ADJUDICATION_20261109.md",
+      "blob_sha1": "32d81dddf6d8ff947096c118f53a7903884de58a"
+    },
+    {
+      "branch": "governance/ttm-t6-postmerge-p07-p08-readiness-20261114",
+      "gate": "T6_CLOSED_MERGED_SCOPED; P07_PAUSED; P08_NOT_OPENED",
+      "path": "docs/governance/TTM_T6_POST_MERGE_CLOSURE_AND_P07_P08_DEPENDENCY_REVIEW_20261114.md",
+      "blob_sha1": "5c1f35d6b86a887384521c555c22fdbe0e672c4c"
+    },
+    {
+      "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
+      "gate": "FRESH16_V2_FAIL_SCOPED_FROM_BRANCH_LINEAGE",
+      "path": "lineage.md",
+      "blob_sha1": "9110d101601e6ebfb64d9804f370a90cb284420"
+    },
+    {
+      "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
+      "gate": "FINAL24_SEMANTIC_ADHERENCE_FAIL_SCOPED_FROM_BRANCH_LINEAGE",
+      "path": "lineage.md",
+      "blob_sha1": "e20522a410d48020e904f2edbd7820e6fcca6251"
+    },
+    {
+      "branch": "research/ttm-small4m-h-data-s1-matched-budget-prereg-20261113",
+      "gate": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT_FROM_BRANCH_LINEAGE",
+      "path": "lineage.md",
+      "blob_sha1": "5ed1a4e2d558d028f019f7648a8836a9f5f30ffe"
+    },
+    {
+      "branch": "research/ttm-hdata-s1-fail4-prospective-mechanism-design-20261114",
+      "gate": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT; FAIL4_DESIGN_ONLY",
+      "path": "lineage.md",
+      "blob_sha1": "705054e95110e087f2e37e724214f5aedbe852a4"
+    }
+  ],
+  "main_lineage_prefix_verified": true,
+  "entry_L0029_append_only": true,
+  "scientific_execution": false,
+  "merge_code": false,
+  "decision": "PASS_SCOPED_GOVERNANCE_AUDIT__HOLD_ALL_NEW_CODE_MERGES_AND_SCIENCE_PERMITS"
+}
