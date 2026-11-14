@@ -1,0 +1,165 @@
+{
+  "schema": "ttm.t6.postmerge_closure.p07_p08_dependency_review.v1",
+  "operation": "TTM_T6_POST_MERGE_CLOSURE_AND_P07_P08_DEPENDENCY_REVIEW",
+  "review_date_local": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "scope": "READ_EXISTING_GITHUB_EVIDENCE_ONLY_NO_SCIENCE_EXECUTION",
+  "base_at_review": "593455c9c7472042c691e0b3c69a74433c767fc7",
+  "closure": {
+    "track": "TTM-T6 CPU No-cache Dense Paged A/B fixture",
+    "status": "CLOSED_MERGED_SCOPED",
+    "pull_request": 15,
+    "pr_merged": true,
+    "merge_method": "merge",
+    "reviewed_head": "0ebd59755b41f68b096cde31ff4d2c9e722ed455",
+    "merge_commit": "593455c9c7472042c691e0b3c69a74433c767fc7",
+    "parents": [
+      "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+      "0ebd59755b41f68b096cde31ff4d2c9e722ed455"
+    ],
+    "prior_postmerge_readback": "PASS_11_OF_11",
+    "qa": {
+      "unit_windows": "PASS_16_OF_16",
+      "material_arithmetic": "PASS_33_OF_33",
+      "cross_file": "PASS_17_OF_17",
+      "benchmark_raw_byte_custody": "PASS_4_OF_4",
+      "f01_negative_windows": "PASS_9_OF_9",
+      "f01_real_junction": "PASS_NOT_SKIPPED",
+      "f01_raw_byte_custody": "PASS_3_OF_3"
+    },
+    "limitations": [
+      "Synthetic CPU model only, no T4 real checkpoint or held-out TEST",
+      "Cannot claim Paged speedup: vectorized no-cache vs token-by-token cached prefill",
+      "Peak RSS not measured; KV reservation savings do not establish physical RAM savings",
+      "No GPU kernel, scheduler, batching or GPU performance result"
+    ],
+    "documentation": [
+      "docs/t6/TTM_T6_WINDOWS_CPU_AB_OWNER_SCOPED_ADJUDICATION_20261109.md",
+      "artifacts/qa/t6/windows_owner_20261109/TTM_T6_WINDOWS_OWNER_INDEPENDENT_READBACK_AND_ADJUDICATION_20261109.json",
+      "artifacts/qa/t6/f01_windows_owner_20261109/TTM_T6_F01_WINDOWS_CUSTODY_AND_QA_READBACK_20261114.json",
+      "https://github.com/minhtri22/TokenToModel-Lab/pull/15#issuecomment-6874703114"
+    ]
+  },
+  "frozen_source_oracles": {
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "p05_git_blob": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+    "p06_git_blob": "4d52188adaf55674b6965513ea1beb38ec9a8e9b"
+  },
+  "lineage": {
+    "main_blob_after_merge": "259adcd9fa7197c197d424ced9a7e5887e378663",
+    "main_parent_blob": "259adcd9fa7197c197d424ced9a7e5887e378663",
+    "modified_by_t6_merge": false,
+    "modified_by_this_review": false
+  },
+  "p07": {
+    "branch": "feature/p07-paged-attention-kernel-design-20261107",
+    "frozen_head": "06b047856a841a2213803608edfe336588857f59",
+    "relative_to_t6_main": {
+      "status": "diverged",
+      "ahead": 9,
+      "behind": 324
+    },
+    "overall": "PAUSED_PRESERVE_HOLD",
+    "g0_readonly_inventory": "PASS_HISTORICAL",
+    "g0_xpu": "PASS_REAL_GPU_CANARY_SCOPED",
+    "canary": {
+      "device": "Intel Arc 140V",
+      "torch": "2.12.1+xpu",
+      "max_abs_fp32_error": 3.725290298461914e-9
+    },
+    "v1": {
+      "status": "FAIL_OR_INCONCLUSIVE_NO_AUTORERUN",
+      "run_id": "P07_GPU_ENABLEMENT_20261108T024525Z_P28364",
+      "lock": "P07_GPU_ENABLEMENT_V1_ONE_SHOT.lock",
+      "installed_xpu_gib": 6.037,
+      "xpu_subbudget_gib": 6,
+      "excess_gib": 0.037,
+      "overall_incremental_budget_gib": 18,
+      "remaining_planned_gib": 11.963,
+      "original_receipt_sha256_reported": "9a619f41412a6be87fcd7a307477a148ae80c6bd8801206cfc5791fb7af3b647",
+      "original_receipt_sha256_independently_verified": false
+    },
+    "sycl_s2": {
+      "source_static_qa": "PASS_SOURCE_ONLY_24_CHECKS",
+      "windows_ps51_parse": "NOT_EXECUTED",
+      "compiler_download": "NOT_EXECUTED",
+      "compiler_install": "NOT_EXECUTED",
+      "level_zero_direct_page_index": "NOT_EXECUTED",
+      "successor_approval": "NOT_GRANTED",
+      "owner_environment_requirements": [
+        "Validate exact V1 receipt/lock/wheels before successor",
+        "Confirm disk/RAM at actual execution time, historical free space cannot be reused",
+        "Confirm Windows Home support/risks and compiler scope",
+        "No re-run V1, no install/dispatch during this review"
+      ]
+    },
+    "g1": {
+      "kernel_implemented": false,
+      "attention_y_gpu_parity": "NOT_EXECUTED",
+      "fp32_logits_oracle_tolerance": {
+        "atol": 0.0002,
+        "rtol": 0.0002
+      },
+      "independent_negative_qa": "NOT_EXECUTED",
+      "exit": "HOLD"
+    },
+    "g2": {
+      "matched_same_gpu_dtype_workload_benchmark": "NOT_EXECUTED",
+      "synchronized_latency_distribution": "NOT_EXECUTED",
+      "peak_gpu_memory": "NOT_EXECUTED",
+      "speedup_claim": "NOT_ALLOWED"
+    },
+    "formal_exit": "NOT_SATISFIED",
+    "source_paths": [
+      "docs/p07/P07_GPU_KERNEL_G0_G1_INTERFACE_LOCK_AND_BACKEND_MATRIX_20261107.md",
+      "docs/p07/P07_ONE_SHOT_XPU_SUCCESS_SYCL_NOT_EXECUTED_RECOVERY_20261108.md",
+      "docs/p07/P07_SYCL_S2_PRESERVED_XPU_CONTINUATION_RUNBOOK_20261108.md",
+      "artifacts/qa/p07/P07_ONE_SHOT_XPU_PASS_DISK_BUDGET_BLOCK_20261108.json",
+      "artifacts/qa/p07/P07_SYCL_S2_SUCCESSOR_SOURCE_STATIC_QA_20261108.json"
+    ]
+  },
+  "p08": {
+    "status": "NOT_OPENED_DEPENDENCY_ON_P07",
+    "git_branch_found": false,
+    "prerequisites": [
+      {
+        "gate": "P07_G1_GPU_DIRECT_PAGE_KERNEL_NUMERICAL_AND_NEGATIVE_QA",
+        "status": "NOT_EXECUTED"
+      },
+      {
+        "gate": "P07_G2_SAME_GPU_BENCHMARK_AND_FORMAL_EXIT",
+        "status": "NOT_EXECUTED"
+      },
+      {
+        "gate": "P07_INDEPENDENT_ADJUDICATION_AND_PR_MERGE",
+        "status": "NOT_SATISFIED"
+      },
+      {
+        "gate": "P08_CONCURRENT_GPU_SCHEDULER_AND_PREFILL_DECODE",
+        "status": "NOT_OPENED"
+      },
+      {
+        "gate": "P08_SAME_WORKLOAD_TTFT_TPOT_THROUGHPUT_AND_PEAK_MEMORY",
+        "status": "NOT_EXECUTED"
+      }
+    ],
+    "note": "TTM-T6 CPU fixture or XPU canary cannot substitute for GPU scheduler P08"
+  },
+  "governance": {
+    "owner_authorized_GPU_execution": false,
+    "science_execution_this_review": false,
+    "new_training": false,
+    "test_q1q2_read": false,
+    "p07_or_p08_phase_opened": false,
+    "merged_p07_branch": false,
+    "modified_main_this_review": false,
+    "modified_lineage_this_review": false,
+    "authoritative_source_of_truth": "GitHub: T6 PR15 merged + P07 frozen branch + this governance review branch",
+    "decision_vector": [
+      "GO_T6_CLOSURE",
+      "HOLD_P07_PAUSED_PRESERVE",
+      "NO_GO_OPEN_P08"
+    ],
+    "next": "TTM_P07_PAUSED_PRESERVE_S2_CAPABILITY_RESUME_READINESS_SINGLE_OWNER_DECISION"
+  }
+}
