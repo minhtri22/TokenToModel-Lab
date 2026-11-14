@@ -142,3 +142,20 @@ jobs:
         run: |
           set -euo pipefail
           python tools/pilot_t4/hdata_s1/independent_hdata_s1_new_final24_source_only_preexec_qa_v1.py
+
+      - name: Verify unscored blind240 template, frozen axes and 24 notes slots
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pilot_t4/hdata_s1/ttm_hdata_s1_blind240_source_only_and_score_freeze_validator_v1.py \
+            --mode source-only \
+            --contract docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND_SCORING_AND_ADJUDICATION_CONTRACT_20261113.json \
+            --scores docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND240_UNSCORED_TEMPLATE_SOURCE_ONLY_20261114.json
+          if python tools/pilot_t4/hdata_s1/ttm_hdata_s1_blind240_source_only_and_score_freeze_validator_v1.py \
+            --mode verify-scored \
+            --contract docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND_SCORING_AND_ADJUDICATION_CONTRACT_20261113.json \
+            --scores docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND240_UNSCORED_TEMPLATE_SOURCE_ONLY_20261114.json; then
+            echo "HOLD: UNSCORED TEMPLATE WRONGLY ACCEPTED AS FROZEN SCORES"
+            exit 1
+          fi
+          echo "H_DATA_S1_BLIND240_SOURCE_QA_PASS_NO_SCORING_NO_INFERENCE"
