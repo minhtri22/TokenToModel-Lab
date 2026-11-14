@@ -1,0 +1,458 @@
+{
+  "schema": "ttm.hdata_s1.blind240_score_template.source_only.v1",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "rater_type": "EXPLORATORY_SCOPED_AI_REVIEW if an AI performs scoring; human classification only for actual human",
+  "blind": "MODEL_IDENTITY_LEFT_RIGHT_UNKNOWN",
+  "scoring_contract": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND_SCORING_AND_ADJUDICATION_CONTRACT_20261113.json",
+  "axes": {
+    "primary_binary": [
+      "actor_retention",
+      "object_relation_retention",
+      "goal_or_rule_progress"
+    ],
+    "secondary_0_3": [
+      "coherence",
+      "consistency"
+    ]
+  },
+  "total_integer_scores_required": 240,
+  "notes_required": 24,
+  "score_file_sha256_after_freeze": null,
+  "canonical_score_array_sha256_after_freeze": null,
+  "score_status": "UNSCORED_TEMPLATE_ONLY",
+  "instructions": "Reviewer alone fills exactly 240 integer fields and 24 nonempty notes; freeze exact score file SHA and canonical score-array SHA before owner-side unblind; never view arm identity, mapping or anchor metadata.",
+  "records": [
+    {
+      "pair_id": "R01",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R02",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R03",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R04",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R05",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R06",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R07",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R08",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R09",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R10",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R11",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R12",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R13",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R14",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R15",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R16",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R17",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R18",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R19",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R20",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R21",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R22",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R23",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    },
+    {
+      "pair_id": "R24",
+      "LEFT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "RIGHT": {
+        "actor_retention": null,
+        "object_relation_retention": null,
+        "goal_or_rule_progress": null,
+        "coherence": null,
+        "consistency": null
+      },
+      "note": null
+    }
+  ]
+}
