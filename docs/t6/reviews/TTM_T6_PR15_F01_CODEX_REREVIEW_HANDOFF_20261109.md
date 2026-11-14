@@ -50,3 +50,19 @@ Biên bản re-review phải ghi reviewer identity, mode, exact HEAD/source blob
 **Bước thực hiện tiếp theo:** `TTM_T6_PR15_F01_WINDOWS_NEGATIVE_QA_THEN_CODEX_DISTINCT_REREVIEW`.
 
 `PR15=HOLD` · `MAIN=UNCHANGED` · `LINEAGE=UNCHANGED` · `P07=PAUSED_PRESERVE` · `P08=NOT_OPENED`.
+
+## F. Bổ sung bằng chứng Windows F-01 ngày 2026-11-14
+
+**LƯU Ý:** Mục D phía trên là điều kiện kiểm thử được viết trước khi owner thực hiện QA. Bây giờ điều kiện Windows đã có chứng cứ PASS trong phạm vi tác giả; chỉ **distinct re-review và kiểm tra tương thích main mới** còn thiếu. Không đánh đồng PASS của tác giả với kết luận Codex độc lập.
+
+- **HEAD thực thi F-01:** `535653dd18b7ebaefb3fdd2994b302c35ad09d6e`. Đã chạy Python 3.12 Windows worktree riêng; legacy `16/16 PASS`; security `9/9 PASS`, bao gồm `test_real_windows_junction_rejected_before_file_creation` **PASS không SKIP**. Benchmark đã khóa **không chạy lại**.
+- **Bằng chứng nguyên byte đã commit:** [16-test log](../../../../artifacts/qa/t6/f01_windows_owner_20261109/T6_LEGACY_16.log), [F-01 9-test log](../../../../artifacts/qa/t6/f01_windows_owner_20261109/F01_SECURITY.log), [owner receipt](../../../../artifacts/qa/t6/f01_windows_owner_20261109/TTM_T6_F01_WINDOWS_AUTHOR_QA_RECEIPT.json).
+- **Biên bản SHA/readback:** [TTM_T6_F01_WINDOWS_CUSTODY_AND_QA_READBACK_20261114.json](../../../../artifacts/qa/t6/f01_windows_owner_20261109/TTM_T6_F01_WINDOWS_CUSTODY_AND_QA_READBACK_20261114.json). SHA-256 gốc:
+  - legacy log `80dd5547c0aeae092661d527f54b757c4f1eb7c52c7d4e6e8c6f8c04cf10df5f`
+  - F-01 log `eda084ff885921dd04132f852b57d915a4d859b64284ee8d62af4159f5e95507`
+  - owner receipt `92d626f09cbde6ea94f1c75a38df650ef52da4f385defe52f754f14468b45ef3`
+- Kiểm tra GitHub readback: **3/3 tệp đúng byte**, SHA nguồn đối chiếu 3/3; 7/7 Git blobs code/test không đổi giữa commit thực thi và thời điểm lưu evidence.
+- **Base drift:** `main` hiện quan sát tại `5d52e32f20021e36f08f284ef9864d3ba36dbead`, không còn `b57b44e...`. Blob P02/P05/P06 vẫn trùng, nhưng `lineage.md` trên main là `259adcd9fa7197c197d424ced9a7e5887e378663`, trên PR15 là `971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9`. Đây là cập nhật nhánh main độc lập; **Codex phải đánh giá khả năng tích hợp với main hiện tại trước khuyến nghị merge**. Không tự rebase, force-push hoặc chạm lineage.
+- Handoff được lưu sau các commit evidence, nên **PR15_HEAD phải lấy lại trực tiếp từ GitHub khi bắt đầu review**. Không sử dụng SHA của đoạn văn này làm HEAD động.
+
+**Gate khi nhận:** `WINDOWS_OWNER_QA=PASS_16_PLUS_9`; `RAW_BYTE_CUSTODY=PASS_3/3`; `DISTINCT_CODEX_REREVIEW=PENDING`; `MAIN_BASE_COMPAT_REVIEW=PENDING`; `MERGE=HOLD`. Reviewer chỉ ra `PASS_REVIEWED_SCOPED` nếu tự xác minh thực chất; dừng sau khuyến nghị `MERGE_CANDIDATE`/`MERGE_HOLD`/`MERGE_DENY`, không merge.
