@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.vm.v4.r7_failure_r8_protocol_adjudication.v1",
+  "operation": "TTM_VM_V4_R7_MARKER_SHORTCUT_FAILURE_ADJUDICATION_AND_PROSPECTIVE_R8_PROTOCOL_REVIEW_NO_GENERATION",
+  "as_of": "2026-11-14",
+  "source_commit": "cac10a2f3a6609379a7b976f520e084c483c4921",
+  "r7_protocol_commit": "74ef335fb1418515a21591c598d9109ce68070c4",
+  "r7_sha256_private": "d9e9d6534eae4dbe1169edf2eaa7b6cc2da04eee94296b791b839f6531522db4",
+  "r7_candidate": "FROZEN_FAIL_NO_MUTATION",
+  "r7_static_qa": {
+    "pass": 7,
+    "total": 9,
+    "fail": 2,
+    "marker_action_correct": "64/64",
+    "marker_gold_correct": "32/32"
+  },
+  "root_cause": {
+    "unique_marker": "CONFIRMED",
+    "stratum_label_confound": "CONFIRMED_DESIGN",
+    "family_balance_insufficiency": "CONFIRMED_DESIGN",
+    "generalized_shortcut": "NOT_EXECUTED"
+  },
+  "r8_protocol": {
+    "type": "DRAFT_DESIGN_ONLY",
+    "legacy_strata_status": "NOT_BALANCED_AND_NOT_RETAINED_AS_LABEL_DEFINING",
+    "new_relation_families": 8,
+    "planned_cases": 64,
+    "planned_cards_per_case": 32,
+    "planned_select": 32,
+    "planned_abstain": 32,
+    "planned_matched_pairs": 32,
+    "marker_only_gold_oracle": "HARD_FAIL",
+    "question_only_two_sided": "PROPOSED",
+    "metadata_only": "PROPOSED",
+    "family_heldout": "PROPOSED",
+    "independent_protocol_review": "NOT_EXECUTED",
+    "owner_adoption": "NOT_ATTESTED",
+    "rights": "NOT_ATTESTED"
+  },
+  "r8_generation": "NOT_EXECUTED_NOT_AUTHORIZED",
+  "r8_private_data": "NOT_CREATED",
+  "r8_public_packet": "NOT_CREATED",
+  "blind_raters": "SEALED",
+  "threshold": "NOT_FROZEN",
+  "probe256": "SEALED",
+  "reader_calls": 0,
+  "gpu_used": false,
+  "decision": "HOLD_R8_PROTOCOL_OWNER_RIGHTS_AND_INDEPENDENT_REVIEW_NO_GENERATION",
+  "next_operation": "TTM_VM_V4_R8_PROSPECTIVE_PROTOCOL_DISTINCT_SOURCE_REVIEW_AND_OWNER_AMENDMENT_DECISION_NO_GENERATION"
+}
