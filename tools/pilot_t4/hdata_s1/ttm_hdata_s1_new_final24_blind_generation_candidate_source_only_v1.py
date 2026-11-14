@@ -249,6 +249,8 @@ def greedy64(model, bpe, text, torch, device):
 def generate_once(args):
     selfsha = sha(__file__)
     check_permit(args, selfsha)  # BEFORE torch import, NEW FINAL, AES key, checkpoint
+    # cuBLAS determinism must be configured BEFORE the CUDA context is initialized.
+    os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
     import torch
     need(torch.cuda.is_available() and torch.cuda.device_count() == 1 and
          "T4" in torch.cuda.get_device_name(0) and
@@ -309,7 +311,6 @@ def generate_once(args):
                          "permit_sha256": args.permit_sha,
                          "unblind": False}) + b"\n")
 
-    os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     torch.backends.cudnn.deterministic = True
