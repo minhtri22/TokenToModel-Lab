@@ -1,0 +1,601 @@
+{
+  "schema": "ttm.d1_bridge.v4.single_packet.task_relevant_ood_parser_auditor_contrast_package.source_contract.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V4_SINGLE_PACKET_TASK_RELEVANT_OOD_PARSER_AUDITOR_AND_CONTRAST_CONTROL_PREREG_SOURCE_AMENDMENT_NO_GPU",
+  "date": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "versioning": {
+    "revision": "V4_NEW_NOT_IN_PLACE",
+    "v1_v2_v3": "IMMUTABLE",
+    "frozen_v3_science_head": "8f0714b29c98ca9be7c7444f964267faea4efb76",
+    "frozen_v3_blob_sha1": "927e7931ee044c70db4354db43330ae93f11331d",
+    "review_status": "HOLD_REVISE_BEFORE_PREREG",
+    "review_report_original_sha256": "e806d03741c50d75a5e0ad910a1700c511c8057450384a5cad22cc94a96fd441",
+    "review_receipt_original_sha256": "1a7421f992d80e778152f0a03434c358a4251f66716c5e910aefb890ded530c7",
+    "review_receipt_blob_sha1": "425260e35a3c2d798058ea35d8007144072bcbd3",
+    "reviewer_independence": "NEW_CHAT_AI_SELF_ATTESTED_NOT_HUMAN_NOT_EXTERNALLY_VERIFIED"
+  },
+  "review_issues": {
+    "v2_original": [
+      {
+        "id": "D1V2-01",
+        "AM": "AM01",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-02",
+        "AM": "AM01",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-03",
+        "AM": "AM02",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-04",
+        "AM": "AM02",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-05",
+        "AM": "AM03",
+        "v3_status": "PASS"
+      },
+      {
+        "id": "D1V2-06",
+        "AM": "AM03",
+        "v3_status": "PASS"
+      },
+      {
+        "id": "D1V2-07",
+        "AM": "AM04",
+        "v3_status": "PASS"
+      },
+      {
+        "id": "D1V2-08",
+        "AM": "AM05",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-09",
+        "AM": "AM05",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-10",
+        "AM": "AM06",
+        "v3_status": "HOLD"
+      },
+      {
+        "id": "D1V2-11",
+        "AM": "AM06",
+        "v3_status": "HOLD"
+      }
+    ],
+    "v3_new": [
+      {
+        "id": "D1V3-N01",
+        "severity": "CRITICAL",
+        "root": "FALSE_OOD_FROM_IRRELEVANT_OBSERVABLE_LABELS"
+      },
+      {
+        "id": "D1V3-N02",
+        "severity": "CRITICAL",
+        "root": "TIME_ID_NOT_IN_OUTPUT_EBNF"
+      },
+      {
+        "id": "D1V3-N03",
+        "severity": "CRITICAL",
+        "root": "EVAL_AST_MAY_ENCODE_GOLD"
+      },
+      {
+        "id": "D1V3-N04",
+        "severity": "HIGH",
+        "root": "OBJECTIVE_NEGATIVE_EXPOSURE_COMPUTE_CONFOUND"
+      },
+      {
+        "id": "D1V3-N05",
+        "severity": "HIGH",
+        "root": "SEED_IID_POPULATION_NOT_ESTABLISHED"
+      },
+      {
+        "id": "D1V3-N06",
+        "severity": "MEDIUM",
+        "root": "SELF_AUTHOR_ASSERTIONS_NOT_SEMANTIC_TESTS"
+      }
+    ],
+    "all_issues_count": 17
+  },
+  "research_question": {
+    "intervention": "C_CONTRASTIVE_TRAINING_PACKAGE_VS_B_MLE",
+    "primary_estimand": "EFFECT_OF_PACKAGE_OBJECTIVE_PLUS_TRAIN_ONLY_CONTRASTIVE_NEGATIVE_SUPERVISION_PLUS_ADDITIONAL_COMPUTE_AT_FIXED_B_C_TRAIN_BYTES_ORDER_AND_OPTIMIZER_STEPS",
+    "not_claimed": [
+      "OBJECTIVE_LOSS_ONLY_EFFECT",
+      "EQUAL_NEGATIVE_EXPOSURE",
+      "EQUAL_FLOPS",
+      "GENERAL_INTELLIGENCE_OR_ALL_PRETRAINING_OOD"
+    ],
+    "contrasts": {
+      "A": "A_BASE_MLE_SECONDARY_DATA_EFFECT",
+      "B": "B_CF_MLE_CONTROL",
+      "C": "C_CF_CONTRAST_PACKAGE"
+    },
+    "optional_future_exposure_matched_control": "SEPARATE_PREREG_REQUIRED_IF_OBJECTIVE_ONLY_CLAIM_DESIRED; NOT_PART_OF_V4_PRIMARY",
+    "primary_statistic": "P_seed(D_s>0) on fixed 16 semantic OOD skeletons",
+    "primary_measure": "BOUNDED_FREE_GENERATION_OF_CANONICAL_SEMANTIC_ACTION_WITH_TIME_NOT_OPEN_ENDED_NATURAL_LANGUAGE",
+    "fixed_data_comparison": "B_AND_C_SAME_TRAIN_FAMILY_BYTES_AND_SAMPLER_EPISODE_ORDER; C_NEGATIVE_EXPOSURE_SPECIFIED_EXTRA_TREATMENT",
+    "causal_limit": "PACKAGE_COMPARISON_ONLY"
+  },
+  "AM01_task_relevant_OOD": {
+    "issues": [
+      "D1V2-01",
+      "D1V2-02",
+      "D1V3-N01"
+    ],
+    "status": "DESIGN_CONTRACT_NOT_EXECUTED",
+    "task_semantics": {
+      "domain": "finite_typed_reachable_world_states_two_counterfactual_conditions",
+      "action_ontology": "typed agent verb target time qualifier",
+      "observable_policy": "pi(ast,reachable_state,condition) -> canonical_action_and_task_goal_achieved",
+      "task_relevant_outputs": [
+        "chosen_agent",
+        "action_verb",
+        "action_target",
+        "time_relation",
+        "qualifier",
+        "goal_satisfaction",
+        "condition_dependent_decision"
+      ],
+      "inert_unobservable": [
+        "bookkeeping_events",
+        "unused_event_ids",
+        "state_self_loops_that_do_not_change_action_or_goal",
+        "guard_evaluation_labels_without_effect_on_policy"
+      ],
+      "canonicalization": "type_preserving_alpha_rename_and_neutral_literal_normalization; cannot collapse task-relevant agent,time,priority,negation or causal dependency",
+      "internal_tau_policy": "inert transitions erased only after independent proof of action_policy_and_goal_invariance over all reachable states",
+      "trace_use": "TRACE_CAUSAL_WITNESS_AUXILIARY_NOT_SUFFICIENT_FOR_TASK_RELEVANT_OOD",
+      "comparison_input_alphabet": "frozen typed entity roles, admissible finite initial states, A_B condition values and task-relevant intervention probes",
+      "total_determinism": "explicit finite transition function required for every admitted state/input; outside domain -> UNKNOWN_HOLD",
+      "semantic_novelty_predicate": "NOT_TASK_POLICY_EQUIVALENT_AFTER_TYPE_CANONICALIZATION_AND_NOT_STRUCTURAL_ISOMORPHIC_AFTER_CAUSAL_DEPENDENCY_NORMALIZATION",
+      "policy_difference_proof": "reachably_executable_counterexample_input_where_canonical_action_OR_goal_satisfaction_changes_under_type_preserving_alignment",
+      "causal_difference_proof": "counterexample_requires_changed_task_relevant_dependency_guard_priority_temporal_or_causal_link_not_action_literal_renaming",
+      "same_policy_different_irrelevant_trace": "EQUIVALENT_FOR_TASK_RELEVANCE_AND_REJECT_OOD",
+      "difference_only_unreachable_states": "REJECT_AS_OOD_PROOF",
+      "novelty_scope": "TASK_POLICY_RELATIVE_TO_CONTROLLED_TRAIN_VAL_GRAMMAR_NOT_ENTIRE_PARENT_PRETRAINING",
+      "different_domains_not_alignable": "UNKNOWN_HOLD",
+      "determinism_or_counterexample_undefined": "UNKNOWN_HOLD"
+    },
+    "audit_algorithm": [
+      "construct_typed_FSM_and_reachable_state_set_for_frozen_admissible_inputs",
+      "type_preserving_alpha_canonicalization_and causal dependency normalization",
+      "quotient_proven_inert_tau_steps_no_effect_on_policy_or_goal",
+      "test_decision_policy_goal_equivalence over reachable common input alphabet and A_B",
+      "if no task relevant witness EQUIVALENT_REJECT_OOD regardless of trace difference",
+      "if task relevant counterexample with causal dependency change then DIFFERENT_TASK_RELEVANT",
+      "if unknown/unbounded/unsupported equivalence then UNKNOWN_HOLD"
+    ],
+    "synthetic_preexec_fixtures": [
+      {
+        "name": "inert_trace_label_flip",
+        "expect": "EQUIVALENT_REJECT_OOD"
+      },
+      {
+        "name": "alpha_rename_entities",
+        "expect": "EQUIVALENT_REJECT_OOD"
+      },
+      {
+        "name": "same_policy_different_bookkeeping_selfloop",
+        "expect": "EQUIVALENT_REJECT_OOD"
+      },
+      {
+        "name": "reachable_priority_inversion_changes_action",
+        "expect": "TASK_RELEVANT_DIFFERENT"
+      },
+      {
+        "name": "reachable_temporal_order_changes_action_time",
+        "expect": "TASK_RELEVANT_DIFFERENT"
+      },
+      {
+        "name": "negation_changed_condition_action",
+        "expect": "TASK_RELEVANT_DIFFERENT"
+      },
+      {
+        "name": "action_word_literal_swap_only",
+        "expect": "EQUIVALENT_AFTER_TYPE_CANONICALIZATION"
+      },
+      {
+        "name": "unreachable_only_diff",
+        "expect": "EQUIVALENT_FOR_TASK_OOD"
+      },
+      {
+        "name": "incomplete_state_alphabet",
+        "expect": "UNKNOWN_HOLD"
+      }
+    ],
+    "skeletons_per_category_train": 4,
+    "skeletons_per_category_ood": 4,
+    "categories": 4,
+    "ood_skeleton_total": 16,
+    "split_guard": "BOTH_TRAIN_VS_EVAL_AND_VAL_VS_EVAL_TASK_RELEVANT_NON_EQUIVALENCE_REQUIRED",
+    "unresolved_or_overlap": "WHOLE_BATCH_HOLD_NO_POSTOUTCOME_REPLACEMENT",
+    "generator_code_SHA": "NOT_CREATED",
+    "nonoverlap_checker_code_SHA": "NOT_CREATED",
+    "actual_QA": "NOT_EXECUTED",
+    "data_generated": false
+  },
+  "AM02_parser_oracle": {
+    "issues": [
+      "D1V2-03",
+      "D1V2-04",
+      "D1V3-N02"
+    ],
+    "status": "SOURCE_CONTRACT_ONLY_NOT_A_REAL_PARSER",
+    "scored_action_fields": [
+      "agent_id",
+      "verb_id",
+      "target_id",
+      "time_id",
+      "qualifier_id"
+    ],
+    "time_policy": "TIME_REQUIRED_ALWAYS_VISIBLE_IN_MODEL_GENERATED_OUTPUT_AND_SCORED; NO_INFERENCE_OF_TIME_FROM_GOLD_FOR_SCORING",
+    "grammar": {
+      "ebnf": "ACTION ::= AGENT SP VERB SP TARGET SP TIME (SP QUALIFIER)? TERMINAL? ; TIME ::= FROZEN_TIME_PHRASE ; TERMINAL ::= '.' | '!'",
+      "required_terminal_schema": "TIME one explicit typed temporal phrase even if canonical time is NONE; NONE marker is lexicon entry, never implicit",
+      "allowed_phrase_coverage": "finite bounded natural phrasing grammar with versioned typed lexicon and synonyms; no unconstrained paraphrase credit",
+      "surface_to_action": "PARSER_OUTPUT_TUPLE_FROM_GENERATED_TEXT_ONLY; prompt identifies condition but must not fill missing scored tuple fields",
+      "injectivity_requirement": "every accepted surface maps to exactly one scored action tuple including time; ambiguous surface -> invalid 0",
+      "oracle": "unique total action proof from sealed AST separately under each condition; gold_A != gold_B; reject no unique proof before EVAL freeze",
+      "witness": "condition and proof metadata sealed not required to appear in generated sentence",
+      "unknown_synonyms": "INVALID_SCORE_ZERO",
+      "no_substring_matching": true,
+      "reject": [
+        "no_TIME",
+        "negative_action",
+        "quoted_only",
+        "multiple_actions",
+        "wrong_agent",
+        "wrong_target",
+        "wrong_time",
+        "wrong_condition",
+        "contradiction",
+        "prompt_echo",
+        "empty_eos",
+        "truncation",
+        "invalid_special_tokens",
+        "unsupported_synonym"
+      ],
+      "token_budget": {
+        "max_prompt_including_special": 224,
+        "max_generated_including_eos": 32,
+        "context": 256
+      },
+      "family_success": "correct_both_counterfactual_conditions_A_AND_B",
+      "invalid_score": 0,
+      "fixed_denominator_families_per_arm_seed": 256
+    },
+    "measurement_validity": {
+      "claim": "CANONICAL_ACTION_CONSTRAINED_GENERATION_ACCURACY_NOT_UNRESTRICTED_FLOUENT_TEXT_GENERATION",
+      "grammar_compliance_rate": "REPORT_SEPARATELY_NOT_ONLY_PRIMARY",
+      "semantic_action_correctness": "REPORT_AMONG_ALL_PROMPTS_AND_WITH_INVALID_AS_ZERO",
+      "paraphrase_policy": "only frozen accepted bounded paraphrases/synonyms count; out-of_grammar natural-language outputs count invalid; limitation explicitly reported",
+      "fluency_secondary": "OPTIONAL_BLIND_RATER_NO_PRIMARY_OVERRIDE",
+      "independent_preexec_fixture_contract": {
+        "canonical_positives_min": 64,
+        "adversarial_negatives_min": 64,
+        "parser_expected_positive_correct": 64,
+        "parser_expected_negative_false_accept_max": 0,
+        "supported_grammar_mapping_ambiguity_max": 0,
+        "score_collision_cases_must_reject": true,
+        "fixtures_only_synthetic_non_EVAL": true,
+        "per_case_expected_outcome_frozen_before_parser_QA": true
+      },
+      "source_only_not_runtime": "NOT_IMPLEMENTED"
+    },
+    "parser_source_SHA": "NOT_CREATED",
+    "lexicon_SHA": "NOT_CREATED",
+    "oracle_QA": "NOT_EXECUTED",
+    "parser_adversarial_QA": "NOT_EXECUTED",
+    "new_EVAL_gold": false
+  },
+  "AM03_statistics": {
+    "status": "INHERITED_V3_DESIGN_PASS_SCOPED_BY_EXTERNAL_AI_RUNTIME_IID_HOLD",
+    "seed_values": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261201
+    ],
+    "seed_count": 12,
+    "families_per_seed": 256,
+    "equal_categories": 4,
+    "families_per_category_seed": 64,
+    "score_unit": "each_family_passes_only_if_both_A_and_B_condition_outputs_correct",
+    "D_s_definition": "integer(sum_over_256_families(success_C - success_B))",
+    "d_s_formula": "D_s/256",
+    "seed_positive": "D_s>0",
+    "seed_tie": "D_s=0_is_nonpositive",
+    "seed_negative": "D_s<0_is_nonpositive",
+    "strict_comparison_tolerance": "NONE_INTEGER_ONLY",
+    "independence": {
+      "training_parent_shared": true,
+      "evaluation_family_ids_shared_across_seeds": true,
+      "per_seed_training_rng_root": "seed_hash_input_epoch_sha_and_fixed_seed_and_domain_label",
+      "domain_separate_streams": [
+        "sampler",
+        "dropout",
+        "negative_sampler",
+        "init_if_any",
+        "augmentation_if_any"
+      ],
+      "PRNG_independence_statistical": "NOT_ESTABLISHED_BY_DIFFERENT_NUMERIC_SEED_LABELS",
+      "identical_data_across_seed_conditional_scope": true,
+      "seed_failure": "HOLD_ALL_12_NO_REPLACE_NO_SELECTIVE_RERUN"
+    },
+    "hypothesis": {
+      "H0": "P_training_seed(D_s>0)<=1/2_conditional_on_fixed_16_skeletons",
+      "H1": "P_training_seed(D_s>0)>1/2_conditional_on_fixed_16_skeletons",
+      "not_tested": "NO_INFERENTIAL_TEST_OF_MEAN_D_OR_MEAN_GE_PLUS_0P10"
+    },
+    "exact_sign_test": {
+      "n": 12,
+      "k": "number of seeds with D_s>0",
+      "ties": "count_as_nonpositive",
+      "tail": "p=sum_{j=k}^{12}(n choose j)/2^12",
+      "alpha": 0.05,
+      "pass_if_k_at_least": 10,
+      "k9_p_exact": "299/4096",
+      "k10_p_exact": "79/4096",
+      "k11_p_exact": "13/4096",
+      "k12_p_exact": "1/4096",
+      "test_of": "PROBABILITY_SEED_POSITIVE_NOT_MEAN_MAGNITUDE"
+    },
+    "sensitivity": {
+      "probability_positive_seed_hypothetical_q": [
+        0.7,
+        0.8,
+        0.9
+      ],
+      "power_only_sign_test_approx": [
+        0.252815347855,
+        0.55834574848,
+        0.889130022255
+      ],
+      "probability_assumption": "IID_BERNOULLI_SEEDS_IDEALIZATION_UNVERIFIED",
+      "all_gates_power": "LEQ_SIGN_COMPONENT_POWER",
+      "pilot_outcomes_used_for_power_fit": false
+    },
+    "crossed_bootstrap_exploratory": {
+      "seed_resample_once_whole_joint_dataset": true,
+      "skeleton_resample_once_per_category_shared_across_seed": true,
+      "lexical_resample_once_per_skeleton_shared_across_seed": true,
+      "keep_B_C_same_family_and_A_B_conditions_paired": true,
+      "draws": 10000,
+      "seed": 20261202,
+      "claim": "CONDITIONAL_DESCRIPTIVE_SENSITIVITY_NOT_POPULATION_OOD_CONFIDENCE_CLAIM",
+      "actual_bootstrap_data": "NONE"
+    },
+    "pin": "same exact 12 seeds and D_s integer strict >0, zero nonpositive, no epsilon, no replacement, exact k>=10/12"
+  },
+  "AM04_category": {
+    "status": "INHERITED_V3_DESIGN_PASS_SCOPED_BY_EXTERNAL_AI_INTEGRAL_GATES_UNCHANGED",
+    "threshold_provenance": "FC01_EXPLORATORY_PILOT_INFORMED_A_PRIori_FOR_FUTURE_D1_ONLY",
+    "integer_gates": {
+      "positive_seed_count_at_least": 10,
+      "sum_D_s_across_12_at_least": 308,
+      "category_signed_diff_each_nonnegative_min": 0,
+      "category_signed_diff_ge_5pp_count_at_least": 3,
+      "category_signed_diff_ge_5pp_count_threshold_each": 39,
+      "category_C_absolute_correct_count_threshold_each": 192,
+      "explanation": "12*256*0.10=307.2 => ceiling 308; 12*64*0.05=38.4 => ceiling39; 12*64*0.25=192"
+    },
+    "category_scope": "pooled over 12 seeds and 64 fixed families per category; four categories given equal weights",
+    "not_inferential_population_guarantees": true,
+    "skeleton_diagnostics_no_new_hidden_threshold": [
+      "per_skeleton_4x16_family_success_and_C_minus_B_per_seed",
+      "concentration_ratio_of_C_gain_top_skeleton",
+      "label_swapped_lexical_cue_shortcut_negative_probe",
+      "per_skeleton_failure_rates",
+      "within_category_variance_and_minimum_skeleton_accuracy",
+      "report_if_one_skeleton_accounts_all_C_improvement_as_LIMITATION"
+    ],
+    "decision_priority": [
+      "IF_INVALID_SOURCE_RIGHTS_AST_PARSER_CUSTODY_OR_ANY_MISSING_SEED=>HOLD_INVALID_PROTOCOL",
+      "ELSE_IF_k_lt_10=>NO_CONFIRMED_DIRECTIONAL_GAIN",
+      "ELSE_IF_global_sum_D_lt_308_OR_category_guard_fail=>SCOPED_DIRECTIONAL_GAIN_NOT_UNIFORM",
+      "ELSE_ALL_PASS=>CONFIRM_CONDITIONAL_FIXED_SKELETON_SEED_DIRECTIONAL_ROBUSTNESS_ONLY"
+    ],
+    "decision_title_not_science_GO": true,
+    "min_effect_gate_inferential_test": false,
+    "interpretation": "pooled category guards do not certify per-skeleton uniform benefit; report heterogeneity and no posthoc threshold"
+  },
+  "AM05_custody_rights": {
+    "issues": [
+      "D1V2-08",
+      "D1V2-09",
+      "D1V3-N03"
+    ],
+    "status": "THREAT_MODEL_DEFINED_ACL_NOT_VERIFIED",
+    "threat_model": {
+      "EVAL_AST_is_answer_determining": "TRUE_TREAT_AS_GOLD_ADJACENT_PRIVATE",
+      "no_claim_that_AST_only_is_non_sensitive": true,
+      "trusted_overlap_auditor": "MAY_ACCESS_GOLD_ADJACENT_STRUCTURE_UNDER_ISOLATED_TRUST_BOUNDARY; NO_OWNER_EVAL_DATA_ACCESS",
+      "trainer_must_not_access": [
+        "EVAL_AST",
+        "EVAL_GOLD",
+        "EVAL_RAW",
+        "SECRET_MAPPING",
+        "PRIVATE_AUDIT_WITNESSES"
+      ],
+      "auditor_must_not_output": [
+        "EVAL_AST",
+        "GOLD",
+        "SINGLE_FAMILY_FAILURE_LIST",
+        "COUNTEREXAMPLE_TRACE_TO_TRAINER",
+        "ARM_MAPPING",
+        "TASK_KEYS",
+        "LEAKY_MATCH_COUNTS"
+      ],
+      "adaptive_oracle_risk": "one sealed audit batch, one minimal decision receipt, no user-chosen repeated overlap queries",
+      "audit_failure_policy": "ANY_QUERY_REPEAT_OUTSIDE_FROZEN_PROTOCOL_OR_ACL_DENY_OR_UNTRUSTED_KEY_OR_UNKNOWN_EQUALS_HOLD",
+      "role_separation": "technical ACL and credentials verified later; role names alone are not evidence"
+    },
+    "sealed_workflow": [
+      "freeze TRAIN_VAL_AST_hash and sealed EVAL_AST_hash with separate custodians before overlap audit",
+      "trusted auditor reads full answer-adjacent typed AST representations under restricted workspace; no raw model output",
+      "pin checker binary/source hash, complete batch manifest and both SHA references",
+      "perform a single complete TRAIN_EVAL and VAL_EVAL check with task-relevant OOD equivalence checker",
+      "private counterexample witnesses retained only in auditor-controlled enclave; owner receives PASS_FAIL_UNKNOWN plus hash-bound signed receipt",
+      "public receipt contains no individual matches, gold, AST or mapping; no adaptive repeated requests",
+      "deny-probe, key ownership, static signed receipt schema and clean audit logs before future science GO"
+    ],
+    "authenticated_receipt": {
+      "fields": [
+        "audit_batch_hash",
+        "TRAIN_VAL_AST_commitment",
+        "EVAL_AST_commitment",
+        "checker_source_SHA",
+        "decision_PASS_FAIL_UNKNOWN",
+        "timestamp",
+        "reviewer_role",
+        "signature"
+      ],
+      "algorithm": "Ed25519_PREEXEC_PROPOSED_SIGNING_NOT_EXECUTED",
+      "signer_public_key_pin": "NOT_CREATED",
+      "signature_actual": "NOT_EXECUTED"
+    },
+    "rights": {
+      "TinyStories_source_declaration": "CDLA-Sharing-1.0_UNVERIFIED_FOR_V4_NEW_DATA",
+      "new_training_data_license_and_attribution": "OWNER_ATTESTATION_REQUIRED",
+      "PII_and_copyright_negative_audit": "PENDING",
+      "pretrained_parent_exposure": "NOT_EXCLUDABLE"
+    },
+    "acl_source_QA": "NOT_EXECUTED",
+    "actual_rights": "NOT_VERIFIED",
+    "gold_created": false
+  },
+  "AM06_contrast_control_resource": {
+    "issues": [
+      "D1V2-10",
+      "D1V2-11",
+      "D1V3-N04",
+      "D1V3-N05",
+      "D1V3-N06"
+    ],
+    "status": "PACKAGE_ESTIMAND_FREEZE_AND_FUTURE_PREEXEC_CONTRACT_NO_EXECUTION",
+    "primary_arm_contrast": "C_FULL_CONTRASTIVE_PACKAGE_VS_B_MLE; NEGATIVE_SUPERVISION_AND_EXTRA_COMPUTE_NOT_CONTROLLED",
+    "contrasts": [
+      "A_BASE_MLE",
+      "B_CF_MLE",
+      "C_CF_CONTRAST_PACKAGE"
+    ],
+    "equalization": {
+      "same_parent_P02": true,
+      "same_T1_BPE": true,
+      "same_B_C_TRAIN_bytes_and_episode_order": true,
+      "same_optimizer_updates": true,
+      "negative_info_exposure": "NOT_EQUALIZED_DELIVERED_AS_PART_OF_PACKAGE",
+      "forward_FLOPs": "NOT_EQUALIZED_MUST_LOG"
+    },
+    "new_control_arm": "NOT_ADDED_36_RUN_BUDGET_UNCHANGED; OBJECTIVE_ONLY_CLAIM_FORBIDDEN",
+    "frozen_negs_spec_required": {
+      "source": "TRAIN_ONLY_NO_VAL_TEST_EVAL_ANY_GOLD",
+      "generation": "counterfactual_A_B_within_TRAIN_family_only, stable semantic provenance and label construction",
+      "selection": "fully specified deterministic negative_sampler keyed to per-seed domain-root",
+      "duplication_and_leakage": "dedup and match against future TRAIN/VAL/EVAL structural commitments without revealing EVAL; check no held-out answer leaks",
+      "ratio_coefficient": "EXACT_FLOAT_VALUES_NOT_YET_SPECIFIED_HOLD_BEFORE_FINAL_IMPL",
+      "runner_source_SHA": "NOT_CREATED",
+      "sampler_source_SHA": "NOT_CREATED"
+    },
+    "randomness_non_degenerate": {
+      "seed_values": [
+        20261120,
+        20261121,
+        20261122,
+        20261123,
+        20261124,
+        20261125,
+        20261126,
+        20261127,
+        20261128,
+        20261129,
+        20261130,
+        20261201
+      ],
+      "root": "H(seed_value || pinned_protocol_sha || domain_label) deterministic one-way seed derivation exact algorithm pending pin",
+      "domains": [
+        "sampler",
+        "negative_sampler",
+        "dropout",
+        "augmentation_if_present",
+        "initialization_if_present"
+      ],
+      "positive_control": "same_seed_repeated_short_synthetic_trajectory_digest_MATCH",
+      "negative_control": "different_seed_trajectories_differ_in_intended_stochastic_fields_AND_training_update_stream",
+      "if_zero_actual_stochastic_variance": "HOLD_INFERENTIAL_SIGN_TEST_NOT_VALID",
+      "iid_assumption": "NOT_PROVEN_FROM_DIFFERENT_LABELS_ALONE; reruns must avoid correlated stream reuse"
+    },
+    "source_pins": {
+      "parent_P02_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "T1_BPE2048_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "V4_runner_SHA": "NOT_CREATED",
+      "V4_data_SHA": "NOT_CREATED",
+      "V4_parser_SHA": "NOT_CREATED",
+      "contrast_negative_sampler_SHA": "NOT_CREATED"
+    },
+    "planned": {
+      "seed_count": 12,
+      "arms_count": 3,
+      "optimizer_updates_per_arm": 256,
+      "total_arm_runs": 36,
+      "total_optimizer_updates": 9216,
+      "families_per_arm_seed": 256,
+      "conditions_per_family": 2,
+      "total_generated_outputs": 18432,
+      "FP32": true
+    },
+    "AdamW_resume_required": "nonzero moments K uninterrupted vs interrupted K restored with exact source and RNG; wrong hash, missing exp_avg, exp_avg_sq and partial snapshot fail closed; NOT_EXECUTED",
+    "Free_T4_resource_gate": "measure per-arm throughput, peak vram, CPU ram, disk, Drive I/O, cumulative capacity, quota, disconnect one-shot resumability; Free T4 $0 paid cap NOT_VERIFIED",
+    "no_actual_training": true,
+    "no_GPU": true
+  },
+  "gates": {
+    "V3_review": "HOLD_ACCEPTED_2_PASS_4_HOLD_0_FAIL",
+    "V4_new_version": "CANDIDATE_FOR_SOURCE_ONLY_REVIEW",
+    "V4_same_author_QA": "PENDING",
+    "V4_distinct_review": "PENDING",
+    "real_task_relevant_AST_checker": "NOT_IMPLEMENTED",
+    "real_parser": "NOT_IMPLEMENTED",
+    "real_independent_parser_fixture_QA": "NOT_EXECUTED",
+    "real_gold_adjacent_auditor_ACL": "NOT_VERIFIED",
+    "negative_sampler_source": "NOT_CREATED",
+    "seed_randomness_preexec": "NOT_EXECUTED",
+    "real_AdamW_resume": "NOT_EXECUTED",
+    "free_T4_36arm": "NOT_VERIFIED",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "TEST_Q1Q2": "SEALED",
+    "FC02": "NOT_OPENED",
+    "new_EVAL_or_gold": false,
+    "new_optimizer_steps": 0,
+    "new_GPU_calls": 0,
+    "main_merge": false
+  },
+  "owner_single_decision": {
+    "V4_DESIGN": "HOLD_PENDING_DISTINCT_V4_SOURCE_REVIEW",
+    "science": "HOLD",
+    "no_micro_permits": true,
+    "source_only": true,
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V4_DISTINCT_NEW_CHAT_TASK_RELEVANT_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU"
+  }
+}
