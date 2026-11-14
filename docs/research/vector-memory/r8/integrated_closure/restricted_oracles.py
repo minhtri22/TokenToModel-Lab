@@ -180,12 +180,15 @@ def _o5(train,test):
     model.fit(vec.fit_transform(xf),labs,sample_weight=weights)
     answers={};tiecount=0;hits=0;n=0
     for case in test:
-        if case["action"]!="SELECT":continue
+        # Predict on every held-out case WITHOUT looking at its true action.
+        # O6 needs a candidate key even when action=ABSTAIN is the hidden truth.
         probs=model.predict_proba(vec.transform([_o5_features(x) for x in case["cards"]]))[:,1]
         maximum=max(probs);idx=[i for i,x in enumerate(probs) if abs(x-maximum)<1e-12]
-        tiecount+=int(len(idx)>1)
         key=case["cards"][idx[0]]["key"]
-        answers[case["id"]]=key;hits+=int(key==case["target_key"]);n+=1
+        answers[case["id"]]=key
+        if case["action"]=="SELECT":
+            tiecount+=int(len(idx)>1)
+            hits+=int(key==case["target_key"]);n+=1
     return {"status":"EXECUTED_NON_R8_SYNTHETIC_ONLY","select_n":n,
             "correct":hits,"conditional_key_accuracy":hits/n if n else None,
             "null_per_card":1/32,"tie_count":tiecount,"keys":answers,
