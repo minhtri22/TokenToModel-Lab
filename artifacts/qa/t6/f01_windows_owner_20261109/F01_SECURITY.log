@@ -1,0 +1,14 @@
+test_existing_output_rejected_without_overwrite (test_f01_path_containment.T6F01PathContainmentTests.test_existing_output_rejected_without_overwrite) ... ok
+test_malicious_lexical_paths_rejected (test_f01_path_containment.T6F01PathContainmentTests.test_malicious_lexical_paths_rejected) ... ok
+test_missing_parent_fails_without_creation (test_f01_path_containment.T6F01PathContainmentTests.test_missing_parent_fails_without_creation) ... ok
+test_mocked_symlink_denied_before_write (test_f01_path_containment.T6F01PathContainmentTests.test_mocked_symlink_denied_before_write) ... ok
+test_mocked_windows_junction_denied_in_both_python_tools (test_f01_path_containment.T6F01PathContainmentTests.test_mocked_windows_junction_denied_in_both_python_tools) ... ok
+test_qa_input_must_be_existing_regular_file (test_f01_path_containment.T6F01PathContainmentTests.test_qa_input_must_be_existing_regular_file) ... ok
+test_qa_rejects_unsafe_output_even_with_valid_inputs (test_f01_path_containment.T6F01PathContainmentTests.test_qa_rejects_unsafe_output_even_with_valid_inputs) ... ok
+test_real_windows_junction_rejected_before_file_creation (test_f01_path_containment.T6F01PathContainmentTests.test_real_windows_junction_rejected_before_file_creation) ... ok
+test_valid_output_stays_inside_existing_subtree (test_f01_path_containment.T6F01PathContainmentTests.test_valid_output_stays_inside_existing_subtree) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.243s
+
+OK

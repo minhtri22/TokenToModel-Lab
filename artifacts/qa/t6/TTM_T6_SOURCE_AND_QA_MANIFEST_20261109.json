@@ -1,0 +1,138 @@
+{
+  "schema": "ttm.t6.cpu_ab_fixture.evidence_manifest.v1",
+  "date": "2026-11-09",
+  "source_main_sha": "b57b44e7287f842e81050c1faee337f636333dd0",
+  "branch": "feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109",
+  "source_of_truth": "GITHUB_THIS_BRANCH_ONLY",
+  "model_input": "SYNTHETIC_P02_CPU_FP32_NOT_TTM_T4",
+  "fixture_source_pins": {
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "src/p05/dense_kv_cache.py": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+    "src/p06/paged_kv_manager.py": "4d52188adaf55674b6965513ea1beb38ec9a8e9b"
+  },
+  "committed_files": {
+    "tools/t6/cache_ab_benchmark_fixture.py": {
+      "blob": "07693ea446e4747bd987570fc7f645cd4fabafff",
+      "sha256": "3cff1b6a065b5658798c04553a337225110cf0a9167afa955e67319c2be7bb9f"
+    },
+    "tools/t6/independent_scoped_qa.py": {
+      "blob": "54866c11b3bbccf887bc8e6bb2012dd9592d4624",
+      "sha256": "7b5a022fdc1b2bac4d40fb58928743cb862a8bc2db47a120d2b28137151a1fd7"
+    },
+    "tools/t6/build_report.py": {
+      "blob": "353f28f8cf115e0037f4c573d6b6def0f16c8305",
+      "sha256": "b51a3d35078a1fd28be33ecbc651b72cb796aea3ee1b236fa67de245a205e59c"
+    },
+    "tests/t6/test_cache_ab_fixture.py": {
+      "blob": "d4066b5050e9e205426625f2921af7e96516f34c",
+      "sha256": "09fddcce145b40807c2a92ba26a7624af55ce5351751853837b5f73729705264"
+    },
+    "artifacts/qa/t6/TTM_T6_SYNTHETIC_CPU_AB_20261109.json": {
+      "blob": "ee7e3f5a53fc88dc9edb571fb079bfc30473076a",
+      "sha256": "e808cec6a25117bc3269d1ac25f1e37fb97bf15c1063bcd9453d90e8595d6439"
+    },
+    "artifacts/qa/t6/TTM_T6_INDEPENDENT_QA_20261109.json": {
+      "blob": "1d86fab19e6a9d652819e9462d79ae43537e6716",
+      "sha256": "93ac48d9c913df505ab6093337d58dadb16930e8a61417ef939e3dd5d6260162"
+    },
+    "artifacts/qa/t6/TTM_T6_UNITTEST_20261109.log": {
+      "blob": "db01704c4c3c2ff45189395dc1913e2fb0b20375",
+      "sha256": "c4b4a5a2e3b804767cbd61f49750f781c48f82434260e779d4cac42ecfced000"
+    },
+    "docs/t6/TTM_T6_CPU_NO_CACHE_DENSE_PAGED_AB_SCOPED_RESULTS_20261109.md": {
+      "blob": "bfe71650a015b0e2bbddc756a241993f78da4b87",
+      "sha256": "30e4fb3b8a6b55266b27d4d1053de85c395e75c58b097d20a0e09e82ae852199"
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pytorch": "2.10.0+cpu",
+    "platform": "Linux off-host",
+    "dtype": "float32",
+    "torch_threads": 2
+  },
+  "execution": {
+    "workloads": 3,
+    "backend_count": 3,
+    "prompt_lengths": [
+      4,
+      11,
+      16
+    ],
+    "generated_tokens_each": 6,
+    "warmups_per_mode": 1,
+    "repeats_per_mode": 4,
+    "measurements": "TTFT TPOT KV physical pool/request reservation/logical/fragmentation and sampled RSS"
+  },
+  "qa": {
+    "unittest": {
+      "passed": 16,
+      "total": 16,
+      "final_status": "PASS",
+      "first_attempt": "FAIL_TOOLING_NEGATIVE_TEST_INFERENCE_TENSOR_INPLACE_ONLY_CORRECTED"
+    },
+    "independent_material": {
+      "passed": 33,
+      "total": 33,
+      "status": "PASS"
+    },
+    "exact_git_blob_readback": {
+      "passed": 8,
+      "total": 8
+    },
+    "highest_logits_max_abs_error": 2.682209014892578e-7,
+    "dense_paged_direct_max_error_in_fixture": 0
+  },
+  "decisions": {
+    "scoped_technical": "PASS",
+    "real_checkpoint_quality": "NOT_EXECUTED",
+    "Windows_CPU": "NOT_EXECUTED",
+    "GPU_P07": "NOT_OPENED",
+    "GPU_BATCH_P08": "NOT_OPENED",
+    "speedup_claim": "NOT_AUTHORIZED",
+    "main": "UNCHANGED",
+    "lineage": "UNCHANGED",
+    "merge": "HOLD_DRAFT_PR_REVIEW"
+  },
+  "note": "All eight benchmark/test/report files were byte-exact verified by Git blob on this branch; no model source code was edited. GitHub is canonical, temporary Library relay was deleted.",
+  "amendment_20261109_windows_preflight": {
+    "reason": "Local Windows attempted unittest from repository root where tests/t6 was absent; no T6 tests or benchmark ran. Corrected instructions require exact HEAD detached worktree.",
+    "windows_attempt": {
+      "python": "3.12",
+      "torch": "2.11.0+cpu",
+      "unit": "NOT_EXECUTED_START_DIRECTORY_NOT_IMPORTABLE",
+      "benchmark": "NOT_EXECUTED",
+      "evidence_report": "NOT_CREATED"
+    },
+    "original_offhost_source_blob": "07693ea446e4747bd987570fc7f645cd4fabafff",
+    "current_runner_source_blob": "85795ada12f283c88dcd01091b54f604e57e2418",
+    "actual_change": "measurement_contract.device now reports platform.platform() + CPU (measurement host), without changing numerical kernels or evaluation math",
+    "reproducibility": "Existing offhost measurements and 16/16 plus 33/33 receipts remain pinned to original runner blob. No claims those checks have been rerun after metadata correction.",
+    "source_p02_p05_p06_unchanged": true,
+    "windows_replay": "NOT_YET_EXECUTED_AFTER_FIX",
+    "script": "tools/t6/run_windows_exact_head.ps1",
+    "script_source": "GitHub exact PR HEAD; pin HEAD and verify remote before user executes",
+    "outcome": "HOLD_WINDOWS_EXACT_HEAD_REPLAY_AND_DISTINCT_REVIEW"
+  },
+  "amendment_20261109_ps51_git_pipe_recovery": {
+    "previous_owner_run": {
+      "exact_head": "2f8709aa1148c92d8b9535ac51231ebabcdda443",
+      "git_fetch": "PASS",
+      "worktree_create": "PASS",
+      "runner_preflight": "FAIL_GIT_ROOT_EXIT_MINUS_ONE",
+      "unit_tests": "NOT_EXECUTED",
+      "benchmark": "NOT_EXECUTED",
+      "qa": "NOT_EXECUTED",
+      "cause": "PowerShell 5.1 native git stdout piped to Select-Object -First 1 may early-close causing native git exit -1."
+    },
+    "correction": {
+      "updated_runner": "tools/t6/run_windows_exact_head.ps1",
+      "fix": "Replace all native git Select-Object -First 1 calls with Invoke-GitOneLine, capture complete output and immediately check native exit; check worktree status exit separately; simplify Python -c quoting.",
+      "reuse_worktree": "Existing clean worktree at prior head must be switched detached to new pinned PR15 head after remote verification; no reset/cleanup of user files.",
+      "readme": "tools/t6/README.md"
+    },
+    "status": "COMMITTED_NO_NEW_WINDOWS_EXECUTION_YET",
+    "linux_qa_16_and_33_from_old_runner": "PRESERVED_UNCHANGED",
+    "windows_scoped_qa": "PENDING"
+  }
+}

@@ -1,0 +1,21 @@
+test_bad_output_path_rejected (test_cache_ab_fixture.T6CacheABFixtureTests.test_bad_output_path_rejected) ... ok
+test_cache_tpot_count_and_nonnegative_times (test_cache_ab_fixture.T6CacheABFixtureTests.test_cache_tpot_count_and_nonnegative_times) ... ok
+test_context_overflow_denied_before_append (test_cache_ab_fixture.T6CacheABFixtureTests.test_context_overflow_denied_before_append) ... ok
+test_correctness_short_medium_cross_pages (test_cache_ab_fixture.T6CacheABFixtureTests.test_correctness_short_medium_cross_pages) ... ok
+test_dense_exact_cache_bytes (test_cache_ab_fixture.T6CacheABFixtureTests.test_dense_exact_cache_bytes) ... ok
+test_guard_detects_generated_token_drift (test_cache_ab_fixture.T6CacheABFixtureTests.test_guard_detects_generated_token_drift) ... ok
+test_guard_detects_logits_corruption (test_cache_ab_fixture.T6CacheABFixtureTests.test_guard_detects_logits_corruption) ... ok
+test_invalid_token_rejected_without_allocation (test_cache_ab_fixture.T6CacheABFixtureTests.test_invalid_token_rejected_without_allocation) ... ok
+test_layernorm_and_rmsnorm_parity (test_cache_ab_fixture.T6CacheABFixtureTests.test_layernorm_and_rmsnorm_parity) ... ok
+test_no_cache_no_persistent_kv (test_cache_ab_fixture.T6CacheABFixtureTests.test_no_cache_no_persistent_kv) ... ok
+test_original_source_git_blobs_exact (test_cache_ab_fixture.T6CacheABFixtureTests.test_original_source_git_blobs_exact) ... ok
+test_paged_exact_cache_fragmentation_and_scrub (test_cache_ab_fixture.T6CacheABFixtureTests.test_paged_exact_cache_fragmentation_and_scrub) ... ok
+test_paged_out_of_memory_no_partial_append (test_cache_ab_fixture.T6CacheABFixtureTests.test_paged_out_of_memory_no_partial_append) ... ok
+test_repeat_measurement_samples_present (test_cache_ab_fixture.T6CacheABFixtureTests.test_repeat_measurement_samples_present) ... ok
+test_train_mode_not_benchmark_eligible (test_cache_ab_fixture.T6CacheABFixtureTests.test_train_mode_not_benchmark_eligible) ... ok
+test_two_request_interleaved_isolation (test_cache_ab_fixture.T6CacheABFixtureTests.test_two_request_interleaved_isolation) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.634s
+
+OK

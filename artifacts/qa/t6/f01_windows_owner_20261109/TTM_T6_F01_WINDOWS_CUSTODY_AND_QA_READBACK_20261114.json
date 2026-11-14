@@ -1,0 +1,79 @@
+{
+  "schema": "ttm.t6.pr15.f01.windows_author_qa_custody_readback.v1",
+  "readback_date": "2026-11-14",
+  "operation": "TTM_T6_PR15_F01_WINDOWS_NEGATIVE_QA_THEN_CODEX_DISTINCT_REREVIEW",
+  "github_source_of_truth": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "branch": "feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109",
+    "pr_number": 15
+  },
+  "author_execution": {
+    "source_head": "535653dd18b7ebaefb3fdd2994b302c35ad09d6e",
+    "platform": "Windows 11; Python 3.12",
+    "worktree": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\.worktrees\\ttm-t6-f01-security-qa-20261109",
+    "original_benchmark": "PRESERVED_NOT_RERUN",
+    "unittest_legacy": {
+      "count": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 10.031
+    },
+    "unittest_f01_security": {
+      "count": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 0.243,
+      "real_windows_junction_case": "PASS_NOT_SKIPPED",
+      "both_python_entrypoints_tested": true
+    }
+  },
+  "source_evidence": {
+    "artifacts/qa/t6/f01_windows_owner_20261109/T6_LEGACY_16.log": {
+      "sha256": "80dd5547c0aeae092661d527f54b757c4f1eb7c52c7d4e6e8c6f8c04cf10df5f",
+      "github_git_blob_sha1": "943a0d3f3e2ad533c8f970c7e8be403c8bda803d",
+      "raw_newline": "CRLF with final CRLF"
+    },
+    "artifacts/qa/t6/f01_windows_owner_20261109/F01_SECURITY.log": {
+      "sha256": "eda084ff885921dd04132f852b57d915a4d859b64284ee8d62af4159f5e95507",
+      "github_git_blob_sha1": "48bdd5d02b244d0fa3b09904b2f457d52fb250cf",
+      "raw_newline": "CRLF with final CRLF"
+    },
+    "artifacts/qa/t6/f01_windows_owner_20261109/TTM_T6_F01_WINDOWS_AUTHOR_QA_RECEIPT.json": {
+      "sha256": "92d626f09cbde6ea94f1c75a38df650ef52da4f385defe52f754f14468b45ef3",
+      "github_git_blob_sha1": "6dae3833282ddca1afcdd52345c5882d1287011d",
+      "raw_newline": "CRLF body with final LF"
+    }
+  },
+  "integrity_checks": {
+    "owner_receipt_sha256_matches_reported": "PASS",
+    "internal_log_sha256_recomputed_from_original_windows_newlines": "PASS_2_OF_2",
+    "receipt_sha256_recomputed_from_original_windows_newlines": "PASS",
+    "github_git_blob_readback_exact": "PASS_3_OF_3",
+    "source_blobs_preserved_from_execution_head_to_evidence_commit": "PASS_7_OF_7",
+    "independent_source_of_sha": "RemoteDesktop original Windows worktree readback, with verification against GitHub fetched raw text; no rerun"
+  },
+  "base_drift_readback": {
+    "observed_current_main_head": "5d52e32f20021e36f08f284ef9864d3ba36dbead",
+    "main_head_at_original_t6_start": "b57b44e7287f842e81050c1faee337f636333dd0",
+    "main_changed_independently": true,
+    "p02_p05_p06_git_blobs_same_as_pr15": true,
+    "lineage_main_blob": "259adcd9fa7197c197d424ced9a7e5887e378663",
+    "lineage_pr15_blob": "971fbd8eccdf4719fee6b83a3c0f4c44b13ebaa9",
+    "lineage_different_due_to_base_drift": true,
+    "merge_conflict_assessment": "NOT_EXECUTED; must verify against current base before any merge decision"
+  },
+  "decision": {
+    "author_f01_windows_qa": "PASS_16_PLUS_9",
+    "f01_distinct_review": "NOT_YET_EXECUTED_ON_NEW_HEAD",
+    "merge_recommendation": "MERGE_HOLD_PENDING_CODEX_REREVIEW_AND_CURRENT_MAIN_BASE_CHECK",
+    "pr15": "DRAFT_HOLD",
+    "p07": "PAUSED_PRESERVE",
+    "p08": "NOT_OPENED",
+    "training": "NO",
+    "test_q1q2": "UNTOUCHED",
+    "original_benchmark": "PRESERVED"
+  },
+  "next": "TTM_T6_PR15_F01_CODEX_DISTINCT_REREVIEW_CURRENT_MAIN_COMPAT_AND_OWNER_MERGE_GATE"
+}

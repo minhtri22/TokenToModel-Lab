@@ -1,0 +1,6 @@
+# T6 scoped CPU fixture: preserve exact Git blob text across Windows/Linux worktrees
+src/p02/transformer_core.py text eol=lf
+src/p05/dense_kv_cache.py text eol=lf
+src/p06/paged_kv_manager.py text eol=lf
+tools/t6/*.py text eol=lf
+tests/t6/*.py text eol=lf

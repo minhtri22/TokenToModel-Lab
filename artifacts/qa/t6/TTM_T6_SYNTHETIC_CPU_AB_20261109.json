@@ -1,0 +1,569 @@
+{
+  "hardware": {
+    "device": "cpu",
+    "dtype": "float32",
+    "logical_cpus": 5,
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "processor": "",
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "torch_threads": 2
+  },
+  "measurement_contract": {
+    "cache_construction": "outside TTFT; initialization duration reported separately",
+    "correctness_atol": 2e-05,
+    "correctness_rtol": 2e-05,
+    "device": "off-host Linux CPU, not user Windows dev machine",
+    "fixed_order": "rotating no_cache/dense/paged order each repeat",
+    "kv_memory": "exact cache tensor physical allocation, active reservation and logical bytes; model weight bytes separate",
+    "no_performance_claim": true,
+    "predefined_workloads": [
+      "short",
+      "medium",
+      "cross_pages"
+    ],
+    "repeats_per_mode": 4,
+    "rss": "process RSS sampled snapshots, NOT per-path peak or exclusive allocation",
+    "tpot": "individual subsequent argmax steps on same generated-token trajectory",
+    "ttft": "request.start (including per-request cache.start) through first argmax after prompt prefill",
+    "warmup_per_mode": 1
+  },
+  "model": {
+    "architecture": "P02",
+    "checkpoint": "NOT_APPLICABLE_SYNTHETIC_WEIGHTS",
+    "config": {
+      "max_seq_len": 32,
+      "n_embd": 64,
+      "n_head": 4,
+      "n_layer": 2,
+      "norm_type": "layernorm",
+      "vocab_size": 2048
+    },
+    "model_weight_bytes": 932864,
+    "seed": 60609
+  },
+  "non_claims": [
+    "No T4 checkpoint or real-token model quality",
+    "Not P07/P08 GPU capability",
+    "No universal speedup based on small CPU timings",
+    "Not a process peak RSS measurement",
+    "No TEST or Q1/Q2 run",
+    "No energy measurement"
+  ],
+  "schema": "ttm.t6.cpu_cache_ab.synthetic.v1",
+  "scope": "Synthetic BPE ID fixtures only; no real checkpoint/corpus/TEST/GPU/P07/P08/science evaluation",
+  "source_pins": {
+    "src/p02/transformer_core.py": {
+      "git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "sha256": "e0fcac285918b66b13c8f694e6d625a0691c9b59221b43043e63f46b25ddcc07"
+    },
+    "src/p05/dense_kv_cache.py": {
+      "git_blob": "d835e5d7bb07fea447c5a869b13c70327ab05a53",
+      "sha256": "45e3b2e153a4d37578a5dfacc86a313a5026c89eba13fcff41b59a0143b50412"
+    },
+    "src/p06/paged_kv_manager.py": {
+      "git_blob": "4d52188adaf55674b6965513ea1beb38ec9a8e9b",
+      "sha256": "f4febf0e22d9647abe3dd2e2c0856558e44af973a5955619b87c50a61b669db3"
+    }
+  },
+  "status": "PASS_SCOPED_SYNTHETIC_CPU_NO_SPEEDUP_CLAIM",
+  "two_request_memory": {
+    "active_requests": 2,
+    "bytes_per_token": 1024,
+    "dense": {
+      "kv_fragmented_bytes": 47104,
+      "kv_pool_allocated_bytes": 65536,
+      "kv_request_reserved_bytes": 65536,
+      "kv_used_logical_bytes": 18432
+    },
+    "max_abs_logit_error_dense_vs_paged": 0.0,
+    "paged": {
+      "kv_fragmented_bytes": 6144,
+      "kv_pool_allocated_bytes": 65536,
+      "kv_request_reserved_bytes": 24576,
+      "kv_used_logical_bytes": 18432
+    },
+    "pool_preallocation_note": "Paged total allocated pool is not its active reservation; preallocated pool counts in physical bytes.",
+    "request_tokens": {
+      "a": 13,
+      "b": 5
+    },
+    "zeroed_after_release": true
+  },
+  "workloads": [
+    {
+      "continuation_token_count": 6,
+      "correctness": {
+        "dense": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.682209014892578e-07
+        },
+        "dense_vs_paged": {
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error": 0.0
+        },
+        "paged": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.682209014892578e-07
+        }
+      },
+      "generated_ids_sha256": "4c7f9b467ccb8334d28045e874e2ff6b37f78e38cf98efd09a038539b5d4acb0",
+      "measured_repeats_per_mode": 4,
+      "name": "short",
+      "performance": {
+        "dense": {
+          "cache_initialization_ms": {
+            "max_ms": 0.007184,
+            "median_ms": 0.006916,
+            "min_ms": 0.006322,
+            "p95_nearest_rank_ms": 0.007184
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 23552,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 9216
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 28672,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 4096
+          },
+          "rss_sampled_after_decode_bytes": [
+            330362880,
+            330375168,
+            330534912,
+            330694656
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 2.707341,
+            "median_ms": 1.343335,
+            "min_ms": 1.041331,
+            "p95_nearest_rank_ms": 2.707341
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 5.879261,
+            "median_ms": 1.132339,
+            "min_ms": 0.541573,
+            "p95_nearest_rank_ms": 3.072155
+          },
+          "ttft": {
+            "max_ms": 6.603858,
+            "median_ms": 3.213585,
+            "min_ms": 2.276148,
+            "p95_nearest_rank_ms": 6.603858
+          }
+        },
+        "no_cache": {
+          "cache_initialization_ms": null,
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "rss_sampled_after_decode_bytes": [
+            330362880,
+            330383360,
+            330530816,
+            330694656
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 2.00903,
+            "median_ms": 0.998715,
+            "min_ms": 0.822008,
+            "p95_nearest_rank_ms": 2.00903
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 3.883668,
+            "median_ms": 0.935001,
+            "min_ms": 0.588711,
+            "p95_nearest_rank_ms": 2.610021
+          },
+          "ttft": {
+            "max_ms": 0.937156,
+            "median_ms": 0.783853,
+            "min_ms": 0.653722,
+            "p95_nearest_rank_ms": 0.937156
+          }
+        },
+        "paged": {
+          "cache_initialization_ms": {
+            "max_ms": 0.064779,
+            "median_ms": 0.031472,
+            "min_ms": 0.024519,
+            "p95_nearest_rank_ms": 0.064779
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 3072,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 12288,
+            "kv_used_logical_bytes": 9216
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 4096,
+            "kv_used_logical_bytes": 4096
+          },
+          "rss_sampled_after_decode_bytes": [
+            330366976,
+            330379264,
+            330395648,
+            330727424
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 2.902495,
+            "median_ms": 1.218891,
+            "min_ms": 0.923117,
+            "p95_nearest_rank_ms": 2.902495
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 4.97609,
+            "median_ms": 1.166178,
+            "min_ms": 0.615379,
+            "p95_nearest_rank_ms": 4.93257
+          },
+          "ttft": {
+            "max_ms": 7.84357,
+            "median_ms": 6.298535,
+            "min_ms": 2.747353,
+            "p95_nearest_rank_ms": 7.84357
+          }
+        }
+      },
+      "prompt_token_count": 4,
+      "synthetic_prompt_sha256": "3031dff78b5cbd05aceacd969c1a6e05e84adee57934efce2653de1e77edd123",
+      "warmups_per_mode": 1
+    },
+    {
+      "continuation_token_count": 6,
+      "correctness": {
+        "dense": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.682209014892578e-07
+        },
+        "dense_vs_paged": {
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error": 0.0
+        },
+        "paged": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.682209014892578e-07
+        }
+      },
+      "generated_ids_sha256": "3f1878c990e4ebb110da70260c56df79a7bb3f5e22d56cc30866cec23cbbe1da",
+      "measured_repeats_per_mode": 4,
+      "name": "medium",
+      "performance": {
+        "dense": {
+          "cache_initialization_ms": {
+            "max_ms": 0.103673,
+            "median_ms": 0.006626,
+            "min_ms": 0.006151,
+            "p95_nearest_rank_ms": 0.103673
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 16384,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 16384
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 21504,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 11264
+          },
+          "rss_sampled_after_decode_bytes": [
+            330973184,
+            330973184,
+            331059200,
+            331190272
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 1.010246,
+            "median_ms": 0.726865,
+            "min_ms": 0.531442,
+            "p95_nearest_rank_ms": 1.010246
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 1.540006,
+            "median_ms": 0.695167,
+            "min_ms": 0.419223,
+            "p95_nearest_rank_ms": 1.313353
+          },
+          "ttft": {
+            "max_ms": 11.599382,
+            "median_ms": 7.555867,
+            "min_ms": 5.881553,
+            "p95_nearest_rank_ms": 11.599382
+          }
+        },
+        "no_cache": {
+          "cache_initialization_ms": null,
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "rss_sampled_after_decode_bytes": [
+            330973184,
+            330977280,
+            331059200,
+            331190272
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 1.835144,
+            "median_ms": 0.947487,
+            "min_ms": 0.709477,
+            "p95_nearest_rank_ms": 1.835144
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 2.487259,
+            "median_ms": 0.857946,
+            "min_ms": 0.544404,
+            "p95_nearest_rank_ms": 2.171713
+          },
+          "ttft": {
+            "max_ms": 4.213957,
+            "median_ms": 1.252249,
+            "min_ms": 0.94704,
+            "p95_nearest_rank_ms": 4.213957
+          }
+        },
+        "paged": {
+          "cache_initialization_ms": {
+            "max_ms": 0.029423,
+            "median_ms": 0.025432,
+            "min_ms": 0.024766,
+            "p95_nearest_rank_ms": 0.029423
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 16384,
+            "kv_used_logical_bytes": 16384
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 1024,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 12288,
+            "kv_used_logical_bytes": 11264
+          },
+          "rss_sampled_after_decode_bytes": [
+            330973184,
+            330973184,
+            330981376,
+            331190272
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 1.453899,
+            "median_ms": 1.084628,
+            "min_ms": 0.723566,
+            "p95_nearest_rank_ms": 1.453899
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 2.156993,
+            "median_ms": 0.925438,
+            "min_ms": 0.515133,
+            "p95_nearest_rank_ms": 1.786134
+          },
+          "ttft": {
+            "max_ms": 18.521142,
+            "median_ms": 10.076674,
+            "min_ms": 5.551574,
+            "p95_nearest_rank_ms": 18.521142
+          }
+        }
+      },
+      "prompt_token_count": 11,
+      "synthetic_prompt_sha256": "9306b9e72000f2e2b57419d9aa0df4d200b8bf8033fd8c1716c4a5d184e387f0",
+      "warmups_per_mode": 1
+    },
+    {
+      "continuation_token_count": 6,
+      "correctness": {
+        "dense": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.384185791015625e-07
+        },
+        "dense_vs_paged": {
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error": 0.0
+        },
+        "paged": {
+          "allclose_atol": 2e-05,
+          "allclose_rtol": 2e-05,
+          "logits_steps_compared": 6,
+          "matched_generated_tokens": 6,
+          "max_abs_logit_error_vs_no_cache": 2.384185791015625e-07
+        }
+      },
+      "generated_ids_sha256": "6566cb2cfd0d5ae0cd8bfc1888c09cecfebc5fd55678d7278e73f67947e35160",
+      "measured_repeats_per_mode": 4,
+      "name": "cross_pages",
+      "performance": {
+        "dense": {
+          "cache_initialization_ms": {
+            "max_ms": 0.009252,
+            "median_ms": 0.007666,
+            "min_ms": 0.006297,
+            "p95_nearest_rank_ms": 0.009252
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 11264,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 21504
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 16384,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 32768,
+            "kv_used_logical_bytes": 16384
+          },
+          "rss_sampled_after_decode_bytes": [
+            331235328,
+            331235328,
+            331411456,
+            331558912
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 2.466302,
+            "median_ms": 1.157874,
+            "min_ms": 0.722974,
+            "p95_nearest_rank_ms": 2.466302
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 4.01,
+            "median_ms": 1.123221,
+            "min_ms": 0.43547,
+            "p95_nearest_rank_ms": 3.59857
+          },
+          "ttft": {
+            "max_ms": 53.837632,
+            "median_ms": 18.112191,
+            "min_ms": 12.241162,
+            "p95_nearest_rank_ms": 53.837632
+          }
+        },
+        "no_cache": {
+          "cache_initialization_ms": null,
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 0,
+            "kv_request_reserved_bytes": 0,
+            "kv_used_logical_bytes": 0
+          },
+          "rss_sampled_after_decode_bytes": [
+            331235328,
+            331255808,
+            331411456,
+            331558912
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 3.128162,
+            "median_ms": 2.168251,
+            "min_ms": 0.610251,
+            "p95_nearest_rank_ms": 3.128162
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 5.442308,
+            "median_ms": 1.347607,
+            "min_ms": 0.449399,
+            "p95_nearest_rank_ms": 4.358971
+          },
+          "ttft": {
+            "max_ms": 4.525338,
+            "median_ms": 1.602356,
+            "min_ms": 1.011272,
+            "p95_nearest_rank_ms": 4.525338
+          }
+        },
+        "paged": {
+          "cache_initialization_ms": {
+            "max_ms": 0.03595,
+            "median_ms": 0.027201,
+            "min_ms": 0.024524,
+            "p95_nearest_rank_ms": 0.03595
+          },
+          "kv_after_decode": {
+            "kv_fragmented_bytes": 3072,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 24576,
+            "kv_used_logical_bytes": 21504
+          },
+          "kv_after_prefill": {
+            "kv_fragmented_bytes": 0,
+            "kv_pool_allocated_bytes": 32768,
+            "kv_request_reserved_bytes": 16384,
+            "kv_used_logical_bytes": 16384
+          },
+          "rss_sampled_after_decode_bytes": [
+            331235328,
+            331239424,
+            331255808,
+            331558912
+          ],
+          "tpot_per_request_mean_ms": {
+            "max_ms": 1.999265,
+            "median_ms": 1.370699,
+            "min_ms": 0.667454,
+            "p95_nearest_rank_ms": 1.999265
+          },
+          "tpot_pooled_steps": {
+            "max_ms": 5.80111,
+            "median_ms": 0.811172,
+            "min_ms": 0.502447,
+            "p95_nearest_rank_ms": 5.04249
+          },
+          "ttft": {
+            "max_ms": 58.611415,
+            "median_ms": 17.148676,
+            "min_ms": 9.57459,
+            "p95_nearest_rank_ms": 58.611415
+          }
+        }
+      },
+      "prompt_token_count": 16,
+      "synthetic_prompt_sha256": "54008f5094e84889a91b27cfebb55c6d83550b4e8026adce832812094b080a81",
+      "warmups_per_mode": 1
+    }
+  ]
+}
