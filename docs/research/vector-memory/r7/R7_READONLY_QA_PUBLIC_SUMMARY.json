@@ -1,0 +1,38 @@
+{
+  "schema": "ttm.vm.v4.r7.public_qa_summary.v1",
+  "operation": "TTM_VM_V4_R7_PROSPECTIVE_FAMILY_BALANCED_CAL64_SOURCE_AUTHORING_AND_ANTISHORTCUT_ONE_SHOT",
+  "protocol_lock_commit": "74ef335fb1418515a21591c598d9109ce68070c4",
+  "one_shot_seed": 20261114,
+  "r7_private_sha256": "d9e9d6534eae4dbe1169edf2eaa7b6cc2da04eee94296b791b839f6531522db4",
+  "r7_sealed_public_sha256": "78de11f46ea0d64b21f78fc325e4120c707d38bf9efec295628bfbf52a644564",
+  "source_bytes_publicly_committed": false,
+  "case_count": 64,
+  "card_count": 2048,
+  "structural_checks": {
+    "passed": 7,
+    "total": 9,
+    "failed": [
+      "marker_only_no_leak",
+      "evidence_marker_no_gold_leak"
+    ]
+  },
+  "family_balance": {
+    "families": 8,
+    "per_family_select": 4,
+    "per_family_abstain": 4
+  },
+  "marker_only_action_accuracy": 1,
+  "marker_only_target_positive": "32/32",
+  "position_first_half_accuracy": 0.4375,
+  "question_frame_in_sample_majority": 0.5625,
+  "question_only_cv": "NOT_EXECUTED",
+  "lexical": "NOT_EXECUTED",
+  "external_content_review": "NOT_EXECUTED",
+  "owner_prereg": "NOT_ATTESTED",
+  "rights": "NOT_ATTESTED",
+  "science_release": "HOLD",
+  "decision": "FAIL_MARKER_SHORTCUT_HOLD_SCIENCE",
+  "probe256": "SEALED",
+  "reader": 0,
+  "gpu": "NO"
+}
