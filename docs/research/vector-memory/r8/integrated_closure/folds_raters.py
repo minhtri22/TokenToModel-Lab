@@ -138,6 +138,102 @@ def postcheck(cases, pre_folds, expected_twins_per_blueprint=2):
         "no_repartition": True
     }
 
+# Production-facing gates are separate from small symbolic source fixtures.
+# All real R8 consumers MUST call these gateways, never the raw fold primitives.
+R8_BLUEPRINTS=32
+R8_CASES=64
+R8_FAMILIES=8
+R8_PAIRS_PER_FAMILY=4
+R8_CARDS_PER_CASE=32
+
+
+def validate_r8_blueprint_manifest(blueprints):
+    """Fail closed on the frozen 8-family / 32-pair production manifest."""
+    if len(blueprints)!=R8_BLUEPRINTS:
+        raise ValueError("INVALID_R8_BLUEPRINT_COUNT")
+    bpids=[b.get("blueprint_id") for b in blueprints]
+    if any(not isinstance(k,str) or not k for k in bpids):
+        raise ValueError("INVALID_R8_BLUEPRINT_ID")
+    if len(set(bpids))!=R8_BLUEPRINTS:
+        raise ValueError("INVALID_R8_DUPLICATE_BLUEPRINT")
+    pairids=[b.get("pair_id") for b in blueprints]
+    if any(not isinstance(k,str) or not k for k in pairids):
+        raise ValueError("INVALID_R8_PAIR_ID")
+    if len(set(pairids))!=R8_BLUEPRINTS:
+        raise ValueError("INVALID_R8_DUPLICATE_PAIR_ID")
+    for field in ("event_graph_id","template_cluster_id"):
+        if any(not isinstance(b.get(field),str) or not b[field] for b in blueprints):
+            raise ValueError("INVALID_R8_BLUEPRINT_FIELD_"+field.upper())
+    counts=defaultdict(int)
+    for b in blueprints:
+        family=b.get("relation_family")
+        if not isinstance(family,str) or not family:
+            raise ValueError("INVALID_R8_RELATION_FAMILY")
+        counts[family]+=1
+    if len(counts)!=R8_FAMILIES or any(n!=R8_PAIRS_PER_FAMILY for n in counts.values()):
+        raise ValueError("INVALID_R8_FAMILY_BALANCE")
+    return tuple(bpids)
+
+
+def validate_r8_case_manifest(cases,blueprints):
+    """Enforce 64 distinct cases, 2 action twins and 32 cards per case."""
+    ids=set(validate_r8_blueprint_manifest(blueprints))
+    if len(cases)!=R8_CASES:
+        raise ValueError("INVALID_R8_CASE_COUNT")
+    caseids=[c.get("case_id") for c in cases]
+    if any(not isinstance(k,str) or not k for k in caseids):
+        raise ValueError("INVALID_R8_CASE_ID")
+    if len(set(caseids))!=R8_CASES:
+        raise ValueError("INVALID_R8_DUPLICATE_CASE_ID")
+    by_blueprint=defaultdict(list)
+    for c in cases:
+        bp=c.get("blueprint_id")
+        if bp not in ids:
+            raise ValueError("INVALID_R8_UNKNOWN_BLUEPRINT")
+        by_blueprint[bp].append(c.get("action"))
+        cards=c.get("cards")
+        if not isinstance(cards,list) or len(cards)!=R8_CARDS_PER_CASE:
+            raise ValueError("INVALID_R8_CARD_COUNT")
+        keys=[card.get("key") for card in cards]
+        if any(not isinstance(k,str) or not k for k in keys) or len(set(keys))!=R8_CARDS_PER_CASE:
+            raise ValueError("INVALID_R8_CARD_KEYS")
+        if not isinstance(c.get("question"),str):
+            raise ValueError("INVALID_R8_QUESTION")
+        action=c.get("action")
+        if action not in ("SELECT","ABSTAIN"):
+            raise ValueError("INVALID_R8_ACTION")
+        target=c.get("target_key")
+        if action=="SELECT" and target not in keys:
+            raise ValueError("INVALID_R8_SELECT_TARGET")
+        if action=="ABSTAIN" and target is not None:
+            raise ValueError("INVALID_R8_ABSTAIN_TARGET")
+    if set(by_blueprint)!=ids or any(sorted(a)!=["ABSTAIN","SELECT"] for a in by_blueprint.values()):
+        raise ValueError("INVALID_R8_TWIN_ACTION_BALANCE")
+    return True
+
+
+def preassign_r8(blueprints,private_hmac_key):
+    """ONLY production pre-fold gateway. No R8 data is created here."""
+    validate_r8_blueprint_manifest(blueprints)
+    return preassign(blueprints,private_hmac_key)
+
+
+def postcheck_r8(cases,blueprints,locked_preassignment):
+    """ONLY production post-fold gateway; never rescue/repartition a bad fold."""
+    validate_r8_case_manifest(cases,blueprints)
+    if not isinstance(locked_preassignment,dict) or "fold" not in locked_preassignment:
+        raise ValueError("INVALID_R8_LOCKED_FOLD_MANIFEST")
+    expected={b["blueprint_id"] for b in blueprints}
+    folds=locked_preassignment["fold"]
+    if not isinstance(folds,dict) or set(folds)!=expected:
+        raise ValueError("INVALID_R8_LOCKED_FOLD_MEMBERSHIP")
+    if any(type(v) is not int or v not in (0,1,2,3) for v in folds.values()):
+        raise ValueError("INVALID_R8_LOCKED_FOLD_VALUE")
+    if len(set(folds.values()))!=4 or locked_preassignment.get("cv_status")!="PREFOLD_READY_NOT_VALIDATED":
+        raise ValueError("R8_CV_NOT_ESTIMABLE_PREASSIGNMENT")
+    return postcheck(cases,folds,expected_twins_per_blueprint=2)
+
+
 def estimability(train_cases,component_ids):
     if len(set(component_ids.values()))<4:return "NOT_ESTIMABLE_FEWER_THAN_4_COMPONENTS"
     if {c["action"] for c in train_cases}!={"SELECT","ABSTAIN"}:

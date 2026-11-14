@@ -19,21 +19,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Targeted negative G0 tests and changed historic assertions only
+      - name: Only three new G0 findings: targeted symbolic negative QA
         shell: bash
         run: |
           set -euo pipefail
           python --version
           python -m compileall -q docs/research/vector-memory/r8/integrated_closure
-          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_f01_f03_targeted.py
-          PYTHONPATH=docs/research/vector-memory/r8/integrated_closure python -m unittest -v \
-            test_integrated_source_only.GoldQA.test_08_equal_authority_stalemate \
-            test_integrated_source_only.GoldQA.test_10_circular_proof_not_accepted
+          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_final_three_findings.py
           sha256sum \
             docs/research/vector-memory/r8/integrated_closure/gold_contract.py \
-            docs/research/vector-memory/r8/integrated_closure/restricted_oracles.py \
-            docs/research/vector-memory/r8/integrated_closure/test_integrated_source_only.py \
-            docs/research/vector-memory/r8/integrated_closure/test_g0_f01_f03_targeted.py
-          printf '%s\n' 'QA_SCOPE=CHANGED_G0_F01_F02_F03_ONLY' \
-            'HISTORIC_37_OF_37_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
+            docs/research/vector-memory/r8/integrated_closure/folds_raters.py \
+            docs/research/vector-memory/r8/integrated_closure/test_g0_final_three_findings.py
+          printf '%s\n' 'QA_SCOPE=G0_MINIMAL_PROOF_F07_EVENT_R8_MANIFEST_ONLY' \
+            'HISTORIC_37_AND_25_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
             'PRIVATE_GOLD=NOT_ACCESSED' 'GPU=NO' 'READER=0' 'PROBE256=SEALED'

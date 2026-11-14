@@ -17,23 +17,44 @@ def hypothesis_identity(h):
         raise ValueError("INVALID_HYPOTHESIS_FIELDS")
     return tuple(h[k] for k in keys)
 
-def _proof_dependency_closure(claims, chosen, present):
-    """Resolve *all* dependencies, not only references inside a guessed proof set.
-    Missing references and any transitive directed cycle invalidate a proof.
+def _proof_dependency_closure(chosen_claims, verified_by_card, present):
+    """Enumerate minimal card closures for the *selected verified claims*.
+
+    A card can carry multiple claims with different dependency sets. Only a
+    claim chosen to establish a CORE predicate can make its dependencies
+    mandatory. Unverified or unrelated assertions on the same card may never
+    enlarge an otherwise sufficient proof. Dependent evidence cards may carry
+    alternative verified supporting claims; choose the minimal alternatives.
     """
-    dependencies=defaultdict(set)
-    for c in claims:
-        dependencies[c["card_key"]].update(c.get("depends_on",[]))
-    active,done=set(),set()
-    def visit(k):
-        if k not in present or k in active:return False
-        if k in done:return True
-        active.add(k)
-        if any(not visit(dep) for dep in dependencies[k]):return False
-        active.remove(k);done.add(k)
-        return True
-    if not all(visit(k) for k in chosen):return None
-    return frozenset(done)
+    roots = frozenset(c["card_key"] for c in chosen_claims)
+    pending = frozenset(dep for c in chosen_claims
+                        for dep in c.get("depends_on", ()))
+    found = set()
+    state_count = 0
+
+    def search(cards, todo, expanded):
+        nonlocal state_count
+        state_count += 1
+        if state_count > 4096:
+            raise ValueError("PROOF_ENUMERATION_LIMIT")
+        if not todo:
+            found.add(cards)
+            return
+        key = min(todo)
+        rest = todo - {key}
+        if key not in present:
+            raise ValueError("INVALID_FIXTURE_MISSING_PROOF_DEPENDENCY")
+        if key in expanded:
+            search(cards, rest, expanded)
+            return
+        alternatives = verified_by_card.get(key) or ({"depends_on": ()},)
+        for c in alternatives:
+            required = frozenset(c.get("depends_on", ()))
+            search(cards | {key}, rest | required, expanded | {key})
+
+    # The chosen claims have already contributed their own dependencies.
+    search(roots, pending, roots)
+    return found
 
 def _validate_claim_dependencies(claims, present):
     """Reject malformed PRIVATE proof graphs as INVALID FIXTURE, never ABSTAIN."""
@@ -88,10 +109,13 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
     _validate_claim_dependencies(claims, present)
     valid_proofs={};missing=False;authority_conflict=False;explicit_negative=False
     for hid,h in byh.items():
-        grouped=defaultdict(set)
+        grouped=defaultdict(list)
+        verified_by_card=defaultdict(list)
         for c in claims:
-            if c["hypothesis_id"]==hid and c["predicate"] in CORE and c.get("verified") is True:
-                grouped[c["predicate"]].add(c["card_key"])
+            if c["hypothesis_id"]==hid and c.get("verified") is True:
+                verified_by_card[c["card_key"]].append(c)
+                if c["predicate"] in CORE:
+                    grouped[c["predicate"]].append(c)
         # Check equal-rank contradiction BEFORE missing CORE can mask invalid fixtures.
         contradict=[c for c in claims if c["hypothesis_id"]==hid and c.get("verified") is True
                     and c["predicate"] in ("DEFEATER","NEGATIVE_RECEIPT")]
@@ -114,9 +138,10 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
         for p in CORE:variants*=len(grouped[p])
         if variants>4096:raise ValueError("PROOF_ENUMERATION_LIMIT")
         candidates=set()
-        for combo in product(*(sorted(grouped[p]) for p in CORE)):
-            s=_proof_dependency_closure(claims,frozenset(combo),present)
-            if s is not None:candidates.add(s)
+        for combo in product(*(grouped[p] for p in CORE)):
+            candidates.update(_proof_dependency_closure(combo,verified_by_card,present))
+            if len(candidates)>4096:
+                raise ValueError("PROOF_ENUMERATION_LIMIT")
         minimal=sorted((s for s in candidates if not any(t<s for t in candidates)),
                        key=lambda s:(len(s),tuple(sorted(s))))
         if not minimal:
@@ -163,7 +188,9 @@ def receipt_f07(case):
             and e.get("type") in ("ACKNOWLEDGEMENT","AUDIT_RECONCILIATION")):
             claims.append(dict(hypothesis_id="hX",card_key=e["key"],
                                predicate="AUTHORIZED",verified=True))
-        if e.get("negates_accession")==h["accession"] and e.get("authorized") is True:
+        if (e.get("negates_accession")==h["accession"]
+            and e.get("link_event")==h["event"]
+            and e.get("authorized") is True):
             claims.append(dict(hypothesis_id="hX",card_key=e["key"],
                  predicate="NEGATIVE_RECEIPT",verified=True,
                  authority_rank=e.get("authority_rank",3),time_valid=e.get("time_valid",False)))
