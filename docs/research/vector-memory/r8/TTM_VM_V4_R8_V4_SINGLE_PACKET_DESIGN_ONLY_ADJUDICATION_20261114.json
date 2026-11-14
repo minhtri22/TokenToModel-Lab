@@ -1,0 +1,74 @@
+{
+  "schema": "ttm.vm.v4.r8.v4.design_only_single_packet_adjudication.v1",
+  "operation": "TTM_VM_V4_R8_V4_GOLD_FOLD_ORACLE_RATER_OWNER_SCOPE_SINGLE_PACKET_DESIGN_ONLY",
+  "date": "2026-11-14",
+  "mode": [
+    "DESIGN_ONLY",
+    "NO_R8_GENERATION",
+    "NO_SCIENCE_EXECUTION"
+  ],
+  "sources": {
+    "v3_commit": "60c81935c44e72490f9a7a69a7e25c625c44c7ac",
+    "independent_v3_review_local_sha256": "1797dfab8885a1a4776145580a85f882c72bc786ae170cdfb3900ed7aabca41d",
+    "independent_v3_review_bytes": 17270,
+    "reviewer_remarks": [
+      "B01_HOLD",
+      "B03_HOLD",
+      "B04_HOLD",
+      "B05_PASS_SCOPED_DESCRIPTIVE_ONLY"
+    ],
+    "reviewer_verdict": "HOLD_R8_V3_THREE_BLOCKERS_OPEN_DESCRIPTIVE_SCOPE_CONDITIONALLY_ACCEPTABLE_NO_GENERATION",
+    "v3_review_archive_matches_attached_text": true
+  },
+  "v4": {
+    "B01": "PROPOSED_ANSWER_HYPOTHESIS_F07_LOGICAL_WITNESS_PENDING_REVIEW",
+    "B02": "INHERITED_PASS_SCOPED",
+    "B03": "PROPOSED_TWO_STAGE_GRAPH_FOLD_INVALIDATION_AND_FOUR_RATER_ALLOCATION",
+    "B04": "PROPOSED_O1_O8_MACHINE_CONTRACT_INCLUDES_O5_AS_FIFTH_HOLM_FAMILY_EXECUTABLE_ORACLE_SUITE_NOT_READY",
+    "B05": "PASS_SCOPED_DESCRIPTIVE_ONLY_INHERITED_NO_LEAKAGE_EXCLUSION",
+    "B06": "INHERITED_PASS_SCOPED_DESIGN_RIGHTS_NOT_ATTESTED"
+  },
+  "source_checks": {
+    "readback_files": 5,
+    "internal_contract_consistency": "PASS_SCOPED_SAME_ENV",
+    "review_archive_matches_original_text": true,
+    "external_independent_static_qa": "NOT_EXECUTED",
+    "oracle_inference_executable_source": "NOT_COMPLETE",
+    "validator_readback": "NOT_EXECUTED",
+    "rater_balance_per_family": "A_B_C_D_EACH_2_SELECT_2_ABSTAIN",
+    "evals_if_owner_approves": 128,
+    "scientific_independent_units": "NO_MORE_THAN_32_PAIRS_AND_MAY_BE_FEWER_COMPONENTS"
+  },
+  "owner": {
+    "scientific_scope_decision": "PENDING",
+    "scope_options": [
+      "ADOPT_R8_D_DESCRIPTIVE_ONLY",
+      "RETAIN_CONFIRMATORY_OBJECTIVE_NO_GO"
+    ],
+    "recommended_not_adopted": "ADOPT_R8_D_DESCRIPTIVE_ONLY",
+    "rater_allocation_decision": "PENDING",
+    "suggested": "FOUR_RATERS_TWO_PER_CASE",
+    "owner_rights": "NOT_ATTESTED",
+    "pii": "NOT_ATTESTED",
+    "private_custody": "NOT_VERIFIED"
+  },
+  "gates": {
+    "G0": "HOLD_PENDING_DISTINCT_V4_REVIEW",
+    "G1": "HOLD_OWNER_RIGHTS_AND_SCOPE",
+    "G2": "HOLD_CUSTODY_VALIDATOR_ORACLE_SOURCE",
+    "G3": "NOT_AUTHORIZED_R8_NOT_GENERATED",
+    "G4": "NOT_EXECUTED",
+    "G5": "SEALED",
+    "G6": "SEALED"
+  },
+  "r7": "FROZEN_FAIL",
+  "r8": "NOT_GENERATED",
+  "blind_packet": "SEALED",
+  "threshold": "NOT_FROZEN",
+  "probe256": "SEALED",
+  "test": "SEALED",
+  "reader": 0,
+  "gpu": "NO",
+  "decision": "HOLD_R8_V4_UNREVIEWED_OWNER_SCOPE_RIGHTS_CUSTODY_NO_GENERATION",
+  "next_operation": "TTM_VM_V4_R8_V4_DISTINCT_G0_REVIEW_OWNER_SCOPE_AND_SOURCE_QA_SINGLE_GATE_NO_GENERATION"
+}
