@@ -147,7 +147,8 @@
       "min_added_distractor_tokens": 48,
       "max_new_tokens": 64,
       "context_limit": 256,
-      "distractor_semantically_neutral_no_new_actor_object_goal": true
+      "distractor_semantically_neutral_no_new_actor_object_goal": true,
+      "new_prompt_private_status": "NOT_CREATED_DESIGN_ONLY"
     },
     "DEV_core_index_per_stratum": [
       1
@@ -190,7 +191,7 @@
     "new_random_balanced_AES_mapping_required": true,
     "balanced_total_LEFT_H0_H1_each": 24,
     "within_core_4_conditions_LEFT_H0_H1_each": 2,
-    "six_per_stratum_each_arm": true,
+    "six_per_stratum_each_arm": 6,
     "blind_two_reviewers_after_generation": true,
     "frozen_reviewers_per_review": {
       "number_of_pairs": 48,
@@ -215,12 +216,14 @@
     "bootstrap_unit": "12 independent FINAL story cores, not 48 variants and not 96 continuations",
     "bootstrap_resamples": 20000,
     "bootstrap_rng_seed": 20261114,
-    "no_hdata_original_rerating": true
+    "no_hdata_original_rerating": true,
+    "per_condition_LEFT_H0_H1_each": 6,
+    "mapping_per_core_requirement": "Each 4-condition core has LEFT H0 twice and LEFT H1 twice; each of four condition combinations balanced 6 H0-left/6 H1-left across 12 FINAL cores, and each stratum 6 H0-left/6 H1-left."
   },
   "M3_mechanism_diagnostics": {
     "goal_floor": {
       "definition": "Both arms FINAL short+explicit goal_progress mean <0.25 after calibration pass",
-      "status_if": true,
+      "status_if": "CONDITION_MET",
       "outcome": "SHARED_GOAL_GENERATION_FLOOR_CANDIDATE"
     },
     "context_interference": {
@@ -238,12 +241,13 @@
     "teacher_forced_oracle_foil": {
       "source": "new distinct frozen candidate continuation pair per FINAL core; oracle and foil precommitted before model forward",
       "candidate_core_count": 12,
-      "length_match_requirement": "BPE token length oracle vs foil differ <=2 tokens and <=5% relative, or HOLD",
+      "length_match_requirement": "Absolute BPE token length difference <=2 AND <=5% relative; otherwise HOLD_NEED_MATCHED_FOIL (not post-hoc edit after exposure)",
       "criterion": "Per arm normalized teacher-forced log-likelihood(oracle) > foil on >=9/12 cores, after normalizing by target token count",
       "interpretation": "If discriminative oracle ranking passes while greedy goal progress is low, a generation/selection bottleneck is a candidate, not proven cause",
       "no_external_model_comparison": true
     },
-    "decision_rule": "Order: calibrate measurement; inspect absolute short-explicit floor; estimate within-core context and goal contrasts; then teacher-forced gap; never infer mechanism from F1/F2/F3 alone."
+    "decision_rule": "Order: calibrate measurement; inspect absolute short-explicit floor; estimate within-core context and goal contrasts; then teacher-forced gap; never infer mechanism from F1/F2/F3 alone.",
+    "secondary_signals_significance": "Exploratory paired core-bootstrap intervals; two mechanism contrasts not family-wise adjusted; label candidate/inconclusive rather than confirmatory effect."
   },
   "output_labels": [
     "MEASUREMENT_HOLD",
