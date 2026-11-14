@@ -1,0 +1,275 @@
+{
+  "schema": "ttm.hdata_s1.fail4.prospective_mechanism_design.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_POST_ADJUDICATION_CLOSEOUT_AND_NEW_PROSPECTIVE_MECHANISM_DIAGNOSTIC_DESIGN_ONLY",
+  "new_run_id": "TTM_HDATA_FAIL4_MD1_PROSPECTIVE_20261114",
+  "state": "DESIGN_ONLY_NO_DATA_RELEASE_NO_INFERENCE_NO_TRAINING",
+  "source_hdata_closed": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "pinned_adjudicated_head": "ef4cc05037f98129082cd429a75092b8cc822efb",
+    "original_run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+    "formal_outcome": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT",
+    "public_result_sha256": "23df562a73c7f83096ba4ec683da81823d0104a80fbf689b01b4310348e3a7e2",
+    "freeze_immutable": true,
+    "original_FINAL24_consumed": true,
+    "original_AES_unblind_consumed": true,
+    "source_TEST_Q1_Q2_OOD_sealed": true
+  },
+  "four_failed_gates": [
+    {
+      "id": "F1",
+      "metric": "primary_mean_H1_minus_H0",
+      "observed": 0,
+      "operator": ">=",
+      "threshold": 0.5,
+      "role": "effect magnitude",
+      "cause_independent": false
+    },
+    {
+      "id": "F2",
+      "metric": "primary_strict_pair_wins_H1",
+      "observed": 0,
+      "denominator": 24,
+      "operator": ">=",
+      "threshold": 16,
+      "role": "paired direction",
+      "cause_independent": false
+    },
+    {
+      "id": "F3",
+      "metric": "paired_20000_bootstrap_CI95_lower",
+      "observed": 0,
+      "operator": ">",
+      "threshold": 0,
+      "role": "paired uncertainty",
+      "cause_independent": false
+    },
+    {
+      "id": "F4",
+      "metric": "goal_rule_progress_mean_H1_minus_H0",
+      "observed": 0,
+      "operator": ">",
+      "threshold": 0,
+      "role": "goal component",
+      "cause_independent": false
+    }
+  ],
+  "known_associated_observations": {
+    "all_48_primary_actor_object_goal_ratings_zero": true,
+    "coherence_H0": 0.7083333333333334,
+    "coherence_H1": 0.6666666666666666,
+    "EOS_H0_H1": [
+      7,
+      4
+    ],
+    "CAP64_H0_H1": [
+      17,
+      20
+    ],
+    "under8_word_H0_H1": [
+      0,
+      0
+    ],
+    "VAL_NLL_H0_H1": [
+      3.511285912623514,
+      3.5057606759493716
+    ],
+    "interpretation": "Evidence of primary floor under single AI rater; F1/F2/F3 are mathematically coupled, not independent mechanisms."
+  },
+  "research_question": "After rater calibration on completely new synthetic controls, can frozen H0/H1 keep actor/object/goal in fresh matched story continuations, and is failure primarily related to context interference, explicitness of goal, or a generative-versus-discriminative gap?",
+  "priority_order": [
+    "M0_RATER_FLOOR_CALIBRATION",
+    "M1_FROZEN_TWO_ARM_BEHAVIOR_FOUR_FACTOR_CELL",
+    "M2_GOAL_AND_CONTEXT_CAUSAL_CANDIDATES",
+    "M3_TEACHER_FORCED_ORACLE_VS_FOIL"
+  ],
+  "allowed_model": {
+    "H0_checkpoint_step1152_sha256": "a7cdade3b70cb2ceed258edd1e3edd494ce9745633d2e528ee90232f3c95c2fe",
+    "H1_checkpoint_step1152_sha256": "31d9365a470e638f77e6661252ed8d0605e9f9095da145d9f48751adcdcfcb64",
+    "architecture_params": 3749376,
+    "tokenizer_BPE_vocabulary": 2048,
+    "context_tokens": 256,
+    "decode_max_new_tokens": 64,
+    "EOS_token_id": 256,
+    "decoder": "plain_greedy_argmax_no_sampling_no_repetition_penalty",
+    "further_optimizer_updates": 0,
+    "forbid_finetuning": true
+  },
+  "M0_measurement_calibration": {
+    "control_core_count": 32,
+    "balanced_new_strata_each": 8,
+    "positive_continuations_per_core": 1,
+    "negative_continuations_per_core": 1,
+    "control_text_count": 64,
+    "positive_count": 32,
+    "negative_count": 32,
+    "positive_requires_unambiguous_all_3_anchors": true,
+    "negative_is_contradictory_for_all_3_anchors": true,
+    "labels_owner_sealed_before_raters": true,
+    "control_material_never_part_of_new_model_eval": true,
+    "reviewers": 2,
+    "rater_method": "two isolated independent blind reviewers scored without gold; final gold precommitted, no retroactive amendments",
+    "sensitivity_min_per_rater_per_axis": 0.875,
+    "specificity_min_per_rater_per_axis": 0.875,
+    "interrater_agreement_min_per_axis": 0.85,
+    "outcome_if_fail": "HOLD_RATER_FLOOR_OR_GOLD_CALIBRATION_UNRESOLVED_NO_MODEL_CLAIM",
+    "outcome_if_pass": "MEASUREMENT_CALIBRATED_FOR_PROSPECTIVE_EXPLORATORY_DIAGNOSTIC_ONLY"
+  },
+  "M1_fresh_dataset": {
+    "source": "new original synthetic story cores authored independently; no original H-DATA FINAL prompt text and no TinyStories TRAIN/VAL or external retrieval",
+    "strata": [
+      "object_custody",
+      "social_relation",
+      "causal_obstacle",
+      "temporal_rule"
+    ],
+    "cores_per_stratum": 4,
+    "fresh_core_count": 16,
+    "conditions_per_core": 4,
+    "factorial": {
+      "context_load": [
+        "SHORT",
+        "DISTRACTOR"
+      ],
+      "goal_signal": [
+        "EXPLICIT",
+        "IMPLICIT"
+      ],
+      "core_matched_2x2": true,
+      "short_target_BPE_prefix_range": [
+        64,
+        96
+      ],
+      "distractor_target_BPE_prefix_range": [
+        144,
+        176
+      ],
+      "min_added_distractor_tokens": 48,
+      "max_new_tokens": 64,
+      "context_limit": 256,
+      "distractor_semantically_neutral_no_new_actor_object_goal": true
+    },
+    "DEV_core_index_per_stratum": [
+      1
+    ],
+    "FINAL_core_index_per_stratum": [
+      2,
+      3,
+      4
+    ],
+    "DEV_prompt_count": 16,
+    "LOCKED_FINAL_prompt_count": 48,
+    "model_arms": 2,
+    "potential_final_generated_continuations": 96,
+    "prompt_id_prefix": "MD1_",
+    "owner_gold_fields": [
+      "actor",
+      "object",
+      "object_relation",
+      "goal_or_rule",
+      "expected_valid_behavior",
+      "prohibited_contradictions"
+    ],
+    "public_prompts": false,
+    "public_content": "hash commitments and aggregate QA only",
+    "freeze_before_first_new_model_forward": true,
+    "validation": [
+      "core-level no cross-split overlap; four variants intentionally share core and must be grouped",
+      "all raw UTF8 prompt and oracle/foil sha256 frozen before any forward",
+      "against known original public H-DATA prompt SHA: no exact hash matches",
+      "no exact prior NEXT24/FINAL24 known SHA matches; other unknown datasets only scoped-not-verified",
+      "between-core lexical overlap check; within-core 2x2 variant overlap is intentional and exempt",
+      "no PII/copyright-protected source and owner rights confirmation",
+      "BPE encode/decode exact roundtrip and max(prefix)+64<=256 for each variant"
+    ],
+    "M1_outcome_if_dataset_not_frozen": "HOLD_NO_NEW_INFERENCE"
+  },
+  "M2_forward_and_blind": {
+    "mode": "NOT_EXECUTED_IN_THIS_DESIGN_TURN",
+    "new_separate_owner_GO_required": true,
+    "new_random_balanced_AES_mapping_required": true,
+    "balanced_total_LEFT_H0_H1_each": 24,
+    "within_core_4_conditions_LEFT_H0_H1_each": 2,
+    "six_per_stratum_each_arm": true,
+    "blind_two_reviewers_after_generation": true,
+    "frozen_reviewers_per_review": {
+      "number_of_pairs": 48,
+      "sides": 2,
+      "axes": 5,
+      "integer_scores": 480,
+      "pair_notes": 48
+    },
+    "rater_assessment_axes": {
+      "binary": [
+        "actor_retention",
+        "object_relation_retention",
+        "goal_or_rule_progress"
+      ],
+      "ordinal_0_to_3": [
+        "coherence",
+        "consistency"
+      ],
+      "uncertainty_binary": "0, never force",
+      "reconcile": "keep each rater's original SHA frozen and report separate per-rater results; mean across raters for descriptive curves, no post-hoc winner adjudication"
+    },
+    "bootstrap_unit": "12 independent FINAL story cores, not 48 variants and not 96 continuations",
+    "bootstrap_resamples": 20000,
+    "bootstrap_rng_seed": 20261114,
+    "no_hdata_original_rerating": true
+  },
+  "M3_mechanism_diagnostics": {
+    "goal_floor": {
+      "definition": "Both arms FINAL short+explicit goal_progress mean <0.25 after calibration pass",
+      "status_if": true,
+      "outcome": "SHARED_GOAL_GENERATION_FLOOR_CANDIDATE"
+    },
+    "context_interference": {
+      "definition": "Within-core SHORT minus DISTRACTOR primary-score mean across both arms",
+      "minimum_delta": 0.25,
+      "paired_cluster_CI95_lower_gt": 0,
+      "otherwise": "INCONCLUSIVE"
+    },
+    "goal_explicitness": {
+      "definition": "Within-core EXPLICIT minus IMPLICIT goal_progress mean across both arms",
+      "minimum_delta": 0.25,
+      "paired_cluster_CI95_lower_gt": 0,
+      "otherwise": "INCONCLUSIVE"
+    },
+    "teacher_forced_oracle_foil": {
+      "source": "new distinct frozen candidate continuation pair per FINAL core; oracle and foil precommitted before model forward",
+      "candidate_core_count": 12,
+      "length_match_requirement": "BPE token length oracle vs foil differ <=2 tokens and <=5% relative, or HOLD",
+      "criterion": "Per arm normalized teacher-forced log-likelihood(oracle) > foil on >=9/12 cores, after normalizing by target token count",
+      "interpretation": "If discriminative oracle ranking passes while greedy goal progress is low, a generation/selection bottleneck is a candidate, not proven cause",
+      "no_external_model_comparison": true
+    },
+    "decision_rule": "Order: calibrate measurement; inspect absolute short-explicit floor; estimate within-core context and goal contrasts; then teacher-forced gap; never infer mechanism from F1/F2/F3 alone."
+  },
+  "output_labels": [
+    "MEASUREMENT_HOLD",
+    "SHARED_GENERATION_FLOOR_CANDIDATE",
+    "CONTEXT_INTERFERENCE_CANDIDATE",
+    "GOAL_SIGNAL_EXTRACTION_CANDIDATE",
+    "GENERATION_SELECTION_GAP_CANDIDATE",
+    "NO_SUPPORTED_MECHANISM_INCONCLUSIVE"
+  ],
+  "gate_before_any_future_inference": [
+    "separate owner GO",
+    "independent prereg source review",
+    "new private DEV/LOCKED_FINAL source hash commitment and source rights",
+    "measurement M0 PASS or independent adjudication of gold ambiguity before experiment",
+    "frozen BPE and no contamination known-hash collision",
+    "balanced AES mapped prior to output",
+    "T4 capacity+reproducibility preflight",
+    "no reuse of consumed original FINAL or prior rater score"
+  ],
+  "permissions": {
+    "owner_current_scope": "DESIGN_ONLY",
+    "generation_authorized": false,
+    "inference_authorized": false,
+    "training_authorized": false,
+    "TEST_Q1_Q2_OOD_authorized": false,
+    "unblind_authorized": false
+  },
+  "decision": "GO_PROSPECTIVE_DESIGN_ONLY__HOLD_NEW_DATA_CUSTODY_AND_ALL_SCIENCE_UNTIL_INDEPENDENT_PREEXEC_AND_OWNER_GO"
+}
