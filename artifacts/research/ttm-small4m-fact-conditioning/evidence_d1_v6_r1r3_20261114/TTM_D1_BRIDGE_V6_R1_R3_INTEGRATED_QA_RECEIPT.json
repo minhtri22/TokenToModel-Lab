@@ -1,0 +1,140 @@
+{
+  "actual_dataset_oracle_nonoverlap": "NOT_EXECUTED",
+  "candidate_sha256": "e05774d9f0a155e19f70574260be839f1f0634bdfce2399ab2a67622dbc214a5",
+  "frozen_source_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "independent_review": "NOT_EXECUTED_FOR_CANDIDATE",
+  "inherited_contracts_preserved": [
+    "R2",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "input_git_blob_sha1": {
+    "S2_V6_CONTRACT": "c6ac330c40e31035116add165ef30fa58af59639",
+    "S8_V5_CONTRACT": "f4103f571ea80f909d59b1d9fe5f426702f53fa4"
+  },
+  "mode": "READ_ONLY_FROZEN_INPUT_SOURCE_ONLY_PUBLIC_SYNTHETIC_NO_GPU_NO_GOLD",
+  "operation": "TTM_D1_BRIDGE_V6_R1_R3_SINGLE_INTEGRATED_PROSPECTIVE_CORRECTION_SOURCE_QA",
+  "owner_approval": "NOT_GRANTED",
+  "real_science": "HOLD",
+  "seed_cross_version": {
+    "V5_expected": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261201
+    ],
+    "V6_before": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261131
+    ],
+    "candidate_after": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261201
+    ],
+    "restored": true
+  },
+  "source_changes": [
+    "R1_TYPED_TEMPORAL_EVENT_SEMANTICS",
+    "R1_MONOTONE_RETAIN",
+    "R1_CARRY_HOLDER_LOCATION",
+    "R1_COMPLETE_SYNTHETIC_FIXTURES",
+    "R3_RESTORE_LAST_SEED"
+  ],
+  "source_status": "EXACT_FROZEN_INPUT_GIT_BLOBS_VERIFIED_FROM_LOCAL_REPO",
+  "synthetic_qa": {
+    "checks": {
+      "ACTIVATE_LINKED_TRIGGER_EARLY": true,
+      "CARRY_MOVES_EVERY_HELD_ITEM": true,
+      "CAT03_CONTROLLED_SHARED_GOAL": true,
+      "CAT04_CONTROLLED_SHARED_GOAL": true,
+      "CAT04_DISTRACTOR_TYPED_EVENT": true,
+      "FINITE_CARRY_RELOCATE_HOLDER_LOCATION_INVARIANTS": true,
+      "FOUR_COMPLETE_SYNTHETIC_TRACES": true,
+      "FOUR_ORIGINAL_CATEGORY_IDS": true,
+      "MOCK_CONTRACT_CANDIDATE_PATCH_RUNS": true,
+      "RETAIN_MONOTONE": true,
+      "SEED_FROZEN_EXPECTED_12": true,
+      "STATE_COMPLETENESS": true,
+      "TIME_ORDER": true
+    },
+    "claim_limit": "SYNTHETIC_SOURCE_ONLY_NO_REAL_AST_GOLD_OR_NONOVERLAP",
+    "finite_valid_transitions_exercised": 128,
+    "four_fixtures": {
+      "CAT01": {
+        "category": "entity_location",
+        "complete_state": true,
+        "note": "Synthetic trace only; not real TRAIN/EVAL skeleton or unique-gold proof",
+        "reachable_A": true,
+        "reachable_B": true
+      },
+      "CAT02": {
+        "category": "causal_reasoning",
+        "complete_state": true,
+        "note": "Synthetic trace only; not real TRAIN/EVAL skeleton or unique-gold proof",
+        "reachable_A": true,
+        "reachable_B": true
+      },
+      "CAT03": {
+        "category": "rule_constraint",
+        "complete_state": true,
+        "note": "Synthetic trace only; not real TRAIN/EVAL skeleton or unique-gold proof",
+        "reachable_A": true,
+        "reachable_B": true
+      },
+      "CAT04": {
+        "category": "goal_persistence",
+        "complete_state": true,
+        "note": "Synthetic trace only; not real TRAIN/EVAL skeleton or unique-gold proof",
+        "reachable_A": true,
+        "reachable_B": true
+      }
+    },
+    "negative_cases": {
+      "NEG_ACTIVATE_FUTURE_TIME": true,
+      "NEG_CARRY_FUTURE_TIME": true,
+      "NEG_CARRY_OLD_EFFECT_BREAKS_INVARIANT": true,
+      "NEG_INCOMPLETE_HOLDER_LOCATION": true,
+      "NEG_RELOCATE_FUTURE_TIME": true,
+      "NEG_RETAIN_FUTURE_TIME": true,
+      "NEG_TRANSFER_WITHIN_PROTECTION": true,
+      "NEG_V6_FROZEN_SEED_DRIFT": true,
+      "NEG_V6_SET_MUTANT_SHORTENS_PROTECTION": true,
+      "NEG_WAIT_NO_SCHEDULE": true,
+      "NEG_WAIT_ON_ALREADY_FIRED": true,
+      "NEG_WAIT_SAME_TIME": true
+    },
+    "negative_detected": 12,
+    "negative_total": 12,
+    "positive_pass": 13,
+    "positive_total": 13
+  }
+}

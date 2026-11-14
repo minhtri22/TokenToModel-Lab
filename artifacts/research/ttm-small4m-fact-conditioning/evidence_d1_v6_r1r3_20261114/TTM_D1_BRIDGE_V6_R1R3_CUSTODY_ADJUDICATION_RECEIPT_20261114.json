@@ -1,0 +1,82 @@
+{
+  "schema": "ttm.d1.v6.r1r3.integrated_custody_source_adjudication.v1",
+  "operation": "TTM_SMALL4M_D1_V6_R1R3_INTEGRATED_EVIDENCE_CUSTODY_AND_INDEPENDENT_32_SKELETON_SOURCE_QA_SINGLE_GO_HOLD",
+  "date": "2026-11-14",
+  "source_of_truth": "GitHub exact immutable commit and user Windows runner readback",
+  "reviewer_classification": "AI_SOURCE_REVIEW_WITH_INDEPENDENT_COMPARISON_LOGIC_NOT_SEPARATE_ORGANIZATIONAL_REVIEWER",
+  "execution_class": "READ_ONLY_REMOTE_FILE_READ_AND_SOURCE_COMPARISON_NO_GPU_NO_SCIENCE_RERUN",
+  "frozen_scientific_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "source_candidate_commit": "b5dd5890b73a29744530ed3a1ffbc0dc7ae5195a",
+  "input_blobs": {
+    "S8_V5_CONTRACT": "f4103f571ea80f909d59b1d9fe5f426702f53fa4",
+    "S2_V6_CONTRACT": "c6ac330c40e31035116add165ef30fa58af59639"
+  },
+  "custody": {
+    "candidate": {
+      "local_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_D1_V6_R1_R3_CANDIDATE_20261114\\TTM_D1_BRIDGE_V6_R1_R3_PROSPECTIVE_CANDIDATE.json",
+      "sha256": "e05774d9f0a155e19f70574260be839f1f0634bdfce2399ab2a67622dbc214a5",
+      "sha256_independent_recomputed_from_RemoteMCP_text_utf8": true,
+      "github_blob_sha1": "ed05456e5da0a9b162968a9c043f3628f143d8f8",
+      "sha_matches_native_receipt": true
+    },
+    "native_receipt": {
+      "local_windows_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\TTM_D1_V6_R1_R3_CANDIDATE_20261114\\TTM_D1_BRIDGE_V6_R1_R3_INTEGRATED_QA_RECEIPT.json",
+      "sha256": "85f93961dba4b847da460ed61f4acb4f8b2d327867707dd4c5b58f51405c0dff",
+      "sha256_independent_recomputed_from_RemoteMCP_text_utf8": true,
+      "user_windows_get_file_hash_match": true,
+      "github_blob_sha1": "28e5afcca99a122b214ab1ec4882793889173ab2"
+    }
+  },
+  "source_review": {
+    "R1": "HOLD_REAL_32_SKELETON_ADMISSION_NOT_EXECUTED",
+    "R2": "PASS_INHERITED_SOURCE_SCOPED_NO_NEW_QA",
+    "R3": "PASS_EXACT_12_SEEDS_RESTORED_SOURCE_SCOPED",
+    "R4": "PASS_INHERITED_SOURCE_SCOPED_NO_NEW_QA",
+    "R5": "PASS_INHERITED_TRUSTED_CUSTODIAN_DESIGN_SCOPED_PRODUCTION_HOLD",
+    "R6": "PASS_INHERITED_SOURCE_SCOPED_NO_NEW_QA",
+    "candidate_R1_specific_source_fixes": [
+      "five non-WAIT actions have explicit time=current_time guards",
+      "WAIT has atomic_advance plus scheduled trigger semantics source clause",
+      "RETAIN uses set_max protected_until",
+      "CARRY uses forall_set to move held items atomically",
+      "four fully-typed synthetic CAT fixtures present"
+    ],
+    "v5_candidate_seed_array_identical": true,
+    "four_inherited_contracts_deep_structural_identical_to_v6": true,
+    "original_v6_seed_drift": "20261131",
+    "correct_candidate_final_seed": 20261201,
+    "actual_4x4_skeletons": "NOT_GENERATED",
+    "actual_reachable_checker": "NOT_IMPLEMENTED_FOR_RESEARCH_DATASET_SYNTHETIC_QA_ONLY",
+    "actual_AST_source": "NOT_IMPLEMENTED",
+    "actual_oracle_unique": "NOT_EXECUTED",
+    "semantic_nonisomorphism": "NOT_EXECUTED",
+    "full_R1_source_admission": "HOLD"
+  },
+  "native_qa_inherited_no_rerun": {
+    "positive": "13/13",
+    "negative": "12/12",
+    "finite_valid_transitions": 128,
+    "classification": "USER_EXECUTED_NATIVE_RECEIPT_NOT_REPEATED"
+  },
+  "skeleton_admission": {
+    "expected": 32,
+    "provided": 0,
+    "admitted": 0,
+    "not_executed": 32,
+    "matrix_filename": "TTM_D1_V6_R1R3_INDEPENDENT_32_SKELETON_ADMISSION_MATRIX_20261114.json"
+  },
+  "single_design_decision": "HOLD_REVISE_BEFORE_PREREG",
+  "decision_reason": "R3 source drift repaired, R1 source guard candidate improved, but 32 actual type-valid TRAIN/OOD skeletons, unique reachable oracle, exact nonoverlap and distinct independent science/admission reviewer are missing; do not substitute four synthetic fixtures.",
+  "preserved_gates": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "GPU": 0,
+    "TRAINING": 0,
+    "INFERENCE": 0,
+    "FC02": "NOT_OPENED",
+    "MAIN": "UNCHANGED",
+    "LINEAGE": "UNMODIFIED"
+  },
+  "next_step": "Continue SAME integrated R1 admission gate: produce 4 TRAIN plus 4 OOD genuine typed skeleton AST/category with signed rights/custody and independently executable unique-oracle/reachability/nonisomorphism verification; obtain distinct reviewer before any design GO. No micro-permit, no science run."
+}
