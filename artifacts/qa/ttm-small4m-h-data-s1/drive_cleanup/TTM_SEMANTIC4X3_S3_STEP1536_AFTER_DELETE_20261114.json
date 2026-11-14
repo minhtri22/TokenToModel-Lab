@@ -1,0 +1,58 @@
+{
+  "schema": "ttm.drive.semantic4x3.step1536.after_delete.v1",
+  "date": "2026-11-14",
+  "seed": "S3",
+  "status": "PASS_DELETED_4_INTERMEDIATE_STEP1536",
+  "source_manifest_blob_sha1": "906779b398af1555f346141b3f087bde0802a559",
+  "deleted_arms": [
+    "PT-REAL",
+    "PT-PERM",
+    "NULL-REAL",
+    "NULL-PERM"
+  ],
+  "claimed_deleted_checkpoint_bytes": 211771956,
+  "post_delete_after": [
+    {
+      "arm": "PT-REAL",
+      "present": [
+        "step_1792",
+        "step_2048"
+      ],
+      "step1536Gone": true,
+      "finalRetained": true,
+      "fallbackRetained": true
+    },
+    {
+      "arm": "PT-PERM",
+      "present": [
+        "step_1792",
+        "step_2048"
+      ],
+      "step1536Gone": true,
+      "finalRetained": true,
+      "fallbackRetained": true
+    },
+    {
+      "arm": "NULL-REAL",
+      "present": [
+        "step_1792",
+        "step_2048"
+      ],
+      "step1536Gone": true,
+      "finalRetained": true,
+      "fallbackRetained": true
+    },
+    {
+      "arm": "NULL-PERM",
+      "present": [
+        "step_1792",
+        "step_2048"
+      ],
+      "step1536Gone": true,
+      "finalRetained": true,
+      "fallbackRetained": true
+    }
+  ],
+  "error": null,
+  "other_research_untouched": true
+}
