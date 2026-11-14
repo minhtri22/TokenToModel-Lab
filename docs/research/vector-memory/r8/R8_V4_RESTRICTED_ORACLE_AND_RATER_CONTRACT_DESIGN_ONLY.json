@@ -1,0 +1,269 @@
+{
+  "schema": "ttm.vm.v4.r8.v4.oracle_rater_contract.v1",
+  "operation": "TTM_VM_V4_R8_V4_GOLD_FOLD_ORACLE_RATER_OWNER_SCOPE_SINGLE_PACKET_DESIGN_ONLY",
+  "design_only": true,
+  "owner_adopted": false,
+  "r8_generated": false,
+  "science_track": {
+    "proposed": "R8_D_EXPLORATORY_DESCRIPTIVE",
+    "confirmatory": "R8_C_NO_GO",
+    "owner_decision": "PENDING"
+  },
+  "case_design": {
+    "families": 8,
+    "pairs_per_family": 4,
+    "cases_per_pair": 2,
+    "cards_per_case": 32,
+    "select_cases": 32,
+    "abstain_cases": 32,
+    "source_kind": "AI_AUTHORED_SYNTHETIC_EXPLORATORY_ONLY_PROPOSED"
+  },
+  "gold": {
+    "unit": "answer_hypothesis=(record,accession,event,location,effective_time,authority_version)",
+    "target_key_count_select": 1,
+    "target_key_count_abstain": 0,
+    "proof_sets": "multiple minimal sufficient sets allowed",
+    "abstain_priority": [
+      "UNRESOLVED_AUTHORITY",
+      "MULTIPLE_SUPPORTED_HYPOTHESES",
+      "MISSING_PREMISE",
+      "NO_SUPPORTED_HYPOTHESIS"
+    ],
+    "receipt_policy": "P-REC-V1_TOY_DOMAIN_PENDING_OWNER"
+  },
+  "folds": {
+    "unit": "G_pre_component",
+    "first_edges": [
+      "pair_id",
+      "event_graph_id",
+      "template_cluster_id"
+    ],
+    "text_edges_post_generation": {
+      "normalization": "NFKC_lowercase",
+      "ngram_words": 5,
+      "jaccard_threshold": 0.8,
+      "exact_duplicate_event_or_card": true
+    },
+    "assignment": "HMAC_SHA256_BLUEPRINT_SORT_GREEDY_MIN_CASES_4_FOLDS_PRIVATE_G2_KEY",
+    "crossfold_post_edge": "FOLD_LEAK_CV_INVALID_NO_REPARTITION",
+    "fewer_than_four_components": "CV_NOT_ESTIMABLE"
+  },
+  "raters": {
+    "proposed": "FOUR_RATERS_TWO_PER_CASE",
+    "owner_decision": "PENDING",
+    "rater_ids": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "per_rater_cases": 32,
+    "per_rater_select": 16,
+    "per_rater_abstain": 16,
+    "cases_total": 64,
+    "evaluations_total": 128,
+    "never_show_both_twins": true,
+    "select_twin_raters_by_pair_slot": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "C",
+        "D"
+      ],
+      [
+        "B",
+        "D"
+      ]
+    ],
+    "abstain_twin_raters_by_pair_slot": [
+      [
+        "C",
+        "D"
+      ],
+      [
+        "B",
+        "D"
+      ],
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ]
+    ],
+    "per_family_pairs": 4,
+    "per_family_each_rater_select": 2,
+    "per_family_each_rater_abstain": 2,
+    "agreement": [
+      "action",
+      "key_conditional_on_both_select",
+      "joint_action_key"
+    ],
+    "same_model_bias_warning": true
+  },
+  "runtime_proposed_not_attested": {
+    "python": "3.12",
+    "scikit_learn": "1.8.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "actual_install_and_source_sha_lock": "G2_PENDING",
+    "random_state": 20261114
+  },
+  "preprocessing": {
+    "normalization": "NFKC",
+    "lowercase": true,
+    "token_pattern": "(?u)\\b\\w+\\b",
+    "tfidf_word_ngram": [
+      1,
+      2
+    ],
+    "tfidf_max_features": 2000,
+    "tfidf_min_df": 1,
+    "tfidf_sublinear_tf": false,
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "missing_metadata": "MISSING_FLAG",
+    "logistic": {
+      "C": 1,
+      "solver": "liblinear",
+      "max_iter": 1000,
+      "random_state": 20261114
+    },
+    "regex_source_sha256": "G2_PENDING_NOT_CLAIMED"
+  },
+  "oracles": {
+    "O1": {
+      "kind": "order_only",
+      "features": [
+        "row_position_decile",
+        "card_position_extrema"
+      ],
+      "model": "train_fold_majority_table_tie_abstain",
+      "test": "component_held_out_action"
+    },
+    "O2": {
+      "kind": "metadata_only",
+      "features": [
+        "key_length",
+        "id_character_class",
+        "source_id_length",
+        "text_length_bucket5",
+        "card_order",
+        "source_marker"
+      ],
+      "model": "logistic",
+      "test": "component_held_out_action"
+    },
+    "O3": {
+      "kind": "marker_only",
+      "features": [
+        "applicable signed record",
+        "signed",
+        "approved",
+        "pending",
+        "countersigned",
+        "reconciled",
+        "authorized",
+        "received",
+        "source_format",
+        "status_role_counts",
+        "word_1_2gram_regex"
+      ],
+      "model": "logistic",
+      "test": "component_held_out_action"
+    },
+    "O4": {
+      "kind": "question_only_and_question_metadata",
+      "features": [
+        "word_tfidf_1_2gram",
+        "O2_features"
+      ],
+      "model": "logistic",
+      "test": "component_held_out_action_paired_identical_question_is_only_sanity"
+    },
+    "O5": {
+      "kind": "card_key_selector",
+      "features": [
+        "card_marker",
+        "card_length",
+        "status_role",
+        "authority"
+      ],
+      "model": "logistic_per_card",
+      "select_train_case_positive_weight": 0.5,
+      "select_train_case_each_negative_weight": 0.016129032258064516,
+      "select_null": "UNIFORM_1_OF_32",
+      "test": "component_held_out_SELECT_top1",
+      "tie_break": "first_visible_card",
+      "report_tie_count": true
+    },
+    "O6": {
+      "kind": "joint_cheap_feature",
+      "features": [
+        "O2",
+        "O3",
+        "O4"
+      ],
+      "model": "logistic_action_then_O5_key",
+      "test": "component_held_out_action_key_joint"
+    },
+    "O7": {
+      "kind": "semantic_or_lexical_comparator",
+      "features": [
+        "question_text",
+        "card_text"
+      ],
+      "model": "TFIDF_and_BM25",
+      "test": "descriptive_top1_and_by_family_NOT_PRIMARY_LEAKAGE_TEST"
+    },
+    "O8": {
+      "kind": "static_known_oracles",
+      "features": [
+        "applicable signed record",
+        "ID_SOURCE_REGEX",
+        "position",
+        "date_location_map"
+      ],
+      "model": "frozen_rules_no_fit",
+      "test": "all_plus_held_out"
+    }
+  },
+  "statistics": {
+    "primary_families": [
+      "O2",
+      "O3",
+      "O4",
+      "O5",
+      "O6"
+    ],
+    "multiple_testing": "Holm",
+    "familywise_alpha": 0.05,
+    "first_rank_cutoff": 0.01,
+    "action_null": 0.5,
+    "key_null_select": 0.03125,
+    "unit": "pair_or_independent_graph_template_component",
+    "permutation": "ONLY_WHEN_EXCHANGEABILITY_DEFENDED",
+    "no_valid_test": "NOT_ESTIMABLE",
+    "raw_high_O5": "HOLD_INDEPENDENT_FEATURE_CONTRACT_REVIEW_IF_NOT_PROVEN_FORBIDDEN",
+    "hard_fail": "proven_disallowed_cue_or_deterministic_heldout_rule",
+    "non_significant": "NOT_PROOF_NO_LEAKAGE",
+    "pass_scope": "PASS_SCOPED_DESCRIPTIVE_QA_ONLY"
+  },
+  "gates": {
+    "G0": "HOLD_PENDING_DISTINCT_V4_REVIEW",
+    "G1": "HOLD_OWNER_RIGHTS",
+    "G2": "HOLD_CUSTODY_VALIDATOR_SOURCE_LOCK",
+    "G3": "NOT_AUTHORIZED",
+    "G4": "NOT_EXECUTED",
+    "G5": "SEALED",
+    "G6": "SEALED"
+  }
+}
