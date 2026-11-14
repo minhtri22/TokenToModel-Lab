@@ -34,7 +34,7 @@ def blueprints(n=8):
              "event_graph_id":"ev"+str(i),"template_cluster_id":"t"+str(i)}
             for i in range(n)]
 def doc(bp,question="where is the signed receipt located"):
-    return {"blueprint_id":bp,"question":question,
+    return {"blueprint_id":bp,"case_id":bp+"-t0","question":question,
             "event_signature":"E"+bp,
             "cards":[{"text":("document "+bp+" signed record approved location "+str(i))}
                      for i in range(3)]}
@@ -46,6 +46,7 @@ def oracle_case(i,action):
              "source_format":"record","status":"signed" if j==0 else "pending",
              "authority_role":"authorized" if j==0 else "none"})
     return {"id":f"nonR8_{i}","component_id_pre":f"nonR8_component_{i}",
+            "public_row_position":i,"public_case_count":8,
             "action":action,"target_key":cards[0]["key"] if action=="SELECT" else None,
             "question":"Which verified receipt record establishes X?",
             "cards":cards}
@@ -134,7 +135,7 @@ class FoldQA(unittest.TestCase):
         a,b=next((a,b) for a in cases for b in cases
                  if pre[a["blueprint_id"]]!=pre[b["blueprint_id"]])
         b["cards"][0]["text"]=a["cards"][0]["text"]
-        r=f.postcheck(cases,pre)
+        r=f.postcheck(cases,pre,expected_twins_per_blueprint=1)
         self.assertEqual(r["cv_status"],"FOLD_LEAK_CV_INVALID")
         self.assertTrue(r["no_repartition"])
     def test_17_word5_duplicate_qa(self):
@@ -206,5 +207,91 @@ class OracleQA(unittest.TestCase):
         r=o.runtime()
         self.assertIn("python",r)
         self.assertEqual(r["seed"],20261114)
+class IndependentFindingRegressionQA(unittest.TestCase):
+    """Negative tests for the distinct V4 G0 reviewer findings; NON-R8 only."""
+
+    def twin_case(self, cid, bp, question):
+        return {"case_id":cid, "blueprint_id":bp, "question":question,
+                "event_signature":cid+"-distinct-event",
+                "cards":[{"text":cid+"-unique-source-and-text"}]}
+
+    def test_30_single_twin_similarity_cannot_be_overwritten(self):
+        common = " ".join("largesharedtoken"+str(i) for i in range(65))
+        cases = [
+            self.twin_case("a0","a",common),
+            self.twin_case("a1","a","nonmatching unique alpha stream"),
+            self.twin_case("b0","b",common),
+            self.twin_case("b1","b","unrelated remaining beta content")
+        ]
+        got = f.postcheck(cases,{"a":0,"b":1})
+        self.assertEqual(got["post_case_count"],4)
+        self.assertEqual(got["cv_status"],"FOLD_LEAK_CV_INVALID")
+        self.assertGreaterEqual(got["crossfold_post_edges"],1)
+        self.assertNotEqual(got["component_id_post"]["a0"],got["component_id_post"].get("z",None))
+
+    def test_31_late_twin_similarity_also_detected(self):
+        common = " ".join("largecommonz"+str(i) for i in range(65))
+        cases = [
+            self.twin_case("a0","a","alpha one off"),
+            self.twin_case("a1","a",common),
+            self.twin_case("b0","b","beta other stream"),
+            self.twin_case("b1","b",common)
+        ]
+        got=f.postcheck(cases,{"a":0,"b":1})
+        self.assertEqual(got["cv_status"],"FOLD_LEAK_CV_INVALID")
+
+    def test_32_missing_twin_rejected_before_cv(self):
+        cases=[self.twin_case("a0","a","the question")]
+        with self.assertRaisesRegex(ValueError,"POST_TWIN_COUNT_MISMATCH"):
+            f.postcheck(cases,{"a":0})
+
+    def test_33_duplicate_case_id_rejected(self):
+        cases=[self.twin_case("same","a","abc"),self.twin_case("same","a","different")]
+        with self.assertRaisesRegex(ValueError,"DUPLICATE_POST_CASE_ID"):
+            f.postcheck(cases,{"a":0})
+
+    def test_34_O1_row_decile_is_observable_not_fold_position(self):
+        a=oracle_case(0,"SELECT")
+        b=oracle_case(7,"ABSTAIN")
+        aa=o._o1_features(a);bb=o._o1_features(b)
+        self.assertEqual(aa["row_position_decile"],0)
+        self.assertEqual(bb["row_position_decile"],8)
+        self.assertNotEqual(aa,bb)
+
+    def test_35_O2_card_position_sensitive_not_constant_sum(self):
+        a=oracle_case(0,"SELECT")
+        a["cards"][0]["key"]="a"
+        a["cards"][-1]["key"]="very_long_public_key"
+        b=deepcopy(a)
+        b["cards"][0],b["cards"][-1]=b["cards"][-1],b["cards"][0]
+        x,y=o._o2_features(a),o._o2_features(b)
+        self.assertNotIn("pos_sum",x)
+        self.assertNotEqual(x["rank_weighted_key_length"],y["rank_weighted_key_length"])
+        self.assertNotEqual(x["first_key_length"],y["first_key_length"])
+
+    def test_36_O5_out_of_fold_accumulation_20_32(self):
+        folds=[]
+        for i in range(4):
+            outcomes=[{"case_id":f"nonR8_only_{j}","correct":j<20}
+                      for j in range(i*8,(i+1)*8)]
+            folds.append({"status":"EXECUTED_NON_R8_SYNTHETIC_ONLY",
+                          "select_n":8,"select_case_outcomes":outcomes})
+        r=o.aggregate_o5_folds(folds)
+        self.assertEqual(r["select_n"],32)
+        self.assertEqual(r["correct"],20)
+        self.assertTrue(r["high_signal_hold_review"])
+        self.assertEqual(r["status"],"OOF_COMPLETE_DESCRIPTIVE_ONLY")
+        self.assertTrue(r["inferential_status"].startswith("NOT_ESTIMABLE"))
+
+    def test_37_O5_part_fold_warning_and_no_false_global_complete(self):
+        partial=[{"status":"EXECUTED_NON_R8_SYNTHETIC_ONLY","select_n":1,
+                  "select_case_outcomes":[{"case_id":"nonR8_a","correct":True}]}]
+        r=o.aggregate_o5_folds(partial)
+        self.assertEqual(r["status"],"OOF_PARTIAL_NOT_ESTIMABLE")
+        self.assertTrue(r["high_signal_hold_review"])
+        twice=partial*2
+        self.assertEqual(o.aggregate_o5_folds(twice)["status"],"INVALID_OOF_DUPLICATE_CASE")
+
+
 if __name__=="__main__":
     unittest.main()

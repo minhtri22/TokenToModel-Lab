@@ -58,18 +58,53 @@ def _card_meta(card,i):
             "src_format="+norm(card.get("source_format","")):1.0}
 
 def _o1_features(case):
-    return {"card_count":len(case["cards"]),"first_key_length":len(case["cards"][0]["key"]),
-            "last_key_length":len(case["cards"][-1]["key"])}
+    """Public row decile cannot be inferred from a train/test list index."""
+    position = case.get("public_row_position")
+    total = case.get("public_case_count")
+    if type(position) is not int or type(total) is not int or total < 1 or not (0 <= position < total):
+        raise ValueError("PUBLIC_ROW_POSITION_REQUIRED_FOR_O1")
+    return {
+        "row_position_decile": min(9, (10 * position) // total),
+        "card_count": len(case["cards"]),
+        "first_key_length": len(case["cards"][0]["key"]),
+        "last_key_length": len(case["cards"][-1]["key"])
+    }
+
+
 def _o2_features(case):
-    z={"card_count":len(case["cards"])}
-    for i,c in enumerate(case["cards"]):
-        d=_card_meta(c,i)
-        for k,v in d.items():
-            if k.startswith(("src_marker=","src_format=")):
-                z[k]=z.get(k,0)+1
-            elif isinstance(v,(int,float)):
-                z[k+"_sum"]=z.get(k+"_sum",0)+v
+    """Public metadata plus non-constant card-position interactions.
+
+    Summing the position of all 32 cards is always 496, so is not a valid
+    position-leakage control. Preserve marker/source distributions and
+    where in the visible index those values appear.
+    """
+    cards = case["cards"]
+    z = {"card_count": len(cards)}
+    for i, card in enumerate(cards):
+        d = _card_meta(card, i)
+        for k, v in d.items():
+            if k == "pos":
+                continue  # Constant sum for every 32-card case.
+            if k.startswith(("src_marker=", "src_format=")):
+                z[k] = z.get(k, 0) + 1
+                z[k + "_quartile_" + str((4 * i) // max(len(cards), 1))] = (
+                    z.get(k + "_quartile_" + str((4 * i) // max(len(cards), 1)), 0) + 1
+                )
+            elif isinstance(v, (int, float)):
+                z[k + "_sum"] = z.get(k + "_sum", 0) + v
+        rank = i + 1
+        z["rank_weighted_key_length"] = (
+            z.get("rank_weighted_key_length", 0) + rank * d["key_len"]
+        )
+        z["rank_weighted_text_bucket"] = (
+            z.get("rank_weighted_text_bucket", 0) + rank * d["txt_len_bucket5"]
+        )
+    z["first_key_length"] = len(cards[0]["key"])
+    z["last_key_length"] = len(cards[-1]["key"])
+    z["first_source_id_length"] = len(cards[0].get("source_id", ""))
+    z["last_source_id_length"] = len(cards[-1].get("source_id", ""))
     return z
+
 def _o3_features(case):
     z={}
     for c in case["cards"]:
@@ -116,6 +151,14 @@ def validate_split(train,test):
     if len(tc | ec)<4:return "NOT_ESTIMABLE_FEWER_THAN_4_COMPONENTS"
     if {c["action"] for c in train}!={"SELECT","ABSTAIN"}:
         return "NOT_ESTIMABLE_ONE_CLASS_TRAIN"
+    order_rows = [(c.get("public_row_position"), c.get("public_case_count")) for c in allrows]
+    if any(type(pos) is not int or type(total) is not int or total < 1 or
+           not 0 <= pos < total for pos, total in order_rows):
+        return "NOT_ESTIMABLE_PUBLIC_ORDER_MISSING"
+    if len({pos for pos, _ in order_rows}) != len(order_rows):
+        return "INVALID_PUBLIC_ROW_POSITION_DUPLICATE"
+    if len({total for _, total in order_rows}) != 1:
+        return "INVALID_PUBLIC_CASE_COUNT_INCONSISTENT"
     return "VALID_SOURCE_ONLY_SPLIT"
 
 def _fit_dict(train_features,train_y,test_features,weights=None):
@@ -164,37 +207,95 @@ def _o1(train,test):
             "n":len(test),"action_accuracy":sum(x==c["action"] for x,c in zip(predictions,test))/len(test),
             "ties_abstain":True}
 
-def _o5(train,test):
-    select=[c for c in train if c["action"]=="SELECT"]
-    if not select:return {"status":"NOT_ESTIMABLE_NO_TRAIN_SELECT"}
-    xf=[];labs=[];weights=[]
+def _o5(train, test):
+    """Train-only key selector; held-out key predictions ignore held-out action."""
+    select = [c for c in train if c["action"] == "SELECT"]
+    if not select:
+        return {"status": "NOT_ESTIMABLE_NO_TRAIN_SELECT"}
+    xf, labs, weights = [], [], []
     for case in select:
         for card in case["cards"]:
-            positive=card["key"]==case["target_key"]
-            xf.append(_o5_features(card));labs.append(int(positive))
-            weights.append(.5 if positive else .5/31)
-    _,_,_,DictVectorizer,_,LogisticRegression,_=_imports()
-    vec=DictVectorizer(sparse=True)
-    model=LogisticRegression(C=C,solver="liblinear",max_iter=MAX_ITER,
-                              random_state=SEED)
-    model.fit(vec.fit_transform(xf),labs,sample_weight=weights)
-    answers={};tiecount=0;hits=0;n=0
+            positive = card["key"] == case["target_key"]
+            xf.append(_o5_features(card))
+            labs.append(int(positive))
+            weights.append(.5 if positive else .5 / 31)
+    _, _, _, DictVectorizer, _, LogisticRegression, _ = _imports()
+    vec = DictVectorizer(sparse=True)
+    model = LogisticRegression(C=C, solver="liblinear", max_iter=MAX_ITER,
+                               random_state=SEED)
+    model.fit(vec.fit_transform(xf), labs, sample_weight=weights)
+    answers, outcomes = {}, []
+    tiecount, hits, n = 0, 0, 0
     for case in test:
-        # Predict on every held-out case WITHOUT looking at its true action.
-        # O6 needs a candidate key even when action=ABSTAIN is the hidden truth.
-        probs=model.predict_proba(vec.transform([_o5_features(x) for x in case["cards"]]))[:,1]
-        maximum=max(probs);idx=[i for i,x in enumerate(probs) if abs(x-maximum)<1e-12]
-        key=case["cards"][idx[0]]["key"]
-        answers[case["id"]]=key
-        if case["action"]=="SELECT":
-            tiecount+=int(len(idx)>1)
-            hits+=int(key==case["target_key"]);n+=1
-    return {"status":"EXECUTED_NON_R8_SYNTHETIC_ONLY","select_n":n,
-            "correct":hits,"conditional_key_accuracy":hits/n if n else None,
-            "null_per_card":1/32,"tie_count":tiecount,"keys":answers,
-            "training_weight_each_select_case":1.0,"training_positive":.5,
-            "training_negative_each":.5/31,
-            "high_signal_hold_review":n==32 and hits>=20}
+        probs = model.predict_proba(
+            vec.transform([_o5_features(x) for x in case["cards"]])
+        )[:, 1]
+        maximum = max(probs)
+        idx = [i for i, value in enumerate(probs) if abs(value - maximum) < 1e-12]
+        key = case["cards"][idx[0]]["key"]
+        answers[case["id"]] = key
+        if case["action"] == "SELECT":
+            correct = key == case["target_key"]
+            tiecount += int(len(idx) > 1)
+            hits += int(correct)
+            n += 1
+            # Private QA bookkeeping; never write IDs/keys to public reports.
+            outcomes.append({"case_id": case["id"], "correct": bool(correct)})
+    return {
+        "status": "EXECUTED_NON_R8_SYNTHETIC_ONLY",
+        "select_n": n, "correct": hits,
+        "conditional_key_accuracy": hits / n if n else None,
+        "null_per_card": 1 / 32,
+        "tie_count": tiecount, "keys": answers,
+        "select_case_outcomes": outcomes,
+        "training_weight_each_select_case": 1.0,
+        "training_positive": .5, "training_negative_each": .5 / 31,
+        # Descriptive per-fold warning, not a statistical test or R8 release.
+        "fold_key_signal_warning": n > 0 and hits / n >= 20 / 32,
+        "fold_warning_interpretation": "DESCRIPTIVE_ONLY_NOT_HOLM_OR_P_VALUE",
+        "high_signal_hold_review": n > 0 and hits / n >= 20 / 32
+    }
+
+
+def aggregate_o5_folds(fold_results, expected_select_cases=32):
+    """One predeclared out-of-fold key alarm; never interpret as a p-value.
+
+    20/32 is a descriptive reviewer trigger from the original R8 V4
+    design discussion, NOT a valid significance test in dependent groups.
+    Disjoint held-out case identities must be checked before aggregation.
+    """
+    if type(expected_select_cases) is not int or expected_select_cases <= 0:
+        raise ValueError("INVALID_EXPECTED_SELECT_COUNT")
+    if not fold_results:
+        return {"status": "NOT_ESTIMABLE_EMPTY_OOF"}
+    seen, hits = set(), 0
+    for result in fold_results:
+        if result.get("status") != "EXECUTED_NON_R8_SYNTHETIC_ONLY":
+            return {"status": "NOT_ESTIMABLE_FOLD_MISSING"}
+        rows = result.get("select_case_outcomes")
+        if not isinstance(rows, list) or len(rows) != result.get("select_n"):
+            return {"status": "INVALID_OOF_CASE_ACCOUNTING"}
+        for row in rows:
+            cid = row["case_id"]
+            if cid in seen:
+                return {"status": "INVALID_OOF_DUPLICATE_CASE"}
+            seen.add(cid)
+            hits += int(row["correct"])
+    n = len(seen)
+    if n > expected_select_cases:
+        return {"status": "INVALID_OOF_EXCEEDS_PREDECLARED_N"}
+    complete = n == expected_select_cases
+    return {
+        "status": "OOF_COMPLETE_DESCRIPTIVE_ONLY" if complete else "OOF_PARTIAL_NOT_ESTIMABLE",
+        "select_n": n, "correct": hits,
+        "conditional_key_accuracy": hits / n if n else None,
+        "expected_select_cases": expected_select_cases,
+        "uniform_key_null": 1 / 32,
+        "high_signal_hold_review": n > 0 and hits / n >= 20 / 32,
+        "predeclared_raw_alarm": "accuracy>=20/32",
+        "inferential_status": "NOT_ESTIMABLE_UNLESS_CLUSTER_EXCHANGEABILITY_ATTESTED",
+        "not_an_independent_sample_count": True
+    }
 
 def _o7(train,test):
     _,_,_,_,TfidfVectorizer,_,_=_imports()

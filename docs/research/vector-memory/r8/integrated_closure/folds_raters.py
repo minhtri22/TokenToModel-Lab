@@ -71,31 +71,72 @@ def _jaccard(x,y):
     if not x and not y:return 0.0
     return len(x & y)/len(x | y)
 
-def postcheck(cases,pre_folds):
-    """Evaluate actual post-text edge policy without changing precommitted folds."""
-    ids=[c["blueprint_id"] for c in cases]
-    if set(ids)!=set(pre_folds):raise ValueError("POST_CASES_MUST_MATCH_PRE_BLUEPRINT")
-    d=DSU(ids);fps={c["blueprint_id"]:fingerprint(c) for c in cases}
-    edges=[]
-    for i,a in enumerate(cases):
+def postcheck(cases, pre_folds, expected_twins_per_blueprint=2):
+    """Build G_post on *case IDs*; map twins back to their locked G_pre fold.
+
+    One blueprint contains two real R8 twin cases. Never cache fingerprints by
+    blueprint_id or collapse twins before forming text-similarity edges.
+    Source-only tests can explicitly request one twin per blueprint.
+    """
+    if expected_twins_per_blueprint not in (1, 2):
+        raise ValueError("INVALID_EXPECTED_TWIN_COUNT")
+    ids = [c["case_id"] for c in cases]
+    if len(ids) != len(set(ids)):
+        raise ValueError("DUPLICATE_POST_CASE_ID")
+    if len(set(pre_folds)) != len(pre_folds) or not pre_folds:
+        raise ValueError("INVALID_PRE_FOLD_MANIFEST")
+    by_blueprint = defaultdict(list)
+    for case in cases:
+        bp = case["blueprint_id"]
+        if bp not in pre_folds:
+            raise ValueError("UNRECOGNIZED_POST_BLUEPRINT")
+        by_blueprint[bp].append(case["case_id"])
+    if set(by_blueprint) != set(pre_folds):
+        raise ValueError("POST_CASES_MUST_MATCH_PRE_BLUEPRINT")
+    if any(len(v) != expected_twins_per_blueprint for v in by_blueprint.values()):
+        raise ValueError("POST_TWIN_COUNT_MISMATCH")
+    d = DSU(ids)
+    # Twins must be in one component even if their text differs.
+    for twins in by_blueprint.values():
+        for other in twins[1:]:
+            d.union(twins[0], other)
+    fps = {c["case_id"]: fingerprint(c) for c in cases}
+    normalized_cards = {
+        c["case_id"]: set(unicodedata.normalize("NFKC", x["text"]).lower()
+                          for x in c["cards"])
+        for c in cases
+    }
+    edges = []
+    for i, a in enumerate(cases):
         for b in cases[i+1:]:
-            aid,bid=a["blueprint_id"],b["blueprint_id"]
-            identical_event=(a.get("event_signature") and a.get("event_signature")==b.get("event_signature"))
-            at=set(unicodedata.normalize("NFKC",x["text"]).lower() for x in a["cards"])
-            bt=set(unicodedata.normalize("NFKC",x["text"]).lower() for x in b["cards"])
-            same_card=bool(at & bt)
-            similarity=_jaccard(fps[aid],fps[bid])
-            if identical_event or same_card or similarity>=THRESHOLD:
-                d.union(aid,bid)
-                edges.append({"a":aid,"b":bid,"crossfold":pre_folds[aid]!=pre_folds[bid],
-                              "reasons":[tag for tag,yes in [
-                                ("DUP_EVENT",bool(identical_event)),
-                                ("DUP_CARD",same_card),("WORD5_JACCARD",similarity>=THRESHOLD)] if yes]})
-    leaks=[e for e in edges if e["crossfold"]]
-    return {"cv_status":"FOLD_LEAK_CV_INVALID" if leaks else "POST_GRAPH_NO_CROSSFOLD_EDGE",
-            "crossfold_post_edges":len(leaks),"post_edges":len(edges),
-            "component_id_post":{i:d.root(i) for i in ids},
-            "no_repartition":True}
+            aid, bid = a["case_id"], b["case_id"]
+            identical_event = bool(
+                a.get("event_signature") and
+                a.get("event_signature") == b.get("event_signature")
+            )
+            same_card = bool(normalized_cards[aid] & normalized_cards[bid])
+            similarity = _jaccard(fps[aid], fps[bid])
+            if identical_event or same_card or similarity >= THRESHOLD:
+                d.union(aid, bid)
+                edges.append({
+                    "a": aid, "b": bid,
+                    "crossfold": pre_folds[a["blueprint_id"]] != pre_folds[b["blueprint_id"]],
+                    "reasons": [tag for tag, yes in [
+                        ("DUP_EVENT", identical_event),
+                        ("DUP_CARD", same_card),
+                        ("WORD5_JACCARD", similarity >= THRESHOLD)
+                    ] if yes]
+                })
+    leaks = [e for e in edges if e["crossfold"]]
+    return {
+        "cv_status": "FOLD_LEAK_CV_INVALID" if leaks else "POST_GRAPH_NO_CROSSFOLD_EDGE",
+        "crossfold_post_edges": len(leaks),
+        "post_edges": len(edges),
+        "post_case_count": len(ids),
+        "expected_twins_per_blueprint": expected_twins_per_blueprint,
+        "component_id_post": {i: d.root(i) for i in ids},
+        "no_repartition": True
+    }
 
 def estimability(train_cases,component_ids):
     if len(set(component_ids.values()))<4:return "NOT_ESTIMABLE_FEWER_THAN_4_COMPONENTS"
