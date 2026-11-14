@@ -170,6 +170,23 @@ def verify_private_prompts(owner_path, commitment_path):
     return out, locked
 
 
+def validate_all_prompt_context(prompts, bpe):
+    # Separate owner-only gate AFTER explicit FINAL permit and BEFORE first model
+    # forward/consumption. One too-long prompt aborts the entire one-shot.
+    lengths = []
+    for pid, prompt in prompts:
+        ids = bpe.encode(prompt)
+        need(bool(ids) and EOS_ID not in ids and
+             len(ids) + MAX_NEW_TOKENS <= CONTEXT,
+             "FINAL_CONTEXT_GUARD:" + pid)
+        need(bpe.decode(ids) == prompt, "FINAL_BPE_ROUNDTRIP:" + pid)
+        lengths.append(len(ids))
+    need(len(lengths) == 24, "FINAL_CONTEXT_COUNT")
+    return {"prompt_count": 24, "max_prefix_tokens": max(lengths),
+            "min_prefix_tokens": min(lengths),
+            "cap": MAX_NEW_TOKENS, "context": CONTEXT}
+
+
 def decrypt_private_mapping(escrow_zip_path, locked_commitment, aes_source):
     # Never writes owner key or plaintext mapping to disk.
     zpath = Path(escrow_zip_path)
@@ -259,6 +276,7 @@ def generate_once(args):
     bpe_manifest = read_pinned(args.bpe, BPE_SHA)
     bpe = bpe_module.BPE2048.from_manifest(bpe_manifest)
     prompts, locked = verify_private_prompts(args.owner_final, commitment_path)
+    prompt_context_gate = validate_all_prompt_context(prompts, bpe)
     pairs = decrypt_private_mapping(args.owner_escrow_zip, locked, aes_module)
     parent = torch.load(args.parent, map_location="cpu", weights_only=True)
     need(parent.get("step") == 1024 and
@@ -343,6 +361,7 @@ def generate_once(args):
                "generator_source_sha256": selfsha,
                "permit_sha256": args.permit_sha,
                "prompt_count": 24, "continuation_count": 48,
+               "owner_private_context_gate": prompt_context_gate,
                "decoding": "plain_greedy64_or_EOS",
                "arm_counts_OWNER_ONLY_NOT_FOR_RATER": counts,
                "NEW_FINAL_generation": "EXECUTED_ONCE",
