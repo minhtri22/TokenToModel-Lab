@@ -17,6 +17,8 @@ NEW = (ROOT / "docs/research/ttm-hdata-fail4-md1/"
        "TTM_HDATA_FAIL4_MD1_FROZEN_PROSPECTIVE_DESIGN_CONTRACT_20261114.json")
 DOC = (ROOT / "docs/research/ttm-hdata-fail4-md1/"
        "TTM_HDATA_FAIL4_MD1_PROSPECTIVE_PREREG_AND_FOUR_FAIL_MECHANISM_PLAN_20261114.md")
+BLUEPRINT = (ROOT / "docs/research/ttm-hdata-fail4-md1/"
+             "TTM_HDATA_FAIL4_MD1_FRESH_CORE_2X2_DATA_BLUEPRINT_DESIGN_ONLY_20261114.json")
 OLD_SHA256 = "23df562a73c7f83096ba4ec683da81823d0104a80fbf689b01b4310348e3a7e2"
 
 def need(value: bool, code: str) -> None:
@@ -167,6 +169,40 @@ def main() -> None:
     need(DOC.is_file() and DOC.stat().st_size >= 5000,
          "READABLE_PREREG_MISSING")
     result = verify(old,new)
+    bp,_ = load_json(BLUEPRINT)
+    need(bp["schema"] == "ttm.hdata_s1.fail4.md1.fresh_data_preproduction_blueprint.v1"
+         and bp["status"] == "BLUEPRINT_ONLY_NO_NEW_PROMPT_TEXT_CREATED_OR_REVEALED",
+         "BLUEPRINT_IS_NOT_DATA")
+    cores, prompts, controls = bp["story_cores"], bp["prompt_variants"], bp["measurement_controls"]
+    need(len(cores)==16 and len(prompts)==64 and len(controls)==32 and
+         len({c["core_id"] for c in cores})==16 and
+         len({p["id"] for p in prompts})==64 and
+         len({p["core_id"] for p in prompts})==16,
+         "BLUEPRINT_CORE_OR_PROMPT_COUNTS")
+    need(sum(c["split"]=="DEV" for c in cores)==4 and
+         sum(c["split"]=="LOCKED_FINAL" for c in cores)==12 and
+         sum(p["split"]=="DEV" for p in prompts)==16 and
+         sum(p["split"]=="LOCKED_FINAL" for p in prompts)==48,
+         "BLUEPRINT_SPLIT_COUNTS")
+    need(all(p["sha256_utf8_prompt"] is None and
+             p["exact_BPE_prefix_count"] is None and
+             p["owner_private_source_ref"] is None for p in prompts) and
+         all(c["core_sha256"] is None and
+             c["owner_private_gold_record_sha256"] is None for c in cores),
+         "BLUEPRINT_CANNOT_CONTAIN_PRIVATE_OR_GENERATED_TEXT")
+    for core in cores:
+        siblings=[p for p in prompts if p["core_id"]==core["core_id"]]
+        need(len(siblings)==4 and all(p["split"]==core["split"] and
+             p["stratum"]==core["stratum"] for p in siblings) and
+             {(p["context_load"],p["goal_signal"]) for p in siblings} ==
+             {("SHORT","EXPLICIT"),("SHORT","IMPLICIT"),
+              ("DISTRACTOR","EXPLICIT"),("DISTRACTOR","IMPLICIT")},
+             "ONE_FOUR_CELL_GROUP_PER_CORE")
+    need(all(c["positive_text_sha256"] is None and
+             c["negative_text_sha256"] is None and
+             c["gold_owner_private_sha256"] is None for c in controls),
+         "NO_CALIBRATION_GOLD_IN_BLUEPRINT")
+    result["blueprint_structural_slots"] = "PASS_16_CORES_64_VARIANTS_32_CONTROLS_NO_TEXT"
     # Negative unit tests ensure that the verifier fails if someone quietly
     # changes a prior FAIL, gives an unauthorized GO or retunes the dataset.
     for mutate in (
