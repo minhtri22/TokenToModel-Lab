@@ -251,7 +251,9 @@ def generate_once(args):
     need(SCIENCE_ROOT.is_dir() and not SCIENCE_ROOT.is_symlink() and
          DRIVE_OWNER.is_dir() and not FINAL_ROOT.exists() and
          not FINAL_ROOT.is_symlink(), "ONE_SHOT_EXISTING_OR_MISSING_SCIENCE_ROOT")
-    read_pinned(args.parent, PARENT_SHA)
+    parent_path = Path(args.parent)
+    need(parent_path.is_file() and not parent_path.is_symlink() and
+         sha(parent_path) == PARENT_SHA, "FROZEN_PARENT_SHA")
     p02 = import_blob(p02_path, "hdata_final24_p02_pinned", P02_GIT_BLOB)
     bpe_module = import_blob(bpe_source, "hdata_final24_bpe_pinned", BPE_GIT_BLOB)
     aes_module = import_blob(aes_source, "hdata_final24_aes_pinned", AES_GIT_BLOB)
@@ -268,8 +270,11 @@ def generate_once(args):
     for arm, expected in (("H0", H0_SHA), ("H1", H1_SHA)):
         path = checkpoint_paths[arm]
         need(path is not None, "FINAL_CHECKPOINT_PATH:" + arm)
-        snap = torch.load(path, map_location="cpu", weights_only=True)
-        need(sha(path) == expected and snap.get("run_id") == RUN_ID and
+        p = Path(path)
+        need(p.is_file() and not p.is_symlink() and sha(p) == expected,
+             "FINAL_CHECKPOINT_SHA:" + arm)
+        snap = torch.load(p, map_location="cpu", weights_only=True)
+        need(snap.get("run_id") == RUN_ID and
              snap.get("arm") == arm and snap.get("step") == 1152,
              "FINAL_CHECKPOINT_CUSTODY:" + arm)
         need(set(("model", "optimizer", "scheduler", "sampler_state",
