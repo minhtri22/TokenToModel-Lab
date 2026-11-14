@@ -1,0 +1,38 @@
+name: TTM H-DATA MD1 FAIL4 Prospective Design-only QA
+on:
+  push:
+    branches:
+      - research/ttm-hdata-s1-fail4-prospective-mechanism-design-20261114
+    paths:
+      - 'docs/research/ttm-hdata-fail4-md1/**'
+      - 'tools/pilot_t4/hdata_s1/md1/**'
+      - '.github/workflows/ttm-hdata-fail4-md1-design-qa.yml'
+      - 'artifacts/qa/ttm-small4m-h-data-s1/blind240/TTM_HDATA_S1_FINAL24_READONLY_UNBLIND_PUBLIC_AGGREGATE_20261114.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check frozen FAIL4 source and future-only design 2x2 blueprint
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B tools/pilot_t4/hdata_s1/md1/independent_md1_fail4_source_only_prereg_qa_v1.py
+      - name: Assert no science side effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_FRESH_CORE_2X2_DATA_BLUEPRINT_DESIGN_ONLY_20261114.json
+          test ! -d artifacts/science/ttm-hdata-fail4-md1
+          echo "HDATA_MD1=SOURCE_ONLY; PRIVATE_DATA=NOT_CREATED; SCIENCE=NOT_EXECUTED"
