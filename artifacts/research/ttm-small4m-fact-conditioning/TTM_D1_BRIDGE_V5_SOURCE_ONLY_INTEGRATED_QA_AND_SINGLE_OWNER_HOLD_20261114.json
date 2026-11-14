@@ -1,0 +1,84 @@
+{
+  "schema": "ttm.d1_bridge.v5.source_only_integrated_qa_and_owner_hold.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V5_SINGLE_PACKET_SEMANTIC_ALIAS_HIDING_AUDIT_COMMITMENT_CONTRAST_PARAMS_PREREG_SOURCE_AMENDMENT_NO_GPU",
+  "date": "2026-11-14",
+  "source_git_blobs": {
+    "v5JSON": "f4103f571ea80f909d59b1d9fe5f426702f53fa4",
+    "v5MD": "f72c0f8381f2a81364b2411630ae709f93d5c1a1",
+    "qaJS": "26a03f04d2ee744d368adf7aa8da6c3ed2f03683",
+    "reviewMD": "f1c8dc3e987b811f0d08d4784831bbf154bf1462",
+    "reviewJSON": "dcad6a0cf8d684b0dcadfe0b99e2ae3aa78af09c"
+  },
+  "external_V4_review": {
+    "verdict": "HOLD_REVISE_BEFORE_PREREG",
+    "source_pins": "GITHUB_METADATA_7_OF_7_REPORTED",
+    "original_file_sha256": {
+      "md": "8fd3ff6469403c9abb4cdc7672f9206c29329adf29388e8ca78fbb0df0eec47f",
+      "json": "2bdb82bb4e585c158c291c7b48838985249a7063a588af71b8e32f333dcedd94"
+    },
+    "github_original_git_blob_sha1": {
+      "md": "f1c8dc3e987b811f0d08d4784831bbf154bf1462",
+      "json": "dcad6a0cf8d684b0dcadfe0b99e2ae3aa78af09c"
+    },
+    "axes": {
+      "R1": "HOLD",
+      "R2": "PASS_SCOPED",
+      "R3": "PASS_SCOPED",
+      "R4": "PASS_SCOPED",
+      "R5": "HOLD",
+      "R6": "HOLD"
+    },
+    "new_issues": [
+      "D1V4-N01",
+      "D1V4-N02",
+      "D1V4-N03",
+      "D1V4-N04"
+    ],
+    "reviewer_independence": "NEW_CHAT_AI_SELF_ATTESTED_NOT_EXTERNALLY_VERIFIED"
+  },
+  "V5_scope": {
+    "AM01": "typed canonical verbs + disjoint exact surface aliases + reachable task-policy witness specified; real checker NOT_EXECUTED",
+    "AM02": "TIME mandatory, parser constrained, inherited source design PASS_SCOPED; runtime NOT_EXECUTED",
+    "AM03": "12-seed signed integer sign-test unchanged; seed independence NOT_VERIFIED",
+    "AM04": "integer thresholds 308/39/192 unchanged; real EVAL NOT_EXECUTED",
+    "AM05": "keyed HMAC-SHA256 hidden commitment, 128-bit audit session, Ed25519 authenticated one-shot receipt anti-replay policy; real custody NOT_EXECUTED",
+    "AM06": "FC01-provenance exact parameter candidate lambda .2, tau1, K4, AdamW LR1e-4, warmup16 cosine1e-5; TRAIN-only negatives; runner NOT_CREATED",
+    "planned_arm_runs": 36,
+    "planned_optimizer_updates": 9216,
+    "planned_generated_outputs": 18432
+  },
+  "QA": {
+    "classification": "SAME_AUTHOR_SOURCE_CONTRACT_FIELDS_AND_NEGATIVE_MUTATIONS_NOT_INDEPENDENT_SCIENTIFIC_QA",
+    "method": "V8_IN_MEMORY_SOURCE_CONTRACT_CHECKS; JS checker source committed but not separate Node CLI rerun",
+    "positive_checks": 45,
+    "positive_passed": 45,
+    "negative_mutations": 15,
+    "negative_detected": 15,
+    "status": "PASS_SCOPED_SOURCE_ONLY_45_OF_45_NEGATIVE_15_OF_15"
+  },
+  "future_unverified": {
+    "AST_action_ontology_and_checker": "NOT_IMPLEMENTED",
+    "parser_source_and_independent_positive_negative_qa": "NOT_EXECUTED",
+    "gold_or_eval_data": "NOT_CREATED",
+    "HMAC_secret_and_signed_AUDIT": "NOT_CREATED",
+    "ACL_privacy_signed_audit_replay_tests": "NOT_EXECUTED",
+    "train_data_rights_PII": "NOT_VERIFIED",
+    "exact_runner_negative_sampler_prng_sha": "NOT_CREATED",
+    "iid_stochastic_training_variation": "NOT_VERIFIED",
+    "AdamW_resume_after_nonzero_moments": "NOT_EXECUTED",
+    "Free_T4_36_run_paid_USD_0": "NOT_VERIFIED"
+  },
+  "one_owner_decision": {
+    "V5_DESIGN": "HOLD_PENDING_DISTINCT_INDEPENDENT_V5_SOURCE_REVIEW",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "MAIN_MERGE": "NO",
+    "new_GPU_calls": 0,
+    "new_optimizer_steps": 0,
+    "new_eval_gold": false,
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V5_DISTINCT_NEW_CHAT_INDEPENDENT_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU"
+  }
+}
