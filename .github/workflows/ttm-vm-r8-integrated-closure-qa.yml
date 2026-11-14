@@ -34,6 +34,8 @@ jobs:
           print("QA_NUMPY",numpy.__version__)
           print("QA_SCIPY",scipy.__version__)
           PY
+          python docs/research/vector-memory/r8/R8_V4_DESIGN_CONTRACT_STATIC_CHECK.py docs/research/vector-memory/r8/R8_V4_RESTRICTED_ORACLE_AND_RATER_CONTRACT_DESIGN_ONLY.json
+          python -m compileall -q docs/research/vector-memory/r8/integrated_closure
           python -m unittest discover -v \
             -s docs/research/vector-memory/r8/integrated_closure \
             -p 'test_integrated_source_only.py'
@@ -41,4 +43,10 @@ jobs:
         shell: bash
         run: |
           sha256sum docs/research/vector-memory/r8/integrated_closure/*.py
+          python - <<'PY'
+          import hashlib,sys
+          sys.path.insert(0,'docs/research/vector-memory/r8/integrated_closure')
+          import restricted_oracles as x
+          print('REGEX_SOURCE_UTF8_SHA256='+hashlib.sha256(x.PATTERN.encode('utf-8')).hexdigest())
+          PY
           printf '%s\n' 'R8_GENERATION=NOT_EXECUTED' 'GPU=NO' 'PRIVATE_GOLD=NOT_ACCESSED' 'READER=0'
