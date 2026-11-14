@@ -1,0 +1,47 @@
+{
+  "schema": "ttm.hdata_s1.owner_postcleanup_capacity_manual_science_dispatch_release.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_POST_CLEANUP_DRIVE_CAPACITY_AND_ONE_SHOT_READINESS_READBACK_NO_TRAIN",
+  "input_source": "Owner Colab T4 post-cleanup printed five fixed status lines; GitHub pinned source revalidated and authenticated Drive folder listing independently checked.",
+  "owner_colab_readback": {
+    "drive_free_gib": 4.227,
+    "science_run_root_exists": false,
+    "storage_status": "PASS_STORAGE_READY",
+    "science_dispatch": "NOT_EXECUTED",
+    "new_final": "SEALED"
+  },
+  "frozen_source": {
+    "checkout_sha": "7aec0d551c930936412b93eb49951bd1597d71b9",
+    "source_runner_git_blob_sha1": "d9a80aea9a80f5bf2e98f2fe4b054e5830944823",
+    "source_runner_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "owner_GO_lock_sha256": "85e744a3da8d0e417079f726d95f059ad569a5f13e592ee56c1982dbce0aa540",
+    "original_science_root": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/science_one_shot_v1",
+    "before_root_create_capacity_guard_bytes": 2147483648,
+    "no_science_source_or_GO_lock_changes": true
+  },
+  "recovery": {
+    "previous_owner_drive_free_gib": 1.269,
+    "postcleanup_owner_drive_free_gib": 4.227,
+    "improvement_gib": 2.958,
+    "conservative_operational_4gib_headroom": "PASS",
+    "frozen_hard_stop_2gib": "PASS",
+    "original_historical_subprocess_exit1_cause": "STILL_NOT_PROVEN; CHILD STDERR WAS NOT CAPTURED",
+    "original_hdata_exact_gate_prior_readback": "PASS_NO_MODEL_FORWARD",
+    "root_absent_in_owner_colab_and_authenticated_Drive_listing": true,
+    "reviewer_colab_gpu_execution": "NOT_PERFORMED",
+    "postcleanup_training_steps": "NOT_PERFORMED",
+    "AES_escrow_and_NEW_FINAL": "SEALED",
+    "concurrent_FC01_no_overlap": "MUST_CONFIRM_AT_MANUAL_LAUNCH"
+  },
+  "adjudication": {
+    "scientific_effect_claim": "NOT_ASSESSED",
+    "release": "GO_SCOPED_OWNER_MANUAL_REDISPATCH_SAME_FROZEN_ONE_SHOT_NO_AUTO_TRAIN",
+    "permitted_dispatch": "Owner intentionally runs H-DATA notebook cell 4 exactly once with ARM_ONE_SHOT=True and RESUME_EXISTING=False after refreshing exact H-DATA cells 1-3; only when no FC01/other GPU job active.",
+    "no_autotrain": true,
+    "no_resume_from_nonexistent_root": true,
+    "no_generated_FINAL_inference": true,
+    "after_execution": "OWNER_READY_LAST_RECEIPT_AND_INDEPENDENT_ADJUDICATION_REQUIRED",
+    "on_error": "STOP, CAPTURE CHILD STDOUT/STDERR, PRESERVE ANY RUN ROOT; NO AUTOMATIC RESUME OR FRESH_RUN_ID",
+    "main_unchanged": true
+  }
+}
