@@ -73,7 +73,7 @@ Chương trình parser và độc lập adversarial QA tương lai phải có po
 - `owner_trainer`: chỉ TRAIN/VAL/source/rights, **không** EVAL/gold/mapping.
 - `independent_eval_custodian`: sealed EVAL/gold và hash, không dùng checkpoint để tuning.
 - `parser_source_qa`: code + synthetic fixtures *không thuộc EVAL*, không gold.
-- `blind_rater`: blind packet בלבד, không arm/seed IDs, gold/mapping, kết quả primary tổng hợp.
+- `blind_rater`: blind packet riêng, không arm/seed IDs, gold/mapping, kết quả primary tổng hợp.
 
 **Gate thực tế trước science:** riêng storage ACL/key owner, logs+SHA đóng băng trước release, bằng chứng train environment không mount EVAL/gold, scoring SHA trước unblind, receipt quyền TinyStories/synthetic và PII. Cần kiểm các cue swaps, permutations, gold-string prompt echo, near-isomorphic AST và shared grammar. Không thể chứng minh không trùng toàn bộ pretraining: claim OOD giới hạn ở fine-tuning grammar do ta kiểm soát.
 
