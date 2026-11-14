@@ -1,0 +1,304 @@
+{
+  "schema": "ttm.d1_bridge.v1.independent_scientific_prereg_review_receipt.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_SOURCE_ONLY_INDEPENDENT_PREREG_REVIEW_AND_GO_HOLD_NO_GPU",
+  "date": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewer_type": "INDEPENDENT_NEW_CHAT_AI_SELF_ATTESTED",
+  "independence_scope": "AI_SELF_ATTESTED_NEW_CHAT_NOT_HUMAN",
+  "independence_verified_externally": false,
+  "independence_verdict": "INDEPENDENCE_NOT_VERIFIED",
+  "handoff_commit": "1f16f18d52382af8773a0e763da0090ae0472af3",
+  "frozen_input_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+  "source_files_verified": [
+    {
+      "source_id": "S1",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_D1_BRIDGE_STRUCTURAL_OOD_FREEGEN_MULTISEED_PREREG_DESIGN_V1_20261113.md",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "a5cd0dbd4167bdc53454847a25afcf317c94226b",
+      "observed_git_blob_sha1": "a5cd0dbd4167bdc53454847a25afcf317c94226b",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    },
+    {
+      "source_id": "S2",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_D1_BRIDGE_PREREG_V1_MACHINE_READABLE_DESIGN_HOLD_20261113.json",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "8bc9cf0fa45ada52150094a24259514f51ee2a28",
+      "observed_git_blob_sha1": "8bc9cf0fa45ada52150094a24259514f51ee2a28",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    },
+    {
+      "source_id": "S3",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_ARCHIVE_D1_BRIDGE_V1_SOURCE_ONLY_INTEGRATED_QA_20261113.json",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "e29a994a9d3d9bf368380aeb858f0626ec6558ed",
+      "observed_git_blob_sha1": "e29a994a9d3d9bf368380aeb858f0626ec6558ed",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    },
+    {
+      "source_id": "S4",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_EXPLORATORY_FINAL_ARCHIVE_MANIFEST_AND_D1_BRIDGE_DESIGN_HOLD_20261113.json",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "dab622ba088ee3def4c0994dd2f068938fd47bc2",
+      "observed_git_blob_sha1": "dab622ba088ee3def4c0994dd2f068938fd47bc2",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    },
+    {
+      "source_id": "S5",
+      "path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_INDEPENDENT_CHATGPT_BLIND_RATER_HANDOFF_20261112.md",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "b6abdab37b5220fc7a861de940e28313ebe1c316",
+      "observed_git_blob_sha1": "b6abdab37b5220fc7a861de940e28313ebe1c316",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    },
+    {
+      "source_id": "S6",
+      "path": "lineage.md",
+      "frozen_commit": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+      "expected_git_blob_sha1": "dc97f833dfd764bce29675919604f3ebb97bf8e8",
+      "observed_git_blob_sha1": "dc97f833dfd764bce29675919604f3ebb97bf8e8",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF"
+    }
+  ],
+  "source_verification_count": {
+    "expected": 6,
+    "matched": 6,
+    "mismatch": 0,
+    "unavailable": 0
+  },
+  "verification_method": "GitHub connector fetch_file with exact commit ref; compare GitHub returned Git blob SHA-1 against frozen handoff pins",
+  "verification_limit": "Independent local-byte second-channel Git blob recomputation was not performed",
+  "review_sections": {
+    "R1_structural_ood": "HOLD",
+    "R2_parser_primary": "HOLD",
+    "R3_statistical_power": "HOLD",
+    "R4_category_gates": "HOLD",
+    "R5_leakage_rights_custody": "HOLD",
+    "R6_repro_resources": "HOLD"
+  },
+  "review_section_details": {
+    "R1_structural_ood": {
+      "status": "HOLD",
+      "risk": "CRITICAL",
+      "finding_ids": [
+        "F01",
+        "F02"
+      ],
+      "rationale": "Formal AST/isomorphism checker and overlap proof absent; NOT_EXECUTED."
+    },
+    "R2_parser_primary": {
+      "status": "HOLD",
+      "risk": "CRITICAL",
+      "finding_ids": [
+        "F03",
+        "F04"
+      ],
+      "rationale": "Parser and oracle QA absent; actual semantic scoring validity NOT_EXECUTED."
+    },
+    "R3_statistical_power": {
+      "status": "HOLD",
+      "risk": "HIGH",
+      "finding_ids": [
+        "F05",
+        "F06"
+      ],
+      "rationale": "Five-seed sign-flip assumptions and power not validated; crossed hierarchy bootstrap not specified."
+    },
+    "R4_category_gates": {
+      "status": "HOLD",
+      "risk": "MEDIUM",
+      "finding_ids": [
+        "F07"
+      ],
+      "rationale": "Guards logically consistent but threshold provenance, diagnostic interpretation, error tradeoff not secured."
+    },
+    "R5_leakage_rights_custody": {
+      "status": "HOLD",
+      "risk": "HIGH",
+      "finding_ids": [
+        "F08",
+        "F09"
+      ],
+      "rationale": "Rights, ACL/independent custody and leakage controls unverified."
+    },
+    "R6_repro_resources": {
+      "status": "HOLD",
+      "risk": "HIGH",
+      "finding_ids": [
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "rationale": "Post-moment AdamW resume, objective compute accounting, free T4 feasibility not tested."
+    }
+  },
+  "critical_findings": [
+    {
+      "id": "F01",
+      "section": "R1",
+      "severity": "CRITICAL",
+      "description": "Missing formal semantic AST equivalence/non-overlap implementation",
+      "amendment": "AM01"
+    },
+    {
+      "id": "F03",
+      "section": "R2",
+      "severity": "CRITICAL",
+      "description": "No real parser or independent adversarial scorer QA",
+      "amendment": "AM02"
+    }
+  ],
+  "all_findings": [
+    {
+      "id": "F01",
+      "section": "R1",
+      "severity": "CRITICAL",
+      "description": "Missing formal semantic AST equivalence/non-overlap implementation",
+      "amendment": "AM01"
+    },
+    {
+      "id": "F02",
+      "section": "R1",
+      "severity": "HIGH",
+      "description": "Only four independent OOD structures per category",
+      "amendment": "AM01"
+    },
+    {
+      "id": "F03",
+      "section": "R2",
+      "severity": "CRITICAL",
+      "description": "No real parser or independent adversarial scorer QA",
+      "amendment": "AM02"
+    },
+    {
+      "id": "F04",
+      "section": "R2",
+      "severity": "HIGH",
+      "description": "Condition-specific gold uniqueness/discriminability underspecified",
+      "amendment": "AM02"
+    },
+    {
+      "id": "F05",
+      "section": "R3",
+      "severity": "HIGH",
+      "description": "Sign-symmetry assumption/power with five seeds not justified",
+      "amendment": "AM03"
+    },
+    {
+      "id": "F06",
+      "section": "R3",
+      "severity": "HIGH",
+      "description": "Crossed seed-by-skeleton dependence mishandled by stated nested bootstrap",
+      "amendment": "AM03"
+    },
+    {
+      "id": "F07",
+      "section": "R4",
+      "severity": "MEDIUM",
+      "description": "Pilot-informed category thresholds lack sensitivity/provenance review",
+      "amendment": "AM04"
+    },
+    {
+      "id": "F08",
+      "section": "R5",
+      "severity": "HIGH",
+      "description": "Role separation not yet real ACL/key separation",
+      "amendment": "AM05"
+    },
+    {
+      "id": "F09",
+      "section": "R5",
+      "severity": "HIGH",
+      "description": "Shared grammar, cue, parent pretraining, answer leakage untested",
+      "amendment": "AM05"
+    },
+    {
+      "id": "F10",
+      "section": "R6",
+      "severity": "HIGH",
+      "description": "Real optimizer-moment resume and deterministic runner unverified",
+      "amendment": "AM06"
+    },
+    {
+      "id": "F11",
+      "section": "R6",
+      "severity": "MEDIUM",
+      "description": "T4 free-tier and zero-paid resource feasibility unverified",
+      "amendment": "AM06"
+    },
+    {
+      "id": "F12",
+      "section": "R6",
+      "severity": "MEDIUM",
+      "description": "Objective-only intervention not identical compute/negative exposure",
+      "amendment": "AM06"
+    }
+  ],
+  "required_amendments": [
+    {
+      "id": "AM01",
+      "status": "MUST_FIX",
+      "name": "Formal semantic AST, equivalence, overlap and structural claim scope"
+    },
+    {
+      "id": "AM02",
+      "status": "MUST_FIX",
+      "name": "Condition action oracle, discriminability, canonical parser, negative QA"
+    },
+    {
+      "id": "AM03",
+      "status": "MUST_FIX",
+      "name": "Statistical estimand, exact sign-flip assumptions, ties, power, crossed bootstrap"
+    },
+    {
+      "id": "AM04",
+      "status": "MUST_FIX",
+      "name": "Category gate rationale, provenance, priority, error tradeoff"
+    },
+    {
+      "id": "AM05",
+      "status": "MUST_FIX",
+      "name": "Source rights, ACL/custodian, leakage detection and SHA lifecycle"
+    },
+    {
+      "id": "AM06",
+      "status": "MUST_FIX",
+      "name": "Full runner, real optimizer-moment resume, token/compute/resource budget"
+    }
+  ],
+  "independent_arithmetic_check": {
+    "train_paired_families": 512,
+    "val_paired_families": 128,
+    "eval_paired_families": 256,
+    "eval_prompts_per_arm_seed": 512,
+    "planned_optimizer_steps_total": 3840,
+    "planned_generated_texts_total": 7680,
+    "five_seed_signflip_combinations": 32,
+    "min_one_sided_p_nonzero_effects": 0.03125,
+    "one_zero_or_negative_seed_min_p": 0.0625,
+    "threshold_plus_10pp_is_decision_gate_not_test_of_delta_ge_10pp": true,
+    "power_examples_are_illustrative_not_science_data": true
+  },
+  "actual_new_structural_ast_QA": "NOT_EXECUTED",
+  "actual_parser_source_QA": "NOT_EXECUTED",
+  "actual_post_moment_adamw_resume_QA": "NOT_EXECUTED",
+  "right_to_use_new_data": "NOT_VERIFIED",
+  "custodian_acl": "NOT_VERIFIED",
+  "free_t4_feasibility": "NOT_VERIFIED",
+  "source_only_review_complete": true,
+  "science_executed": false,
+  "new_optimizer_steps": 0,
+  "gpu_calls": 0,
+  "private_gold_accessed": false,
+  "private_mapping_accessed": false,
+  "eval_or_gold_created": false,
+  "test_q1q2": "SEALED",
+  "existing_d1": "HOLD_UNMODIFIED",
+  "fc01_exploratory": "CLOSED_PASS_SCOPED",
+  "fc02": "NOT_OPENED",
+  "main": "UNCHANGED",
+  "single_design_decision": "HOLD_REVISE_BEFORE_PREREG",
+  "d1_science_release": "HOLD",
+  "report_file": "TTM_D1_BRIDGE_V1_INDEPENDENT_PREREG_REVIEW_20261114.md",
+  "report_sha256": "7369882b5615785628bd93b006157423f2b8377e265e3c3098429eabd60ab97c",
+  "next_operation": "TTM_SMALL4M_D1_BRIDGE_V2_SINGLE_PACKET_PREREG_AMENDMENT_SOURCE_QA_AND_OWNER_GO_HOLD_NO_GPU"
+}
