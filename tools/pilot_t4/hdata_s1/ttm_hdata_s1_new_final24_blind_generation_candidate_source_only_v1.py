@@ -230,10 +230,9 @@ def greedy64(model, bpe, text, torch, device):
 
 
 def generate_once(args):
-    import torch
-
     selfsha = sha(__file__)
-    check_permit(args, selfsha)  # BEFORE reading NEW FINAL, AES key, checkpoint
+    check_permit(args, selfsha)  # BEFORE torch import, NEW FINAL, AES key, checkpoint
+    import torch
     need(torch.cuda.is_available() and torch.cuda.device_count() == 1 and
          "T4" in torch.cuda.get_device_name(0) and
          str(torch.__version__) == EXPECTED_TORCH, "EXACT_T4_RUNTIME")
