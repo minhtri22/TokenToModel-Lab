@@ -1,0 +1,630 @@
+{
+  "schema": "ttm.d1_bridge.v3.integrated_source_contract.design_hold.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V3_INTEGRATED_SOURCE_CONTRACT_REMEDIATION_AND_SINGLE_INDEPENDENT_PREREG_REVIEW_NO_GPU",
+  "date": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "revision": "V3_NEW_PROSPECTIVE_VERSION_V1_V2_IMMUTABLE",
+  "frozen_V2_review_inputs": {
+    "frozen_v2_science_head": "750533c1c2945594d827c886aaa275c49fb980d7",
+    "v2_review_handoff_head": "47d26d018098687628af30e2fcfdd92ad7391ae1",
+    "v2_review_md_sha256": "f482d9855b16bed2bc764e63c2d986259b8f94bd9bb1f65e30b145f5e5e23cae",
+    "v2_review_json_sha256": "52168ae7c523d1999388e9a2de211e10a940050b15b935a856c383c62c12c04f",
+    "review_decision": "HOLD_REVISE_BEFORE_PREREG",
+    "sources_verified_by_reviewer": "7_OF_7_GITHUB_BLOB_METADATA_NOT_LOCAL_SHA",
+    "external_independence": "AI_NEW_CHAT_SELF_ATTESTED_NOT_HUMAN_NOT_EXTERNAL_IDENTITY_PROOF",
+    "review_findings_total": 11,
+    "required_AM": [
+      "AM01",
+      "AM02",
+      "AM03",
+      "AM04",
+      "AM05",
+      "AM06"
+    ]
+  },
+  "scientific_question": {
+    "contrast": "C_CF_CONTRAST_VS_B_CF_MLE",
+    "A_arm": "A_BASE_MLE_SECONDARY",
+    "B_C_same_train_dataset_and_episode_order": true,
+    "same_parent_and_BPE": true,
+    "same_optimizer_update_count": true,
+    "contrast_extra_compute_must_be_reported": true,
+    "primary": "P_SEED_OF_POSITIVE_FREEGEN_PAIRED_ACTION_SUCCESS_GAIN_OVER_FIXED_16_STRUCTURAL_SKELETONS",
+    "no_claim": "NO_UNIVERSAL_REASONING_OR_UNSEEN_VS_ALL_PRETRAINING"
+  },
+  "inherited_science_pins_reference_only": {
+    "fc01_parent_P02_STEP1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "fc01_T1_BPE2048_train_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "fc01_runner_sha256": "b786a4468ba104786df7683da9b1cf19d2334d9cc203dd19c3e7d6f10e2e93be",
+    "fc01_corpus_sha256": "becc0408880aaed8bd5eb6fdf3997e62d5131c187a48331a03ae37d41aaa1aa3",
+    "warning": "HISTORIC_SHA_ONLY. V3 data/generator/parser/runner SHA UNAVAILABLE until created and independently QAed; cannot silently reuse FC01 corpus as structural OOD."
+  },
+  "issue_coverage": [
+    {
+      "id": "D1V2-01",
+      "AM": "AM01",
+      "severity": "CRITICAL",
+      "fix": "trace_labeled_reachable_state_semantic_equivalence"
+    },
+    {
+      "id": "D1V2-02",
+      "AM": "AM01",
+      "severity": "HIGH",
+      "fix": "fixed_16_structures_nonoverlap_proof_and_scope"
+    },
+    {
+      "id": "D1V2-03",
+      "AM": "AM02",
+      "severity": "CRITICAL",
+      "fix": "deterministic_parser_grammar_and_negative_QA"
+    },
+    {
+      "id": "D1V2-04",
+      "AM": "AM02",
+      "severity": "HIGH",
+      "fix": "condition_specific_unique_oracle_and_witness_policy"
+    },
+    {
+      "id": "D1V2-05",
+      "AM": "AM03",
+      "severity": "HIGH",
+      "fix": "integer_Ds_strict_positive_zero_nonpositive"
+    },
+    {
+      "id": "D1V2-06",
+      "AM": "AM03",
+      "severity": "HIGH",
+      "fix": "fixed_tasks_seed_sign_estimand_and_crossed_bootstrap_limit"
+    },
+    {
+      "id": "D1V2-07",
+      "AM": "AM04",
+      "severity": "MEDIUM",
+      "fix": "integer_thresholds_and_skeleton_shortcut_diagnostics"
+    },
+    {
+      "id": "D1V2-08",
+      "AM": "AM05",
+      "severity": "HIGH",
+      "fix": "trusted_isolated_AST_overlap_auditor_no_gold"
+    },
+    {
+      "id": "D1V2-09",
+      "AM": "AM05",
+      "severity": "HIGH",
+      "fix": "source_rights_leakage_and_real_ACL_controls"
+    },
+    {
+      "id": "D1V2-10",
+      "AM": "AM06",
+      "severity": "HIGH",
+      "fix": "SHA_pins_rng_negative_sampling_positive_moment_resume"
+    },
+    {
+      "id": "D1V2-11",
+      "AM": "AM06",
+      "severity": "HIGH",
+      "fix": "36_arm_run_Free_T4_resources_and_cost_zero_feasibility"
+    }
+  ],
+  "AM01_structural_OOD": {
+    "status": "PROSPECTIVE_SOURCE_CONTRACT_DEFINED_CHECKER_NOT_IMPLEMENTED",
+    "typed_AST": {
+      "version": "ttm.d1bridge.semantic_AST_v3.proposed",
+      "required_components": [
+        "typed_entities",
+        "typed_finite_world_state",
+        "preconditions",
+        "guards",
+        "condition_variable_A_B",
+        "event_priority",
+        "causal_transition",
+        "temporal_order",
+        "state_effects",
+        "goal_state",
+        "canonical_action",
+        "observable_transition_trace"
+      ],
+      "event_observable_label": [
+        "event_type",
+        "condition_guard_truth",
+        "priority_decision",
+        "relative_event_order",
+        "pre_state_abstract",
+        "post_state_abstract",
+        "emitted_action"
+      ],
+      "normalization_allowed": [
+        "alpha_renaming_typed_variables",
+        "stable_entity_mapping",
+        "literal_case_and_nonsemantic_label_normalization",
+        "genuine_commutative_operator_order_only"
+      ],
+      "normalization_forbidden": [
+        "discard_negation",
+        "discard_precondition",
+        "discard_event_priority",
+        "discard_causal_edge",
+        "discard_temporal_order",
+        "collapse_agents",
+        "erase_observable_event",
+        "erase_failed_precondition_trace"
+      ]
+    },
+    "finite_domain": {
+      "enforce_exhaustive_reachable_states": true,
+      "initial_state_support_must_be_declared_and_sealed": true,
+      "condition_values": [
+        "A",
+        "B"
+      ],
+      "require_total_deterministic_transition": true,
+      "reject_nonterminal_cycles_and_unbounded_execution": true,
+      "reachability_proof_or_unknown_hold": true,
+      "reject_differences_only_in_proven_unreachable_states_as_evidence_of_new_behavior": true
+    },
+    "equivalence_algorithm": {
+      "stage1": "canonical_typed_AST_alpha_normalization",
+      "stage2": "enumerate_all_reachable_states_for_both_conditions_and_admissible_initial_conditions",
+      "stage3": "construct_labeled_transition_system_with_observable_event_priority_temporal_causal_trace_and_final_action",
+      "stage4": "compare_start_states_by_strong_labeled_bisimulation_after_type_preserving_renaming; if same observable behavior then EQUIVALENT",
+      "stage5": "return DIFFERENT only if trusted checker emits reachable_counterexample_trace_witness_with_distinct_observable_semantic_behavior",
+      "stage6": "if incomplete_world_state_domain_or_unresolved_semantic_equivalence_or_symbolic_inconclusive then UNKNOWN_HOLD",
+      "final_action_only_equality": "INSUFFICIENT",
+      "differing_unreachable_states": "INSUFFICIENT_FOR_OOD",
+      "cross_category_noncomparable": "HOLD_UNLESS_COMPARABILITY_RULE_PREDEFINED"
+    },
+    "split": {
+      "categories": [
+        "entity_location",
+        "causal_reasoning",
+        "rule_constraint",
+        "goal_persistence"
+      ],
+      "train_skeletons_per_category": 4,
+      "eval_skeletons_per_category": 4,
+      "ood_fixed_skeleton_total": 16,
+      "train_val_shared_structural_families_allowed_only_with_disjoint_lexical_worlds": true,
+      "train_eval_equivalence": "MUST_BE_PROVEN_FALSE",
+      "val_eval_equivalence": "MUST_BE_PROVEN_FALSE",
+      "whole_batch_on_one_overlap_or_unknown": "HOLD_NO_REPLACEMENT_AFTER_OUTCOMES"
+    },
+    "synthetic_non_eval_fixture_contracts": [
+      "alpha_rename_same_semantics_EQUIVALENT",
+      "same_final_action_different_reachable_trace_DIFFERENT_IF_OBSERVABLE",
+      "negation_inversion_DIFFERENT",
+      "priority_reversal_DIFFERENT",
+      "temporal_order_change_DIFFERENT",
+      "only_unreachable_state_diff_NOT_PROOF_OF_NOVELTY",
+      "incomplete_finite_domain_UNKNOWN_HOLD",
+      "near_isomorphic_same_trace_EQUIVALENT"
+    ],
+    "data_generated_now": false,
+    "actual_AST_checker_QA": "NOT_EXECUTED",
+    "actual_nonoverlap": "NOT_EXECUTED"
+  },
+  "AM02_parser_oracle": {
+    "status": "SOURCE_GRAMMAR_AND_TEST_CONTRACT_ONLY_PARSER_RUNTIME_NOT_EXECUTED",
+    "ontology": {
+      "action_record": [
+        "agent_id",
+        "verb_id",
+        "target_id",
+        "qualifier_id",
+        "time_id"
+      ],
+      "gold_witness_metadata": [
+        "world_state_id",
+        "condition_id",
+        "precondition_trace",
+        "AST_proof_sha"
+      ],
+      "gold_witness_in_output_required": false,
+      "gold_witness_derived_from_prompt_plus_sealed_AST": true,
+      "one_unique_action_per_condition_required": true,
+      "gold_A_must_differ_from_gold_B": true,
+      "multiple_valid_actions": "REJECT_FAMILY_BEFORE_DATA_FREEZE",
+      "condition_gold_collision": "REJECT_FAMILY_BEFORE_DATA_FREEZE",
+      "gold_proof_requirement": "exhaustive_finite_state_action_oracle_unique_witness_for_A_AND_B; else UNKNOWN_HOLD"
+    },
+    "output_surface_contract": {
+      "expected": "ONE_UNQUOTED_DECLARATIVE_ACTION_SENTENCE_WITH_EXPLICIT_AGENT_VERB_TARGET_AND_OPTIONAL_QUALIFIER",
+      "grammar_ebnf": "ACTION := AGENT SPACE VERB SPACE TARGET (SPACE QUALIFIER)? TERMINAL? ; TERMINAL := '.'|'!' ; AGENT,VERB,TARGET,QUALIFIER are typed frozen lexicon tokens",
+      "parsed_output_must_have_exactly_one_positive_action": true,
+      "condition_witness_generated_output": "NOT_REQUIRED; inferred from prompt+gold, must not leak oracle fields to model",
+      "synonym_table_SHA256": "NOT_YET_CREATED",
+      "lexicon_SHA256": "NOT_YET_CREATED",
+      "parser_source_SHA256": "NOT_YET_CREATED",
+      "canonical_comparison": "strict_typed_tuple_equal_to_gold_for_given_condition; no substring heuristic",
+      "reject_on": [
+        "quoted_action_only",
+        "negation",
+        "contradiction",
+        "dual_action",
+        "noncanonical_agent",
+        "wrong_target",
+        "wrong_condition_semantics",
+        "wrong_time",
+        "unresolved_synonym",
+        "answer_echo_without_action",
+        "leading_instructions",
+        "truncation",
+        "empty_EOS",
+        "special_token_leak",
+        "ambiguous_parse"
+      ],
+      "normalization_allowed": [
+        "Unicode_NFC",
+        "outer_whitespace",
+        "declared_terminal_punctuation",
+        "frozen_typed_lexicon_casefold"
+      ],
+      "output_invalid_score": 0,
+      "family_success": "correct_action_condition_A_AND_correct_action_condition_B",
+      "family_denominator_each_arm_each_seed": 256
+    },
+    "decoder": {
+      "greedy_argmax": true,
+      "max_prompt_tokens_including_BOS_special": 224,
+      "max_new_tokens_including_EOS_special": 32,
+      "total_context_limit": 256,
+      "padding_role_delimiters_special_tokens_in_count": true,
+      "EOS_or_budget_exhaustion_policy": "early_EOS_empty_zero; valid_terminal_EOS_accepted_only_if_complete_action; truncation_invalid_zero",
+      "new_EVAL_not_generated_now": true
+    },
+    "independent_parser_negative_QA_spec": [
+      "canonical_action_positive",
+      "frozen_synonym_positive",
+      "quoted_action_negative",
+      "negation_negative",
+      "inverse_condition_negative",
+      "wrong_agent_negative",
+      "wrong_target_negative",
+      "wrong_time_negative",
+      "two_actions_negative",
+      "contradiction_negative",
+      "answer_prompt_echo_negative",
+      "multiple_clauses_negative",
+      "ambiguous_gold_reject",
+      "empty_EOS_negative",
+      "truncated_action_negative",
+      "special_token_boundary_negative",
+      "unknown_synonym_negative",
+      "valid_gold_collision_reject"
+    ],
+    "minimum_QA_preexec": "HOLD_UNTIL_INDEPENDENT_FIXTURES_SENSITIVITY_SPECIFICITY_AND_SYNTHETIC_GOLD_PROOF",
+    "actual_parser_implementation": "NOT_EXECUTED",
+    "actual_parser_QA": "NOT_EXECUTED"
+  },
+  "AM03_statistics": {
+    "status": "DESIGN_INTEGER_SIGN_TEST_LOCKED_TO_SOURCE_REVIEW_MATH_EXTERNAL_HOLD",
+    "seed_values": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261201
+    ],
+    "seed_count": 12,
+    "families_per_seed": 256,
+    "equal_categories": 4,
+    "families_per_category_seed": 64,
+    "score_unit": "each_family_passes_only_if_both_A_and_B_condition_outputs_correct",
+    "D_s_definition": "integer(sum_over_256_family(success_C-succcess_B))",
+    "d_s_formula": "D_s/256",
+    "seed_positive": "D_s>0",
+    "seed_tie": "D_s=0_is_nonpositive",
+    "seed_negative": "D_s<0_is_nonpositive",
+    "strict_comparison_tolerance": "NONE_INTEGER_ONLY",
+    "independence": {
+      "training_parent_shared": true,
+      "evaluation_family_ids_shared_across_seeds": true,
+      "per_seed_training_rng_root": "seed_hash_input_epoch_sha_and_fixed_seed_and_domain_label",
+      "domain_separate_streams": [
+        "sampler",
+        "dropout",
+        "negative_sampler",
+        "init_if_any",
+        "augmentation_if_any"
+      ],
+      "PRNG_independence_statistical": "NOT_ESTABLISHED_BY_DIFFERENT_NUMERIC_SEED_LABELS",
+      "identical_data_across_seed_conditional_scope": true,
+      "seed_failure": "HOLD_ALL_12_NO_REPLACE_NO_SELECTIVE_RERUN"
+    },
+    "hypothesis": {
+      "H0": "P_training_seed(D_s>0)<=1/2_conditional_on_fixed_16_skeletons",
+      "H1": "P_training_seed(D_s>0)>1/2_conditional_on_fixed_16_skeletons",
+      "not_tested": "NO_INFERENTIAL_TEST_OF_MEAN_D_OR_MEAN_GE_PLUS_0P10"
+    },
+    "exact_sign_test": {
+      "n": 12,
+      "k": "number of seeds with D_s>0",
+      "ties": "count_as_nonpositive",
+      "tail": "p=sum_{j=k}^{12}(n choose j)/2^12",
+      "alpha": 0.05,
+      "pass_if_k_at_least": 10,
+      "k9_p_exact": "299/4096",
+      "k10_p_exact": "79/4096",
+      "k11_p_exact": "13/4096",
+      "k12_p_exact": "1/4096",
+      "test_of": "PROBABILITY_SEED_POSITIVE_NOT_MEAN_MAGNITUDE"
+    },
+    "sensitivity": {
+      "probability_positive_seed_hypothetical_q": [
+        0.7,
+        0.8,
+        0.9
+      ],
+      "power_only_sign_test_approx": [
+        0.252815347855,
+        0.55834574848,
+        0.889130022255
+      ],
+      "probability_assumption": "IID_BERNOULLI_SEEDS_IDEALIZATION_UNVERIFIED",
+      "all_gates_power": "LEQ_SIGN_COMPONENT_POWER",
+      "pilot_outcomes_used_for_power_fit": false
+    },
+    "crossed_bootstrap_exploratory": {
+      "seed_resample_once_whole_joint_dataset": true,
+      "skeleton_resample_once_per_category_shared_across_seed": true,
+      "lexical_resample_once_per_skeleton_shared_across_seed": true,
+      "keep_B_C_same_family_and_A_B_conditions_paired": true,
+      "draws": 10000,
+      "seed": 20261202,
+      "claim": "CONDITIONAL_DESCRIPTIVE_SENSITIVITY_NOT_POPULATION_OOD_CONFIDENCE_CLAIM",
+      "actual_bootstrap_data": "NONE"
+    }
+  },
+  "AM04_category_and_conflicts": {
+    "status": "INTEGER_THRESHOLDS_FROZEN_FOR_DESIGN_REVIEW",
+    "threshold_provenance": "FC01_EXPLORATORY_PILOT_INFORMED_A_PRIori_FOR_FUTURE_D1_ONLY",
+    "integer_gates": {
+      "positive_seed_count_at_least": 10,
+      "sum_D_s_across_12_at_least": 308,
+      "category_signed_diff_each_nonnegative_min": 0,
+      "category_signed_diff_ge_5pp_count_at_least": 3,
+      "category_signed_diff_ge_5pp_count_threshold_each": 39,
+      "category_C_absolute_correct_count_threshold_each": 192,
+      "explanation": "12*256*0.10=307.2 => ceiling 308; 12*64*0.05=38.4 => ceiling39; 12*64*0.25=192"
+    },
+    "category_scope": "pooled over 12 seeds and 64 fixed families per category; four categories given equal weights",
+    "not_inferential_population_guarantees": true,
+    "skeleton_diagnostics_no_new_hidden_threshold": [
+      "per_skeleton_4x16_family_success_and_C_minus_B_per_seed",
+      "concentration_ratio_of_C_gain_top_skeleton",
+      "label_swapped_lexical_cue_shortcut_negative_probe",
+      "per_skeleton_failure_rates",
+      "within_category_variance_and_minimum_skeleton_accuracy",
+      "report_if_one_skeleton_accounts_all_C_improvement_as_LIMITATION"
+    ],
+    "decision_priority": [
+      "IF_INVALID_SOURCE_RIGHTS_AST_PARSER_CUSTODY_OR_ANY_MISSING_SEED=>HOLD_INVALID_PROTOCOL",
+      "ELSE_IF_k_lt_10=>NO_CONFIRMED_DIRECTIONAL_GAIN",
+      "ELSE_IF_global_sum_D_lt_308_OR_category_guard_fail=>SCOPED_DIRECTIONAL_GAIN_NOT_UNIFORM",
+      "ELSE_ALL_PASS=>CONFIRM_CONDITIONAL_FIXED_SKELETON_SEED_DIRECTIONAL_ROBUSTNESS_ONLY"
+    ],
+    "decision_title_not_science_GO": true,
+    "min_effect_gate_inferential_test": false
+  },
+  "AM05_custody_rights": {
+    "status": "DESIGNED_ISOLATED_AUDITOR_PROTOCOL_NOT_VERIFIED",
+    "roles": [
+      {
+        "role": "trainer_owner",
+        "allowed": [
+          "TRAIN_AST",
+          "VAL_AST",
+          "TRAIN_VAL_RAW",
+          "source_pins",
+          "rights_receipts"
+        ],
+        "denied": [
+          "EVAL_RAW",
+          "EVAL_GOLD",
+          "EVAL_MAPPING",
+          "EVAL_PRIVATE_AST"
+        ]
+      },
+      {
+        "role": "eval_gold_custodian",
+        "allowed": [
+          "EVAL_RAW",
+          "EVAL_GOLD",
+          "EVAL_PRIVATE_AST",
+          "EVAL_SOURCE_HASHES"
+        ],
+        "denied": [
+          "TRAINER_PRIVATE_CHECKPOINTS",
+          "UNFROZEN_RATER_SCORES"
+        ]
+      },
+      {
+        "role": "isolated_overlap_auditor",
+        "allowed": [
+          "TRAIN_VAL_AST_ONLY_FROZEN_EXPORT",
+          "EVAL_AST_ONLY_FROZEN_EXPORT",
+          "AST_CANONICALIZER_SOURCE_HASHES"
+        ],
+        "denied": [
+          "RAW_PROMPT",
+          "EVAL_GOLD",
+          "MODEL_CHECKPOINTS",
+          "ARM_ID_MAPPING",
+          "RATER_SCORES"
+        ]
+      },
+      {
+        "role": "parser_source_QA",
+        "allowed": [
+          "PARSER_CODE",
+          "SYNTHETIC_NON_EVAL_FIXTURES"
+        ],
+        "denied": [
+          "EVAL_GOLD",
+          "REAL_EVAL_RAW"
+        ]
+      },
+      {
+        "role": "blind_rater",
+        "allowed": [
+          "BLIND_PACKET_WITHOUT_ARM_OR_SEED_LABELS"
+        ],
+        "denied": [
+          "GOLD",
+          "ARM_MAPPING",
+          "AGGREGATE_PRIMARY_RESULTS",
+          "EVAL_AST"
+        ]
+      }
+    ],
+    "overlap_protocol": {
+      "step1": "owner exports TRAIN_VAL_TYPED_AST_ONLY and SHA; no raw prompts or answer keys",
+      "step2": "eval_custodian exports SEALED_EVAL_TYPED_AST_ONLY and SHA; no gold or mapping",
+      "step3": "isolated auditable workspace reads both AST-only projections under least privilege and checks finite trace bisimulation",
+      "step4": "auditor records encrypted_or_private_counterexample_witness if overlap; returns to owner ONLY PASS_FAIL_UNKNOWN+signed_receipt_and_SHA_PINS",
+      "step5": "audit workspace destroyed or retained under isolated access policy; owner cannot inspect sealed EVAL AST, gold, mapping or trace witnesses",
+      "step6": "if ACL not technically enforced, audit receipt not cryptographically authenticated, any UNKNOWN, or any equivalence -> HOLD_ALL",
+      "trusted_auditor_not_assumed_independent_from_text_role_only": true,
+      "signing_key_public_id": "NOT_CREATED",
+      "signature_scheme": "FUTURE_AUTHENTICATED_RECEIPT_REQUIRED_NO_FORGED_SIGNATURE",
+      "actual_file_ACL_test": "NOT_EXECUTED"
+    },
+    "anti_leakage_preexec": [
+      "same_lexical_cue_opposite_condition_and_gold",
+      "permuted_labels_and_gold_equivalence",
+      "prompt_gold_echo_negative_QA",
+      "train_val_vs_eval_AST_trace_equivalence",
+      "source_template_jaccard_and_close_paraphrase_negative",
+      "trainer_environment_mount_inventory_must_not_contain_EVAL",
+      "source_rights_and_PII_negative_review"
+    ],
+    "rights": "NEW_DATA_OWNER_LICENSE_AND_PIICHECK_NOT_VERIFIED",
+    "pretraining_exposure": "UNEXCLUDABLE_CLAIM_SCOPED_TO_CONTROLLED_TRAIN_VAL_ONLY",
+    "new_data_created": false,
+    "actual_acl": "NOT_VERIFIED"
+  },
+  "AM06_runner_resource": {
+    "status": "FROZEN_PROPOSED_PREEXEC_CHECKLIST_NOT_ACTUAL_RUNNER_VALIDATION",
+    "arms": [
+      "A_BASE_MLE",
+      "B_CF_MLE",
+      "C_CF_CONTRAST"
+    ],
+    "seeds": 12,
+    "updates_per_arm_seed": 256,
+    "all_arm_runs": 36,
+    "total_optimizer_updates": 9216,
+    "families_ood_eval": 256,
+    "conditions_per_family": 2,
+    "total_generations": 18432,
+    "same_train_bytes_B_C": true,
+    "same_episode_order_B_C": true,
+    "same_optimizer_updates_B_C": true,
+    "compute_equality": "NOT_CLAIMED_C_EXTRA_FORWARDS_NEGATIVES",
+    "compute_report_fields": [
+      "train_token_slots",
+      "optimizer_steps",
+      "forward_passes",
+      "contrast_negatives_exposed",
+      "estimated_FLOPs",
+      "GPU_seconds",
+      "wall_time",
+      "peak_vram",
+      "drive_bytes"
+    ],
+    "parent_and_tokenizer_exact_sha_required": true,
+    "parent_sha256_inherited_ref": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "T1_manifest_sha256_inherited_ref": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "new_runner_sha256": "NOT_CREATED",
+    "new_dataset_manifest_sha256": "NOT_CREATED",
+    "new_negative_sampler_source_sha256": "NOT_CREATED",
+    "freeze_required_before_science": [
+      "negative_sampler_source",
+      "contrast_loss_coefficient",
+      "optimizer_lr_schedule",
+      "sampler_seed_domain",
+      "runtime_cuda_pytorch_CUBLAS_WORKSPACE_CONFIG",
+      "checkpoint_atomic_protocol",
+      "source_rights"
+    ],
+    "resume_QA": {
+      "uninterrupted_K_vs_interrupted_K_resume_after_nonzero_AdamW_moments": true,
+      "compare": [
+        "model",
+        "AdamW_exp_avg_exp_avg_sq",
+        "optimizer_step",
+        "scheduler",
+        "Python_RNG",
+        "NumPy_RNG",
+        "Torch_CPU_CUDA_RNG",
+        "sampler_cursor",
+        "gradient_accumulation",
+        "inflight_batch_status"
+      ],
+      "negative_cases": [
+        "wrong_SHA",
+        "truncated_checkpoint",
+        "missing_optimizer_moments",
+        "wrong_parent",
+        "duplicate_or_partial_resume"
+      ],
+      "numeric_tolerance": "MUST_PRELOCK_BEFORE_ANY_QA_AND_REPORT_BITWISE_VS_NUMERIC",
+      "qa_current": "NOT_EXECUTED"
+    },
+    "T4_free_paid_cost_zero": {
+      "owner_paid_USD_cap": 0,
+      "observed_T4_access_for_V3": "NOT_VERIFIED",
+      "must_measure": [
+        "peak_vram",
+        "CPU_RAM",
+        "free_disk",
+        "Drive_quota",
+        "T4_steps_per_second_by_arm",
+        "eval_generation_rate",
+        "checkpoint_IO_seconds",
+        "resuming_after_disconnect",
+        "per_arm_GPU_seconds",
+        "total_budget_under_Colab_Free_availability"
+      ],
+      "one_integrated_preexec_packet": "REQUIRED_AFTER_DESIGN_REVIEW",
+      "automatic_retry": "DISABLED",
+      "if_any_resource_or_resume_gate_unmet": "HOLD_NOT_PURCHASE_PAID_GPU"
+    }
+  },
+  "source_only_review_gates": {
+    "V2_review_authenticated_source": "PASS_ATTACHED_SHA256_AND_GITHUB_BYTES",
+    "V3_self_authored_design_contract": "CANDIDATE_FOR_SOURCE_ONLY_QA",
+    "AST_REAL_CHECKER": "NOT_EXECUTED",
+    "PARSER_REAL_IMPLEMENTATION": "NOT_EXECUTED",
+    "PARSER_SENSITIVITY_SPECIFICITY": "NOT_EXECUTED",
+    "ACTUAL_AST_TRAIN_EVAL_NONOVERLAP": "NOT_EXECUTED",
+    "REAL_SEED_RANDOMNESS_INDEPENDENCE": "NOT_VERIFIED",
+    "ACL_RIGHTS_AND_T4": "NOT_VERIFIED",
+    "NEW_DATA_OR_GOLD": "NOT_GENERATED",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "TEST_Q1Q2": "SEALED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "NEW_TRAINING_STEPS": 0,
+    "GPU_CALLS": 0
+  },
+  "formal_owner_decision": {
+    "V3_DESIGN": "FROZEN_CANDIDATE_PENDING_DISTINCT_INDEPENDENT_SOURCE_REVIEW",
+    "ONE_DESIGN_DECISION": "HOLD_PENDING_V3_INDEPENDENT_REVIEW",
+    "D1_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "MAIN_MERGE": "NO",
+    "LINEAGE": "APPEND_ONLY_AFTER_COMMIT",
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V3_DISTINCT_NEW_CHAT_PREREG_SOURCE_REVIEW_SINGLE_GO_HOLD_NO_GPU"
+  }
+}
