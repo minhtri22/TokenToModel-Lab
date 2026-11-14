@@ -1,0 +1,440 @@
+{
+  "schema": "ttm.d1_bridge.v2.single_packet_prereg_amendment_design_hold.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V2_SINGLE_PACKET_PREREG_AMENDMENT_SOURCE_QA_AND_OWNER_GO_HOLD_NO_GPU",
+  "date": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+  "revision": "V2_NEW_VERSION_NOT_OVERWRITE_V1",
+  "v1_frozen_input_head": "25a19daea9f664e14f83d7df2cf8265ffaea4ecd",
+  "independent_review": {
+    "verdict": "HOLD_REVISE_BEFORE_PREREG",
+    "report_sha256": "7369882b5615785628bd93b006157423f2b8377e265e3c3098429eabd60ab97c",
+    "receipt_sha256": "21c1e07b13ce1cd39d77200247b5f1a6c9fbbd49fffa7f90821c9a429f28034b",
+    "reviews": "HOLD_R1_R2_R3_R4_R5_R6",
+    "findings": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08",
+      "F09",
+      "F10",
+      "F11",
+      "F12"
+    ],
+    "independence": "AI_SELF_ATTESTED_NEW_CHAT_NOT_EXTERNALLY_VERIFIED"
+  },
+  "study_type": "PROPOSED_CONFIRMATORY_SCOPED_STRUCTURAL_OOD_VS_CONTROLLED_FINETUNE_GRAMMAR",
+  "research_goal": "contrastive objective C vs byte-identical data B improves free-generation action correctness for both counterfactual conditions under unseen controlled task structures",
+  "H0_primary": "probability_over_random_training_seeds_of_positive_C_minus_B_effect_leq_0p5_on_fixed_16_structural_OOD_skeletons",
+  "H1_primary": "probability_over_random_training_seeds_of_positive_C_minus_B_effect_gt_0p5_on_fixed_16_structural_OOD_skeletons",
+  "claim_limits": [
+    "FIXED_16_PRESPECIFIED_OOD_SKELETONS_NOT_POPULATION_OF_ALL_TASKS",
+    "NOT_UNSEEN_RELATIVE_TO_ALL_PYTHIA_OR_TINYSTORIES_PRETRAINING",
+    "MEAN_EFFECT_PLUS_0P10_IS_DESCRIPTIVE_COMPOSITE_GATE_NOT_INFERENTIAL_TEST"
+  ],
+  "amendments": {
+    "AM01": {
+      "addresses": [
+        "F01",
+        "F02"
+      ],
+      "status": "SPEC_DEFINED_IMPLEMENTATION_PENDING",
+      "AST_schema": {
+        "version": "ttm.d1bridge.semantic_ast.typed.v2.proposed",
+        "node_types": [
+          "entity",
+          "state_variable",
+          "event",
+          "precondition",
+          "transition",
+          "condition_branch",
+          "ordered_dependency",
+          "priority_rule",
+          "goal_state",
+          "action"
+        ],
+        "edge_types": [
+          "temporal_before",
+          "causes",
+          "requires",
+          "overrides",
+          "changes_state",
+          "binds_agent_target"
+        ],
+        "finite_state_domain_required": true,
+        "action_semantics": "deterministic total transition function from finite typed world-state+condition to canonical action",
+        "allowed_equivalence_normalization": [
+          "alpha_rename_typed_variables",
+          "canonical_entity_identity",
+          "normalization_of_commutative_and_without_order_effect",
+          "explicit_time_order_in_ordered_edges"
+        ],
+        "forbidden_unsafe_normalization": [
+          "drop_preconditions",
+          "drop_priority",
+          "drop_temporal_order",
+          "erase_negation",
+          "coalesce_distinct_agents",
+          "rename_condition_without_semantic_inverse"
+        ],
+        "equivalence_decision": "same_canonical_action_for_every_allowed_finite_state_and_both_condition_assignments_AND_same_goal_constraints; conservative UNKNOWN->HOLD",
+        "graph_isomorphism_only": "INSUFFICIENT_SEMANTIC_EQUIVALENCE_CHECK",
+        "split_policy": {
+          "TRAIN_VAL": "MAY_SHARE_TRAIN_SKELETONS_BUT_NO_LEXICAL_FAMILY_OR_PROMPT_DUPLICATION",
+          "TRAIN_EVAL": "MUST_BE_NONEQUIVALENT",
+          "VAL_EVAL": "MUST_BE_NONEQUIVALENT",
+          "whole_split_on_violations": "HOLD_NO_SAMPLE_REPLACEMENT"
+        },
+        "independent_controls_spec": [
+          "same_semantic_ast_with_alpha_renaming_REJECT",
+          "same_solution_equivalence_under_transformed_graph_REJECT",
+          "different_semantic_transition_same_words_ACCEPT_ONLY_IF_NOT_EQUIVALENT",
+          "different_priority_changing_action_ACCEPT",
+          "invalid_or_unbounded_state_UNKNOWN_HOLD"
+        ],
+        "claim": "structural OOD relative to controlled task TRAIN/VAL grammar only"
+      },
+      "planned_skeletons": {
+        "categories": 4,
+        "train_skeletons_per_category": 4,
+        "eval_skeletons_per_category": 4,
+        "eval_structures_total": 16,
+        "actual_AST_QA": "NOT_EXECUTED"
+      }
+    },
+    "AM02": {
+      "addresses": [
+        "F03",
+        "F04"
+      ],
+      "status": "FORMAL_SPEC_DEFINED_PARSER_AND_ORACLE_CODE_NOT_EXECUTED",
+      "action_ontology": {
+        "fields": [
+          "agent_id",
+          "action_verb",
+          "target_id",
+          "qualifier",
+          "time_context",
+          "condition_witness"
+        ],
+        "typed_entities": true,
+        "allow_multiple_valid_actions": false,
+        "allow_ambiguous_gold": false,
+        "require_gold_A_and_gold_B_canonical_actions_different": true,
+        "require_counterfactual_discriminability": true,
+        "oracle_inference": "derived_from_AST_transition_semantics_not_from_model_output"
+      },
+      "parser_contract": {
+        "format": "ONE_SHORT_SINGLE_ACTION_SENTENCE_V2_FROZEN_GRAMMAR_PENDING_CODE",
+        "allowed_normalization": [
+          "unicode_nfc",
+          "surrounding_whitespace",
+          "punctuation_at_sentence_ending",
+          "case_within_ontology",
+          "versioned_synonyms"
+        ],
+        "explicit_reject": [
+          "multiple_actions",
+          "negation_of_target_action",
+          "wrong_agent",
+          "wrong_target",
+          "wrong_precondition",
+          "wrong_temporal_stage",
+          "answer_string_echo_only",
+          "contradiction",
+          "truncation",
+          "early_EOS_empty",
+          "ambiguous_parse",
+          "unsupported_synonym",
+          "answer_in_prompt_without_action"
+        ],
+        "no_substring_only_matching": true,
+        "greedy_argmax": true,
+        "max_prompt_tokens": 224,
+        "max_new_tokens": 32,
+        "max_context_tokens": 256,
+        "special_token_count_must_be_included": true,
+        "invalid_score": 0,
+        "denominator_per_arm_seed": 256,
+        "family_primary": "success_in_condition_A_AND_success_in_condition_B",
+        "parser_sha_lock_before_any_EVAL_scoring": true,
+        "independent_adversarial_QA_required": true,
+        "prereg_minimum_synthetic_QA_suite": [
+          "positive_canonical",
+          "positive_known_synonym",
+          "negation",
+          "condition_inversion",
+          "wrong_agent",
+          "wrong_target",
+          "two_actions",
+          "contradiction",
+          "quoted_answer_echo",
+          "missing_condition",
+          "empty",
+          "early_EOS",
+          "truncation",
+          "special_tokens",
+          "ambiguous_gold_reject"
+        ]
+      },
+      "gold_not_generated": true
+    },
+    "AM03": {
+      "addresses": [
+        "F05",
+        "F06"
+      ],
+      "status": "STATISTICAL_SPEC_CANDIDATE_INDEPENDENT_REVIEW_REQUIRED",
+      "change_from_v1": "12_PRECOMMITTED_SEEDS_INSTEAD_OF_5; EXACT_ONE_SIDED_SIGN_TEST_NOT_MAGNITUDE_SIGN_FLIP",
+      "seed_values": [
+        20261120,
+        20261121,
+        20261122,
+        20261123,
+        20261124,
+        20261125,
+        20261126,
+        20261127,
+        20261128,
+        20261129,
+        20261130,
+        20261201
+      ],
+      "seed_statistic": "d_s=(1/4)*sum_category(mean_family_success_C_minus_B)_category",
+      "fixed_family_denominator": 256,
+      "sign_units": "12_seed_level_paired_differences",
+      "null": "P_random_training_seed(d_s>0) <= 0.5 on fixed eval skeleton set",
+      "assumptions": [
+        "independent_pseudorandom_training_streams_justified_not_merely_different_numeric_seeds",
+        "fixed_eval_and_parent_shared_across_seeds_conditioned_on_for_inference",
+        "all_12_seed_results_retained_no_optional_stopping",
+        "training_algorithm_and_data_input_pins_same_per_seed"
+      ],
+      "exact_test": "one_sided_exact_binomial_sign_test_zero_d_s_counted_as_NONPOSITIVE",
+      "required_positive_seeds_at_alpha_0p05": 10,
+      "seed_count": 12,
+      "exact_tail_probabilities": {
+        "positive_9_of_12": 0.072998046875,
+        "positive_10_of_12": 0.019287109375,
+        "positive_11_of_12": 0.003173828125,
+        "positive_12_of_12": 0.000244140625
+      },
+      "observed_effect_gate": "mean(d_s)>=+0.10, descriptive composite gate not inferential test of mean or +0.10 margin",
+      "sensitivity_if_seed_positive_probability_0p7": 0.2528,
+      "sensitivity_if_0p8": 0.5583,
+      "sensitivity_if_0p9": 0.8891,
+      "power_examples": "BINOMIAL_INDEPENDENCE_ASSUMPTION_ONLY_NOT_ESTIMATED_FROM_FC01",
+      "bootstrap_support_only": {
+        "method": "paired_crossed_seed_and_skeleton_block_bootstrap_preserving_identical_TASK_IDS_across_seeds",
+        "strata": "four_categories_preserved",
+        "re_sample_seed_indices": "once_for_whole_dataset",
+        "re_sample_skeleton_indices": "once_per_category_shared_across_all_resampled_seeds",
+        "re_sample_lexical_families": "once_per_skeleton_shared_across_seeds",
+        "keep_B_C_and_A_B_conditions_joined": true,
+        "draws": 10000,
+        "rng_seed": 20261202,
+        "interpretation": "descriptive sensitivity only; not population inference across all task structures with 4 skeletons/category"
+      },
+      "missing_seed": "PROTOCOL_HOLD_NO_EXCLUSION_RESEED_RETRY"
+    },
+    "AM04": {
+      "addresses": [
+        "F07"
+      ],
+      "status": "DECISION_PRECEDENCE_AND_PROVENANCE_SPEC_DEFINED",
+      "threshold_provenance": "FC01_PILOT_INFORMED_V1_CANDIDATE_CRITERIA; RETAINED_V2_BEFORE_NEW_OUTCOMES_NOT_PRE_PILOT",
+      "primary_gate": {
+        "one_sided_exact_sign_test_p_max": 0.05,
+        "positive_seed_min": 10,
+        "mean_delta_C_minus_B_min": 0.1,
+        "all_four_category_deltas_min": 0,
+        "at_least_three_category_deltas_min": 0.05,
+        "C_absolute_paired_success_in_all_four_categories_min": 0.25
+      },
+      "priority": [
+        "INVALID_SOURCE_OR_RIGHTS_OR_GOLD_OR_UNFINISHED_RUN=>HOLD_INVALID_PROTOCOL",
+        "IF_SIGN_TEST_FAIL=>NO_CONFIRMED_DIRECTIONAL_GAIN",
+        "IF_SIGN_PASS_BUT_MEAN_OR_CATEGORY_FAIL=>SCOPED_GAIN_NOT_UNIFORM_CONFIRMATION",
+        "ALL_PASS=>CONDITIONAL_FIXED_TASK_SEED_ROBUSTNESS_ONLY"
+      ],
+      "tie_boundary": "inclusive_ge_for_positive_d; strict_positive_d>0; numeric tolerance frozen before science, not yet source-locked",
+      "all_guard_values_are_descriptive_not_four_new_hypothesis_tests": true
+    },
+    "AM05": {
+      "addresses": [
+        "F08",
+        "F09"
+      ],
+      "status": "CUSTODY_POLICY_DEFINED_REAL_ACCESS_NOT_ATTESTED",
+      "rights": {
+        "TinyStories_license_previous": "CDLA-Sharing-1.0_SOURCE_DECLARATION_ONLY",
+        "new_finetune_synthetic_provenance": "OWNER_RECEIPT_REQUIRED",
+        "PII_negative_probe_required": true,
+        "publication_private_dataset": "PROHIBITED"
+      },
+      "acl_matrix": [
+        {
+          "role": "owner_trainer",
+          "may_read": [
+            "TRAIN",
+            "VAL",
+            "protocol_source",
+            "rights_receipts"
+          ],
+          "must_not_read": [
+            "EVAL_RAW",
+            "EVAL_GOLD",
+            "EVAL_MAPPING"
+          ]
+        },
+        {
+          "role": "independent_eval_custodian",
+          "may_read": [
+            "SEALED_EVAL_RAW",
+            "SEALED_EVAL_GOLD",
+            "SHA_PINS"
+          ],
+          "must_not_read": [
+            "TRAINER_PRIVATE_WEIGHTS",
+            "RATER_PRIVATE_SCORES_BEFORE_FREEZE"
+          ]
+        },
+        {
+          "role": "parser_source_qa",
+          "may_read": [
+            "SOURCE_AND_SYNTHETIC_NON_EVAL_FIXTURES"
+          ],
+          "must_not_read": [
+            "EVAL_GOLD",
+            "PRIVATE_MAPPING"
+          ]
+        },
+        {
+          "role": "blind_rater",
+          "may_read": [
+            "BLIND_PACKET_ONLY"
+          ],
+          "must_not_read": [
+            "ARM_ID",
+            "SEED_ID",
+            "GOLD",
+            "MAPPING",
+            "AGGREGATE_PRIMARY_RESULTS"
+          ]
+        }
+      ],
+      "technical_controls": [
+        "SEPARATE_STORAGE_ACL_AND_KEY_OWNER",
+        "NO_SHARED_PARENT_FOLDER_ACCESS_BETWEEN_RATER_AND_MAPPING",
+        "APPEND_ONLY_ACCESS_LOG_RECEIPTS",
+        "SHA_BEFORE_DATA_RELEASE",
+        "TRAINER_ENV_PROOF_NO_EVAL_GOLD_PRESENT",
+        "SCORE_SHA_BEFORE_UNBLIND"
+      ],
+      "leakage_probes_spec": [
+        "same_lexical_cue_swapped_condition",
+        "label_permutation",
+        "gold_like_answer_string_echo",
+        "semantic_AST_overlap_against_TRAIN_AND_VAL",
+        "generator_shared_template_cue_probe",
+        "fixed_parent_pretrain_cannot_be_excluded_claim_limited"
+      ],
+      "actual_acl_verified": false,
+      "actual_rights_verified": false,
+      "actual_eval_data_frozen": false
+    },
+    "AM06": {
+      "addresses": [
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "status": "RUNNER_AND_RESOURCE_CONTRACT_DEFINED_RUNTIME_UNVERIFIED",
+      "fixed_source_contract": {
+        "parent_model": "EXACT_EXISTING_P02_STEP1024_AND_T1_BPE_SHA_REQUIRED",
+        "fp32": true,
+        "arm_count": 3,
+        "seeds_count": 12,
+        "updates_per_arm_seed": 256,
+        "equal_B_C_train_bytes_and_sampler_order": true,
+        "equal_training_update_and_token_budget_per_arm": true,
+        "C_extra_contrast_negatives_and_compute": "MEASURE_AND_REPORT_SEPARATELY_NOT_CLAIM_EQUAL_FLOPS",
+        "fixed_final_checkpoint_step": 256,
+        "all_rng_states": [
+          "python_random",
+          "numpy",
+          "torch_cpu",
+          "torch_cuda"
+        ],
+        "resume_includes": [
+          "nonzero_adamw_moments",
+          "optimizer_step",
+          "scheduler",
+          "sampler_cursor",
+          "grad_accumulation",
+          "inflight_batch_boundary",
+          "weights",
+          "rng",
+          "source_SHA"
+        ],
+        "positive_moment_resume_equivalence_QA": "PREEXEC_REQUIRED_NOT_EXECUTED",
+        "negative_resume_corruption_wrong_SHA_QA": "PREEXEC_REQUIRED_NOT_EXECUTED",
+        "fail_closed_on_bad_resume": true
+      },
+      "planned_total_optimizer_steps": 9216,
+      "planned_total_generated_outputs": 18432,
+      "planned_run_count": 36,
+      "free_colab_T4_access": "NOT_VERIFIED_NEW_DESIGN",
+      "paid_USD_cap": 0,
+      "resource_required_before_go": [
+        "measured_T4_vRAM_host_RAM_disk",
+        "real_steps_per_second_per_arm",
+        "Drive_quota",
+        "atomic_snapshot_storage",
+        "runtime_disconnect_and_no_reseed_procedure",
+        "total_budget_plus_overhead_feasibility",
+        "independent_driver_health_readback"
+      ],
+      "if_feasibility_unavailable": "HOLD_OR_DOWNGRADE_TO_SCOPE_PILOT_WITH_NEW_PREREG_BEFORE_ANY_RUN",
+      "science_dispatch": "FORBIDDEN_CURRENT_OPERATION"
+    }
+  },
+  "structural_design": {
+    "categories": [
+      "entity_location",
+      "causal_reasoning",
+      "rule_constraint",
+      "goal_persistence"
+    ],
+    "train_paired_families": 512,
+    "val_paired_families": 128,
+    "ood_eval_paired_families": 256,
+    "train_structural_skeletons_per_category": 4,
+    "ood_eval_skeletons_per_category": 4,
+    "train_lexical_worlds_per_skeleton": 32,
+    "val_lexical_worlds_per_train_skeleton": 8,
+    "ood_eval_lexical_worlds_per_skeleton": 16,
+    "generated_texts_per_arm_seed": 512,
+    "shared_ood_skeletons_across_seed": true,
+    "actual_new_train_val_eval_records": 0
+  },
+  "formal_owner_decision": {
+    "V2_DESIGN": "CANDIDATE_FOR_INDEPENDENT_SOURCE_REVIEW",
+    "V2_DESIGN_RELEASE": "HOLD_PENDING_EXTERNAL_INDEPENDENT_V2_SOURCE_REVIEW",
+    "V2_SOURCE_ONLY_INTERNAL_QA": "PENDING",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "GPU_CALLS_NOW": 0,
+    "NEW_TRAINING_STEPS_NOW": 0,
+    "GOLD_OR_EVAL_CREATED_NOW": false,
+    "source_qa_independence": "NOT_EXTERNAL_SAME_AUTHOR",
+    "MAIN": "UNCHANGED",
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V2_DISTINCT_AI_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU"
+  }
+}
