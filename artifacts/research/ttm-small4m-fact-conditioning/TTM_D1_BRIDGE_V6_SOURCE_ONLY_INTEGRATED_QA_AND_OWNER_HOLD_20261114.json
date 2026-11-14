@@ -1,0 +1,106 @@
+{
+  "schema": "ttm.d1_bridge.v6.source_only_integrated_qa_owner_single_design_hold.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V6_SINGLE_PACKET_FOUR_CATEGORY_TYPED_ONTOLOGY_AND_LEDGER_TO_RECEIPT_AUDIT_BINDING_SOURCE_AMENDMENT_NO_GPU",
+  "date": "2026-11-14",
+  "review_acceptance": {
+    "source_gitblobs": {
+      "V6_JSON": "c6ac330c40e31035116add165ef30fa58af59639",
+      "V6_MD": "1da044d10c517bfc528cbf4b1d0e7557e3760c38",
+      "V6_QA_JS": "d5b4c0a209f2a252c95250f1cbc1d6ec96ce5950",
+      "V5_REVIEW_MD": "e8f95443e2db80ad95e7f698a0499e968ca3086b",
+      "V5_REVIEW_JSON": "ea56f20c7784db6aa8bf2bb99af36ae61ba55c95"
+    },
+    "V5_frozen_input_head": "0b7205093e70cc6473244a23d2a20ead568452c1",
+    "external_V5_review_verdict": "HOLD_REVISE_BEFORE_PREREG",
+    "axes": {
+      "R1": "HOLD",
+      "R2": "PASS_SCOPED",
+      "R3": "PASS_SCOPED",
+      "R4": "PASS_SCOPED",
+      "R5": "HOLD",
+      "R6": "PASS_SCOPED"
+    },
+    "original_review_file_sha256": {
+      "md": "4dd7c89592ce6dad9c1617b0afd28b7ea7fe48d78ae3b35bce20db0a38f59f86",
+      "json": "32ec96b36df27b122deda36513810d46aadf2d62b2e7ba13910d739c722c7c73"
+    },
+    "original_upload_byte_gitblobs_verified": true,
+    "independence": "DISTINCT_CHAT_AI_SELF_ATTESTED_NOT_EXTERNALLY_VERIFIED"
+  },
+  "V6_integrated_source_scope": {
+    "changed_only": [
+      "R1_AM01",
+      "R5_AM05"
+    ],
+    "V5_new_findings_covered": [
+      "D1V5-N01",
+      "D1V5-N02"
+    ],
+    "four_categories": [
+      "entity_location",
+      "causal_reasoning",
+      "rule_constraint",
+      "goal_persistence"
+    ],
+    "canonical_action_types": [
+      "RELOCATE",
+      "CARRY",
+      "TRANSFER",
+      "RETAIN",
+      "WAIT",
+      "ACTIVATE"
+    ],
+    "synthetic_fixture_count": 4,
+    "typed_guard_and_scoring_contract": "DESIGN_CANDIDATE",
+    "HMAC_keyed_commitments_both_sides": "DESIGN_CANDIDATE",
+    "separate_custodian_signed_private_attestations": "DESIGN_CANDIDATE",
+    "public_ledger_root_signed_receipt_binding": "DESIGN_CANDIDATE",
+    "missing_signed_terminal_receipt": "EXPLICIT_HOLD",
+    "synthetic_crypto_vectors": {
+      "HMAC_SHA256": "0836503a52f9c9eca5178d16c11fc120ae4ad17a99045d1f4cec9609f7c0acdb",
+      "ledger_root_sha256": "57dfb51345d52fba88566be6882ad64650ca7a5c8694609dce1a25d4c7d21e42",
+      "Ed25519_public_key_hex": "03a107bff3ce10be1d70dd18e74bc09967e4d6309ba50d5f1ddc8664125531b8",
+      "classification": "PUBLIC_SYNTHETIC_NON_PRODUCTION; Python cryptography hashlib verified locally without private EVAL data"
+    },
+    "inherit_unchanged": [
+      "R2_AM02_SCOPED_PASS_DESIGN",
+      "R3_AM03_SCOPED_PASS_DESIGN",
+      "R4_AM04_SCOPED_PASS_DESIGN",
+      "R6_AM06_SCOPED_PASS_DESIGN"
+    ]
+  },
+  "same_author_QA": {
+    "classification": "SOURCE_ONLY_SCHEMA_PRESENCE_CONSISTENCY_AND_MUTATION_NOT_INDEPENDENT_SCIENCE_QA",
+    "positive_checks": 35,
+    "positive_pass": 35,
+    "negative_mutations": 16,
+    "negative_detected": 16,
+    "mode": "V8_IN_MEMORY_SOURCE_CONTRACT_ASSERTIONS; JS_SCRIPT_COMMITTED_NOT_NODE_CLI_RERUN",
+    "status": "PASS_SCOPED_35_OF_35_AND_NEGATIVE_16_OF_16"
+  },
+  "future_gates_NOT_EXECUTED": [
+    "actual typed AST checker and four-category skeleton generator",
+    "real per-category temporal typed oracle/gold A_B uniqueness",
+    "actual parser independent 64 positive/64 negative synthetic QA",
+    "production HMAC keys and custodian signed attestations / public ledger immutable anchoring",
+    "ACL denied read and independent Ed25519 receipt cryptographic verification",
+    "data rights, PII and train-val-eval structural nonoverlap",
+    "AdamW resume with positive moments, nondegenerate 12 seed streams",
+    "36 Free T4 arm runs feasibility paid USD cap 0"
+  ],
+  "one_owner_decision": {
+    "V6_DESIGN": "HOLD_PENDING_DISTINCT_V6_SOURCE_REVIEW",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "GPU": 0,
+    "TRAIN": 0,
+    "INFERENCE": 0,
+    "NEW_EVAL_GOLD": false,
+    "MAIN_MERGE": "NO",
+    "LINEAGE": "APPEND_ONLY",
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V6_DISTINCT_NEW_CHAT_SOURCE_ONLY_INDEPENDENT_DESIGN_REVIEW_SINGLE_GO_HOLD_NO_GPU"
+  }
+}
