@@ -175,6 +175,11 @@ class OracleQA(unittest.TestCase):
         r=o.evaluate(train,test)["oracles"]["O6"]
         self.assertEqual(r["joint_n"],2)
         self.assertGreaterEqual(r["joint_correct"],0)
+    def test_29_O5_candidate_key_not_dependent_on_hidden_test_action(self):
+        train,test=self.data()
+        oracle=o.evaluate(train,test)["oracles"]["O5"]
+        self.assertEqual(set(oracle["keys"]),{c["id"] for c in test})
+        self.assertEqual(oracle["select_n"],1)
     def test_23_group_overlap_invalid(self):
         train,test=self.data()
         test[0]["component_id_pre"]=train[0]["component_id_pre"]
