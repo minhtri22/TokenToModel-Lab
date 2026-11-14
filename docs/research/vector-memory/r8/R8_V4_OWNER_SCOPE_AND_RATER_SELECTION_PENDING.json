@@ -1,0 +1,39 @@
+{
+  "schema": "ttm.vm.v4.r8.v4.owner_decision_template.v1",
+  "operation": "TTM_VM_V4_R8_V4_GOLD_FOLD_ORACLE_RATER_OWNER_SCOPE_SINGLE_PACKET_DESIGN_ONLY",
+  "required_human_action": "OWNER_ATTESTATION",
+  "owner_decision": "PENDING",
+  "options": [
+    "ADOPT_R8_D_DESCRIPTIVE_ONLY",
+    "RETAIN_CONFIRMATORY_OBJECTIVE_NO_GO"
+  ],
+  "recommended_option_not_adopted": "ADOPT_R8_D_DESCRIPTIVE_ONLY",
+  "proposed_blind_rater_allocation": "FOUR_RATERS_TWO_PER_CASE",
+  "allocation_decision": "PENDING",
+  "allocation_options": [
+    "FOUR_RATERS_TWO_PER_CASE",
+    "TWO_RATERS_DISJOINT"
+  ],
+  "sensitivity_goal": "DIAGNOSTIC_ONLY_DO_NOT_INFER_NO_LEAKAGE",
+  "source_kind_proposed": "AI_AUTHORED_SYNTHETIC_EXPLORATORY_ONLY",
+  "rights_approval": "NOT_ATTESTED",
+  "pii_approval": "NOT_ATTESTED",
+  "owner_identity_attested": false,
+  "owner_signed_evidence_uri": null,
+  "domain_policy": "P-REC-V1_TOY_DOMAIN_PENDING_OWNER",
+  "domain_policy_approved": false,
+  "private_custodian": null,
+  "private_storage_uri": null,
+  "private_readback_receipt_uri": null,
+  "validator_readback_receipt_uri": null,
+  "source_sha256_manifest_uri": null,
+  "r7": "FROZEN_FAIL",
+  "r8": "NOT_GENERATED",
+  "gates": {
+    "G0": "HOLD_PENDING_DISTINCT_V4_REVIEW",
+    "G1": "HOLD_OWNER_RIGHTS",
+    "G2": "HOLD_PRIVATE_CUSTODY_VALIDATOR",
+    "G3": "NOT_AUTHORIZED"
+  },
+  "no_fabricated_signature": true
+}
