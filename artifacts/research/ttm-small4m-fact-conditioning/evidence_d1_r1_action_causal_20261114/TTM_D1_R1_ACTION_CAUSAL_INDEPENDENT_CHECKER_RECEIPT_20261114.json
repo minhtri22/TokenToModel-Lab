@@ -1,0 +1,2028 @@
+{
+  "category_side_shortcut_baseline": {
+    "causal_reasoning": {
+      "ood_sides_correct": 0,
+      "ood_sides_total": 8,
+      "train_a_b_majority": {
+        "A": [
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ],
+        "B": [
+          "ACTIVATE",
+          "d1",
+          "T0",
+          "NONE"
+        ]
+      }
+    },
+    "entity_location": {
+      "ood_sides_correct": 4,
+      "ood_sides_total": 8,
+      "train_a_b_majority": {
+        "A": [
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ],
+        "B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      }
+    },
+    "goal_persistence": {
+      "ood_sides_correct": 2,
+      "ood_sides_total": 8,
+      "train_a_b_majority": {
+        "A": [
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ],
+        "B": [
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      }
+    },
+    "rule_constraint": {
+      "ood_sides_correct": 4,
+      "ood_sides_total": 8,
+      "train_a_b_majority": {
+        "A": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      }
+    }
+  },
+  "counts": {
+    "causal_reasoning": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "entity_location": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "goal_persistence": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "rule_constraint": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    }
+  },
+  "decision": "HOLD_PENDING_CONSTRUCT_AND_ORACLE_REVIEW",
+  "expected_blueprints": 32,
+  "failed_cases": [],
+  "independent_person_reviewer": "NOT_EXECUTED",
+  "input_sha256": "6d45a667a8e1f0a3c513c50951b2624d5fbebe3cde85c9934b41fb8dcf712e83",
+  "mode": "PUBLIC_SOURCE_ONLY_INDEPENDENT_IMPLEMENTATION_NO_MODEL_NO_EVAL",
+  "novelty_proxy": {
+    "full_semantic_graph_nonisomorphism": "NOT_PROVEN_BY_THIS_CHECKER",
+    "identical_intervention_action_trace_pairs": [
+      {
+        "ood": "ENTITY_LOCATION_OD04",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "ENTITY_LOCATION_TR01"
+      },
+      {
+        "ood": "ENTITY_LOCATION_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "ENTITY_LOCATION_TR02"
+      },
+      {
+        "ood": "ENTITY_LOCATION_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "ENTITY_LOCATION_TR02"
+      },
+      {
+        "ood": "ENTITY_LOCATION_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "ENTITY_LOCATION_TR04"
+      },
+      {
+        "ood": "ENTITY_LOCATION_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "ENTITY_LOCATION_TR04"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD02",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR01"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD04",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR01"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR02"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR02"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD02",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR03"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD04",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR03"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR04"
+      },
+      {
+        "ood": "RULE_CONSTRAINT_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "RULE_CONSTRAINT_TR04"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR01"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR01"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR02"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR02"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR03"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR03"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR04"
+      },
+      {
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+        "train": "GOAL_PERSISTENCE_TR04"
+      }
+    ],
+    "pairs": 64
+  },
+  "records": [
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "holder.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_TR01",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_TR02",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 3,
+        "example_plan": [
+          [
+            "RELOCATE",
+            "i1",
+            "T0",
+            "l1"
+          ],
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RELOCATE",
+            "i1",
+            "T0",
+            "l1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "holder.i1"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_TR03",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_TR04",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_OD01",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_OD02",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_OD03",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "entity_location",
+      "changed_fields": [
+        "holder.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "ENTITY_LOCATION_OD04",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d0",
+        "scheduled_at.g0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_TR01",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d1",
+        "scheduled_at.g0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_TR02",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d0",
+        "scheduled_at.g1"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_TR03",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d1",
+        "scheduled_at.g1"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_TR04",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d0",
+        "scheduled_at.g0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_OD01",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d1",
+        "scheduled_at.g0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_OD02",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d0",
+        "scheduled_at.g1"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_OD03",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "ACTIVATE",
+            "d1",
+            "T0",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "causal_reasoning",
+      "changed_fields": [
+        "linked_trigger.d1",
+        "scheduled_at.g1"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "CAUSAL_REASONING_OD04",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_TR01",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_TR02",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_TR03",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_TR04",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_OD01",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T2",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_OD02",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_OD03",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "depth": 1,
+        "example_plan": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "B": {
+        "depth": 2,
+        "example_plan": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ],
+          [
+            "TRANSFER",
+            "i0",
+            "T1",
+            "a1"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        ],
+        "plan_count_at_min_depth": 1
+      },
+      "category": "rule_constraint",
+      "changed_fields": [
+        "protected_until.i0"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "RULE_CONSTRAINT_OD04",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_TR01",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_TR02",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_TR03",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_TR04",
+      "source_only": true,
+      "split_design": "TRAIN_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_OD01",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_OD02",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_OD03",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    },
+    {
+      "A": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T1",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ],
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T1"
+          ]
+        ],
+        "valid": true
+      },
+      "B": {
+        "alternative_successful_nonretain": [],
+        "cost_tiebreak": "minimum_protection_horizon_predeclared",
+        "depth": 1,
+        "event_time": "T2",
+        "feasible_retain": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "first_candidates": [
+          [
+            "RETAIN",
+            "i0",
+            "T0",
+            "T2"
+          ]
+        ],
+        "valid": true
+      },
+      "category": "goal_persistence",
+      "changed_fields": [
+        "external_transfer_request.at"
+      ],
+      "first_action_diff": true,
+      "skeleton_id": "GOAL_PERSISTENCE_OD04",
+      "source_only": true,
+      "split_design": "STRUCTURAL_OOD_DESIGN"
+    }
+  ],
+  "schema": "ttm.d1.r1.action_causal_checker_receipt.v1",
+  "source_protocol": "V6_FROZEN_PLUS_PROSPECTIVE_AMENDMENT_NOT_APPROVED",
+  "verified_blueprints": 32
+}

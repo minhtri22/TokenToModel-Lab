@@ -1,0 +1,4225 @@
+{
+  "classification": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_DATA_NOT_SEALED_EVAL",
+  "design_count": 32,
+  "operation": "TTM_SMALL4M_D1_R1_ACTION_CAUSAL_STRUCTURAL_OOD_ORACLE_AND_SEALED_CUSTODY_SINGLE_AMENDMENT_SOURCE_GATE",
+  "protocol_limits": {
+    "no_gpu": true,
+    "no_private_gold": true,
+    "no_public_blueprint_as_eval": true,
+    "paired_family": "UNCHANGED",
+    "six_verbs": [
+      "RELOCATE",
+      "CARRY",
+      "TRANSFER",
+      "RETAIN",
+      "WAIT",
+      "ACTIVATE"
+    ],
+    "statistical_thresholds": "UNCHANGED_FROM_V6"
+  },
+  "schema": "ttm.d1.r1.action_causal_amendment_32_source_blueprints.v1",
+  "science_frozen_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "seeds_frozen": [
+    20261120,
+    20261121,
+    20261122,
+    20261123,
+    20261124,
+    20261125,
+    20261126,
+    20261127,
+    20261128,
+    20261129,
+    20261130,
+    20261201
+  ],
+  "skeletons": [
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "holder.i0": {
+            "A": "NONE",
+            "B": "a0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "target_custody_changes_required_pickup_or_transfer_path",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_TR01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 1,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T1",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_delivery_item_changes_immediate_transfer_vs_scheduled_release",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_TR02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 2,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "holder.i1": {
+            "A": "NONE",
+            "B": "a0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "carry_propagates_existing_held_item_location_vs_explicit_relocation",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_TR03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 3,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1",
+          "location_item.i1": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T1",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_delivery_item_changes_immediate_transfer_vs_scheduled_release",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_TR04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 4,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T1",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_delivery_item_changes_immediate_transfer_vs_scheduled_release",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_OD01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 5,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "BEFORE_T0",
+            "B": "T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_delivery_item_changes_immediate_transfer_vs_scheduled_release",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_OD02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 6,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T0",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_delivery_item_changes_immediate_transfer_vs_scheduled_release",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_OD03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 7,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "entity_location",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "holder.i0": {
+            "A": "NONE",
+            "B": "a0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "target_custody_changes_required_pickup_or_transfer_path",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "ENTITY_LOCATION_OD04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 8,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "entity_location"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d0": {
+            "A": "g0",
+            "B": "NONE"
+          },
+          "scheduled_at.g0": {
+            "A": "NONE",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_TR01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 1,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d1": {
+            "A": "NONE",
+            "B": "g0"
+          },
+          "scheduled_at.g0": {
+            "A": "T1",
+            "B": "NONE"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_TR02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 2,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "g0"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d0": {
+            "A": "g1",
+            "B": "NONE"
+          },
+          "scheduled_at.g1": {
+            "A": "NONE",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_TR03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 3,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g1": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "g1",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T1"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d1": {
+            "A": "NONE",
+            "B": "g1"
+          },
+          "scheduled_at.g1": {
+            "A": "T2",
+            "B": "NONE"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_TR04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 4,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g1": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "g1"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d0": {
+            "A": "NONE",
+            "B": "g0"
+          },
+          "scheduled_at.g0": {
+            "A": "T1",
+            "B": "NONE"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_OD01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 5,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d1": {
+            "A": "g0",
+            "B": "NONE"
+          },
+          "scheduled_at.g0": {
+            "A": "NONE",
+            "B": "T2"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_OD02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 6,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "g0"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T2",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d0": {
+            "A": "NONE",
+            "B": "g1"
+          },
+          "scheduled_at.g1": {
+            "A": "T2",
+            "B": "NONE"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_OD03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 7,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g1": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "g1",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "linked_trigger.d1": {
+            "A": "g1",
+            "B": "NONE"
+          },
+          "scheduled_at.g1": {
+            "A": "NONE",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "source_of_target_trigger_linked_activation_vs_scheduled_event",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "CAUSAL_REASONING_OD04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 8,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "trigger_fired.g1": true
+        },
+        "task_kind": "causal_reasoning"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "g1"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T1"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "BEFORE_T0",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_TR01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 1,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T1",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_TR02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 2,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "BEFORE_T0",
+            "B": "T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_TR03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 3,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T0",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_TR04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 4,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T1",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_OD01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 5,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "BEFORE_T0",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_OD02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 6,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "T0",
+            "B": "BEFORE_T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_OD03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 7,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "protected_until.i0": {
+            "A": "BEFORE_T0",
+            "B": "T0"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "protection_guard_on_exact_transfer_target_changes_transfer_vs_wait_then_transfer",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "RULE_CONSTRAINT_OD04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 8,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "task_kind": "rule_constraint"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T1",
+            "B": "T2"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_TR01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 1,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i1",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T2",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_TR02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 2,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i1",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T1",
+            "B": "T2"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_TR03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 3,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i0",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T2",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_TR04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "TRAIN_DESIGN",
+      "structure_index": 4,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i0",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T2",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_OD01",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 5,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i1",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T1",
+            "B": "T2"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_OD02",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 6,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i1",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T2",
+            "B": "T1"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_OD03",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 7,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i0",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "intervention": {
+        "note": "Shared goal; intervention only in declared causal source fluents. For causal_reasoning, link/schedule couple is one physical route replacement.",
+        "patch": {
+          "external_transfer_request.at": {
+            "A": "T1",
+            "B": "T2"
+          }
+        },
+        "type": "TASK_CAUSAL_STATE_OR_ROUTE_CHANGE"
+      },
+      "mechanism_hypothesis": "request_time_changes_minimal_sufficient_protection_interval",
+      "render_contract": {
+        "allowed_facts": "typed world facts and shared goal only",
+        "excludes": [
+          "skeleton_id",
+          "split_design",
+          "structure_index",
+          "mechanism_hypothesis",
+          "oracle",
+          "gold",
+          "TRAIN",
+          "OOD"
+        ],
+        "status": "SCHEMA_ONLY_RENDERER_NOT_IMPLEMENTED"
+      },
+      "skeleton_id": "GOAL_PERSISTENCE_OD04",
+      "source_amendment_status": "PROSPECTIVE_UNAPPROVED",
+      "split_design": "STRUCTURAL_OOD_DESIGN",
+      "structure_index": 8,
+      "task": {
+        "agent": "a0",
+        "budget_max_actions": 4,
+        "goal": {
+          "maintain_holder": {
+            "agent": "a0",
+            "item": "i0",
+            "through": "T2"
+          },
+          "policy": "least_restrictive_protection_horizon_then_no_further_agent_action"
+        },
+        "task_kind": "goal_persistence"
+      },
+      "world_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "world_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T2",
+          "item": "i0",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "NONE"
+        },
+        "linked_trigger": {
+          "d0": "NONE",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "NONE",
+          "g1": "NONE"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      }
+    }
+  ],
+  "source_commit": "1394e0abe3eae29a905b2cfe0537d4b0b9521b2b",
+  "source_review_sha256": "57a0a5086e4ef8cfae48cc368b23658ddec2a16bc3529dda2e19aadc06d98b2a"
+}

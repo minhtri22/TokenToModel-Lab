@@ -1,0 +1,181 @@
+{
+  "artifact_sha256": {
+    "TTM_D1_R1_ACTION_CAUSAL_32_SOURCE_BLUEPRINTS_20261114.json": "6d45a667a8e1f0a3c513c50951b2624d5fbebe3cde85c9934b41fb8dcf712e83",
+    "TTM_D1_R1_ACTION_CAUSAL_DISTINCT_REVIEW_HANDOFF_20261114.md": "b964a5c7d1de69627c78d2ca6f68a06b1103c47ece8b580add685b6ce3ee02b6",
+    "TTM_D1_R1_ACTION_CAUSAL_INDEPENDENT_CHECKER_RECEIPT_20261114.json": "8ec56fe2e24950417b65f3853e477790221f7414ab96b95aadcc4fe379f91964",
+    "TTM_D1_R1_ACTION_CAUSAL_NEGATIVE_QA_RECEIPT_20261114.json": "54a9f605a1e7dede7dac46ac8f7f22daaedf6857b6f760029f0fb82d51bcba39",
+    "TTM_D1_R1_ACTION_CAUSAL_OOD_AND_CUSTODY_PROTOCOL_AMENDMENT_20261114.md": "2b3335587d009c885f7205567e5b7c52fc96965f1a0dc0b25f2fcb7ddeae0652",
+    "adversarial_action_causal_source_qa.py": "722e401222a66ba95f41f3bfa095c209bc5ac0c6d949f3230a7a997b2cccd266",
+    "build_action_causal_32.py": "afbd365b9eb576092c46a208fd40eed70c725eeee8d14ef452ac023f100c2978",
+    "independent_action_causal_checker.py": "c99fb238d7bf411b89f3ddfa9a7820e78ae6132a03226dc3181c2198e8566ab7",
+    "render_masking_source_qa.py": "bc0d9675787d019bf23044acf36748ebd220db28a6bfbc4103d8e2b3e1119036"
+  },
+  "blocking_reason": "21/64 same action-causal trace proxy; no independent complete semantic nonoverlap or external construct review; source only not sealed EVAL",
+  "category_side_baseline_ood_correct": 10,
+  "category_side_baseline_ood_total": 32,
+  "complete_action_causal_isomorphism_audit": "NOT_EXECUTED",
+  "counts": {
+    "causal_reasoning": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "entity_location": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "goal_persistence": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    },
+    "rule_constraint": {
+      "STRUCTURAL_OOD_DESIGN": 4,
+      "TRAIN_DESIGN": 4
+    }
+  },
+  "date": "2026-11-14",
+  "evidence_parent_commit": "1394e0abe3eae29a905b2cfe0537d4b0b9521b2b",
+  "frozen_scientific_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "gpu_calls": 0,
+  "historic_12_12_rerun": false,
+  "historic_13_13_rerun": false,
+  "independent_previous_review": {
+    "decision": "HOLD_REVISE_BEFORE_PREREG",
+    "receipt_sha256": "d24fb19da5a6c3fe97d8f8a9a4dfd4478d6c95a041e322b8cdc2b5f0093208aa",
+    "report_sha256": "57a0a5086e4ef8cfae48cc368b23658ddec2a16bc3529dda2e19aadc06d98b2a"
+  },
+  "independent_scientific_reviewer": "NOT_EXECUTED_FOR_THIS_AMENDMENT",
+  "inference_calls": 0,
+  "new_negative_detected": 12,
+  "new_negative_total": 12,
+  "next_single_step": "Distinct independent integrated source-only construct/nonoverlap and custody review on exact evidence commit, one GO/HOLD; no rerun older QA or science.",
+  "operation": "TTM_SMALL4M_D1_R1_ACTION_CAUSAL_STRUCTURAL_OOD_ORACLE_AND_SEALED_CUSTODY_SINGLE_AMENDMENT_SOURCE_GATE",
+  "overall_design_decision": "HOLD_REVISE_BEFORE_PREREG",
+  "preserve": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "FC02": "NOT_OPENED",
+    "MAIN": "UNCHANGED",
+    "OWNER_PERMIT": "NOT_GRANTED",
+    "TEST_Q1Q2": "SEALED",
+    "lineage.md": "UNCHANGED"
+  },
+  "qa_failed_cases": [],
+  "real_EVAL_private_gold": "NOT_CREATED",
+  "review_mode": "SOURCE_ONLY_DESIGN_ONLY_LOCAL_PYTHON_3_13_NO_MODEL",
+  "rights_and_custody": "DESIGN_ONLY_NOT_EXECUTED",
+  "schema": "ttm.d1.r1.action_causal_single_amendment_adjudication.v1",
+  "science_calls": 0,
+  "source_blueprints": 32,
+  "train_ood_pairs": 64,
+  "training_steps": 0,
+  "typed_genesis_verified": 32,
+  "unique_action_verified": 32,
+  "weak_trace_overlap_count": 21,
+  "weak_trace_overlaps": [
+    {
+      "ood": "ENTITY_LOCATION_OD04",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "ENTITY_LOCATION_TR01"
+    },
+    {
+      "ood": "ENTITY_LOCATION_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "ENTITY_LOCATION_TR02"
+    },
+    {
+      "ood": "ENTITY_LOCATION_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "ENTITY_LOCATION_TR02"
+    },
+    {
+      "ood": "ENTITY_LOCATION_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "ENTITY_LOCATION_TR04"
+    },
+    {
+      "ood": "ENTITY_LOCATION_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "ENTITY_LOCATION_TR04"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD02",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR01"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD04",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR01"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR02"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR02"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD02",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR03"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD04",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR03"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR04"
+    },
+    {
+      "ood": "RULE_CONSTRAINT_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "RULE_CONSTRAINT_TR04"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR01"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR01"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR02"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR02"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR03"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR03"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR04"
+    },
+    {
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "reason": "SAME_INTERVENTION_AND_ACTION_CAUSAL_TRACE",
+      "train": "GOAL_PERSISTENCE_TR04"
+    }
+  ]
+}

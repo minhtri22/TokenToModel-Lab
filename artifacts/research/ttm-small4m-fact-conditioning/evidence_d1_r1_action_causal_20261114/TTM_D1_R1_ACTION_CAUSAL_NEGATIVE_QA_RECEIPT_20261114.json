@@ -1,0 +1,86 @@
+{
+  "blueprints_sha256": "6d45a667a8e1f0a3c513c50951b2624d5fbebe3cde85c9934b41fb8dcf712e83",
+  "cases": [
+    {
+      "check_error": "GENESIS_EARLY_FIRED",
+      "detected": true,
+      "name": "E01_TRIGGER_EARLY_WITHOUT_GENESIS_TRACE",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "GENESIS_PREACTIVATION",
+      "detected": true,
+      "name": "E02_UNDECLARED_WORLD_INTERVENTION",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "GENESIS_PREACTIVATION",
+      "detected": true,
+      "name": "E03_GLOBAL_POWER_D1_SHORTCUT",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "HOLDER_LOCATION_INVARIANT",
+      "detected": true,
+      "name": "E04_INVALID_HOLDER_LOCATION",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "REQUEST_REFERENTS",
+      "detected": true,
+      "name": "E05_REQUEST_TUPLE_BAD_ROLE",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "NOT_32",
+      "detected": true,
+      "name": "E06_MISSING_ONE_SKELETON",
+      "type": "EXCEPTION"
+    },
+    {
+      "check_error": "DUPLICATE_ID",
+      "detected": true,
+      "name": "E07_DUPLICATE_SKELETON_ID",
+      "type": "EXCEPTION"
+    },
+    {
+      "check_error": "DISTRIBUTION_NOT_4X4",
+      "detected": true,
+      "name": "E08_WRONG_SPLIT_DENOMINATOR",
+      "type": "EXCEPTION"
+    },
+    {
+      "check_error": "GOAL_ALREADY_SATISFIED",
+      "detected": true,
+      "name": "E09_GOAL_ALREADY_TRUE",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "UNIQUE_FIRST_ACTION_entity_location_ENTITY_LOCATION_TR01_A:{'depth': 1, 'first_candidates': [('CARRY', 'i0', 'T0', 'l1'), ('RELOCATE', 'i0', 'T0', 'l1')], 'plan_count_at_min_depth': 2, 'example_plan': [['RELOCATE', 'i0',",
+      "detected": true,
+      "name": "E10_ARTIFICIAL_NONUNIQUE_POSTCONDITION",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "TASK_SCHEMA_EXACT",
+      "detected": true,
+      "name": "E11_GOLD_KEY_INJECTION",
+      "type": "PER_CASE_HOLD"
+    },
+    {
+      "check_error": "NOVELTY_DUPLICATE",
+      "detected": true,
+      "name": "E12_OOD_EQUALS_TRAIN_ACTION_CAUSAL_TRACE",
+      "type": "NOVELTY_GRAPH_PROXY"
+    }
+  ],
+  "classification": "NEW_NEGATIVE_CHECKS_NOT_OLD_13_OVER_13_OR_12_OVER_12",
+  "detected": 12,
+  "metadata_noncausal_metamorphic_check": {
+    "A": true,
+    "B": true
+  },
+  "schema": "ttm.d1.r1.action_causal_new_negative_source_qa.v1",
+  "science_execution": false,
+  "total": 12
+}

@@ -1,0 +1,223 @@
+{
+  "construct_validity": {
+    "amendment_required": true,
+    "boolean_policy_accepted_for_preregistration": false,
+    "category_specific_mechanism": "NOT_ESTABLISHED",
+    "causal_link_to_task": "NOT_ESTABLISHED",
+    "central_counterexample": "Four TRAIN TR01 category templates suffice as category + power(d1) lookup for 32/32 OOD A/B actions.",
+    "shortcut_decisive": true,
+    "status": "NOT_ESTABLISHED"
+  },
+  "date": "2026-11-14",
+  "decision_count": 1,
+  "evidence_custody": {
+    "github_branch_created": false,
+    "github_commit_sha": null,
+    "github_commit_status": "NOT_CREATED",
+    "github_write_authorized": false,
+    "local_scope": "SANDBOX_ARTIFACTS_ONLY",
+    "receipt_path": "TTM_D1_R1_32_DISTINCT_INDEPENDENT_REVIEW_RECEIPT_20261114.json",
+    "report_path": "TTM_D1_R1_32_DISTINCT_INDEPENDENT_CONSTRUCT_VALIDITY_REVIEW_20261114.md",
+    "report_sha256": "57a0a5086e4ef8cfae48cc368b23658ddec2a16bc3529dda2e19aadc06d98b2a"
+  },
+  "findings": [
+    {
+      "evidence": "One TRAIN example per category supplies lookup giving 64/64 A/B across all blueprints, including 32/32 OOD sides; independent source-only crosscheck.",
+      "finding_id": "R1-F01",
+      "severity": "CRITICAL",
+      "type": "CATEGORY_X0_SHORTCUT"
+    },
+    {
+      "evidence": "Graph nonisomorphism and truth-table witnesses do not modify six-verb action transition semantics; all A/B action maps are identical within category.",
+      "finding_id": "R1-F02",
+      "severity": "CRITICAL",
+      "type": "ACTION_CAUSAL_NOVELTY_UNPROVEN"
+    },
+    {
+      "evidence": "rule_constraint protection guard concerns i1 not transferred i0; goal_persistence T1/T2 retain options both block sole external transfer at T1.",
+      "finding_id": "R1-F03",
+      "severity": "HIGH",
+      "type": "GOAL_SEMANTICS_ARTIFICIAL"
+    },
+    {
+      "evidence": "d1 intervention not linked to d0->g0 target; i1/g1 observations control i0 location goal.",
+      "finding_id": "R1-F04",
+      "severity": "HIGH",
+      "type": "CATEGORY_CUES_TASK_CAUSAL_DISCONNECTED"
+    },
+    {
+      "evidence": "8/32 blueprints have trigger_fired true at T0 before scheduled T1/T2 and without an ON linked device; genesis admissibility not proved.",
+      "finding_id": "R1-F05",
+      "severity": "HIGH",
+      "type": "HISTORICAL_STATE_REACHABILITY_NOT_PROVEN"
+    },
+    {
+      "evidence": "Public design blueprints are not sealed EVAL; independent custodian, rights, privacy, ACL, mapping, ledger and private gold not executed.",
+      "finding_id": "R1-F06",
+      "severity": "HIGH",
+      "type": "SEALED_EVAL_RIGHTS_CUSTODY_ABSENT"
+    },
+    {
+      "evidence": "Boolean goal-selector is not the frozen V6 task-causal ontology; prospective amendment is necessary.",
+      "finding_id": "R1-F07",
+      "severity": "HIGH",
+      "type": "UNADOPTED_BOOLEAN_POLICY_AMENDMENT"
+    },
+    {
+      "evidence": "AST exposes split_design, TR/OD IDs, graph shape; realized prompt leakage has not been checked.",
+      "finding_id": "R1-F08",
+      "severity": "MEDIUM",
+      "type": "POTENTIAL_SPLIT_CUES"
+    },
+    {
+      "evidence": "Checker independent code path and mutations do not constitute independent proof of construct correctness or genesis reachability.",
+      "finding_id": "R1-F09",
+      "severity": "MEDIUM",
+      "type": "COMMON_SEMANTIC_ASSUMPTIONS"
+    }
+  ],
+  "frozen_scientific_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "next_single_integrated_operation": "TTM_SMALL4M_D1_R1_ACTION_CAUSAL_STRUCTURAL_OOD_ORACLE_AND_SEALED_CUSTODY_SINGLE_AMENDMENT_SOURCE_GATE",
+  "operation": "TTM_SMALL4M_D1_R1_32_BLUEPRINT_CONSTRUCT_VALIDITY_AND_SEALED_EVAL_CUSTODY_DISTINCT_INDEPENDENT_SOURCE_REVIEW_SINGLE_GO_HOLD",
+  "overall_design_decision": "HOLD_REVISE_BEFORE_PREREG",
+  "preserved_gates": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "FC01": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "GPU": 0,
+    "INFERENCE": 0,
+    "MAIN": "UNCHANGED",
+    "OWNER_PERMIT": "NOT_GRANTED",
+    "TEST_Q1Q2": "SEALED",
+    "TRAINING": 0,
+    "lineage.md": "UNCHANGED"
+  },
+  "protocol_compatibility": {
+    "four_categories_present": true,
+    "new_boolean_goal_selector": "NEW_MATERIAL_AMENDMENT_UNAPPROVED",
+    "paired_family_scoring": "UNCHANGED",
+    "six_verbs_typed_preserved": true,
+    "status": "AMENDMENT_REQUIRED_BEFORE_PREREG",
+    "tests_and_science_permissions": "UNCHANGED_HOLD",
+    "v6_action_relevant_ood_validity": "NOT_ESTABLISHED",
+    "v6_integer_statistical_and_category_gates": "UNCHANGED",
+    "v6_seeds": "20261120..20261130,20261201",
+    "v6_sign_test": "k>=10/12; p(k=10)=79/4096"
+  },
+  "reachability_unique_oracle": {
+    "complete_typed_states": "32_OF_32_REPORTED",
+    "external_transfer_events_implemented_in_source": true,
+    "global_initial_state_reachability_proved": false,
+    "gold_A_ne_gold_B": "32_OF_32_REPORTED",
+    "holder_location_invariant_implemented_in_source": true,
+    "independent_formal_transition_model_proved": false,
+    "minimal_cases": [
+      "RULE_CONSTRAINT_TR01",
+      "GOAL_PERSISTENCE_TR01",
+      "CAUSAL_REASONING_TR01"
+    ],
+    "one_step_gold_unique_A_B": "32_OF_32_REPORTED",
+    "protection_priority_implemented_in_source": true,
+    "status": "SCOPED_CHECKER_PASS_REPORTED_NOT_INDEPENDENT_FULL_MODEL_CHECK",
+    "unique_due_to_artificial_goal": "YES_IN_IDENTIFIED_CASES",
+    "wait_atomic_advance_implemented_in_source": true
+  },
+  "repository": "minhtri22/TokenToModel-Lab",
+  "review_mode": [
+    "READ_ONLY_REVIEW",
+    "DESIGN_ONLY",
+    "SOURCE_ONLY",
+    "NO_GPU",
+    "NO_TRAINING",
+    "NO_INFERENCE",
+    "NO_PRIVATE_GOLD"
+  ],
+  "reviewed_artifact_git_blob_sha1": {
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_32_INDEPENDENT_CHECKER_RECEIPT_20261114.json": "2171736dd5cdabb508921bb8235453390e320fdc",
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_32_NEGATIVE_AND_GRAPH_QA_RECEIPT_20261114.json": "22d7e35c661ef5066423eace270a6637e7850070",
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_TYPED_32_SOURCE_BLUEPRINTS_20261114.json": "6701f1b98a60ed22b49464f039155afdc97c1ba9",
+    "docs/research/ttm-small4m-fact-conditioning/TTM_D1_R1_32_SINGLE_ADJUDICATION_HANDOFF_20261114.md": "e6c0c3c35a7ab08a5cedb877ec08ede78b66c125",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/adversarial_32_source_qa.py": "42aae34caf95817bfe1a1979e508d7078074d4da",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/build_32_blueprints.py": "2fb3b64305c8ca43baea3f73548cd993cd0b57c7",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/independent_32_oracle_checker.py": "c5525295fda95521951f046b052cfd5047313b06"
+  },
+  "reviewed_artifact_sha256": {
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_32_INDEPENDENT_CHECKER_RECEIPT_20261114.json": "460d76ca026cbc0344d1c2199f7f2acba822bd3f231fbb1ca7278b05b2137bd5",
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_32_NEGATIVE_AND_GRAPH_QA_RECEIPT_20261114.json": "6ea174e113e73e1fb8bc405da0791b731faced49e133a7e56f2fa768e6789336",
+    "artifacts/research/ttm-small4m-fact-conditioning/evidence_d1_r1_32_typed_source_20261114/TTM_D1_R1_TYPED_32_SOURCE_BLUEPRINTS_20261114.json": "83f9cce35639dd676ffe3ac31ed4983b2de2a30a008290798cb8c39f3c78047c",
+    "docs/research/ttm-small4m-fact-conditioning/TTM_D1_R1_32_SINGLE_ADJUDICATION_HANDOFF_20261114.md": "5b34343cb852823561471bf343b8df07aa6e0920b19e200dfcf197a686d67187",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/adversarial_32_source_qa.py": "2e6fe1f81858a90915ed3f1479d8fa7f947ee4dff2f711c34516229a6fcc1602",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/build_32_blueprints.py": "331f57e395bcb643f127e16b47234ea1ff3a8663ec7b1a2e415446a78f520c14",
+    "tools/pilot_t4/fc01/d1_r1_32_typed_source_20261114/independent_32_oracle_checker.py": "0ad537bbdcde0e8d92f6d15e5c59387e1419d9f3ec60e45f786a31f71ed1fdc8"
+  },
+  "reviewer_classification": "INDEPENDENT_AI_SCIENTIFIC_SOURCE_REVIEWER_NOT_HUMAN_OR_INSTITUTIONAL_CUSTODIAN",
+  "reviewer_identity": "ChatGPT / GPT-6",
+  "rights_and_sealed_eval_custody": {
+    "blind_scoring": "NOT_EXECUTED",
+    "custody_plan": "Prospectively freeze distinct EVAL structure and rights; appoint custodian; private AST/gold with separate HMAC commitments, authenticated ledger/attestations, independent nonoverlap and parser SHA, opaque blind scoring, post-lock unseal; no replacement after outcomes.",
+    "gold_private_mapping": "NOT_OPENED_NOT_CREATED_IN_THIS_REVIEW",
+    "hmac_keys_acl_ledger": "NOT_EXECUTED",
+    "independent_custodian": "NOT_APPOINTED_OR_NOT_EVIDENCED",
+    "pii_review": "NOT_VERIFIED",
+    "public_blueprint_as_eval": "FORBIDDEN",
+    "sealed_eval_ast": "NOT_CREATED_OR_NOT_EVIDENCED",
+    "source_rights": "NOT_VERIFIED",
+    "status": "CUSTODY_NOT_EXECUTED",
+    "train_val_eval_semantic_nonoverlap": "NOT_PROVEN"
+  },
+  "schema": "ttm.d1.r1.distinct_independent_construct_review_receipt.v1",
+  "science_release": "HOLD",
+  "source_checks": {
+    "all_a_policy_true": true,
+    "all_b_policy_false": true,
+    "blueprint_sha256_matches_handoff": true,
+    "blueprints_parsed": 32,
+    "categories": 4,
+    "category_side_lookup_examples_required": 4,
+    "category_side_lookup_match_actions_ood": 32,
+    "category_side_lookup_match_actions_total": 64,
+    "category_side_lookup_ood_actions_total": 32,
+    "checker_sha256_matches_handoff": true,
+    "gpu_calls": 0,
+    "historic_12_of_12_reexecuted": false,
+    "historic_13_of_13_reexecuted": false,
+    "historic_checker_reexecuted": false,
+    "independent_full_6_verb_model_checker_reexecuted": false,
+    "model_inference_calls": 0,
+    "policy_patterns_per_category": 8,
+    "potential_early_fired_unexplained_initial_state_blueprints": 8,
+    "structural_ood_blueprints": 16,
+    "train_blueprints": 16,
+    "training_steps": 0,
+    "unique_goal_when_false_per_category": 1,
+    "unique_goal_when_true_per_category": 1
+  },
+  "source_evidence_commit": "1394e0abe3eae29a905b2cfe0537d4b0b9521b2b",
+  "source_evidence_parent_commit": "553f1d6db9c2d5572a7e664b64a32e9eaf977f88",
+  "source_fetch_method": "GitHub connected read-only fetch_file exact ref, with SHA256 recomputation in source-only JS review",
+  "source_qa": "PASS_SOURCE_SCOPED_REPORTED_AND_PARTIALLY_INDEPENDENTLY_CROSSCHECKED",
+  "sources_read_complete": true,
+  "structural_ood": {
+    "action_causal_structural_novelty": "NOT_ESTABLISHED",
+    "actual_blueprint_A_B_mapping_distinct_between_train_ood": false,
+    "counterexample": {
+      "action_effect_semantics_changed": false,
+      "bits": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "category": "entity_location",
+      "ood_id": "ENTITY_LOCATION_OD01",
+      "ood_truth_value": true,
+      "train_id": "ENTITY_LOCATION_TR01",
+      "train_truth_value": false
+    },
+    "graph_nonisomorphism": "PASS_REPORTED_64_OF_64_SOURCE_ONLY",
+    "reachable_semantic_disagreement": "PASS_REPORTED_CONDITIONAL_ON_SYNTHETIC_COMPARISON_WORLDS_64_OF_64",
+    "truth_table_nonidentity": "PASS_INDEPENDENT_SOURCE_RECALCULATION"
+  },
+  "v6_r1r3_custody_commit": "553f1d6db9c2d5572a7e664b64a32e9eaf977f88"
+}
