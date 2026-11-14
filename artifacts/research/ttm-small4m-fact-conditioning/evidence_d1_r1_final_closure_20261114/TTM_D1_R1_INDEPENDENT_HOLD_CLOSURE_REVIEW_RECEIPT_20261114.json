@@ -1,0 +1,292 @@
+{
+  "schema": "ttm.d1.r1.independent_hold_closure_review_receipt.v1",
+  "operation": "TTM_SMALL4M_D1_R1_HOLD_CLOSURE_AND_BENCHMARK_REDESIGN_DECISION_SINGLE_GATE",
+  "review_date": "2026-11-14",
+  "reviewer_classification": "INDEPENDENT_AI_SCIENTIFIC_SOURCE_REVIEW; DISTINCT_FROM_AUTHOR_RECEIPT; NO_NEW_ENGINE_EXECUTION; NO_HUMAN_SIGNOFF",
+  "mode": [
+    "READ_ONLY",
+    "DESIGN_ONLY",
+    "SOURCE_ONLY",
+    "NO_SCIENCE_EXECUTION"
+  ],
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_commit": "49513729b1893f33be77ecd31554d2e9377925ea",
+  "parent_evidence": "d24c50ad8a9e377264dd8fa073bcc553824f8992",
+  "frozen_scientific_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "commit_parent_verification": {
+    "status": "PASS",
+    "git_compare": "ahead_by=1; behind_by=0; merge_base=parent_evidence"
+  },
+  "verified_sha256": {
+    "status": "PASS_11_OF_11",
+    "method": "Read exact-commit UTF-8 content with GitHub connector; locally calculate SHA-256 over UTF-8 bytes; match repository SHA-256 manifest; independently recompute Git blob SHA-1 on content. Hash routine validated against standard empty/abc vectors.",
+    "manifest_filename": "TTM_D1_R1_SOURCE_PACKET_SHA256_MANIFEST_20261114.json",
+    "file_count": 11,
+    "files": [
+      {
+        "filename": "TTM_D1_R1_32_CONSTRUCTIVE_ADMISSION_MATRIX_20261114.json",
+        "sha256": "45ec74069975b37725f8daf01a75ec074a81d8fa87d477d551333a9029afeedc",
+        "git_blob_sha1": "73246abe741e5330211ebc343a79a4943443a026",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_BOUNDED_CONSTRUCTIVE_SEARCH_RECEIPT_20261114.json",
+        "sha256": "da9bc0865c0be149544a12db62d378db536fd12492b803b8031b04732248ecfe",
+        "git_blob_sha1": "ab3e527328def788a9b187e2290f8beea5c826f6",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_BOUNDED_PAIRED_CONSTRUCTIVE_PROBE_20261114.json",
+        "sha256": "b6347f8ca2ec0c1e10d44bf87d98b01ebf61042ff70d465fc4057040c7335b95",
+        "git_blob_sha1": "378a223118781a6082928e2d862c3d9513b4b11a",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_CONSTRUCTIVE_INDEPENDENT_REVIEW_HANDOFF_20261114.md",
+        "sha256": "437d4979a421039957328f99c42675a30cf2ffc748df799628f323950f2f862a",
+        "git_blob_sha1": "b2e07f1becf593de1757a53d03358662b30d8a90",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_CONSTRUCTIVE_SHORTCUT_RENDER_CUSTODY_GATES_20261114.json",
+        "sha256": "abfd3e53a24431d76312feab4e60f82546d98035d77d3aecf842385a7c82fd64",
+        "git_blob_sha1": "a5f43969ba5192b28050bdbc8a368b7eaee26e5f",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_CONSTRUCTIVE_SINGLE_GATE_ADJUDICATION_RECEIPT_20261114.json",
+        "sha256": "db1fecb0fb8b574d7864dc1075c6c164de4c043e11cf63cf301c2e742878b27d",
+        "git_blob_sha1": "970f95ee0483b438c281a90c9cf081301e826c6e",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_MINIMAL_CONTRACT_CONSTRUCTIVE_FEASIBILITY_REPORT_20261114.md",
+        "sha256": "e7a34a5ab89b81b3cb232ad9993bc08d5f81a294b617a758f7736641337ae72b",
+        "git_blob_sha1": "3b133e7fda086f6fc511f923f2917d43138da33d",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "TTM_D1_R1_PROSPECTIVE_MINIMAL_SEMANTIC_CONTRACT_FREEZE_20261114.json",
+        "sha256": "dcf2ec3af62f1f3a738b945fe332df171ffb3ecf8b8517ba1f12cde47cebd091",
+        "git_blob_sha1": "d142938352f5b4149d5440614939dc173dade2ea",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "constructive_search.py",
+        "sha256": "ba38165ff6baba142980f9b4af3178c9feb53ab3002207dc063dcc7512b51b1c",
+        "git_blob_sha1": "e7fda84fed9e27a772d38b76d5f68846404e3fc4",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "pairwise_constructive_probe.py",
+        "sha256": "7c9f7ada68bb9d7047dc484a9c1009d962921dd46c0873d8cf48ba61f848f8db",
+        "git_blob_sha1": "4f385415125142f2be7f9b48edcab4c8f42a96e6",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      },
+      {
+        "filename": "prepare_closure.py",
+        "sha256": "ed8dd8813050b099d5606f3d77f65fb6e21e44a57332a9689fdc879cfdb89616",
+        "git_blob_sha1": "f4434a87b14c60f43b4f9a2e2ed11881105c3afd",
+        "sha256_match_manifest": true,
+        "git_blob_sha1_match": true
+      }
+    ],
+    "frozen_v6_reference_blob_sha1": "c6ac330c40e31035116add165ef30fa58af59639"
+  },
+  "bounded_search_review": {
+    "status": "CONFIRMED_FROM_VERIFIED_SOURCE_RECEIPTS_NOT_INDEPENDENTLY_RERUN",
+    "scenario_total": 330,
+    "unique_first_action_total": 94,
+    "one_fluent_distinct_first_action_pair_total": 32,
+    "max_depth": 3,
+    "edge_cap": 3500,
+    "new_source_checks": "12/12 AUTHOR_REPORTED; NOT_RERUN_BY_THIS_REVIEWER",
+    "prior_checks": "13/13 and 12/12 NOT_RERUN",
+    "limits": [
+      "per-category finite subgrammars",
+      "two agents/items/locations and 3 clock points",
+      "fixed goal predicates and role labels",
+      "one exogenous request",
+      "persistence single-step then implicit event progression",
+      "no canonical graph equivalence checker"
+    ]
+  },
+  "semantic_contract_review": {
+    "status": "MATERIAL_AMENDMENTS_NOT_ADOPTED",
+    "transfer": "Physical co-location justified for ordinary physical transfer, but deviates from frozen V6: formalize deliberate amendment or explicitly model remote communication.",
+    "carry": "Movement of already-held item and propagation of all items is coherent but an unapproved broadening of V6 preconditions/effects.",
+    "wait": "Atomic clock event order is a needed design repair, but persistence() bypasses WAIT to apply future events; choose explicit passive clock or strict action-timed progression.",
+    "retain": "No automatic unique oracle from pure safety; RETAIN T2 becomes unique in very narrow stationary, T2-threat motif, not general action-causal novelty.",
+    "genesis": "T0 initialization axioms can define valid initial custody without a predecessor trace if explicitly preregistered; this is not evidence of historical reachability.",
+    "priority": "Trigger then request, protection guard inclusive; formalize ordering and concurrent events across types.",
+    "approval": "PROSPECTIVE_ONLY_NOT_FROZEN_V6"
+  },
+  "constructive_counterexample": {
+    "exists": false,
+    "status": "NO_VERIFIED_16_TRAIN_PLUS_16_OOD_CONSTRUCTIVE_COUNTEREXAMPLE",
+    "reason": "No actual typed 32 AST, no 64 canonical comparisons, no independently validated matched-world witnesses; one illustrative scenario or motif cannot veto closure."
+  },
+  "category_feasibility": {
+    "entity_location": {
+      "searched_scenarios": 96,
+      "unique_first_action_cases": 20,
+      "one_fluent_AB_pairs": 2,
+      "coarse_motif_proxy_count": 1,
+      "science_admitted_ood": 0,
+      "four_structural_ood_proven": false,
+      "bounded_result_class": "UNPROVEN_UNDER_CURRENT_SUBGRAMMAR"
+    },
+    "causal_reasoning": {
+      "searched_scenarios": 54,
+      "unique_first_action_cases": 16,
+      "one_fluent_AB_pairs": 1,
+      "coarse_motif_proxy_count": 1,
+      "science_admitted_ood": 0,
+      "four_structural_ood_proven": false,
+      "bounded_result_class": "UNPROVEN_UNDER_CURRENT_SUBGRAMMAR"
+    },
+    "rule_constraint": {
+      "searched_scenarios": 108,
+      "unique_first_action_cases": 52,
+      "one_fluent_AB_pairs": 29,
+      "coarse_motif_proxy_count": 3,
+      "science_admitted_ood": 0,
+      "four_structural_ood_proven": false,
+      "bounded_result_class": "UNPROVEN_UNDER_CURRENT_SUBGRAMMAR"
+    },
+    "goal_persistence": {
+      "searched_scenarios": 72,
+      "unique_first_action_cases": 6,
+      "one_fluent_AB_pairs": 0,
+      "coarse_motif_proxy_count": 0,
+      "science_admitted_ood": 0,
+      "four_structural_ood_proven": false,
+      "bounded_result_class": "UNPROVEN_UNDER_CURRENT_SUBGRAMMAR"
+    }
+  },
+  "admission": {
+    "new_train": 0,
+    "required_train": 16,
+    "new_structural_ood": 0,
+    "required_structural_ood": 16,
+    "new_64_pair_canonical_matrix": "NOT_EXECUTED_NO_ADMITTED_AST",
+    "renderer_parser_tokenizer": "NOT_VERIFIED",
+    "rights": "NOT_VERIFIED",
+    "eval_gold": "NOT_CREATED"
+  },
+  "benchmark_redesign_assessment": {
+    "status": "DESIGN_PROPOSAL_NOT_AUTHORIZED",
+    "preferred": "SIX_VERB_EXPLICIT_TASK_GOAL_AND_CLOCK_SEMANTICS_AMENDMENT_FIRST",
+    "options": [
+      {
+        "id": "A",
+        "label": "Retain 6 verbs; revise goals, event/clock axioms, category admission and oracle",
+        "scientific_validity": "HIGH_IF_INDEPENDENTLY_CERTIFIED",
+        "oracle_design": "MEDIUM",
+        "small4m_resources": "LOW_TO_MEDIUM",
+        "recommendation": "PREFERRED_DESIGN_PROPOSAL"
+      },
+      {
+        "id": "B",
+        "label": "Expand ontology with explicit exogenous events/agent movement etc",
+        "scientific_validity": "POTENTIALLY_HIGH",
+        "oracle_design": "MEDIUM_TO_HARD",
+        "small4m_resources": "MEDIUM_TO_HIGH",
+        "recommendation": "SECONDARY_IF_A_NOT_EXPRESSIVE"
+      },
+      {
+        "id": "C",
+        "label": "Narrow preregistered claim to proven categories",
+        "scientific_validity": "HIGH_FOR_NARROWER_CLAIM_ONLY",
+        "oracle_design": "EASIER",
+        "small4m_resources": "LOW",
+        "recommendation": "FALLBACK_REQUIRES_HYPOTHESIS_AMENDMENT"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "D1R1-IR-01",
+      "severity": "BLOCKER_FOR_SCIENCE",
+      "title": "No 32 admitted typed AST and no canonical OOD certificate",
+      "evidence": "32 slot admission matrix: all HOLD_NOT_PROVEN; actual new TRAIN=0 and OOD=0; new 64 TRAIN–OOD pairs not executed",
+      "disposition": "supports design closure"
+    },
+    {
+      "id": "D1R1-IR-02",
+      "severity": "MATERIAL_SEMANTIC_DRIFT",
+      "title": "Prospective candidate is not frozen V6",
+      "evidence": "physical co-located TRANSFER, held-target CARRY, atomic WAIT, monotone RETAIN and exogenous request differ from V6 AM01",
+      "disposition": "amendment required for any successor, not applied"
+    },
+    {
+      "id": "D1R1-IR-03",
+      "severity": "METHODOLOGY_LIMIT",
+      "title": "Persistence directly advances future events outside WAIT",
+      "evidence": "constructive_search.py:persistence() calls events_between(out,through) after a single action, including cases with no legal WAIT; WAIT step() requires a pending scheduled trigger",
+      "disposition": "cannot treat these one-action first-action classifications as complete temporal plan oracle without an explicit passive-clock axiom"
+    },
+    {
+      "id": "D1R1-IR-04",
+      "severity": "CATEGORY_SCOPE_MISMATCH",
+      "title": "rule_constraint search includes out-of-category first verb CARRY",
+      "evidence": "shortest() calls unfiltered actions(); rule_constraint histogram CARRY=18, whereas frozen V6 category allowed actions were TRANSFER, WAIT, RETAIN",
+      "disposition": "cannot count as four-category construct validity"
+    },
+    {
+      "id": "D1R1-IR-05",
+      "severity": "METHODOLOGY_LIMIT",
+      "title": "One-fluent criterion undercounts logical exogenous-request interventions",
+      "evidence": "external_transfer_request is an object with at/item/recipient; switching NONE to T1/T2 can change 3 leaves and is filtered by diff(len)==1",
+      "disposition": "negative pair count not upper bound for full intervention space"
+    },
+    {
+      "id": "D1R1-IR-06",
+      "severity": "METHODOLOGY_LIMIT",
+      "title": "No proof of global impossibility",
+      "evidence": "two agents, items and locations; fixed goal forms, T0–T2, max depth 3, <=1 external request, bounded per-category grammar",
+      "disposition": "closure is a research management decision only"
+    },
+    {
+      "id": "D1R1-IR-07",
+      "severity": "READINESS_BLOCKER",
+      "title": "Independent science verification, renderer and custody absent",
+      "evidence": "12/12 checks are author-side source tests; renderer/parser/tokenizer not verified, source rights and EVAL custody not executed",
+      "disposition": "keep science HOLD"
+    }
+  ],
+  "overall_design_decision": "GO_CLOSE_R1_FORMULATION_DESIGN_ONLY",
+  "decision_rationale": "Sufficient to discontinue blueprint generation under this particular formulation because construct validity and admissions are unproven, with no complete constructive counterexample. No full-V6 impossibility claim.",
+  "science_release": "HOLD",
+  "preserved_gates": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC02": "NOT_OPENED",
+    "GPU": 0,
+    "TRAINING": 0,
+    "INFERENCE": 0,
+    "FROZEN_V6": "UNCHANGED",
+    "MAIN": "UNCHANGED",
+    "lineage.md": "UNCHANGED",
+    "EVAL_CUSTODY": "NOT_EXECUTED",
+    "OWNER_SCIENCE_PERMIT": "NOT_GRANTED"
+  },
+  "repository_mutations": "NONE",
+  "source_tests_executed_by_reviewer": 0,
+  "gpu_calls": 0,
+  "training_calls": 0,
+  "inference_calls": 0,
+  "successor_phase": "NOT_OPENED",
+  "next_step_unique": "TTM_SMALL4M_D1_R1_HOLD_CLOSURE_AND_BENCHMARK_REDESIGN_DECISION_SINGLE_GATE"
+}
