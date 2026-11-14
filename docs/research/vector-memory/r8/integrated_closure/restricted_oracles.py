@@ -10,6 +10,13 @@ SEED=20261114
 PATTERN=r"(?u)\b\w+\b"
 MARKERS=("applicable signed record","signed","approved","pending","countersigned",
          "reconciled","authorized","received")
+# Frozen O3 categorical schema; unlisted values are INVALID, never free-text features.
+# The empty string is the explicit missing-value bin for this source-only design.
+O3_CATEGORICAL_ENUMS={
+ "status":frozenset(["","approved","authorized","countersigned","pending","received","reconciled","signed"]),
+ "authority_role":frozenset(["","auditor","authorized","custodian","issuer","none","receiver","reviewer","sender","signatory"]),
+ "source_format":frozenset(["","acknowledgement","audit","csv","email","forecast","form","json","ledger","pdf","receipt","record","report","text"]),
+}
 PRIMARY=("O2","O3","O4","O5","O6")
 ALPHA=.05
 C=1.0
@@ -106,13 +113,20 @@ def _o2_features(case):
     z["last_source_id_length"] = len(cards[-1].get("source_id", ""))
     return z
 
+def _o3_category(card,field):
+    value=norm(card.get(field,""))
+    if value not in O3_CATEGORICAL_ENUMS[field]:
+        raise ValueError("INVALID_O3_CATEGORICAL_VALUE_"+field.upper())
+    return value
+
 def _o3_features(case):
     z={}
     for c in case["cards"]:
-        t=norm(c.get("text","")+" "+c.get("status","")+" "+c.get("authority_role",""))
+        fields={field:_o3_category(c,field) for field in O3_CATEGORICAL_ENUMS}
+        t=norm(c.get("text","")+" "+fields["status"]+" "+fields["authority_role"])
         for term in MARKERS:z["marker="+term]=z.get("marker="+term,0)+t.count(term)
-        for field in ("status","authority_role","source_format"):
-            key=field+"="+norm(c.get(field,""))
+        for field,value in fields.items():
+            key=field+"="+value
             z[key]=z.get(key,0)+1
         w=words(t)
         # Restricted O3 can use only predeclared marker lexemes; a neighboring
@@ -148,6 +162,12 @@ def validate_split(train,test):
         if c["action"]=="SELECT" and key not in {x["key"] for x in c["cards"]}:
             return "INVALID_SELECT_TARGET"
         if c["action"]=="ABSTAIN" and key is not None:return "INVALID_ABSTAIN_KEY"
+    # Fail closed on unregistered O3 values, before any model fitting.
+    for c in allrows:
+        for card in c["cards"]:
+            for field,allowed in O3_CATEGORICAL_ENUMS.items():
+                if norm(card.get(field,"")) not in allowed:
+                    return "INVALID_O3_CATEGORICAL_VALUE_"+field.upper()
     tc={c["component_id_pre"] for c in train}
     ec={c["component_id_pre"] for c in test}
     if tc & ec:return "FOLD_LEAK_CV_INVALID"

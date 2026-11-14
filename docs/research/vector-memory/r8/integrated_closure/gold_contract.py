@@ -92,21 +92,21 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
         for c in claims:
             if c["hypothesis_id"]==hid and c["predicate"] in CORE and c.get("verified") is True:
                 grouped[c["predicate"]].add(c["card_key"])
-        if any(not grouped[p] for p in CORE):
-            missing=True
-            continue
+        # Check equal-rank contradiction BEFORE missing CORE can mask invalid fixtures.
         contradict=[c for c in claims if c["hypothesis_id"]==hid and c.get("verified") is True
                     and c["predicate"] in ("DEFEATER","NEGATIVE_RECEIPT")]
         if contradict:
-            explicit_negative |= any(c["predicate"]=="NEGATIVE_RECEIPT" for c in contradict)
             equal=any(c.get("authority_rank")==h.get("authority_rank",0)
                       and c.get("time_valid") is True for c in contradict)
-            greater=any(c.get("authority_rank",-1)>h.get("authority_rank",0)
-                        and c.get("time_valid") is True for c in contradict)
-            # Equally ranked contradictory proof is a malformed fixture under
-            # frozen V4, not a valid abstention reason.
             if equal:
                 raise ValueError("INVALID_FIXTURE_EQUAL_AUTHORITY_CONFLICT")
+            explicit_negative |= any(c["predicate"]=="NEGATIVE_RECEIPT" for c in contradict)
+        if any(not grouped[p] for p in CORE):
+            missing=True
+            continue
+        if contradict:
+            greater=any(c.get("authority_rank",-1)>h.get("authority_rank",0)
+                        and c.get("time_valid") is True for c in contradict)
             if greater:
                 continue
         # Bounded enumeration of minimal card evidence sets, never arbitrary first key.

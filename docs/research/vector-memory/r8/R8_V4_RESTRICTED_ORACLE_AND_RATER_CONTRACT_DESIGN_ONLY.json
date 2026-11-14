@@ -164,6 +164,47 @@
     },
     "O3": {
       "kind": "marker_only",
+      "categorical_schema": "CLOSED_ENUM_FAIL_CLOSED_BEFORE_ORACLE_FIT",
+      "categorical_allowed_values": {
+        "status": [
+          "",
+          "approved",
+          "authorized",
+          "countersigned",
+          "pending",
+          "received",
+          "reconciled",
+          "signed"
+        ],
+        "authority_role": [
+          "",
+          "auditor",
+          "authorized",
+          "custodian",
+          "issuer",
+          "none",
+          "receiver",
+          "reviewer",
+          "sender",
+          "signatory"
+        ],
+        "source_format": [
+          "",
+          "acknowledgement",
+          "audit",
+          "csv",
+          "email",
+          "forecast",
+          "form",
+          "json",
+          "ledger",
+          "pdf",
+          "receipt",
+          "record",
+          "report",
+          "text"
+        ]
+      },
       "features": [
         "applicable signed record",
         "signed",

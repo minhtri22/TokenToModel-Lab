@@ -113,6 +113,64 @@ class TargetedSourceBoundaryQA(unittest.TestCase):
         self.assertIn("markergram=signed record",f)
         self.assertNotIn("markergram=signed arbitrary",f)
 
+    def test_F02_equal_authority_conflict_invalid_even_with_missing_CORE(self):
+        hs,claims,cards=simple()
+        claims=[c for c in claims if c["predicate"]!="AUTHORIZED"]
+        claims.append({"hypothesis_id":"h1","card_key":"proof",
+                       "predicate":"DEFEATER","verified":True,
+                       "authority_rank":2,"time_valid":True})
+        with self.assertRaisesRegex(ValueError,"INVALID_FIXTURE_EQUAL_AUTHORITY_CONFLICT"):
+            g.resolve(hs,claims,cards)
+
+    def test_F02_equal_rank_negative_invalid_even_with_missing_CORE(self):
+        hs,claims,cards=simple()
+        claims=[c for c in claims if c["predicate"]!="AUTHORIZED"]
+        claims.append({"hypothesis_id":"h1","card_key":"proof",
+                       "predicate":"NEGATIVE_RECEIPT","verified":True,
+                       "authority_rank":2,"time_valid":True})
+        with self.assertRaisesRegex(ValueError,"INVALID_FIXTURE_EQUAL_AUTHORITY_CONFLICT"):
+            g.resolve(hs,claims,cards)
+
+    def test_F02_superior_negative_plus_missing_CORE_still_abstains(self):
+        hs,claims,cards=simple()
+        claims=[c for c in claims if c["predicate"]!="AUTHORIZED"]
+        claims.append({"hypothesis_id":"h1","card_key":"proof",
+                       "predicate":"NEGATIVE_RECEIPT","verified":True,
+                       "authority_rank":3,"time_valid":True})
+        self.assertEqual(g.resolve(hs,claims,cards)["action"],"ABSTAIN")
+
+    def test_F03_closed_enum_rejects_identifier_in_any_categorical_field(self):
+        for field in ("status","authority_role","source_format"):
+            with self.subTest(field=field):
+                case=public_case()
+                case["cards"][0][field]="signed accession_x"
+                with self.assertRaisesRegex(ValueError,
+                                            "INVALID_O3_CATEGORICAL_VALUE_"+field.upper()):
+                    o._o3_features(case)
+
+    def test_F03_valid_categorical_values_remain_observable(self):
+        case=public_case()
+        case["cards"][0]["source_format"]="record"
+        f=o._o3_features(case)
+        self.assertIn("status=signed",f)
+        self.assertIn("authority_role=authorized",f)
+        self.assertIn("source_format=record",f)
+        self.assertFalse(any("accession_x" in key for key in f))
+
+    def test_F03_invalid_enum_rejected_before_model_fitting(self):
+        cases=[]
+        for i in range(4):
+            c=public_case()
+            c.update({"id":"nonR8_"+str(i),"component_id_pre":"bp_"+str(i),
+                      "public_row_position":i,"public_case_count":4,
+                      "action":"SELECT" if i%2==0 else "ABSTAIN",
+                      "target_key":c["cards"][0]["key"] if i%2==0 else None})
+            cases.append(c)
+        self.assertEqual(o.validate_split(cases[:2],cases[2:]),"VALID_SOURCE_ONLY_SPLIT")
+        cases[2]["cards"][0]["source_format"]="record private_identifier_42"
+        self.assertEqual(o.validate_split(cases[:2],cases[2:]),
+                         "INVALID_O3_CATEGORICAL_VALUE_SOURCE_FORMAT")
+
     def test_F07_existing_toy_witness_unchanged(self):
         a,b=g.f07_symbolic_twins()
         self.assertEqual(g.receipt_f07(a)["action"],"SELECT")
