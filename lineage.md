@@ -271,6 +271,6 @@
 
 ## L0028 — 2026-11-14 — Ma trận 67 nhánh TTM và quy tắc hợp nhất lineage-only
 
-- Loại: GOVERNANCE_BRANCH_INVENTORY_MERGE_AUDIT. Snapshot `67` nhánh và `3` PR Draft, HEAD lưu tại `artifacts/governance/TTM_GLOBAL_RESEARCH_BRANCH_LINEAGE_INVENTORY_20261114.json`; bảng quyết định tại `docs/governance/TTM_GLOBAL_LINEAGE_MERGE_AUDIT_AND_RESEARCH_DIRECTION_MATRIX_20261114.md`.
+- Loại: GOVERNANCE_BRANCH_INVENTORY_MERGE_AUDIT. Snapshot `64` nhánh và `3` PR Draft, HEAD lưu tại `artifacts/governance/TTM_GLOBAL_RESEARCH_BRANCH_LINEAGE_INVENTORY_20261114.json`; bảng quyết định tại `docs/governance/TTM_GLOBAL_LINEAGE_MERGE_AUDIT_AND_RESEARCH_DIRECTION_MATRIX_20261114.md`.
 - Giữ nguyên tiền tố `main` L0000–L0014, sao nguyên văn L0015–L0022 của nhánh R1 final closure `53f1c355563a9aa30d7fe1aa4b76b694513a2c4e`; các ID L0015 trở lên trên VM, Embedding và H-DATA là ID cục bộ theo nhánh, không được tự đồng nhất. Các nhánh khác chỉ được lập chỉ mục ở mức metadata hoặc source-scoped đã đọc.
 - Không merge mã các nhánh HOLD/FAIL/UNVERIFIED; mọi PASS vẫn cần review merge riêng. D1 benchmark redesign chỉ `DESIGN_PROPOSAL_NOT_AUTHORIZED`; `D1_BRIDGE_SCIENCE=HOLD`, `TEST_Q1Q2=SEALED`, `FC02=NOT_OPENED`, GPU/TRAIN/INFERENCE=0.
