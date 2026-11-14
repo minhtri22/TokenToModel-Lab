@@ -1,0 +1,137 @@
+{
+  "schema": "ttm.hdata_s1.independent_scoped_science_postrun_ready_last_val_readback.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_INDEPENDENT_POSTRUN_BYTE_CUSTODY_READY_LAST_128X4096_VAL_GUARDRAIL_NO_FINAL_INFERENCE",
+  "classification": "INDEPENDENT_SCOPED_AI_EVIDENCE_AUDIT_NOT_HUMAN_RATER",
+  "status": "PASS_SCOPED_EXECUTION_AND_READY_LAST_VAL_GUARDRAIL__SEMANTIC_ADJUDICATION_PENDING",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "custody": {
+    "source": "Authenticated Google Drive owner_private/TTM_HDATA_S1_OWNER_READY_LAST_SCIENCE_READBACK_20261113.json",
+    "owner_receipt_size_bytes": 3141,
+    "owner_receipt_sha256_verified_by_independent_local_hash": "e30a2281580b1f6ea33856577f0a244cd02e226dc8a3db00d207a8fe13cce4b5",
+    "owner_receipt_schema": "ttm.hdata_s1.ready_last_owner_readback.v1",
+    "owner_receipt_status": "PASS_TWO_ARM_128_STEP_READY_LAST_UNADJUDICATED",
+    "science_lock_sha256": "85e744a3da8d0e417079f726d95f059ad569a5f13e592ee56c1982dbce0aa540",
+    "science_source_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "parent_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "private_TRAIN_VAL_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "new_FINAL": "SEALED_NOT_READ",
+    "TEST_Q1_Q2_OOD": "SEALED_NOT_READ"
+  },
+  "readback_method": {
+    "owner_checker": "Original frozen checkpoint checker read all 256 STEP_BEGIN and 256 STEP_DONE journals' contents, rehashed all 8 checkpoint binaries, checked 1152 state consistency and VAL final receipts; resulting owner receipt was SHA verified independently.",
+    "independent_google_drive_listing": "Queried run root and both ARM_H0 and ARM_H1 folders directly. Each contains exactly 128 STEP_BEGIN, 128 STEP_DONE, 4 checkpoint directories at 1056/1088/1120/1152, and FINAL_UNADJUDICATED.json. RUN_MANIFEST matches pinned run/lock/source/arm tuple.",
+    "independent_google_drive_ready": "Read all 8 READY.json files and checked arm, step, locked owner GO SHA, claimed checkpoint SHA against independent owner receipt, and checkpoint byte count against provider metadata, all PASS.",
+    "independent_binary_checks": "Downloaded checkpoint_1152/state.pt for both H0 and H1 from authenticated Drive, independently computed SHA256 over actual bytes; both matched READY/owner receipt. Did not independently rehash the 6 earlier binary checkpoints.",
+    "independent_cpu_torch_state_check": "Using torch 2.10.0+cpu and torch.load(map_location='cpu',weights_only=True) on downloaded state.pt for each arm: verified schema/run/arm/step, nonempty model, full optimizer/scheduler/scaler/sampler/RNG state keys, h1_exposure length 2048, scheduler last_epoch 1152, 52 AdamW optimizer states all at step 1152. No model forward.",
+    "no_owner_final_prompt_open": true,
+    "no_new_train_or_forward_by_reviewer": true
+  },
+  "arms": [
+    {
+      "arm": "H0",
+      "optimizer_updates_attested": 128,
+      "valid_target_presentations": 524288,
+      "step_range": [
+        1025,
+        1152
+      ],
+      "journal_begin_count_drive": 128,
+      "journal_done_count_drive": 128,
+      "checkpoint_step_numbers": [
+        1056,
+        1088,
+        1120,
+        1152
+      ],
+      "ready_checkpoint_sha256": [
+        "bab1670e5da50543e3e685ca0c83a8c5c24ce4367da6d0c70b18a8ff97701fb4",
+        "1e620a363962ec0612be24d115bbb3b694bd49a2ed42256fe6af5ef0f43f9c45",
+        "8f875089432b81427ecf9255783a99cdd60e9c84401ea3424adca1714901b76f",
+        "a7cdade3b70cb2ceed258edd1e3edd494ce9745633d2e528ee90232f3c95c2fe"
+      ],
+      "last_checkpoint_bytes": 45077721,
+      "last_checkpoint_sha256_independently_verified": "a7cdade3b70cb2ceed258edd1e3edd494ce9745633d2e528ee90232f3c95c2fe",
+      "optimizer_state_count_verified": 52,
+      "optimizer_all_steps_1152_verified": true,
+      "scheduler_epoch_1152_verified": true,
+      "val_nll": 3.511285912623514,
+      "val_target_count": 61122,
+      "val_story_count": 256,
+      "never_test": true,
+      "val_story_loss_digest": "41eaf13c99096249d55cbd143da978aa730ad8a58e8383e79df68cf34be2f5cd"
+    },
+    {
+      "arm": "H1",
+      "optimizer_updates_attested": 128,
+      "valid_target_presentations": 524288,
+      "step_range": [
+        1025,
+        1152
+      ],
+      "journal_begin_count_drive": 128,
+      "journal_done_count_drive": 128,
+      "checkpoint_step_numbers": [
+        1056,
+        1088,
+        1120,
+        1152
+      ],
+      "ready_checkpoint_sha256": [
+        "eed888b24fe4d7232dd8a3c071b2a128183e832a506282e3bb757bdc5a962214",
+        "36f271c2592c2bbe1fbf0d32dc14d218e7ff097a5cbfab5ce63d37eb441d2df0",
+        "f3789c2d9995134bd66cc231c69588adf6436592cabdfdb81f6c1e6f717f9176",
+        "31d9365a470e638f77e6661252ed8d0605e9f9095da145d9f48751adcdcfcb64"
+      ],
+      "last_checkpoint_bytes": 45077721,
+      "last_checkpoint_sha256_independently_verified": "31d9365a470e638f77e6661252ed8d0605e9f9095da145d9f48751adcdcfcb64",
+      "optimizer_state_count_verified": 52,
+      "optimizer_all_steps_1152_verified": true,
+      "scheduler_epoch_1152_verified": true,
+      "val_nll": 3.5057606759493716,
+      "val_target_count": 61122,
+      "val_story_count": 256,
+      "never_test": true,
+      "val_story_loss_digest": "fc766e337bea0cbb9c4c5d087ff1f1040d250f41ac6973e13bc90cb81540a2b9"
+    }
+  ],
+  "matched_budget": {
+    "arms": 2,
+    "updates_each": 128,
+    "targets_each_step": 4096,
+    "total_updates": 256,
+    "total_target_presentations": 1048576,
+    "ready_count": 8,
+    "checkpoint_last_step": 1152
+  },
+  "val_comparison": {
+    "h0_val_nll": 3.511285912623514,
+    "h1_val_nll": 3.5057606759493716,
+    "h1_minus_h0_val_nll": -0.0055252366741425085,
+    "h1_reduction_absolute_nll": 0.0055252366741425085,
+    "h1_relative_nll_change_vs_h0": -0.0015735650162462102,
+    "prespecified_val_nll_relative_regression_max": 0.05,
+    "val_guardrail": "PASS_NO_REGRESSION",
+    "scientific_meaning": "Descriptive VAL only; not the prespecified semantic primary endpoint and no statistical inference from aggregates."
+  },
+  "frozen_primary_endpoint": {
+    "name": "mean anchor preservation score H1 minus H0 over 24 new FINAL pairs",
+    "rubric": "actor_retention/object_relation_retention/goal_or_rule_progress, 0-3 primary",
+    "gating": "mean>=0.5, >=16/24 strict pair wins, paired 20k bootstrap CI95 lower>0, component/secondary guardrails",
+    "rater_visibility": "Neutral LEFT/RIGHT; 240 integer axis judgments+24 notes; freeze scores SHA before owner unblind",
+    "status": "NOT_EVALUATED_NO_FINAL24_INFERENCE",
+    "no_new_final_open_authorization_in_this_turn": true
+  },
+  "adjudication": {
+    "science_execution_and_ready_last": "PASS",
+    "exact_final_checkpoint_byte_integrity_two_arms": "PASS_INDEPENDENT_LOCAL_HASH",
+    "ready_metadata_all_eight": "PASS",
+    "scientific_semantic_benefit": "HOLD_NOT_YET_TESTED",
+    "blind_evaluation": "NOT_STARTED",
+    "NEW_FINAL_inference": "NOT_EXECUTED",
+    "main": "UNCHANGED",
+    "no_gpu_model_forward_or_resample_by_reviewer": true,
+    "no_train_data_checkpoint_binary_published_to_git": true,
+    "next_operation": "TTM_HDATA_S1_POST_SCIENCE_INDEPENDENT_READY_LAST_VAL_FREEZE_AND_NEW_FINAL24_BLIND_GENERATION_PREEXEC_OWNER_GATE_NO_INFERENCE"
+  }
+}
