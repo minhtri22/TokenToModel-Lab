@@ -17,21 +17,23 @@ def hypothesis_identity(h):
         raise ValueError("INVALID_HYPOTHESIS_FIELDS")
     return tuple(h[k] for k in keys)
 
-def _has_cycle(claims, chosen):
-    # Dependency cycles must not become circular proofs.
-    adj = {k:set() for k in chosen}
+def _proof_dependency_closure(claims, chosen, present):
+    """Resolve *all* dependencies, not only references inside a guessed proof set.
+    Missing references and any transitive directed cycle invalidate a proof.
+    """
+    dependencies=defaultdict(set)
     for c in claims:
-        if c["card_key"] in chosen:
-            adj[c["card_key"]].update(k for k in c.get("depends_on",[]) if k in chosen)
-    active, done = set(),set()
-    def visit(n):
-        if n in active:return True
-        if n in done:return False
-        active.add(n)
-        if any(visit(m) for m in adj[n]):return True
-        active.remove(n);done.add(n)
-        return False
-    return any(visit(x) for x in adj if x not in done)
+        dependencies[c["card_key"]].update(c.get("depends_on",[]))
+    active,done=set(),set()
+    def visit(k):
+        if k not in present or k in active:return False
+        if k in done:return True
+        active.add(k)
+        if any(not visit(dep) for dep in dependencies[k]):return False
+        active.remove(k);done.add(k)
+        return True
+    if not all(visit(k) for k in chosen):return None
+    return frozenset(done)
 
 def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
     """Reconstruct hypotheses from typed claims rather than reading generator gold.
@@ -78,8 +80,8 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
         if variants>4096:raise ValueError("PROOF_ENUMERATION_LIMIT")
         candidates=set()
         for combo in product(*(sorted(grouped[p]) for p in CORE)):
-            s=frozenset(combo)
-            if not _has_cycle(claims,s):candidates.add(s)
+            s=_proof_dependency_closure(claims,frozenset(combo),present)
+            if s is not None:candidates.add(s)
         minimal=sorted((s for s in candidates if not any(t<s for t in candidates)),
                        key=lambda s:(len(s),tuple(sorted(s))))
         if not minimal:
