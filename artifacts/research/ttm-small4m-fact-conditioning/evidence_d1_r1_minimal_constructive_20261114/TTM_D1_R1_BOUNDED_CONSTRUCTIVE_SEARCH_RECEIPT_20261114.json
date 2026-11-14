@@ -1,0 +1,1653 @@
+{
+  "schema": "ttm.d1.r1.minimal_prospective_semantics_bounded_constructive_search.v1",
+  "operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE",
+  "mode": "SOURCE_ONLY_NO_SCIENCE_NO_EVAL_GOLD",
+  "reference_semantics": "PROSPECTIVE_PHYSICAL_P1_NOT_FROZEN_V6",
+  "bounds": {
+    "agents": 2,
+    "items": 2,
+    "locations": 2,
+    "devices": 2,
+    "triggers": 2,
+    "time_points": 3,
+    "search_depth_max": 3,
+    "search_edges_cap": 3500,
+    "grammar": "explicit per-category crossproducts in constructive_search.py; fixed role labels and finite selected goals"
+  },
+  "category_counts": {
+    "entity_location": {
+      "searched_scenarios": 96,
+      "status_counts": {
+        "ALREADY_MET": 12,
+        "UNIQUE": 20,
+        "NO_PLAN_WITHIN_BOUND": 64
+      },
+      "unique_first_verb_histogram": {
+        "RELOCATE": 12,
+        "CARRY": 6,
+        "TRANSFER": 2
+      },
+      "examples_available": 20,
+      "admitted_ood": 0,
+      "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+    },
+    "causal_reasoning": {
+      "searched_scenarios": 54,
+      "status_counts": {
+        "NO_PLAN_WITHIN_BOUND": 22,
+        "UNIQUE": 16,
+        "AMBIGUOUS": 16
+      },
+      "unique_first_verb_histogram": {
+        "WAIT": 13,
+        "ACTIVATE": 3
+      },
+      "examples_available": 16,
+      "admitted_ood": 0,
+      "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+    },
+    "rule_constraint": {
+      "searched_scenarios": 108,
+      "status_counts": {
+        "UNIQUE": 52,
+        "NO_PLAN_WITHIN_BOUND": 20,
+        "AMBIGUOUS": 36
+      },
+      "unique_first_verb_histogram": {
+        "CARRY": 18,
+        "TRANSFER": 18,
+        "WAIT": 16
+      },
+      "examples_available": 52,
+      "admitted_ood": 0,
+      "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+    },
+    "goal_persistence": {
+      "searched_scenarios": 72,
+      "status_counts": {
+        "AMBIGUOUS": 66,
+        "UNIQUE": 6
+      },
+      "unique_first_verb_histogram": {
+        "RETAIN": 6
+      },
+      "examples_available": 6,
+      "admitted_ood": 0,
+      "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+    }
+  },
+  "illustrative_reachable_unique_cases": {
+    "entity_location": [
+      {
+        "params": [
+          "NONE",
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "NONE",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "a1",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          false,
+          "BEFORE_T0",
+          "a1",
+          "NONE",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          false,
+          "BEFORE_T0",
+          "a1",
+          "a1",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          false,
+          "T0",
+          "NONE",
+          "NONE",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          false,
+          "T0",
+          "a1",
+          "NONE",
+          "l1"
+        ],
+        "goal": {
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "first": [
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      }
+    ],
+    "causal_reasoning": [
+      {
+        "params": [
+          "NONE",
+          "T1",
+          "NONE",
+          "ANY"
+        ],
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "first": [
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          "T1",
+          "NONE",
+          "AT_T1"
+        ],
+        "goal": {
+          "trigger_fired.g0": true,
+          "current_time": "T1"
+        },
+        "first": [
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          "T1",
+          "T2",
+          "AT_T1"
+        ],
+        "goal": {
+          "trigger_fired.g0": true,
+          "current_time": "T1"
+        },
+        "first": [
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          "T1",
+          "T2",
+          "AT_T2"
+        ],
+        "goal": {
+          "trigger_fired.g0": true,
+          "current_time": "T2"
+        },
+        "first": [
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          "T2",
+          "NONE",
+          "ANY"
+        ],
+        "goal": {
+          "trigger_fired.g0": true
+        },
+        "first": [
+          "WAIT",
+          "g0",
+          "T2",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T2",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          "NONE",
+          "T2",
+          "NONE",
+          "AT_T2"
+        ],
+        "goal": {
+          "trigger_fired.g0": true,
+          "current_time": "T2"
+        },
+        "first": [
+          "WAIT",
+          "g0",
+          "T2",
+          "NONE"
+        ],
+        "depth": 1,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T2",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      }
+    ],
+    "rule_constraint": [
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "NONE",
+          "NONE"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "NONE",
+          "a1"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "T1",
+          "NONE"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T1"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "T1",
+          "a1"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T1"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "T2",
+          "NONE"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      },
+      {
+        "params": [
+          false,
+          "BEFORE_T0",
+          "NONE",
+          "T2",
+          "a1"
+        ],
+        "goal": {
+          "holder.i0": "a1"
+        },
+        "first": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "depth": 2,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        }
+      }
+    ],
+    "goal_persistence": [
+      {
+        "params": [
+          "T2",
+          true,
+          "BEFORE_T0",
+          true,
+          "NONE"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      },
+      {
+        "params": [
+          "T2",
+          true,
+          "BEFORE_T0",
+          true,
+          "a1"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l0"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      },
+      {
+        "params": [
+          "T2",
+          true,
+          "T0",
+          true,
+          "NONE"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      },
+      {
+        "params": [
+          "T2",
+          true,
+          "T0",
+          true,
+          "a1"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l0"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      },
+      {
+        "params": [
+          "T2",
+          true,
+          "T1",
+          true,
+          "NONE"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T1",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      },
+      {
+        "params": [
+          "T2",
+          true,
+          "T1",
+          true,
+          "a1"
+        ],
+        "goal": {
+          "maintain_holder": "a0",
+          "through": "T2",
+          "item": "i0",
+          "maintain_location": "l0"
+        },
+        "first": [
+          "RETAIN",
+          "i0",
+          "T0",
+          "T2"
+        ],
+        "depth": null,
+        "typed_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l0"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "T1",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "T2",
+            "item": "i0",
+            "recipient": "a1"
+          }
+        }
+      }
+    ]
+  },
+  "new_targeted_checks": {
+    "GENESIS_VALID_T0": "PASS",
+    "DISTANT_TRANSFER_REJECT": "PASS",
+    "COLOCATED_TRANSFER_PASS": "PASS",
+    "PROTECTION_OVERRIDES_TRANSFER": "PASS",
+    "HELD_CARRY_PROPAGATION": "PASS",
+    "INVALID_RETAIN_NOOP": "PASS",
+    "WAIT_TRIGGER_AND_CLOCK": "PASS",
+    "REQUEST_AT_T0_FORBIDDEN": "PASS",
+    "PRETRIGGER_NOT_INIT": "PASS",
+    "INCLUSIVE_PROTECTION_EVENT": "PASS",
+    "UNPROTECTED_EVENT_EXECUTES": "PASS",
+    "NO_HIDDEN_RETAIN_TIEBREAK": "PASS"
+  },
+  "full_4_train_4_ood_feasibility_proven": false,
+  "accepted_new_ood_total": 0,
+  "method_limitations": [
+    "bounded subgrammar is not an exhaustive upper bound for full V6",
+    "shortest-first reachability is not full persistent-goal equivalence",
+    "no full canonical action-causal graph equivalence proof",
+    "no independent external reviewer",
+    "prospective semantics not adopted",
+    "T1 renderer/parser, rights, custody not executed"
+  ]
+}

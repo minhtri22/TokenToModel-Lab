@@ -1,0 +1,199 @@
+{
+  "accepted_new_ood": 0,
+  "actual_new_32_skeletons_count": 0,
+  "actual_new_ood_count": 0,
+  "actual_new_train_count": 0,
+  "bounded_search": {
+    "category": {
+      "causal_reasoning": {
+        "admitted_ood": 0,
+        "examples_available": 16,
+        "searched_scenarios": 54,
+        "status_counts": {
+          "AMBIGUOUS": 16,
+          "NO_PLAN_WITHIN_BOUND": 22,
+          "UNIQUE": 16
+        },
+        "unique_first_verb_histogram": {
+          "ACTIVATE": 3,
+          "WAIT": 13
+        },
+        "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+      },
+      "entity_location": {
+        "admitted_ood": 0,
+        "examples_available": 20,
+        "searched_scenarios": 96,
+        "status_counts": {
+          "ALREADY_MET": 12,
+          "NO_PLAN_WITHIN_BOUND": 64,
+          "UNIQUE": 20
+        },
+        "unique_first_verb_histogram": {
+          "CARRY": 6,
+          "RELOCATE": 12,
+          "TRANSFER": 2
+        },
+        "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+      },
+      "goal_persistence": {
+        "admitted_ood": 0,
+        "examples_available": 6,
+        "searched_scenarios": 72,
+        "status_counts": {
+          "AMBIGUOUS": 66,
+          "UNIQUE": 6
+        },
+        "unique_first_verb_histogram": {
+          "RETAIN": 6
+        },
+        "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+      },
+      "rule_constraint": {
+        "admitted_ood": 0,
+        "examples_available": 52,
+        "searched_scenarios": 108,
+        "status_counts": {
+          "AMBIGUOUS": 36,
+          "NO_PLAN_WITHIN_BOUND": 20,
+          "UNIQUE": 52
+        },
+        "unique_first_verb_histogram": {
+          "CARRY": 18,
+          "TRANSFER": 18,
+          "WAIT": 16
+        },
+        "why_no_admission": "no complete canonical causal graph nonoverlap proof; prospective semantics unapproved; source worlds not sealed"
+      }
+    },
+    "depth_max": 3,
+    "goal_classification": "reachability vs persistence pure-safety",
+    "scenario_total": 330,
+    "unique_case_total": 94
+  },
+  "contract_file": "TTM_D1_R1_PROSPECTIVE_MINIMAL_SEMANTIC_CONTRACT_FREEZE_20261114.json",
+  "counterexample_persistence": {
+    "all_six_first_action": "RETAIN i0 T0 T2",
+    "bounded_family": "single exogenous transfer request T1/T2/NONE, pure safety through T2, optional stationary-location goal",
+    "claim_limit": "Only a fixed finite bounded grammar. Not a mathematical upper bound over full V6.",
+    "matched_AB_distinct_first_action_one_fluent_pairs": 0,
+    "unique_scenarios": 6
+  },
+  "distinct_external_reviewer": "NOT_EXECUTED",
+  "fresh_new_source_only_checks": {
+    "checks": {
+      "COLOCATED_TRANSFER_PASS": "PASS",
+      "DISTANT_TRANSFER_REJECT": "PASS",
+      "GENESIS_VALID_T0": "PASS",
+      "HELD_CARRY_PROPAGATION": "PASS",
+      "INCLUSIVE_PROTECTION_EVENT": "PASS",
+      "INVALID_RETAIN_NOOP": "PASS",
+      "NO_HIDDEN_RETAIN_TIEBREAK": "PASS",
+      "PRETRIGGER_NOT_INIT": "PASS",
+      "PROTECTION_OVERRIDES_TRANSFER": "PASS",
+      "REQUEST_AT_T0_FORBIDDEN": "PASS",
+      "UNPROTECTED_EVENT_EXECUTES": "PASS",
+      "WAIT_TRIGGER_AND_CLOCK": "PASS"
+    },
+    "old_historic_13_13_12_12_rerun": false,
+    "positive": 12,
+    "total": 12
+  },
+  "matched_AB_one_fluent_probe": {
+    "category": {
+      "causal_reasoning": {
+        "coarse_motif_proxy_count": 1,
+        "coarse_motifs": [
+          [
+            "scheduled_at",
+            [
+              "WAIT",
+              "WAIT"
+            ]
+          ]
+        ],
+        "four_structural_ood_proven": false,
+        "one_fluent_AB_distinct_first_action_pairs": 1,
+        "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE",
+        "unique_scenarios": 16
+      },
+      "entity_location": {
+        "coarse_motif_proxy_count": 1,
+        "coarse_motifs": [
+          [
+            "holder",
+            [
+              "CARRY",
+              "TRANSFER"
+            ]
+          ]
+        ],
+        "four_structural_ood_proven": false,
+        "one_fluent_AB_distinct_first_action_pairs": 2,
+        "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE",
+        "unique_scenarios": 20
+      },
+      "goal_persistence": {
+        "coarse_motif_proxy_count": 0,
+        "coarse_motifs": [],
+        "four_structural_ood_proven": false,
+        "one_fluent_AB_distinct_first_action_pairs": 0,
+        "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE",
+        "unique_scenarios": 6
+      },
+      "rule_constraint": {
+        "coarse_motif_proxy_count": 3,
+        "coarse_motifs": [
+          [
+            "location_agent",
+            [
+              "CARRY",
+              "TRANSFER"
+            ]
+          ],
+          [
+            "protected_until",
+            [
+              "TRANSFER",
+              "WAIT"
+            ]
+          ],
+          [
+            "scheduled_at",
+            [
+              "WAIT",
+              "WAIT"
+            ]
+          ]
+        ],
+        "four_structural_ood_proven": false,
+        "one_fluent_AB_distinct_first_action_pairs": 29,
+        "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE",
+        "unique_scenarios": 52
+      }
+    },
+    "method_limit": "coarse motif is NOT canonical action-causal graph equivalence",
+    "pair_total": 32
+  },
+  "no_formal_full_graph_certification": true,
+  "operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE",
+  "parsing_custody": "NOT_EXECUTED",
+  "preserved_gates": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "FC02": "NOT_OPENED",
+    "FROZEN_V6": "UNCHANGED",
+    "GPU": 0,
+    "INFERENCE": 0,
+    "MAIN": "UNCHANGED",
+    "TEST_Q1Q2": "SEALED",
+    "TRAIN": 0,
+    "lineage.md": "UNCHANGED"
+  },
+  "recommendation": "Stop generating 32 replacement skeletons under this D1 Bridge formulation; require independently adjudicated new task/ontology semantic amendment or narrow scientifically valid benchmark before attempting again. Preserve frozen V6, no science permission.",
+  "review_type": "AI_SOURCE_ONLY_AUTHOR_WITH_STANDALONE_PYTHON_REFERENCE_NO_DISTINCT_EXTERNAL_REVIEWER",
+  "schema": "ttm.d1.r1.minimal_semantics_constructive_single_gate_adjudication.v1",
+  "source_blueprints_sha256": "6d45a667a8e1f0a3c513c50951b2624d5fbebe3cde85c9934b41fb8dcf712e83",
+  "source_checker_receipt_sha256": "8ec56fe2e24950417b65f3853e477790221f7414ab96b95aadcc4fe379f91964",
+  "source_of_truth": "GitHub prior exact d24c50ad commit and frozen dd5280 V6 contract",
+  "verdict": "HOLD_ONTOLOGY_FEASIBILITY"
+}

@@ -1,0 +1,42 @@
+{
+  "decision": "FREEZE_PROSPECTIVE_SOURCE_ASSUMPTIONS_FOR_BOUNDED_FEASIBILITY_ONLY; NOT_SCIENCE_NOT_OWNER_ADOPTION",
+  "freeze_classification": "FROZEN_WITHIN_THIS_SOURCE_TEST_PACKET_PENDING_INDEPENDENT_REVIEW_NOT_AUTHORIZED_V6_AMENDMENT",
+  "frozen_scientific_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "frozen_v6_git_blob_sha1": "c6ac330c40e31035116add165ef30fa58af59639",
+  "known_conflicts_with_original_V6": [
+    "TRANSFER no colocation in frozen V6",
+    "CARRY original target unheld",
+    "WAIT old effect only defers, new atomic time update",
+    "extra external transfer request fluent not in original V6",
+    "RETAIN prior version may reduce protection, new candidate disallows"
+  ],
+  "operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE",
+  "owner_decision": "NOT_SUBSTITUTED_NOT_REQUESTED",
+  "policy_decisions": {
+    "ACTION_COST": "For reachability categories choose all shortest feasible plans by number of actions ≤3 with no lexical tiebreak. For goal_persistence use pure hold-through-T2 safety and optional *explicit goal of stationary item location*; enumerate ALL successful one-step interventions, never choose one by desired horizon.",
+    "ACTIVATE": "OFF→ON, immediately fire linked trigger if present, no hidden causal link.",
+    "CARRY": "Target unheld at actor location OR already held by actor; actor moves to a different location and all items held by actor follow. Frozen V6 precondition only unheld: material amendment.",
+    "EXOGENOUS": "At most one request (at∈{T1,T2,NONE}, item, recipient), processed only during atomic WAIT tick; require holder, nonself, unprotected, colocated; if blocked it stays blocked (no rescheduling). This fluent is not in the original frozen V6 AM01 state fluents.",
+    "GENESIS": "T0 intrinsic assigned holders allowed if co-located with their item, all power OFF, triggers false, no defer, schedules only future T1/T2/NONE, no exogenous request at T0. Initial-state axiom only, not historical predecessor proof.",
+    "PRIORITY": "Scheduled trigger first, then exogenous transfer request, protection guard wins at equal time. CARRY relocates all held items atomically.",
+    "RELOCATE": "Only unheld item at a0 current location; destination different; change item location only.",
+    "RETAIN": "Actor currently holds target; time horizon must strictly increase protected_until, horizon >=current_time; inclusive protection through horizon; no minimal-horizon cost or label-conditioned tiebreak. Frozen V6 uses set, not monotone max: material amendment.",
+    "TRANSFER": "Require holder=a0, recipient=a1, same agent location and strict expired protection. Move item only to co-located recipient. Frozen V6 has no co-location check: material amendment.",
+    "WAIT": "Must target pending scheduled trigger in future; atomic advance all intermediate clock ticks in order; fire scheduled triggers then exogenous request, with protection guard ahead of transfer; clear defer_until on arrival. Frozen V6 lacks explicit advance in original AM01 effect: material amendment."
+  },
+  "preserve": {
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "FC02": "NOT_OPENED",
+    "FROZEN_V6": "UNCHANGED",
+    "GPU": 0,
+    "INFERENCE": 0,
+    "MAIN": "UNCHANGED",
+    "TEST_Q1Q2": "SEALED",
+    "TRAIN": 0,
+    "lineage.md": "UNCHANGED"
+  },
+  "prior_evidence_commit": "d24c50ad8a9e377264dd8fa073bcc553824f8992",
+  "proposed_semantics_id": "R1_PROSPECTIVE_PHYSICAL_P1_20261114",
+  "rights_custody": "NOT_EXECUTED",
+  "schema": "ttm.d1.r1.prospective_minimal_semantic_contract_source_freeze.v1"
+}

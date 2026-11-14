@@ -1,0 +1,35 @@
+{
+  "baseline_and_shortcuts": {
+    "current_new_skeleton_source_baseline": "NOT_EXECUTED_NO_ADMITTED_NEW_SKELETON",
+    "matched_world_nonoverlap": "NOT_PROVEN",
+    "policy": "Category + side, goal-only, guard/event cue, shallow rules, action-frequency, counterfactual irrelevant-field and role-relabel tests must pass on actual admitted AST before design GO; a weak baseline alone does not prove novelty.",
+    "prior_category_side_baseline": "10/32 old OOD sides inherited, not rerun",
+    "prior_shallow_source_baseline": "64/64 old sides against prior receipt, inherited not rerun"
+  },
+  "eval_rights_private_custody": {
+    "ACL_denial_and_replay_tamper": "NOT_EXECUTED",
+    "blind_mapping": "NOT_CREATED",
+    "key_id_rotation": "SPEC_DESIGN_ONLY",
+    "private_EVAL_AST": "NOT_CREATED",
+    "private_HMAC_KEY": "NOT_CREATED",
+    "private_gold": "NOT_CREATED",
+    "public_blueprints_as_eval": "FORBIDDEN",
+    "role_matrix": "PROSPECTIVE_OWNER_PREREG_PRIVATE_CUSTODIAN_INDEPENDENT_AUDITOR_BLIND_SCORER",
+    "signed_ledger_and_root": "NOT_EXECUTED",
+    "source_rights_license_PII": "NOT_VERIFIED",
+    "unseal_order": "Prereg+design GO, rights, custodian, private EVAL freeze with HMAC and source provenance, independent nonoverlap signed audit, parser/model/output SHA freeze, blind scoring, authorized postlock unseal; no post-outcome replacements."
+  },
+  "go_decision": "HOLD_INTEGRATED_ALL_FOUR_CATEGORY_EVIDENCE_MISSING",
+  "operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE",
+  "renderer_parser_T1": {
+    "grammar_negative_64": "NOT_EXECUTED",
+    "grammar_positive_64": "NOT_EXECUTED",
+    "guard": "Never render split, IDs, provenance, gold, oracle fields or truth labels; test cue balance after formal AST admission.",
+    "new_renderer": "NOT_IMPLEMENTED_FOR_ADMITTED_NEW_AST",
+    "preview_old": "INHERITED_SOURCE_REPORT_ONLY",
+    "production_parser": "NOT_VERIFIED",
+    "token_lengths": "NOT_EXECUTED",
+    "tokenizer_T1_SHA": "NOT_VERIFIED"
+  },
+  "schema": "ttm.d1.r1.source_only_constructive_readiness_and_custody.v1"
+}

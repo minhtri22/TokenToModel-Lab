@@ -1,0 +1,894 @@
+{
+  "schema": "ttm.d1.r1.constructive_paired_counterfactual_probe.v1",
+  "operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE",
+  "method": "all unordered eligible unique-scenario pairs with exact same goal, exact ONE typed fluent changed, and distinct first action; labels are source-only; excludes two-field route swaps; no claim global bound",
+  "summary": {
+    "entity_location": {
+      "unique_scenarios": 20,
+      "one_fluent_AB_distinct_first_action_pairs": 2,
+      "coarse_motif_proxy_count": 1,
+      "coarse_motifs": [
+        [
+          "holder",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      ],
+      "four_structural_ood_proven": false,
+      "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE"
+    },
+    "causal_reasoning": {
+      "unique_scenarios": 16,
+      "one_fluent_AB_distinct_first_action_pairs": 1,
+      "coarse_motif_proxy_count": 1,
+      "coarse_motifs": [
+        [
+          "scheduled_at",
+          [
+            "WAIT",
+            "WAIT"
+          ]
+        ]
+      ],
+      "four_structural_ood_proven": false,
+      "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE"
+    },
+    "rule_constraint": {
+      "unique_scenarios": 52,
+      "one_fluent_AB_distinct_first_action_pairs": 29,
+      "coarse_motif_proxy_count": 3,
+      "coarse_motifs": [
+        [
+          "location_agent",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ],
+        [
+          "protected_until",
+          [
+            "TRANSFER",
+            "WAIT"
+          ]
+        ],
+        [
+          "scheduled_at",
+          [
+            "WAIT",
+            "WAIT"
+          ]
+        ]
+      ],
+      "four_structural_ood_proven": false,
+      "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE"
+    },
+    "goal_persistence": {
+      "unique_scenarios": 6,
+      "one_fluent_AB_distinct_first_action_pairs": 0,
+      "coarse_motif_proxy_count": 0,
+      "coarse_motifs": [],
+      "four_structural_ood_proven": false,
+      "paired_conclusion": "NO_CANONICAL_CAUSAL_NONOVERLAP_CERTIFICATE"
+    }
+  },
+  "first_four_examples_per_category": {
+    "entity_location": [
+      {
+        "changed_fluent": "holder.i0",
+        "before": "NONE",
+        "after": "a0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l0"
+        },
+        "motif_proxy": [
+          "holder",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      },
+      {
+        "changed_fluent": "holder.i0",
+        "before": "NONE",
+        "after": "a0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l0"
+          },
+          "holder": {
+            "i0": "NONE",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l0"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1",
+          "location_item.i0": "l0"
+        },
+        "motif_proxy": [
+          "holder",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      }
+    ],
+    "causal_reasoning": [
+      {
+        "changed_fluent": "scheduled_at.g0",
+        "before": "T1",
+        "after": "T2",
+        "oracle_A": [
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ],
+        "oracle_B": [
+          "WAIT",
+          "g0",
+          "T2",
+          "NONE"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "a1"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T2",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "trigger_fired.g0": true
+        },
+        "motif_proxy": [
+          "scheduled_at",
+          [
+            "WAIT",
+            "WAIT"
+          ]
+        ]
+      }
+    ],
+    "rule_constraint": [
+      {
+        "changed_fluent": "location_agent.a1",
+        "before": "l1",
+        "after": "l0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1"
+        },
+        "motif_proxy": [
+          "location_agent",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      },
+      {
+        "changed_fluent": "location_agent.a1",
+        "before": "l1",
+        "after": "l0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T1"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T1"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1"
+        },
+        "motif_proxy": [
+          "location_agent",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      },
+      {
+        "changed_fluent": "location_agent.a1",
+        "before": "l1",
+        "after": "l0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "NONE",
+            "g1": "T2"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1"
+        },
+        "motif_proxy": [
+          "location_agent",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      },
+      {
+        "changed_fluent": "location_agent.a1",
+        "before": "l1",
+        "after": "l0",
+        "oracle_A": [
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ],
+        "oracle_B": [
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ],
+        "A_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l1"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "B_state": {
+          "current_time": "T0",
+          "location_agent": {
+            "a0": "l0",
+            "a1": "l0"
+          },
+          "location_item": {
+            "i0": "l0",
+            "i1": "l1"
+          },
+          "holder": {
+            "i0": "a0",
+            "i1": "NONE"
+          },
+          "power": {
+            "d0": "OFF",
+            "d1": "OFF"
+          },
+          "linked_trigger": {
+            "d0": "NONE",
+            "d1": "NONE"
+          },
+          "scheduled_at": {
+            "g0": "T1",
+            "g1": "NONE"
+          },
+          "trigger_fired": {
+            "g0": false,
+            "g1": false
+          },
+          "protected_until": {
+            "i0": "BEFORE_T0",
+            "i1": "BEFORE_T0"
+          },
+          "defer_until": {
+            "a0": "NONE",
+            "a1": "NONE"
+          },
+          "external_transfer_request": {
+            "at": "NONE",
+            "item": "NONE",
+            "recipient": "NONE"
+          }
+        },
+        "shared_goal": {
+          "holder.i0": "a1"
+        },
+        "motif_proxy": [
+          "location_agent",
+          [
+            "CARRY",
+            "TRANSFER"
+          ]
+        ]
+      }
+    ],
+    "goal_persistence": []
+  },
+  "status": "HOLD_NO_FOUR_OOD_PROVEN_ANY_CATEGORY"
+}
