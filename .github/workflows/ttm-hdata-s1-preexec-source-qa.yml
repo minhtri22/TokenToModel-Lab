@@ -159,3 +159,8 @@ jobs:
             exit 1
           fi
           echo "H_DATA_S1_BLIND240_SOURCE_QA_PASS_NO_SCORING_NO_INFERENCE"
+      - name: Verify separate owner GO FINAL24 permit and fail-closed Colab launcher
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pilot_t4/hdata_s1/independent_hdata_s1_owner_final24_one_shot_permit_source_qa_v1.py
