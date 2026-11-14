@@ -40,8 +40,10 @@ def assert_qa():
          "EXPLICIT_NEW_FINAL24_OWNER_PERMIT_NOT_SUPPLIED" in src,
          "FAIL_CLOSED_DEFAULT")
     front = src[src.index("def generate_once(args):"):src.index("    need(torch.cuda.is_available()",src.index("def generate_once(args):"))]
-    need(front.index("check_permit(args, selfsha)") < front.index("import torch"),
-         "PERMIT_MUST_PRECEDE_TORCH")
+    need(front.index("check_permit(args, selfsha)") <
+         front.index('os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"') <
+         front.index("import torch"),
+         "OWNER_PERMIT_BEFORE_EARLY_CUBLAS_CONFIG_BEFORE_TORCH")
     need('read_pinned(owner_path, FINAL_OWNER_SHA)' in src and
          "aes_source.validate_pairs" in src and
          "FINAL_ROOT.mkdir(exist_ok=False)" in src and
