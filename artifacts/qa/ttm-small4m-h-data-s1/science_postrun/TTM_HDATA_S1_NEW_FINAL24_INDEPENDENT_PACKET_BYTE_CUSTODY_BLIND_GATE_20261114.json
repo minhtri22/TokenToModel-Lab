@@ -1,0 +1,117 @@
+{
+  "schema": "ttm.hdata_s1.independent_new_final24_owner_packet_byte_custody_qa.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_OWNER_NEW_FINAL24_ONE_SHOT_INFERENCE_POSTRUN_PRIVATE_PACKET_BYTE_CUSTODY_AND_BLIND_RATER_HANDOFF_NO_UNBLIND",
+  "role": "INDEPENDENT_SCOPED_AI_CUSTODY_QA_NOT_BLIND_RATER",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "input_origin": "Authenticated Google Drive owner private fixed one-shot generation directory; original file bytes read and SHA256 independently recomputed in this review.",
+  "protected_drive_root": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/new_final24_blind_generation_once_v1",
+  "file_custody": {
+    "blind_packet": {
+      "filename": "BLIND_FINAL24_RATER_PACKET.json",
+      "bytes": 14801,
+      "sha256": "60be28c7bde777c61d984209fad31a049702b806ef3d015c2af8a9c64ad1ccd8",
+      "metadata_file_size_match": true,
+      "content_not_published": true,
+      "source_visibility": "not_shared"
+    },
+    "owner_private_receipt": {
+      "filename": "OWNER_PRIVATE_GENERATION_RECEIPT.json",
+      "bytes": 844,
+      "sha256": "e2fca65f2d1571a8e61c365ea69d34dc4876af6c5741a55c25ec60aa6d17a4df",
+      "metadata_file_size_match": true,
+      "content_not_published": true,
+      "source_visibility": "not_shared"
+    },
+    "one_shot_sentinel": {
+      "filename": "STARTED_NO_REPLAY.json",
+      "bytes": 400,
+      "sha256": "f27a6c213ec687bcee4efca313f9df586210cb85ddcea666d6713ccd21ecd51a",
+      "metadata_file_size_match": true,
+      "content_not_published": true,
+      "source_visibility": "not_shared"
+    }
+  },
+  "source_pins": {
+    "fixed_generator_sha256": "7953d33fa592a8890a185cedf490d7af2df9514e025395f00a1996c7bf784363",
+    "owner_new_final24_go_permit_sha256": "242a0925320e9c4aeb716fca4324cdce12d384f52322589f2e403ae464702581",
+    "exact_source_release_checkout": "9ed7116b53eeb77ddbcc4b5728c81a6a971f8dfe",
+    "frozen_public_final24_hash_commitment_path": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_NEW_FINAL24_PUBLIC_SHA_COMMITMENT_20261113.json",
+    "frozen_scoring_contract_path": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND_SCORING_AND_ADJUDICATION_CONTRACT_20261113.json"
+  },
+  "direct_byte_and_structure_audit": {
+    "independent_blind_packet_sha256_matches_owner_stdout": true,
+    "independent_private_receipt_sha256_matches_owner_stdout": true,
+    "owner_receipt_embeds_exact_blind_packet_sha256": true,
+    "sentinel_matches_owner_permit_and_generator_sha": true,
+    "blind_packet_schema": "ttm.hdata_s1.neutral_blind_final24.rater_packet.v1",
+    "owner_private_generation_receipt_schema": "ttm.hdata_s1.final24_owner_generation_receipt.v1",
+    "sentinel_schema": "ttm.hdata_s1.final24_consumption_sentinel.v1",
+    "paired_records": 24,
+    "neutral_labels_in_exact_order": "R01-R24",
+    "strings_LEFT": 24,
+    "strings_RIGHT": 24,
+    "total_continuations": 48,
+    "committed_prompt_SHA256_verified_individually": 24,
+    "committed_prompt_SHA256_mismatch_count": 0,
+    "duplicate_prompt_hashes": 0,
+    "no_hidden_arm_or_anchor_record_keys": true,
+    "packet_blind_true": true,
+    "owner_receipt_status": "GENERATED_PENDING_BLIND_RATER",
+    "owner_private_context_guard_24_roundtrips_and_context_bound_from_receipt": "PASS",
+    "owner_private_per_arm_count_integrity_24_each": "PASS",
+    "per_arm_EOS_cap64_under8_counts": "PRESENT_IN_OWNER_PRIVATE_RECEIPT_NOT_REPRODUCED_IN_PUBLIC_REPORT",
+    "owner_generation_once": "ATTESTED_BY_OWNER_RECEIPT_AND_ONE_SHOT_SENTINEL",
+    "model_forward_independently_recomputed_by_this_reviewer": false,
+    "frozen_rater_contract_pre_generation_acceptance_required": false,
+    "check_method_limit": "Byte+schema+SHA and owner receipt consistency; not a second exact GPU inference reproduction or semantic scoring."
+  },
+  "blind_rater_handoff": {
+    "designated_input": "Only owner-provided BLIND_FINAL24_RATER_PACKET.json matching SHA256 above and the public fixed 240-score template / scoring contract",
+    "do_not_provide_to_rater": [
+      "OWNER_PRIVATE_GENERATION_RECEIPT.json",
+      "STARTED_NO_REPLAY.json",
+      "AES key or mapping",
+      "arm identity",
+      "owner anchors",
+      "H0/H1 outcome statistics",
+      "private TRAIN/VAL pack"
+    ],
+    "required_scoring": "24 pairs x 2 sides x 5 axes = 240 integer judgments plus 24 nonempty notes",
+    "binary_axes": [
+      "actor_retention",
+      "object_relation_retention",
+      "goal_or_rule_progress"
+    ],
+    "secondary_0_to_3_axes": [
+      "coherence",
+      "consistency"
+    ],
+    "exact_score_file_SHA256_before_unblind": true,
+    "canonical_score_array_SHA256_before_unblind": true,
+    "review_class_if_AI": "EXPLORATORY_SCOPED_AI_REVIEW",
+    "independent_fresh_chat_requested": true
+  },
+  "verdict": {
+    "NEW_FINAL_generation": "PASS_OWNER_GENERATED_ONCE",
+    "independent_raw_packet_sha256": "PASS",
+    "independent_receipt_sha256": "PASS",
+    "paired_prompt_coverage": "PASS_24_OF_24",
+    "recorded_blind_packet_structure": "PASS",
+    "one_shot_root": "PRESENT_PRESERVE_NO_REPLAY",
+    "blind_scoring": "NOT_EXECUTED",
+    "unblind": "NOT_EXECUTED",
+    "semantic_effect": "PENDING",
+    "no_new_training": true,
+    "no_TEST_Q1_Q2_OOD_access": true,
+    "main": "UNCHANGED",
+    "overall": "PASS_SCOPED_FINAL24_PACKET_CUSTODY_READY_FOR_SEPARATE_BLIND_RATER"
+  },
+  "privacy_assertions": {
+    "github_contains_no_raw_BLIND_packet": true,
+    "github_contains_no_FINAL_prompt_text": true,
+    "github_contains_no_CONTINUATION_text": true,
+    "github_contains_no_AES_key_or_owner_private_mapping": true,
+    "github_contains_no_per_arm_outcome_statistics": true
+  }
+}
