@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.d1_bridge.v4.source_only_same_author_QA_owner_hold.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V4_SINGLE_PACKET_TASK_RELEVANT_OOD_PARSER_AUDITOR_AND_CONTRAST_CONTROL_PREREG_SOURCE_AMENDMENT_NO_GPU",
+  "source_git_blobs": {
+    "V4_contract_JSON": "e89284318ce49c2cb0373dc37660216eb532904d",
+    "V4_contract_MD": "39f89d8fa111b3b15d34f47b4a776c61bc6e42a2",
+    "V4_QA_JS": "d459882694651d5e8e8455c30abc0a90dba8e444"
+  },
+  "V3_review_received": {
+    "review_verdict": "HOLD_REVISE_BEFORE_PREREG",
+    "source_pins": "7_OF_7_GITHUB_BLOB_METADATA_REPORTED",
+    "original_md_sha256": "e806d03741c50d75a5e0ad910a1700c511c8057450384a5cad22cc94a96fd441",
+    "original_json_sha256": "1a7421f992d80e778152f0a03434c358a4251f66716c5e910aefb890ded530c7",
+    "external_review_is_self_attested_AI": true
+  },
+  "QA": {
+    "mode": "SELF_AUTHORED_SOURCE_ONLY_V8_CONTRACT_ASSERTION_FUNCTION_AND_JSON_MUTATION_NOT_SEPARATE_NODE_CLI_RUN",
+    "checks_pass": 44,
+    "checks_total": 44,
+    "negative_caught": 15,
+    "negative_total": 15,
+    "status": "PASS_SCOPED_44_OF_44_AND_NEGATIVE_15_OF_15",
+    "coverage": "SCHEMA_PRESENCE_CROSS_FIELD_LOGIC_AND_FAIL_CLOSED_CLAIMS_NOT_SEMANTICS_OR_EXECUTION",
+    "not_independent": true
+  },
+  "new_design": {
+    "version": "V4_NEW_V1_V2_V3_IMMUTABLE",
+    "previous_review_issues_covered": 11,
+    "new_V3_findings_covered": 6,
+    "task_relevant_OOD_contract": "DRAFT",
+    "TIME_explicit_parser_contract": "DRAFT",
+    "gold_adjacent_auditor_trust_boundary": "DRAFT",
+    "contrastive_package_estimand": "DRAFT",
+    "stats_AM03": "UNCHANGED_V3_DESIGN_PASS_SCOPED",
+    "category_AM04": "UNCHANGED_V3_DESIGN_PASS_SCOPED",
+    "planned_arm_runs": 36,
+    "planned_updates": 9216,
+    "planned_generations": 18432
+  },
+  "unverified": {
+    "AST_checker_and_structural_nonoverlap": "NOT_EXECUTED",
+    "parser_code_and_negative_QA": "NOT_EXECUTED",
+    "gold_oracle_and_new_EVAL": "NOT_CREATED",
+    "auditor_enclave_and_ACL": "NOT_VERIFIED",
+    "source_rights_and_PII": "NOT_VERIFIED",
+    "seed_iid_training_variation": "NOT_EXECUTED",
+    "AdamW_nonzero_resume": "NOT_EXECUTED",
+    "free_T4_paid_0_feasibility": "NOT_VERIFIED",
+    "external_V4_review": "PENDING"
+  },
+  "single_owner_decision": "HOLD_PENDING_DISTINCT_V4_SOURCE_REVIEW",
+  "D1_BRIDGE_SCIENCE": "HOLD",
+  "D1_EXISTING": "HOLD_UNMODIFIED",
+  "TEST_Q1Q2": "SEALED",
+  "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+  "FC02": "NOT_OPENED",
+  "GPU_CALLS": 0,
+  "NEW_TRAINING_STEPS": 0,
+  "NEW_EVAL_GOLD": false,
+  "MAIN_MERGE": false,
+  "next_operation": "TTM_SMALL4M_D1_BRIDGE_V4_DISTINCT_NEW_CHAT_TASK_RELEVANT_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU"
+}
