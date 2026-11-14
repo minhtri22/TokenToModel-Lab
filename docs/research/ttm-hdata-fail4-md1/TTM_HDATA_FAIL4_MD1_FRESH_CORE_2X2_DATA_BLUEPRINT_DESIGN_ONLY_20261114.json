@@ -1,0 +1,1178 @@
+{
+  "schema": "ttm.hdata_s1.fail4.md1.fresh_data_preproduction_blueprint.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_FAIL4_MD1_FRESH_PRIVATE_SYNTHETIC_CORE_DATA_PREGEN_BLUEPRINT",
+  "status": "BLUEPRINT_ONLY_NO_NEW_PROMPT_TEXT_CREATED_OR_REVEALED",
+  "run_id": "TTM_HDATA_FAIL4_MD1_PROSPECTIVE_20261114",
+  "input_rights": "New owner-authored synthetic text only; no copy from consumed H-DATA FINAL24/TEST/Q1/Q2/OOD or TinyStories TRAIN/VAL",
+  "priority": "FIRST_CALIBRATE_MEASUREMENT_THEN_FINAL_DIAGNOSTICS",
+  "target_owners": [
+    "OWNER_PRIVATE_DATA_GENERATOR",
+    "INDEPENDENT_SHA_QA",
+    "BLIND_RATER_A",
+    "BLIND_RATER_B"
+  ],
+  "core_schema_fields_required_private": [
+    "core_id",
+    "actor",
+    "object",
+    "object_relation",
+    "goal_or_rule",
+    "causal_rule",
+    "positive_oracle",
+    "contradictory_foil",
+    "human_readability_notes"
+  ],
+  "story_cores": [
+    {
+      "core_id": "MDC01",
+      "stratum": "object_custody",
+      "replicate_within_stratum": 1,
+      "split": "DEV",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC02",
+      "stratum": "object_custody",
+      "replicate_within_stratum": 2,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC03",
+      "stratum": "object_custody",
+      "replicate_within_stratum": 3,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC04",
+      "stratum": "object_custody",
+      "replicate_within_stratum": 4,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC05",
+      "stratum": "social_relation",
+      "replicate_within_stratum": 1,
+      "split": "DEV",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC06",
+      "stratum": "social_relation",
+      "replicate_within_stratum": 2,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC07",
+      "stratum": "social_relation",
+      "replicate_within_stratum": 3,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC08",
+      "stratum": "social_relation",
+      "replicate_within_stratum": 4,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC09",
+      "stratum": "causal_obstacle",
+      "replicate_within_stratum": 1,
+      "split": "DEV",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC10",
+      "stratum": "causal_obstacle",
+      "replicate_within_stratum": 2,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC11",
+      "stratum": "causal_obstacle",
+      "replicate_within_stratum": 3,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC12",
+      "stratum": "causal_obstacle",
+      "replicate_within_stratum": 4,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC13",
+      "stratum": "temporal_rule",
+      "replicate_within_stratum": 1,
+      "split": "DEV",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC14",
+      "stratum": "temporal_rule",
+      "replicate_within_stratum": 2,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC15",
+      "stratum": "temporal_rule",
+      "replicate_within_stratum": 3,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    },
+    {
+      "core_id": "MDC16",
+      "stratum": "temporal_rule",
+      "replicate_within_stratum": 4,
+      "split": "LOCKED_FINAL",
+      "core_sha256": null,
+      "owner_private_gold_record_sha256": null
+    }
+  ],
+  "prompt_variants": [
+    {
+      "id": "MD01",
+      "core_id": "MDC01",
+      "split": "DEV",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD02",
+      "core_id": "MDC01",
+      "split": "DEV",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD03",
+      "core_id": "MDC01",
+      "split": "DEV",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD04",
+      "core_id": "MDC01",
+      "split": "DEV",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD05",
+      "core_id": "MDC02",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD06",
+      "core_id": "MDC02",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD07",
+      "core_id": "MDC02",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD08",
+      "core_id": "MDC02",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD09",
+      "core_id": "MDC03",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD10",
+      "core_id": "MDC03",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD11",
+      "core_id": "MDC03",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD12",
+      "core_id": "MDC03",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD13",
+      "core_id": "MDC04",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD14",
+      "core_id": "MDC04",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD15",
+      "core_id": "MDC04",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD16",
+      "core_id": "MDC04",
+      "split": "LOCKED_FINAL",
+      "stratum": "object_custody",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD17",
+      "core_id": "MDC05",
+      "split": "DEV",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD18",
+      "core_id": "MDC05",
+      "split": "DEV",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD19",
+      "core_id": "MDC05",
+      "split": "DEV",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD20",
+      "core_id": "MDC05",
+      "split": "DEV",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD21",
+      "core_id": "MDC06",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD22",
+      "core_id": "MDC06",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD23",
+      "core_id": "MDC06",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD24",
+      "core_id": "MDC06",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD25",
+      "core_id": "MDC07",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD26",
+      "core_id": "MDC07",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD27",
+      "core_id": "MDC07",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD28",
+      "core_id": "MDC07",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD29",
+      "core_id": "MDC08",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD30",
+      "core_id": "MDC08",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD31",
+      "core_id": "MDC08",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD32",
+      "core_id": "MDC08",
+      "split": "LOCKED_FINAL",
+      "stratum": "social_relation",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD33",
+      "core_id": "MDC09",
+      "split": "DEV",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD34",
+      "core_id": "MDC09",
+      "split": "DEV",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD35",
+      "core_id": "MDC09",
+      "split": "DEV",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD36",
+      "core_id": "MDC09",
+      "split": "DEV",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD37",
+      "core_id": "MDC10",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD38",
+      "core_id": "MDC10",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD39",
+      "core_id": "MDC10",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD40",
+      "core_id": "MDC10",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD41",
+      "core_id": "MDC11",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD42",
+      "core_id": "MDC11",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD43",
+      "core_id": "MDC11",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD44",
+      "core_id": "MDC11",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD45",
+      "core_id": "MDC12",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD46",
+      "core_id": "MDC12",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD47",
+      "core_id": "MDC12",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD48",
+      "core_id": "MDC12",
+      "split": "LOCKED_FINAL",
+      "stratum": "causal_obstacle",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD49",
+      "core_id": "MDC13",
+      "split": "DEV",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD50",
+      "core_id": "MDC13",
+      "split": "DEV",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD51",
+      "core_id": "MDC13",
+      "split": "DEV",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD52",
+      "core_id": "MDC13",
+      "split": "DEV",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD53",
+      "core_id": "MDC14",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD54",
+      "core_id": "MDC14",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD55",
+      "core_id": "MDC14",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD56",
+      "core_id": "MDC14",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD57",
+      "core_id": "MDC15",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD58",
+      "core_id": "MDC15",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD59",
+      "core_id": "MDC15",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD60",
+      "core_id": "MDC15",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD61",
+      "core_id": "MDC16",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD62",
+      "core_id": "MDC16",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "SHORT",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD63",
+      "core_id": "MDC16",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "EXPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    },
+    {
+      "id": "MD64",
+      "core_id": "MDC16",
+      "split": "LOCKED_FINAL",
+      "stratum": "temporal_rule",
+      "context_load": "DISTRACTOR",
+      "goal_signal": "IMPLICIT",
+      "sha256_utf8_prompt": null,
+      "exact_BPE_prefix_count": null,
+      "owner_private_source_ref": null
+    }
+  ],
+  "measurement_controls": [
+    {
+      "control_core_id": "MCC01",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC01_POS",
+      "negative_record_id": "MCC01_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC02",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC02_POS",
+      "negative_record_id": "MCC02_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC03",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC03_POS",
+      "negative_record_id": "MCC03_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC04",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC04_POS",
+      "negative_record_id": "MCC04_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC05",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC05_POS",
+      "negative_record_id": "MCC05_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC06",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC06_POS",
+      "negative_record_id": "MCC06_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC07",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC07_POS",
+      "negative_record_id": "MCC07_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC08",
+      "stratum": "object_custody",
+      "positive_record_id": "MCC08_POS",
+      "negative_record_id": "MCC08_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC09",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC09_POS",
+      "negative_record_id": "MCC09_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC10",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC10_POS",
+      "negative_record_id": "MCC10_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC11",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC11_POS",
+      "negative_record_id": "MCC11_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC12",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC12_POS",
+      "negative_record_id": "MCC12_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC13",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC13_POS",
+      "negative_record_id": "MCC13_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC14",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC14_POS",
+      "negative_record_id": "MCC14_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC15",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC15_POS",
+      "negative_record_id": "MCC15_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC16",
+      "stratum": "social_relation",
+      "positive_record_id": "MCC16_POS",
+      "negative_record_id": "MCC16_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC17",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC17_POS",
+      "negative_record_id": "MCC17_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC18",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC18_POS",
+      "negative_record_id": "MCC18_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC19",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC19_POS",
+      "negative_record_id": "MCC19_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC20",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC20_POS",
+      "negative_record_id": "MCC20_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC21",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC21_POS",
+      "negative_record_id": "MCC21_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC22",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC22_POS",
+      "negative_record_id": "MCC22_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC23",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC23_POS",
+      "negative_record_id": "MCC23_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC24",
+      "stratum": "causal_obstacle",
+      "positive_record_id": "MCC24_POS",
+      "negative_record_id": "MCC24_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC25",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC25_POS",
+      "negative_record_id": "MCC25_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC26",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC26_POS",
+      "negative_record_id": "MCC26_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC27",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC27_POS",
+      "negative_record_id": "MCC27_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC28",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC28_POS",
+      "negative_record_id": "MCC28_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC29",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC29_POS",
+      "negative_record_id": "MCC29_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC30",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC30_POS",
+      "negative_record_id": "MCC30_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC31",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC31_POS",
+      "negative_record_id": "MCC31_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    },
+    {
+      "control_core_id": "MCC32",
+      "stratum": "temporal_rule",
+      "positive_record_id": "MCC32_POS",
+      "negative_record_id": "MCC32_NEG",
+      "positive_text_sha256": null,
+      "negative_text_sha256": null,
+      "gold_owner_private_sha256": null
+    }
+  ],
+  "counters": {
+    "story_cores": 16,
+    "DEV_story_cores": 4,
+    "FINAL_story_cores": 12,
+    "condition_variants_per_core": 4,
+    "DEV_prompt_variants": 16,
+    "FINAL_prompt_variants": 48,
+    "calibration_control_cores": 32,
+    "calibration_positive_and_negative_texts": 64
+  },
+  "privacy": {
+    "raw_text_in_this_blueprint": false,
+    "model_prompt_text_in_public_git": false,
+    "private_gold_in_public_git": false,
+    "source_new_FINAL_not_yet_created": true,
+    "no_MODEL_FORWARD": true
+  },
+  "release_conditions": [
+    "Owner creates fresh core content in private custody only, with deterministic seeds and complete human review.",
+    "Frozen prompt hashes and positive/negative gold cover exact requested fields, reviewed independently.",
+    "Zero known exact SHA collision with earlier public commitments; accidental template collisions outside each core excluded.",
+    "All 64 BPE roundtrips and 256-token limits pass before any inference or model access.",
+    "Measurement controls pass both independent blinded reviewers under locked thresholds.",
+    "Only after independent preexec source+rights QA may owner grant separate scoped one-shot inference."
+  ],
+  "freeze_state": "STRUCTURAL_IDS_AND_SPLIT_FROZEN__CONTENT_NOT_CREATED__NO_PERMISSION_TO_GENERATE_OR_RUN"
+}
