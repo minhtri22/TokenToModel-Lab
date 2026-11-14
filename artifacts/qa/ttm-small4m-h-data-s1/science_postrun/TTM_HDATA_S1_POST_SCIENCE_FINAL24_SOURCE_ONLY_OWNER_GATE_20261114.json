@@ -1,0 +1,112 @@
+{
+  "schema": "ttm.hdata_s1.postscience_final24_generation_preexec_independent_owner_gate.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_POST_SCIENCE_INDEPENDENT_READY_LAST_VAL_FREEZE_AND_NEW_FINAL24_BLIND_GENERATION_PREEXEC_OWNER_GATE_NO_INFERENCE",
+  "classification": "INDEPENDENT_SCOPED_AI_EVIDENCE_AND_SOURCE_REVIEW_NOT_HUMAN_RATER",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "science": {
+    "original_owner_ready_last_receipt_sha256": "e30a2281580b1f6ea33856577f0a244cd02e226dc8a3db00d207a8fe13cce4b5",
+    "independent_prior_freeze": "artifacts/qa/ttm-small4m-h-data-s1/science_postrun/TTM_HDATA_S1_INDEPENDENT_READY_LAST_VAL_FREEZE_20261114.json",
+    "frozen_GO_lock_sha256": "85e744a3da8d0e417079f726d95f059ad569a5f13e592ee56c1982dbce0aa540",
+    "science_runner_sha256": "eae016e92adc862e71d98920844ebd7c36bacbc3c9157c5a5e33d31aa77ded28",
+    "locked_PARENT_SHA": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "locked_TRAIN_pack_SHA": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "checkpoint_H0_1152_SHA": "a7cdade3b70cb2ceed258edd1e3edd494ce9745633d2e528ee90232f3c95c2fe",
+    "checkpoint_H1_1152_SHA": "31d9365a470e638f77e6661252ed8d0605e9f9095da145d9f48751adcdcfcb64",
+    "H0_updates": 128,
+    "H1_updates": 128,
+    "matched_targets_each": 524288,
+    "total_updates": 256,
+    "total_targets": 1048576,
+    "ready_checkpoints": 8,
+    "H0_val_nll": 3.511285912623514,
+    "H1_val_nll": 3.5057606759493716,
+    "H1_minus_H0_val_nll": -0.0055252366741425085,
+    "VAL_regression_guardrail": "PASS",
+    "semantic_benefit": "NOT_ASSESSED_FROM_VAL"
+  },
+  "final_custody": {
+    "public_prompt_commitment_sha256": "6c8c21c406b4bc30171244142c4226460a6735164f88fd425db7afa070a6f4f3",
+    "owner_private_FULL_FINAL24_source_sha256_pinned_not_opened": "b129a5c52520a25f1c40de950471622320abfa6b5414d0b16e0111ed96adc680",
+    "private_AES_ciphertext_sha256": "de0562cd4a9584ca8128e505b14e3d04ae35793b72f7d8a2b4d4f6eb0176cc7d",
+    "existing_12_12_and_four_strata_3_3_balanced_map": "PASS_PRIOR_OWNER_CUSTODY_NOT_DECRYPTED_THIS_OPERATION",
+    "NEW_FINAL": "SEALED_NOT_READ",
+    "TEST_Q1_Q2_OOD": "SEALED_NOT_READ",
+    "no_universal_contamination_exclusion_claim": true
+  },
+  "preexec_generator": {
+    "filename": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_new_final24_blind_generation_candidate_source_only_v1.py",
+    "source_git_blob_sha1": "329a018c17211b73e691fad5668e96ef0f2a6558",
+    "source_sha256": "c66955b9ae29fda704b2bc0e94d5631e04695cb2a09e38db36f035c83a1295ee",
+    "exact_p02_source_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "exact_bpe_source_blob_sha1": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "exact_AES_source_blob_sha1": "c85b8c63a008abcad65ee546b06db44d19ae26be",
+    "default_mode": "source-only",
+    "missing_owner_permit_negative": "PASS_FAIL_CLOSED_BEFORE_TORCH_IMPORT",
+    "generation_algorithm": "plain greedy argmax; EOS256; max64 new BPE tokens; context256; no repetition penalty; no truncation",
+    "all_24_final_BPE_context_gate": "SOURCE_PRESENT_BEFORE_FORWARD_NOT_EXECUTED_BECAUSE_FINAL_SEALED",
+    "owner_only_output_root": "/content/drive/MyDrive/TTM/ttm-small-pilot/ttm_small4m_h_data_s1_20261113/new_final24_blind_generation_once_v1",
+    "overwrite_policy": "exclusive create, preserve partial on failure, no resume",
+    "planned_packet": "24 neutral R01-R24 LEFT/RIGHT records, 48 continuations; no arm or anchor metadata",
+    "real_T4_model_forward": "NOT_EXECUTED",
+    "owner_permit": "NOT_CREATED_NOT_GRANTED"
+  },
+  "frozen_scoring": {
+    "contract": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND_SCORING_AND_ADJUDICATION_CONTRACT_20261113.json",
+    "empty_template": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_BLIND240_UNSCORED_TEMPLATE_SOURCE_ONLY_20261114.json",
+    "score_freeze_validator": "tools/pilot_t4/hdata_s1/ttm_hdata_s1_blind240_source_only_and_score_freeze_validator_v1.py",
+    "primary_binary_axes": [
+      "actor_retention",
+      "object_relation_retention",
+      "goal_or_rule_progress"
+    ],
+    "secondary_0_to_3_axes": [
+      "coherence",
+      "consistency"
+    ],
+    "scores_required": 240,
+    "notes_required": 24,
+    "main_mean_H1minusH0_gte": 0.5,
+    "H1_strict_pair_wins_gte": 16,
+    "paired_bootstrap_resamples": 20000,
+    "bootstrap_seed": 20261113,
+    "CI95_lower_gt": 0,
+    "rater_classification_if_AI": "EXPLORATORY_SCOPED_AI_REVIEW",
+    "scores_and_canonical_sha_freeze_before_unblind": true,
+    "current_scores": "NONE",
+    "current_rater_packet": "NONE"
+  },
+  "source_QA": {
+    "independent_script": "tools/pilot_t4/hdata_s1/independent_hdata_s1_new_final24_source_only_preexec_qa_v1.py",
+    "source_only_CI": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43551858618",
+    "compiled_source_and_no_owner_permit_negative": "PASS",
+    "blank_240_24_validator_negative": "PASS",
+    "model_forward_by_review": 0,
+    "training_by_review": 0,
+    "FINAL_decryption_by_review": 0
+  },
+  "attached_literature": {
+    "user_attachment_bytes": 12444,
+    "user_attachment_sha256": "e4200fe90bb2e207653700e64479ad36613d043c16354ef2588f0c81e71f4ec8",
+    "report": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_RELATED_WORK_EVAL_LIMITATIONS_SOURCE_ONLY_20261114.md",
+    "papers": 3,
+    "prereg_threshold_or_rubric_changes": 0
+  },
+  "formal_gates": {
+    "G01_science_exact_byte_READY_last": "PASS",
+    "G02_VAL_no_regression": "PASS",
+    "G03_FINAL24_public_SHA_chain": "PASS_SOURCE_ONLY",
+    "G04_AES_mapping_preexistence_balanced": "PASS_PRIOR_OWNER_SCOPE",
+    "G05_scoring_240_points_24_notes_no_amendment": "PASS_SOURCE_ONLY",
+    "G06_generation_candidate_source_and_negative_gate": "PASS_SOURCE_ONLY",
+    "G07_final_prompt_roundtrip_before_forward": "NOT_EXECUTED",
+    "G08_real_T4_new_FINAL_one_shot_inference": "NOT_EXECUTED",
+    "G09_explicit_separate_owner_GO": "NOT_GRANTED",
+    "G10_rater_scores_SHA_and_unblind": "NOT_EXECUTED"
+  },
+  "decision": "GO_SOURCE_ONLY_PREEXEC__HOLD_NEW_FINAL24_PENDING_EXPLICIT_OWNER_ONE_SHOT_GO",
+  "scientific_semantic_claim": "PENDING",
+  "unblind": "NOT_EXECUTED",
+  "main_unchanged": true,
+  "next_owner_decision": "GO_HDATA_S1_NEW_FINAL24_ONE_SHOT_OWNER_INFERENCE_OR_HOLD"
+}
