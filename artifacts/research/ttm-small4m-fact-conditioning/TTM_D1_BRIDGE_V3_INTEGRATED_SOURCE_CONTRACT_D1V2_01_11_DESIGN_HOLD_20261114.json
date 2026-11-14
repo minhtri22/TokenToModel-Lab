@@ -318,7 +318,7 @@
     "equal_categories": 4,
     "families_per_category_seed": 64,
     "score_unit": "each_family_passes_only_if_both_A_and_B_condition_outputs_correct",
-    "D_s_definition": "integer(sum_over_256_family(success_C-succcess_B))",
+    "D_s_definition": "integer(sum_over_256_families(success_C - success_B))",
     "d_s_formula": "D_s/256",
     "seed_positive": "D_s>0",
     "seed_tie": "D_s=0_is_nonpositive",
