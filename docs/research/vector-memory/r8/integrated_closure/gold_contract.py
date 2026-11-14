@@ -35,6 +35,36 @@ def _proof_dependency_closure(claims, chosen, present):
     if not all(visit(k) for k in chosen):return None
     return frozenset(done)
 
+def _validate_claim_dependencies(claims, present):
+    """Reject malformed PRIVATE proof graphs as INVALID FIXTURE, never ABSTAIN."""
+    dependencies = defaultdict(set)
+    for claim in claims:
+        refs = claim.get("depends_on", [])
+        if not isinstance(refs, (list, tuple)) or any(
+            not isinstance(k, str) or not k for k in refs
+        ):
+            raise ValueError("INVALID_FIXTURE_BAD_PROOF_DEPENDENCIES")
+        for dep in refs:
+            if dep not in present:
+                raise ValueError("INVALID_FIXTURE_MISSING_PROOF_DEPENDENCY")
+            dependencies[claim["card_key"]].add(dep)
+    active, done = set(), set()
+
+    def visit(key):
+        if key in active:
+            raise ValueError("INVALID_FIXTURE_CIRCULAR_PROOF")
+        if key in done:
+            return
+        active.add(key)
+        for nxt in sorted(dependencies[key]):
+            visit(nxt)
+        active.remove(key)
+        done.add(key)
+
+    for key in sorted(dependencies):
+        visit(key)
+
+
 def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
     """Reconstruct hypotheses from typed claims rather than reading generator gold.
     Input is PRIVATE proof schema. Caller must ensure claims came from reviewed records.
@@ -55,6 +85,7 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
             raise ValueError("CLAIM_REFERENCE_INVALID")
         if c["predicate"] not in CORE+("DEFEATER","NEGATIVE_RECEIPT","NOT_DEFEATED"):
             raise ValueError("UNKNOWN_TYPED_CLAIM")
+    _validate_claim_dependencies(claims, present)
     valid_proofs={};missing=False;authority_conflict=False;explicit_negative=False
     for hid,h in byh.items():
         grouped=defaultdict(set)
@@ -72,8 +103,12 @@ def resolve(hypotheses, claims, cards, question_kind="RECORD_SELECTION"):
                       and c.get("time_valid") is True for c in contradict)
             greater=any(c.get("authority_rank",-1)>h.get("authority_rank",0)
                         and c.get("time_valid") is True for c in contradict)
-            if equal:authority_conflict=True
-            if greater or equal:continue
+            # Equally ranked contradictory proof is a malformed fixture under
+            # frozen V4, not a valid abstention reason.
+            if equal:
+                raise ValueError("INVALID_FIXTURE_EQUAL_AUTHORITY_CONFLICT")
+            if greater:
+                continue
         # Bounded enumeration of minimal card evidence sets, never arbitrary first key.
         variants=1
         for p in CORE:variants*=len(grouped[p])

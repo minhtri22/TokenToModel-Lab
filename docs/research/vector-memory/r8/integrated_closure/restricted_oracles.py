@@ -63,11 +63,12 @@ def _o1_features(case):
     total = case.get("public_case_count")
     if type(position) is not int or type(total) is not int or total < 1 or not (0 <= position < total):
         raise ValueError("PUBLIC_ROW_POSITION_REQUIRED_FOR_O1")
+    # O1 uses only public row/order and card slots. Key lengths belong to O2.
     return {
         "row_position_decile": min(9, (10 * position) // total),
         "card_count": len(case["cards"]),
-        "first_key_length": len(case["cards"][0]["key"]),
-        "last_key_length": len(case["cards"][-1]["key"])
+        "first_card_position": 0,
+        "last_card_position": len(case["cards"]) - 1
     }
 
 
@@ -114,12 +115,14 @@ def _o3_features(case):
             key=field+"="+norm(c.get(field,""))
             z[key]=z.get(key,0)+1
         w=words(t)
+        # Restricted O3 can use only predeclared marker lexemes; a neighboring
+        # accession/site/person token cannot become a new lexical feature.
+        allowed_lexemes={tok for phrase in MARKERS for tok in words(phrase)}
         for n in (1,2):
             for i in range(len(w)-n+1):
-                # counts of status/source marker ngrams, not full semantic card text
-                seq=" ".join(w[i:i+n])
-                if any(x in seq for x in MARKERS):
-                    key="markergram="+seq
+                gram=w[i:i+n]
+                if all(tok in allowed_lexemes for tok in gram):
+                    key="markergram="+" ".join(gram)
                     z[key]=z.get(key,0)+1
     return z
 def _o5_features(card):

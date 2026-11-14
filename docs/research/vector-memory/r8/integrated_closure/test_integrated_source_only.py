@@ -89,8 +89,8 @@ class GoldQA(unittest.TestCase):
         hs,cl,ca=proof_input()
         cl.append({"hypothesis_id":"h1","card_key":"h1-proof","predicate":"DEFEATER",
                    "verified":True,"authority_rank":2,"time_valid":True})
-        v=g.resolve(hs,cl,ca)
-        self.assertEqual(v["primary_abstain_reason"],"UNRESOLVED_AUTHORITY")
+        with self.assertRaisesRegex(ValueError,"INVALID_FIXTURE_EQUAL_AUTHORITY_CONFLICT"):
+            g.resolve(hs,cl,ca)
     def test_09_superior_negative_receipt_is_abstain(self):
         hs,cl,ca=proof_input()
         cl.append({"hypothesis_id":"h1","card_key":"h1-proof",
@@ -104,7 +104,8 @@ class GoldQA(unittest.TestCase):
                    "verified":True,"depends_on":["h1-proof"]})
         for c in cl:
             if c["card_key"]=="h1-proof":c["depends_on"]=["circular"]
-        self.assertEqual(g.resolve(hs,cl,ca)["action"],"ABSTAIN")
+        with self.assertRaisesRegex(ValueError,"INVALID_FIXTURE_CIRCULAR_PROOF"):
+            g.resolve(hs,cl,ca)
     def test_11_alternative_minimal_sets(self):
         hs,cl,ca=proof_input(alternate=True)
         r=g.resolve(hs,cl,ca)

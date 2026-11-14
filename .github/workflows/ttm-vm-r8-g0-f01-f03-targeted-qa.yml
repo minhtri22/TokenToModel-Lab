@@ -1,0 +1,39 @@
+name: TTM VM R8 targeted G0-F01-F03 non-R8 QA
+on:
+  push:
+    branches:
+      - evidence/ttm-vm-v4-r8-g0-f01-f03-single-closure-20261114
+    paths:
+      - docs/research/vector-memory/r8/integrated_closure/**
+      - .github/workflows/ttm-vm-r8-g0-f01-f03-targeted-qa.yml
+permissions:
+  contents: read
+jobs:
+  changed-contract-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Targeted negative G0 tests and changed historic assertions only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python --version
+          python -m compileall -q docs/research/vector-memory/r8/integrated_closure
+          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_f01_f03_targeted.py
+          PYTHONPATH=docs/research/vector-memory/r8/integrated_closure python -m unittest -v \
+            test_integrated_source_only.GoldQA.test_08_equal_authority_stalemate \
+            test_integrated_source_only.GoldQA.test_10_circular_proof_not_accepted
+          sha256sum \
+            docs/research/vector-memory/r8/integrated_closure/gold_contract.py \
+            docs/research/vector-memory/r8/integrated_closure/restricted_oracles.py \
+            docs/research/vector-memory/r8/integrated_closure/test_integrated_source_only.py \
+            docs/research/vector-memory/r8/integrated_closure/test_g0_f01_f03_targeted.py
+          printf '%s\n' 'QA_SCOPE=CHANGED_G0_F01_F02_F03_ONLY' \
+            'HISTORIC_37_OF_37_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
+            'PRIVATE_GOLD=NOT_ACCESSED' 'GPU=NO' 'READER=0' 'PROBE256=SEALED'
