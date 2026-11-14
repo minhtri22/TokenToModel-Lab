@@ -1,0 +1,99 @@
+{
+  "schema": "ttm.hdata.fail4.md1.prospective_design_source_qa_closeout.v1",
+  "date": "2026-11-14",
+  "operation": "TTM_HDATA_S1_POST_ADJUDICATION_CLOSEOUT_AND_NEW_PROSPECTIVE_MECHANISM_DIAGNOSTIC_DESIGN_ONLY",
+  "classification": "SCOPED_AI_SOURCE_ONLY_DESIGN_QA_NOT_INDEPENDENT_HUMAN_SCIENCE_REVIEW",
+  "parent_project": "minhtri22/TokenToModel-Lab",
+  "new_branch": "research/ttm-hdata-s1-fail4-prospective-mechanism-design-20261114",
+  "new_run_id": "TTM_HDATA_FAIL4_MD1_PROSPECTIVE_20261114",
+  "original_HDATA_parent_HEAD": "ef4cc05037f98129082cd429a75092b8cc822efb",
+  "original_preregistered_outcome": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT",
+  "original_public_aggregate_sha256": "23df562a73c7f83096ba4ec683da81823d0104a80fbf689b01b4310348e3a7e2",
+  "original_FINAL24_reuse": false,
+  "old_scores_or_AES_reopened": false,
+  "source_files": {
+    "contract": "docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_FROZEN_PROSPECTIVE_DESIGN_CONTRACT_20261114.json",
+    "source_contract_git_blob_sha1": "42acaebb83aa3cfc01288dee5beb0e208f73e5fc",
+    "prereg": "docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_PROSPECTIVE_PREREG_AND_FOUR_FAIL_MECHANISM_PLAN_20261114.md",
+    "prereg_git_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
+    "fresh_data_blueprint": "docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_FRESH_CORE_2X2_DATA_BLUEPRINT_DESIGN_ONLY_20261114.json",
+    "blueprint_git_blob_sha1": "7852f7da0ad0b80deb810628f3202c1c2255cb22",
+    "source_QA": "tools/pilot_t4/hdata_s1/md1/independent_md1_fail4_source_only_prereg_qa_v1.py",
+    "source_QA_git_blob_sha1": "ca63418ddceb500ff3739ca1a4499692dac91f94",
+    "workflow": ".github/workflows/ttm-hdata-fail4-md1-design-qa.yml"
+  },
+  "evidence_to_diagnose": [
+    {
+      "id": "F1",
+      "metric": "primary_mean_delta",
+      "old_value": 0,
+      "threshold": ">= +0.5"
+    },
+    {
+      "id": "F2",
+      "metric": "H1_strict_wins",
+      "old_value": 0,
+      "threshold": ">=16/24"
+    },
+    {
+      "id": "F3",
+      "metric": "paired_bootstrap_CI95_lower",
+      "old_value": 0,
+      "threshold": ">0"
+    },
+    {
+      "id": "F4",
+      "metric": "goal_rule_progress_delta",
+      "old_value": 0,
+      "threshold": ">0"
+    }
+  ],
+  "dependency": "F1_F2_F3_MATHEMATICALLY_COUPLED_TO_ALL_ZERO_PRIMARY_SCORE_FLOOR__NOT_FOUR_INDEPENDENT_CAUSES",
+  "staged_diagnostic_order": [
+    "RATER_MEASUREMENT_CALIBRATION",
+    "SHARED_MODEL_ABSOLUTE_FLOOR",
+    "MATCHED_WITHIN_CORE_CONTEXT_AND_GOAL_FACTORS",
+    "FROZEN_TEACHER_FORCED_ORACLE_VERSUS_FOIL"
+  ],
+  "new_future_data": {
+    "measurement_calibration_cores": 32,
+    "positive_controls": 32,
+    "negative_controls": 32,
+    "total_calibration_texts": 64,
+    "prospective_story_cores": 16,
+    "conditions_per_story_core": 4,
+    "DEV_cores": 4,
+    "DEV_prompts": 16,
+    "LOCKED_FINAL_cores": 12,
+    "LOCKED_FINAL_prompts": 48,
+    "new_FINAL_arms": 2,
+    "planned_FINAL_continuations": 96,
+    "planned_blind_raters": 2,
+    "blind_numeric_scores_per_rater": 480,
+    "new_test_corpus_materialized": false,
+    "new_test_content_or_gold_sha_pinned": false,
+    "new_owner_unblind_or_model_inference": false
+  },
+  "QA": {
+    "suite": "TTM H-DATA MD1 FAIL4 Prospective Design-only QA",
+    "workflow_run_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43560044425",
+    "conclusion": "PASS",
+    "old_aggregate_source_SHA_verified": true,
+    "four_FAILs_from_source": "PASS_4_OF_4",
+    "data_split_core_cluster_four_factor_cells": "PASS",
+    "no_new_final_prompt_or_gold_text_in_GitHub": "PASS_BLUEPRINT_ONLY",
+    "owner_science_permissions": false,
+    "negative_mutation_tests": "PASS_3_OF_3",
+    "reviewer_limitation": "Source-only automated QA; no human independent acceptance, no science efficacy claims"
+  },
+  "gating": {
+    "next": "TTM_HDATA_FAIL4_MD1_INDEPENDENT_PREREG_SOURCE_QA_AND_PRIVATE_FRESH_DATA_CUSTODY_OWNER_GATE_NO_INFERENCE",
+    "private_new_data_authorized": "NOT_GRANTED",
+    "GPU_or_model_forward_authorized": "NOT_GRANTED",
+    "training_authorized": "NOT_GRANTED",
+    "calibration_scoring_authorized": "NOT_GRANTED",
+    "no_reuse_old_FINAL24": true,
+    "main_untouched": true
+  },
+  "decision": "PASS_DESIGN_ONLY_SOURCE_QA__HOLD_FRESH_DATA_PRODUCTION_AND_SCIENCE_PENDING_INDEPENDENT_REVIEW_OWNER_GO"
+}
