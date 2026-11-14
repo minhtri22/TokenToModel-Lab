@@ -68,7 +68,7 @@ Alias hợp lệ `move≡relocate`, `give≡hand over`; `move` và `carry` khác
 
 **Auditor signed terminal receipt:** biên nhận public phải chứa đầy đủ `audit_id, protocol_version, source_commit, checker_sha256, ledger_root_sha256, train_val_ast_hmac, eval_ast_hmac, audit_schema_version, signer_key_id, decision=PASS/FAIL/UNKNOWN` và chữ ký Ed25519 phủ lên JCS payload **ngoại trừ signature**. Public verifier xác minh chữ ký, pinned key, ledger root readback, tất cả trường khớp manifest đã anchor. Thiếu ledger root hoặc một trong hai HMAC → `HOLD`.
 
-**State machine đóng:** `DRAFT → FROZEN_PREAUDIT_LEDGER → IN_PROGRESS_SINGLE_AUDIT → SIGNED_PASS / SIGNED_FAIL / SIGNED_UNKNOWN`. Ngoài ra `ABORT_NO_SIGNER_NO_RECEIPT` là terminal **HOLD**: nếu máy hỏng hay khóa signer không hoạt động, **không được giả tạo signed UNKNOWN**. Trong mọi trường hợp, **không có signed terminal receipt hợp lệ = HOLD**. Duplicate/replay, thay manifest, adaptive query, tự đổi batch hoặc retry mà không có prospective amendment → HOLD.
+**State machine đóng:** `DRAFT → FROZEN_PREAUDIT_LEDGER → IN_PROGRESS_SINGLE_AUDIT → SIGNED_PASS / SIGNED_FAIL / SIGNED_UNKNOWN`. Ngoài ra `ABORT_NO_SIGNER_NO_RECEIPT` là terminal **HOLD**: nếu máy hỏng hay khóa signer không hoạt động, **không được giả tạo signed UNKNOWN**. Trong mọi trường hợp, **`ABSENT_TERMINAL_SIGNED_RECEIPT => HOLD` (không có biên nhận terminal ký hợp lệ)**. Duplicate/replay, thay manifest, adaptive query, tự đổi batch hoặc retry mà không có prospective amendment → HOLD.
 
 ### Synthetic crypto vectors (không phải dữ liệu nghiên cứu)
 
