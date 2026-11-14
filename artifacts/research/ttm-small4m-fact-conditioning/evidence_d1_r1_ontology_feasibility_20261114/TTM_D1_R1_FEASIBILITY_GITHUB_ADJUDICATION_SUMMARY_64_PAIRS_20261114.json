@@ -1,0 +1,572 @@
+{
+  "schema": "ttm.d1.r1.github_adjudication_summary_and_exact_pair_matrix.v1",
+  "mode": "SOURCE_ONLY_NO_MODEL_EXECUTION",
+  "operation": "TTM_SMALL4M_D1_R1_32_REAL_ACTION_CAUSAL_ONTOLOGY_FEASIBILITY_AND_INDEPENDENT_CANONICAL_ADMISSION_SINGLE_GO_HOLD",
+  "scientific_frozen_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "parent_source_evidence_commit": "971f50c29e7b5d1c22cd87277f64f39019c17d26",
+  "source_blueprints_git_blob_sha1": "d1a985940237844cbb6c7a53669b0d6a241b263e",
+  "source_blueprints_sha256": "6d45a667a8e1f0a3c513c50951b2624d5fbebe3cde85c9934b41fb8dcf712e83",
+  "new_python_referee_run_environment": "SOURCE_ONLY_PYTHON_3_13",
+  "source_only_semantics": "PROSPECTIVE_PHYSICAL_COLOCATION_NOT_FROZEN_V6",
+  "old_32_source_blueprints_inspected": 32,
+  "new_science_admitted_blueprints": 0,
+  "source_only_genesis_T0_axiom_pairs_pass": 32,
+  "prospective_physical_unique_distinct_AB_pairs": 9,
+  "prospective_64_sides_unique": 20,
+  "prospective_64_sides_ambiguous": 44,
+  "category_prospective_unique_AB": {
+    "entity_location": 1,
+    "causal_reasoning": 8,
+    "rule_constraint": 0,
+    "goal_persistence": 0
+  },
+  "train_ood_pairs": 64,
+  "exact_same_world_AB_goal_pairs": 5,
+  "exact_side_swapped_world_AB_goal_pairs": 9,
+  "coarse_side_invariant_first_action_proxy_collision_count": 55,
+  "coarse_proxy_by_category": {
+    "entity_location": 7,
+    "causal_reasoning": 16,
+    "rule_constraint": 16,
+    "goal_persistence": 16
+  },
+  "canonical_action_causal_novelty_proven_ood": 0,
+  "positive_nonoverlap_claim": "NOT_MADE_COARSE_PROXY_NOT_FULL_CAUSAL_GRAPH_PROOF",
+  "targeted_new_independent_adversarial_checks_pass": "10/10",
+  "historical_13_13_and_12_12_rerun": false,
+  "final_T1_tokenizer_parser": "NOT_VERIFIED",
+  "EVAL_gold": "NOT_CREATED",
+  "rights_custody": "DESIGN_ONLY_NOT_EXECUTED",
+  "new_packet_zip_sha256": "df0a4eb12831874a4a84c3862993471ccaec9b8b0a8afeb2ead0e65fb7395b01",
+  "new_packet_file_sha256": {
+    "TTM_D1_R1_32_FEASIBILITY_INDEPENDENT_RECEIPT_20261114.json": "fffc6e77d4a72eeb907384afeef72b8018863f6f5f8f912c234048eb9e0c2493",
+    "TTM_D1_R1_32_FEASIBILITY_SLOT_ADMISSION_MATRIX_20261114.json": "e2f5472ded58975144c6685a05bde4e6a9574a495177a4934a505546399308c3",
+    "TTM_D1_R1_64_CANONICAL_PROXY_ADVERSARIAL_RECEIPT_20261114.json": "d7f9d3f9beafbcc32bb97c22318e19f36dca4bd2a9797f15dbf1dde3a54611a4",
+    "TTM_D1_R1_SOURCE_ORACLE_SEMANTIC_VERSION_COMPARISON_20261114.json": "9eef61b16797fee35407964d2c9ec8464ff49f7c33f39b427d2e01e9906f7506",
+    "TTM_D1_R1_T1_RENDER_PARSER_RIGHTS_CUSTODY_GATE_20261114.json": "0ca4115d54db39291ccb4d72499d8346be85863abc1d221a8bebd767036e1fb5",
+    "TTM_D1_R1_ONTOLOGY_FEASIBILITY_INTEGRATED_REVIEW_20261114.md": "e65d2429864ea3e8c2a0db9cd7b13749682d34e66f22eb6d35e568f1b4904b40",
+    "TTM_D1_R1_ONTOLOGY_FEASIBILITY_NEXT_AGENT_HANDOFF_20261114.md": "9a771bbcbaf12d225c3daca0d860c9a4b1c38f23dfac7254d078265cf4cec022",
+    "independent_feasibility_referee.py": "545567c9286ed1ecc1f39cb94cf01f6d1ab1d69ba7e73df66a2dcff733c6c10b",
+    "verify_feasibility_and_comparison.py": "a919edb0439c3e4c0200f5549324dea99469438c3037c3391ed81abdaccc4215",
+    "independent_canonical_proxy_and_adversarial.py": "3544da7b669127a408e66884133c34aea201dd73fcf78e072b92398af2f4697e",
+    "build_final_feasibility_artifacts.py": "6c84cd42d8165263823f331215e4fbf53c752bc578de63bb9689aa8decff2fc2",
+    "TTM_D1_R1_FEASIBILITY_SHA256_MANIFEST_20261114.json": "7c230a1175045af5b042b8ae355807a87319b4b0b775d3208e4df9f8bd5fad55"
+  },
+  "pair_falsification_exact_and_swapped": [
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR01",
+      "ood": "ENTITY_LOCATION_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR01",
+      "ood": "ENTITY_LOCATION_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR01",
+      "ood": "ENTITY_LOCATION_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR01",
+      "ood": "ENTITY_LOCATION_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR02",
+      "ood": "ENTITY_LOCATION_OD01",
+      "exact_same_AB_goal": true,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR02",
+      "ood": "ENTITY_LOCATION_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR02",
+      "ood": "ENTITY_LOCATION_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR02",
+      "ood": "ENTITY_LOCATION_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR03",
+      "ood": "ENTITY_LOCATION_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR03",
+      "ood": "ENTITY_LOCATION_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR03",
+      "ood": "ENTITY_LOCATION_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR03",
+      "ood": "ENTITY_LOCATION_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR04",
+      "ood": "ENTITY_LOCATION_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR04",
+      "ood": "ENTITY_LOCATION_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR04",
+      "ood": "ENTITY_LOCATION_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "entity_location",
+      "train": "ENTITY_LOCATION_TR04",
+      "ood": "ENTITY_LOCATION_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR01",
+      "ood": "CAUSAL_REASONING_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR01",
+      "ood": "CAUSAL_REASONING_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR01",
+      "ood": "CAUSAL_REASONING_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR01",
+      "ood": "CAUSAL_REASONING_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR02",
+      "ood": "CAUSAL_REASONING_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR02",
+      "ood": "CAUSAL_REASONING_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR02",
+      "ood": "CAUSAL_REASONING_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR02",
+      "ood": "CAUSAL_REASONING_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR03",
+      "ood": "CAUSAL_REASONING_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR03",
+      "ood": "CAUSAL_REASONING_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR03",
+      "ood": "CAUSAL_REASONING_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR03",
+      "ood": "CAUSAL_REASONING_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR04",
+      "ood": "CAUSAL_REASONING_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR04",
+      "ood": "CAUSAL_REASONING_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR04",
+      "ood": "CAUSAL_REASONING_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "causal_reasoning",
+      "train": "CAUSAL_REASONING_TR04",
+      "ood": "CAUSAL_REASONING_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR01",
+      "ood": "RULE_CONSTRAINT_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR01",
+      "ood": "RULE_CONSTRAINT_OD02",
+      "exact_same_AB_goal": true,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR01",
+      "ood": "RULE_CONSTRAINT_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR01",
+      "ood": "RULE_CONSTRAINT_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR02",
+      "ood": "RULE_CONSTRAINT_OD01",
+      "exact_same_AB_goal": true,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR02",
+      "ood": "RULE_CONSTRAINT_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR02",
+      "ood": "RULE_CONSTRAINT_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR02",
+      "ood": "RULE_CONSTRAINT_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR03",
+      "ood": "RULE_CONSTRAINT_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR03",
+      "ood": "RULE_CONSTRAINT_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR03",
+      "ood": "RULE_CONSTRAINT_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR03",
+      "ood": "RULE_CONSTRAINT_OD04",
+      "exact_same_AB_goal": true,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR04",
+      "ood": "RULE_CONSTRAINT_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR04",
+      "ood": "RULE_CONSTRAINT_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR04",
+      "ood": "RULE_CONSTRAINT_OD03",
+      "exact_same_AB_goal": true,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "rule_constraint",
+      "train": "RULE_CONSTRAINT_TR04",
+      "ood": "RULE_CONSTRAINT_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR01",
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR01",
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR01",
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR01",
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR02",
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR02",
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR02",
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR02",
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR03",
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR03",
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR03",
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR03",
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR04",
+      "ood": "GOAL_PERSISTENCE_OD01",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR04",
+      "ood": "GOAL_PERSISTENCE_OD02",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR04",
+      "ood": "GOAL_PERSISTENCE_OD03",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": false,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    },
+    {
+      "category": "goal_persistence",
+      "train": "GOAL_PERSISTENCE_TR04",
+      "ood": "GOAL_PERSISTENCE_OD04",
+      "exact_same_AB_goal": false,
+      "exact_swapped_AB_goal": true,
+      "true_action_causal_graph_nonoverlap": "NOT_PROVEN"
+    }
+  ],
+  "decision": "HOLD_ONTOLOGY_FEASIBILITY",
+  "inference_limit": "Does not establish impossibility theorem for finite ontology; design admission not established.",
+  "next_single_operation": "TTM_SMALL4M_D1_R1_MINIMAL_SEMANTIC_CONTRACT_FREEZE_AND_CONSTRUCTIVE_FOUR_CATEGORY_FEASIBILITY_SINGLE_REVIEW_GATE"
+}
