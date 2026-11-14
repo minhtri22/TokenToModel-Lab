@@ -1,0 +1,109 @@
+{
+  "AES_authenticated_decrypt": "PASS_AES256_GCM_AAD_KEY_NONCE_AND_PLAINTEXT_DIGEST",
+  "AES_pair_balance": "PASS_12_12_OVERALL_AND_3_3_PER_STRATUM",
+  "ALL_GATES_PASS": false,
+  "VAL_NLL": {
+    "H0": 3.511285912623514,
+    "H1": 3.5057606759493716,
+    "H1_minus_H0": -0.0055252366741425085,
+    "relative_regression": -0.0015735650162462102
+  },
+  "component_secondary_H1_minus_H0_deltas": {
+    "actor_retention": 0.0,
+    "coherence": -0.04166666666666674,
+    "consistency": 0.0,
+    "goal_or_rule_progress": 0.0,
+    "object_relation_retention": 0.0
+  },
+  "component_secondary_arm_means": {
+    "actor_retention": {
+      "H0": 0.0,
+      "H1": 0.0
+    },
+    "coherence": {
+      "H0": 0.7083333333333334,
+      "H1": 0.6666666666666666
+    },
+    "consistency": {
+      "H0": 1.0,
+      "H1": 1.0
+    },
+    "goal_or_rule_progress": {
+      "H0": 0.0,
+      "H1": 0.0
+    },
+    "object_relation_retention": {
+      "H0": 0.0,
+      "H1": 0.0
+    }
+  },
+  "date": "2026-11-14",
+  "follow_up": "Archive source+public safe aggregate evidence; do not rerun NEW FINAL or edit frozen scoring. Separate future design-only diagnostic can investigate mechanism, never revise this outcome.",
+  "formal_adjudication": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT",
+  "frozen_preregistered_gate_pass": {
+    "EOS_cap64_counts_reported": true,
+    "actor_delta_ge_neg0p125": true,
+    "coherence_delta_ge_neg0p25": true,
+    "consistency_delta_ge_neg0p25": true,
+    "goal_delta_strict_gt_0": false,
+    "object_delta_ge_neg0p125": true,
+    "primary_bootstrap_ci95_lower_gt_0": false,
+    "primary_mean_delta_ge_0p5": false,
+    "primary_strict_wins_ge_16": false,
+    "under8_H1_le_H0": true,
+    "val_nll_relative_regression_le_5pct": true
+  },
+  "generation_guardrail_counts_owner_only_aggregated": {
+    "H0": {
+      "cap64": 17,
+      "eos": 7,
+      "under8_word": 0
+    },
+    "H1": {
+      "cap64": 20,
+      "eos": 4,
+      "under8_word": 0
+    }
+  },
+  "independence": "EXPLORATORY_SCOPED_AI_REVIEW_NOT_HUMAN_GOLD",
+  "input_custody_SHA256": {
+    "array": "fcbd93e8c2580566eb0414301a9afa5a13d07b2c179c8fe686bad3ccd68a167e",
+    "cipher": "de0562cd4a9584ca8128e505b14e3d04ae35793b72f7d8a2b4d4f6eb0176cc7d",
+    "commitment": "6c8c21c406b4bc30171244142c4226460a6735164f88fd425db7afa070a6f4f3",
+    "freeze": "fdf09445234fbf6d7a5d5092f685590720dfede88672d6229060768cc9cce449",
+    "generation": "e2fca65f2d1571a8e61c365ea69d34dc4876af6c5741a55c25ec60aa6d17a4df",
+    "packet": "60be28c7bde777c61d984209fad31a049702b806ef3d015c2af8a9c64ad1ccd8",
+    "ready": "e30a2281580b1f6ea33856577f0a244cd02e226dc8a3db00d207a8fe13cce4b5",
+    "score": "81a680be56c7535a2a14137be69d121c76a43cb28f2b93995b020471609966f4",
+    "zip": "c5c5d6eae6ce38d892348878ae200d5bbcd42406b53f7b0c43e8876a145d48d4"
+  },
+  "operation": "TTM_HDATA_S1_FINAL24_OWNER_UNBLIND_ON_FROZEN_AI_SCORE_SINGLE_GATE",
+  "owner_approval": "GO_HDATA_S1_FINAL24_OWNER_UNBLIND_ON_FROZEN_AI_SCORE",
+  "paired_bootstrap_20k_seed_20261113": {
+    "CI95": [
+      0.0,
+      0.0
+    ],
+    "method": "paired resample of 24 prompt-pair H1−H0 deltas, numpy.default_rng seed, 2.5/97.5 linear quantiles",
+    "resamples": 20000,
+    "seed": 20261113
+  },
+  "primary_anchor_score_0to3_arm_means": {
+    "H0": 0.0,
+    "H1": 0.0
+  },
+  "primary_paired_H1_minus_H0_mean_delta": 0.0,
+  "primary_paired_strict_losses_H1": 0,
+  "primary_paired_strict_wins_H1": 0,
+  "primary_paired_ties": 24,
+  "private_AES_key_or_plaintext_mapping_in_report": false,
+  "public_safe_guarantee": "No per-pair LEFT/RIGHT mapping, decrypted AES plaintext/key, private prompt, continuation, or reviewer note is emitted.",
+  "rater_notes_24": "PASS_NONEMPTY_FROZEN_UNCHANGED",
+  "rater_scores_240": "PASS_FROZEN_UNCHANGED",
+  "run_id": "TTM_SMALL4M_HDATA_S1_MATCHED_BUDGET_FRESH_FINAL_V1",
+  "schema": "ttm.hdata_s1.final24.owner_authorized_readonly_AES_unblind_adjudication.v1",
+  "scoping_note": "24 pairs, single AI blind rater, exploratory only; no human gold, multi-seed or general instruction following claim; unchanged primary/secondary cutoffs",
+  "status": "COMPLETE_READONLY_UNBLIND_NO_REDO",
+  "training_or_generation_reexecution": false,
+  "unblind": "EXECUTED_ONCE_READ_ONLY"
+}
