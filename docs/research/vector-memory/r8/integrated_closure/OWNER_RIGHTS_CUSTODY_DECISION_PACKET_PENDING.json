@@ -1,0 +1,55 @@
+{
+  "schema": "ttm.vm.v4.r8.v4.owner_rights_custody_decision_ready.v1",
+  "operation": "TTM_VM_V4_R8_V4_INTEGRATED_BLOCKER_CLOSURE_SOURCE_QA_OWNER_CUSTODY_SINGLE_GATE_NO_GENERATION",
+  "mode": "PUBLIC_SAFE_PENDING_ONLY",
+  "proposed_scope": "R8_D_EXPLORATORY_DESCRIPTIVE_ONLY",
+  "confirmatory_scope": "R8_C_NO_GO",
+  "owner_attestation": {
+    "scientific_scope": "PENDING",
+    "allowed_choices": [
+      "ADOPT_R8_D_DESCRIPTIVE_ONLY",
+      "RETAIN_CONFIRMATORY_OBJECTIVE_NO_GO"
+    ],
+    "rater_allocation": "PENDING",
+    "allowed_allocations": [
+      "FOUR_RATERS_TWO_PER_CASE",
+      "TWO_RATERS_DISJOINT"
+    ],
+    "p_rec_v1_toy_domain_policy": "PENDING",
+    "rights_for_proposed_synthetic_source_class": "NOT_ATTESTED",
+    "PII_handling_authorization": "NOT_ATTESTED",
+    "signed_owner_record": "NOT_SUPPLIED",
+    "approval_beyond_scope": "NOT_IMPLIED"
+  },
+  "source_class": "AI_AUTHORED_SYNTHETIC_EXPLORATORY_ONLY_PROPOSED",
+  "custodian_private_storage_readback_plan": {
+    "status": "NOT_VERIFIED",
+    "required_nonpublic_records": [
+      "Private canonical path, custodian access/ACL and authorized owner scope: custody evidence kept PRIVATE",
+      "Private byte readback SHA-256 manifest of proof input and separately stored blind key map",
+      "One-key validator PASS receipt with exact immutable candidate input/source hashes",
+      "Protected G2 HMAC allocation key custody attestation, never publish key, mapping or gold",
+      "Independent source/protocol readback from reviewer distinct from implementation agent"
+    ],
+    "public_receipt_allowlist": [
+      "Synthetic fixture test totals, package versions and public source SHA-256 only",
+      "Custody readback result PASS/NOT_VERIFIED without private storage URI, IDs or keys",
+      "Independent reviewer classification and signed owner decision provenance if supplied"
+    ],
+    "private_material_read": "NOT_EXECUTED",
+    "private_storage_uri": "REDACTED_NOT_SUPPLIED",
+    "gold_access": "NO",
+    "rater_allocation_secrets": "NOT_CREATED"
+  },
+  "source_qa": "SAME_AGENT_SEPARATE_CHECKER",
+  "global_gate_requires": "G0 independent PASS AND G1 authentic owner/rights/PII PASS AND G2 private custody/validator/source-lock PASS",
+  "R7": "FROZEN_FAIL",
+  "R8": "NOT_GENERATED",
+  "G3": "NOT_AUTHORIZED",
+  "G4": "NOT_EXECUTED",
+  "G5": "SEALED",
+  "G6": "SEALED",
+  "PROBE256": "SEALED",
+  "READER": 0,
+  "GPU": "NO"
+}
