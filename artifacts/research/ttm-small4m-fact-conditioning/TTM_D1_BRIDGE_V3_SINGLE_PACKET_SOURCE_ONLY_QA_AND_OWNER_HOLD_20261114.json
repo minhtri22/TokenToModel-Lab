@@ -1,0 +1,77 @@
+{
+  "schema": "ttm.d1_bridge.v3.integrated_source_only_contract_qa_and_owner_decision.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V3_INTEGRATED_SOURCE_CONTRACT_REMEDIATION_AND_SINGLE_INDEPENDENT_PREREG_REVIEW_NO_GPU",
+  "date": "2026-11-14",
+  "source_git_blob_sha1": {
+    "V3_contract_json": "927e7931ee044c70db4354db43330ae93f11331d",
+    "V3_design_md": "50556c367844e9f9c8aa3bf1a97e394fd74c37f1",
+    "V3_source_qa_js": "0d5ffa42e57344692e48ffcb2e134e921a9d8f95",
+    "V2_external_review_md": "3191c5427354b7239602fcb66b92202554084c30",
+    "V2_external_review_json": "7b7074ad0166b43f20ca8e10d9bf8ac4e96001fd"
+  },
+  "original_uploaded_review_sha256": {
+    "V2_external_review_md": "f482d9855b16bed2bc764e63c2d986259b8f94bd9bb1f65e30b145f5e5e23cae",
+    "V2_external_review_json": "52168ae7c523d1999388e9a2de211e10a940050b15b935a856c383c62c12c04f"
+  },
+  "byte_custody_original_uploaded_to_Github": "PASS_EXACT_GIT_BLOB_SHA1_COMPUTED_OVER_ORIGINAL_UPLOADED_BYTES",
+  "reviewer_V2": {
+    "status": "HOLD_REVISE_BEFORE_PREREG",
+    "source_pins": "PASS_7_OF_7_GITHUB_BLOB_METADATA",
+    "independence": "AI_NEW_CHAT_SELF_ATTESTED_NOT_EXTERNAL_VERIFICATION",
+    "issues": 11,
+    "amendments": 6
+  },
+  "V3": {
+    "issue_coverage_11_of_11": true,
+    "all_six_AM_included": true,
+    "new_source_contract_only": true,
+    "source_qa_mode": "SAME_AUTHOR_IN_MEMORY_V8_PURE_ASSERTIONS_AND_MUTATIONS; NOT_NODE_CLI_SEPARATE_RUN",
+    "positive_contract_assertions_pass": 57,
+    "positive_contract_assertions_total": 57,
+    "negative_mutations_caught": 13,
+    "negative_mutations_total": 13,
+    "status": "PASS_57_OF_57_AND_13_OF_13_SCOPED_SAME_AUTHOR_SOURCE_CONTRACT_QA",
+    "negative_mutations": [
+      "N01_REMOVE_TRACE",
+      "N02_FINAL_ACTION_ONLY",
+      "N03_PARSER_ALLOW_NEGATION",
+      "N04_GOLD_A_EQUALS_B_ALLOWED",
+      "N05_D_ZERO_POSITIVE",
+      "N06_SIGN_P10_WRONG",
+      "N07_CATEGORY_THRESHOLD_WRONG",
+      "N08_TRAINER_READ_GOLD",
+      "N09_OVERLAP_AUDITOR_READ_GOLD",
+      "N10_WRONG_TOTAL_STEPS",
+      "N11_NO_ADAMW_RESUME_PROOF",
+      "N12_GRANT_SCIENCE_GO",
+      "N13_CLAIM_ACTUAL_AST_QA_PASS"
+    ]
+  },
+  "limitations": {
+    "actual_typed_AST_labeled_trace_bisimulation_checker": "NOT_IMPLEMENTED",
+    "actual_AST_train_eval_nonoverlap": "NOT_EXECUTED",
+    "actual_action_oracle_gold": "NOT_GENERATED",
+    "actual_deterministic_parser_runtime": "NOT_IMPLEMENTED",
+    "actual_parser_adversarial_qa": "NOT_EXECUTED",
+    "training_randomness_iid": "NOT_PROVEN",
+    "independent_statistics_power_qa": "NOT_PERFORMED",
+    "actual_overlap_auditor_ACL_and_signature": "NOT_VERIFIED",
+    "rights_and_PII_receipts_for_new_data": "NOT_VERIFIED",
+    "new_runner_negative_sampler_SHA": "NOT_CREATED",
+    "nonzero_AdamW_resume_QA": "NOT_EXECUTED",
+    "free_T4_36_arm_run_feasibility": "NOT_VERIFIED"
+  },
+  "formal_adjudication": {
+    "V3_DESIGN": "HOLD_PENDING_DISTINCT_NEW_CHAT_INDEPENDENT_SOURCE_REVIEW",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "TEST_Q1Q2": "SEALED",
+    "FC02": "NOT_OPENED",
+    "new_training_steps": 0,
+    "new_gpu_calls": 0,
+    "new_eval_gold": false,
+    "main_merge": false,
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V3_DISTINCT_NEW_CHAT_PREREG_SOURCE_REVIEW_SINGLE_GO_HOLD_NO_GPU"
+  }
+}
