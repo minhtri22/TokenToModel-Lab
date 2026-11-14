@@ -8,7 +8,7 @@
 
 ## 1. Bảo toàn kết quả phản biện, không chỉnh sửa hậu nghiệm
 
-Reviewer V3 đã đọc 7/7 Git blob metadata tại frozen scientific HEAD `8f0714b29c98ca9be7c7444f964267faea4efb76`, kết luận **`HOLD_REVISE_BEFORE_PREREG`**: R1/R2/R5/R6 HOLD, R3/R4 PASS **mức thiết kế**, tổng **2 PASS / 4 HOLD / 0 FAIL**. Sáu phát hiện mới `D1V3-N01`…`D1V3-N06`, cộng 11 issue `D1V2-01`…`D1V2-11` đã được giữ nguyên trong machine contract V4.
+Reviewer V3 đã đọc 7/7 Git blob metadata tại frozen scientific HEAD `8f0714b29c98ca9be7c7444f964267faea4efb76`, kết luận **`HOLD_REVISE_BEFORE_PREREG`**: R1/R2/R5/R6 HOLD, R3/R4 PASS **mức thiết kế**, tổng **2 PASS / 4 HOLD / 0 FAIL**. Sáu phát hiện mới `D1V3-N01`, `D1V3-N02`, `D1V3-N03`, `D1V3-N04`, `D1V3-N05`, `D1V3-N06`, cộng 11 issue `D1V2-01`…`D1V2-11` đã được giữ nguyên trong machine contract V4.
 
 Chứng cứ V3 do reviewer mới tạo (GitHub đã lưu **trùng byte** so với tệp được nhận): Markdown SHA-256 `e806d03741c50d75a5e0ad910a1700c511c8057450384a5cad22cc94a96fd441`, JSON SHA-256 `1a7421f992d80e778152f0a03434c358a4251f66716c5e910aefb890ded530c7`. Tương ứng ở `docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V3_DISTINCT_INDEPENDENT_PREREG_SOURCE_REVIEW_20261114.md` và `artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V3_DISTINCT_INDEPENDENT_REVIEW_RECEIPT_20261114.json`.
 
