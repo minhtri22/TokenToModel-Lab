@@ -1,0 +1,13 @@
+{
+    "schema":  "ttm.t6.f01.windows.author_negative_qa.v1",
+    "type":  "AUTHOR_QA_ONLY_NOT_CODEX_DISTINCT_REVIEW",
+    "source_head":  "535653dd18b7ebaefb3fdd2994b302c35ad09d6e",
+    "original_windows_benchmark":  "PRESERVED_NOT_RERUN",
+    "legacy_unittest":  "PASS_16_OF_16",
+    "f01_security_unittest":  "PASS_9_OF_9_REAL_WINDOWS_JUNCTION",
+    "source_scope":  "No TRAIN/TEST/Q1Q2/GPU/P07/P08",
+    "hashes_sha256":  {
+                          "legacy_log":  "80dd5547c0aeae092661d527f54b757c4f1eb7c52c7d4e6e8c6f8c04cf10df5f",
+                          "security_log":  "eda084ff885921dd04132f852b57d915a4d859b64284ee8d62af4159f5e95507"
+                      }
+}
