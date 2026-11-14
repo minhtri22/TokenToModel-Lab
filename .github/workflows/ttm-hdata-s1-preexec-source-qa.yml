@@ -137,3 +137,8 @@ jobs:
           assert 'shutil.rmtree(' not in src
           print('HDATA_S1_FC01_COLLISION_DIAG_SOURCE_QA=PASS_NO_MODEL_FORWARD')
           PY
+      - name: Independent NEW FINAL24 no-inference source gate and missing-permit negative QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pilot_t4/hdata_s1/independent_hdata_s1_new_final24_source_only_preexec_qa_v1.py
