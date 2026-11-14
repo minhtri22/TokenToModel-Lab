@@ -1,0 +1,117 @@
+{
+  "schema": "ttm.d1_bridge.v6.r1_r3.prospective_integrated_correction_spec.v1",
+  "scope": "SOURCE_ONLY_DESIGN_CANDIDATE_NOT_PREREG_NOT_OWNER_GO",
+  "frozen_input_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+  "original_pins_git_blob_sha1": {
+    "V5_S8": "f4103f571ea80f909d59b1d9fe5f426702f53fa4",
+    "V6_S2": "c6ac330c40e31035116add165ef30fa58af59639"
+  },
+  "reviews": {
+    "previous_chat_md_sha256": "6e203c7e2fcc834dd77f72700009085b926e48a34a1e55536e21cfd8e4620195",
+    "previous_chat_json_sha256": "db7e8202df5e9532d2e173bc64adcd6d64a2966b223ccba550fb0f70b4e4d56a",
+    "other_agent_md_sha256": "65f1579569657eebc4296fe96041ae62b3f506277ef75d94ee0785bb08e86bd9",
+    "other_agent_json_sha256": "9486542d35d6e31bd60a19fe018cb46a20c3dc435d80112ad4be7ab627b799d6"
+  },
+  "consolidated_V6_verdict": "HOLD_REVISE_BEFORE_PREREG",
+  "axes_original_V6": {
+    "R1": "HOLD",
+    "R2": "PASS_SCOPED",
+    "R3": "HOLD",
+    "R4": "PASS_SCOPED",
+    "R5": "PASS_SCOPED_DESIGN_TRUSTED_CUSTODIAN",
+    "R6": "PASS_SCOPED"
+  },
+  "patches": [
+    {
+      "id": "R3_SEED_EXACT_RESTORE",
+      "pointer": "AM03_stats.seeds",
+      "from_last": 20261131,
+      "to_last": 20261201,
+      "expected_exact_seeds": [
+        20261120,
+        20261121,
+        20261122,
+        20261123,
+        20261124,
+        20261125,
+        20261126,
+        20261127,
+        20261128,
+        20261129,
+        20261130,
+        20261201
+      ],
+      "independent_V5_reference": "AM03_stats.seed_values",
+      "QA": "FULL_ARRAY_CROSS_VERSION_COMPARISON_BEFORE_CANDIDATE_ADMISSION"
+    },
+    {
+      "id": "R1_GLOBAL_CLOCK_GUARD",
+      "verbs": [
+        "RELOCATE",
+        "CARRY",
+        "TRANSFER",
+        "RETAIN",
+        "ACTIVATE"
+      ],
+      "rule": "time_id=current_time; no future instant action",
+      "wait_exception": "WAIT time_id is future scheduled trigger; atomic jump, no intervening agent action"
+    },
+    {
+      "id": "R1_RETAIN_MONOTONIC",
+      "rule": "protected_until_after=max(protected_until_before,qualifier)",
+      "boundary": "protection inclusive; TRANSFER allowed only when protected_until < current_time"
+    },
+    {
+      "id": "R1_CARRY_HOLDER_LOCATION",
+      "rule": "when agent moves, move all items held by agent before action plus carried target"
+    },
+    {
+      "id": "R1_WAIT_EVENT_DETERMINISM",
+      "rule": "scheduled triggers once/idempotent; deterministic order trigger then exogenous request; priority guard before transfer; no early action"
+    },
+    {
+      "id": "R1_COMPLETE_SYNTHETIC_FIXTURES",
+      "count": 4,
+      "categories": [
+        "entity_location",
+        "causal_reasoning",
+        "rule_constraint",
+        "goal_persistence"
+      ],
+      "fixture_ids": [
+        "CAT01",
+        "CAT02",
+        "CAT03",
+        "CAT04"
+      ],
+      "classification": "PUBLIC_TOY_NOT_TRAIN_EVAL_GOLD"
+    }
+  ],
+  "remaining_material_gates": [
+    "full 4 TRAIN + 4 OOD structural AST per category must be prospectively frozen; not generated here",
+    "independent model-checker with typed reachability and unique A/B gold for real skeletons",
+    "nonisomorphism/nonoverlap verified privately under existing R5 custody model",
+    "parser 64 legal positives and 64 adversarial negatives independent, rights/PII and infrastructure QA",
+    "scoped independent source review and owner decision before any science permit"
+  ],
+  "preserved": {
+    "R2": "UNCHANGED",
+    "R4": "UNCHANGED",
+    "R5": "UNCHANGED",
+    "R6": "UNCHANGED",
+    "TEST_Q1Q2": "SEALED",
+    "D1_BRIDGE_SCIENCE": "HOLD",
+    "FC02": "NOT_OPENED",
+    "GPU": 0,
+    "TRAINING": 0,
+    "INFERENCE": 0,
+    "MAIN": "UNCHANGED"
+  },
+  "qa_selftest_summary": {
+    "positive_pass": 12,
+    "positive_total": 12,
+    "negative_detected": 12,
+    "negative_total": 12,
+    "finite_valid_transitions_exercised": 128
+  }
+}
