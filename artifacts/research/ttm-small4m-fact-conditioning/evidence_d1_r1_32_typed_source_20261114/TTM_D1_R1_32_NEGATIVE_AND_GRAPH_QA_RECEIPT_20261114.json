@@ -1,0 +1,63 @@
+{
+  "blueprints_sha256": "83f9cce35639dd676ffe3ac31ed4983b2de2a30a008290798cb8c39f3c78047c",
+  "cases": {
+    "AB_EXTRA_INTERVENTION": {
+      "error": "HOLDER_LOCATION_INVARIANT",
+      "reject": true
+    },
+    "AB_GOAL_DUPLICATE": {
+      "error": "AB_GOLD_SAME",
+      "reject": true
+    },
+    "AST_GRAPH_CYCLE": {
+      "error": "NONBINARY_GATE",
+      "reject": true
+    },
+    "DUPLICATE_ID": {
+      "error": "DUPLICATE_ID",
+      "reject": true
+    },
+    "EVAL_LABEL_FORBIDDEN": {
+      "error": "EVAL_CLASSIFICATION",
+      "reject": true
+    },
+    "GOLD_NONUNIQUE": {
+      "error": "ORACLE_NOT_UNIQUE:ENTITY_LOCATION_TR01:A:[('a0', 'RELOCATE', 'i0', 'T0', 'l1'), ('a0', 'CARRY', 'i0', 'T0', 'l1'), ('a0', 'ACTIVATE', 'd0', 'T0', 'NONE')]",
+      "reject": true
+    },
+    "HOLDER_LOCATION_BROKEN": {
+      "error": "HOLDER_LOCATION_INVARIANT",
+      "reject": true
+    },
+    "ILLEGAL_REQUEST_TYPE": {
+      "error": "REQUEST_TUPLE_TYPE",
+      "reject": true
+    },
+    "OMIT_TYPED_FLUENT": {
+      "error": "STATE_MISSING_EXTRA_FLUENTS",
+      "reject": true
+    },
+    "OOD_GRAPH_CLONE_TRAIN": {
+      "error": "AB_BOOLEAN_POLICY_NOT_FLIPPED",
+      "reject": true
+    },
+    "OOD_SEMANTIC_CLONE_TRAIN": {
+      "error": "FUNCTION_SEMANTIC_OVERLAP",
+      "reject": true
+    },
+    "UNKNOWN_OBSERVATION": {
+      "error": "LEAF_PREDICATE_MISMATCH",
+      "reject": true
+    }
+  },
+  "classification": "NEW_32_SOURCE_ONLY_NEGATIVE_QA_NOT_PRIOR_13_OR_12",
+  "detected": 12,
+  "independent_networkx_graph_iso": {
+    "isomorphic_pairs": [],
+    "method": "independently labeled directed-graph isomorphism (networkx DiGraphMatcher)",
+    "pairs": 64,
+    "status": "PASS"
+  },
+  "schema": "ttm.d1.r1.32_mutation_audit.v1",
+  "total": 12
+}

@@ -1,0 +1,1768 @@
+{
+  "checker_sha256": "0ad537bbdcde0e8d92f6d15e5c59387e1419d9f3ec60e45f786a31f71ed1fdc8",
+  "checks": {
+    "A_B_oracles_unique_reachable": 32,
+    "blueprints": 32,
+    "cat_count": 4,
+    "dataset_admission": "HOLD",
+    "distinct_truth_tables_per_category": 8,
+    "nonisomorphic_graphs_per_category": 8,
+    "ood_blueprints": 16,
+    "private_EVAL_oracle": "NOT_CREATED",
+    "train_blueprints": 16,
+    "train_ood_nonoverlap_pairs_with_reachable_semantic_witness": 64,
+    "typed_states_complete": 32
+  },
+  "decision": "HOLD_SOURCE_ONLY_DESIGN_NOT_SCIENCE_READY",
+  "input_sha256": "83f9cce35639dd676ffe3ac31ed4983b2de2a30a008290798cb8c39f3c78047c",
+  "mode": "PUBLIC_SOURCE_ONLY_NO_GPU_NO_TRAIN_NO_TEST_OR_PRIVATE_GOLD",
+  "nonisomorphism_witnesses": {
+    "causal_reasoning": [
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD01",
+        "train": "CAUSAL_REASONING_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD02",
+        "train": "CAUSAL_REASONING_TR01",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD03",
+        "train": "CAUSAL_REASONING_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD04",
+        "train": "CAUSAL_REASONING_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD01",
+        "train": "CAUSAL_REASONING_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD02",
+        "train": "CAUSAL_REASONING_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD03",
+        "train": "CAUSAL_REASONING_TR02",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD04",
+        "train": "CAUSAL_REASONING_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD01",
+        "train": "CAUSAL_REASONING_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD02",
+        "train": "CAUSAL_REASONING_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD03",
+        "train": "CAUSAL_REASONING_TR03",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD04",
+        "train": "CAUSAL_REASONING_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD01",
+        "train": "CAUSAL_REASONING_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD02",
+        "train": "CAUSAL_REASONING_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD03",
+        "train": "CAUSAL_REASONING_TR04",
+        "witness_input_vector": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "CAUSAL_REASONING_OD04",
+        "train": "CAUSAL_REASONING_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "entity_location": [
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD01",
+        "train": "ENTITY_LOCATION_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD02",
+        "train": "ENTITY_LOCATION_TR01",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD03",
+        "train": "ENTITY_LOCATION_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD04",
+        "train": "ENTITY_LOCATION_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD01",
+        "train": "ENTITY_LOCATION_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD02",
+        "train": "ENTITY_LOCATION_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD03",
+        "train": "ENTITY_LOCATION_TR02",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD04",
+        "train": "ENTITY_LOCATION_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD01",
+        "train": "ENTITY_LOCATION_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD02",
+        "train": "ENTITY_LOCATION_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD03",
+        "train": "ENTITY_LOCATION_TR03",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD04",
+        "train": "ENTITY_LOCATION_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD01",
+        "train": "ENTITY_LOCATION_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD02",
+        "train": "ENTITY_LOCATION_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD03",
+        "train": "ENTITY_LOCATION_TR04",
+        "witness_input_vector": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "ENTITY_LOCATION_OD04",
+        "train": "ENTITY_LOCATION_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "goal_persistence": [
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "train": "GOAL_PERSISTENCE_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "train": "GOAL_PERSISTENCE_TR01",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "train": "GOAL_PERSISTENCE_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "train": "GOAL_PERSISTENCE_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "train": "GOAL_PERSISTENCE_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "train": "GOAL_PERSISTENCE_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "train": "GOAL_PERSISTENCE_TR02",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "train": "GOAL_PERSISTENCE_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "train": "GOAL_PERSISTENCE_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "train": "GOAL_PERSISTENCE_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "train": "GOAL_PERSISTENCE_TR03",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "train": "GOAL_PERSISTENCE_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD01",
+        "train": "GOAL_PERSISTENCE_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD02",
+        "train": "GOAL_PERSISTENCE_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD03",
+        "train": "GOAL_PERSISTENCE_TR04",
+        "witness_input_vector": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "GOAL_PERSISTENCE_OD04",
+        "train": "GOAL_PERSISTENCE_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "rule_constraint": [
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD01",
+        "train": "RULE_CONSTRAINT_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD02",
+        "train": "RULE_CONSTRAINT_TR01",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD03",
+        "train": "RULE_CONSTRAINT_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD04",
+        "train": "RULE_CONSTRAINT_TR01",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD01",
+        "train": "RULE_CONSTRAINT_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD02",
+        "train": "RULE_CONSTRAINT_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD03",
+        "train": "RULE_CONSTRAINT_TR02",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD04",
+        "train": "RULE_CONSTRAINT_TR02",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD01",
+        "train": "RULE_CONSTRAINT_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD02",
+        "train": "RULE_CONSTRAINT_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD03",
+        "train": "RULE_CONSTRAINT_TR03",
+        "witness_input_vector": [
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD04",
+        "train": "RULE_CONSTRAINT_TR03",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD01",
+        "train": "RULE_CONSTRAINT_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD02",
+        "train": "RULE_CONSTRAINT_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD03",
+        "train": "RULE_CONSTRAINT_TR04",
+        "witness_input_vector": [
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "different_canonical_actions": true,
+        "ood": "RULE_CONSTRAINT_OD04",
+        "train": "RULE_CONSTRAINT_TR04",
+        "witness_input_vector": [
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ]
+  },
+  "not_verified": [
+    "sealed EVAL AST/gold private custody",
+    "rights and PII review",
+    "original R1 category policy adoption of boolean dependency graph",
+    "distinct organizational independent reviewer",
+    "real TRAIN VAL EVAL lexical worlds",
+    "fully independent production semantic model-checker"
+  ],
+  "records": [
+    {
+      "A": {
+        "legal_count": 4,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 5,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_TR01",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g1)')))))",
+      "truth_table": "0000000000000001",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_TR02",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_TR03",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'XOR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011110",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_TR04",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'OR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010101",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_OD01",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'XOR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001101111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 4,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 5,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_OD02",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g1)'))), ('G', 'OR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1')))))",
+      "truth_table": "0000000000000111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_OD03",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'XOR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010100",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "CARRY",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RELOCATE",
+          "i0",
+          "T0",
+          "l1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "entity_location",
+      "skeleton_id": "ENTITY_LOCATION_OD04",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'holder(i1)==a1'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001010111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 4,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 5,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_TR01",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g1)')))))",
+      "truth_table": "0000000000000001",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_TR02",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_TR03",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'XOR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011110",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_TR04",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'OR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010101",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_OD01",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'XOR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001101111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 4,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 5,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_OD02",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g1)'))), ('G', 'OR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1')))))",
+      "truth_table": "0000000000000111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_OD03",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'XOR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010100",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 5,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "ACTIVATE",
+          "d0",
+          "T0",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 6,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g0",
+          "T1",
+          "NONE"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "causal_reasoning",
+      "skeleton_id": "CAUSAL_REASONING_OD04",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g1)'))), ('P', 'holder(i1)==a1'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001010111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 6,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 7,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_TR01",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g0)')))))",
+      "truth_table": "0000000000000001",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_TR02",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_TR03",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'XOR', (('G', 'AND', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011110",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_TR04",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'OR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010101",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_OD01",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'XOR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001101111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 6,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 7,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_OD02",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g0)'))), ('G', 'OR', (('P', 'holder(i1)==a1'), ('P', 'protected_until(i1)>=T1')))))",
+      "truth_table": "0000000000000111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_OD03",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'XOR', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i1)==a1')))",
+      "truth_table": "0000000000010100",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "WAIT",
+          "g1",
+          "T2",
+          "NONE"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "TRANSFER",
+          "i0",
+          "T0",
+          "a1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "rule_constraint",
+      "skeleton_id": "RULE_CONSTRAINT_OD04",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'protected_until(i1)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'holder(i1)==a1'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001010111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 6,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 7,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_TR01",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'holder(i0)==a1'), ('P', 'protected_until(i0)>=T1'))), ('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g0)')))))",
+      "truth_table": "0000000000000001",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_TR02",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'holder(i0)==a1'), ('P', 'protected_until(i0)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_TR03",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'XOR', (('G', 'AND', (('P', 'holder(i0)==a1'), ('P', 'protected_until(i0)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000000011110",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_TR04",
+      "split": "TRAIN",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'OR', (('P', 'protected_until(i0)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i0)==a1')))",
+      "truth_table": "0000000000010101",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_OD01",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'XOR', (('P', 'holder(i0)==a1'), ('P', 'protected_until(i0)>=T1'))), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001101111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 6,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 7,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_OD02",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('P', 'power(d1)==ON'), ('P', 'trigger_fired(g0)'))), ('G', 'OR', (('P', 'holder(i0)==a1'), ('P', 'protected_until(i0)>=T1')))))",
+      "truth_table": "0000000000000111",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_OD03",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'AND', (('G', 'XOR', (('P', 'protected_until(i0)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'power(d1)==ON'))), ('P', 'holder(i0)==a1')))",
+      "truth_table": "0000000000010100",
+      "typed_complete": true
+    },
+    {
+      "A": {
+        "legal_count": 7,
+        "policy_value": true,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T2"
+        ]
+      },
+      "A_B_unique_reachable_actions": true,
+      "B": {
+        "legal_count": 8,
+        "policy_value": false,
+        "unique_oracle": [
+          "a0",
+          "RETAIN",
+          "i1",
+          "T0",
+          "T1"
+        ]
+      },
+      "all_policy_leaves_causally_sensitive": true,
+      "category": "goal_persistence",
+      "skeleton_id": "GOAL_PERSISTENCE_OD04",
+      "split": "STRUCTURAL_OOD_BLUEPRINT",
+      "structural_signature": "('G', 'AND', (('G', 'OR', (('G', 'AND', (('P', 'protected_until(i0)>=T1'), ('P', 'trigger_fired(g0)'))), ('P', 'holder(i0)==a1'))), ('P', 'power(d1)==ON')))",
+      "truth_table": "0000000001010111",
+      "typed_complete": true
+    }
+  ],
+  "schema": "ttm.d1.r1.32_blueprint_independent_checker_receipt.v1"
+}

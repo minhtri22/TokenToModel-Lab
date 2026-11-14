@@ -1,0 +1,6374 @@
+{
+  "classification": "PUBLIC_SOURCE_ONLY_DESIGN_PROTOTYPE_NOT_DATASET_NOT_EVAL_GOLD",
+  "counts": {
+    "categories": 4,
+    "ood_blueprints_per_category": 4,
+    "total": 32,
+    "train_blueprints_per_category": 4
+  },
+  "operation": "TTM_SMALL4M_D1_R1_32_TYPED_SKELETON_STRUCTURE_ORACLE_NONOVERLAP_SINGLE_SOURCE_REVIEW",
+  "production_rights_and_custodian": "NOT_VERIFIED",
+  "provenance": {
+    "candidate_evidence_commit": "553f1d6db9c2d5572a7e664b64a32e9eaf977f88",
+    "candidate_sha256": "e05774d9f0a155e19f70574260be839f1f0634bdfce2399ab2a67622dbc214a5",
+    "frozen_science_head": "dd52804685d186c17e600221ffb16ce78aea12ea",
+    "seed_array_unmodified": "20261120..20261130,20261201"
+  },
+  "schema": "ttm.d1.r1.typed_32_structural_blueprints.v1",
+  "sealed_EVAL_material": "NOT_CREATED_NOT_OPENED",
+  "skeletons": [
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_TR01",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_TR02",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_TR03",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_TR04",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_OD01",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_OD02",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_OD03",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "entity_location",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "ENTITY_LOCATION_OD04",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "NONE",
+          "location_item.i0": "l1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i0": "a0",
+          "location_item.i0": "l1"
+        },
+        "interpretation": "choose transport custody from four typed observations; two actions are feasible",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_TR01",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_TR02",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_TR03",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_TR04",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_OD01",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_OD02",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": true
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_OD03",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "causal_reasoning",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g1)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "CAUSAL_REASONING_OD04",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "NONE",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T1",
+          "power.d0": "OFF",
+          "trigger_fired.g0": true
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "power.d0": "ON",
+          "trigger_fired.g0": true
+        },
+        "interpretation": "choose ACTIVATE linked device now vs WAIT for scheduled trigger",
+        "target": "g0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_TR01",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_TR02",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_TR03",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_TR04",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_OD01",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_OD02",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_OD03",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "T1"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "rule_constraint",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i1)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i1)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "RULE_CONSTRAINT_OD04",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "NONE",
+          "item": "NONE",
+          "recipient": "NONE"
+        },
+        "holder": {
+          "i0": "a0",
+          "i1": "a1"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l0",
+          "i1": "l1"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i0": "a1"
+        },
+        "goal_when_true": {
+          "current_time": "T2",
+          "holder.i0": "a0"
+        },
+        "interpretation": "a typed priority rule gates immediate transfer vs deferral to an allowed trigger; protected_until guard still enforced",
+        "target": "i0",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_TR01",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_TR02",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_TR03",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_TR04",
+      "split_design": "TRAIN",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_OD01",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n5",
+            "port": 0,
+            "to": "n4"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n4"
+          },
+          {
+            "from": "n4",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n4",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_OD02",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": true,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n2",
+            "port": 0,
+            "to": "n1"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 1,
+            "to": "n1"
+          },
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n2",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "XOR"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_OD03",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "T1",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    },
+    {
+      "category": "goal_persistence",
+      "design_status": "PUBLIC_SOURCE_ONLY_NOT_SCIENCE_TRAIN_EVAL_DATA_OR_GOLD",
+      "intervention": {
+        "condition_A": {
+          "observed_input": "x0",
+          "value": true
+        },
+        "condition_B": {
+          "observed_input": "x0",
+          "value": false
+        },
+        "invariant": "only typed predicate power(d1)==ON flips, with all other state fluents equal"
+      },
+      "policy_graph": {
+        "edges": [
+          {
+            "from": "n1",
+            "port": 0,
+            "to": "n0"
+          },
+          {
+            "from": "n4",
+            "port": 0,
+            "to": "n3"
+          },
+          {
+            "from": "n5",
+            "port": 1,
+            "to": "n3"
+          },
+          {
+            "from": "n3",
+            "port": 0,
+            "to": "n2"
+          },
+          {
+            "from": "n6",
+            "port": 1,
+            "to": "n2"
+          },
+          {
+            "from": "n2",
+            "port": 1,
+            "to": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "n0",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n1",
+            "input": "x0",
+            "kind": "typed_observation",
+            "predicate": "power(d1)==ON"
+          },
+          {
+            "id": "n2",
+            "kind": "logic_gate",
+            "operator": "OR"
+          },
+          {
+            "id": "n3",
+            "kind": "logic_gate",
+            "operator": "AND"
+          },
+          {
+            "id": "n4",
+            "input": "x1",
+            "kind": "typed_observation",
+            "predicate": "trigger_fired(g0)"
+          },
+          {
+            "id": "n5",
+            "input": "x2",
+            "kind": "typed_observation",
+            "predicate": "protected_until(i0)>=T1"
+          },
+          {
+            "id": "n6",
+            "input": "x3",
+            "kind": "typed_observation",
+            "predicate": "holder(i0)==a1"
+          }
+        ],
+        "root": "n0",
+        "semantics": "acyclic typed boolean dependency DAG; graph root selects one-step goal predicate"
+      },
+      "semantic_graph_claim": "nonisomorphism alone insufficient; checker must verify truth-table disagreement under reachable typed state",
+      "skeleton_id": "GOAL_PERSISTENCE_OD04",
+      "split_design": "STRUCTURAL_OOD_BLUEPRINT",
+      "state_A": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "ON"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "state_B": {
+        "current_time": "T0",
+        "defer_until": {
+          "a0": "NONE",
+          "a1": "NONE"
+        },
+        "external_transfer_request": {
+          "at": "T1",
+          "item": "i1",
+          "recipient": "a1"
+        },
+        "holder": {
+          "i0": "a1",
+          "i1": "a0"
+        },
+        "linked_trigger": {
+          "d0": "g0",
+          "d1": "NONE"
+        },
+        "location_agent": {
+          "a0": "l0",
+          "a1": "l1"
+        },
+        "location_item": {
+          "i0": "l1",
+          "i1": "l0"
+        },
+        "power": {
+          "d0": "OFF",
+          "d1": "OFF"
+        },
+        "protected_until": {
+          "i0": "BEFORE_T0",
+          "i1": "BEFORE_T0"
+        },
+        "scheduled_at": {
+          "g0": "T1",
+          "g1": "T2"
+        },
+        "trigger_fired": {
+          "g0": false,
+          "g1": false
+        }
+      },
+      "task": {
+        "agent": "a0",
+        "goal_when_false": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T1"
+        },
+        "goal_when_true": {
+          "current_time": "T0",
+          "holder.i1": "a0",
+          "protected_until.i1": "T2"
+        },
+        "interpretation": "deadline of accepted protection changes with goal evidence; T1 transfer request is blocked by both",
+        "target": "i1",
+        "task_kind": "goal_from_boolean_dependency"
+      }
+    }
+  ],
+  "source_new_amendment": "typed boolean evidence dependency graph as source-only policy goal; requires independent scientific protocol review"
+}
