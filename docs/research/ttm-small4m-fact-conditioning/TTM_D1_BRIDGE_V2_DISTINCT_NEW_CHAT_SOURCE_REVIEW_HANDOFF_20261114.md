@@ -46,7 +46,7 @@ Nếu không thể mở đủ nguồn hoặc blob không khớp, báo `HOLD_SOUR
 
 Xuất báo cáo `TTM_D1_BRIDGE_V2_DISTINCT_AI_SOURCE_REVIEW_20261114.md` và máy `TTM_D1_BRIDGE_V2_DISTINCT_AI_REVIEW_RECEIPT_20261114.json`. Mỗi AM01–AM06 phải có verdict, evidence ref, issue-ID, mức CRITICAL/HIGH/MEDIUM/LOW, đề xuất *must-fix*, và khả năng thay đổi V2 nếu cần — **mọi sửa đổi phải thành V3, không overwrite V2**. Báo cáo phải nói rõ `AST_NONOVERLAP=NOT_EXECUTED`, `PARSER_RUNTIME_QA=NOT_EXECUTED`, `FREE_T4_FEASIBILITY=NOT_VERIFIED` nếu không có byte chứng cứ thật.
 
-**Một final decision về design בלבד:** `GO_DESIGN_ONLY` / `HOLD_REVISE_BEFORE_PREREG` / `FAIL_INVALID_DESIGN` / `HOLD_SOURCE_UNAVAILABLE`; còn `D1_SCIENCE_RELEASE=HOLD` trong mọi trường hợp.
+**Một quyết định cuối về thiết kế:** `GO_DESIGN_ONLY` / `HOLD_REVISE_BEFORE_PREREG` / `FAIL_INVALID_DESIGN` / `HOLD_SOURCE_UNAVAILABLE`; còn `D1_SCIENCE_RELEASE=HOLD` trong mọi trường hợp.
 
 Kết thúc bằng đúng một **Bước thực hiện tiếp theo** cho owner. Không micro-permits.
 
