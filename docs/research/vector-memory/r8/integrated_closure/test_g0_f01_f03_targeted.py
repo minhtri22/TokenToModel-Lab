@@ -177,5 +177,41 @@ class TargetedSourceBoundaryQA(unittest.TestCase):
         self.assertEqual(g.receipt_f07(b)["action"],"ABSTAIN")
 
 
+    def test_F03_null_is_not_literal_none_role(self):
+        case={"cards":[{"status":"signed","authority_role":None,
+                        "source_format":"record","text":"signed"}]}
+        with self.assertRaisesRegex(ValueError,"INVALID_O3_CATEGORICAL_TYPE_AUTHORITY_ROLE"):
+            o._o3_features(case)
+
+    def test_F03_string_none_role_remains_allowed(self):
+        case={"cards":[{"status":"signed","authority_role":"none",
+                        "source_format":"record","text":"signed"}]}
+        self.assertIn("authority_role=none",o._o3_features(case))
+
+    def test_F03_null_and_non_string_rejected_for_all_fields(self):
+        for field in ("status","authority_role","source_format"):
+            for bad in (None,17,True,["signed"],{"key":"signed"}):
+                with self.subTest(field=field,bad_type=type(bad).__name__):
+                    c={"status":"signed","authority_role":"none","source_format":"record"}
+                    c[field]=bad
+                    case={"cards":[{**c,"text":"signed"}]}
+                    with self.assertRaisesRegex(ValueError,"INVALID_O3_CATEGORICAL_TYPE_"+field.upper()):
+                        o._o3_features(case)
+
+    def test_F03_missing_is_explicit_empty_bin(self):
+        case={"cards":[{"text":"signed"}]}
+        z=o._o3_features(case)
+        for field in ("status","authority_role","source_format"):
+            self.assertIn(field+"=",z)
+
+    def test_F03_null_preflight_rejected_before_fit(self):
+        import test_integrated_source_only as fixture
+        cases=[fixture.oracle_case(i,"SELECT" if i%2==0 else "ABSTAIN")
+               for i in range(8)]
+        cases[0]["cards"][0]["authority_role"]=None
+        self.assertEqual(o.validate_split(cases[:6],cases[6:]),
+                         "INVALID_O3_CATEGORICAL_TYPE_AUTHORITY_ROLE")
+
+
 if __name__=="__main__":
     unittest.main()

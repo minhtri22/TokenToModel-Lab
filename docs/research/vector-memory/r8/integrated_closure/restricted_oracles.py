@@ -114,7 +114,12 @@ def _o2_features(case):
     return z
 
 def _o3_category(card,field):
-    value=norm(card.get(field,""))
+    # The frozen closed enum contains STRINGS only. JSON null is not the
+    # literal role "none", and booleans/numbers must not be string-coerced.
+    raw=card.get(field,"")
+    if not isinstance(raw,str):
+        raise ValueError("INVALID_O3_CATEGORICAL_TYPE_"+field.upper())
+    value=norm(raw)
     if value not in O3_CATEGORICAL_ENUMS[field]:
         raise ValueError("INVALID_O3_CATEGORICAL_VALUE_"+field.upper())
     return value
@@ -165,9 +170,11 @@ def validate_split(train,test):
     # Fail closed on unregistered O3 values, before any model fitting.
     for c in allrows:
         for card in c["cards"]:
-            for field,allowed in O3_CATEGORICAL_ENUMS.items():
-                if norm(card.get(field,"")) not in allowed:
-                    return "INVALID_O3_CATEGORICAL_VALUE_"+field.upper()
+            for field in O3_CATEGORICAL_ENUMS:
+                try:
+                    _o3_category(card,field)
+                except ValueError as exc:
+                    return str(exc)
     tc={c["component_id_pre"] for c in train}
     ec={c["component_id_pre"] for c in test}
     if tc & ec:return "FOLD_LEAK_CV_INVALID"
