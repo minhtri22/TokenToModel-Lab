@@ -1,0 +1,63 @@
+{
+  "schema": "ttm.d1_bridge.v2.single_packet.source_only_same_author_qa_receipt.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V2_SINGLE_PACKET_PREREG_AMENDMENT_SOURCE_QA_AND_OWNER_GO_HOLD_NO_GPU",
+  "date": "2026-11-14",
+  "source_paths": {
+    "V2_protocol_json": "artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_AM01_AM06_SINGLE_PACKET_PREREG_DESIGN_HOLD_20261114.json",
+    "V2_protocol_document": "docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_SINGLE_PACKET_AM01_AM06_PREREG_DESIGN_AND_OWNER_HOLD_20261114.md",
+    "source_qa_script": "tools/pilot_t4/fc01/ttm_d1_bridge_v2_source_only_contract_qa_20261114.js"
+  },
+  "source_git_blob_sha1": {
+    "V2_protocol_json": "66ce607eb13e4c64994fecd4a40a2c3da94d19dc",
+    "V2_protocol_document": "354291ec54803bd9764728ee858abd83a71ca4b6",
+    "source_qa_script": "7ee503f19613899ecd9bbe788dd995ad10415575",
+    "original_independent_review_markdown": "8fd942d60e79e5b78cc342505d92a4dbcaefc540",
+    "original_independent_review_receipt": "580e7269f66e900b8fe40584fd73d5ce0f001566"
+  },
+  "original_independent_review_sha256": {
+    "md": "7369882b5615785628bd93b006157423f2b8377e265e3c3098429eabd60ab97c",
+    "json": "21c1e07b13ce1cd39d77200247b5f1a6c9fbbd49fffa7f90821c9a429f28034b"
+  },
+  "execution_mode": "SOURCE_ONLY_CONTRACT_IN_MEMORY_V8_SAME_FUNCTION_SERIALIZED_IN_JS_SCRIPT; NO_NODE_CLI_SEPARATE_INVOCATION",
+  "reviewer_independence": "NOT_INDEPENDENT_SAME_AGENT_AUTHOR_OF_V2_AND_QA",
+  "checks": {
+    "positive_total": 44,
+    "positive_pass": 44,
+    "positive_fail": 0,
+    "deliberate_negative_mutations": 9,
+    "negative_detected": 9,
+    "negative_not_caught": 0
+  },
+  "negative_controls_detected": [
+    "N01_DROP_SEED",
+    "N02_WRONG_P_VALUE",
+    "N03_ACCEPT_NEGATION",
+    "N04_TRAINER_GOLD_LEAK",
+    "N05_SCIENCE_GO_TAMPER",
+    "N06_EVAL_AST_OVERLAP_TAMPER",
+    "N07_WRONG_TOTAL_STEPS",
+    "N08_SKIP_POSITIVE_MOMENT_QA",
+    "N09_REVIEW_VERDICT_TAMPER"
+  ],
+  "source_limitations": {
+    "V2_spec_not_production_AST_generator": true,
+    "V2_spec_not_production_parser": true,
+    "actual_AST_nonoverlap_QA": "NOT_EXECUTED",
+    "actual_parser_adversarial_QA": "NOT_EXECUTED",
+    "independent_statistics_review": "NOT_EXECUTED",
+    "real_12_seed_training_power": "NOT_VERIFIED",
+    "actual_rights_and_custodian_ACL": "NOT_VERIFIED",
+    "actual_nonzero_adam_resume": "NOT_EXECUTED",
+    "free_colab_T4_feasibility": "NOT_VERIFIED",
+    "real_NEW_EVAL_gold_created": false
+  },
+  "status": "PASS_SCOPED_SELF_AUTHORED_SOURCE_ONLY_CONTRACT_QA_44_OF_44_NEGATIVE_9_OF_9",
+  "single_owner_decision": "HOLD_PENDING_DISTINCT_V2_SOURCE_REVIEW_NO_SCIENCE_GO",
+  "science_execution": "NOT_AUTHORIZED",
+  "actual_new_training_steps": 0,
+  "gpu_calls": 0,
+  "test_q1q2": "SEALED",
+  "D1_existing": "HOLD_UNMODIFIED",
+  "fc01_exploratory": "CLOSED_PASS_SCOPED",
+  "recommendation": "ONE_DISTINCT_SOURCE_ONLY_REVIEW_OF_V2_AM01_AM06_BEFORE_DESIGN_FREEZE; NO_MICRO_PERMITS"
+}
