@@ -19,17 +19,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: 'Only three new G0 findings - targeted symbolic negative QA'
+      - name: 'B03 final family enum, HMAC provenance, and production caller QA'
         shell: bash
         run: |
           set -euo pipefail
           python --version
           python -m compileall -q docs/research/vector-memory/r8/integrated_closure
-          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_final_three_findings.py
+          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_b03_production_negative.py
           sha256sum \
-            docs/research/vector-memory/r8/integrated_closure/gold_contract.py \
             docs/research/vector-memory/r8/integrated_closure/folds_raters.py \
+            docs/research/vector-memory/r8/integrated_closure/r8_production_caller.py \
+            docs/research/vector-memory/r8/integrated_closure/test_g0_b03_production_negative.py \
             docs/research/vector-memory/r8/integrated_closure/test_g0_final_three_findings.py
-          printf '%s\n' 'QA_SCOPE=G0_MINIMAL_PROOF_F07_EVENT_R8_MANIFEST_ONLY' \
-            'HISTORIC_37_AND_25_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
+          printf '%s\n' 'QA_SCOPE=G0_B03_FAMILY_HMAC_CALLER_DELTA_ONLY' \
+            'HISTORIC_37_25_15_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
             'PRIVATE_GOLD=NOT_ACCESSED' 'GPU=NO' 'READER=0' 'PROBE256=SEALED'

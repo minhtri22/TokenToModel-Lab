@@ -2,7 +2,7 @@
 Private HMAC key and real allocation must remain under authorized G2 custody.
 """
 from __future__ import annotations
-import hashlib,hmac,re,unicodedata
+import hashlib,hmac,json,re,unicodedata
 from collections import defaultdict
 
 PATTERN=r"(?u)\b\w+\b"
@@ -145,6 +145,8 @@ R8_CASES=64
 R8_FAMILIES=8
 R8_PAIRS_PER_FAMILY=4
 R8_CARDS_PER_CASE=32
+R8_FAMILY_IDS=tuple(f"F{i:02d}" for i in range(1,9))
+R8_PREASSIGN_LOCK_SCHEMA="TTM_VM_R8_GPRE_HMAC_V1"
 
 
 def validate_r8_blueprint_manifest(blueprints):
@@ -170,7 +172,10 @@ def validate_r8_blueprint_manifest(blueprints):
         if not isinstance(family,str) or not family:
             raise ValueError("INVALID_R8_RELATION_FAMILY")
         counts[family]+=1
-    if len(counts)!=R8_FAMILIES or any(n!=R8_PAIRS_PER_FAMILY for n in counts.values()):
+    # Family labels are preregistered *identities*, not just eight buckets.
+    if set(counts)!=set(R8_FAMILY_IDS):
+        raise ValueError("INVALID_R8_FAMILY_ENUM")
+    if any(counts[family]!=R8_PAIRS_PER_FAMILY for family in R8_FAMILY_IDS):
         raise ValueError("INVALID_R8_FAMILY_BALANCE")
     return tuple(bpids)
 
@@ -212,27 +217,76 @@ def validate_r8_case_manifest(cases,blueprints):
     return True
 
 
+def _r8_private_key(private_hmac_key):
+    """Only the authorized private custodian may supply the REAL G2 key."""
+    if type(private_hmac_key) is not bytes or len(private_hmac_key)<32:
+        raise ValueError("INVALID_R8_PRIVATE_HMAC_KEY")
+    return private_hmac_key
+
+
+def _r8_hmac(private_hmac_key,purpose,document):
+    raw=json.dumps(document,sort_keys=True,ensure_ascii=False,
+                   separators=(",",":"),allow_nan=False).encode("utf-8")
+    return hmac.new(private_hmac_key,purpose.encode("ascii")+b"\0"+raw,
+                    hashlib.sha256).hexdigest()
+
+
+def _r8_blueprint_lock(blueprints,private_hmac_key):
+    # All JSON blueprint fields are bound; no reinterpretation after G_pre.
+    ordered=sorted(blueprints,key=lambda b:b["blueprint_id"])
+    try:
+        return _r8_hmac(private_hmac_key,"R8_GPRE_BLUEPRINT_V1",ordered)
+    except (TypeError,ValueError,OverflowError) as exc:
+        raise ValueError("INVALID_R8_BLUEPRINT_CANONICAL_JSON") from exc
+
+
 def preassign_r8(blueprints,private_hmac_key):
-    """ONLY production pre-fold gateway. No R8 data is created here."""
+    """Pre-G3 production gate. Result MUST be sealed by actual G2 custodian.
+
+    This does not generate R8, prove the custody timestamp, or publish the fold.
+    """
     validate_r8_blueprint_manifest(blueprints)
-    return preassign(blueprints,private_hmac_key)
+    key=_r8_private_key(private_hmac_key)
+    blueprint_lock=_r8_blueprint_lock(blueprints,key)
+    assignment=preassign(blueprints,key)
+    # Freeze blueprint bytes, actual fold + graph components and readiness status.
+    result={**assignment,
+            "lock_schema":R8_PREASSIGN_LOCK_SCHEMA,
+            "blueprint_hmac":blueprint_lock}
+    result["preassignment_hmac"]=_r8_hmac(key,"R8_GPRE_FOLDS_V1",
+        {k:result[k] for k in ("lock_schema","blueprint_hmac","fold",
+                                "component_id_pre","component_count",
+                                "case_count_by_fold","cv_status")})
+    return result
 
 
-def postcheck_r8(cases,blueprints,locked_preassignment):
-    """ONLY production post-fold gateway; never rescue/repartition a bad fold."""
+def postcheck_r8(cases,blueprints,locked_preassignment,private_hmac_key):
+    """Verify G2 HMAC/source-bound G_pre before G_post, never trust a dict status.
+
+    The private key MUST originate in protected custody. Recomputing here checks
+    exact fold/blueprint integrity; custody timestamps are separate evidence.
+    """
     validate_r8_case_manifest(cases,blueprints)
-    if not isinstance(locked_preassignment,dict) or "fold" not in locked_preassignment:
+    key=_r8_private_key(private_hmac_key)
+    if not isinstance(locked_preassignment,dict):
         raise ValueError("INVALID_R8_LOCKED_FOLD_MANIFEST")
-    expected={b["blueprint_id"] for b in blueprints}
-    folds=locked_preassignment["fold"]
-    if not isinstance(folds,dict) or set(folds)!=expected:
-        raise ValueError("INVALID_R8_LOCKED_FOLD_MEMBERSHIP")
-    if any(type(v) is not int or v not in (0,1,2,3) for v in folds.values()):
-        raise ValueError("INVALID_R8_LOCKED_FOLD_VALUE")
-    if len(set(folds.values()))!=4 or locked_preassignment.get("cv_status")!="PREFOLD_READY_NOT_VALIDATED":
+    if locked_preassignment.get("lock_schema")!=R8_PREASSIGN_LOCK_SCHEMA:
+        raise ValueError("INVALID_R8_PREASSIGNMENT_SCHEMA")
+    expected=preassign_r8(blueprints,key)
+    for field in ("blueprint_hmac","preassignment_hmac"):
+        supplied=locked_preassignment.get(field)
+        if not isinstance(supplied,str) or not hmac.compare_digest(
+            supplied,expected[field]
+        ):
+            raise ValueError("INVALID_R8_HMAC_PROVENANCE_"+field.upper())
+    for field in ("fold","component_id_pre","component_count",
+                  "case_count_by_fold","cv_status"):
+        if locked_preassignment.get(field)!=expected[field]:
+            raise ValueError("INVALID_R8_PREASSIGNMENT_MISMATCH_"+field.upper())
+    folds=expected["fold"]
+    if len(set(folds.values()))!=4 or expected["cv_status"]!="PREFOLD_READY_NOT_VALIDATED":
         raise ValueError("R8_CV_NOT_ESTIMABLE_PREASSIGNMENT")
     return postcheck(cases,folds,expected_twins_per_blueprint=2)
-
 
 def estimability(train_cases,component_ids):
     if len(set(component_ids.values()))<4:return "NOT_ESTIMABLE_FEWER_THAN_4_COMPONENTS"
