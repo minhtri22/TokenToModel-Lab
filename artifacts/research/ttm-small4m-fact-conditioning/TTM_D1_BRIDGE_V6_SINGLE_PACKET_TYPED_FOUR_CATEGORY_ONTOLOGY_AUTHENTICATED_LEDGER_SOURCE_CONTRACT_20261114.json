@@ -1,0 +1,815 @@
+{
+  "schema": "ttm.d1_bridge.v6.single_packet.category_ontology_audit_ledger.source_design.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V6_SINGLE_PACKET_FOUR_CATEGORY_TYPED_ONTOLOGY_AND_LEDGER_TO_RECEIPT_AUDIT_BINDING_SOURCE_AMENDMENT_NO_GPU",
+  "date": "2026-11-14",
+  "provenance": {
+    "repo": "minhtri22/TokenToModel-Lab",
+    "branch": "research/ttm-small4m-fact-conditioning-data-objective-capacity-design-20261112",
+    "source_V5_frozen_head": "0b7205093e70cc6473244a23d2a20ead568452c1",
+    "historical_versions": "V1_V2_V3_V4_V5_IMMUTABLE",
+    "reviewer_status": "HOLD_REVISE_BEFORE_PREREG",
+    "reviewer_classification": "DISTINCT_CHAT_AI_SELF_ATTESTED_NOT_EXTERNALLY_VERIFIED",
+    "external_review_sources": {
+      "md_original_sha256": "4dd7c89592ce6dad9c1617b0afd28b7ea7fe48d78ae3b35bce20db0a38f59f86",
+      "json_original_sha256": "32ec96b36df27b122deda36513810d46aadf2d62b2e7ba13910d739c722c7c73",
+      "md_gitblob_sha1": "e8f95443e2db80ad95e7f698a0499e968ca3086b",
+      "json_gitblob_sha1": "ea56f20c7784db6aa8bf2bb99af36ae61ba55c95"
+    },
+    "new_blockers": [
+      "D1V5-N01",
+      "D1V5-N02"
+    ],
+    "pass_inherited": [
+      "R2_AM02",
+      "R3_AM03",
+      "R4_AM04",
+      "R6_AM06"
+    ],
+    "canonical_category_origin": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_D1_BRIDGE_STRUCTURAL_OOD_FREEGEN_MULTISEED_PREREG_DESIGN_V1_20261113.md",
+    "canonical_category_origin_git_blob_sha1": "a5cd0dbd4167bdc53454847a25afcf317c94226b"
+  },
+  "AM01_four_category_typed_action": {
+    "status": "SOURCE_CONTRACT_CANDIDATE_NOT_GENERATOR",
+    "typed_finite_domains": {
+      "agents": [
+        "a0",
+        "a1"
+      ],
+      "items": [
+        "i0",
+        "i1"
+      ],
+      "locations": [
+        "l0",
+        "l1"
+      ],
+      "devices": [
+        "d0",
+        "d1"
+      ],
+      "triggers": [
+        "g0",
+        "g1"
+      ],
+      "times": [
+        "BEFORE_T0",
+        "T0",
+        "T1",
+        "T2",
+        "NONE"
+      ],
+      "holders": [
+        "NONE",
+        "a0",
+        "a1"
+      ],
+      "power": [
+        "OFF",
+        "ON"
+      ],
+      "booleans": [
+        false,
+        true
+      ],
+      "time_order": [
+        "BEFORE_T0",
+        "T0",
+        "T1",
+        "T2"
+      ],
+      "NONE_time_semantics": "NONE means explicit no temporal constraint phrase 'anytime'; rejected for actions requiring scheduled time",
+      "current_time_allowed": [
+        "T0",
+        "T1",
+        "T2"
+      ],
+      "state_fluents": [
+        "current_time",
+        "location(agent)",
+        "location(item)",
+        "holder(item)",
+        "power(device)",
+        "trigger_fired(trigger)",
+        "scheduled_at(trigger)",
+        "linked_trigger(device)",
+        "protected_until(item)",
+        "defer_until(agent,trigger)"
+      ],
+      "invariants": [
+        "holder(item) != NONE => location(item)=location(holder(item))",
+        "protected_until(item) is discrete time or BEFORE_T0",
+        "scheduled_at(trigger) is one of T0/T1/T2 or NONE",
+        "single total current_time and deterministic event order",
+        "at most one linked_trigger(device)",
+        "no action modifies unknown typed field"
+      ],
+      "input_alphabet": "finite typed initial states × exactly two conditions A/B × declared interventions × goal predicate; align entity roles and time order across TRAIN/VAL/EVAL",
+      "time_transition": "an action at current_time, or WAIT to scheduled future trigger; no unannounced clock jumps; RETAIN sets interval guard",
+      "priority": "protection guard outranks transfer; if equal-priority conflicting enabled actions or no unique next canonical action => INVALID_ORACLE_HOLD",
+      "causality": "linked trigger fires when ACTIVATE sets device ON if declared; no spontaneous unregistered causal link"
+    },
+    "scoring_tuple_fields": [
+      "agent_id",
+      "verb_id",
+      "target_id",
+      "time_id",
+      "qualifier_id"
+    ],
+    "action_slot_contract": [
+      {
+        "id": "RELOCATE",
+        "target_type": "item_id",
+        "qualifier_type": "location_id",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "holder(target)",
+            "NONE"
+          ],
+          [
+            "eq",
+            "location(target)",
+            "location(agent)"
+          ],
+          [
+            "neq",
+            "qualifier",
+            "location(target)"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "location(target)",
+            "qualifier"
+          ],
+          [
+            "preserve",
+            "holder(target)"
+          ]
+        ],
+        "goal_signature": "at(target,qualifier) AND holder(target)=NONE"
+      },
+      {
+        "id": "CARRY",
+        "target_type": "item_id",
+        "qualifier_type": "location_id",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "holder(target)",
+            "NONE"
+          ],
+          [
+            "eq",
+            "location(target)",
+            "location(agent)"
+          ],
+          [
+            "neq",
+            "qualifier",
+            "location(agent)"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "holder(target)",
+            "agent"
+          ],
+          [
+            "set",
+            "location(agent)",
+            "qualifier"
+          ],
+          [
+            "set",
+            "location(target)",
+            "qualifier"
+          ]
+        ],
+        "goal_signature": "at(target,qualifier) AND holder(target)=agent"
+      },
+      {
+        "id": "TRANSFER",
+        "target_type": "item_id",
+        "qualifier_type": "agent_id",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "holder(target)",
+            "agent"
+          ],
+          [
+            "neq",
+            "qualifier",
+            "agent"
+          ],
+          [
+            "lt",
+            "protected_until(target)",
+            "time"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "holder(target)",
+            "qualifier"
+          ],
+          [
+            "set",
+            "location(target)",
+            "location(qualifier)"
+          ]
+        ],
+        "goal_signature": "holder(target)=qualifier"
+      },
+      {
+        "id": "RETAIN",
+        "target_type": "item_id",
+        "qualifier_type": "time_id",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "holder(target)",
+            "agent"
+          ],
+          [
+            "ge",
+            "qualifier",
+            "time"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "protected_until(target)",
+            "qualifier"
+          ],
+          [
+            "preserve",
+            "holder(target)"
+          ]
+        ],
+        "goal_signature": "holder(target)=agent FOR_ALL time<=qualifier"
+      },
+      {
+        "id": "WAIT",
+        "target_type": "trigger_id",
+        "qualifier_type": "NONE",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "trigger_fired(target)",
+            "false"
+          ],
+          [
+            "gt",
+            "time",
+            "current_time"
+          ],
+          [
+            "eq",
+            "scheduled_at(target)",
+            "time"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "defer_until(agent,target)",
+            "time"
+          ]
+        ],
+        "goal_signature": "next_action_time(agent)>=time AND no forbidden action before trigger"
+      },
+      {
+        "id": "ACTIVATE",
+        "target_type": "device_id",
+        "qualifier_type": "NONE",
+        "time_required": true,
+        "preconditions": [
+          [
+            "eq",
+            "power(target)",
+            "OFF"
+          ],
+          [
+            "eq",
+            "time",
+            "current_time"
+          ]
+        ],
+        "effects": [
+          [
+            "set",
+            "power(target)",
+            "ON"
+          ],
+          [
+            "set",
+            "trigger_fired(linked_trigger(target))",
+            "true_if_linked"
+          ]
+        ],
+        "goal_signature": "power(target)=ON"
+      }
+    ],
+    "category_to_action_slot_coverage": [
+      {
+        "category": "entity_location",
+        "allowed_actions": [
+          "RELOCATE",
+          "CARRY",
+          "TRANSFER"
+        ],
+        "task_policy": "location/holder goals under opposite counterfactual goal constraints",
+        "target_types": [
+          "item_id"
+        ],
+        "qualifier_types": [
+          "location_id",
+          "agent_id"
+        ],
+        "time_rule": "time_id explicit, active point within T0..T2",
+        "synthetic_fixture_id": "CAT01"
+      },
+      {
+        "category": "causal_reasoning",
+        "allowed_actions": [
+          "ACTIVATE",
+          "WAIT"
+        ],
+        "task_policy": "device->trigger dependency changes whether activate now or defer until scheduled trigger",
+        "target_types": [
+          "device_id",
+          "trigger_id"
+        ],
+        "qualifier_types": [
+          "NONE"
+        ],
+        "time_rule": "ACTIVATE at current_time, WAIT at later scheduled time",
+        "synthetic_fixture_id": "CAT02"
+      },
+      {
+        "category": "rule_constraint",
+        "allowed_actions": [
+          "TRANSFER",
+          "WAIT",
+          "RETAIN"
+        ],
+        "task_policy": "priority protection guard may block transfer until protected_until; choose compliant immediate next action",
+        "target_types": [
+          "item_id",
+          "trigger_id"
+        ],
+        "qualifier_types": [
+          "agent_id",
+          "time_id",
+          "NONE"
+        ],
+        "time_rule": "TRANSFER only if protection expired; WAIT until release trigger otherwise",
+        "synthetic_fixture_id": "CAT03"
+      },
+      {
+        "category": "goal_persistence",
+        "allowed_actions": [
+          "RETAIN",
+          "WAIT",
+          "CARRY"
+        ],
+        "task_policy": "goal-preservation across distractor request or deferred trigger; cannot drop time interval",
+        "target_types": [
+          "item_id",
+          "trigger_id"
+        ],
+        "qualifier_types": [
+          "time_id",
+          "NONE",
+          "location_id"
+        ],
+        "time_rule": "RETAIN end time >= start; WAIT time strictly future",
+        "synthetic_fixture_id": "CAT04"
+      }
+    ],
+    "synthetic_non_EVAL_category_fixtures": [
+      {
+        "id": "CAT01",
+        "category": "entity_location",
+        "state": {
+          "current_time": "T0",
+          "agent_location": {
+            "a0": "l0"
+          },
+          "item_location": {
+            "i0": "l0"
+          },
+          "item_holder": {
+            "i0": "NONE"
+          }
+        },
+        "A": {
+          "goal": "item i0 at l1 and unheld",
+          "expected_action": [
+            "a0",
+            "RELOCATE",
+            "i0",
+            "T0",
+            "l1"
+          ]
+        },
+        "B": {
+          "goal": "item i0 at l1 and held by a0",
+          "expected_action": [
+            "a0",
+            "CARRY",
+            "i0",
+            "T0",
+            "l1"
+          ]
+        },
+        "witness": "same initial state; holder(i0)=NONE vs a0 after operation; genuinely reachable difference"
+      },
+      {
+        "id": "CAT02",
+        "category": "causal_reasoning",
+        "state": {
+          "current_time": "T0",
+          "device_power": {
+            "d0": "OFF"
+          },
+          "trigger_fired": {
+            "g0": false
+          },
+          "scheduled_trigger": {
+            "g0": "T1"
+          },
+          "device_trigger_link": {
+            "d0": "g0"
+          }
+        },
+        "A": {
+          "goal": "activate device d0 now",
+          "expected_action": [
+            "a0",
+            "ACTIVATE",
+            "d0",
+            "T0",
+            "NONE"
+          ]
+        },
+        "B": {
+          "goal": "defer until scheduled g0 at T1 without activating device now",
+          "expected_action": [
+            "a0",
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        },
+        "witness": "same off-device state, one path powers on and fires linked trigger, other schedules deferral; both actions guard-valid"
+      },
+      {
+        "id": "CAT03",
+        "category": "rule_constraint",
+        "state": {
+          "current_time": "T0",
+          "item_holder": {
+            "i0": "a0"
+          },
+          "item_location": {
+            "i0": "l0"
+          },
+          "agent_location": {
+            "a1": "l1"
+          },
+          "protected_until": {
+            "i0": "T1"
+          },
+          "trigger_fired": {
+            "g1": false
+          },
+          "scheduled_trigger": {
+            "g1": "T2"
+          }
+        },
+        "A": {
+          "goal": "respect protection; defer transfer until g1 at T2",
+          "expected_action": [
+            "a0",
+            "WAIT",
+            "g1",
+            "T2",
+            "NONE"
+          ]
+        },
+        "B": {
+          "state_intervention": {
+            "protected_until": {
+              "i0": "BEFORE_T0"
+            }
+          },
+          "goal": "transfer i0 to a1 immediately after priority expires",
+          "expected_action": [
+            "a0",
+            "TRANSFER",
+            "i0",
+            "T0",
+            "a1"
+          ]
+        },
+        "witness": "priority guard rejects immediate transfer in A but allows it under B intervention; no arbitrary lexical flip"
+      },
+      {
+        "id": "CAT04",
+        "category": "goal_persistence",
+        "state": {
+          "current_time": "T0",
+          "item_holder": {
+            "i1": "a0"
+          },
+          "protected_until": {
+            "i1": "BEFORE_T0"
+          },
+          "trigger_fired": {
+            "g0": false
+          },
+          "scheduled_trigger": {
+            "g0": "T1"
+          }
+        },
+        "A": {
+          "goal": "retain i1 through T2 despite distracting transfer request at T1",
+          "expected_action": [
+            "a0",
+            "RETAIN",
+            "i1",
+            "T0",
+            "T2"
+          ]
+        },
+        "B": {
+          "goal": "without retention requirement, defer any next action to g0 at T1",
+          "expected_action": [
+            "a0",
+            "WAIT",
+            "g0",
+            "T1",
+            "NONE"
+          ]
+        },
+        "witness": "retention protect interval conflicts with distractor but preserves holder; defer alternative does not protect item"
+      }
+    ],
+    "alias_policy": {
+      "RELOCATE": [
+        "move",
+        "relocate"
+      ],
+      "CARRY": [
+        "carry"
+      ],
+      "TRANSFER": [
+        "give",
+        "hand over"
+      ],
+      "RETAIN": [
+        "keep",
+        "retain"
+      ],
+      "WAIT": [
+        "wait",
+        "defer"
+      ],
+      "ACTIVATE": [
+        "activate",
+        "turn on"
+      ]
+    },
+    "semantic_novelty": "task-relevant iff type-preserving alignment and non-isomorphic relevant causal dependency AND a reachable same-input counterexample changing canonical action / time / goal; alias-only or inert-trace differences are NOT OOD",
+    "category_and_slot_admission": "ALL FOUR predeclared categories must be representable with 4 TRAIN and 4 distinct OOD skeletons/category and A/B unique oracle under typed states; any category unrepresentable => HOLD_WHOLE_D1_BATCH before any data generation, never drop category or change denominator",
+    "oracle_proof": "compute conditions A/B and unique next-action from deterministic guards/priority against fixed finite domain; gold_A != gold_B required; ambiguous/no-action => INVALID_PROTOCOL_HOLD",
+    "fixture_policy": "these CAT01..CAT04 are explicitly synthetic schematic preexec examples, NOT EVAL skeletons, NOT blind gold, NOT proof of actual OOD",
+    "actual_AST_source": "NOT_IMPLEMENTED",
+    "actual_reachable_checker": "NOT_IMPLEMENTED",
+    "actual_4x4_skeletons": "NOT_GENERATED",
+    "QA": "NOT_EXECUTED"
+  },
+  "AM02_parser": {
+    "status": "INHERITED_V5_PASS_SCOPED_UNCHANGED",
+    "scored_tuple": [
+      "agent_id",
+      "verb_id",
+      "target_id",
+      "time_id",
+      "qualifier_id"
+    ],
+    "TIME": "EXPLICIT_IN_GENERATED_TEXT",
+    "lexicon": "V5_6_ACTION_VERBS_PLUS_TYPED_TARGET_QUALIFIER_AND_TIME",
+    "future_synthetic_positive": 64,
+    "future_synthetic_negative": 64,
+    "actual_parser": "NOT_IMPLEMENTED",
+    "QA": "NOT_EXECUTED"
+  },
+  "AM03_stats": {
+    "status": "INHERITED_V5_PASS_SCOPED_UNCHANGED",
+    "seeds": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261131
+    ],
+    "signed_D_s": "Σ_256(success_C_success_AB - success_B_success_AB)",
+    "positive": "D_s>0",
+    "tie": "D_s=0_NONPOSITIVE",
+    "exact_one_sided_p_at_k10": "79/4096",
+    "k_min": 10,
+    "scope": "FIXED_16_OOD_SKELETONS_SEED_PROBABILITY_ONLY",
+    "iid_verified": false
+  },
+  "AM04_categories": {
+    "status": "INHERITED_V5_PASS_SCOPED_UNCHANGED",
+    "category_ids": [
+      "entity_location",
+      "causal_reasoning",
+      "rule_constraint",
+      "goal_persistence"
+    ],
+    "global_count_min": 308,
+    "category_delta_min_per_category": 0,
+    "category_delta_5pp_threshold": 39,
+    "at_least_categories": 3,
+    "absolute_C_correct_min_each": 192,
+    "per_skeleton_reporting": "MANDATORY_NO_POSTHOC_GATE"
+  },
+  "AM05_audit_ledger_binding": {
+    "status": "SOURCE_ONLY_CRYPT_CONTRACT_CANDIDATE_NO_ACTUAL_KEYS",
+    "sensitivity": "EVAL_AST_GOLD_ADJACENT_LOW_ENTROPY_TREATED_SECRET; TRAIN_VAL_AST_COMMITMENTS_HIDDEN_TOO",
+    "roles": {
+      "owner": "NO_EVAL_GOLD_OR_AST_OR_KEYS_OR_WITNESSES",
+      "train_val_custodian": "HOLDS_TRAIN_VAL_AST_AND_SECRET_K_TV",
+      "eval_custodian": "HOLDS_EVAL_AST_AND_SECRET_K_EVAL",
+      "auditor": "READS_BOTH_AST_IN_ISOLATION_AND_PRIVATE_ATTESTATIONS_BUT_NOT_EITHER_HMAC_KEY",
+      "public_verifier": "READS_ONLY_PINNED_PUBLIC_LEDGER_AND_SIGNED_RECEIPT"
+    },
+    "private_credentials": "Two independently generated 32-byte random HMAC keys K_TV and K_EVAL per frozen batch, separate from Ed25519 signing keys, never published or shared with model trainer; audited custodians are trusted, not a zero-knowledge protocol",
+    "canonicalization": {
+      "AST": "typed schema + normalization NFC of strings + RFC8785 JCS + unique sorted entry IDs; reject floats/NaN/unspecified fields",
+      "audit_id": "16 random bytes encoded exactly 32 lowercase ASCII hex characters; length is 32 UTF8 bytes, not 16",
+      "byte_domain": "ASCII('TTM_D1_V6_AST_COMMIT_V1') followed by one NUL byte 0x00",
+      "hmac_input": "DOMAIN_WITH_NUL || uint32_BE(32) || audit_id_ascii_lower_hex_32 || uint64_BE(len(AST_JCS_bytes)) || AST_JCS_bytes",
+      "alg": "HMAC_SHA256",
+      "ledger_root": "SHA256(RFC8785_JCS(immutable_public_pre_audit_manifest))",
+      "signed_receipt": "Ed25519(SHA_NOT_PREHASHED, RFC8785_JCS(receipt_fields_without_signature))"
+    },
+    "preaudit_public_manifest_fields": [
+      "protocol_version",
+      "source_commit",
+      "audit_id",
+      "train_val_ast_hmac",
+      "eval_ast_hmac",
+      "checker_sha256",
+      "train_custodian_key_id",
+      "eval_custodian_key_id",
+      "auditor_signer_key_id",
+      "mode_FROZEN"
+    ],
+    "preaudit_manifest_rule": "append-only immutable independent-readback anchoring ledger root BEFORE auditor sees private AST and BEFORE outcome; no repeated manifest for same source/batch",
+    "preaudit_ledger_root_required": true,
+    "private_custodian_attestation": {
+      "per_role_fields": [
+        "audit_id",
+        "ledger_root_sha256",
+        "side_TRAIN_VAL_or_EVAL",
+        "hmac_commitment",
+        "private_plain_sha256_of_exact_AST_JCS_bytes",
+        "ast_jcs_byte_count",
+        "custodian_signer_key_id",
+        "signature"
+      ],
+      "canonicalization": "RFC8785 JCS signed Ed25519 excluding signature",
+      "verification": "auditor verifies each custodian signature/key pin, same ledger root and HMAC as immutable public manifest, privately SHA256-hashes bytes received from that custodian, compares exact private_plain_sha256 and count; custodian asserts keyed HMAC was computed on that very byte string; independent public HMAC recomputation IMPOSSIBLE WITHOUT_SECRET",
+      "public_disclosure": "PRIVATE_SHA_AND_ATTESTATION_NOT_EXPORTED; only audit result signed receipt; custodians are explicitly trusted for integrity of HMAC assertion",
+      "if_custodian_untrusted": "HOLD_NO_PROVABLE_PUBLIC_BINDING; do not claim zero knowledge"
+    },
+    "auditor_signed_receipt_mandatory_fields": [
+      "protocol_version",
+      "source_commit",
+      "audit_id",
+      "ledger_root_sha256",
+      "checker_sha256",
+      "train_val_ast_hmac",
+      "eval_ast_hmac",
+      "decision_PASS_FAIL_UNKNOWN",
+      "auditor_signer_key_id",
+      "audit_schema_version",
+      "signature_ed25519_base64"
+    ],
+    "decision_policy": "PASS only for 1 complete verified audit with both signed private custodial attestations and proven task-relevant NONOVERLAP, FAIL if true overlap, UNKNOWN on indeterminate; any mismatch => HOLD; PUBLIC receipt reveals no counts/witnesses/raw AST",
+    "replay_policy": "audit_id and ledger_root must be unique per frozen attempt; ledger state immutable; reusing or re-signing same audit with different result forbidden; bad key/schema/checker/source/commitment => HOLD",
+    "state_machine": [
+      "DRAFT_PUBLIC_NO_PRIVATE_READ",
+      "FROZEN_LEDGER_ANCHORED_AND_KEYS_PINNED",
+      "IN_PROGRESS_SINGLE_PRIVATE_READ_SINGLE_CHECK",
+      "TERMINAL_SIGNED_PASS_OR_FAIL_OR_UNKNOWN",
+      "ABORT_NO_SIGNER_NO_RECEIPT_HOLD"
+    ],
+    "terminal_absence_policy": "ABSENT_TERMINAL_SIGNED_RECEIPT => HOLD; even crash before signing; NEVER invent signed UNKNOWN",
+    "no_auto_retry": "TRUE_NO_RESUBMISSION_OR_ALTERNATE_BATCH_IF_ABORT_UNLESS_NEW_PROSPECTIVE_PROTOCOL_AMENDMENT_AND_OWNER_DECISION",
+    "public_audit_policy": "one sealed frozen batch and one independent auditor pass; no adaptive query API, no match counts, no private AST, no gold, no raw SHA, no key/nonce reveal",
+    "key_rotation": "new CSPRNG HMAC keys for any prospectively authorized new batch; never rotate in place after a terminal/failed audit; public key fingerprints pinned before FROZEN",
+    "threat_limitations": [
+      "trusted custodians can lie, not covered by public verification",
+      "confidentiality conditional on HMAC key security",
+      "append-only anchoring and ACL still unverified",
+      "not ZK",
+      "public PASS may reveal one coarse yes/no nonoverlap outcome"
+    ],
+    "synthetic_crypto_test_vector": {
+      "classification": "PUBLIC_SYNTHETIC_TEST_VECTOR_ONLY_NEVER_PRODUCTION_KEYS",
+      "ast_jcs_utf8_hex": "7b22656e7472696573223a5b5d2c22736368656d61223a2256365f53594e5448455449435f54455354227d",
+      "audit_id_lower_hex": "00112233445566778899aabbccddeeff",
+      "domain_bytes_hex": "54544d5f44315f56365f4153545f434f4d4d49545f563100",
+      "hmac_key_hex_PUBLIC_SYNTHETIC": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected_hmac_sha256": "0836503a52f9c9eca5178d16c11fc120ae4ad17a99045d1f4cec9609f7c0acdb",
+      "ledger_public_manifest_JCS": "{\"audit_id\":\"00112233445566778899aabbccddeeff\",\"checker_sha256\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"eval_ast_hmac\":\"0836503a52f9c9eca5178d16c11fc120ae4ad17a99045d1f4cec9609f7c0acdb\",\"protocol_version\":\"ttm.d1.v6.audit.v1\",\"source_commit\":\"0000000000000000000000000000000000000000\",\"train_val_ast_hmac\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"}",
+      "expected_ledger_root_sha256": "57dfb51345d52fba88566be6882ad64650ca7a5c8694609dce1a25d4c7d21e42",
+      "receipt_unsigned_JCS": "{\"audit_id\":\"00112233445566778899aabbccddeeff\",\"checker_sha256\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"decision\":\"UNKNOWN\",\"eval_ast_hmac\":\"0836503a52f9c9eca5178d16c11fc120ae4ad17a99045d1f4cec9609f7c0acdb\",\"ledger_root_sha256\":\"57dfb51345d52fba88566be6882ad64650ca7a5c8694609dce1a25d4c7d21e42\",\"protocol_version\":\"ttm.d1.v6.audit.v1\",\"source_commit\":\"0000000000000000000000000000000000000000\",\"train_val_ast_hmac\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"}",
+      "ed25519_seed_hex_PUBLIC_SYNTHETIC": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "ed25519_public_key_hex": "03a107bff3ce10be1d70dd18e74bc09967e4d6309ba50d5f1ddc8664125531b8",
+      "ed25519_signature_hex": "30a48747a90ab6a67c46cb0a3b6a55162cb74273f7f3988e10960b1e7feccffbed6319c584cc0946f54fd3dc4b166ca55b6a0bcb6cb1c778aa24517d4e675b07",
+      "vector_semantics": "ledger manifest/receipt are minimal ASCII-only illustrative fixtures, not production full schema; full production bytes remain prospectively defined and require independent QA"
+    },
+    "future_negatives": [
+      "wrong private JCS byte count",
+      "wrong private SHA",
+      "wrong private signed HMAC claim",
+      "ledger_root omitted in receipt",
+      "wrong TRAIN_VAL_HMAC in public signature",
+      "wrong EVAL_HMAC",
+      "expired or wrong key ID",
+      "replayed audit_id",
+      "repeat status mutation",
+      "missing terminal receipt despite ledger FROZEN",
+      "wrong NUL domain/audit_id length",
+      "public raw SHA dictionary attack"
+    ],
+    "actual_HMAC_keys": "NOT_CREATED",
+    "actual_ed25519_keys": "NOT_CREATED",
+    "actual_real_AST_or_attestations": "NOT_EXECUTED",
+    "actual_ACL": "NOT_VERIFIED",
+    "actual_external_ledger_anchoring": "NOT_EXECUTED"
+  },
+  "AM06_contrastive": {
+    "status": "INHERITED_V5_PASS_SCOPED_UNCHANGED",
+    "estimand": "B_vs_C_contrastive_training_PACKAGE_negative_supervision_plus_extra_compute",
+    "hyperparameters_source": "FC01 prereg git blob af80eddfb2175b58a90c2a9761f0ed339e03678a",
+    "lambda": 0.2,
+    "tau": 1,
+    "K": 4,
+    "AdamW_lr": 0.0001,
+    "AdamW_betas": [
+      0.9,
+      0.95
+    ],
+    "warmup_steps": 16,
+    "cosine_min_lr": 0.00001,
+    "TRAIN_only_negatives": true,
+    "actual_runner": "NOT_CREATED",
+    "actual_AdamW_resume": "NOT_EXECUTED",
+    "free_T4": "NOT_VERIFIED"
+  },
+  "gates": {
+    "V5_EXTERNAL_REVIEW": "HOLD_ACCEPTED_4_PASS_2_HOLD",
+    "V6_REMEDIATION": "NEW_CANDIDATE_R1_AND_R5_ONLY",
+    "V6_SELF_AUTHORED_QA": "PENDING",
+    "V6_INDEPENDENT_REVIEW": "PENDING",
+    "SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "GPU_CALLS": 0,
+    "TRAIN_STEPS": 0,
+    "INFERENCE_CALLS": 0,
+    "NEW_DATA_OR_GOLD": false,
+    "MAIN": "UNCHANGED"
+  },
+  "owner_single_design_decision": "HOLD_PENDING_DISTINCT_V6_SOURCE_REVIEW",
+  "next_operation": "TTM_SMALL4M_D1_BRIDGE_V6_DISTINCT_NEW_CHAT_SOURCE_ONLY_INDEPENDENT_DESIGN_REVIEW_SINGLE_GO_HOLD_NO_GPU"
+}
