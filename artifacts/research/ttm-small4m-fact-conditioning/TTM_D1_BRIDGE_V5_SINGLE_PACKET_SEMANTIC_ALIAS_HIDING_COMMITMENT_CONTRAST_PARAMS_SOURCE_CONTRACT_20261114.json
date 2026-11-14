@@ -1,0 +1,390 @@
+{
+  "schema": "ttm.d1bridge.v5.alias_commitment_contrast_params.source_contract.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V5_SINGLE_PACKET_SEMANTIC_ALIAS_HIDING_AUDIT_COMMITMENT_CONTRAST_PARAMS_PREREG_SOURCE_AMENDMENT_NO_GPU",
+  "date": "2026-11-14",
+  "version": "V5_NEW_VERSION_V1_V2_V3_V4_IMMUTABLE",
+  "frozen_V4_input_HEAD": "1c923c0dc1a064411190392612e9d2475486bd2c",
+  "original_V4_independent_review": {
+    "decision": "HOLD_REVISE_BEFORE_PREREG",
+    "axes": {
+      "R1": "HOLD",
+      "R2": "PASS_SCOPED",
+      "R3": "PASS_SCOPED",
+      "R4": "PASS_SCOPED",
+      "R5": "HOLD",
+      "R6": "HOLD"
+    },
+    "report_sha256": "8fd3ff6469403c9abb4cdc7672f9206c29329adf29388e8ca78fbb0df0eec47f",
+    "receipt_sha256": "2bdb82bb4e585c158c291c7b48838985249a7063a588af71b8e32f333dcedd94",
+    "reviewer": "NEW_CHAT_AI_SELF_ATTESTED_NOT_HUMAN",
+    "new_issues": [
+      "D1V4-N01",
+      "D1V4-N02",
+      "D1V4-N03",
+      "D1V4-N04"
+    ],
+    "inherited_issues_count": 17
+  },
+  "AM01_semantic_action_alias": {
+    "addresses": [
+      "D1V4-N01",
+      "D1V3-N01",
+      "D1V2-01",
+      "D1V2-02"
+    ],
+    "action_ontology_version": "V5_TYPED_ACTION_IDS_PROSPECTIVE",
+    "canonical_verbs": [
+      {
+        "id": "RELOCATE",
+        "effect": "location(item):=destination, holding unchanged",
+        "args": [
+          "agent",
+          "item",
+          "destination",
+          "time"
+        ]
+      },
+      {
+        "id": "CARRY",
+        "effect": "holder(item):=agent; location(agent,item):=destination",
+        "args": [
+          "agent",
+          "item",
+          "destination",
+          "time"
+        ]
+      },
+      {
+        "id": "TRANSFER",
+        "effect": "holder(item):=recipient",
+        "args": [
+          "agent",
+          "item",
+          "recipient",
+          "time"
+        ]
+      },
+      {
+        "id": "RETAIN",
+        "effect": "maintain_holder(item) through specified interval",
+        "args": [
+          "agent",
+          "item",
+          "time"
+        ]
+      },
+      {
+        "id": "WAIT",
+        "effect": "defer task until named trigger",
+        "args": [
+          "agent",
+          "trigger",
+          "time"
+        ]
+      },
+      {
+        "id": "ACTIVATE",
+        "effect": "state(device):=active",
+        "args": [
+          "agent",
+          "device",
+          "time"
+        ]
+      }
+    ],
+    "frozen_surface_aliases": {
+      "RELOCATE": [
+        "move",
+        "relocate"
+      ],
+      "CARRY": [
+        "carry"
+      ],
+      "TRANSFER": [
+        "give",
+        "hand over"
+      ],
+      "RETAIN": [
+        "keep",
+        "retain"
+      ],
+      "WAIT": [
+        "wait",
+        "defer"
+      ],
+      "ACTIVATE": [
+        "activate",
+        "turn on"
+      ]
+    },
+    "alias_rule": "same verb_id and same typed state-transition semantics => lexical-equivalent; cross-verb synonym forbidden",
+    "action_novelty": "different canonical verb/action counts as task-relevant only with reachable counterexample on aligned admissible input that changes goal/action/time policy; lexical rename or verb-id mismatch alone insufficient",
+    "non_task_novelty": "inert bookkeeping labels/self-loop-only differences REJECT_OOD",
+    "unknown": "HOLD_ON_UNALIGNED_DOMAINS_AMBIGUOUS_ALIASES_NONDETERMINISTIC_OR_UNPROVED_REACHABILITY",
+    "fixtures": [
+      [
+        "F_ALIAS_MOVE_RELOCATE",
+        "EQUIVALENT_REJECT_OOD"
+      ],
+      [
+        "F_DISTINCT_MOVE_CARRY_WITH_REACHABLE_HOLDER_EFFECT",
+        "TASK_RELEVANT_DIFFERENT"
+      ],
+      [
+        "F_ALIAS_GIVE_HAND_OVER",
+        "EQUIVALENT_REJECT_OOD"
+      ],
+      [
+        "F_INERT_TRACE_LABEL_SWAP",
+        "EQUIVALENT_REJECT_OOD"
+      ],
+      [
+        "F_UNREACHABLE_VERB_DIFFERENCE",
+        "NOT_PROVEN_OOD"
+      ],
+      [
+        "F_AMBIGUOUS_ALIAS",
+        "HOLD"
+      ],
+      [
+        "F_REACHABLE_TEMPORAL_GOAL_CHANGE",
+        "TASK_RELEVANT_DIFFERENT"
+      ]
+    ],
+    "preexec_real_ontology_and_AST_QA": "NOT_EXECUTED",
+    "data_created": false
+  },
+  "AM02_parser": {
+    "status": "V4_DESIGN_SCOPED_PASS_UNCHANGED",
+    "scored_fields": [
+      "agent_id",
+      "verb_id",
+      "target_id",
+      "time_id",
+      "qualifier_id"
+    ],
+    "grammar": "ACTION ::= AGENT SP VERB SP TARGET SP TIME (SP QUALIFIER)? TERMINAL?",
+    "time": "EXPLICIT_TIME_REQUIRED_IN_GENERATION_NO_GOLD_COMPLETION",
+    "parser": "typed finite lexicon unambiguous surface-to-action including multiword aliases, no substring matching",
+    "quality_future": ">=64 synthetic legal positives all correct AND >=64 synthetic adversarial negatives zero false accepts, independent",
+    "primary": "correct both A and B counterfactual conditions across 256 families per arm per seed",
+    "actual_parser": "NOT_IMPLEMENTED",
+    "actual_QA": "NOT_EXECUTED"
+  },
+  "AM03_stats": {
+    "status": "V4_DESIGN_SCOPED_PASS_UNCHANGED",
+    "seed_values": [
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261201
+    ],
+    "D_s": "integer sum over 256 families success_C_both_A_B - success_B_both_A_B",
+    "positive": "D_s>0",
+    "tie": "D_s=0_NONPOSITIVE",
+    "test": "EXACT_ONE_SIDED_BINOMIAL_SIGN",
+    "alpha": 0.05,
+    "k_min": 10,
+    "p_k10": "79/4096",
+    "claim": "SEED_POSITIVE_PROBABILITY_CONDITIONAL_ON_FIXED_16_OOD_SKELETONS",
+    "iid_proven": false
+  },
+  "AM04_category": {
+    "status": "V4_DESIGN_SCOPED_PASS_UNCHANGED",
+    "global_sum_D_min": 308,
+    "category_C_minus_B_count_min_each": 0,
+    "at_least_3_categories_difference_min": 39,
+    "C_absolute_correct_min_each_category": 192,
+    "n_categories": 4,
+    "n_skeletons": 16,
+    "n_families": 256,
+    "not_inferential_test_of_10pp": true
+  },
+  "AM05_hidden_commitment": {
+    "addresses": [
+      "D1V4-N02",
+      "D1V4-N03",
+      "D1V3-N03",
+      "D1V2-08",
+      "D1V2-09"
+    ],
+    "AST_private_type": "GOLD_ADJACENT_LOW_ENTROPY",
+    "trusted_roles": {
+      "owner": "DENY_EVAL_AST_GOLD_MAPPING_AND_KEYS",
+      "custodian": "HOLDS_PRIVATE_EVAL_AST_AND_HMAC_KEY",
+      "auditor": "ISOLATED_GOLD_ADJACENT_AUDITOR_WITH_ED25519_SIGNER",
+      "public": "MINIMAL_SIGNED_RECEIPT_ONLY"
+    },
+    "canonical_batch_bytes": "RFC8785_JCS of finite typed AST, no floats/NaN, Unicode NFC, explicit stable ordered records",
+    "hiding": {
+      "algorithm": "HMAC_SHA256",
+      "key": "32_CSPRNG_BYTES_PRIVATE_CUSTODIAN_ONLY",
+      "audit_id": "16_CSPRNG_BYTES_HEX_UNIQUE_PER_FROZEN_BATCH",
+      "message": "UTF8('TTM_D1_V5_AST_COMMIT_V1\\0') || uint32_BE(len(audit_id_UTF8)) || audit_id_UTF8 || uint64_BE(len(canonical_ast_bytes)) || canonical_ast_bytes",
+      "no_public_raw_SHA256": true,
+      "no_public_key_material": true,
+      "key_reuse_across_batches": false,
+      "security_note": "keyed digest hides low-entropy AST only while key remains secret; auditor trusted, no zero knowledge"
+    },
+    "one_shot_audit": {
+      "batch_lock": "immutable append-only ledger binds audit_id + protocol_source_commit + TRAIN_VAL_AST_commit + EVAL_AST_HMAC + checker_SHA BEFORE any restricted read",
+      "one_batch_one_audit": true,
+      "no_adaptive_queries": true,
+      "duplicate_id_or_replay": "REJECT_AND_HOLD",
+      "on_crash_or_unknown": "SIGNED_UNKNOWN_AND_HOLD; NO_AUTO_RETRY_OR_ALTERNATE_BATCH",
+      "new_attempt": "FRESH_PROSPECTIVE_AMENDMENT_AND_OWNER_DECISION_ONLY",
+      "no_public_per_family_matches_counts_or_private_witness": true
+    },
+    "signed_receipt": {
+      "scheme": "Ed25519",
+      "signature_input": "RFC8785_JCS public receipt fields excluding signature",
+      "allowed_public": [
+        "audit_id",
+        "protocol_commit",
+        "checker_source_SHA",
+        "eval_hmac_commit",
+        "decision_PASS_FAIL_UNKNOWN",
+        "signer_key_id",
+        "signature"
+      ],
+      "key_pin": "BEFORE_PRIVATE_EVAL_RELEASE",
+      "verification": "reject unsigned/wrong-key/wrong-session/replayed/wrong-checker/tampered decision",
+      "actual_keys": "NOT_CREATED",
+      "actual_signature": "NOT_EXECUTED"
+    },
+    "future_negative_tests": [
+      "dictionary_guess_resistance_without_HMAC_key",
+      "duplicate_id_rejection",
+      "replayed_receipt_rejection",
+      "tamper_FAIL_to_PASS_rejection",
+      "wrong_checker_sha_rejection",
+      "trainer_denied_EVAL_AST",
+      "no_counterexample_release"
+    ],
+    "rights_and_ACL": "NOT_VERIFIED",
+    "real_audit": "NOT_EXECUTED"
+  },
+  "AM06_contrast_package": {
+    "addresses": [
+      "D1V4-N04",
+      "D1V3-N04",
+      "D1V3-N05",
+      "D1V2-10",
+      "D1V2-11"
+    ],
+    "estimand": "C FULL contrastive loss + TRAIN-only negative supervision + extra compute package MINUS B counterfactual MLE",
+    "no_claims": [
+      "LOSS_ONLY_EFFECT",
+      "EQUAL_SUPERVISION",
+      "EQUAL_FLOPS"
+    ],
+    "parameter_provenance": {
+      "source": "FC01 prereg design 2026-11-12",
+      "git_blob_sha1": "af80eddfb2175b58a90c2a9761f0ed339e03678a",
+      "not_D1_outcome_tuned": true
+    },
+    "exact_candidate_training_params": {
+      "optimizer": "AdamW",
+      "base_lr": 0.0001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "weight_decay": 0.1,
+      "grad_clip": 1,
+      "schedule": "warmup_16_steps_then_cosine_to_1e-5_at_step256",
+      "lr_min": 0.00001,
+      "warmup_steps": 16,
+      "updates": 256,
+      "batch_seq": 16,
+      "sequence_tokens": 256,
+      "microbatch_seq": 4,
+      "accum_steps": 4,
+      "core_seq_per_update": 12,
+      "synthetic_seq_per_update": 4,
+      "precision": "FP32",
+      "LM_token_slots_per_arm_seed": 1048576,
+      "contrast_lambda": 0.2,
+      "contrast_tau": 1,
+      "K_pairs_per_update": 4,
+      "negative_per_positive": 1,
+      "negatives_per_C_update": 4,
+      "negatives_per_C_seed": 1024,
+      "loss": "L_C = L_CE + 0.2 * (1/4) sum_i softplus(-(mean_completion_logp(y_pos_i|x_i)-mean_completion_logp(y_neg_i|x_i))/1.0)",
+      "negative_from": "same TRAIN family opposite condition A/B canonical continuation; NOT VAL/EVAL/TEST/gold",
+      "negative_selection": "deterministic paired opposite condition, no random hard-negative mining; if unavailable => HOLD",
+      "same_B_C_episode_order": true,
+      "B_extra_negative_exposure": 0,
+      "C_extra_compute": "report negatives, forward calls, GPU-seconds, estimated FLOPs separately",
+      "label_smoothing": 0,
+      "select_best_VAL_checkpoint": false
+    },
+    "exact_PRNG_derivation": {
+      "namespaces": [
+        "shared_B_C_sampler",
+        "contrast_negatives_C",
+        "dropout_B_C",
+        "augmentation_if_present",
+        "initialization_if_present"
+      ],
+      "seed_enc": "8_digit_ASCII_decimal",
+      "message": "UTF8('TTM_D1_BRIDGE_V5_RNG_V1|') || ASCII(seed) || UTF8('|') || UTF8(namespace)",
+      "algorithm": "SHA256; first 8 digest bytes uint64 big-endian & (2^63-1); if zero use 1",
+      "per_stream_usage": "separate local Python_random/NumPy_Generator/Torch_Generator, record initial and checkpoint states",
+      "same_seed_control": "first 64 synthetic TRAIN sampler decisions digest repeats exactly",
+      "different_seed_control": "intended stochastic update stream digests differ; if no real stochastic variation => HOLD_INFERENTIAL_SIGN_TEST",
+      "implementation_SHA": "NOT_CREATED",
+      "validation": "NOT_EXECUTED"
+    },
+    "future_source_pins": {
+      "parent_P02_STEP1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "T1_BPE_manifest_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+      "new_data_manifest_SHA": "NOT_CREATED",
+      "new_runner_SHA": "NOT_CREATED",
+      "new_neg_sampler_SHA": "NOT_CREATED",
+      "new_parser_SHA": "NOT_CREATED"
+    },
+    "budget": {
+      "seeds": 12,
+      "arms": 3,
+      "arm_runs": 36,
+      "updates": 9216,
+      "output_generations": 18432,
+      "monetary_cap_paid_USD": 0,
+      "Free_T4_feasibility": "NOT_VERIFIED"
+    },
+    "resume": "full model+AdamW nonzero moments+LR scheduler+RNG+sampler cursor+gradaccum: K uninterrupted == K interrupted+resume; bad snapshot/sha => HOLD; NOT_EXECUTED"
+  },
+  "future_one_packet_gate": [
+    "distinct V5 source/design GO is not science GO",
+    "real canonical ontology/AST checker independent positive/negative QA",
+    "real parser and independent synthetic 64+/64- QA",
+    "HMAC hiding, unique audit ID, Ed25519, ACL and deny-probes",
+    "data rights and actual nonoverlap sealed custody",
+    "byte-pinned exact C sampler/params/PRNG and seed nondegeneracy",
+    "AdamW positive-moment resume + all 36 T4 arm-runs free feasibility",
+    "one integrated owner GO/HOLD after evidence, no micro permits"
+  ],
+  "current_decision": {
+    "V5_DESIGN": "HOLD_PENDING_DISTINCT_V5_SOURCE_REVIEW",
+    "SCIENCE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01": "CLOSED_PASS_SCOPED",
+    "FC02": "NOT_OPENED",
+    "GPU": 0,
+    "TRAINING": 0,
+    "INFERENCE": 0,
+    "NEW_EVAL_GOLD": false,
+    "MAIN": "UNCHANGED",
+    "next_operation": "TTM_SMALL4M_D1_BRIDGE_V5_DISTINCT_NEW_CHAT_INDEPENDENT_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU"
+  }
+}
