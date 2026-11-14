@@ -1,0 +1,317 @@
+{
+  "schema": "ttm.d1_bridge.v2.distinct_ai_source_review_receipt.v1",
+  "operation": "TTM_SMALL4M_D1_BRIDGE_V2_DISTINCT_AI_SOURCE_REVIEW_SINGLE_DESIGN_GO_HOLD_NO_GPU",
+  "date": "2026-11-14",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "frozen_v2_source_commit": "750533c1c2945594d827c886aaa275c49fb980d7",
+  "handoff_commit": "47d26d018098687628af30e2fcfdd92ad7391ae1",
+  "reviewer_classification": "INDEPENDENT_NEW_CHAT_AI_SELF_ATTESTED",
+  "human_reviewer": false,
+  "independent_identity_externally_verified": false,
+  "mode": "SOURCE_ONLY_READ_ONLY_DESIGN_ONLY_NO_GPU_NO_TRAIN_NO_INFERENCE_NO_EVAL_GOLD_NO_PRIVATE_MAPPING",
+  "sources_verified": [
+    {
+      "source_id": "S1",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_SINGLE_PACKET_AM01_AM06_PREREG_DESIGN_AND_OWNER_HOLD_20261114.md",
+      "expected_git_blob_sha1": "354291ec54803bd9764728ee858abd83a71ca4b6",
+      "observed_git_blob_sha1": "354291ec54803bd9764728ee858abd83a71ca4b6",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_SINGLE_PACKET_AM01_AM06_PREREG_DESIGN_AND_OWNER_HOLD_20261114.md"
+    },
+    {
+      "source_id": "S2",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_AM01_AM06_SINGLE_PACKET_PREREG_DESIGN_HOLD_20261114.json",
+      "expected_git_blob_sha1": "66ce607eb13e4c64994fecd4a40a2c3da94d19dc",
+      "observed_git_blob_sha1": "66ce607eb13e4c64994fecd4a40a2c3da94d19dc",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_AM01_AM06_SINGLE_PACKET_PREREG_DESIGN_HOLD_20261114.json"
+    },
+    {
+      "source_id": "S3",
+      "path": "tools/pilot_t4/fc01/ttm_d1_bridge_v2_source_only_contract_qa_20261114.js",
+      "expected_git_blob_sha1": "7ee503f19613899ecd9bbe788dd995ad10415575",
+      "observed_git_blob_sha1": "7ee503f19613899ecd9bbe788dd995ad10415575",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/tools/pilot_t4/fc01/ttm_d1_bridge_v2_source_only_contract_qa_20261114.js"
+    },
+    {
+      "source_id": "S4",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_SINGLE_PACKET_SOURCE_ONLY_QA_AND_HOLD_20261114.json",
+      "expected_git_blob_sha1": "2f468a743b3e44ef5d307810b70ab74000ce0a61",
+      "observed_git_blob_sha1": "2f468a743b3e44ef5d307810b70ab74000ce0a61",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V2_SINGLE_PACKET_SOURCE_ONLY_QA_AND_HOLD_20261114.json"
+    },
+    {
+      "source_id": "S5",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V1_INDEPENDENT_PREREG_REVIEW_20261114.md",
+      "expected_git_blob_sha1": "8fd942d60e79e5b78cc342505d92a4dbcaefc540",
+      "observed_git_blob_sha1": "8fd942d60e79e5b78cc342505d92a4dbcaefc540",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/docs/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V1_INDEPENDENT_PREREG_REVIEW_20261114.md"
+    },
+    {
+      "source_id": "S6",
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V1_INDEPENDENT_REVIEW_RECEIPT_20261114.json",
+      "expected_git_blob_sha1": "580e7269f66e900b8fe40584fd73d5ce0f001566",
+      "observed_git_blob_sha1": "580e7269f66e900b8fe40584fd73d5ce0f001566",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/artifacts/research/ttm-small4m-fact-conditioning/TTM_D1_BRIDGE_V1_INDEPENDENT_REVIEW_RECEIPT_20261114.json"
+    },
+    {
+      "source_id": "S7",
+      "path": "lineage.md",
+      "expected_git_blob_sha1": "34a59b7ee76bf6cab5a7abfcdf687a38a6dc3d7d",
+      "observed_git_blob_sha1": "34a59b7ee76bf6cab5a7abfcdf687a38a6dc3d7d",
+      "verification": "PASS_GITHUB_CONTENTS_AT_EXACT_REF",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/750533c1c2945594d827c886aaa275c49fb980d7/lineage.md"
+    }
+  ],
+  "sources_verified_count": {
+    "expected": 7,
+    "matched": 7,
+    "mismatch": 0
+  },
+  "additional_v1_sources": [
+    {
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_D1_BRIDGE_STRUCTURAL_OOD_FREEGEN_MULTISEED_PREREG_DESIGN_V1_20261113.md",
+      "blob_sha1": "a5cd0dbd4167bdc53454847a25afcf317c94226b"
+    },
+    {
+      "path": "artifacts/research/ttm-small4m-fact-conditioning/TTM_FC01_D1_BRIDGE_PREREG_V1_MACHINE_READABLE_DESIGN_HOLD_20261113.json",
+      "blob_sha1": "8bc9cf0fa45ada52150094a24259514f51ee2a28"
+    }
+  ],
+  "verification_limit": "GITHUB_CONNECTOR_RETURNED_BLOB_SHA1_METADATA_ONLY_NOT_INDEPENDENT_LOCAL_BYTE_HASH",
+  "amendment_reviews": [
+    {
+      "amendment": "AM01",
+      "axis": "R1",
+      "verdict": "HOLD",
+      "risk": "CRITICAL",
+      "issue_ids": [
+        "D1V2-01",
+        "D1V2-02"
+      ],
+      "prior_findings": [
+        "F01",
+        "F02"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "finding": "Công thức tương đương trong AM01 coi hành động cuối trên trạng thái hữu hạn + goal constraints là tiêu chuẩn chính; không đảm bảo tương đương tiến trình chuyển trạng thái, điều kiện ưu tiên/nhân quả/temporal. Nếu checker chỉ so bảng hành động, hai cơ chế khác nhau có cùng outcome có thể bị gộp (loại nhầm OOD); nếu miền trạng thái không đầy đủ, khác biệt chỉ ở trạng thái bất khả đạt lại có thể được chấp nhận là mới. 4 OOD skeleton/category chưa hiện hữu; actual non-overlap là NOT_EXECUTED.",
+      "must_fix": "Trong V3 định nghĩa một bộ quyết định nhất quán giữa MD và JSON: chuẩn hóa typed AST có trace/transition semantics, reachable-state coverage, counterexample/bisimulation hoặc quy tắc conservative UNKNOWN→HOLD; đóng băng quy trình tạo 4 OOD structures/category và các kiểm exact, alpha-rename, negation, priority, temporal order, unreachable-state, near-equivalence trên fixture không thuộc EVAL. Không gọi PASS khi chưa có checker độc lập.",
+      "v3_change": "REQUIRED"
+    },
+    {
+      "amendment": "AM02",
+      "axis": "R2",
+      "verdict": "HOLD",
+      "risk": "CRITICAL",
+      "issue_ids": [
+        "D1V2-03",
+        "D1V2-04"
+      ],
+      "prior_findings": [
+        "F03",
+        "F04"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "finding": "Action ontology đã có fields nhưng chưa định nghĩa grammar chạy được, mapping surface→canonical, grammar cho condition_witness (bắt buộc có trong output hay suy từ prompt), hoặc policy phân xử quote/negation/2 clauses/early EOS cụ thể. So sánh gold_A != gold_B theo canonical là đúng hướng nhưng chưa chứng minh tính duy nhất/khả phân biệt của từng world. Không có parser code hay sensitivity/specificity từ independent fixtures.",
+      "must_fix": "Trong V3 pin ontology/action grammar và synonym SHA, tách semantic witness của gold khỏi biểu thức output nếu câu trả lời chỉ có 1 action; xác định output contract và unique-oracle proof trước EVAL. Parser deterministic với fixture nguồn-only đối kháng: quoted answer, negation, inverse condition, wrong agent/target/time, multi-action/contradiction, echo, EOS/truncation và special tokens. Giữ invalid→0, 256 family denominator.",
+      "v3_change": "REQUIRED"
+    },
+    {
+      "amendment": "AM03",
+      "axis": "R3",
+      "verdict": "HOLD",
+      "risk": "HIGH",
+      "issue_ids": [
+        "D1V2-05",
+        "D1V2-06"
+      ],
+      "prior_findings": [
+        "F05",
+        "F06"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "finding": "Xác minh độc lập exact sign k≥10/12 và các power ví dụ là đúng. Nhưng JSON AM04.tie_boundary ghi đồng thời \"inclusive_ge_for_positive_d\" và \"strict_positive_d>0\", xung đột với AM03 zero=NONPOSITIVE; chưa khóa ước lượng error/tolerance. 12 seed numeric khác nhau chưa chứng minh iid training streams; kiểm định nhắm P_seed(d_s>0), không nhắm mean>0 hoặc mean≥0.10. Crossed bootstrap có thể là sensitivity nhưng không cung cấp CI xác nhận tổng thể 16 skeleton.",
+      "must_fix": "Trong V3 bỏ xung đột tie policy bằng signed integer D_s=#paired_correct_C−#paired_correct_B trên 256 family, d_s=D_s/256; D_s=0 là nonpositive, không cần epsilon. Pin RNG stream/sampler/negative sampler, độc lập thống kê và cùng test set. Công khai sign test đơn biến (k≥10), power q=.7/.8/.9, giới hạn suy luận chỉ fixed skeleton, bootstrap exploratory ghi nhãn riêng; +0.10 là descriptive composite decision gate.",
+      "v3_change": "REQUIRED"
+    },
+    {
+      "amendment": "AM04",
+      "axis": "R4",
+      "verdict": "HOLD",
+      "risk": "MEDIUM",
+      "issue_ids": [
+        "D1V2-07"
+      ],
+      "prior_findings": [
+        "F07"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S3",
+        "S5"
+      ],
+      "finding": "Thứ tự HOLD_INVALID_PROTOCOL trước outcome đúng và ngưỡng được khai là FC01-pilot-informed. Tuy vậy numeric thresholds chưa khóa biểu diễn integer/boundary, không có phương án kiểm tra shortcut/heterogeneity giữa 4 skeleton/category; 16 lexical worlds tạo cảm giác ổn định giả nếu cùng một skeleton dễ.",
+      "must_fix": "Trong V3 chốt phân xử ranh giới bằng đếm nguyên: mean≥.10 trên 12 seed ↔ Σ_s D_s≥308; category mean≥.05 trên 12×64 family ↔ Δcount_category≥39; C absolute≥.25 ↔ correct_C_category≥192. Khóa bảng tình huống conflict và các robustness controls theo skeleton/lexical cue trước outcome; không báo những guards này là hypothesis tests.",
+      "v3_change": "REQUIRED"
+    },
+    {
+      "amendment": "AM05",
+      "axis": "R5",
+      "verdict": "HOLD",
+      "risk": "HIGH",
+      "issue_ids": [
+        "D1V2-08",
+        "D1V2-09"
+      ],
+      "prior_findings": [
+        "F08",
+        "F09"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "finding": "ACL mới chỉ nêu role; chưa có chứng cứ permission/key. Đáng chú ý, owner_trainer chỉ được đọc TRAIN/VAL còn eval_custodian chỉ được đọc sealed EVAL; parser_source_qa chỉ xem synthetic. Không role được mô tả có quyền đủ để so sánh actual TRAIN/VAL AST với EVAL AST, nên proof non-overlap chưa có luồng kiểm toán khả thi và không lộ gold. Rights/PII, parent/TinyStories/template leak vẫn unverified.",
+      "must_fix": "Trong V3 định nghĩa trusted isolated overlap auditor hoặc sealed two-party protocol nhận AST không kèm gold, xác minh TRAIN–EVAL + VAL–EVAL và chỉ xuất signed pass/fail+hash (không tiết lộ mapping); pin storage ACL, key-owner, audit logs và env mount proof; kiểm cue swaps/template/gold-echo, receipts license/provenance/PII. Không tuyên bố OOD đối với toàn bộ pretraining.",
+      "v3_change": "REQUIRED"
+    },
+    {
+      "amendment": "AM06",
+      "axis": "R6",
+      "verdict": "HOLD",
+      "risk": "HIGH",
+      "issue_ids": [
+        "D1V2-10",
+        "D1V2-11"
+      ],
+      "prior_findings": [
+        "F10",
+        "F11",
+        "F12"
+      ],
+      "refs": [
+        "S1",
+        "S2",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "finding": "Nguồn đã thừa nhận equal data/token/updates không bằng equal FLOPs/negative exposures. Tuy nhiên vẫn chưa có exact T1/parent SHA trong V2 machine, deterministic negative sampling contract, checkpoint resume actual nonzero AdamW QA hoặc đo throughput/storage/quota Free T4 để chạy 36 arm-runs. 44/44 tự kiểm chỉ test chuỗi JSON/arithmetics, không test runner.",
+      "must_fix": "Trong V3 pin exact parent/T1/artifact SHA và nguồn contrastive negatives; freeze loss coefficients and RNG per arm; yêu cầu one-packet actual nonzero AdamW K vs K-resume equivalence và negative corrupt/wrong SHA/partial restore fail-closed; profile cả 3 arm (RAM/vRAM/disk, elapsed, FLOPs, quota, Drive I/O, restart) để quyết định paid USD 0 khả thi; nếu không thì HOLD hoặc scoped pilot theo amendment mới trước outcome.",
+      "v3_change": "REQUIRED"
+    }
+  ],
+  "math_audit": {
+    "n_seed": 12,
+    "n_arms": 3,
+    "n_family": 256,
+    "planned_arm_runs": 36,
+    "planned_optimizer_updates": 9216,
+    "planned_generations": 18432,
+    "seed_positive_definition": "D_s=sum_f(success_C-success_B) integer over 256 families; strict D_s>0; D_s=0 nonpositive",
+    "null": "P_training_seed(D_s>0)<=0.5 on fixed 16 OOD skeletons",
+    "exact_tail_probabilities": [
+      {
+        "k": 9,
+        "tail_numerator": 299,
+        "denominator": 4096,
+        "p": 0.072998046875,
+        "alpha_0p05_pass": false
+      },
+      {
+        "k": 10,
+        "tail_numerator": 79,
+        "denominator": 4096,
+        "p": 0.019287109375,
+        "alpha_0p05_pass": true
+      },
+      {
+        "k": 11,
+        "tail_numerator": 13,
+        "denominator": 4096,
+        "p": 0.003173828125,
+        "alpha_0p05_pass": true
+      },
+      {
+        "k": 12,
+        "tail_numerator": 1,
+        "denominator": 4096,
+        "p": 0.000244140625,
+        "alpha_0p05_pass": true
+      }
+    ],
+    "required_k": 10,
+    "seed_positive_q_assumption_power": {
+      "q_0p7": 0.25281534785499993,
+      "q_0p8": 0.5583457484800002,
+      "q_0p9": 0.889130022255
+    },
+    "mean_delta_threshold_count": "sum_over_seeds D_s>=308",
+    "category_delta_0p05_threshold_count": "per category pooled 12x64 signed delta >=39",
+    "category_C_absolute_0p25_threshold_count": "per category pooled 12x64 correct_C >=192",
+    "power_scope": "sign component only, Bernoulli independent q hypothetical; not empirical",
+    "mean_0p10_status": "DESCRIPTIVE_GATE_NOT_INFERENTIAL_TEST"
+  },
+  "self_authored_source_qa": {
+    "reported_positive_pass": "44/44",
+    "reported_negative_detected": "9/9",
+    "independence": "SAME_AUTHOR_NOT_INDEPENDENT",
+    "interpretation": "ONLY_SPEC_FIELD_CONSISTENCY_NOT_AST_PARSER_RUNTIME_OR_RIGHTS_CERTIFICATION",
+    "independent_reexecution": false
+  },
+  "gates": {
+    "AST_NONOVERLAP": "NOT_EXECUTED",
+    "PARSER_RUNTIME_QA": "NOT_EXECUTED",
+    "STATISTICAL_ASSUMPTIONS": "HOLD",
+    "RIGHTS_ACTUAL": "NOT_VERIFIED",
+    "ACL_ACTUAL": "NOT_VERIFIED",
+    "NONZERO_ADAMW_RESUME_QA": "NOT_EXECUTED",
+    "FREE_T4_FEASIBILITY": "NOT_VERIFIED",
+    "D1_SCIENCE_RELEASE": "HOLD",
+    "D1_EXISTING": "HOLD_UNMODIFIED",
+    "TEST_Q1Q2": "SEALED",
+    "FC01_EXPLORATORY": "CLOSED_PASS_SCOPED",
+    "MAIN": "UNCHANGED_BY_REVIEW"
+  },
+  "single_design_decision": "HOLD_REVISE_BEFORE_PREREG",
+  "design_reason": "Typed AST/parser/ACL/runner are only design contracts; numeric tie contradiction, missing executable checker/parser and resource evidence prevent design GO.",
+  "changes_to_v2_allowed": false,
+  "new_revision_if_remediated": "V3_ONLY",
+  "science_executed": false,
+  "gpu_calls": 0,
+  "training_steps": 0,
+  "eval_gold_accessed": false,
+  "private_mapping_accessed": false,
+  "new_eval_or_gold_created": false,
+  "github_mutated_by_reviewer": false,
+  "report_file": "TTM_D1_BRIDGE_V2_DISTINCT_AI_SOURCE_REVIEW_20261114.md",
+  "report_sha256": "f482d9855b16bed2bc764e63c2d986259b8f94bd9bb1f65e30b145f5e5e23cae",
+  "next_operation": "TTM_SMALL4M_D1_BRIDGE_V3_INTEGRATED_SOURCE_CONTRACT_REMEDIATION_AND_SINGLE_INDEPENDENT_PREREG_REVIEW_NO_GPU"
+}
