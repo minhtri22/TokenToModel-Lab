@@ -23,7 +23,7 @@ Write-Host 'EXISTING_G2_RECEIPT_SHA256=PASS_NO_MUTATION'
 Write-Host 'HISTORICAL_RUNTIME_EXECUTABLE_SHA256_PIN=0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14'
 Write-Host 'HISTORICAL_RUNTIME_SOURCE=G2_CLOSEOUT_COMMIT_3ca8d799'
 $match = New-Object 'System.Collections.Generic.List[string]'
-$seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
+$seen = New-Object 'System.Collections.Generic.HashSet[string]'
 $searched = 0
 $errors = 0
 # Scope strictly to the existing project. This finds venv executables omitted
