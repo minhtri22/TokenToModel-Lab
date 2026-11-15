@@ -1,0 +1,157 @@
+{
+  "schema": "ttm.p0a.meas.q3.author_source_qa_receipt.v1",
+  "operation": "TTM_P0A_MEAS_Q3_SOURCE_EVIDENCE_ANSWER_AND_DISTINCT_QA_SINGLE_GATE",
+  "date": "2026-11-16",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "exact_main": "8c38528a8d52f7262d0da188443a8166ec843a5f",
+  "tests": [
+    {
+      "id": "exact_pin",
+      "status": "PASS"
+    },
+    {
+      "id": "question_id",
+      "status": "PASS"
+    },
+    {
+      "id": "source_scope",
+      "status": "PASS"
+    },
+    {
+      "id": "answer_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "q1_q2_distinction",
+      "status": "PASS"
+    },
+    {
+      "id": "seven_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "rights",
+      "status": "PASS"
+    },
+    {
+      "id": "ontology",
+      "status": "PASS"
+    },
+    {
+      "id": "parity",
+      "status": "PASS"
+    },
+    {
+      "id": "shortcut",
+      "status": "PASS"
+    },
+    {
+      "id": "rater",
+      "status": "PASS"
+    },
+    {
+      "id": "prereg",
+      "status": "PASS"
+    },
+    {
+      "id": "model_permit",
+      "status": "PASS"
+    },
+    {
+      "id": "selection",
+      "status": "PASS"
+    },
+    {
+      "id": "temporal",
+      "status": "PASS"
+    },
+    {
+      "id": "false_exclusivity",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "reject_separate",
+      "status": "PASS"
+    },
+    {
+      "id": "hidden_gold",
+      "status": "PASS"
+    },
+    {
+      "id": "full_parity",
+      "status": "PASS"
+    },
+    {
+      "id": "x15_truncation",
+      "status": "PASS"
+    },
+    {
+      "id": "rater_bias",
+      "status": "PASS"
+    },
+    {
+      "id": "fact_cue",
+      "status": "PASS"
+    },
+    {
+      "id": "source_access",
+      "status": "PASS"
+    },
+    {
+      "id": "reject_collision",
+      "status": "PASS"
+    },
+    {
+      "id": "all_options",
+      "status": "PASS"
+    },
+    {
+      "id": "hold_only",
+      "status": "PASS"
+    },
+    {
+      "id": "negative_logic",
+      "status": "PASS"
+    },
+    {
+      "id": "distinct_pending",
+      "status": "PASS"
+    },
+    {
+      "id": "q4_undecided",
+      "status": "PASS"
+    },
+    {
+      "id": "lineage_protected",
+      "status": "PASS"
+    },
+    {
+      "id": "no_sci",
+      "status": "PASS"
+    },
+    {
+      "id": "no_dataset",
+      "status": "PASS"
+    },
+    {
+      "id": "same_branch_remediation",
+      "status": "PASS"
+    },
+    {
+      "id": "single_next_gate",
+      "status": "PASS"
+    }
+  ],
+  "pass_count": 35,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_SOURCE_STATIC_ONLY_NOT_INDEPENDENT",
+  "distinct_qa": "NOT_EXECUTED",
+  "scientific_execution": "NOT_EXECUTED",
+  "owner_q4": "NOT_DECIDED",
+  "merge_authority": "HOLD_UNTIL_DISTINCT_AND_OWNER",
+  "next_single_gate": "TTM_P0A_MEAS_Q3_EXACT_SOURCE_DISTINCT_ANSWER_REVIEW_AND_OWNER_Q3_ADMISSION_SINGLE_GATE"
+}
