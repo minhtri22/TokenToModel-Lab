@@ -1,0 +1,45 @@
+name: TTM VM R8 G2 owner-Windows preexec PS5.1 static QA
+
+on:
+  push:
+    branches:
+      - implementation/ttm-vm-r8-g2-owner-windows-preexec-20261115
+    paths:
+      - docs/research/vector-memory/r8/preexec/Invoke-TTM-VM-R8-G2-OwnerWindows-Integrated-Preexec-PS51.ps1
+      - .github/workflows/ttm-vm-r8-g2-owner-windows-preexec-staticqa.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ps51-static-parser:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Parse exact preexec script under Windows PowerShell 5.1 without running it
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $Path = 'docs/research/vector-memory/r8/preexec/Invoke-TTM-VM-R8-G2-OwnerWindows-Integrated-Preexec-PS51.ps1'
+          $Tokens = $null; $Errors = $null
+          $Ast = [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $Path).Path, [ref]$Tokens, [ref]$Errors)
+          if (-not $Ast -or $Errors.Count -ne 0) {
+            foreach($e in $Errors) { Write-Host ('PARSE_ERROR: ' + $e.Message) }
+            throw 'PS51_PREEXEC_PARSE_FAIL'
+          }
+          $Raw = [IO.File]::ReadAllText((Resolve-Path $Path).Path)
+          foreach($required in @('ACTUAL_HMAC', 'G3_EXECUTED', 'GITHUB_REAL_SENTINEL_ATTESTATION', 'ONE_SHOT_RECEIPT_ALREADY_EXISTS')) {
+            if(-not $Raw.Contains($required)) {throw ('STATIC_CONTRACT_MISSING: '+$required)}
+          }
+          if($Raw -match '(?im)^\s*&\s*\$GitHubCliExe\s+release\s+(create|delete|upload|edit)\b') {
+            throw 'FORBIDDEN_GITHUB_MUTATION'
+          }
+          if($Raw -match '(?im)^\s*&\s*\$PythonExe\s+.*(train|generate|dispatch)') {
+            throw 'FORBIDDEN_SCIENCE_EXECUTION'
+          }
+          Write-Host 'PS51_PREEXEC_PARSE=PASS'
+          Write-Host 'PS51_SAFE_STATIC_CONTRACT=PASS'
+          Write-Host 'PREEXEC_EXECUTION=NOT_EXECUTED_ON_HOSTED_RUNNER'
