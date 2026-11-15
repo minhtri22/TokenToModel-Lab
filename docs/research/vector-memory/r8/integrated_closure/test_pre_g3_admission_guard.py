@@ -1,8 +1,11 @@
 """Source-only G2 negative QA. Synthetic fixtures; no real R8 key/cases/G3."""
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import closing
 from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 import hashlib
+import os
+import sqlite3
 import json
 from pathlib import Path
 import multiprocessing
@@ -258,6 +261,76 @@ class AdmissionQA(unittest.TestCase):
             self.assertEqual(process.exitcode, 0)
         self.assertEqual(results.count("CROSS_PROCESS_DISPATCHED"), 1)
         self.assertEqual(results.count("G3_ONE_SHOT_REPLAY_REJECTED"), 1)
+
+
+
+    def test_23_fixture_mode_truthy_string_denies(self):
+        g = PreG3AdmissionGuard(self.ledger, self.proofs, self.proofs,
+                               fixture_mode="false")
+        self.deny("PRODUCTION_VERIFIER_AND_AMENDMENT_NOT_ADMITTED", guard=g)
+
+    def test_24_truthy_false_proof_flags_denied(self):
+        self.proofs.anchor = replace(self.anchor, immutable="false",
+                                     signature_verified="false")
+        self.deny("REMOTE_ATTESTATION_NOT_VERIFIED")
+
+    def test_25_truthy_false_acceptance_denied(self):
+        self.proofs.receipt = replace(self.receipt, accepted="false")
+        self.deny("INDEPENDENT_ADMISSION_RECEIPT_MISSING")
+
+    def test_26_receipt_before_remote_verification_denies(self):
+        self.proofs.receipt = replace(self.receipt, acceptance_timestamp_utc=
+                self.anchor.signed_timestamp_utc)
+        self.deny("PRE_G3_ACCEPTANCE_ORDER_INVALID")
+
+    def test_27_equal_anchor_timestamps_denies(self):
+        self.proofs.anchor = replace(self.anchor,
+                    published_timestamp_utc=self.anchor.signed_timestamp_utc)
+        self.deny("PRE_G3_TIMESTAMP_ORDER_INVALID")
+
+    def test_28_anchor_revoked_after_receipt_denies(self):
+        class Revoked(Proofs):
+            def verify_accepted(self, *, session_id, public_digest):
+                self.anchor = None
+                return super().verify_accepted(session_id=session_id,
+                                               public_digest=public_digest)
+        verifier = Revoked(self.anchor, self.receipt)
+        g = PreG3AdmissionGuard(self.ledger, verifier, verifier, fixture_mode=True)
+        self.deny("REMOTE_ANCHOR_CHANGED_OR_UNAVAILABLE", guard=g)
+
+    def test_29_preexisting_sqlite_without_constraints_denies(self):
+        with closing(sqlite3.connect(self.ledger)) as db:
+            db.execute('CREATE TABLE consumed(session_id TEXT, commitment_digest TEXT, consumed_utc TEXT)')
+            db.commit()
+        self.deny("PRIVATE_LEDGER_SCHEMA_UNTRUSTED")
+
+    def test_30_hardlink_ledger_denies(self):
+        outside = Path(self.tmp.name)/'other.sqlite3'
+        sqlite3.connect(outside).close()
+        os.link(outside, self.ledger)
+        self.deny("PRIVATE_LEDGER_MULTIPLE_HARDLINKS")
+
+    def test_31_nonfinite_json_typed_denial(self):
+        self.deny("PRIVATE_ENVELOPE_INVALID",
+                  replace(self.envelope, exact_bytes=b'{"a":NaN}'))
+
+    def test_32_lone_surrogate_json_typed_denial(self):
+        self.deny("PRIVATE_ENVELOPE_INVALID",
+                  replace(self.envelope, exact_bytes=b'{"a":"\\ud800"}'))
+
+    def test_33_anchor_mutated_after_receipt_denies(self):
+        class Mutated(Proofs):
+            def verify_accepted(self, *, session_id, public_digest):
+                self.anchor = replace(self.anchor, public_digest='0'*64)
+                return super().verify_accepted(session_id=session_id,
+                                               public_digest=public_digest)
+        verifier = Mutated(self.anchor,self.receipt)
+        g = PreG3AdmissionGuard(self.ledger,verifier,verifier,fixture_mode=True)
+        self.deny("REMOTE_ANCHOR_CHANGED_OR_UNAVAILABLE",guard=g)
+
+    def test_34_review_commit_zero_is_not_independent(self):
+        self.proofs.receipt = replace(self.receipt, amendment_review_commit='0'*40)
+        self.deny("ACCEPTED_RECEIPT_BINDING_MISMATCH")
 
 
 if __name__ == "__main__":
