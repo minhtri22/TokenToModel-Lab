@@ -9,8 +9,8 @@
 
 | Trường | Giá trị |
 |---|---|
-| `policy_gate` | `TTM-GOV-QF-20261115-V1` — `GOVERNANCE_LOCKED_EFFECTIVE_ON_MAIN_AT_INTRODUCING_COMMIT` (xem Git history; không tự tham chiếu SHA) |
-| `active_scientific_question` | `SM4M-Q001 · Q1_QUESTION_REGISTERED · SOURCE_ONLY_ARCHITECTURE_AUDIT · Q4_NOT_DECIDED` |
+| `policy_gate` | `TTM-GOV-QF-20261115-V1` — `GOVERNANCE_LOCKED_EFFECTIVE_ON_MAIN_AT_INTRODUCING_COMMIT` (policy still unchanged) |
+| `active_scientific_question` | `SM4M-Q001 · Q2_AUTHOR_PACKET_FROZEN · OWNER_Q2_SCOPE_ACCEPTED · Q3_REVIEW_AUTHORIZED_NOT_EXECUTED · Q4_NOT_DECIDED` |
 | `next_question_candidate` | `NONE_PENDING_Q001_CLOSURE`; F0–F2 **not authorized** until SM4M-Q001 Q4 owner closure |
 | `scientific_execution` | `NOT_AUTHORIZED` |
 | `new_research_branch_permission` | `NO` cho đến khi question gate được đăng ký, đánh giá, kết luận và owner quyết định |
@@ -51,3 +51,11 @@
 - **Trạng thái:** `Q1_REGISTERED; Q2_NOT_COMPLETED; Q3_NOT_REVIEWED; Q4_OWNER_NOT_DECIDED; F0_F2_PAUSED; SCIENCE_HOLD; LINEAGE_UNCHANGED; MERGE_NOT_AUTHORIZED`.
 
 **Bước thực hiện tiếp theo — duy nhất:** thực hiện một lượt kiểm toán độc lập tài liệu → mã nguồn → kết quả Small-4M trên exact sources của Q001; nộp report và receipt để owner đóng Q4. Không tạo thí nghiệm trong lượt này.
+
+## 5. Q2 owner scoped acceptance — pending governance PR merge
+
+- **Owner decision 15/11/2026:** `ACCEPT_Q2_EVIDENCE_SCOPE_AND_ADMISSION_CRITERIA_FOR_DISTINCT_Q3_REVIEW_ONLY`. This is a scoped review authorization, **not** AD-00…AD-08 PASS, new science GO or Q4 owner closure.
+- Evidence package is on one governance-only Draft PR branch in `docs/governance/sm4m-q001/` and `artifacts/governance/sm4m-q001/` with exact seven byte-preserved Git blob pins. Read acceptance `docs/governance/sm4m-q001/SM4M_Q001_OWNER_SCOPED_Q2_ACCEPTANCE_20261115.md`, then handoff `docs/governance/sm4m-q001/SM4M_Q001_DISTINCT_Q3_HANDOFF_20261115.md`.
+- `Q2=AUTHOR_COMPLETED_AND_OWNER_SCOPE_ACCEPTED`; `Q3=DISTINCT_REVIEW_AUTHORIZED_NOT_EXECUTED`; `Q4=NOT_DECIDED`; `ROOT_CAUSE=NOT_IDENTIFIED`; `ADMISSION_FOR_NEW_SCIENCE=HOLD`; `F0_F2=PAUSED`.
+- No research/implementation branch, model run, DATA, gold, code patch or merge authorized. The proposed governance PR **does not update `main` until it is independently reviewed and merged with owner authorization**.
+- Single next step: distinct independent Q3 source/design review from the pinned governance PR HEAD; after Q3 verdict request owner Q4, not before.

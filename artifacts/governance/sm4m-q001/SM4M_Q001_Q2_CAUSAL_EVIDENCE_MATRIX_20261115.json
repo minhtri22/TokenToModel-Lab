@@ -1,0 +1,557 @@
+{
+  "admission_gates": [
+    {
+      "id": "AD-00",
+      "name": "Exact source pin và outcome provenance",
+      "proof": "Git commit/blob, frozen receipt, study-specific RunID/checkpoint/tokenizer/config/split/candidate score hash; nguồn được đối chiếu mà không dùng TEST/FINAL",
+      "scope": "existing read-only",
+      "status": "PARTIAL_PUBLIC_SOURCE_MATCHED",
+      "veto": "HOLD_SOURCE_MISMATCH"
+    },
+    {
+      "id": "AD-01",
+      "name": "Private checkpoint, tokenizer, pack và quyền nguồn",
+      "proof": "Authorized custodian xác minh byte SHA256 của checkpoint/tokenizer/split, quyền dữ liệu và quyền tạo hồ sơ mới; không công bố nội dung private",
+      "scope": "future authorized custody",
+      "status": "NOT_VERIFIED_IN_Q2",
+      "veto": "HOLD_BYTE_CUSTODY_OR_RIGHTS"
+    },
+    {
+      "id": "AD-02",
+      "name": "Task và construct có khả năng quyết định",
+      "proof": "Định nghĩa riêng actor/object/goal, event/time/referent, điều kiện binary và UNKNOWN/INVALID; mỗi câu có nhãn nhất quán từ sự kiện nhìn thấy; không ép 2³ khi các biến phụ thuộc",
+      "scope": "design before future authoring",
+      "status": "NOT_VERIFIED_FOR_NEW_TASK",
+      "veto": "HOLD_CONSTRUCT_INVALID"
+    },
+    {
+      "id": "AD-03",
+      "name": "Visible evidence parity",
+      "proof": "Cùng exact prefix+candidate+rubric mà blind rater xem; gold adjudicator chứng minh từng trục bằng vị trí byte UTF-8 trong nguồn nhìn thấy; không dùng E_core ẩn làm chứng cứ duy nhất",
+      "scope": "future authorized gold",
+      "status": "NOT_VERIFIED_IN_Q2",
+      "veto": "HOLD_EVIDENCE_PARITY"
+    },
+    {
+      "id": "AD-04",
+      "name": "Independent gold / rater competence",
+      "proof": "Gold từ xét duyệt độc lập trước scoring; calibration balanced TRUE/FALSE/UNKNOWN, false abstention, cùng việc chấm, blind isolation, recorded disagreement; ngưỡng prospective đã khóa, không tự reuse 28/32",
+      "scope": "future owner-authorized calibration",
+      "status": "NOT_VERIFIED_IN_Q2",
+      "veto": "HOLD_RATER_OR_GOLD_INVALID"
+    },
+    {
+      "id": "AD-05",
+      "name": "Negative controls và chống shortcut",
+      "proof": "Hard negatives khác đúng một fact nhưng giữ từ vựng, thứ tự, độ dài/token budget và style; group-disjoint motif/template; kiểm leakage và answer cue",
+      "scope": "future design/admission",
+      "status": "NOT_VERIFIED_IN_Q2",
+      "veto": "HOLD_SHORTCUT_OR_LEAKAGE"
+    },
+    {
+      "id": "AD-06",
+      "name": "Paired experiment identifiability",
+      "proof": "Từng cặp đối chứng chung checkpoint, cùng prompt/context/source rights, một biến can thiệp, same information and compute budget, sample unit, seed, oracle; giữ separate descriptive endpoints",
+      "scope": "future after Q4",
+      "status": "NOT_EXECUTED",
+      "veto": "HOLD_CONFOUNDING"
+    },
+    {
+      "id": "AD-07",
+      "name": "Prospective metrics and custody",
+      "proof": "Primary endpoint, margin direction, equal candidate lengths/tokenization normalization policy, CI if relevant, cutoff/failure rule, blind map and first error all frozen before generation/scoring",
+      "scope": "future new question",
+      "status": "NOT_FROZEN_FOR_NEXT_EXPERIMENT",
+      "veto": "HOLD_PREREG_OR_CUSTODY"
+    },
+    {
+      "id": "AD-08",
+      "name": "Authority / closure sequence",
+      "proof": "Q2 author self QA → independent Q3 → owner Q4 closure; only then new prospective Q/branch if GO and separate science authorization. Historical TEST/FINAL remain sealed.",
+      "scope": "governance",
+      "status": "Q3_AND_Q4_NOT_COMPLETED",
+      "veto": "HOLD_OWNER_Q4_NO_EXECUTION_PERMIT"
+    }
+  ],
+  "boundaries": {
+    "F0_F2": "PAUSED",
+    "Q1": "REGISTERED_ON_MAIN",
+    "Q2": "AUTHOR_CAUSAL_TRIAGE_PACKET_LOCKED_PENDING_ACCEPTANCE",
+    "Q3": "NOT_EXECUTED",
+    "Q4": "NOT_DECIDED",
+    "TEST_FINAL_reused": false,
+    "architecture_modified": false,
+    "branch_created": false,
+    "checkpoint_loaded": false,
+    "lineage_updated": false,
+    "main_updated": false,
+    "root_cause": "NOT_IDENTIFIED",
+    "science": "HOLD"
+  },
+  "causal_hypotheses": [
+    {
+      "disposition": "VERIFY_MEASUREMENT_FIRST; không coi 0 điểm mặc định sai",
+      "evidence_contra": [
+        "CF1_DEV36"
+      ],
+      "evidence_support": [
+        "D1_EXP32",
+        "FRESH16_V2",
+        "HDATA_S1",
+        "D1_R1"
+      ],
+      "id": "H-METRIC",
+      "minimum_proof": [
+        "AD-02",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-07"
+      ],
+      "order": 1,
+      "papers": [
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P12",
+        "P13"
+      ],
+      "predicted_against": "Nhiều adjudicator độc lập phân biệt gold ổn định với source parity và kiểm metadata; kết quả model FAIL vẫn tồn tại",
+      "predicted_support": "Một rater sai/không phân biệt trường hợp gold 0/1/UNKNOWN hoặc có gold hidden-only; cách chấm thay đổi kết quả trên fixed admissible examples",
+      "question": "Sự thiếu hụt gold/rater/visible evidence có làm cho điểm adherence không thể diễn giải nhân quả?",
+      "status": "UNRESOLVED_PRIORITY_FOR_ADMISSION"
+    },
+    {
+      "disposition": "NO_OBJECTIVE_PATCH_UNTIL_MATCHED_CONTRAST",
+      "evidence_contra": [
+        "AC_FINAL24",
+        "HDATA_S1"
+      ],
+      "evidence_support": [
+        "T4_VAL",
+        "FRESH16_V2",
+        "CF1_DEV36",
+        "FC01"
+      ],
+      "id": "H-OBJECTIVE",
+      "minimum_proof": [
+        "AD-00",
+        "AD-01",
+        "AD-02",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "order": 2,
+      "papers": [
+        "P04",
+        "P11"
+      ],
+      "predicted_against": "Baseline phân biệt correct/wrong fact tốt dưới teacher forcing nhưng free continuation fail; ưu tiên decoder/rollout trước objective",
+      "predicted_support": "Sau gold hợp lệ, teacher-forced conditional margin không đảo theo fact hoặc objective-only matched intervention có gain trước prereg",
+      "question": "MLE có tạo được preference điều kiện nhưng rollout sai, hay không tạo được preference?",
+      "status": "UNRESOLVED_MIXED_OBJECTIVE_EFFECT"
+    },
+    {
+      "disposition": "NO_DATA_PATCH_FROM_EXPOSURE_COUNT_ALONE",
+      "evidence_contra": [
+        "HDATA_S1"
+      ],
+      "evidence_support": [
+        "T4_VAL",
+        "HDATA_S1",
+        "FC01"
+      ],
+      "id": "H-DATA",
+      "minimum_proof": [
+        "AD-01",
+        "AD-02",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "order": 2,
+      "papers": [
+        "P01",
+        "P02",
+        "P03",
+        "P11"
+      ],
+      "predicted_against": "Coverage hiện hữu và gain condition margin xuất hiện không cần thêm data; hoặc data-only matched không tạo khác biệt",
+      "predicted_support": "Đếm riêng training facts/motifs cho thấy thiếu construct; can thiệp data-only matched tăng khả năng phân biệt trên novel motif",
+      "question": "Diversity/coverage thực sự gồm các quan hệ state và phản thực được yêu cầu hay không?",
+      "status": "UNRESOLVED_COVERAGE"
+    },
+    {
+      "disposition": "DO_NOT_RETRY_DECODER_ONLY_AS_PATCH",
+      "evidence_contra": [
+        "D1_EXP32",
+        "CF1_DEV36"
+      ],
+      "evidence_support": [
+        "D1_EXP32"
+      ],
+      "id": "H-DECODER",
+      "minimum_proof": [
+        "AD-02",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "order": 3,
+      "papers": [
+        "P05"
+      ],
+      "predicted_against": "Teacher-forced margin sai và nucleus/greedy cùng fail factual trong matched task",
+      "predicted_support": "Teacher-forced fact preference chính xác, generation fail cùng case, decoding strategy điều chỉnh được outcome mà không đổi model",
+      "question": "Điều kiện hóa nội tại đúng nhưng chiến lược sinh làm mất fact?",
+      "status": "SOLE_EXPLANATION_WEAKENED"
+    },
+    {
+      "disposition": "CHECK_CONTEXT_SOURCE_FIRST; NO_ROPE_PATCH",
+      "evidence_contra": [],
+      "evidence_support": [
+        "T4_VAL"
+      ],
+      "id": "H-CONTEXT",
+      "minimum_proof": [
+        "AD-00",
+        "AD-01",
+        "AD-02",
+        "AD-03",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "order": 3,
+      "papers": [
+        "P06"
+      ],
+      "predicted_against": "Fact nằm trong prompt nhìn thấy và margins không đổi theo vị trí khi các nuisance cố định",
+      "predicted_support": "Fact nằm ngoài 256 tokens hoặc performance giảm rõ khi đưa same fact tới vị trí khác nhau trong context256",
+      "question": "Lỗi đến từ chứng cứ bị cắt hoặc vị trí không được tận dụng?",
+      "status": "UNRESOLVED_WINDOW_POSITION"
+    },
+    {
+      "disposition": "NO_HEAD_LAYER_OR_MOE_CHANGE_NOW",
+      "evidence_contra": [
+        "FC01"
+      ],
+      "evidence_support": [
+        "FRESH16_V2"
+      ],
+      "id": "H-CAPACITY",
+      "minimum_proof": [
+        "AD-01",
+        "AD-02",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "order": 4,
+      "papers": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "predicted_against": "Model hiện đạt target khi task/coverage/evaluation được kiểm soát; hoặc không có capacity-only effect",
+      "predicted_support": "Sau cùng construct và training recipe matched, controlled capacity ablation tạo cải thiện ổn định vượt điều kiện đã khóa",
+      "question": "Capacity 3.75M là giới hạn cần thiết hay data/objective/measurement mới là giới hạn?",
+      "status": "NOT_ISOLATED"
+    },
+    {
+      "disposition": "INVESTIGATE_ONLY_IF_CUSTODY_OR_SOURCE_MISMATCH",
+      "evidence_contra": [
+        "T4_VAL"
+      ],
+      "evidence_support": [],
+      "id": "H-IMPL",
+      "minimum_proof": [
+        "AD-00",
+        "AD-01",
+        "AD-08"
+      ],
+      "order": 99,
+      "papers": [],
+      "predicted_against": "Public source matches historical signed runtime/pack/weights and independent scoped QA; không chứng minh không bao giờ có bug",
+      "predicted_support": "Exact runtime/checkpoint mismatch, token mask/split leakage hoặc output provenance lỗi có bằng chứng byte/run",
+      "question": "Có bất nhất between exact trained source/config/bytes/runtime đủ làm vô hiệu mọi inference không?",
+      "status": "NO_CONFIRMED_SOURCE_BUG_CONTINGENT"
+    }
+  ],
+  "created_date": "2026-11-15",
+  "input_files_sha256": {
+    "SM4M_Q001_AUDIT_RECEIPT_20261115.json": "9fbfb2b185043685b5d24e352eb7b029b6fc36098f5a735cd699b9b5f2261f4a",
+    "SM4M_Q001_AUTHOR_ADVERSARIAL_LITERATURE_QA_RECEIPT_20261115.json": "5254fbb557c2074d95d7aa65e14e6c2924e8da1979e12f6fe4b1340958303a65",
+    "SM4M_Q001_INTEGRATED_ARCHITECTURE_AUDIT_20261115.md": "4973ad744f5d2e2e9e89f46e7890a37833c43cd99fdb82405be2148a580bce06",
+    "SM4M_Q001_Q2_AUTHOR_ADVERSARIAL_QA_LITERATURE_TRIAGE_20261115.md": "34c553d10250b8403a4d2e7170ce6f0329fa14284ea5018f59de35af94622d36"
+  },
+  "literature_sources": [
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P01",
+      "scope": "capacity not deterministically disqualifying",
+      "title": "TinyStories",
+      "url": "https://arxiv.org/abs/2305.07759"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P02",
+      "scope": "data/model/compute effect on cross entropy",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P03",
+      "scope": "data and parameters in a different scale regime",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P04",
+      "scope": "objective alignment possible on other models",
+      "title": "Training language models to follow instructions with human feedback",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/b1efde53be364a73914f58805a001731-Abstract.html"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P05",
+      "scope": "decoding influences repetition and fluency",
+      "title": "The Curious Case of Neural Text Degeneration",
+      "url": "https://mlanthology.org/iclr/2020/holtzman2020iclr-curious/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P06",
+      "scope": "position influences context use in larger long-context models",
+      "title": "Lost in the Middle",
+      "url": "https://aclanthology.org/2024.tacl-1.9/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P07",
+      "scope": "judge position/verbosity biases",
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P08",
+      "scope": "pairwise order bias",
+      "title": "Large Language Models are not Fair Evaluators",
+      "url": "https://aclanthology.org/2024.acl-long.511/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P09",
+      "scope": "different automatic/human evaluation axes",
+      "title": "SummEval",
+      "url": "https://aclanthology.org/2021.tacl-1.24/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P10",
+      "scope": "discontinuous metric issue",
+      "title": "Are Emergent Abilities of Large Language Models a Mirage?",
+      "url": "https://papers.neurips.cc/paper_files/paper/2023/hash/adc98a266f45005c403b8311ca7e8bd7-Abstract-Conference.html"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P11",
+      "scope": "lexical heuristic shortcuts",
+      "title": "Right for the Wrong Reasons",
+      "url": "https://aclanthology.org/P19-1334/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P12",
+      "scope": "heldout reasoning rule composition",
+      "title": "CLUTRR",
+      "url": "https://aclanthology.org/D19-1458/"
+    },
+    {
+      "TTM_causal_claim": "NOT_PROVEN",
+      "id": "P13",
+      "scope": "entity/location state witness",
+      "title": "Tracking State Changes in Procedural Text",
+      "url": "https://aclanthology.org/N18-1144/"
+    }
+  ],
+  "minimum_future_discriminating_test": {
+    "comparison": "same prefix with two continuations differing in exactly one fact; matched token length/lexical/style and equal information budget",
+    "conditions_before_authoring": [
+      "AD-01",
+      "AD-02",
+      "AD-05",
+      "AD-07",
+      "AD-08"
+    ],
+    "conditions_before_scoring": [
+      "AD-03",
+      "AD-04",
+      "AD-06",
+      "AD-07",
+      "AD-08"
+    ],
+    "fixed_model": "historical T4 step1024 reference; private byte verification required before actual use",
+    "possible_outcomes": {
+      "gold_or_rater_invalid": "HOLD_MEASUREMENT; no model-causal inference",
+      "source_or_checkpoint_mismatch": "HOLD_SOURCE_CUSTODY; no model-causal inference",
+      "teacher_forced_correct__generation_bad": "decoding or rollout can be prioritized, does not isolate cause alone",
+      "teacher_forced_correct__generation_good": "historical failures might reflect task/distribution/metric, do not invalidate historical verdict",
+      "teacher_forced_wrong__generation_bad": "conditional representation/learned objective/data prioritized, cannot separate objective from data alone"
+    },
+    "prospective_primary": "length-controlled teacher-forced conditional log-likelihood preference margin, direction and ties frozen ahead; no fabricated cutoff",
+    "prospective_secondary": "same-case free generation adherence (only after gold/rater admission); separate from primary",
+    "question": "Trên cùng nguồn và gold đã admitted, mô hình có phân biệt cặp đúng/sai ở teacher forcing và việc sinh có làm mất khác biệt đó không?",
+    "status": "NOT_AUTHORIZED_NOT_DESIGNED_AS_EXECUTABLE",
+    "unit": "fresh independent story core; group-disjoint from all previously consumed final/test and examples"
+  },
+  "operation": "SM4M_Q001_Q2_EVIDENCE_ADMISSION_AND_CAUSAL_TRIAGE_CLOSURE_SINGLE_GATE",
+  "question_id": "SM4M-Q001",
+  "schema": "ttm.sm4m.q001.q2.causal_evidence_admission.v1",
+  "scope": "SOURCE_ONLY_AUTHOR_Q2_NO_NEW_SCIENCE",
+  "source_outcomes": [
+    {
+      "causal": "NO",
+      "caveat": "Không phải phép đo actor/object/goal hay factual adherence",
+      "descriptive": "YES_SCOPED",
+      "id": "T4_VAL",
+      "kind": "original adjudicated NLL metric",
+      "observed": "T4 step1024 VAL NLL 3.5223388517 vs TRAIN bigram 3.99723141696; ~11.88% relative gain",
+      "source": "T4_VAL_RECEIPT",
+      "status": "SCIENTIFIC_PASS_SCOPED"
+    },
+    {
+      "causal": "NO",
+      "caveat": "SEALED/CONSUMED: tuyệt đối không tái chạy, chấm lại hoặc chọn hyperparameter",
+      "descriptive": "YES_SCOPED",
+      "id": "T4_TEST64",
+      "kind": "historical held-out descriptive",
+      "observed": "64 truyện/14.669 target, one-shot đã tiêu thụ",
+      "source": "MAIN",
+      "status": "PASS_HOLDOUT_DESCRIPTIVE_SCOPED"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Không so trực tiếp với FRESH16 do khác sample và scoring",
+      "descriptive": "YES_SCOPED",
+      "id": "FRESH12",
+      "kind": "pilot candidate AI rater",
+      "observed": "Chênh adherence trung bình 0; 4 PASS/4 FAIL candidate gates; một AI rater",
+      "source": "FRESH12_HEAD",
+      "status": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Không được coi S1/S2 là inter-rater agreement của cùng mục",
+      "descriptive": "YES_SCOPED",
+      "id": "FRESH16_V2",
+      "kind": "independent scoped scientific verdict",
+      "observed": "H1 0/16 grade≥2; H2 0/8 pair; hai phiên S1 output và S2 pair chấm nhiệm vụ khác",
+      "source": "FRESH16_HEAD",
+      "status": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED"
+    },
+    {
+      "causal": "NO",
+      "caveat": "FINAL72 vẫn sealed; không chứng minh lỗi của objective hoặc architecture",
+      "descriptive": "YES_SCOPED",
+      "id": "CF1_DEV36",
+      "kind": "neural conditional preference DEV",
+      "observed": "0/36 chuyển ưu tiên completion khi đổi ngữ cảnh A/B trên exact public DEV",
+      "source": "CF1_HEAD",
+      "status": "FAIL_SCOPED_0_OF_36"
+    },
+    {
+      "causal": "NO",
+      "caveat": "RATER_INPUT_BYTE_PROVENANCE_NOT_VERIFIED; chỉ dùng xu hướng đã ghi, không nâng thành gold truth",
+      "descriptive": "QUALIFIED_ONLY",
+      "id": "D1_EXP32",
+      "kind": "exploratory decoder contrast",
+      "observed": "Greedy và nucleus đều 0/32 grade≥2; nucleus cải thiện repetition",
+      "source": "FRESH16_HEAD",
+      "status": "CLOSED_EXPLORATORY_SCOPED"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Bác bỏ hiệu quả C trong điều kiện thử đã khóa, không bác bỏ mọi objective",
+      "descriptive": "YES_SCOPED",
+      "id": "AC_FINAL24",
+      "kind": "scoped objective intervention",
+      "observed": "C−A=0 về adherence; absolute mean 0.6667/3; 1/24 C strict wins",
+      "source": "AC_HEAD",
+      "status": "FAIL_CANDIDATE_EFFICACY_GATE_NO_DEMONSTRATED_C_GAIN"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Không có human gold; không kết luận mọi thay đổi data không tác dụng",
+      "descriptive": "YES_SCOPED",
+      "id": "HDATA_S1",
+      "kind": "exploratory data intervention",
+      "observed": "H0=H1=0 primary trong 24 pair; one blind AI rater",
+      "source": "HDATA_HEAD",
+      "status": "NO_DEMONSTRATED_BENEFIT_EXPLORATORY"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Không chứng minh OOD, reasoning tổng quát hay template transfer",
+      "descriptive": "YES_SCOPED",
+      "id": "FC01",
+      "kind": "lexical-family contrastive study",
+      "observed": "A4/64 B3/64 C38/64 lexical-family, rule 16/16 nhưng entity-location 1/16",
+      "source": "FC01_HEAD",
+      "status": "PASS_SCOPED_EXPLORATORY_NO_CONFIRMATORY_RELEASE"
+    },
+    {
+      "causal": "NO",
+      "caveat": "Không dùng làm baseline benchmark đã đạt admission",
+      "descriptive": "DESIGN_ONLY",
+      "id": "D1_R1",
+      "kind": "design closure not science",
+      "observed": "Ontology feasibility HOLD; admitted OOD 0/16",
+      "source": "MAIN",
+      "status": "GO_CLOSE_R1_FORMULATION_DESIGN_ONLY"
+    }
+  ],
+  "source_pins": {
+    "AC_HEAD": "37165ce6eea0bb4b04d316e2998da579c91d13cf",
+    "CF1_HEAD": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+    "FC01_HEAD": "b5dd5890b73a29744530ed3a1ffbc0dc7ae5195a",
+    "FOUNDATION_HEAD": "9b55596f580b36b436cf6bdb2ed5a4e45c6992de",
+    "FRESH12_HEAD": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+    "FRESH16_HEAD": "0ec28d44587fde9ad4acba8cccae65648e367181",
+    "HDATA_HEAD": "ef4cc05037f98129082cd429a75092b8cc822efb",
+    "LINEAGE_BLOB": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "MAIN": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc",
+    "P02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "Q001": "27b8337aea9c9e82bfe98657170e592fcb3ad941",
+    "T4_BPE": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "T4_CONFIG": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "T4_EVAL": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "T4_PACK": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "T4_TRAINER": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "T4_VAL_RECEIPT": "84cb94647c403ea358d8c991090bf56adc11f128"
+  },
+  "terminal_disposition": {
+    "author_q2": "AUTHOR_EVIDENCE_TRIAGE_COMPLETED_SCOPED",
+    "baseline_for_new_science": "HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE",
+    "baseline_reference": "KEEP_HISTORICAL_REFERENCE_ONLY",
+    "independent_review": "NOT_EXECUTED",
+    "owner_closure": "NOT_DECIDED",
+    "recommendation": "DO_NOT_PATCH_OR_OPEN_F0_F2; Q2 record is review-ready, no future test authorization",
+    "root_cause_identified": false
+  }
+}
