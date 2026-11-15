@@ -10,12 +10,12 @@
 | Trường | Giá trị |
 |---|---|
 | `policy_gate` | `TTM-GOV-QF-20261115-V1` — `GOVERNANCE_LOCKED_EFFECTIVE_ON_MAIN_AT_INTRODUCING_COMMIT` (xem Git history; không tự tham chiếu SHA) |
-| `active_scientific_question` | `NONE_REGISTERED_AFTER_POLICY_LOCK` |
-| `next_question_candidate` | `SM4M_F0_F2_ARCHITECTURE_NECESSITY_ROOT_CAUSE_AND_ALTERNATIVE_SELECTION` (đề xuất, **chưa mở gate**) |
+| `active_scientific_question` | `SM4M-Q001 · Q1_QUESTION_REGISTERED · SOURCE_ONLY_ARCHITECTURE_AUDIT · Q4_NOT_DECIDED` |
+| `next_question_candidate` | `NONE_PENDING_Q001_CLOSURE`; F0–F2 **not authorized** until SM4M-Q001 Q4 owner closure |
 | `scientific_execution` | `NOT_AUTHORIZED` |
 | `new_research_branch_permission` | `NO` cho đến khi question gate được đăng ký, đánh giá, kết luận và owner quyết định |
 | `main_canonical_ref` | `main`; kiểm tra HEAD mới nhất **khi bắt đầu mỗi gate**, không ghi một SHA tương lai sai |
-| `research_gate_control` | `ONE_ACTIVE_QUESTION_ONLY` |
+| `research_gate_control` | `ONE_ACTIVE_QUESTION_ONLY · SM4M-Q001_REGISTERED` |
 | `new_branch_count_authorized` | 0 |
 | `historical_branches` | GitHub snapshot quan sát 68 refs, **không đồng nghĩa 68 ACTIVE**; chưa được phép xóa |
 | `open_pull_requests` | Snapshot 3 PR Draft #13, #14, #18; không tự merge |
@@ -41,3 +41,13 @@
 - Nếu việc đồng bộ main bị chặn bởi PR/QA, ghi `MAIN_SYNC_BLOCKED` với lý do và không mở gate kế tiếp; không nói `main` đã cập nhật khi chưa có readback.
 
 **Bước thực hiện tiếp theo sau policy lock:** đăng ký câu hỏi đầu tiên theo mẫu `templates/TTM_RESEARCH_QUESTION_GATE.md` và đánh giá **necessity của kiến trúc phép đo** bằng framework phù hợp. **Chưa thực hiện gate nghiên cứu trong commit chính sách này.**
+
+## 4. SM4M-Q001 — Back-to-Basics Architecture Gate đã đăng ký (15/11/2026)
+
+- **Đường dẫn câu hỏi:** [SM4M_Q001_BACK_TO_BASICS_ARCHITECTURE_DOC_CODE_EVIDENCE_20261115.md](SM4M_Q001_BACK_TO_BASICS_ARCHITECTURE_DOC_CODE_EVIDENCE_20261115.md).
+- **Trình tự bắt buộc:** Đọc tài liệu kiến trúc → đối chiếu source thực tế và T4 checkpoint/config → mapping kết quả khoa học Small-4M theo study/branch exact HEAD → chọn framework đúng vấn đề → trả lời Q001 → independent QA → owner Q4 closure → chỉ sau đó mới xem xét F0–F2.
+- **OUT OF SCOPE:** EmbeddingGemma 2 và Vector Memory không là module baseline Small-4M. Không sử dụng kết quả hai nhánh này.
+- **Hoạt động được phép:** source/document read-only và lập ma trận traceability, không train, không inference, không tạo gold/scorer, không sửa code/architecture, không tạo nhánh research/implementation.
+- **Trạng thái:** `Q1_REGISTERED; Q2_NOT_COMPLETED; Q3_NOT_REVIEWED; Q4_OWNER_NOT_DECIDED; F0_F2_PAUSED; SCIENCE_HOLD; LINEAGE_UNCHANGED; MERGE_NOT_AUTHORIZED`.
+
+**Bước thực hiện tiếp theo — duy nhất:** thực hiện một lượt kiểm toán độc lập tài liệu → mã nguồn → kết quả Small-4M trên exact sources của Q001; nộp report và receipt để owner đóng Q4. Không tạo thí nghiệm trong lượt này.

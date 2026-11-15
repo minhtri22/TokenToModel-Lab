@@ -1,0 +1,235 @@
+{
+  "schema": "ttm.sm4m.q001.back_to_basics.question_registration_qa.v1",
+  "operation": "SM4M_Q001_ARCHITECTURE_DOC_SOURCE_EVIDENCE_TRACEABILITY_SINGLE_GATE",
+  "date": "2026-11-15",
+  "source_main_before_registration": "80b1cd260dcec38ec4a9b66f6ff387931de638e6",
+  "owner_request": "Back to basic architecture TTM-Small-4M docs→source→known branch evidence; exclude EmbeddingGemma 2/Vector Memory; only afterwards review F0–F2",
+  "mode": "AUTHOR_SOURCE_ONLY_QUESTION_REGISTRATION",
+  "document_sha1": "27b8337aea9c9e82bfe98657170e592fcb3ad941",
+  "active_registry_sha1": "f7fb890ca34d58a9931c44f2fc23cd64a9e1db76",
+  "tests": [
+    {
+      "id": "Q001_01",
+      "name": "main baseline unchanged",
+      "pass": true
+    },
+    {
+      "id": "Q001_02",
+      "name": "policy and owner Q1 registration reference",
+      "pass": true
+    },
+    {
+      "id": "Q001_03",
+      "name": "single answerable question",
+      "pass": true
+    },
+    {
+      "id": "Q001_04",
+      "name": "Q1 open, Q2 Q3 Q4 blocked",
+      "pass": true
+    },
+    {
+      "id": "Q001_05",
+      "name": "future options without foreclosing decision",
+      "pass": true
+    },
+    {
+      "id": "Q001_06",
+      "name": "all research branches and model actions remain blocked",
+      "pass": true
+    },
+    {
+      "id": "Q001_07",
+      "name": "two independent programs explicitly excluded",
+      "pass": true
+    },
+    {
+      "id": "Q001_08",
+      "name": "model P02 exact source pin",
+      "pass": true
+    },
+    {
+      "id": "Q001_09",
+      "name": "T4 trained config distinct from default",
+      "pass": true
+    },
+    {
+      "id": "Q001_10",
+      "name": "training exact external masked loss",
+      "pass": true
+    },
+    {
+      "id": "Q001_11",
+      "name": "T4 original tokenizer pin",
+      "pass": true
+    },
+    {
+      "id": "Q001_12",
+      "name": "T4 private pack source pin",
+      "pass": true
+    },
+    {
+      "id": "Q001_13",
+      "name": "T4 eval source pin",
+      "pass": true
+    },
+    {
+      "id": "Q001_14",
+      "name": "T4 VAL result correct",
+      "pass": true
+    },
+    {
+      "id": "Q001_15",
+      "name": "consumed TEST no rerun",
+      "pass": true
+    },
+    {
+      "id": "Q001_16",
+      "name": "T4 private checkpoint prior hash not reverified",
+      "pass": true
+    },
+    {
+      "id": "Q001_17",
+      "name": "Foundation F0 evidence branch pinned",
+      "pass": true
+    },
+    {
+      "id": "Q001_18",
+      "name": "Foundation F1 evidence matrix pin",
+      "pass": true
+    },
+    {
+      "id": "Q001_19",
+      "name": "FRESH12 plus step1280",
+      "pass": true
+    },
+    {
+      "id": "Q001_20",
+      "name": "FRESH16 independent outcome",
+      "pass": true
+    },
+    {
+      "id": "Q001_21",
+      "name": "CF1 DEV36 outcome",
+      "pass": true
+    },
+    {
+      "id": "Q001_22",
+      "name": "D1 EXP32 outcome",
+      "pass": true
+    },
+    {
+      "id": "Q001_23",
+      "name": "A/C absolute mean not delta",
+      "pass": true
+    },
+    {
+      "id": "Q001_24",
+      "name": "H-DATA full exact head and score",
+      "pass": true
+    },
+    {
+      "id": "Q001_25",
+      "name": "FC01 gain restricted by stratum",
+      "pass": true
+    },
+    {
+      "id": "Q001_26",
+      "name": "D1 source-only closure",
+      "pass": true
+    },
+    {
+      "id": "Q001_27",
+      "name": "Q1Q2 remains unexecuted/partial",
+      "pass": true
+    },
+    {
+      "id": "Q001_28",
+      "name": "F2 review only after Q001",
+      "pass": true
+    },
+    {
+      "id": "Q001_29",
+      "name": "5W1H and traceability core frameworks",
+      "pass": true
+    },
+    {
+      "id": "Q001_30",
+      "name": "FMEA risk review where relevant",
+      "pass": true
+    },
+    {
+      "id": "Q001_31",
+      "name": "5 Whys not proof",
+      "pass": true
+    },
+    {
+      "id": "Q001_32",
+      "name": "SWOT MCDA conditional",
+      "pass": true
+    },
+    {
+      "id": "Q001_33",
+      "name": "Lineage and science frozen",
+      "pass": true
+    },
+    {
+      "id": "Q001_34",
+      "name": "Q4 decision not science execution permit",
+      "pass": true
+    },
+    {
+      "id": "Q001_35",
+      "name": "active registry exactly one gate",
+      "pass": true
+    },
+    {
+      "id": "Q001_36",
+      "name": "active still zero branch authorization",
+      "pass": true
+    },
+    {
+      "id": "Q001_37",
+      "name": "active excludes independent research",
+      "pass": true
+    },
+    {
+      "id": "Q001_38",
+      "name": "active F0–F2 paused",
+      "pass": true
+    }
+  ],
+  "pass_count": 38,
+  "fail_count": 0,
+  "QA_scope": "Document and exact Git source pin consistency only, not full independent architecture audit",
+  "source_files_read": [
+    "src/p02/transformer_core.py",
+    "tools/pilot_t4/integrated/t4_capacity_smoke.py",
+    "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+    "tools/pilot_t4/integrated/t4_data_pack.py",
+    "tools/pilot_t4/integrated/t4_eval.py",
+    "tools/pilot_t1t3/source_t2/ttm_gpt2_bpe2048.py",
+    "Foundation F0/F1 documents and original branch adjudication summaries"
+  ],
+  "source_gaps": [
+    "Private T4 checkpoint bytes not reread",
+    "Full line-by-line independent code audit not executed",
+    "No independent risk/methodology adjudication",
+    "No actual training/generation/evaluation/rater runs"
+  ],
+  "results": {
+    "question_registered": true,
+    "q2_completed": false,
+    "q3_independent_review": false,
+    "q4_owner_closed": false,
+    "new_research_branch": false,
+    "source_code_modified": false,
+    "lineage_modified": false,
+    "science_executed": false,
+    "model_inference": false,
+    "gpu": false,
+    "merge": false
+  },
+  "verdict": "PASS_AUTHOR_Q001_REGISTRATION_SOURCE_QA_ONLY__ARCHITECTURE_AUDIT_PENDING",
+  "next_step": "ONE_READONLY_SM4M_ARCHITECTURE_DOC_TO_CODE_TO_BRANCH_EVIDENCE_INDEPENDENT_AUDIT_BEFORE_F0_F2"
+}
