@@ -263,7 +263,6 @@ class AdmissionQA(unittest.TestCase):
         self.assertEqual(results.count("G3_ONE_SHOT_REPLAY_REJECTED"), 1)
 
 
-
     def test_23_fixture_mode_truthy_string_denies(self):
         g = PreG3AdmissionGuard(self.ledger, self.proofs, self.proofs,
                                fixture_mode="false")
