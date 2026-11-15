@@ -73,13 +73,14 @@ class PrivateEnvelope:
             raise AdmissionDenied("PRIVATE_BYTES_INVALID")
         try:
             value = json.loads(self.exact_bytes.decode("utf-8", "strict"),
-                               object_pairs_hook=_reject_duplicate_keys)
-        except (UnicodeError, ValueError, TypeError) as exc:
+                               object_pairs_hook=_reject_duplicate_keys,
+                               parse_constant=lambda _: (_ for _ in ()).throw(ValueError("NONFINITE_JSON")))
+            if not isinstance(value, dict):
+                raise ValueError("NON_OBJECT_ENVELOPE")
+            canonical = json.dumps(value, ensure_ascii=False, sort_keys=True,
+                                   separators=(",", ":"), allow_nan=False).encode("utf-8")
+        except (UnicodeError, ValueError, OverflowError, TypeError) as exc:
             raise AdmissionDenied("PRIVATE_ENVELOPE_INVALID") from exc
-        if not isinstance(value, dict):
-            raise AdmissionDenied("PRIVATE_ENVELOPE_INVALID")
-        canonical = json.dumps(value, ensure_ascii=False, sort_keys=True,
-                               separators=(",", ":"), allow_nan=False).encode("utf-8")
         if canonical != self.exact_bytes:
             raise AdmissionDenied("NONCANONICAL_ENVELOPE")
         required = {"schema", "algorithm_id", "session_id", "source_commit",
@@ -178,7 +179,7 @@ class PreG3AdmissionGuard:
 
     def dispatch(self, envelope: PrivateEnvelope, release_tag: str,
                  generator: Callable[[], T]) -> T:
-        if not self._fixture_mode:
+        if self._fixture_mode is not True:
             raise AdmissionDenied("PRODUCTION_VERIFIER_AND_AMENDMENT_NOT_ADMITTED")
         if not callable(generator):
             raise AdmissionDenied("GENERATOR_NOT_CALLABLE")
@@ -200,7 +201,7 @@ class PreG3AdmissionGuard:
         }
         if any(getattr(proof, k) != v for k, v in expected.items()):
             raise AdmissionDenied("REMOTE_PROOF_BINDING_MISMATCH")
-        if not proof.immutable or not proof.signature_verified:
+        if proof.immutable is not True or proof.signature_verified is not True:
             raise AdmissionDenied("REMOTE_ATTESTATION_NOT_VERIFIED")
         if not _hex64(proof.release_asset_sha256) or not _hex64(proof.verification_bundle_sha256):
             raise AdmissionDenied("REMOTE_ASSET_OR_BUNDLE_HASH_INVALID")
@@ -208,24 +209,33 @@ class PreG3AdmissionGuard:
         signed = _utc(proof.signed_timestamp_utc)
         verified = _utc(proof.verified_at_utc)
         now = datetime.now(timezone.utc)
-        if not published <= signed <= verified <= now:
+        if not published < signed < verified <= now:
             raise AdmissionDenied("PRE_G3_TIMESTAMP_ORDER_INVALID")
         receipt = self._receipt_verifier.verify_accepted(
             session_id=value["session_id"], public_digest=envelope.public_digest)
-        if not isinstance(receipt, AcceptedReceipt) or not receipt.accepted:
+        if not isinstance(receipt, AcceptedReceipt) or receipt.accepted is not True:
             raise AdmissionDenied("INDEPENDENT_ADMISSION_RECEIPT_MISSING")
         if (receipt.session_id != value["session_id"] or
             receipt.public_digest != envelope.public_digest or
             receipt.source_commit != value["source_commit"] or
             receipt.release_asset_sha256 != proof.release_asset_sha256 or
             not isinstance(receipt.amendment_review_commit, str) or
-            not re.fullmatch(r"[0-9a-f]{40}", receipt.amendment_review_commit)):
+            not re.fullmatch(r"[0-9a-f]{40}", receipt.amendment_review_commit) or
+            receipt.amendment_review_commit == "0" * 40):
             raise AdmissionDenied("ACCEPTED_RECEIPT_BINDING_MISMATCH")
         accepted_at = _utc(receipt.acceptance_timestamp_utc)
-        if not signed <= accepted_at <= now:
+        if not verified < accepted_at <= now:
             raise AdmissionDenied("PRE_G3_ACCEPTANCE_ORDER_INVALID")
+        # Re-check the same exact proof after independent acceptance; stale or
+        # revoked fixture anchors must fail before any callback is invoked.
+        refreshed = self._verifier.verify(release_tag=release_tag,
+                                         public_digest=envelope.public_digest)
+        if not isinstance(refreshed, AnchorProof) or refreshed != proof:
+            raise AdmissionDenied("REMOTE_ANCHOR_CHANGED_OR_UNAVAILABLE")
         if not self._path.parent.is_dir() or self._path.is_symlink():
             raise AdmissionDenied("PRIVATE_LEDGER_LOCATION_INVALID")
+        if self._path.exists() and self._path.stat().st_nlink != 1:
+            raise AdmissionDenied("PRIVATE_LEDGER_MULTIPLE_HARDLINKS")
         # UNIQUE constraints + BEGIN IMMEDIATE serialize cross-process admissions.
         # A transaction commits before dispatch; even a failed callback consumes it.
         try:
@@ -233,9 +243,18 @@ class PreG3AdmissionGuard:
                 db.execute("PRAGMA synchronous=FULL")
                 db.execute("PRAGMA journal_mode=DELETE")
                 db.execute("BEGIN IMMEDIATE")
-                db.execute("CREATE TABLE IF NOT EXISTS consumed ("
-                           "session_id TEXT PRIMARY KEY, commitment_digest TEXT NOT NULL UNIQUE,"
-                           "consumed_utc TEXT NOT NULL)")
+                expected_ddl = ("CREATE TABLE consumed (session_id TEXT PRIMARY KEY, "
+                                "commitment_digest TEXT NOT NULL UNIQUE, "
+                                "consumed_utc TEXT NOT NULL)")
+                db.execute(expected_ddl.replace("CREATE TABLE consumed", "CREATE TABLE IF NOT EXISTS consumed"))
+                installed = db.execute("SELECT sql FROM sqlite_master WHERE type='table' "
+                                       "AND name='consumed'").fetchone()
+                def normalize_ddl(value):
+                    return " ".join(value.replace("IF NOT EXISTS", "").split()).lower()
+                if not installed or normalize_ddl(installed[0]) != normalize_ddl(expected_ddl):
+                    raise AdmissionDenied("PRIVATE_LEDGER_SCHEMA_UNTRUSTED")
+                if db.execute("PRAGMA integrity_check").fetchone()[0] != 'ok':
+                    raise AdmissionDenied("PRIVATE_LEDGER_INTEGRITY_FAILED")
                 db.execute("INSERT INTO consumed VALUES(?,?,?)", (
                     value["session_id"], envelope.public_digest,
                     datetime.now(timezone.utc).isoformat()))
