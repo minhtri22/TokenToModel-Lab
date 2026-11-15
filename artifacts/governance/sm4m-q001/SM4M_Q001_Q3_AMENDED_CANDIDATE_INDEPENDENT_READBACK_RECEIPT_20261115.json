@@ -1,0 +1,351 @@
+{
+  "schema": "ttm.sm4m.q001.q3.amended_candidate.distinct_independent_readback.receipt.v1",
+  "operation": "SM4M_Q001_Q3_EXACT_AMENDED_CANDIDATE_DISTINCT_READBACK_AND_REREVIEW_SINGLE_GATE",
+  "review_date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_of_truth": "GitHub exact immutable commit (repository not mutated by this review)",
+  "mode": "READ_ONLY_EXACT_SOURCE_ONLY_NO_SCIENCE",
+  "independence_declaration": "This review was performed as a separate analysis/review session, not by the Q2 pack author or Q3 amendment author; GitHub history establishes author-side commits but does not independently authenticate human reviewer identity.",
+  "pull_request": {
+    "number": 21,
+    "draft": true,
+    "merged": false,
+    "base_branch": "main",
+    "base_head": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc",
+    "amended_head": "c37ac0b3901eb6fd9c658d818c02e85f66b7936e",
+    "original_q3_head": "3c53d062c7c6ff4218d80177253dd1c061ac6362",
+    "amended_parent_exactly_original": true,
+    "compare_ahead_by": 1,
+    "compare_behind_by": 0,
+    "changed_files_amendment": 8,
+    "files": [
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json",
+        "status": "added",
+        "git_blob_sha1": "10d901906c24ca4a0bc93827e45982390cc18ae5",
+        "raw_sha256": "6e1585ef0483d4460dae9b57832c751bb9deb57e07ad231fb67cb7f04b8d1f1b"
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q3_EXTERNAL_REVIEW_INTAKE_VERIFICATION_20261115.json",
+        "status": "added",
+        "git_blob_sha1": "c9adc573af5c3417a3f09d80a4d456bca4d0c818",
+        "raw_sha256": "8b2a4b0d564e4a83a329727268b635714344fc76e64cdd4a0b5f2cbcd9f2639a"
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q3_INTEGRATED_REMEDIATION_AUTHOR_QA_RECEIPT_20261115.json",
+        "status": "added",
+        "git_blob_sha1": "7d1538399ad74807a86d2553f9511afd65ce3aa2",
+        "raw_sha256": "8268f7308b0ad241ea78d18d1c324a9a7dd65a25ab523d4a4c62adb8545cd544"
+      },
+      {
+        "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+        "status": "modified",
+        "git_blob_sha1": "e3e096d43e2c042b2d542bcf4383d52e1328c1c2",
+        "raw_sha256": "f586706699434d40bcca7ae716ffb052a685dfd724c2c8c81a800475eae19e50"
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q2_LITERATURE_TRIAGE_Q3_REMEDIATION_V2_20261115.md",
+        "status": "added",
+        "git_blob_sha1": "cbe529125d158c535c568fbed7bcffbdc8819cca",
+        "raw_sha256": "1dcf30b34ea38a2a4de35c23141d84c292817f838132d17b813057fb9c20ae9f"
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_DISTINCT_INDEPENDENT_REVIEW_20261115.md",
+        "status": "added",
+        "git_blob_sha1": "0b85f84cfd17ff0612291706c5d0fa36d86800c7",
+        "raw_sha256": "e619ea9460abd112ab32016e7644c273a6cce2d20044fe8bd0e129d18d820680"
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_EXACT_AMENDED_READBACK_HANDOFF_20261115.md",
+        "status": "added",
+        "git_blob_sha1": "0f74300f920cdb78a2369345825b651ea1e23223",
+        "raw_sha256": "e16464da88e57aa60105335dc6820ba9dc328855eb4b4d0cb47ab329e88ffbc6"
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_INTEGRATED_REMEDIATION_AND_PHASE_CONTRACT_20261115.md",
+        "status": "added",
+        "git_blob_sha1": "735861c41c4ab793a8af385779a22ae0284976e1",
+        "raw_sha256": "9ddf7102b50bae0aa47d3a9d31173d5416b43fcbf84fd90a0eb72e5491bee571"
+      }
+    ]
+  },
+  "q2_original_inputs_integrity": {
+    "count": 7,
+    "git_blob_sha1_matches": 7,
+    "raw_sha256_matches": 7,
+    "files": [
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_INTEGRATED_ARCHITECTURE_AUDIT_20261115.md",
+        "git_blob_sha1": "b289f1056a9c0bb862a4813cbf0d2189b34c233d",
+        "raw_sha256": "4973ad744f5d2e2e9e89f46e7890a37833c43cd99fdb82405be2148a580bce06",
+        "match": true
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_AUDIT_RECEIPT_20261115.json",
+        "git_blob_sha1": "74023311e224e552c46899a7547eb5f73deddc52",
+        "raw_sha256": "9fbfb2b185043685b5d24e352eb7b029b6fc36098f5a735cd699b9b5f2261f4a",
+        "match": true
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q2_AUTHOR_ADVERSARIAL_QA_LITERATURE_TRIAGE_20261115.md",
+        "git_blob_sha1": "380582a4f1260dfda28d39e0cb56be2fc02709c5",
+        "raw_sha256": "34c553d10250b8403a4d2e7170ce6f0329fa14284ea5018f59de35af94622d36",
+        "match": true
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_AUTHOR_ADVERSARIAL_LITERATURE_QA_RECEIPT_20261115.json",
+        "git_blob_sha1": "c984ca474c112494bfe472d4293c2da7e4a6eefb",
+        "raw_sha256": "5254fbb557c2074d95d7aa65e14e6c2924e8da1979e12f6fe4b1340958303a65",
+        "match": true
+      },
+      {
+        "path": "docs/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_ADMISSION_LOCK_20261115.md",
+        "git_blob_sha1": "d82202778fe3bc620335af18b0fa7ea1fec4094c",
+        "raw_sha256": "b34ad81e81e90ba5873cb1c8207592f8b078023aba60f2e57cd7ef1229376a8e",
+        "match": true
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_20261115.json",
+        "git_blob_sha1": "b7e87dbdd31c6624387f9943d7ff7db8efa8663a",
+        "raw_sha256": "306d32086fa1e19a910070577e0f9fbd7d0a130d792ff225e1f35768237a105b",
+        "match": true
+      },
+      {
+        "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_AUTHOR_ADVERSARIAL_QA_RECEIPT_20261115.json",
+        "git_blob_sha1": "a3a22b0cc8515979c9034d02e497ecf8f7b1fee4",
+        "raw_sha256": "ed0bc795c3d129cdf4c99761f96cb04888a0c9cebfb83010c0463c712be4e403",
+        "match": true
+      }
+    ]
+  },
+  "original_independent_q3_report": {
+    "path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_DISTINCT_INDEPENDENT_REVIEW_20261115.md",
+    "git_blob_sha1": "0b85f84cfd17ff0612291706c5d0fa36d86800c7",
+    "raw_sha256": "e619ea9460abd112ab32016e7644c273a6cce2d20044fe8bd0e129d18d820680",
+    "raw_sha256_matches_manifest": true,
+    "original_verdict": "HOLD_Q3_REMEDIATION"
+  },
+  "original_independent_q3_json_receipt": {
+    "reported_sha256": "529490652a7f140153292ec090496c1b5deec8ca36f54b25aa5b63c98cbd08ba",
+    "reported_zip_sha256": "816938d1d08479947c21206b6eeacc41da43c07abc29ac42dc31b0a844ae089d",
+    "byte_exact_available_in_pr": false,
+    "independently_rehashed_from_original_zip": false,
+    "derived_intake_is_not_original": true
+  },
+  "regression": {
+    "source_outcomes_10_equal_original": true,
+    "hypotheses_7_equal_original": true,
+    "source_pins_equal_original": true,
+    "literature_13_equal_original": true,
+    "admission_gate_statuses_9_equal_original": true,
+    "original_q2_inputs_unchanged": true,
+    "no_code_paths_in_amendment": true,
+    "no_lineage_path_in_amendment": true
+  },
+  "findings": [
+    {
+      "id": "Q3-F01",
+      "original_severity": "HIGH",
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence": [
+        {
+          "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json",
+          "lines": [
+            421,
+            440
+          ]
+        },
+        {
+          "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json",
+          "lines": [
+            460,
+            491
+          ]
+        }
+      ],
+      "result": "AD-03 and AD-06 occur before authoring and freeze; scoring is recheck-only; hidden-only gold and missing one-variable pair rejected by independent symbolic negative cases."
+    },
+    {
+      "id": "Q3-F02",
+      "original_severity": "HIGH",
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence": [
+        {
+          "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+          "lines": [
+            9,
+            32
+          ]
+        },
+        {
+          "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+          "lines": [
+            48,
+            53
+          ]
+        }
+      ],
+      "result": "One current SM4M-Q001 active state and exactly one next step; amended Q3 remains HOLD pending this independent review in candidate source; Q4 undecided and main separate."
+    },
+    {
+      "id": "Q3-F03",
+      "original_severity": "MEDIUM",
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence": [
+        {
+          "path": "artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json",
+          "lines": [
+            12,
+            43
+          ]
+        },
+        {
+          "path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_INTEGRATED_REMEDIATION_AND_PHASE_CONTRACT_20261115.md",
+          "lines": [
+            26,
+            47
+          ]
+        }
+      ],
+      "result": "AD-01R rights before unauthorized content access; AD-01T tokenizer/split before token-sensitive freeze; AD-01C checkpoint byte custody before model execution, not abstract source review; none PASS; one staged AD-01 contract."
+    },
+    {
+      "id": "Q3-F04",
+      "original_severity": "LOW",
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence": [
+        {
+          "path": "docs/governance/sm4m-q001/SM4M_Q001_Q2_LITERATURE_TRIAGE_Q3_REMEDIATION_V2_20261115.md",
+          "lines": [
+            68,
+            68
+          ]
+        }
+      ],
+      "result": "P05 uses Maximization-based decoding without revising the scientific inference or the immutable original Q2 literature source."
+    }
+  ],
+  "negative_contract_review": {
+    "kind": "independent reviewer-authored symbolic interpreter of machine-readable phase conditions; NOT a production runner or model test",
+    "tests": [
+      {
+        "id": "INV_AD03_AUTHOR_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "INV_AD06_AUTHOR_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "INV_SCORING_ONLY_RECHECK",
+        "pass": true
+      },
+      {
+        "id": "INV_AD01R_CONTENT_AUTHOR",
+        "pass": true
+      },
+      {
+        "id": "INV_AD01T_TOKEN_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "INV_AD01C_MODEL_EXEC",
+        "pass": true
+      },
+      {
+        "id": "INV_HARD_STOPS",
+        "pass": true
+      },
+      {
+        "id": "NEG01_HIDDEN_GOLD_PRE_AUTHOR",
+        "pass": true
+      },
+      {
+        "id": "NEG02_NO_PAIRED_FACT_PRE_AUTHOR",
+        "pass": true
+      },
+      {
+        "id": "NEG03_HIDDEN_GOLD_PRE_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "NEG04_MULTIVARIATE_PAIR_PRE_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "NEG05_RIGHTS_PRE_ACCESS_AUTHOR",
+        "pass": true
+      },
+      {
+        "id": "NEG06_TOKENIZER_PRE_TOKEN_FREEZE",
+        "pass": true
+      },
+      {
+        "id": "NEG07_CKPT_PRE_MODEL",
+        "pass": true
+      },
+      {
+        "id": "NEG08_NO_OWNER_PRE_AUTHOR",
+        "pass": true
+      },
+      {
+        "id": "NEG09_UNCALIBRATED_RATER_SCORING",
+        "pass": true
+      },
+      {
+        "id": "POS01_ALL_CONTRACTS_HYPOTHETICAL",
+        "pass": true
+      },
+      {
+        "id": "POS02_PUBLIC_DESIGN_CONTRACT_NO_PRIVATE_CUSTODY",
+        "pass": true
+      }
+    ],
+    "pass_count": 18,
+    "fail_count": 0,
+    "limitation": "These checks validate prospective document semantics only; real content gold, pairs, custody, rights and runtime guards remain untested."
+  },
+  "scientific_scope": {
+    "historic_reference": "KEEP_HISTORICAL_REFERENCE_ONLY",
+    "new_science_baseline": "HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE",
+    "root_cause": "ROOT_CAUSE_NOT_IDENTIFIED",
+    "root_cause_identified": false,
+    "admission_gates_original_statuses": {
+      "AD-00": "PARTIAL_PUBLIC_SOURCE_MATCHED",
+      "AD-01": "NOT_VERIFIED_IN_Q2",
+      "AD-02": "NOT_VERIFIED_FOR_NEW_TASK",
+      "AD-03": "NOT_VERIFIED_IN_Q2",
+      "AD-04": "NOT_VERIFIED_IN_Q2",
+      "AD-05": "NOT_VERIFIED_IN_Q2",
+      "AD-06": "NOT_EXECUTED",
+      "AD-07": "NOT_FROZEN_FOR_NEXT_EXPERIMENT",
+      "AD-08": "Q3_AND_Q4_NOT_COMPLETED (immutable original Q2 status; original Q3 HOLD already reviewed, amended re-review conducted here, Q4 not decided)"
+    },
+    "scientific_admission_granted": false
+  },
+  "execution_flags": {
+    "science": false,
+    "model_inference": false,
+    "training": false,
+    "gpu": false,
+    "new_gold": false,
+    "new_scorer": false,
+    "test_final_replay": false,
+    "new_research_branch": false,
+    "source_code_patch": false,
+    "lineage_mutation": false,
+    "merge": false,
+    "owner_q4_decision": false
+  },
+  "caveats": [
+    "Original Q3 JSON/ZIP receipt is not archived byte-exact on GitHub; only derived intake metadata is available.",
+    "Original historical Q2 status strings remain in versioned v2 matrix as preserved archival fields, while remediation_provenance/current_q3_governance_context and ACTIVE_RESEARCH_GATE carry the later current state; downstream consumers must not treat historic Q2 fields as live gate.",
+    "Independence of this separate review session cannot establish external organizational or personal identity.",
+    "Symbolic negative tests are not actual benchmark item admission, runtime enforcement or scientific execution."
+  ],
+  "verdict": "PASS_Q3_SOURCE_AND_EVIDENCE_SCOPE_SCOPED",
+  "q4_owner_closure": "NOT_DECIDED",
+  "merge_authorized": false,
+  "next_single_step": "Owner Q4 evaluates Q001 closure and PR #21 merge GO/HOLD as one decision; no automatic merge or science authorization.",
+  "publication_status": "REVIEW_FILES_CREATED_LOCALLY_NOT_COMMITTED_TO_GITHUB_DUE_READ_ONLY_REVIEW_MODE"
+}
