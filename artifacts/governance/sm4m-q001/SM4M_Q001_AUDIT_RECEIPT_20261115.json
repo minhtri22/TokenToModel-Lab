@@ -1,0 +1,463 @@
+{
+  "schema": "ttm.sm4m.q001.architecture_source_evidence_author_audit.v1",
+  "operation": "SM4M_Q001_ARCHITECTURE_DOC_SOURCE_EVIDENCE_TRACEABILITY_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "main_readonly_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc",
+  "question_id": "SM4M-Q001",
+  "status": "Q2_AUTHOR_SOURCE_AUDIT_COMPLETED_Q3_PENDING_Q4_NOT_GRANTED",
+  "author_recommendation": "KEEP_BASELINE_FOR_F0_F2_REVIEW_SOURCE_REFERENCE_SCOPED__HOLD_MEASUREMENT_AND_ARCHITECTURE_CHANGES",
+  "q001_owner_decision": "NOT_GRANTED",
+  "independent_Q3": "NOT_EXECUTED",
+  "root_cause_identified": false,
+  "scientific_execution": false,
+  "model_inference": false,
+  "gpu_execution": false,
+  "private_data_readback": false,
+  "checkpoint_byte_readback": false,
+  "test_or_final_reuse": false,
+  "new_research_branch": false,
+  "repository_changed": false,
+  "lineage_changed": false,
+  "merged": false,
+  "excluded_independent_programs": [
+    "EmbeddingGemma 2",
+    "Vector Memory"
+  ],
+  "source_git_blob_pins": [
+    {
+      "component": "model",
+      "path": "src/p02/transformer_core.py",
+      "git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "train_config",
+      "path": "tools/pilot_t4/integrated/t4_capacity_smoke.py",
+      "git_blob_sha1": "c9a6f256ba975228683ee7de2a1090e649110e97",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "actual_trainer",
+      "path": "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+      "git_blob_sha1": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "private_pack_code",
+      "path": "tools/pilot_t4/integrated/t4_data_pack.py",
+      "git_blob_sha1": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "byte_bpe",
+      "path": "tools/pilot_t1t3/source_t2/ttm_gpt2_bpe2048.py",
+      "git_blob_sha1": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "t1_split",
+      "path": "tools/pilot_t4/integrated/t1_source_split_tokenizer.py",
+      "git_blob_sha1": "3ef500ddd8259153e7e3d4602915a51b7060a40f",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "val_evaluator",
+      "path": "tools/pilot_t4/integrated/t4_eval.py",
+      "git_blob_sha1": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "p03_synthetic_not_t4",
+      "path": "src/p03/train_loop.py",
+      "git_blob_sha1": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "p02_unit_tests_source",
+      "path": "tests/p02/test_transformer_core.py",
+      "git_blob_sha1": "06a7221cb82b75cbff2e448d2801b61ded7d400e",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "val_science_receipt",
+      "path": "evidence/pilot/t4-science/T4_A2_FINAL_INDEPENDENT_SCIENCE_ADJUDICATION.json",
+      "git_blob_sha1": "84cb94647c403ea358d8c991090bf56adc11f128",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "component": "F0_prior",
+      "path": "docs/research/ttm-small4m-foundation-first/01_SMALL4M_ARCHITECTURE_COMPONENT_SPEC_20261115.md",
+      "git_blob_sha1": "22e823b0a9069f07a6d6912b6425762528e2f655",
+      "commit_ref": "9b55596f580b36b436cf6bdb2ed5a4e45c6992de"
+    },
+    {
+      "component": "F1_prior",
+      "path": "docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md",
+      "git_blob_sha1": "853411064bcdc58f5c6bad713b85237f2828182e",
+      "commit_ref": "9b55596f580b36b436cf6bdb2ed5a4e45c6992de"
+    }
+  ],
+  "historical_adjudications": [
+    {
+      "study": "T4_VAL",
+      "original_scope_status": "PASS_H1_CONFIRMATORY_VAL_SCOPE",
+      "git_blob_sha1": "c1a471087ae30f31a696fbf786230eff3773a0d1",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "study": "T4_TEST64",
+      "original_scope_status": "PASS_TEST_HOLDOUT_DESCRIPTIVE_SCOPED",
+      "git_blob_sha1": "cf2bcb1c48d172afacb6b1f7406320851bfcbf65",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    },
+    {
+      "study": "FRESH12",
+      "original_scope_status": "NO_DEMONSTRATED_SEMANTIC_GAIN_SCOPED",
+      "git_blob_sha1": "1862a39ed54cdc80c39213b615a3f7c4a4526d65",
+      "commit_ref": "72cbf73c3adb78f9d4111f702de71fa10f713533"
+    },
+    {
+      "study": "FRESH16_V2",
+      "original_scope_status": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED",
+      "git_blob_sha1": "ae8ded5bb03a595f9af4f333ef96271ed3991d7d",
+      "commit_ref": "0ec28d44587fde9ad4acba8cccae65648e367181"
+    },
+    {
+      "study": "CF1_DEV36",
+      "original_scope_status": "FAIL_SCOPED_0_OF_36",
+      "git_blob_sha1": "d6a094b2a9d0977728d5d2f13c7c945d7cb8ee96",
+      "commit_ref": "d725c39094a5a584fd76386145db21ca6dc5eaf6"
+    },
+    {
+      "study": "D1_EXP32",
+      "original_scope_status": "WEAK_FACT_CONDITIONING_EXPLORATORY",
+      "git_blob_sha1": "f53da235027be331682bf1a5b86b0d1e94cd5373",
+      "commit_ref": "0ec28d44587fde9ad4acba8cccae65648e367181"
+    },
+    {
+      "study": "AC_FINAL24",
+      "original_scope_status": "FAIL_CANDIDATE_EFFICACY_GATE_NO_DEMONSTRATED_C_GAIN",
+      "git_blob_sha1": "1af1b6d3743f5e986edcc3ef1e737b0f05188d3c",
+      "commit_ref": "37165ce6eea0bb4b04d316e2998da579c91d13cf"
+    },
+    {
+      "study": "HDATA_S1_FINAL24",
+      "original_scope_status": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT",
+      "git_blob_sha1": "9cfb02e86c3893b2f927b1529c637bba797f40ae",
+      "commit_ref": "ef4cc05037f98129082cd429a75092b8cc822efb"
+    },
+    {
+      "study": "FC01_ABC",
+      "original_scope_status": "PASS_SCOPED_EXPLORATORY_FC01_NO_CONFIRMATORY_RELEASE",
+      "git_blob_sha1": "0a425cbadfaf644a117693fce1c9b80b069185a7",
+      "commit_ref": "b5dd5890b73a29744530ed3a1ffbc0dc7ae5195a"
+    },
+    {
+      "study": "D1_R1",
+      "original_scope_status": "GO_CLOSE_R1_FORMULATION_DESIGN_ONLY",
+      "git_blob_sha1": "43fa3aed1a802dde05511cf76afba6737eb47aa3",
+      "commit_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc"
+    }
+  ],
+  "observations": {
+    "actual_t4_config": {
+      "vocab": 2048,
+      "context": 256,
+      "embedding": 256,
+      "layers": 4,
+      "heads": 4,
+      "parameters_unique": 3749376,
+      "objective": "masked_next_token_cross_entropy"
+    },
+    "train": {
+      "stories": 2048,
+      "tokenizer_fit_stories": 768,
+      "val_stories": 256,
+      "test_stories_sealed": 64,
+      "optimizer_steps": 1024,
+      "valid_targets_per_step": 4096,
+      "target_exposures": 4194304,
+      "historical_unique_train_target_positions": 498287
+    },
+    "prior_checkpoint_step1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "val_nll_model": 3.5223388517,
+    "val_nll_bigram": 3.99723141696,
+    "frozen_test64_already_consumed": true,
+    "factual_metric_equivalence_to_nll": false,
+    "model_root_cause_isolated": false
+  },
+  "risk_findings": [
+    {
+      "id": "QF-01",
+      "priority": "HIGH",
+      "type": "construct_mismatch",
+      "status": "SOURCE_SUPPORTED"
+    },
+    {
+      "id": "QF-02",
+      "priority": "HIGH",
+      "type": "rater_evidence_parity",
+      "status": "EVIDENCE_LIMITATION_NOT_UNIVERSAL_FAILURE"
+    },
+    {
+      "id": "QF-03",
+      "priority": "HIGH",
+      "type": "cause_identifiability",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "QF-04",
+      "priority": "MEDIUM",
+      "type": "data_coverage_reuse",
+      "status": "POSSIBLE_NOT_CAUSALLY_TESTED"
+    },
+    {
+      "id": "QF-05",
+      "priority": "MEDIUM",
+      "type": "context_window_reset",
+      "status": "POSSIBLE_NOT_CAUSALLY_TESTED"
+    },
+    {
+      "id": "QF-06",
+      "priority": "MEDIUM",
+      "type": "reference_vs_trained_config_confusion",
+      "status": "CONTROLLED_BY_SOURCE_PINS"
+    },
+    {
+      "id": "QF-07",
+      "priority": "HIGH",
+      "type": "benchmark_construct_shortcut",
+      "status": "PREVIOUS_D1_DESIGN_HOLD"
+    },
+    {
+      "id": "QF-08",
+      "priority": "MEDIUM",
+      "type": "private_custody_byte_unverified_current_gate",
+      "status": "NOT_REVERIFIED"
+    },
+    {
+      "id": "QF-09",
+      "priority": "LOW",
+      "type": "legacy_governance_conflict",
+      "status": "NEW_POLICY_OVERRIDES_PROSPECTIVELY"
+    }
+  ],
+  "static_qa": {
+    "author_only": true,
+    "tests": [
+      {
+        "id": "S01",
+        "name": "source pin model",
+        "status": "PASS"
+      },
+      {
+        "id": "S02",
+        "name": "source pin train_config",
+        "status": "PASS"
+      },
+      {
+        "id": "S03",
+        "name": "source pin actual_trainer",
+        "status": "PASS"
+      },
+      {
+        "id": "S04",
+        "name": "source pin private_pack_code",
+        "status": "PASS"
+      },
+      {
+        "id": "S05",
+        "name": "source pin byte_bpe",
+        "status": "PASS"
+      },
+      {
+        "id": "S06",
+        "name": "source pin t1_split",
+        "status": "PASS"
+      },
+      {
+        "id": "S07",
+        "name": "source pin val_evaluator",
+        "status": "PASS"
+      },
+      {
+        "id": "S08",
+        "name": "source pin p03_synthetic_not_t4",
+        "status": "PASS"
+      },
+      {
+        "id": "S09",
+        "name": "source pin p02_unit_tests_source",
+        "status": "PASS"
+      },
+      {
+        "id": "S10",
+        "name": "source pin val_science_receipt",
+        "status": "PASS"
+      },
+      {
+        "id": "S11",
+        "name": "source pin F0_prior",
+        "status": "PASS"
+      },
+      {
+        "id": "S12",
+        "name": "source pin F1_prior",
+        "status": "PASS"
+      },
+      {
+        "id": "S13",
+        "name": "Distinct trained T4 cfg",
+        "status": "PASS"
+      },
+      {
+        "id": "S14",
+        "name": "Causal masked attention",
+        "status": "PASS"
+      },
+      {
+        "id": "S15",
+        "name": "Weight tying + absolute pos",
+        "status": "PASS"
+      },
+      {
+        "id": "S16",
+        "name": "Pre-LN FFN GELU",
+        "status": "PASS"
+      },
+      {
+        "id": "S17",
+        "name": "Reference QA includes causality",
+        "status": "PASS"
+      },
+      {
+        "id": "S18",
+        "name": "T4 instantiates frozen cfg",
+        "status": "PASS"
+      },
+      {
+        "id": "S19",
+        "name": "Parameter accounting 3749376",
+        "status": "PASS"
+      },
+      {
+        "id": "S20",
+        "name": "4194304 scored target exposures",
+        "status": "PASS"
+      },
+      {
+        "id": "S21",
+        "name": "T4 external masked reduction",
+        "status": "PASS"
+      },
+      {
+        "id": "S22",
+        "name": "Hash pinned owner lock",
+        "status": "PASS"
+      },
+      {
+        "id": "S23",
+        "name": "Checkpoint ready after readback",
+        "status": "PASS"
+      },
+      {
+        "id": "S24",
+        "name": "Preflight not science",
+        "status": "PASS"
+      },
+      {
+        "id": "S25",
+        "name": "T1 split and BPE fit counts",
+        "status": "PASS"
+      },
+      {
+        "id": "S26",
+        "name": "BPE 2048 and EOS256",
+        "status": "PASS"
+      },
+      {
+        "id": "S27",
+        "name": "Pack never creates test tokens",
+        "status": "PASS"
+      },
+      {
+        "id": "S28",
+        "name": "256-token segmented windows",
+        "status": "PASS"
+      },
+      {
+        "id": "S29",
+        "name": "Pack private reversible tokens",
+        "status": "PASS"
+      },
+      {
+        "id": "S30",
+        "name": "Bigram fit TRAIN only",
+        "status": "PASS"
+      },
+      {
+        "id": "S31",
+        "name": "VAL masked CE",
+        "status": "PASS"
+      },
+      {
+        "id": "S32",
+        "name": "Bootstrap story clusters",
+        "status": "PASS"
+      },
+      {
+        "id": "S33",
+        "name": "VAL prereg H1 pass rule",
+        "status": "PASS"
+      },
+      {
+        "id": "S34",
+        "name": "Historical T4 VAL PASS",
+        "status": "PASS"
+      },
+      {
+        "id": "S35",
+        "name": "Historical 1024 optimizer steps",
+        "status": "PASS"
+      },
+      {
+        "id": "S36",
+        "name": "Historical checkpoint pin",
+        "status": "PASS"
+      },
+      {
+        "id": "S37",
+        "name": "F0 explicitly distinguishes default and trained",
+        "status": "PASS"
+      },
+      {
+        "id": "S38",
+        "name": "F1 root cause explicitly unknown",
+        "status": "PASS"
+      }
+    ],
+    "tests_total": 38,
+    "tests_pass": 38,
+    "tests_fail": 0,
+    "previous_trial": "one QA-oracle text-matching false negative corrected before the successful 38/38 rerun",
+    "limitations": [
+      "source string and bounded arithmetic assertions only",
+      "no runtime test, weights, corpus or science",
+      "not an independent code or scientific review"
+    ]
+  },
+  "report_file": "SM4M_Q001_INTEGRATED_ARCHITECTURE_AUDIT_20261115.md",
+  "report_sha256": "4973ad744f5d2e2e9e89f46e7890a37833c43cd99fdb82405be2148a580bce06",
+  "required_next_gate": "SM4M_Q001_DISTINCT_INDEPENDENT_ARCHITECTURE_SOURCE_AND_EVIDENCE_REVIEW_Q3_SINGLE_GATE",
+  "owner_Q4_required_before_F0_F2": true,
+  "limitations": [
+    "FRESH16 S1 and S2 are different rater tasks, not paired inter-rater agreement",
+    "D1 EXP32 rater input bytes not verified",
+    "H-DATA-S1 one AI rater, no human gold",
+    "FC01 restricted template family and one seed",
+    "A/C absolute 0.6667/3 must not be conflated with H-DATA absolute zero",
+    "historical frozen TEST/FINAL cannot be re-used"
+  ],
+  "publication_status": "LOCAL_REPORT_FOR_Q3_REVIEW_NOT_COMMITTED_TO_MAIN"
+}

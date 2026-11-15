@@ -1,0 +1,494 @@
+{
+  "date": "2026-11-15",
+  "disallowed_inferences": [
+    "38/38 source QA certifies model fact adherence",
+    "literature paper proves TTM root cause",
+    "FC01 gain proves OOD reasoning",
+    "D1 EXP32 lacks input bytes therefore all scores invalid",
+    "TinyStories <10M proof implies T4 succeeds",
+    "Chinchilla scaling formula directly governs T4 4M"
+  ],
+  "execution": {
+    "gpu": false,
+    "lineage_modified": false,
+    "merge": false,
+    "model_inference": false,
+    "new_gold": false,
+    "new_research_branch": false,
+    "repository_write": false,
+    "science": false,
+    "sealed_test_or_final_reuse": false,
+    "train": false
+  },
+  "hypotheses": [
+    "H-METRIC",
+    "H-OBJECTIVE",
+    "H-DATA",
+    "H-DECODER",
+    "H-CONTEXT",
+    "H-CAPACITY",
+    "H-IMPL"
+  ],
+  "literature": {
+    "evidence_ids": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "P13"
+    ],
+    "papers": 13,
+    "scope": "External publications support mechanisms/measurement hazards; do not demonstrate causal source of Small-4M failure"
+  },
+  "main_snapshot_ref": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc",
+  "next_single_step": "OWNER_DECIDE_WHETHER_TO_ACCEPT_Q2_SELF_QA_PACKET_FOR_FUTURE_Q3_ONLY; NO_F0_F2_RESTART",
+  "operation": "SM4M_Q001_AUTHOR_ADVERSARIAL_QA_AND_SCIENTIFIC_LITERATURE_CAUSAL_TRIAGE_SINGLE_GATE",
+  "original_receipt": {
+    "author_only": true,
+    "name": "SM4M_Q001_AUDIT_RECEIPT_20261115.json",
+    "prior_qa_tests_passed": 38,
+    "sha256": "9fbfb2b185043685b5d24e352eb7b029b6fc36098f5a735cd699b9b5f2261f4a"
+  },
+  "original_report": {
+    "name": "SM4M_Q001_INTEGRATED_ARCHITECTURE_AUDIT_20261115.md",
+    "sha256": "4973ad744f5d2e2e9e89f46e7890a37833c43cd99fdb82405be2148a580bce06"
+  },
+  "question_id": "SM4M-Q001",
+  "revised_report": {
+    "name": "SM4M_Q001_Q2_AUTHOR_ADVERSARIAL_QA_LITERATURE_TRIAGE_20261115.md",
+    "sha256": "34c553d10250b8403a4d2e7170ce6f0329fa14284ea5018f59de35af94622d36"
+  },
+  "schema": "ttm.sm4m.q001.author_adversarial_literature_triage.receipt.v1",
+  "self_qa": {
+    "author_only": true,
+    "negative_fixtures": "purely logical, not real model/scorer",
+    "tests": [
+      {
+        "family": "custody",
+        "id": "AQ001",
+        "name": "Original report SHA-256 rehash matches receipt",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ002",
+        "name": "Original source QA tests 38/38, author-only",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ003",
+        "name": "Original Q3 and Q4 never approved",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ004",
+        "name": "Original source math carries no actual new science",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ005",
+        "name": "New report references original byte-exact SHA",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ006",
+        "name": "No control bytes in revised report",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ007",
+        "name": "Main exact original pin consistent",
+        "pass": true
+      },
+      {
+        "family": "custody",
+        "id": "AQ008",
+        "name": "Q001 question ID and governance preserved",
+        "pass": true
+      },
+      {
+        "family": "arithmetic",
+        "id": "AQ009",
+        "name": "Parameter count independently computed",
+        "pass": true
+      },
+      {
+        "family": "arithmetic",
+        "id": "AQ010",
+        "name": "Train exposure arithmetic independent",
+        "pass": true
+      },
+      {
+        "family": "arithmetic",
+        "id": "AQ011",
+        "name": "Unique token reuse calculation",
+        "pass": true
+      },
+      {
+        "family": "arithmetic",
+        "id": "AQ012",
+        "name": "VAL relative NLL independent",
+        "pass": true
+      },
+      {
+        "family": "arithmetic",
+        "id": "AQ013",
+        "name": "Original VAL nll numbers pinned",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ014",
+        "name": "Eight distinct self QA remediation findings",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ015",
+        "name": "Baseline reference distinct from science admission",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ016",
+        "name": "No 5 Whys causal chain fabricated",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ017",
+        "name": "FMEA not claiming invented RPN",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ018",
+        "name": "Original QA limitations explicitly disclosed",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ019",
+        "name": "Defect not claimed absent merely static QA pass",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ020",
+        "name": "False rater agreement inference prohibited",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ021",
+        "name": "D1 EXP32 rater original byte gap preserved",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ022",
+        "name": "A/C absolute not conflated with H-DATA zero",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ023",
+        "name": "FC01 lexical family scoped not OOD",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ024",
+        "name": "Original one-shot TEST not replayed",
+        "pass": true
+      },
+      {
+        "family": "adversarial",
+        "id": "AQ025",
+        "name": "No branch, no model execution, no lineage",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ026",
+        "name": "Paper P01 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ027",
+        "name": "Paper P02 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ028",
+        "name": "Paper P03 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ029",
+        "name": "Paper P04 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ030",
+        "name": "Paper P05 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ031",
+        "name": "Paper P06 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ032",
+        "name": "Paper P07 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ033",
+        "name": "Paper P08 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ034",
+        "name": "Paper P09 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ035",
+        "name": "Paper P10 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ036",
+        "name": "Paper P11 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ037",
+        "name": "Paper P12 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ038",
+        "name": "Paper P13 original link and citation",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ039",
+        "name": "Literature not treated as TTM intervention proof",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ040",
+        "name": "TinyStories limits 4M deterministic failure",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ041",
+        "name": "Scaling paper extrapolation prohibited",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ042",
+        "name": "Lost in Middle not directly mapped to context256",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ043",
+        "name": "Decoding result constrained by D1 local null",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ044",
+        "name": "LLM judge papers paired with local original limits",
+        "pass": true
+      },
+      {
+        "family": "literature",
+        "id": "AQ045",
+        "name": "Metric discontinuity source used cautiously",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ046",
+        "name": "Discriminating hypothesis H-METRIC",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ047",
+        "name": "Discriminating hypothesis H-OBJECTIVE",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ048",
+        "name": "Discriminating hypothesis H-DATA",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ049",
+        "name": "Discriminating hypothesis H-DECODER",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ050",
+        "name": "Discriminating hypothesis H-CONTEXT",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ051",
+        "name": "Discriminating hypothesis H-CAPACITY",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ052",
+        "name": "Discriminating hypothesis H-IMPL",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ053",
+        "name": "Root cause explicitly not identified",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ054",
+        "name": "Priorities not Bayesian posterior scores",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ055",
+        "name": "Gold-visible hard veto BEFORE scores",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ056",
+        "name": "No full M0X F2 or golden data generation",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ057",
+        "name": "Teacher forcing design only after owner Q4",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ058",
+        "name": "Existing TEST/FINAL remains sealed",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ059",
+        "name": "Q3 not assigned and Q4 not decided",
+        "pass": true
+      },
+      {
+        "family": "causal",
+        "id": "AQ060",
+        "name": "Unrelated EmbeddingGemma 2 and VM excluded",
+        "pass": true
+      },
+      {
+        "family": "negative",
+        "id": "AQ061",
+        "name": "Negative fixture: literature+sourceQA not science GO",
+        "pass": true
+      },
+      {
+        "family": "negative",
+        "id": "AQ062",
+        "name": "Negative fixture: author QA and external lit alone cannot confirm cause",
+        "pass": true
+      },
+      {
+        "family": "negative",
+        "id": "AQ063",
+        "name": "Negative fixture: no Q3 independent -> no merge",
+        "pass": true
+      },
+      {
+        "family": "negative",
+        "id": "AQ064",
+        "name": "Negative fixture: no owner Q4 -> no merge",
+        "pass": true
+      }
+    ],
+    "tests_fail": 0,
+    "tests_pass": 64,
+    "tests_total": 64
+  },
+  "self_qa_finding_ids": [
+    "AQ-01",
+    "AQ-02",
+    "AQ-03",
+    "AQ-04",
+    "AQ-05",
+    "AQ-06",
+    "AQ-07",
+    "AQ-08"
+  ],
+  "source_github_blobs": {
+    "P02_model": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "Q001_question": "27b8337aea9c9e82bfe98657170e592fcb3ad941",
+    "T4_config": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "T4_evaluator": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "T4_pack": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "T4_tokenizer": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "T4_trainer": "76c4d0155cd0736919f41682f240b47ad3d7c428"
+  },
+  "triage": {
+    "Q2": "AUTHOR_TRIAGE_COMPLETED_ONLY",
+    "Q3": "NOT_EXECUTED",
+    "Q4": "NOT_DECIDED",
+    "baseline_reference": "KEEP_HISTORICAL_REFERENCE_ONLY",
+    "lower_priorities": "Decoder/context/capacity are not isolated and do not justify a patch",
+    "new_science_baseline_admission": "HOLD",
+    "root_cause_identified": false,
+    "second_priority": "Objective/data conditional learning; mixed exploratory evidence",
+    "top_priority": "Measurement/gold/rater provenance and construct validity"
+  },
+  "verdict": "PASS_AUTHOR_SELF_QA_AND_LITERATURE_SCOPE_ONLY__HOLD_BASELINE_ADMISSION__ROOT_CAUSE_NOT_IDENTIFIED"
+}

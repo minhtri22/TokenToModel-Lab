@@ -1,0 +1,342 @@
+{
+  "author_gate_result": "PASS_AUTHOR_Q2_CAUSAL_TRIAGE_AND_ADMISSION_MATRIX_SOURCE_ONLY",
+  "author_report_file": "SM4M_Q001_Q2_CAUSAL_EVIDENCE_ADMISSION_LOCK_20261115.md",
+  "author_report_sha256": "b34ad81e81e90ba5873cb1c8207592f8b078023aba60f2e57cd7ef1229376a8e",
+  "authority": {
+    "branch": false,
+    "code_patch": false,
+    "gpu": false,
+    "independent_q3": false,
+    "lineage_update": false,
+    "main_update": false,
+    "merge": false,
+    "model_inference": false,
+    "new_gold": false,
+    "owner_q4": false,
+    "scoring": false,
+    "training": false
+  },
+  "causal_inference": "NO_ROOT_CAUSE_IDENTIFIED",
+  "causal_matrix_file": "SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_20261115.json",
+  "causal_matrix_sha256": "306d32086fa1e19a910070577e0f9fbd7d0a130d792ff225e1f35768237a105b",
+  "date": "2026-11-15",
+  "input_sha256": {
+    "SM4M_Q001_AUDIT_RECEIPT_20261115.json": "9fbfb2b185043685b5d24e352eb7b029b6fc36098f5a735cd699b9b5f2261f4a",
+    "SM4M_Q001_AUTHOR_ADVERSARIAL_LITERATURE_QA_RECEIPT_20261115.json": "5254fbb557c2074d95d7aa65e14e6c2924e8da1979e12f6fe4b1340958303a65",
+    "SM4M_Q001_INTEGRATED_ARCHITECTURE_AUDIT_20261115.md": "4973ad744f5d2e2e9e89f46e7890a37833c43cd99fdb82405be2148a580bce06",
+    "SM4M_Q001_Q2_AUTHOR_ADVERSARIAL_QA_LITERATURE_TRIAGE_20261115.md": "34c553d10250b8403a4d2e7170ce6f0329fa14284ea5018f59de35af94622d36"
+  },
+  "limitations": [
+    "No private checkpoint/pack byte reacquisition",
+    "No AI/human gold calibration or model experiment",
+    "Main still contains Q1 register; this file is local author-frozen packet pending permitted review",
+    "All 13 papers establish plausibility, not Small-4M causal identification",
+    "Purely logical negative fixtures; not runnable science"
+  ],
+  "main_head_readback_preceding": "6cab3b8e8430628aa5c944a494ccc08d8f8783fc",
+  "next_single_step": "OWNER_SCOPED_ACCEPTANCE_OF_Q2_AUTHOR_PACKET_FOR_FUTURE_DISTINCT_Q3_REVIEW_ONLY",
+  "operation": "SM4M_Q001_Q2_EVIDENCE_ADMISSION_AND_CAUSAL_TRIAGE_CLOSURE_SINGLE_GATE",
+  "qa_checks": [
+    {
+      "id": "CQ01",
+      "name": "Input original report hash",
+      "pass": true
+    },
+    {
+      "id": "CQ02",
+      "name": "Input revised report hash",
+      "pass": true
+    },
+    {
+      "id": "CQ03",
+      "name": "Previous source author QA 64/64 but no independent",
+      "pass": true
+    },
+    {
+      "id": "CQ04",
+      "name": "All seven causal hypotheses unique",
+      "pass": true
+    },
+    {
+      "id": "CQ05",
+      "name": "All 10 studies unique",
+      "pass": true
+    },
+    {
+      "id": "CQ06",
+      "name": "All nine admission gates unique",
+      "pass": true
+    },
+    {
+      "id": "CQ07",
+      "name": "No admission gate marked PASS",
+      "pass": true
+    },
+    {
+      "id": "CQ08",
+      "name": "All 13 paper IDs present",
+      "pass": true
+    },
+    {
+      "id": "CQ09",
+      "name": "Paper URLs HTTPs",
+      "pass": true
+    },
+    {
+      "id": "CQ10",
+      "name": "Hypothesis citations use only existing studies",
+      "pass": true
+    },
+    {
+      "id": "CQ11",
+      "name": "Hypothesis admission links are valid",
+      "pass": true
+    },
+    {
+      "id": "CQ12",
+      "name": "Hypothesis paper links valid",
+      "pass": true
+    },
+    {
+      "id": "CQ13",
+      "name": "No hypothesis confirmed as cause",
+      "pass": true
+    },
+    {
+      "id": "CQ14",
+      "name": "No causal study admitted",
+      "pass": true
+    },
+    {
+      "id": "CQ15",
+      "name": "Historical scoped science verdict preserved",
+      "pass": true
+    },
+    {
+      "id": "CQ16",
+      "name": "FRESH16 rater roles not conflated",
+      "pass": true
+    },
+    {
+      "id": "CQ17",
+      "name": "D1 EXP32 raw input gap retained",
+      "pass": true
+    },
+    {
+      "id": "CQ18",
+      "name": "A/C absolute nonzero retained",
+      "pass": true
+    },
+    {
+      "id": "CQ19",
+      "name": "H-DATA zero separately retained",
+      "pass": true
+    },
+    {
+      "id": "CQ20",
+      "name": "FC01 narrow signal retained",
+      "pass": true
+    },
+    {
+      "id": "CQ21",
+      "name": "No new TEST/FINAL use",
+      "pass": true
+    },
+    {
+      "id": "CQ22",
+      "name": "Source T4 1024 and NLL recorded",
+      "pass": true
+    },
+    {
+      "id": "CQ23",
+      "name": "Exposure math sanity",
+      "pass": true
+    },
+    {
+      "id": "CQ24",
+      "name": "Reuse is approximate and independent denominator",
+      "pass": true
+    },
+    {
+      "id": "CQ25",
+      "name": "Any literature claim cannot confirm TTM root cause",
+      "pass": true
+    },
+    {
+      "id": "CQ26",
+      "name": "Gold visible parity is hard veto",
+      "pass": true
+    },
+    {
+      "id": "CQ27",
+      "name": "Source rights required",
+      "pass": true
+    },
+    {
+      "id": "CQ28",
+      "name": "Rater calibration required",
+      "pass": true
+    },
+    {
+      "id": "CQ29",
+      "name": "Shortcut controls required",
+      "pass": true
+    },
+    {
+      "id": "CQ30",
+      "name": "Prospective metric freeze required",
+      "pass": true
+    },
+    {
+      "id": "CQ31",
+      "name": "Owner Q4 independent Q3 not bypassable",
+      "pass": true
+    },
+    {
+      "id": "CQ32",
+      "name": "No new actual test authorized",
+      "pass": true
+    },
+    {
+      "id": "CQ33",
+      "name": "No same-study metric pooling",
+      "pass": true
+    },
+    {
+      "id": "CQ34",
+      "name": "No new implement branch",
+      "pass": true
+    },
+    {
+      "id": "CQ35",
+      "name": "No architecture patch",
+      "pass": true
+    },
+    {
+      "id": "CQ36",
+      "name": "No science execution",
+      "pass": true
+    },
+    {
+      "id": "CQ37",
+      "name": "Main not claimed updated",
+      "pass": true
+    },
+    {
+      "id": "CQ38",
+      "name": "Lineage not claimed updated",
+      "pass": true
+    },
+    {
+      "id": "CQ39",
+      "name": "Other programs excluded",
+      "pass": true
+    },
+    {
+      "id": "CQ40",
+      "name": "Report explains author-only scope",
+      "pass": true
+    },
+    {
+      "id": "CQ41",
+      "name": "Report has explicit minimum design",
+      "pass": true
+    },
+    {
+      "id": "CQ42",
+      "name": "Report no invented threshold",
+      "pass": true
+    },
+    {
+      "id": "CQ43",
+      "name": "Q2 conclusion has HOLD",
+      "pass": true
+    },
+    {
+      "id": "CQ44",
+      "name": "All original 4 file hashes in report",
+      "pass": true
+    },
+    {
+      "id": "CQ45",
+      "name": "All original Git sources in report",
+      "pass": true
+    },
+    {
+      "id": "CQ46",
+      "name": "No active research beyond Q001",
+      "pass": true
+    },
+    {
+      "id": "CQ47",
+      "name": "Author packet is not merged",
+      "pass": true
+    },
+    {
+      "id": "CQ48",
+      "name": "Negative: public source pins alone cannot release science",
+      "pass": true
+    },
+    {
+      "id": "CQ49",
+      "name": "Negative: no visible gold blocks",
+      "pass": true
+    },
+    {
+      "id": "CQ50",
+      "name": "Negative: rater not calibrated blocks",
+      "pass": true
+    },
+    {
+      "id": "CQ51",
+      "name": "Negative: missing owner Q4 blocks",
+      "pass": true
+    },
+    {
+      "id": "CQ52",
+      "name": "Negative: unapproved source rights blocks",
+      "pass": true
+    },
+    {
+      "id": "CQ53",
+      "name": "Negative: all gated future inputs permitted only hypothetically",
+      "pass": true
+    },
+    {
+      "id": "CQ54",
+      "name": "Negative: FRESH12 pilot is not confirmatory",
+      "pass": true
+    },
+    {
+      "id": "CQ55",
+      "name": "Negative: D1 R1 design-only not science",
+      "pass": true
+    },
+    {
+      "id": "CQ56",
+      "name": "Negative: FC01 exploratory not OOD",
+      "pass": true
+    },
+    {
+      "id": "CQ57",
+      "name": "Negative: D1 EXP32 not byte-verified",
+      "pass": true
+    },
+    {
+      "id": "CQ58",
+      "name": "Negative: no 2³ experimental packet is assumed",
+      "pass": true
+    },
+    {
+      "id": "CQ59",
+      "name": "Negative: fact margin cannot prove root cause by itself",
+      "pass": true
+    }
+  ],
+  "qa_fail": 0,
+  "qa_pass": 59,
+  "qa_total": 59,
+  "question_id": "SM4M-Q001",
+  "schema": "ttm.sm4m.q001.q2.author_evidence_admission_receipt.v1",
+  "scientific_admission": "HOLD_NEW_SCIENCE"
+}
