@@ -50,3 +50,13 @@ Mọi thay đổi có nhánh Git riêng, cấu hình và nguồn được kiểm
 ## Kiểm thử tham chiếu (không tự động chạy lại)
 
 Bộ kiểm thử đã thực hiện dùng bộ dữ liệu minh họa nhỏ (fixture), không tải dữ liệu khoa học và không huấn luyện mô hình hoàn chỉnh. Tham khảo `reference/phase0/README.md` và các biên bản QA trước khi tái chạy để không ghi đè bằng chứng cũ.
+
+## Trạng thái quản trị hiện hành (từ 15/11/2026)
+
+**Source of truth cho quyết định mới nhất là `main`**, xem:
+
+- [Quy chế Question-First, lựa chọn kiến trúc, lineage và merge](docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md)
+- [Active Research Gate — câu hỏi chủ động, quyền branch và trạng thái kết thúc](docs/governance/ACTIVE_RESEARCH_GATE.md)
+- [Mẫu Question Gate bắt buộc trước nghiên cứu mới](templates/TTM_RESEARCH_QUESTION_GATE.md)
+
+Mục "Trạng thái dự án sau P00" ở phần trên là **snapshot lịch sử**, không phải tuyên bố trạng thái hiện tại. `lineage.md` append-only và từ chính sách này chỉ bổ sung **kết quả khoa học PASS/FAIL với implement HEAD đầy đủ**; mọi QA/HOLD và điều phối nhánh đặt trong hồ sơ khác. Sau mỗi gate, cập nhật trạng thái và quyết định merge/evidence-only trên main trước khi mở gate kế tiếp.

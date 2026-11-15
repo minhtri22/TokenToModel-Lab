@@ -55,3 +55,17 @@ Mọi tài liệu mới và tài liệu hướng dẫn có thể chỉnh sửa d
 ## Quyết định điều chỉnh ưu tiên 08/11/2026
 
 Theo [ADR-0001](decisions/ADR-0001_TRAIN_FIRST_COLAB_AND_BRANCH_CLEANUP_20261108.md), ưu tiên pilot Colab → Drive → GGUF/llama.cpp/Ollama trước khi tiếp tục tối ưu P07/P08. Đây là cổng quản trị bổ sung, không thay thế hay sửa hồi tố điều kiện đóng P00–P12. Việc xóa nhánh lịch sử phải dựa trên manifest exact SHA và archive có bảo toàn tổ tiên; không dùng cherry-pick hoặc merge legacy tùy tiện.
+
+## Quy chế ưu tiên 15/11/2026 — thay thế chu trình mở nhánh trước câu hỏi
+
+Từ commit chính sách trên `main`, áp dụng bắt buộc [TTM-GOV-QF-20261115-V1](governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md). Mục "Chu trình thay đổi" phía trên mô tả **cách làm lịch sử**, nhưng **không** cho phép một đề xuất chưa có câu hỏi lập tức mở nhánh mới. Trật tự mới:
+
+`Question registered on main → Framework/architecture alternatives → Reviewed answer → Owner decision & closure → (GO đúng phạm vi mới mở một implementation branch) → Evidence/independent QA → Merge-or-evidence-only closure → main cập nhật`.
+
+- Trước **mỗi vòng**: khóa câu hỏi và tác động quyết định, chứng cứ/giả thuyết đối chứng, framework được chọn vì phù hợp, minimal discriminating evidence và stop rule; không tạo schema/scorer/benchmark chỉ để cứu một giả định chưa chứng minh.
+- **Không mở thêm câu hỏi/nhánh nghiên cứu** trước khi câu hỏi hiện hành có câu trả lời và owner đóng gate (hoặc đóng HOLD có điều kiện). Không chạy science hay sửa kiến trúc chỉ từ thiết kế GO. Tối đa một nhánh nghiên cứu/implementation active, không tạo nhánh phụ cho mỗi finding.
+- `lineage.md` từ thời điểm này **chỉ** thêm kết quả thực nghiệm khoa học `SCIENTIFIC_PASS_SCOPED` hoặc `SCIENTIFIC_FAIL_SCOPED`, kèm full implement HEAD và nguồn evidence/adjudication; QA kỹ thuật, infra, design, HOLD/NOT_EXECUTED/UNVERIFIED không ghi thêm. Tất cả entry cũ giữ nguyên, kể cả non-science vì lịch sử bất biến.
+- Mỗi closure nghiên cứu bắt buộc có một quyết định `MERGE_APPROVED`, `EVIDENCE_ONLY_NO_MERGE`, `NO_MERGE_NEEDED` hoặc `HOLD_MERGE_REVIEW`; triển khai FAIL/HOLD không merge vào main. `main` cập nhật registry [ACTIVE_RESEARCH_GATE.md](governance/ACTIVE_RESEARCH_GATE.md), science lineage hợp lệ và source đã đủ QA merge **trước khi mở gate tiếp**.
+- Chỉ trong commit khóa chính sách này, owner cho phép **ngoại lệ ban hành docs-only trực tiếp lên main** sau author QA và xác minh source/diff; không gọi là independent QA, không miễn kiểm toán khoa học. Các lần tiếp theo tuân PR, independent QA và owner merge.
+
+Không sửa/xóa/chèn entry `lineage.md` đã khóa, không tự dọn nhánh hoặc worktree cũ. Nếu mô tả cũ ở `PROJECT_CHARTER.md` hoặc `lineage.md` mâu thuẫn, chính sách mới có ưu tiên về sau mà không hồi tố dữ kiện lịch sử.

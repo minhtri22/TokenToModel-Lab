@@ -1,0 +1,258 @@
+{
+  "schema": "ttm.governance.question_first.author_qa.v1",
+  "operation": "TTM_GOV_QUESTION_FIRST_LINEAGE_SCIENCE_ONLY_MAIN_SYNC_AND_SINGLE_ACTIVE_GATE_POLICY_LOCK",
+  "date": "2026-11-15",
+  "main_head_before_policy": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+  "owner_source": "Explicit user instruction this turn, policy and main first",
+  "scope": "AUTHOR_DOCUMENT_AND_SYMBOLIC_NEGATIVE_QA_ONLY",
+  "source_blobs": {
+    "policy": [
+      "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "af1a879a2552f100c6669cb9ab6dc98c930d2e19"
+    ],
+    "active": [
+      "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "069eb42a3629661b4ed339056899d42079e678f4"
+    ],
+    "template": [
+      "templates/TTM_RESEARCH_QUESTION_GATE.md",
+      "8516dabe80fa937f1009ebaf67f72c38b6da90a1"
+    ],
+    "charter": [
+      "PROJECT_CHARTER.md",
+      "6d6854d56994f00ba474c8935fc7ff67b9e3e382"
+    ],
+    "governance": [
+      "docs/GOVERNANCE.md",
+      "28a4d193da39cfbc454adc7069d228fd043e9cc6"
+    ],
+    "readme": [
+      "README.md",
+      "66627dc2375833fd90e3a3dc8d6a88b320f59b0e"
+    ]
+  },
+  "tests": [
+    {
+      "name": "Policy effective on main",
+      "pass": true
+    },
+    {
+      "name": "Never rewrite historical lineage",
+      "pass": true
+    },
+    {
+      "name": "Only scientific PASS and FAIL new entries",
+      "pass": true
+    },
+    {
+      "name": "Full implement HEAD required even failure",
+      "pass": true
+    },
+    {
+      "name": "No fake science FAIL from infra",
+      "pass": true
+    },
+    {
+      "name": "Question registered before implementation",
+      "pass": true
+    },
+    {
+      "name": "Scientific question falsifiable",
+      "pass": true
+    },
+    {
+      "name": "Relevant frameworks selected",
+      "pass": true
+    },
+    {
+      "name": "5Whys not proof",
+      "pass": true
+    },
+    {
+      "name": "Veto outranks MCDA",
+      "pass": true
+    },
+    {
+      "name": "One active question",
+      "pass": true
+    },
+    {
+      "name": "Owner closure before new research branch",
+      "pass": true
+    },
+    {
+      "name": "One active implementation branch",
+      "pass": true
+    },
+    {
+      "name": "Author QA distinct from independent QA",
+      "pass": true
+    },
+    {
+      "name": "Design decision not execution",
+      "pass": true
+    },
+    {
+      "name": "All merge decisions",
+      "pass": true
+    },
+    {
+      "name": "No science FAIL implementation merge",
+      "pass": true
+    },
+    {
+      "name": "Main current decisions not all branches",
+      "pass": true
+    },
+    {
+      "name": "Synchronize main before next gate",
+      "pass": true
+    },
+    {
+      "name": "Historical branches not all active",
+      "pass": true
+    },
+    {
+      "name": "No unapproved cleanup",
+      "pass": true
+    },
+    {
+      "name": "One-time docs-only bootstrap",
+      "pass": true
+    },
+    {
+      "name": "Future PR requirement",
+      "pass": true
+    },
+    {
+      "name": "Policy active on main",
+      "pass": true
+    },
+    {
+      "name": "No science question started",
+      "pass": true
+    },
+    {
+      "name": "F2 prior HEAD and HOLD preserved",
+      "pass": true
+    },
+    {
+      "name": "Three draft PRs unchanged",
+      "pass": true
+    },
+    {
+      "name": "All four Question Gate phases",
+      "pass": true
+    },
+    {
+      "name": "Stop rule explicit",
+      "pass": true
+    },
+    {
+      "name": "Alternatives with STOP and HOLD",
+      "pass": true
+    },
+    {
+      "name": "Charter prospective amendment",
+      "pass": true
+    },
+    {
+      "name": "Governance prospective precedence",
+      "pass": true
+    },
+    {
+      "name": "Discoverable policy and active register",
+      "pass": true
+    },
+    {
+      "name": "No question prevents branch",
+      "pass": true
+    },
+    {
+      "name": "Unclosed question prevents branch",
+      "pass": true
+    },
+    {
+      "name": "Closed HOLD prevents branch",
+      "pass": true
+    },
+    {
+      "name": "No owner permit prevents branch",
+      "pass": true
+    },
+    {
+      "name": "Existing active branch prevents another",
+      "pass": true
+    },
+    {
+      "name": "Main unsynced prevents next branch",
+      "pass": true
+    },
+    {
+      "name": "Properly closed future question allows one",
+      "pass": true
+    },
+    {
+      "name": "Valid scientific PASS can append",
+      "pass": true
+    },
+    {
+      "name": "Valid scientific FAIL can append",
+      "pass": true
+    },
+    {
+      "name": "QA PASS cannot append",
+      "pass": true
+    },
+    {
+      "name": "HOLD cannot append",
+      "pass": true
+    },
+    {
+      "name": "Unverified science cannot append",
+      "pass": true
+    },
+    {
+      "name": "Missing implementation SHA cannot append",
+      "pass": true
+    },
+    {
+      "name": "Approved QA code can merge",
+      "pass": true
+    },
+    {
+      "name": "Failed code cannot merge",
+      "pass": true
+    },
+    {
+      "name": "Owner missing blocks merge",
+      "pass": true
+    },
+    {
+      "name": "Independent QA missing blocks merge",
+      "pass": true
+    },
+    {
+      "name": "Scope drift blocks merge",
+      "pass": true
+    }
+  ],
+  "pass_count": 51,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_GOVERNANCE_POLICY_QA_ONLY",
+  "independent_review": false,
+  "science_executed": false,
+  "lineage_modified": false,
+  "new_research_branch_created": false,
+  "old_branch_deleted": false,
+  "pr_merged": false,
+  "training_executed": false,
+  "gpu_executed": false,
+  "limitations": [
+    "Docs policy is normative, not GitHub branch protection",
+    "Bootstrap directly to main expressly owner-authorized once",
+    "Prior preliminary text-match QA had false failures; this is the successful exact-blob recheck",
+    "No independent science execution"
+  ],
+  "next_single_step": "REGISTER_FIRST_QUESTION_GATE_ON_MAIN_AFTER_POLICY_LOCK"
+}
