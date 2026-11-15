@@ -1,0 +1,15 @@
+TTM_VM_V4_R8_G2 production trust boundary source QA manifest
+Frozen scientific source SHA: 84d9d5c95e9962ccfe294852570e261b145fe403
+Source candidate: 5bba59b12d5b0541c717b04245c5b1862b064718
+Evidence archive commit: 92fce2ec8ce0359d5e696f1607beecf4a83fd6b1
+Archive: TTM_VM_V4_R8_G2_PRODUCTION_TRUST_BOUNDARY_SOURCE_QA_20261115.zip
+ZIP bytes: 49176
+ZIP git blob SHA-1: 5affdb90b32016a19532cd35aa4555049b7d53f3
+ZIP SHA-256: cd3a13a92853b71428f86a6b1df3f54efb54e69de79fadc94c2de714a09fda09
+File SHA-256:
+b7439a3bd839ac373bad150c28d3fd90231dfac88ef29931861807b6c46fc0aa  g2_production_boundary.py
+7f5845e32e2bd93d929e3c4547ec9a1e25b348ff8c01c5504797d06d84d4cfe1  g2_github_release_witness.py
+846a1665f501b6fbe568692ddf308c7b60906639f70f969ea8cf2bf452ca016b  test_g2_production_boundary.py
+eb8b870daea43b770461ce2677b27cb8966118367699a1c07c52c8c6cb540090  test_g2_github_release_witness.py
+Source QA: 79/79 PASS, local Linux Python 3.13.5, synthetic only
+Production trust and G2: HOLD_INTEGRATED; no real G3, no key, no release write

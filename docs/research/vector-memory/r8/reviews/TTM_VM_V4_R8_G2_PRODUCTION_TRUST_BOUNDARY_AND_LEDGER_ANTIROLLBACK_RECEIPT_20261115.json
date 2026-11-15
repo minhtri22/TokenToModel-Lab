@@ -1,0 +1,91 @@
+{
+  "schema": "ttm.vm.v4.r8.g2.production-trust-boundary.source-qa.v1",
+  "operation": "TTM_VM_V4_R8_G2_PRODUCTION_TRUST_BOUNDARY_AND_LEDGER_ANTIROLLBACK_INTEGRATED_IMPLEMENTATION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "role": "IMPLEMENTATION_AGENT",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "base_commit": "2c6aee6d9644bd2035c4624ab12f1b524a11e6e0",
+  "frozen_scientific_source_commit": "84d9d5c95e9962ccfe294852570e261b145fe403",
+  "implementation_source_commit": "5bba59b12d5b0541c717b04245c5b1862b064718",
+  "evidence_archive_commit": "92fce2ec8ce0359d5e696f1607beecf4a83fd6b1",
+  "distinct_previous_review_commit": "94b377ce6c0d6aa9e1d08ae4ff628c215449be1f",
+  "source_hashes": [
+    {
+      "file": "g2_production_boundary.py",
+      "sha256": "b7439a3bd839ac373bad150c28d3fd90231dfac88ef29931861807b6c46fc0aa",
+      "git_blob": "2b39d2d8c1a881b4c7b65922945463f15c434a8f"
+    },
+    {
+      "file": "g2_github_release_witness.py",
+      "sha256": "7f5845e32e2bd93d929e3c4547ec9a1e25b348ff8c01c5504797d06d84d4cfe1",
+      "git_blob": "e0e32758e1abf47257aaa3448c9915239817c04e"
+    },
+    {
+      "file": "test_g2_production_boundary.py",
+      "sha256": "846a1665f501b6fbe568692ddf308c7b60906639f70f969ea8cf2bf452ca016b",
+      "git_blob": "ea2ea80c44c56ac3c0eb5a6097f455e1142156a7"
+    },
+    {
+      "file": "test_g2_github_release_witness.py",
+      "sha256": "eb8b870daea43b770461ce2677b27cb8966118367699a1c07c52c8c6cb540090",
+      "git_blob": "05840f34eb1d9dbe7f3e60991fa863de849a08a8"
+    }
+  ],
+  "archive": {
+    "path": "docs/research/vector-memory/r8/reviews/artifacts/TTM_VM_V4_R8_G2_PRODUCTION_TRUST_BOUNDARY_SOURCE_QA_20261115.zip",
+    "sha256": "cd3a13a92853b71428f86a6b1df3f54efb54e69de79fadc94c2de714a09fda09",
+    "git_blob": "5affdb90b32016a19532cd35aa4555049b7d53f3",
+    "bytes": 49176,
+    "members": 4
+  },
+  "local_tests": {
+    "python": "3.13.5",
+    "platform": "linux",
+    "total": 79,
+    "passed": 79,
+    "failed": 0,
+    "errors": 0,
+    "command": "python -B -W error::ResourceWarning -m unittest -q test_pre_g3_admission_guard.py test_g2_production_boundary.py test_g2_github_release_witness.py",
+    "scopes": [
+      {
+        "historical_fixure_tests": 35
+      },
+      {
+        "new_boundary_tests": 33
+      },
+      {
+        "new_github_witness_tests": 11
+      }
+    ],
+    "ZIP_ENTRY_EXACT_SOURCE_MATCH": true,
+    "AST_SOURCE_PARSE_PASS": 4
+  },
+  "safety": {
+    "actual_gpre_commitment_created": false,
+    "actual_hmac_key_created": false,
+    "actual_g3_generator_called": false,
+    "actual_r8_cases_generated": false,
+    "actual_github_witness_release_created": false,
+    "gpu_execution": false,
+    "test_unseal": false
+  },
+  "independent": {
+    "qa_current_candidate": "NOT_EXECUTED",
+    "retention_amendment": "HOLD_NOT_ACCEPTED",
+    "windows_python312_runtime": "NOT_EXECUTED",
+    "custodian_hmac_source_runtime_rebind": "NOT_EXECUTED",
+    "github_cli_live_attestation": "NOT_EXECUTED",
+    "trusted_signer_acceptance": "NOT_CONFIGURED",
+    "remote_witness_live_cas": "NOT_EXECUTED"
+  },
+  "adjudication": {
+    "source_fixture_QA": "PASS_SCOPED_IMPLEMENTATION_79_OF_79",
+    "real_production_G3_path": "NOT_REGISTERED",
+    "backend_concrete_gh_release": "SOURCE_IMPLEMENTED_NOT_EXECUTED",
+    "antirollback_full_admin_deletion": "NOT_PROVEN_GITHUB_RELEASE_DELETABLE",
+    "G2": "HOLD_INTEGRATED",
+    "GO_R8_D_CANDIDATE_AUTHORING_ONLY": "NOT_AUTHORIZED",
+    "R8": "NOT_GENERATED",
+    "G3": "NOT_EXECUTED"
+  }
+}
