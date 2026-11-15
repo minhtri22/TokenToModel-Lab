@@ -1,0 +1,598 @@
+{
+  "operation": "TTM_VM_V4_R8_G2_GUARD_CANDIDATE_INDEPENDENT_REVIEW_AND_TRUST_BOUNDARY_ADMISSION_SINGLE_GATE",
+  "date_local": "2026-11-15",
+  "timezone": "Asia/Saigon",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewer": {
+    "identity": "OpenAI Codex, current review session",
+    "role": "Independent Scientific & Source Reviewer for guard candidate",
+    "distinct_from_guard_implementation_agent": true,
+    "authored_prior_retention_proposal": true,
+    "independent_retention_amendment_acceptance": false
+  },
+  "mode": [
+    "READ_ONLY_CANDIDATE_REVIEW",
+    "EXACT_GIT_PINS",
+    "WINDOWS_SOURCE_ONLY_SYNTHETIC_QA",
+    "NO_SCIENCE_EXECUTION"
+  ],
+  "pins": {
+    "candidate": "9d210f1392e81a17f1c35cea12230bf7ff74fb02",
+    "frozen_scientific_source": "84d9d5c95e9962ccfe294852570e261b145fe403",
+    "retention_proposal": "b1231faef1b2a4166016ee78a9de6617800efeff",
+    "handoff": "d47656dbd5af27e26fa18d61089956eaac6e0df8",
+    "inherited_g0_review": "12d66bcff86a6cf435998a98a14afd254924fa5d"
+  },
+  "adjudication": {
+    "RETENTION_AMENDMENT_REVIEW": "HOLD",
+    "GUARD_SOURCE_INDEPENDENT_QA": "HOLD",
+    "PRODUCTION_TRUST_BOUNDARY_READINESS": "NOT_ATTESTED",
+    "G2_INTEGRATED_DECISION": "G2_HOLD · HOLD_INTEGRATED"
+  },
+  "retention": {
+    "scope": "R8_D_EXPLORATORY_DESCRIPTIVE_ONLY",
+    "owner_decision": "ACCEPT_NO_INDEPENDENT_BACKUP",
+    "recovery": "NOT_VERIFIED",
+    "absolute_deletion_prevention": "NOT_VERIFIED",
+    "prospective_invalidation": "Conditionally sound if evidence is verified before G3 and each dependent stage, loss stops downstream work, and lost-evidence results support no preregistered claims.",
+    "disposition": "HOLD_INDEPENDENT_AMENDMENT_ACCEPTANCE_AND_ENFORCEMENT_ABSENT"
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "HIGH",
+      "title": "Fixture dispatcher nhận verifier và callback do caller cấp",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 163,
+          "to": 189,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 242,
+          "to": 247,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/r8_production_caller.py",
+          "from": 1,
+          "to": 26,
+          "commit": "84d9d5c95e9962ccfe294852570e261b145fe403"
+        }
+      ],
+      "probes": [
+        "P01_DEFAULT_DENY",
+        "P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS",
+        "P14_TRUTHY_FALSE_FLAGS"
+      ],
+      "evidence": "Default trả lỗi trước verifier và callback. Trong fixture, hai fake verifier cùng callback tùy ý được nhận. Chuỗi `\"false\"` cũng kích hoạt fixture vì dùng truthiness. Tìm tham chiếu ở code và workflow của exact tree chỉ thấy định nghĩa guard và hai hàm của caller cũ ngoài test. Caller cũ tạo lock và hậu kiểm; chưa có generator R8 production đăng ký hoặc launch path bắt buộc qua guard.",
+      "impact": "Giữ `PRODUCTION_TRUST_BOUNDARY_READINESS=NOT_ATTESTED`. Callback giả đã chạy trong fixture. Khả năng một tích hợp tương lai đi vòng guard là rủi ro từ call graph chưa khóa."
+    },
+    {
+      "id": "F02",
+      "severity": "HIGH",
+      "title": "Attestation và independent acceptance là dữ liệu do caller tự dựng",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 119,
+          "to": 160,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 188,
+          "to": 226,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        }
+      ],
+      "probes": [
+        "P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS",
+        "P14_TRUTHY_FALSE_FLAGS"
+      ],
+      "evidence": "`AnchorProof` và `AcceptedReceipt` là dataclass công khai. Code so chuỗi, kiểm 64 hex và dựa vào truthiness của `immutable`, `signature_verified`, `accepted`. Commit review chỉ qua regex 40 hex. Commit toàn số 0, digest asset/bundle tự khai và cả ba cờ chuỗi `\"false\"` đều đi đến callback trong fixture. Candidate thiếu adapter kiểm exact remote bytes, signature/trust root, repository/release/asset identity và signer được ủy quyền chấp nhận đúng amendment lẫn G_pre.",
+      "impact": "Production HOLD. Tải lại sentinel thật xác minh được đường công bố mẫu ở bên ngoài guard."
+    },
+    {
+      "id": "F03",
+      "severity": "HIGH",
+      "title": "Exact bytes được bind nhưng HMAC V2 chưa được xác thực",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 69,
+          "to": 116,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/folds_raters.py",
+          "from": 251,
+          "to": 318,
+          "commit": "84d9d5c95e9962ccfe294852570e261b145fe403"
+        }
+      ],
+      "probes": [
+        "P05_CHANGED_SAME_LENGTH_NONCE",
+        "P06_LOCK_BYTE_MISMATCH",
+        "P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS"
+      ],
+      "evidence": "SHA-256 khóa exact blueprint/lock bytes và `nonce || envelope`; đổi nonce hoặc lock mà giữ proof cũ bị chặn. Fixture chứa marker không phải blueprint, lock chỉ có schema, algorithm và hai chuỗi hex tự chọn vẫn được nhận. Guard không xác minh nội dung blueprint, component/fold, `cv_status` hoặc recompute HMAC với key thuộc custodian theo domain V2. Kiểm nonce chỉ xác nhận kiểu và độ dài, không chứng minh nguồn entropy hay custody.",
+      "impact": "PASS scoped cho byte binding với proof đúng kỳ vọng. HMAC, custody và G_pre authenticity ở production vẫn HOLD."
+    },
+    {
+      "id": "F04",
+      "severity": "HIGH",
+      "title": "Source/runtime manifest được so bằng chuỗi tự khai",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 85,
+          "to": 101,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 192,
+          "to": 205,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 247,
+          "to": 247,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        }
+      ],
+      "probes": [
+        "P08_RUNTIME_HASH_MISMATCH",
+        "P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS"
+      ],
+      "evidence": "Sai chuỗi runtime giữa proof và envelope bị chặn. Cặp chuỗi 64 hex trùng nhau được nhận dù không có manifest file. Guard không đọc source/runtime thực thi, bind loaded artifact hay callback với các byte đã kiểm. Callback không nhận đối tượng dữ liệu đã xác minh từ guard.",
+      "impact": "Production HOLD. Kết quả runtime Windows trước được kế thừa trong phạm vi smoke test cũ."
+    },
+    {
+      "id": "F05",
+      "severity": "HIGH",
+      "title": "Thứ tự timestamp và trạng thái mất anchor chưa được thực thi",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 188,
+          "to": 226,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 229,
+          "to": 247,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G2_OWNER_RISK_ACCEPTANCE_AND_SCOPED_FINAL_ADJUDICATION_20261115.md",
+          "from": 39,
+          "to": 42,
+          "commit": "b1231faef1b2a4166016ee78a9de6617800efeff"
+        }
+      ],
+      "probes": [
+        "P15_RECEIPT_DATED_BEFORE_VERIFICATION",
+        "P16_ANCHOR_AND_ACCEPTANCE_EQUAL_TIMES",
+        "P17_REVOKED_FIXTURE_ANCHOR_AFTER_VERIFICATION"
+      ],
+      "evidence": "Hai bất đẳng thức kiểm `published ≤ signed ≤ verified ≤ now` và `signed ≤ accepted ≤ now` độc lập, dùng clock local. Receipt trước `verified_at` được nhận dù fixture không đưa bằng chứng acceptor đã tự xác minh. Khi publication, signed và acceptance trùng nhau, timestamp không chứng minh được thứ tự nghiêm ngặt mà callback vẫn chạy. Mô phỏng anchor mất trong bước nhận receipt sau lần check đầu, callback vẫn chạy. Chưa có freshness bound, trạng thái revoke hay kiểm lại trước dispatch và các bước phụ thuộc.",
+      "impact": "Giữ HOLD cho pre-G3 order và enforcement mất evidence. Phải chứng minh thứ tự bằng trusted timestamps hoặc chuỗi sự kiện đã xác thực, cùng fail-closed khi trạng thái khó xác minh."
+    },
+    {
+      "id": "F06",
+      "severity": "HIGH",
+      "title": "SQLite one-shot phụ thuộc ledger không đổi và schema tin cậy",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 171,
+          "to": 177,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        },
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 227,
+          "to": 247,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        }
+      ],
+      "probes": [
+        "P12_COMMIT_BEFORE_CALL_AND_REPLAY_DENIAL",
+        "P18_ALTERNATE_LEDGER_REPLAY",
+        "P19_EXISTING_SCHEMA_WITHOUT_CONSTRAINTS",
+        "P20_LEDGER_ROLLBACK_REPLAY",
+        "P21_HARDLINK_WRITES_THROUGH_ALIAS"
+      ],
+      "evidence": "`BEGIN IMMEDIATE`, uniqueness và commit trước callback chặn lặp trên cùng DB mới, ổn định. Đổi sang DB khác, khởi tạo sẵn table bỏ constraints hoặc restore bản DB chưa consume đều gọi callback thêm lần nữa. Hardlink leaf ghi vào DB alias ngoài thư mục ledger dự kiến nhưng vẫn trong scratch test. `parent.is_dir()` và leaf `is_symlink()` không xác thực canonical root, ancestor reparse/junction, ownership/ACL, cùng file identity khi mở, pinned DDL hay trạng thái chống rollback. Junction/ACL TOCTOU và crash/power loss chỉ phân tích source hoặc chưa thử.",
+      "impact": "PASS scoped cho serialization trên cùng file/schema bình thường. Chưa có bằng chứng ledger chống thay đổi, rollback hoặc replay trên trust boundary production."
+    },
+    {
+      "id": "F07",
+      "severity": "MEDIUM",
+      "title": "JSON lỗi thoát qua exception ngoài AdmissionDenied",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+          "from": 69,
+          "to": 84,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        }
+      ],
+      "probes": [
+        "P22_NONFINITE_JSON_ESCAPES_TYPED_DENIAL",
+        "P23_LONE_SURROGATE_ESCAPES_TYPED_DENIAL"
+      ],
+      "evidence": "`json.loads` chấp nhận token `NaN` và lone surrogate escaped. Khâu canonicalize với `allow_nan=False` hoặc encode UTF-8 bên ngoài `try` phát `ValueError`/`UnicodeEncodeError`. Cả hai probe đều có 0 callback.",
+      "impact": "Lỗi contract của đường từ chối, giữ QA source ở HOLD cùng các counterexample khác. Không quan sát thấy chạy callback qua hai input này."
+    },
+    {
+      "id": "F08",
+      "severity": "LOW",
+      "title": "Tên test cross-session vượt phạm vi điều đã đo",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py",
+          "from": 219,
+          "to": 224,
+          "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02"
+        }
+      ],
+      "probes": [
+        "P12_COMMIT_BEFORE_CALL_AND_REPLAY_DENIAL"
+      ],
+      "evidence": "Test 19 chỉ dựng thêm guard trỏ lại cùng ledger và gửi cùng envelope có cùng session. Phép thử chứng minh replay qua instance mới trên cùng ledger. Session nằm trong bytes đã hash, vì vậy thay session làm đổi digest nếu không có va chạm.",
+      "impact": "Không nâng 22/22 thành bằng chứng chống reissuance qua session hoặc ledger khác."
+    },
+    {
+      "id": "F09",
+      "severity": "HIGH",
+      "title": "Amendment cần chấp nhận độc lập và cơ chế vô hiệu hóa có hiệu lực",
+      "references": [
+        {
+          "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G2_OWNER_RISK_ACCEPTANCE_AND_SCOPED_FINAL_ADJUDICATION_20261115.md",
+          "from": 29,
+          "to": 53,
+          "commit": "b1231faef1b2a4166016ee78a9de6617800efeff"
+        }
+      ],
+      "probes": [
+        "P17_REVOKED_FIXTURE_ANCHOR_AFTER_VERIFICATION"
+      ],
+      "evidence": "Miễn backup chỉ áp dụng R8-D, recovery chưa kiểm chứng. Nội dung immutable khi release tồn tại, trong khi người có quyền tương ứng vẫn có thể xóa cả release. Quy tắc hạ kết quả xuống forensic khi mất provenance hợp lý có điều kiện về khoa học. Cơ chế kiểm trước G3 và tái kiểm trước các bước phụ thuộc, chấp nhận riêng rủi ro retention và independent acceptance chưa có. Codex trong phiên này đã soạn đề xuất b1231fa, vì vậy đánh giá kỹ thuật ở đây không thể là ký nhận độc lập cho chính amendment.",
+      "impact": "`RETENTION_AMENDMENT_REVIEW=HOLD`. Cần reviewer distinct với tác giả amendment ghi quyết định có ràng buộc scope/giao thức và kiểm enforcement."
+    }
+  ],
+  "fixture_controls": {
+    "reused_candidate_test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "thread_race": {
+      "participants": 8,
+      "callbacks": 1,
+      "replay_rejections": 7
+    },
+    "spawned_process_race": {
+      "participants": 2,
+      "callbacks": 1,
+      "replay_rejections": 1
+    },
+    "scope": "Synthetic source-only run on Windows; unmodified exact GitHub modules; no production custody path, credentials or execution.",
+    "candidate_suite_command": "python -B -W error::ResourceWarning test_pre_g3_admission_guard.py",
+    "captured_output_sha256": "25f231c2318ff8e73cc108ea681f3f428c888a150502d2967cc63cae5365b6de",
+    "captured_output": "test_01_valid_fixture_dispatch_once (__main__.AdmissionQA.test_01_valid_fixture_dispatch_once) ... ok\r\ntest_02_production_default_denies (__main__.AdmissionQA.test_02_production_default_denies) ... ok\r\ntest_03_anchor_missing_denies (__main__.AdmissionQA.test_03_anchor_missing_denies) ... ok\r\ntest_04_unsigned_denies (__main__.AdmissionQA.test_04_unsigned_denies) ... ok\r\ntest_05_mutable_release_denies (__main__.AdmissionQA.test_05_mutable_release_denies) ... ok\r\ntest_06_wrong_anchor_digest_denies (__main__.AdmissionQA.test_06_wrong_anchor_digest_denies) ... ok\r\ntest_07_wrong_source_or_runtime_manifest_denies (__main__.AdmissionQA.test_07_wrong_source_or_runtime_manifest_denies) ... ok\r\ntest_08_bad_time_order_denies (__main__.AdmissionQA.test_08_bad_time_order_denies) ... ok\r\ntest_09_missing_independent_acceptance_denies (__main__.AdmissionQA.test_09_missing_independent_acceptance_denies) ... ok\r\ntest_10_receipt_tamper_denies (__main__.AdmissionQA.test_10_receipt_tamper_denies) ... ok\r\ntest_11_receipt_timestamp_early_denies (__main__.AdmissionQA.test_11_receipt_timestamp_early_denies) ... ok\r\ntest_12_tampered_private_payload_denies (__main__.AdmissionQA.test_12_tampered_private_payload_denies) ... ok\r\ntest_13_noncanonical_or_duplicate_json_denies (__main__.AdmissionQA.test_13_noncanonical_or_duplicate_json_denies) ... ok\r\ntest_14_nonce_invalid_denies (__main__.AdmissionQA.test_14_nonce_invalid_denies) ... ok\r\ntest_15_generator_exception_is_consumed (__main__.AdmissionQA.test_15_generator_exception_is_consumed) ... ok\r\ntest_16_simultaneous_calls_one_winner (__main__.AdmissionQA.test_16_simultaneous_calls_one_winner) ... ok\r\ntest_17_missing_ledger_directory_denies (__main__.AdmissionQA.test_17_missing_ledger_directory_denies) ... ok\r\ntest_18_no_receipt_type_denies (__main__.AdmissionQA.test_18_no_receipt_type_denies) ... ok\r\ntest_19_cross_session_same_commitment_rejected (__main__.AdmissionQA.test_19_cross_session_same_commitment_rejected) ... ok\r\ntest_20_wrong_private_source_commit_denies (__main__.AdmissionQA.test_20_wrong_private_source_commit_denies) ... ok\r\ntest_21_invalid_private_lock_schema_or_hmac_denies (__main__.AdmissionQA.test_21_invalid_private_lock_schema_or_hmac_denies) ... ok\r\ntest_22_two_spawned_processes_one_winner (__main__.AdmissionQA.test_22_two_spawned_processes_one_winner) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 22 tests in 0.683s\r\n\r\nOK\r\n"
+  },
+  "production": {
+    "trusted_github_verifier": "NOT_IMPLEMENTED",
+    "trusted_independent_acceptance_verifier": "NOT_IMPLEMENTED",
+    "private_hmac_v2_at_admission": "NOT_VERIFIED",
+    "production_generator_registered_at_candidate": "NOT_FOUND_IN_EXACT_TREE",
+    "production_execution": "NOT_EXECUTED",
+    "production_ledger_acl_and_power_loss": "NOT_VERIFIED"
+  },
+  "invariants": {
+    "G0": "PASS_SCOPED_INDEPENDENT_SOURCE_REVIEW",
+    "G1": "OWNER_STANDING_RESEARCH_DIRECTION_RECORDED",
+    "R7": "FROZEN_FAIL",
+    "R8": "NOT_GENERATED",
+    "G3_G4": "NOT_EXECUTED",
+    "G5_G6": "SEALED",
+    "READER": 0,
+    "GPU": "NO",
+    "PROBE256": "SEALED",
+    "ACTUAL_HMAC_KEY_GENERATED": false,
+    "ACTUAL_G_PRE_COMMITMENT_CREATED": false,
+    "GO_R8_D_CANDIDATE_AUTHORING_ONLY": "NOT_AUTHORIZED"
+  },
+  "evaluated_utc": "2026-11-15T09:17:16.7006703Z",
+  "verified_exact_inputs": {
+    "archive": {
+      "blob": "34dc0d5abc32799df96449c8c00714bc3adbfe61",
+      "sha256": "d1bf1b43f2cd9d482c989173ab1736594eb4593d5931094df285f8c95c174b77",
+      "size": 30727,
+      "path": "docs/research/vector-memory/r8/reviews/artifacts/TTM_VM_V4_R8_G2_PRE_G3_GUARD_SOURCE_QA_20261115.zip",
+      "commit": "d47656dbd5af27e26fa18d61089956eaac6e0df8"
+    },
+    "archive_first_commit": "63e45126625cd99064f9d476affe39c5d347e21d",
+    "archive_crc": "PASS",
+    "sha_manifest": {
+      "blob": "1392248977218521fedaa1a731bb394cd1e0d4a5",
+      "sha256": "ebb2307f6fc7e26b09c31285ed7e91dc3cc9c5f67f16bc1c70abd19f982812f2",
+      "size": 1040,
+      "path": "docs/research/vector-memory/r8/reviews/artifacts/TTM_VM_V4_R8_G2_PRE_G3_GUARD_SOURCE_QA_20261115.sha256.txt",
+      "commit": "d47656dbd5af27e26fa18d61089956eaac6e0df8"
+    },
+    "handoff": {
+      "blob": "ff412fa6107adfd0c65b2ec827ef8def08593492",
+      "sha256": "7afe2581696fa8bfa6321cfba8ce26aa66df1df297fa0a9b024f915eab75132b",
+      "size": 8188,
+      "path": "docs/research/vector-memory/r8/handoffs/TTM_VM_V4_R8_G2_GUARD_CANDIDATE_DISTINCT_INDEPENDENT_REVIEW_HANDOFF_20261115.md",
+      "commit": "d47656dbd5af27e26fa18d61089956eaac6e0df8"
+    },
+    "amendment": {
+      "blob": "137aabc24de5d172a9f7a635da3849daa075973e",
+      "sha256": "27d07e8b1431f524cf9f866c3a29044fdeeeb438864956c3cf1f337f412c1e36",
+      "size": 17457,
+      "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G2_OWNER_RISK_ACCEPTANCE_AND_SCOPED_FINAL_ADJUDICATION_20261115.md",
+      "commit": "b1231faef1b2a4166016ee78a9de6617800efeff"
+    },
+    "members": [
+      {
+        "blob": "b35da231742d5bcf01f8d4ab48069afbfad37eea",
+        "sha256": "6bf5150b65718ad594dec4fc66f42a9dc6e29cf004828f265752af1d9e603a31",
+        "size": 11042,
+        "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+        "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02",
+        "member": "pre_g3_admission_guard.py",
+        "zip_crc32": "9c5d08cc"
+      },
+      {
+        "blob": "9534a2d32e8cf53208634efe47ded4f02b9e9743",
+        "sha256": "64d4b6bf4929373cd1a553c5b1e22cb5fa55ed915ea10ae5c0465b91ec744318",
+        "size": 11392,
+        "path": "docs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py",
+        "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02",
+        "member": "test_pre_g3_admission_guard.py",
+        "zip_crc32": "e9469644"
+      },
+      {
+        "blob": "d07c0972422fe6f68284b97cc46f1210c3feb40f",
+        "sha256": "ab719a0e5a9d371a014a244c1c2c1767c7f806f2ea3d76ecd1ddca5e6e4be696",
+        "size": 7775,
+        "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G2_PRE_G3_ADMISSION_GUARD_IMPLEMENTATION_AND_SOURCE_QA_20261115.md",
+        "commit": "9d210f1392e81a17f1c35cea12230bf7ff74fb02",
+        "member": "TTM_VM_V4_R8_G2_PRE_G3_ADMISSION_GUARD_IMPLEMENTATION_AND_SOURCE_QA_20261115.md",
+        "zip_crc32": "c186e79a"
+      }
+    ],
+    "source_delta": [
+      "A\tdocs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+      "A\tdocs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py",
+      "A\tdocs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G2_PRE_G3_ADMISSION_GUARD_IMPLEMENTATION_AND_SOURCE_QA_20261115.md"
+    ],
+    "packaging_delta": [
+      "A\tdocs/research/vector-memory/r8/handoffs/TTM_VM_V4_R8_G2_GUARD_CANDIDATE_DISTINCT_INDEPENDENT_REVIEW_HANDOFF_20261115.md",
+      "A\tdocs/research/vector-memory/r8/reviews/artifacts/TTM_VM_V4_R8_G2_PRE_G3_GUARD_SOURCE_QA_20261115.sha256.txt",
+      "A\tdocs/research/vector-memory/r8/reviews/artifacts/TTM_VM_V4_R8_G2_PRE_G3_GUARD_SOURCE_QA_20261115.zip"
+    ],
+    "frozen_git_blob_comparison": [
+      {
+        "path": "docs/research/vector-memory/r8/integrated_closure/folds_raters.py",
+        "blob": "726d8d7835952fa3f927b2f367047d83e8c9479d",
+        "sha256": "02626f9f0def5af90b57c2930898e96dbc8f6206c441bb4aaa4c4278ce0dddae"
+      },
+      {
+        "path": "docs/research/vector-memory/r8/integrated_closure/r8_production_caller.py",
+        "blob": "5de65d1019f484182b4851e646540cd8e7a3733f",
+        "sha256": "3a9b249bced1b4ceaa5746d63367c017410ef82ded21ef386c3be2b1ee76b206"
+      },
+      {
+        "path": "docs/research/vector-memory/r8/integrated_closure/test_g0_algorithm_version_binding.py",
+        "blob": "468a8ca203ee57ac84dc2c969a5c0983d60e3f01",
+        "sha256": "2ce86fe549e1625790fcab72c076df2f12d648b048a350570d5c97a026431ae2"
+      },
+      {
+        "path": "docs/research/vector-memory/r8/integrated_closure/gold_contract.py",
+        "blob": "a3264d1940d0838b67b5d9698d834fef0f2a20fc",
+        "sha256": "8e8b81ce2d0bc47cc60c29abc7156fe9d97613e67983e43b7f587615d68015a5"
+      },
+      {
+        "path": "docs/research/vector-memory/r8/integrated_closure/restricted_oracles.py",
+        "blob": "6451afcfce677c69e51aa0aa32c96cbbffcad8e1",
+        "sha256": "34ab74d36b822703e4d8cbdf281e142273d55d181243d904b55fd31a0e6382a1"
+      }
+    ],
+    "python": "3.12.10",
+    "sqlite": "3.49.1",
+    "platform": "win32"
+  },
+  "public_sentinel_readback": {
+    "immutable": true,
+    "release_id": 445905205,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/releases/tag/ttm-vm-v4-r8-g2-commitment-sentinel-20261115",
+    "target_commit": "3ca8d7993bc6921adc507cd4c9cf7d839e92141e",
+    "published_at_utc": "2026-11-15T08:16:24Z",
+    "signed_timestamp": {
+      "type": "TimestampAuthority",
+      "uri": "timestamp.githubapp.com",
+      "timestamp": "2026-11-15T08:16:25Z"
+    },
+    "asset_name": "ttm-vm-r8-g2-public-sentinel.json",
+    "asset_sha256": "f589347fc615f73826104a0121fd46e842ea210414df8c26f75c0c13c2ffc54f",
+    "verified_asset_attestation": true,
+    "underlying_sentinel_sha256": "d3c47f2b5c264e58fbda42dfb7b951ba5958179ca49349604e4f303b35a6ebb9",
+    "release_asset_is_actual_gpre": false,
+    "production_attestation": "NOT_ATTESTED"
+  },
+  "independent_probes": {
+    "harness": "reviewer-authored; imports exact guard, no original fixtures",
+    "platform": "win32",
+    "python": "3.12.10",
+    "sqlite": "3.49.1",
+    "harness_sha256": "2d3e069749a5888d8c2adf7d43b9d1bb17dcc6c732d05f66f9d8e6ff3ba36f32",
+    "observations": [
+      {
+        "id": "P01_DEFAULT_DENY",
+        "error": "AdmissionDenied",
+        "message": "PRODUCTION_VERIFIER_AND_AMENDMENT_NOT_ADMITTED",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P02_INVALID_UTF8",
+        "error": "AdmissionDenied",
+        "message": "PRIVATE_ENVELOPE_INVALID",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P03_DUPLICATE_LOCK_JSON",
+        "error": "AdmissionDenied",
+        "message": "PRIVATE_LOCK_INVALID",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P04_NONCE_WRONG_LENGTH",
+        "error": "AdmissionDenied",
+        "message": "NONCE_LENGTH_INVALID",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P05_CHANGED_SAME_LENGTH_NONCE",
+        "error": "AdmissionDenied",
+        "message": "REMOTE_PROOF_BINDING_MISMATCH",
+        "callback_calls": 0,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P06_LOCK_BYTE_MISMATCH",
+        "error": "AdmissionDenied",
+        "message": "LOCK_DIGEST_MISMATCH",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P07_BAD_ENVELOPE_SCHEMA",
+        "error": "AdmissionDenied",
+        "message": "ALGORITHM_SCHEMA_MISMATCH",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P08_RUNTIME_HASH_MISMATCH",
+        "error": "AdmissionDenied",
+        "message": "REMOTE_PROOF_BINDING_MISMATCH",
+        "callback_calls": 0,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P09_ASSET_HASH_MISMATCH",
+        "error": "AdmissionDenied",
+        "message": "ACCEPTED_RECEIPT_BINDING_MISMATCH",
+        "callback_calls": 0,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P10_NO_RECEIPT",
+        "error": "AdmissionDenied",
+        "message": "INDEPENDENT_ADMISSION_RECEIPT_MISSING",
+        "callback_calls": 0,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P11_FUTURE_ACCEPTANCE",
+        "error": "AdmissionDenied",
+        "message": "PRE_G3_ACCEPTANCE_ORDER_INVALID",
+        "callback_calls": 0,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P12_COMMIT_BEFORE_CALL_AND_REPLAY_DENIAL",
+        "error": "AdmissionDenied",
+        "message": "G3_ONE_SHOT_REPLAY_REJECTED",
+        "callback_calls": 1,
+        "verifier_calls": 2
+      },
+      {
+        "id": "P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P14_TRUTHY_FALSE_FLAGS",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P15_RECEIPT_DATED_BEFORE_VERIFICATION",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P16_ANCHOR_AND_ACCEPTANCE_EQUAL_TIMES",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P17_REVOKED_FIXTURE_ANCHOR_AFTER_VERIFICATION",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P18_ALTERNATE_LEDGER_REPLAY",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 2,
+        "verifier_calls": 2
+      },
+      {
+        "id": "P19_EXISTING_SCHEMA_WITHOUT_CONSTRAINTS",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 2,
+        "verifier_calls": 2
+      },
+      {
+        "id": "P20_LEDGER_ROLLBACK_REPLAY",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 2,
+        "verifier_calls": 2
+      },
+      {
+        "id": "P21_HARDLINK_WRITES_THROUGH_ALIAS",
+        "return": "INERT_COUNTER_ONLY",
+        "callback_calls": 1,
+        "verifier_calls": 1
+      },
+      {
+        "id": "P22_NONFINITE_JSON_ESCAPES_TYPED_DENIAL",
+        "error": "ValueError",
+        "message": "Out of range float values are not JSON compliant: nan",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      },
+      {
+        "id": "P23_LONE_SURROGATE_ESCAPES_TYPED_DENIAL",
+        "error": "UnicodeEncodeError",
+        "message": "'utf-8' codec can't encode character '\\ud800' in position 15: surrogates not allowed",
+        "callback_calls": 0,
+        "verifier_calls": 0
+      }
+    ]
+  },
+  "independent_probe_reproduction": {
+    "instructions": "Save harness_source as UTF-8 without BOM beside the exact guard blob in a scratch directory, and run python -B -W error::ResourceWarning reviewer-probes.py. It creates only synthetic scratch SQLite files and an observation JSON.",
+    "harness_source": "from contextlib import closing\nfrom dataclasses import replace\nfrom datetime import datetime, timezone\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport sqlite3\nimport sys\nimport tempfile\nfrom pre_g3_admission_guard import (\n    AdmissionDenied, AcceptedReceipt, AnchorProof, PreG3AdmissionGuard, PrivateEnvelope,\n)\n\nTAG = \"synthetic-anchor-review\"\nSOURCE = \"84d9d5c95e9962ccfe294852570e261b145fe403\"\nSCHEMA = \"TTM_VM_R8_GPRE_HMAC_V2\"\nALGO = \"R8_GPRE_CANONICAL_JSON_COMPONENT_RANKING_V2\"\nROOT = Path(__file__).parent\nresults = []\n\ndef sha(data):\n    return hashlib.sha256(data).hexdigest()\n\ndef canon(value):\n    return json.dumps(value, sort_keys=True, separators=(\",\", \":\"), ensure_ascii=False).encode()\n\ndef at(second):\n    return f\"2026-01-01T00:00:{second:02d}Z\"\n\nclass Fixture:\n    def __init__(self, directory):\n        self.db = directory / \"admissions.db\"\n        self.calls = 0\n        self.verifications = 0\n        self.release_present = True\n        self.during_receipt = None\n        self.saw_release_at_callback = None\n        self.blueprint = b\"independent harmless marker; no blueprints\"\n        self.lock = canon({\"lock_schema\": SCHEMA, \"algorithm_id\": ALGO,\n                           \"preassignment_hmac\": \"0\" * 64, \"blueprint_hmac\": \"1\" * 64})\n        self.obj = {\"schema\": SCHEMA, \"algorithm_id\": ALGO,\n                    \"session_id\": \"independent-marker-001\", \"source_commit\": SOURCE,\n                    \"source_manifest_sha256\": \"2\" * 64, \"runtime_manifest_sha256\": \"3\" * 64,\n                    \"blueprint_sha256\": sha(self.blueprint), \"lock_sha256\": sha(self.lock)}\n        self.env = self.envelope()\n        self.anchor = AnchorProof(\n            public_digest=self.env.public_digest, source_commit=SOURCE,\n            source_manifest_sha256=\"2\" * 64, runtime_manifest_sha256=\"3\" * 64,\n            session_id=self.obj[\"session_id\"], schema=SCHEMA, algorithm_id=ALGO, release_tag=TAG,\n            release_asset_sha256=\"4\" * 64, signed_timestamp_utc=at(10),\n            published_timestamp_utc=at(5), verified_at_utc=at(20),\n            immutable=True, signature_verified=True, verification_bundle_sha256=\"5\" * 64)\n        self.receipt = AcceptedReceipt(\n            session_id=self.obj[\"session_id\"], public_digest=self.env.public_digest,\n            release_asset_sha256=\"4\" * 64, source_commit=SOURCE,\n            acceptance_timestamp_utc=at(25), amendment_review_commit=\"0\" * 40, accepted=True)\n\n    def envelope(self, **change):\n        return PrivateEnvelope(canon(dict(self.obj, **change)), bytes(range(16)), self.blueprint, self.lock)\n\n    def verify(self, **_):\n        self.verifications += 1\n        if not self.release_present:\n            return None\n        return self.anchor\n\n    def verify_accepted(self, **_):\n        if self.during_receipt:\n            self.during_receipt()\n        return self.receipt\n\n    def callback(self):\n        self.calls += 1\n        self.saw_release_at_callback = self.release_present\n        return \"INERT_COUNTER_ONLY\"\n\n    def dispatch(self, env=None, mode=True, db=None, callback=None):\n        guard = PreG3AdmissionGuard(db or self.db, self, self, fixture_mode=mode)\n        return guard.dispatch(env or self.env, TAG, callback or self.callback)\n\ndef observed(f, func):\n    try:\n        value = func()\n        return {\"return\": value, \"callback_calls\": f.calls}\n    except (AdmissionDenied, ValueError, UnicodeError) as exc:\n        return {\"error\": type(exc).__name__, \"message\": str(exc), \"callback_calls\": f.calls}\n\ndef case(name, want, expected_calls, setup=None, action=None):\n    with tempfile.TemporaryDirectory(prefix=\"probe-\", dir=ROOT) as d:\n        f = Fixture(Path(d))\n        if setup:\n            setup(f)\n        result = observed(f, (lambda: action(f)) if action else f.dispatch)\n        matched = all(result.get(k) == v for k, v in want.items())\n        assert matched and f.calls == expected_calls, (name, result)\n        results.append({\"id\": name, **result, \"verifier_calls\": f.verifications})\n\ndef deny(name, reason, setup=None, action=None):\n    case(name, {\"error\": \"AdmissionDenied\", \"message\": reason}, 0, setup, action)\n\ndef accept(name, setup=None, action=None, count=1):\n    case(name, {\"return\": \"INERT_COUNTER_ONLY\"}, count, setup, action)\n\ndef change(f, field, **changes):\n    setattr(f, field, replace(getattr(f, field), **changes))\n\ndef committed_before_counter(f):\n    def inspect():\n        with closing(sqlite3.connect(f.db)) as conn:\n            assert conn.execute(\"SELECT COUNT(*) FROM consumed\").fetchone()[0] == 1\n        return f.callback()\n    f.dispatch(callback=inspect)\n    return f.dispatch()\n\ndeny(\"P01_DEFAULT_DENY\", \"PRODUCTION_VERIFIER_AND_AMENDMENT_NOT_ADMITTED\",\n     action=lambda f: f.dispatch(mode=False))\nassert results[-1][\"verifier_calls\"] == 0\ndeny(\"P02_INVALID_UTF8\", \"PRIVATE_ENVELOPE_INVALID\",\n     action=lambda f: f.dispatch(replace(f.env, exact_bytes=b\"\\xff\")))\ndeny(\"P03_DUPLICATE_LOCK_JSON\", \"PRIVATE_LOCK_INVALID\",\n     action=lambda f: f.dispatch(replace(f.envelope(lock_sha256=sha(b'{\"a\":1,\"a\":2}')),\n                                         lock_bytes=b'{\"a\":1,\"a\":2}')))\ndeny(\"P04_NONCE_WRONG_LENGTH\", \"NONCE_LENGTH_INVALID\",\n     action=lambda f: f.dispatch(replace(f.env, nonce=b\"n\" * 17)))\ndeny(\"P05_CHANGED_SAME_LENGTH_NONCE\", \"REMOTE_PROOF_BINDING_MISMATCH\",\n     action=lambda f: f.dispatch(replace(f.env, nonce=b\"n\" * 16)))\ndeny(\"P06_LOCK_BYTE_MISMATCH\", \"LOCK_DIGEST_MISMATCH\",\n     action=lambda f: f.dispatch(replace(f.env, lock_bytes=f.lock+b\"\\n\")))\ndeny(\"P07_BAD_ENVELOPE_SCHEMA\", \"ALGORITHM_SCHEMA_MISMATCH\",\n     action=lambda f: f.dispatch(f.envelope(schema=\"REVIEW_NOT_V2\")))\ndeny(\"P08_RUNTIME_HASH_MISMATCH\", \"REMOTE_PROOF_BINDING_MISMATCH\",\n     setup=lambda f: change(f, \"anchor\", runtime_manifest_sha256=\"6\" * 64))\ndeny(\"P09_ASSET_HASH_MISMATCH\", \"ACCEPTED_RECEIPT_BINDING_MISMATCH\",\n     setup=lambda f: change(f, \"receipt\", release_asset_sha256=\"6\" * 64))\ndeny(\"P10_NO_RECEIPT\", \"INDEPENDENT_ADMISSION_RECEIPT_MISSING\",\n     setup=lambda f: setattr(f, \"receipt\", None))\ndeny(\"P11_FUTURE_ACCEPTANCE\", \"PRE_G3_ACCEPTANCE_ORDER_INVALID\",\n     setup=lambda f: change(f, \"receipt\", acceptance_timestamp_utc=\"2099-12-31T00:00:00Z\"))\ncase(\"P12_COMMIT_BEFORE_CALL_AND_REPLAY_DENIAL\",\n     {\"error\": \"AdmissionDenied\", \"message\": \"G3_ONE_SHOT_REPLAY_REJECTED\"}, 1,\n     action=committed_before_counter)\n\naccept(\"P13_UNAUTHENTICATED_PROOFS_LOCK_AND_MANIFESTS\")\naccept(\"P14_TRUTHY_FALSE_FLAGS\",\n       setup=lambda f: (change(f, \"anchor\", immutable=\"false\", signature_verified=\"false\"),\n                        change(f, \"receipt\", accepted=\"false\")),\n       action=lambda f: f.dispatch(mode=\"false\"))\naccept(\"P15_RECEIPT_DATED_BEFORE_VERIFICATION\",\n       setup=lambda f: change(f, \"receipt\", acceptance_timestamp_utc=at(15)))\naccept(\"P16_ANCHOR_AND_ACCEPTANCE_EQUAL_TIMES\",\n       setup=lambda f: (change(f, \"anchor\", published_timestamp_utc=at(10)),\n                        change(f, \"receipt\", acceptance_timestamp_utc=at(10))))\ndef disappearing_anchor(f):\n    f.during_receipt = lambda: setattr(f, \"release_present\", False)\n    value = f.dispatch()\n    assert f.saw_release_at_callback is False and f.verifications == 1\n    return value\naccept(\"P17_REVOKED_FIXTURE_ANCHOR_AFTER_VERIFICATION\", action=disappearing_anchor)\n\ndef alternate_db(f):\n    f.dispatch()\n    return f.dispatch(db=f.db.with_name(\"alternate.db\"))\naccept(\"P18_ALTERNATE_LEDGER_REPLAY\", action=alternate_db, count=2)\n\ndef weakened_db(f):\n    with closing(sqlite3.connect(f.db)) as conn:\n        conn.execute(\"CREATE TABLE consumed(session_id TEXT, commitment_digest TEXT, consumed_utc TEXT)\")\n        conn.commit()\n    f.dispatch()\n    return f.dispatch()\naccept(\"P19_EXISTING_SCHEMA_WITHOUT_CONSTRAINTS\", action=weakened_db, count=2)\n\ndef restore_db(f):\n    snapshot = f.db.with_name(\"stale-copy.db\")\n    with closing(sqlite3.connect(snapshot)) as old:\n        old.execute(\"CREATE TABLE consumed(session_id TEXT PRIMARY KEY, commitment_digest TEXT NOT NULL UNIQUE, consumed_utc TEXT NOT NULL)\")\n        old.commit()\n        f.dispatch()\n        with closing(sqlite3.connect(f.db)) as conn:\n            old.backup(conn)\n    return f.dispatch()\naccept(\"P20_LEDGER_ROLLBACK_REPLAY\", action=restore_db, count=2)\n\ndef hardlink_alias(f):\n    outside = f.db.parent / \"other\"\n    outside.mkdir()\n    original = outside / \"outside.db\"\n    with closing(sqlite3.connect(original)) as conn:\n        conn.execute(\"CREATE TABLE marker(id INTEGER)\")\n        conn.commit()\n    os.link(original, f.db)\n    result = f.dispatch()\n    with closing(sqlite3.connect(original)) as conn:\n        assert conn.execute(\"SELECT COUNT(*) FROM consumed\").fetchone()[0] == 1\n    return result\naccept(\"P21_HARDLINK_WRITES_THROUGH_ALIAS\", action=hardlink_alias)\n\ncase(\"P22_NONFINITE_JSON_ESCAPES_TYPED_DENIAL\", {\"error\": \"ValueError\"}, 0,\n     action=lambda f: f.dispatch(replace(f.env, exact_bytes=b'{\"unexpected\":NaN}')))\ncase(\"P23_LONE_SURROGATE_ESCAPES_TYPED_DENIAL\", {\"error\": \"UnicodeEncodeError\"}, 0,\n     action=lambda f: f.dispatch(replace(f.env, exact_bytes=b'{\"unexpected\":\"\\\\ud800\"}')))\n\nbundle = {\"harness\": \"reviewer-authored; imports exact guard, no original fixtures\",\n          \"platform\": sys.platform, \"python\": sys.version.split()[0], \"sqlite\": sqlite3.sqlite_version,\n          \"harness_sha256\": sha(Path(__file__).read_bytes()), \"observations\": results}\n(ROOT / \"independent-probes.json\").write_text(json.dumps(bundle, indent=2), encoding=\"utf-8\")\nprint(json.dumps(bundle, indent=2))"
+  },
+  "report_sha256": "6c7e2e3a3f940b205f00eec63857faa6341478c7831054a2e0404ecab7802aa4"
+}
