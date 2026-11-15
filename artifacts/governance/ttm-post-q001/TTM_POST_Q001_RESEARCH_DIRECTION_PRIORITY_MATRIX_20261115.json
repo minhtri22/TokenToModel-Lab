@@ -1,0 +1,360 @@
+{
+  "schema": "ttm.post_q001.research_direction_priority.source_only.v1",
+  "operation": "TTM_POST_Q001_RESEARCH_DIRECTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE",
+  "created_date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source": {
+    "main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+    "lineage_git_blob": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "active_gate_git_blob": "ad01aecdde99e17653b4e111325bed0b05cc8be2",
+    "q4_closure_git_blob": "32218103c1e9160f530472d7728c6cf1d9ac3f96",
+    "causal_q3_version_git_blob": "10d901906c24ca4a0bc93827e45982390cc18ae5",
+    "molesyn_watchlist_git_blob": "9a306a85e6584c939af92580fd182caed61f10c0",
+    "phase_plan_git_blob": "361a05084c14d81eb804200a2384f9e2895ee18e",
+    "urls": {
+      "main": "https://github.com/minhtri22/TokenToModel-Lab/commit/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+      "lineage": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/lineage.md",
+      "q4": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/governance/sm4m-q001/SM4M_Q001_Q4_OWNER_CLOSURE_AND_GOVERNANCE_MERGE_DECISION_20261115.md",
+      "active": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "causal": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json",
+      "review": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/governance/sm4m-q001/SM4M_Q001_Q3_AMENDED_CANDIDATE_INDEPENDENT_READBACK_REVIEW_20261115.md",
+      "watch": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/governance/sm4m-q001/SM4M_Q001_PROSPECTIVE_LITERATURE_WATCHLIST_20261115.md",
+      "roadmap": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/PHASE_PLAN.md",
+      "global": "https://github.com/minhtri22/TokenToModel-Lab/blob/3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7/docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md"
+    }
+  },
+  "governance": {
+    "q001": "Q4_CLOSED_HOLD_NEW_SCIENCE",
+    "q3": "PASS_Q3_SOURCE_AND_EVIDENCE_SCOPE_SCOPED",
+    "active_question": "NONE",
+    "root_cause_identified": false,
+    "baseline": "KEEP_HISTORICAL_REFERENCE_ONLY",
+    "new_science": "HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE",
+    "next_Q_owner_decision": "NOT_DECIDED",
+    "no_new_science_branch": true,
+    "entry_scope": "DESIGN_ONLY",
+    "lineage_update_authorized": false
+  },
+  "priority_method": "LEXICOGRAPHIC_DEPENDENCY_AND_HARD_VETO_FIRST_NO_ARBITRARY_MCDA_WEIGHTS",
+  "rank_semantics": {
+    "P0_PRECONDITION": "prerequisite for meaningful causal conclusions",
+    "P1_COMPETING_MECHANISMS": "mechanism research candidates only after prerequisites",
+    "P2_CONDITIONAL_DIAGNOSTIC": "test only when an identified confound warrants it",
+    "P3_DEFER_ARCHITECTURE": "no present basis to patch model",
+    "P4_LONG_HORIZON_REFERENCE": "separate programme / literature ideas, not comparable directly"
+  },
+  "directions": [
+    {
+      "id": "METRIC_GOLD",
+      "band": "P0_PRECONDITION",
+      "sequence": 1,
+      "label": "Phép đo, ontology, gold nhìn thấy (measurement/construct)",
+      "causal_tags": [
+        "H-METRIC"
+      ],
+      "source_lineage": [
+        "L0015",
+        "L0022",
+        "L0025"
+      ],
+      "local_evidence": "FRESH16 H1 0/16 H2 0/8; D1 R1 0/16 OOD admitted; H-DATA one blind AI rater; D1 EXP32 rater-visible bytes unverified",
+      "scientific_ask": "Gold/TRUE/FALSE/UNKNOWN/INVALID có suy ra được từ đúng dữ liệu người chấm được thấy hay không?",
+      "would_change_decision": "Nếu construct/source-visible gold hoặc independent calibration không xác lập, không thể dùng adherence scores để kết luận cơ chế; nếu xác lập, kết quả negative vẫn được diễn giải theo scope",
+      "admission": [
+        "AD-01R_IF_SOURCE_REQUIRED",
+        "AD-02",
+        "AD-03_BEFORE_AUTHORING_AND_FREEZE",
+        "AD-04_BEFORE_SCORING",
+        "AD-05",
+        "AD-07"
+      ],
+      "risk": "CRITICAL_INTERPRETABILITY_DEPENDENCY",
+      "readiness": "DESIGN_ONLY_NOT_ADMITTED",
+      "proposal": "FIRST_REVIEW_PRIORITY_NO_GOLD_CREATION"
+    },
+    {
+      "id": "CAUSAL_IDENTIFIABILITY",
+      "band": "P0_PRECONDITION",
+      "sequence": 2,
+      "label": "Khả năng phân biệt nguyên nhân (causal identifiability)",
+      "causal_tags": [
+        "H-METRIC",
+        "H-OBJECTIVE",
+        "H-DECODER"
+      ],
+      "source_lineage": [
+        "L0011",
+        "L0015",
+        "L0022"
+      ],
+      "local_evidence": "NLL VAL PASS không là adherence; Q3 yêu cầu AD-03/AD-06 trước authoring/freeze",
+      "scientific_ask": "Teacher-forced correct-minus-wrong fact preference so với free generation trên cùng fact/checkpoint có phân biệt được conditioning và rollout?",
+      "would_change_decision": "Nếu cặp không đổi đúng một fact và không giữ information/token budget thì thiết kế không nhận diện nhân quả; kể cả khi hợp lệ vẫn chưa tách objective với data",
+      "admission": [
+        "AD-03",
+        "AD-05",
+        "AD-06_BEFORE_AUTHORING_AND_FREEZE",
+        "AD-07",
+        "AD-00",
+        "AD-01C_BEFORE_MODEL",
+        "AD-08_FUTURE_NEW_Q_AND_PERMIT"
+      ],
+      "risk": "HIGH_CAUSAL_IDENTIFIABILITY",
+      "readiness": "ABSTRACT_DESIGN_ONLY",
+      "proposal": "SECOND_DEPENDENCY_NOT_PARALLEL_Q"
+    },
+    {
+      "id": "DATA_COVERAGE",
+      "band": "P1_COMPETING_MECHANISMS",
+      "sequence": 3,
+      "label": "Dữ liệu và độ phủ quan hệ (data/coverage)",
+      "causal_tags": [
+        "H-DATA"
+      ],
+      "source_lineage": [
+        "L0011",
+        "L0016",
+        "L0025"
+      ],
+      "local_evidence": "FC01 data arm B=3/64 vs baseline A=4/64 (lexical-family); H-DATA-S1 no demonstrated gain",
+      "scientific_ask": "Các motifs/relations state/fact có nằm trong TRAIN hợp lệ hay không; can thiệp data-only có thay đổi margin với compute tương đương?",
+      "would_change_decision": "Data diversity thiếu/đủ chỉ đo được khi cùng construct, split, budget, blind evaluation; repetition count không chứng minh thiếu capacity/dữ liệu",
+      "admission": [
+        "P0_MEASUREMENT",
+        "P0_IDENTIFIABILITY",
+        "AD-01R/T",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "risk": "HIGH_CONFOUNDING",
+      "readiness": "NOT_ISOLATED",
+      "proposal": "TIED_WITH_OBJECTIVE_NO_TIEBREAK"
+    },
+    {
+      "id": "OBJECTIVE_ALIGNMENT",
+      "band": "P1_COMPETING_MECHANISMS",
+      "sequence": 3,
+      "label": "Mục tiêu học và fact conditioning (learning objective)",
+      "causal_tags": [
+        "H-OBJECTIVE"
+      ],
+      "source_lineage": [
+        "L0011",
+        "L0015",
+        "L0016",
+        "L0026"
+      ],
+      "local_evidence": "T4 NLL PASS; FC01 A=4 B=3 C=38/64 lexical family (entity-location C=1/16); A/C FINAL24 C-A=0",
+      "scientific_ask": "Objective-only có chuyển được quan hệ sang unseen template hay chỉ học lexical shortcut? Có tách được loss khỏi negative supervision/extra compute?",
+      "would_change_decision": "FC01 38/64 không chứng minh OOD; contrastive package không thể gọi objective-only/equal-FLOPs; FINAL24 không chứng minh gain",
+      "admission": [
+        "P0_MEASUREMENT",
+        "P0_IDENTIFIABILITY",
+        "AD-01",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "risk": "HIGH_TREATMENT_CONFOUNDING",
+      "readiness": "MIXED_NO_CAUSAL_ROOT_CAUSE",
+      "proposal": "TIED_WITH_DATA_NO_TIEBREAK"
+    },
+    {
+      "id": "CONTEXT_WINDOW",
+      "band": "P2_CONDITIONAL_DIAGNOSTIC",
+      "sequence": 4,
+      "label": "Độ dài ngữ cảnh/vị trí (context/window)",
+      "causal_tags": [
+        "H-CONTEXT"
+      ],
+      "source_lineage": [
+        "L0011"
+      ],
+      "local_evidence": "Trained T4 actual context 256 + learned absolute position; source windows reset; no matched fact-distance controlled study",
+      "scientific_ask": "Visible fact bị truncate hay mất tác dụng chỉ do khoảng cách/vị trí khi nuisance được giữ nguyên?",
+      "would_change_decision": "Có/không có truncation evidence mới quyết định điều tra positional mechanism; không tự mở RoPE/long-context patch",
+      "admission": [
+        "P0_MEASUREMENT",
+        "AD-01T",
+        "AD-03",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "risk": "MODERATE_UNISOLATED",
+      "readiness": "SOURCE_DESCRIPTION_ONLY",
+      "proposal": "ONLY_IF_POSITION_DEPENDENCE_TESTABLE"
+    },
+    {
+      "id": "DECODING",
+      "band": "P2_CONDITIONAL_DIAGNOSTIC",
+      "sequence": 4,
+      "label": "Chiến lược sinh/rollout (decoding)",
+      "causal_tags": [
+        "H-DECODER"
+      ],
+      "source_lineage": [
+        "L0015",
+        "L0026"
+      ],
+      "local_evidence": "D1 EXP32 greedy and nucleus both 0/32 adherence≥2; nucleus improves repetition, but rater packet byte provenance not verified",
+      "scientific_ask": "Model ưu tiên fact đúng ở teacher force nhưng thất bại khi free-generate ở cùng fact không?",
+      "would_change_decision": "Chỉ xem decoding mechanism nếu task/gold và margin đã hợp lệ; giải pháp decoder-only đã bị làm yếu, chưa bị bác bỏ phổ quát",
+      "admission": [
+        "P0_MEASUREMENT",
+        "P0_IDENTIFIABILITY",
+        "AD-03",
+        "AD-04",
+        "AD-05",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "risk": "MODERATE_MEASUREMENT_CONFOUNDING",
+      "readiness": "DECODER_ONLY_WEAKENED",
+      "proposal": "NO_GREEDY_NUCLEUS_PATCH_NOW"
+    },
+    {
+      "id": "CAPACITY_ARCH",
+      "band": "P3_DEFER_ARCHITECTURE",
+      "sequence": 5,
+      "label": "Capacity / attention / FFN / MoE",
+      "causal_tags": [
+        "H-CAPACITY",
+        "H-IMPL"
+      ],
+      "source_lineage": [
+        "L0011",
+        "L0015"
+      ],
+      "local_evidence": "T4 actual 3,749,376 params, 4 layers/4 heads; Q001/Q3 no proven T4 core architecture bug; no capacity-only experiment",
+      "scientific_ask": "Capacity-only matched control có tạo gain bền vững sau khi đo/gold/data/objective đã hợp lệ không?",
+      "would_change_decision": "Nếu chứng minh capacity limitation mới đánh giá mở rộng layers/heads/MoE; không suy từ kích thước model nhỏ ra tất yếu thất bại",
+      "admission": [
+        "P0_MEASUREMENT",
+        "P1_CONFOUNDS_RESOLVED",
+        "AD-01",
+        "AD-06",
+        "AD-07",
+        "AD-08"
+      ],
+      "risk": "HIGH_COST_LOW_IDENTIFIABILITY_NOW",
+      "readiness": "NOT_ISOLATED_NO_PATCH",
+      "proposal": "DEFER"
+    },
+    {
+      "id": "LONG_COT_MOLESYN",
+      "band": "P4_LONG_HORIZON_REFERENCE",
+      "sequence": 6,
+      "label": "Suy luận có cấu trúc/Long CoT/Mole-Syn",
+      "causal_tags": [
+        "FUTURE_REASONING_ONLY"
+      ],
+      "source_lineage": [
+        "L0028",
+        "L0029"
+      ],
+      "local_evidence": "Owner-approved arXiv 2601.06002v2 paper; behavior transitions deep reasoning/reflection/exploration; results from much larger models, NOT Small-4M",
+      "scientific_ask": "Reasoning behavior topology có ý nghĩa hơn keyword/verbosity khi chuyển giao? Tương hợp scale/context/rights thế nào?",
+      "would_change_decision": "Nguồn ngoài chỉ tạo giả thuyết; cần Q độc lập với construct/gold, control và scaled feasibility; không phải root cause T4 hay một lệnh sửa Transformer",
+      "admission": [
+        "NEW_QUESTION_OWNER_AUTHORIZATION",
+        "INDEPENDENT_CONSTRUCT_AND_GOLD",
+        "RIGHTS_CUSTODY",
+        "PREREG_AND_EVALUATION"
+      ],
+      "risk": "LONG_HORIZON_NO_LOCAL_DIRECT_EVIDENCE",
+      "readiness": "OWNER_ACCEPTED_REFERENCE_ONLY",
+      "proposal": "WATCHLIST_NOT_SCIENCE"
+    }
+  ],
+  "parallel_tracks": [
+    {
+      "id": "T5_NUMERIC",
+      "track": "engineering",
+      "scope": "L0013–L0014: 32/32 strict logits parity fail, 4/4 heldout GELU_ERF pass in distinct fixtures/config; separate from T4 factual learning failure",
+      "disposition": "SEPARATE_ENGINEERING_PARITY_GATE_NO_AUTO_PATCH"
+    },
+    {
+      "id": "T6_P07_P08",
+      "track": "engineering",
+      "scope": "L0027 T6 technical merged; P07 PAUSED; P08 NOT_OPENED; phase plan P00–P12 unchanged",
+      "disposition": "PRESERVE_PREVIOUS_PHASE_HOLDS"
+    },
+    {
+      "id": "VM",
+      "track": "independent_scientific_programme",
+      "scope": "L0023 historical scoped PASS/FAIL and R8 G0/G1/G2 HOLD, separate from T4",
+      "disposition": "NO_CROSS_ARM_INFERENCE"
+    },
+    {
+      "id": "EMBEDDINGGEMMA2",
+      "track": "independent_scientific_programme",
+      "scope": "L0024 OOD256 PASS scoped, not direct fact-conditioning evidence in T4",
+      "disposition": "NO_CROSS_ARM_INFERENCE"
+    },
+    {
+      "id": "HISTORIC_GLOBAL_BRANCH_INVENTORY",
+      "track": "governance",
+      "scope": "L0028–L0029 64/65 branches are 2026-11-14 snapshots, not current count; local lineage IDs may collide",
+      "disposition": "SOURCE_HEAD_PIN_REQUIRED"
+    }
+  ],
+  "history": {
+    "L0010": "P01 Wikipedia E0 byte-BPE scoped QA, separate corpus",
+    "L0011": "T4 VAL NLL model 3.5223388517 vs bigram 3.9972314170, PASS H1 scoped, 1024 steps x4096 labels, ~498287 unique targets",
+    "L0012": "T4 TEST64 model NLL 3.48359107334 vs bigram 3.97360374532, descriptive PASS, TEST consumed sealed",
+    "L0015": "FRESH16 H1 0/16, H2 0/8 scoped FAIL, not refutation of NLL",
+    "L0016": "FC01 lexical family primary A4/64 B3/64 C38/64; entity-location C1/16; not OOD",
+    "L0022": "D1 R1 design closure, OOD admitted 0/16, science HOLD",
+    "L0025-L0026": "H-DATA S1 and FINAL24 negatives scoped, metrics/rater limits",
+    "L0013-L0014": "T5 numerical parity results independent from semantic failure"
+  },
+  "admission_sequence": [
+    "AD-00 provenance",
+    "AD-01R rights before content access",
+    "AD-02 construct before authoring",
+    "AD-03 visible witness before authoring and freeze",
+    "AD-05 shortcut controls before authoring",
+    "AD-06 identifiability before authoring and freeze",
+    "AD-01T tokenizer before token-sensitive freeze",
+    "AD-07 prereg metrics/custody before freeze",
+    "AD-01C exact checkpoint bytes before model run",
+    "AD-04 independent gold/rater calibration before scoring",
+    "AD-08 separate owner Q and experiment authorization; Q001 closure does not grant new science"
+  ],
+  "no_go_conditions": [
+    "INVALID_CONSTRUCT_OR_HIDDEN_ONLY_GOLD",
+    "NO_OWNER_Q_OR_RIGHTS",
+    "NO_IDENTIFIABLE_ONE_VARIABLE_PAIR",
+    "NO_MEASUREMENT_PARITY",
+    "NO_RUNTIME_CUSTODY",
+    "REUSE_SEALED_TEST_FINAL",
+    "BENCHMARK_LEAKAGE"
+  ],
+  "recommended_first_direction": "METRIC_GOLD",
+  "recommended_next_if_valid": "CAUSAL_IDENTIFIABILITY",
+  "same_rank_no_forced_tiebreak": [
+    "DATA_COVERAGE",
+    "OBJECTIVE_ALIGNMENT"
+  ],
+  "owner_prospective_next": "TTM_POST_Q001_PROSPECTIVE_QUESTION_SELECTION_OWNER_REVIEW_SINGLE_GATE",
+  "status": "PROPOSED_DESIGN_ONLY_NOT_OWNER_APPROVED",
+  "execution_flags": {
+    "science": false,
+    "gpu": false,
+    "training": false,
+    "inference": false,
+    "data_authoring": false,
+    "gold_authoring": false,
+    "scorer_construction": false,
+    "model_patch": false,
+    "repo_lineage_edit": false,
+    "question_registration": false,
+    "new_research_branch": false,
+    "merge_to_main": false
+  }
+}
