@@ -1,0 +1,412 @@
+{
+  "schema": "ttm.small4m.f2.preexec.distinct_source_design_review.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_SINGLE_GATE",
+  "reviewer_role": "Independent AI Scientific, Source & Measurement Reviewer (not human gold attestor)",
+  "review_mode": [
+    "READ_ONLY",
+    "SOURCE_ONLY",
+    "DESIGN_ONLY",
+    "NO_SCIENCE_EXECUTION",
+    "NO_REPOSITORY_WRITES"
+  ],
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_commit": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+  "source_base_commit": "c233dff20b9b020aefd732ce62bfa2e7aebd3985",
+  "source_blob_sha1": {
+    "06_protocol": "cbf3641a9991e81349058e06564b49a84c7525e1",
+    "07_admission": "fca4d946b51b50212f5888d513d84d887466c472",
+    "08_handoff": "f07a9bd22bc45ee4518fe0a346c08e4d8ef49f4d",
+    "author_receipt": "237aa4dc3af77d35a191424fcfcd4da7d735717f",
+    "md1_original": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
+    "f2_roadmap": "d87309aea043b845fafcc805ed13b2b4466f5e46",
+    "owner_closure": "3fee9e58914de4c6f41851ca6f7ce89d6bf67124"
+  },
+  "source_readback": {
+    "exact_commit_read": true,
+    "four_candidate_files_blob_match": true,
+    "three_upstream_file_blobs_match": true,
+    "author_json_parsed": true,
+    "author_json_consistency_checks_passed": 13,
+    "author_json_consistency_checks_failed": 0,
+    "source_metadata_type": "git_blob_sha1 (NOT sha256 content attestation)",
+    "author_owner_receipt_blob_attested": false,
+    "limitations": "Did not verify author_owner_receipt blob separately; did not retrieve private source/gold."
+  },
+  "md1_unchanged": true,
+  "owner_closure_pin": {
+    "commit": "c233dff20b9b020aefd732ce62bfa2e7aebd3985",
+    "blob_sha1": "3fee9e58914de4c6f41851ca6f7ce89d6bf67124",
+    "owner_previous_decision": "ACCEPT_GO_DESIGN_SCOPED_CLOSE_F01_F05",
+    "owner_execution_go": false
+  },
+  "diff_validation": {
+    "result": "PASS",
+    "ahead_by": 1,
+    "behind_by": 0,
+    "total_commits": 1,
+    "added": 4,
+    "modified": 0,
+    "deleted": 0,
+    "lineage_md_changed": false,
+    "science_files_changed": false,
+    "repository_modified_by_reviewer": false
+  },
+  "m0_review": {
+    "status": "PASS_DESIGN_SCOPE_ONLY",
+    "cores": 32,
+    "continuations": 64,
+    "strata": 4,
+    "gold_patterns": [
+      "111",
+      "000"
+    ],
+    "raters": 2,
+    "per_rater_axis_sensitivity": "28/32",
+    "per_rater_axis_specificity": "28/32",
+    "agreement_threshold": 0.85,
+    "raw_agreement_55_of_64": "PROPOSED_FORMULA_NOT_IN_ORIGINAL_MD1",
+    "execution": "NOT_AUTHORIZED",
+    "per_axis_validity_proven": false
+  },
+  "m0x_review": {
+    "status": "HOLD_REVISE_DESIGN",
+    "cores": 16,
+    "items": 128,
+    "patterns": [
+      "000",
+      "001",
+      "010",
+      "011",
+      "100",
+      "101",
+      "110",
+      "111"
+    ],
+    "each_pattern_count": 16,
+    "per_axis_pos_neg": "64/64",
+    "matched_edges_per_axis": 64,
+    "candidate_sensitivity": "56/64",
+    "candidate_specificity": "56/64",
+    "candidate_edge": "56/64",
+    "candidate_agreement": "109/128",
+    "owner_threshold_frozen": false,
+    "issues": [
+      "semantic_isolation",
+      "anti_shortcut",
+      "core_level_uncertainty",
+      "variant_exposure"
+    ]
+  },
+  "m0u_review": {
+    "status": "HOLD_REVISE_DESIGN",
+    "cores": 24,
+    "items": 24,
+    "unknown_targets_per_axis": 8,
+    "candidate_unknown_recognition": "7/8",
+    "owner_threshold_frozen": false,
+    "issues": [
+      "epistemic_unknown_rubric",
+      "always_unknown_negative_control",
+      "false_abstention",
+      "non_target_axis_accuracy"
+    ]
+  },
+  "sample_size_review": {
+    "status": "HOLD_RATIONALE",
+    "planned_cores": 72,
+    "planned_items": 216,
+    "item_rater_assignments": 432,
+    "axis_decisions": 1296,
+    "independent_units": "story cores; within-core variants and edges correlated",
+    "m0x_core_n": 16,
+    "m0u_unknown_per_axis_n": 8,
+    "no_iid_claim": true
+  },
+  "threshold_review": {
+    "status": "HOLD_EXTENSION_NOT_FROZEN",
+    "m0_original_unchanged": true,
+    "m0x_thresholds_candidate_only": true,
+    "m0u_threshold_candidate_only": true,
+    "prospective_power_or_operating_characteristics": "NOT_SPECIFIED"
+  },
+  "semantic_isolation_review": {
+    "status": "HOLD_DESIGN_DEFECT",
+    "eight_patterns_math_balanced": true,
+    "truth_conditional_independence_proven": false,
+    "independent_gold_adjudication": "NOT_EXECUTED"
+  },
+  "anti_shortcut_review": {
+    "status": "HOLD_DESIGN_DEFECT",
+    "global_valence_controls_planned": true,
+    "surface_proxy_control_spec_frozen": false,
+    "semantic_gold_coupling_controls_frozen": false,
+    "shortcut_tests_executed": false
+  },
+  "scoring_review": {
+    "status": "HOLD_SPEC_NOT_IMPLEMENTED",
+    "m0_confusion_denominators_sound": true,
+    "m0x_matched_edge_rule_described": true,
+    "m0u_full_confusion_contract_complete": false,
+    "scorer_executed": false
+  },
+  "custody_review": {
+    "status": "PREEXEC_BLOCK",
+    "human_gold_attested": false,
+    "rights_attested": false,
+    "blind_mapping_created": false,
+    "gold_frozen": false,
+    "sha256_private_commitment_verified": false,
+    "scorer_source_frozen": false
+  },
+  "admission_gate_review": [
+    {
+      "gate_id": "G00_SOURCE",
+      "source_design_and_execution_status": "SOURCE_VERIFIED_SCOPED_ONLY; NO_RUNTIME_PASS",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G01_RIGHTS",
+      "source_design_and_execution_status": "NOT_AUTHORED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G02_NONOVERLAP",
+      "source_design_and_execution_status": "NOT_VERIFIED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G03_M0_MD1",
+      "source_design_and_execution_status": "MD1_DESIGN_UNCHANGED; NO_ITEMS",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G04_M0X_GOLD",
+      "source_design_and_execution_status": "CANDIDATE_DESIGN_HOLD; GOLD_NOT_AUTHORED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G05_M0U_GOLD",
+      "source_design_and_execution_status": "CANDIDATE_DESIGN_HOLD; GOLD_NOT_AUTHORED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G06_ANTI_SHORTCUT",
+      "source_design_and_execution_status": "NOT_SPEC_FROZEN; NOT_RUN",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G07_THRESHOLDS",
+      "source_design_and_execution_status": "NOT_FROZEN_EXTENSION",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G08_BLIND",
+      "source_design_and_execution_status": "NOT_ASSIGNED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G09_SCORER",
+      "source_design_and_execution_status": "NOT_IMPLEMENTED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G10_CUSTODY",
+      "source_design_and_execution_status": "NOT_CREATED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G11_RESOURCE",
+      "source_design_and_execution_status": "NOT_AUTHORIZED",
+      "execution_pass": false
+    },
+    {
+      "gate_id": "G12_OWNER",
+      "source_design_and_execution_status": "INDEPENDENT_DESIGN_REVIEW_HOLD; OWNER_EXECUTION_NOT_GRANTED",
+      "execution_pass": false
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SM4M-F2-IR-01",
+      "severity": "HIGH",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "07 §1 G02/G04/G05/G06/G10/G12; §2",
+        "06 §5, §8"
+      ],
+      "observed_evidence": "Các gate cần hiện vật gold/data/proxy/SHA trong khi owner GO phải có trước data creation; aggregate giữ PREEXEC_BLOCK cho đến khi mọi gate có PASS.",
+      "expected_contract": "Thứ tự authorization / data authoring / independent QA / scoring release phải khả thi và fail-closed.",
+      "discrepancy": "Chưa xác định liệu owner GO trước data chỉ cho phép tạo data riêng tư hay cũng cho phép chấm; thiếu phase-specific gate dependency, tạo deadlock/diễn giải bất nhất.",
+      "scientific_impact": "Thiết kế không có đường triển khai không bỏ qua cổng hoặc suy diễn quyền owner.",
+      "required_remediation": "Một conditional integrated owner authorization, state machine gate theo stage, trách nhiệm custodian, checkpoint pre-score và stop rule; không cấp quyền trong review.",
+      "gate_affected": [
+        "G02",
+        "G04",
+        "G05",
+        "G06",
+        "G10",
+        "G12"
+      ],
+      "closure_condition": "Exact revised contract có thứ tự không vòng tròn, owner-authorization scope và release criteria kiểm toán được."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-02",
+      "severity": "HIGH",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §3",
+        "07 §1 G04; §2 item_manifest",
+        "roadmap §3.2"
+      ],
+      "observed_evidence": "2³ patterns và 4 edges/axis/core cân bằng trên giấy; chưa có truth predicates/invariants/core-feasibility conditions.",
+      "expected_contract": "Ba trục có truth conditions tách biệt được và hai trục khác giữ nguyên trên mỗi trong 12 edge/core.",
+      "discrepancy": "Không có hợp đồng tác nghiệp để chứng minh semantic independence; 8 nhãn có thể bất khả thi trong một số strata.",
+      "scientific_impact": "Matched edges có thể đổi nhiều semantics, phá identifiability của rater error.",
+      "required_remediation": "Rubric fact/predicate, 12-edge invariance checks, invalid-core logic, pre-score replacement/stopping policy và independent gold adjudication.",
+      "gate_affected": [
+        "G04",
+        "G05",
+        "G06",
+        "G07"
+      ],
+      "closure_condition": "Source-only independent review xác nhận truth-condition contract và per-stratum feasibility controls."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-03",
+      "severity": "HIGH",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §3 Anti-shortcut gates",
+        "07 §1 G06; §4"
+      ],
+      "observed_evidence": "Chỉ yêu cầu một hoặc nhiều nuisance-only proxies fail nhưng chưa định nghĩa đầy đủ proxy family, features, split, threshold.",
+      "expected_contract": "Negative controls đủ mạnh, frozen before data authoring, không cherry-pick nuisance baselines.",
+      "discrepancy": "Một proxy yếu fail không chứng minh mọi style/template/ordering shortcut bị loại.",
+      "scientific_impact": "Rater qua gate bằng cue phi ngữ nghĩa, làm kết luận per-axis thiếu giá trị.",
+      "required_remediation": "Prespec nuisance-only proxy catalogue, group-disjoint validation by core/template, leakage/balance checks, acceptance gates cho tất cả proxies.",
+      "gate_affected": [
+        "G04",
+        "G06",
+        "G07",
+        "G09"
+      ],
+      "closure_condition": "Phiên bản negative-control protocol có deterministic decision logic, no post-score tuning."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-04",
+      "severity": "HIGH",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §4, §6",
+        "07 G05/G07/G09"
+      ],
+      "observed_evidence": "UNKNOWN có 8 target/core/axis và 7/8 recognition; missing/invalid vs epistemic unknown, false abstention và non-target gates chưa đủ định nghĩa.",
+      "expected_contract": "Target UNKNOWN phải có source-evidence rationale; hai trục kia decidable; 3-class confusion/gates bảo vệ luôn abstain.",
+      "discrepancy": "Always UNKNOWN có thể qua 8/8 target dù sai toàn bộ hai trục non-target.",
+      "scientific_impact": "M0U qualification không kiểm chứng được khả năng phân biệt uncertainty và false certainty.",
+      "required_remediation": "Normative UNKNOWN evidence rubric, reject codes, class confusion/coverage, non-target binary accuracy, false-UNKNOWN and false-certainty thresholds pre-frozen.",
+      "gate_affected": [
+        "G05",
+        "G07",
+        "G09"
+      ],
+      "closure_condition": "Rubric và scoring contract fail always-UNKNOWN strategy, owner prospective freeze."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-05",
+      "severity": "MEDIUM",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §3–§6",
+        "07 G07/G09"
+      ],
+      "observed_evidence": "n=16 core M0X và n=8 target/axis M0U; thresholds 56/64, 109/128, 7/8 chưa có operating-characteristic rationale.",
+      "expected_contract": "Prespec statistical purpose, core-level uncertainty/stratum reporting and threshold trade-offs.",
+      "discrepancy": "Item-level rates dễ che core/stratum failure; item IID CI không hợp lệ.",
+      "scientific_impact": "Overclaim of reliability/power and model-output applicability.",
+      "required_remediation": "Rationale for thresholds, core/stratum-sensitive descriptive uncertainty, declared exploratory vs confirmatory status, endpoint hierarchy.",
+      "gate_affected": [
+        "G07",
+        "G09"
+      ],
+      "closure_condition": "Reviewer thấy rationale và claim scope đúng, owner freeze chỉ ở gate được phép."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-06",
+      "severity": "MEDIUM",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §6",
+        "07 G08"
+      ],
+      "observed_evidence": "Mỗi rater xem cả 8 variants/core; random blind IDs nhưng không có exposure adjacency/session-memory policy.",
+      "expected_contract": "Mỗi item chấm độc lập, kiểm soát memory/side-by-side clues và báo residual exposure.",
+      "discrepancy": "Rater có thể so sánh variants để đoán pattern thay vì hiểu item standalone.",
+      "scientific_impact": "Rater agreement bị đánh giá quá mức, pair-level dependence khó định lượng.",
+      "required_remediation": "Random order interleaving, item-isolated contexts, exposure compromise rules, rater provenance.",
+      "gate_affected": [
+        "G08",
+        "G09"
+      ],
+      "closure_condition": "Blind contract có prevention/audit of variant leakage và post-exposure HOLD."
+    },
+    {
+      "finding_id": "SM4M-F2-IR-07",
+      "severity": "MEDIUM",
+      "classification": "DESIGN_DEFECT",
+      "exact_source": [
+        "06 §6",
+        "07 §2–§4; G09"
+      ],
+      "observed_evidence": "Checker chưa implement; schema chưa chặn rõ unknown-in-binary, invalid paired graph, core/stratum count mismatches.",
+      "expected_contract": "Deterministic scoring spec và fail-closed invalid-input handling, exact denominators.",
+      "discrepancy": "Implementations có thể khác kết quả hoặc impute/drop invalid silently.",
+      "scientific_impact": "Threat to reproducibility of per-axis score, edge validity, custody.",
+      "required_remediation": "Exhaustive schema and negative-fixture tests, reject reason codes, freeze source version prior to execution; no scorer run now.",
+      "gate_affected": [
+        "G04",
+        "G05",
+        "G09",
+        "G10"
+      ],
+      "closure_condition": "Source-only checker-spec review đủ để xác định outputs/reject decisions uniquely."
+    }
+  ],
+  "finding_counts": {
+    "CRITICAL": 0,
+    "HIGH": 4,
+    "MEDIUM": 3,
+    "LOW": 0
+  },
+  "single_integrated_remediation_operation": "TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE",
+  "final_decision": "HOLD_REVISE_DESIGN",
+  "limitations": [
+    "Source-only design audit; no independent truth/gold created or verified",
+    "No calibration/rater/scorer/model executed",
+    "No source-rights or human attestation",
+    "No proof of generalization to T4 natural continuations",
+    "Git blob SHA-1 checked against supplied pins; no new SHA-256 for remote/private artifacts"
+  ],
+  "root_cause_identified": false,
+  "preexec_block": true,
+  "m0_execution": "NOT_AUTHORIZED",
+  "m0x_data": "NOT_CREATED",
+  "m0u_data": "NOT_CREATED",
+  "gold": "NOT_FROZEN",
+  "scoring": "NOT_EXECUTED",
+  "science": "HOLD",
+  "science_executed": false,
+  "repository_modified": false,
+  "owner_execution_go": false,
+  "gpu": false,
+  "training": false,
+  "model_inference": false,
+  "f3": "NOT_OPENED",
+  "f4": "NOT_OPENED",
+  "merge_authorized": false,
+  "report_file": "TTM_SMALL4M_F2_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_20261115.md",
+  "report_sha256_verified_locally": "c4a43c9236debc967a9a4c088c158074f5fbf0201648677c53e6ea49cffd5376",
+  "repository_write_commit_push_merge": "NOT_EXECUTED",
+  "delivery": "DIRECT_TO_OWNER; NOT_COMMITTED_OR_PUSHED"
+}

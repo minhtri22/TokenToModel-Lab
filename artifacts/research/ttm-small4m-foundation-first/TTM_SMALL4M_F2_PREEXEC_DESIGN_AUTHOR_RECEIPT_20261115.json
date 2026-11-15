@@ -1,10 +1,10 @@
 {
   "schema": "ttm.small4m.f2.prospective_measurement_preexec.author_design.v1",
   "date": "2026-11-15",
-  "operation": "TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_DESIGN_SINGLE_GATE",
+  "operation": "TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE",
   "repo": "minhtri22/TokenToModel-Lab",
   "branch": "research/ttm-small4m-foundation-first-single-gate-20261115",
-  "parent_head": "c233dff20b9b020aefd732ce62bfa2e7aebd3985",
+  "parent_head": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
   "source_pins": {
     "md1_ref": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
     "md1_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
@@ -15,18 +15,31 @@
   "design_files": {
     "protocol": {
       "path": "docs/research/ttm-small4m-foundation-first/06_SM4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_PROTOCOL_20261115.md",
-      "git_blob_sha1": "cbf3641a9991e81349058e06564b49a84c7525e1"
+      "git_blob_sha1": "a5cc0c51363de9772c27418ea667475c25c791b0"
     },
     "admission": {
       "path": "docs/research/ttm-small4m-foundation-first/07_SM4M_F2_PREEXEC_ADMISSION_SCORING_AND_CUSTODY_MATRIX_20261115.md",
-      "git_blob_sha1": "fca4d946b51b50212f5888d513d84d887466c472"
+      "git_blob_sha1": "d0ca205935c01a815aaebe86c90f4e3daf1a1291"
     },
     "handoff": {
-      "path": "docs/research/ttm-small4m-foundation-first/08_SM4M_F2_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REVIEW_HANDOFF_20261115.md",
-      "git_blob_sha1": "f07a9bd22bc45ee4518fe0a346c08e4d8ef49f4d"
+      "path": "docs/research/ttm-small4m-foundation-first/10_SM4M_F2_IR01_IR07_DISTINCT_REVIEW_HANDOFF_20261115.md",
+      "git_blob_sha1": "b97494e46b8d259380129ebc4ff5003cfc3ac887"
     },
     "receipt": {
       "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_PREEXEC_DESIGN_AUTHOR_RECEIPT_20261115.json"
+    },
+    "prior_handoff": {
+      "path": "docs/research/ttm-small4m-foundation-first/08_SM4M_F2_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REVIEW_HANDOFF_20261115.md",
+      "git_blob_sha1": "f07a9bd22bc45ee4518fe0a346c08e4d8ef49f4d",
+      "version": "SUPERSEDED_FOR_IR01_IR07"
+    },
+    "author_adversarial_qa_report": {
+      "path": "docs/research/ttm-small4m-foundation-first/09_SM4M_F2_IR01_IR07_AUTHOR_ADVERSARIAL_SOURCE_QA_20261115.md",
+      "git_blob_sha1": "4fa489a0e941f142cdec454b08f64bf0be1d6a8e"
+    },
+    "author_adversarial_qa_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_IR01_IR07_AUTHOR_ADVERSARIAL_SOURCE_QA_RECEIPT_20261115.json",
+      "git_blob_sha1": "01e589c62fded5e733bb50a24bbe73d83fe36ee0"
     }
   },
   "programme_scope": "FOUNDATION_FIRST_F2_MEASUREMENT_ONLY",
@@ -78,7 +91,19 @@
     "candidate_thresholds_owner_frozen": false,
     "axis_semantic_isolation_verified": false,
     "gold_authored": false,
-    "source_rights_attested": false
+    "source_rights_attested": false,
+    "candidate_stratum_edge_floor": "12/16",
+    "candidate_nuisance_balanced_accuracy_ceiling": 0.625,
+    "mandatory_negative_controls": [
+      "NC1_GLOBAL_VALENCE",
+      "NC2_LENGTH_FORMAT",
+      "NC3_STYLE_LEXICAL_CUES",
+      "NC4_METADATA_ORDER",
+      "NC5_STRONG_NUISANCE_ENSEMBLE",
+      "NC6_GOLD_COUPLING"
+    ],
+    "semantic_truth_witnesses_verified": false,
+    "all_12_edges_proven_on_real_text": false
   },
   "m0u_unknown_candidate": {
     "status": "PROSPECTIVE_DESIGN_CANDIDATE_NOT_FROZEN",
@@ -89,7 +114,16 @@
     "rater_count": 2,
     "candidate_target_abstention": "7/8",
     "non_target_accuracy_gate": "TO_BE_FROZEN",
-    "gold_authored": false
+    "gold_authored": false,
+    "per_axis_gold_class_distribution": {
+      "zero": 8,
+      "one": 8,
+      "unknown": 8
+    },
+    "candidate_non_target_binary_correct": "14/16",
+    "candidate_false_unknown_max": "1/16",
+    "candidate_per_class_binary_correct": "7/8",
+    "unknown_rubric_source_validation": "DESIGN_ONLY_NOT_ADJUDICATED"
   },
   "proposed_total": {
     "cores": 72,
@@ -110,59 +144,85 @@
   "admission_gates": [
     {
       "id": "G00_SOURCE",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G01_RIGHTS",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G02_NONOVERLAP",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G03_M0_MD1",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G04_M0X_GOLD",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G05_M0U_GOLD",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G06_ANTI_SHORTCUT",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G07_THRESHOLDS",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G08_BLIND",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G09_SCORER",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G10_CUSTODY",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G11_RESOURCE",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     },
     {
       "id": "G12_OWNER",
-      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+      "execution_status": "PREEXEC_BLOCK_NO_EXECUTION_EVIDENCE",
+      "pre_authoring_contract_status": "AUTHOR_DESIGN_CANDIDATE_NOT_OWNER_FROZEN",
+      "post_authoring_actual_evidence": "NOT_CREATED"
     }
   ],
-  "source_only_author_status": "AUTHOR_DESIGN_CANDIDATE_FOR_INDEPENDENT_SOURCE_QA",
-  "independent_review_status": "NOT_EXECUTED",
+  "source_only_author_status": "PASS_AUTHOR_SYMBOLIC_QA_SCOPED__IR01_IR07_REMEDIATION_CANDIDATE",
+  "independent_review_status": "PENDING_DISTINCT_REVIEW_ON_NEW_REMEDIATION_COMMIT",
   "owner_execution_go": false,
   "model_inference_executed": false,
   "training_executed": false,
@@ -176,5 +236,43 @@
   "f4_status": "NOT_OPENED",
   "lineage_modified": false,
   "merge_authorized": false,
-  "next_single_step": "TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_SINGLE_GATE"
+  "next_single_step": "TTM_SMALL4M_F2_IR01_IR07_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REREVIEW_SINGLE_GATE",
+  "previous_independent_review": {
+    "source_candidate": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+    "verdict": "HOLD_REVISE_DESIGN",
+    "findings_total": 7,
+    "high": 4,
+    "medium": 3,
+    "original_report_git_blob_sha1": "e43774e67d9f0c20961bfb0c350971957153ad14",
+    "original_receipt_git_blob_sha1": "eca67249b8bdd54e42d83c3e17395afa2605ee9f",
+    "original_report_sha256": "c4a43c9236debc967a9a4c088c158074f5fbf0201648677c53e6ea49cffd5376",
+    "original_receipt_sha256": "70685237d07b20bb7b40b3028195e835b88b544e60151d7f0eb150f60a7357d2"
+  },
+  "author_adversarial_qa": {
+    "status": "PASS_AUTHOR_SYMBOLIC_SOURCE_QA_ONLY__NO_INDEPENDENT_DESIGN_GO",
+    "tests_total": 44,
+    "tests_passed": 44,
+    "tests_failed": 0,
+    "negative_fixtures_specified": 28,
+    "first_author_qa_iteration": 28,
+    "all_science_inputs_created": false,
+    "scope": "AUTHOR_ONLY_SOURCE_CONTRACT_AND_SYMBOLIC_GUARD_SIMULATION"
+  },
+  "authorization_design": {
+    "stage": "S0_DESIGN_DRAFT",
+    "owner_conditional_data_authoring_go": false,
+    "pre_score_release": false,
+    "owner_conditional_scoring_clause": false,
+    "post_authoring_evidence_created": false,
+    "state_machine": [
+      "S0_DESIGN_DRAFT",
+      "S1_DESIGN_FROZEN_FOR_OWNER",
+      "S2_PRIVATE_AUTHORING_ALLOWED",
+      "S3_PRE_SCORE_EVIDENCE",
+      "S4_PRE_SCORE_RELEASED",
+      "S5_TERMINAL_CLOSURE"
+    ],
+    "rule": "G12A owner conditional pre-data consent can occur without E proofs; after S2 independently verify all E gates before G12B release; no automatic release from design QA"
+  },
+  "science_executed": false
 }

@@ -1,101 +1,108 @@
-# TTM-Small-4M — SM4M-F2: Prospective Measurement Pre-execution Integrated Protocol
+# TTM-Small-4M — SM4M-F2 Prospective Measurement Protocol · Integrated IR01–IR07 remediation
 
-**Ngày:** 2026-11-15  
-**Operation:** TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_DESIGN_SINGLE_GATE  
-**Phạm vi:** FOUNDATION FIRST / F2 / SOURCE+DESIGN ONLY; không sáng tác item, không rater, không forward, không GPU, không huấn luyện, không quyền merge.  
-**Nguồn đóng thiết kế:** owner closure `c233dff20b9b020aefd732ce62bfa2e7aebd3985`; nguồn thiết kế MD1 `33021a421f05bb3bfa0999ad12bc3bd144366da9` (Git blob `384d077600ed864a917fdd5e74b5a5bca0ed8766`); F2 roadmap blob `d87309aea043b845fafcc805ed13b2b4466f5e46`.  
-**Current state:** `AUTHOR_DESIGN_CANDIDATE · DISTINCT_QA_PENDING · F2_PREEXEC_BLOCK=TRUE · SCIENCE_HOLD`. Đây **không phải** một tiền đăng ký được owner ký cho execution.
+**Date:** 2026-11-15  
+**Operation:** `TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE`  
+**Mode:** `SOURCE_ONLY · DESIGN_ONLY · NO_DATA · NO_RATER · NO_MODEL · NO_GPU · NO_SCIENCE`.  
+**Prior independent verdict:** `HOLD_REVISE_DESIGN` for `07adab6262e50b5e17c6ea816bb133866e0a11d2` (4 HIGH, 3 MEDIUM; retained).  
+**Source pins unchanged:** MD1 `33021a421f05bb3bfa0999ad12bc3bd144366da9` / Git blob `384d077600ed864a917fdd5e74b5a5bca0ed8766`; Foundation F2 roadmap blob `d87309aea043b845fafcc805ed13b2b4466f5e46`; F01–F05 owner design closure `c233dff20b9b020aefd732ce62bfa2e7aebd3985`.  
+**Status:** `AUTHOR_REMEDIATION_CANDIDATE · DISTINCT_REVIEW_PENDING · PREEXEC_BLOCK=TRUE`; **candidate thresholds are NOT OWNER-FROZEN**.
 
-## 1. Vấn đề khoa học, estimand và ranh giới kết luận
+## 1. Question and immutable original M0
 
-H-MEAS: zero scores ở H-DATA-S1 có thể do model không giữ dữ kiện, evaluator không nhận ra câu đúng, hoặc cả hai. A/C FINAL24 có điểm tuyệt đối A=C=0.6667/3 (delta=0), **khác** H-DATA H0=H1=0/3; không pooling các protocol. T4 NLL tốt hơn bigram không hàm ý giữ actor/object/goal.
+H-MEAS remains untested. The purpose is to design prospective calibration of **actor, object and goal** grading, NOT to reassess Small-4M or assert model failure. A/C FINAL24 has A=C=0.6667/3 with zero delta; H-DATA FINAL24 has H0=H1=0/3 on 48 continuations (144 primary axis scores), a different protocol. Do not pool or rerun any previous scores/TEST.
 
-**Đối tượng kiểm định duy nhất ở F2 này:** chất lượng phép đo actor, object, goal theo rubric được định nghĩa trước, không phải chất lượng checkpoint. Ngay cả rater qua mọi đối chứng mới, vẫn **không chứng minh** rater đáng tin trên phân phối đầu ra T4 hoặc nguyên nhân model FAIL. Không tạo mô hình, prompt/model output, gold, source rights attestation hay điểm mới trong gate thiết kế.
+`M0-ORIGINAL` as MD1: 32 new cores (4 strata×8), 64 continuations (32 gold `111` +32 `000`), 2 independent blind raters on the **same** 64 IDs. Each rater/axis: `TP+FN=32`, `TN+FP=32`; sensitivity≥`28/32`, specificity≥`28/32`, inter-rater agreement≥`0.85`. Proposed raw exact agreement `matches≥55/64` must be owner-frozen prospectively, not attributed to the MD1 text. M0 PASS can only certify **clear-polarity grading**, not independent per-axis validity.
 
-Ba tầng nằm **trong một chương trình đo lường F2**, không mở ba research phases:
-- `M0-ORIGINAL` = calibration cực tính nhị phân rõ ràng theo MD1, giữ nguyên `32 cores×2 =64` items, `111/000`, thresholds và 4 strata×8.
-- `M0X-AXIS` = **proposed, not frozen** factorial per-axis + same-core single-axis contrasts, nhằm phân biệt global-valence shortcut. Thiết kế bổ sung không dùng item M0 làm dữ liệu đánh giá mô hình.
-- `M0U-UNKNOWN` = **proposed, not frozen** thử thách thiếu bằng chứng/ambiguous và xử lý abstention, không đưa mẫu số UNKNOWN vào M0 hoặc M0X.
+`M0X-AXIS` and `M0U-UNKNOWN` below are prospective extensions *within* F2, not edits to MD1 or new science phases. No prompts, gold, judgments, item SHA, rights attestation or scorer exist from this design operation.
 
-Ký hiệu `1/0` trong M0X là gold đúng/sai **riêng từng trục**. `UNKNOWN` là không xác định được từ nguồn, **không phải** nhãn sai 0. Mọi biến thể cùng core phải được source/gold kiểm tra độc lập để bảo đảm chỉ trục dự định thay đổi về ngữ nghĩa.
+## 2. IR-01 HIGH: non-circular integrated authorization and release state machine
 
-## 2. M0-ORIGINAL — tái sử dụng MD1 bất biến, không chỉnh threshold
+Only one **future** owner authorization is contemplated, with explicit conditional scope; the current owner F01–F05 design GO is NOT that permit. `GO_DESIGN_SCOPED` from an AI reviewer is never `GO_EXECUTION`. The future owner may give `GO_SCOPED_CONDITIONAL` (or HOLD/STOP), specifying private item authoring limits plus exact **conditional** pre-score release predicates in one decision. No owner decision currently grants this.
 
-- 32 lõi (4 strata ×8); một positive đúng cả actor+object+goal và một negative sai cả ba mỗi core; 64 item IDs, 2 independent blind raters cùng item set.
-- Mỗi rater và từng axis: `TP+FN=32`, `TN+FP=32`, `sensitivity=TP/32 ≥28/32` và `specificity=TN/32 ≥28/32`; agreement ≥0.85 từng trục giữa hai rater. F2 bản trước **đề xuất** định nghĩa raw exact agreement `matches/64` (≥55/64), chưa tuyên bố là công thức đã khóa trong MD1.
-- Nếu input, gold, rubric hoặc item IDs không hợp lệ: `HOLD_INPUT_INTEGRITY` trước tính điểm; không loại bản ghi để đạt ngưỡng. M0 FAIL → `HOLD_MEASUREMENT`; không đánh FAIL model. M0 PASS → chỉ `CALIBRATION_CLEAR_POLARITY_SCOPED_PASS`, tuyệt đối không gọi `PER_AXIS_VALIDITY_PASS`.
-- MD1 cũng đã thiết kế M1–M3, 16 cores/64 prompt variants và H0/H1, nhưng **ngoài phạm vi dispatch của gói này**. Không dùng FINAL24, TinyStories TRAIN/VAL, hay một checkpoint để tạo M0.
+| Stage | Entry guard / verifier | Permitted after guard | Forbidden |
+|---|---|---|---|
+| `S0_DESIGN_DRAFT` (**current**) | Current exact source and seven IR findings | Edit documentation; static/adversarial author QA | Any data, rater, model |
+| `S1_DESIGN_FROZEN_FOR_OWNER` | Distinct design QA; exact source, sample plan, rubric, thresholds, proxy catalogue, checker-interface, stop rules frozen by cryptographic pin for owner review | Submit one integrated owner GO/HOLD/STOP | No private items yet |
+| `S2_PRIVATE_AUTHORING_ALLOWED` (NOT AUTHORIZED) | `G12A` owner conditional GO; `G01P` rights policy; `G03` MD1 untouched; `G06P` prespecified negative controls; `G07P` frozen thresholds; `G08P` blinding plan; `G09P` checker contract; named custodian | Author planned private items and provisional gold; execute ONLY preregistered, owner-scoped nuisance-only proxy QA and frozen checker implementation/synthetic negative QA to obtain G06E/G09E | No blinded rater scores, Small-4M model inference, GPU, training or unplanned proxies |
+| `S3_PRE_SCORE_EVIDENCE` | Per-item rights `G01E`; nonoverlap `G02E`; independent gold/12-edge proof `G04E/G05E`; nuisance QA `G06E`; sealed packets `G08E`; independent frozen checker QA `G09E`; immutable manifests `G10E` | Custodian seals signed admission readback; separate independent reviewer checks | No self-release, no adaptive replacement |
+| `S4_PRE_SCORE_RELEASED` (NOT AUTHORIZED) | Independent QA verifies every S3 receipt; immutable release event references **previously granted** owner conditional scope `G12B`. If initial owner GO lacked conditional scoring, a substantive owner decision is required, not an implied permit | Only then blinded M0→M0X→M0U scoring with prereg stop rules | No extra TEST/FINAL/model/scaling |
+| `S5_TERMINAL_CLOSURE` | Score freeze, checker readback and owner final science adjudication | Archive PASS/FAIL/HOLD with provenance | No retrospective edits/re-runs |
 
-## 3. M0X-AXIS — full factorial *candidate* cho phép phát hiện shortcut (F01)
+**Dependency proof:** `G12A` does **not** require G02E/G04E/G05E/G06E/G10E, which logically require privately authored bytes; these come *after* S2, including only expressly authorized nuisance proxy checks and checker negative QA (not AI rater scoring or Small-4M model use). `G12B` requires them all but authorizes **scoring**, not authoring. The aggregate `PREEXEC_BLOCK` applies to scoring until S4; design QA alone never opens it. The checker cannot release itself and the author cannot verify their own gold. If any S2/S3 invariant fails → `HOLD_PRE_SCORE` with immutable negative receipt, no scoring. If one created core is invalid, **entire packet HOLD**; there is no reserve pool or replacement in this design. Any future reserve and finite replacement plan must be independently frozen before first item; never adapt after scores. One staged conditional decision avoids a series of micro-permits without skipping genuine future evidence.
 
-**Đề xuất số lượng, cần reviewer/owner phê duyệt trước khi dữ liệu ra đời:**
-- `16 new independent cores` (4 strata ×4 cores), tách hoàn toàn khỏi 32 M0 cores và future M1/FINAL cores.
-- Mỗi core có 8 continuations với **đúng một gold pattern mỗi loại**: `000,001,010,011,100,101,110,111`. Tổng `16×8=128` item IDs; mỗi pattern xuất hiện 16 lần. Mỗi axis có `64 gold-positive` và `64 gold-negative`. Đây là thiết kế 2³ cân bằng, **không phải 8 ví dụ đã được sáng tác**.
-- Proposed strata (chưa đóng băng trong M0): `object_custody`, `social_relation`, `causal_obstacle`, `temporal_rule` như MD1 M1. Các stratum phải được independent construct QA kiểm trước bất cứ item creation.
-- Trong từng core, 3 axis đối tượng là các **mệnh đề có nguồn gốc rõ**: actor identity/role đúng, object identity/custody đúng, goal/progress đúng. Nếu mệnh đề trục này suy ra trục kia hoặc thay actor đồng thời thay ownership/goal, **core không đủ điều kiện**: `HOLD_SEMANTIC_COUPLING`, không đoán nhãn từ bit-mask.
-- **Single-axis edge pairs:** với mỗi trục, mỗi core có 4 cặp đối chứng 0↔1 trong khi hai bit còn lại cố định. Kế hoạch có `16×4=64 matched edges per axis`. Reviewer phải kiểm: item chỉ khác theo gold intended axis (không làm thay đổi sự thật hai trục kia), đồng thời lexical style và narrative fluency không đánh dấu nhãn. Chứng minh tổ hợp nhãn trên giấy **không chứng minh** semantic orthogonality.
-- Thẩm định independent gold *trước khi rater chấm*: checker độc lập so từng 8-pattern item trong mỗi core; nếu semantic coupling hoặc item không thể phân loại, `HOLD_GOLD_QA` toàn packet, không thay bằng item mới sau khi nhìn điểm rater.
-- Gold labels phải được khóa trước blind mapping/score. Không cho LLM tạo gold tự khẳng định đúng; nguồn nhân sự phải được ghi nhận chính xác. AI-only gold chỉ là `EXPLORATORY_AI_GOLD`, không được gọi là human-attested.
+## 3. IR-02 HIGH: per-axis semantic construct and exact 12-edge obligations
 
-### M0X candidate scoring gates (mới, **CHƯA KHÓA**, không thay ngưỡng MD1)
+**Fact ledger schema per core:** fixed `E_core` identifies three bounded propositions and independent **witnesses**, not just a gold bit vector:
+- `P_A`: actor identity/role for a *fixed* event.
+- `P_O`: object identity/custody for a *separately fixed* fact.
+- `P_G`: goal or progress evaluated using a *separate observable outcome/rule witness*; cannot merely restate actor or object.
+- Each reference frame, event/time, entity and source witness is specified **before writing continuations**. If actor↔object or object↔goal semantic entailment cannot be separated, that core/stratum is **not feasible** for an orthogonal 2³ cube. Label `0` means an explicit contradictory claim against stable external facts, NOT omission; `UNKNOWN` means insufficient evidence, not false. Do not infer truth from inconsistent `E_core ∧ C` (classical explosion).
 
-Mỗi rater chấm 128 item IDs ×3 axes (384 quyết định nhị phân). Hai raters có 768 quyết định per-axis tổng cộng. Đề xuất acceptance sẽ cần được reviewer kiểm sức mạnh và trade-offs:
-- Từng axis và từng rater: `TP+FN=64`, `TN+FP=64`; candidate sensitivity ≥`56/64` và specificity ≥`56/64` (mục tiêu 87.5%, chọn **đề xuất** để tương ứng tỉ lệ M0, **không phải ngưỡng MD1**).
-- Từng axis mỗi rater: matched-edge *pair correctness* ≥`56/64` edge pairs (cả hai endpoint đúng về target-axis; hai invariant axes trên cả hai endpoint không bị chấm sai). Đây là gate chống global-valence shortcut riêng; candidate threshold chưa được independent QA.
-- Inter-rater exact agreement từng axis trên cùng 128 opaque item IDs ≥`109/128` (raw rate ≥0.85), **mới đề xuất**, không retrofit vào MD1.
-- Balanced pattern/stratum, per-pattern confusion and cluster-by-core uncertainty bắt buộc báo. 128 items có **16 core clusters**, không là 128 observations độc lập. Không gọi confidence interval item-iid là evidence confirmatory.
-- **Anti-shortcut gates:** một hoặc nhiều proxy chỉ nhìn item style/length/lexical cues/order/category/format (không dùng semantic fact) phải không đáp ứng cùng bộ sensitivity/specificity/paired-edge threshold, dưới negative-control protocol khóa trước. Nếu proxy đạt → `HOLD_SHORTCUT` dù AI rater cao điểm. Phải khóa loại proxy, extractor, negative-control threshold và leakage exclusions *trước* item authoring; hiện chưa có các giá trị nào được thực nghiệm xác nhận.
-- Gate hỗn hợp: đạt M0X không suy rằng model output score 0 là đúng, chỉ rằng rater phân biệt được controlled axis errors **trên bộ đối chứng đã nhận diện hợp lệ**.
+**Gold determination:** Two independent blinded gold adjudicators receive `E_core` and candidate continuation *without its intended bit vector*. Each provides actor/object/goal truth value plus exact evidence witness; discrepancies or coupling require `HOLD_SEMANTIC_COUPLING`, not a compromise after seeing scores. Human attestation must really be human; AI-only adjudication stays `EXPLORATORY_AI_GOLD`.
 
-## 4. M0U-UNKNOWN — ứng viên stress test cho trường hợp không đủ bằng chứng
+**All 8 patterns for each core:** `000,001,010,011,100,101,110,111`, all with unambiguous evidence. For every Hamming-distance-1 edge, adjudicator checks:
+1. The changed axis flips gold truth; the **other two** remain equal.
+2. Both unchanged axes retain **the same underlying reference and evidence witness**, not merely identical 0/1.
+3. No newly created actor/object/goal dependency, time change, referent ambiguity or lexical leak has altered meaning.
+4. All eight variants share the same stable `E_core` and are valid standalone texts.
+Exactly **12 undirected edges/core = four actor, four object, four goal**. All 12 require source-grounded individual decisions. Independent reviewers must demonstrate `2³` feasibility for each planned stratum (`object_custody`, `social_relation`, `causal_obstacle`, `temporal_rule`) before owner authoring GO; **not** by assuming equal bit counts imply semantic independence. If a stratum cannot instantiate all eight valid conditions, `HOLD_REVISE_CONSTRUCT`, no stealth stratum substitution.
 
-**Đề xuất, chưa đóng băng:**
-- `24 NEW independent cores ×1 continuation` (4 strata ×6 =24), không chồng core với M0/M0X hay future M1. Trong mỗi stratum, 2 cases cho mỗi target axis actor/object/goal → trên cả tập có `8 targeted-UNKNOWN cases per axis`.
-- Với mỗi item, đúng một axis ở trạng thái `UNKNOWN/UNSCORABLE` theo gold độc lập, hai axes còn lại phải có kết luận 0/1 và không làm rò target. Reviewer không được ép inference từ ngữ cảnh thiếu bằng chứng.
-- Hai raters trên cùng 24 items trả một trong `{0,1,UNKNOWN}` cho từng axis; 24×3×2 =`144` quyết định ternary dự kiến. Candidate targeted abstention ≥`7/8 per axis/rater`; false-certainty, coverage và error trên hai axis còn lại phải có threshold độc lập đóng băng trước chạy. 7/8 là **đề xuất**, không phải MD1 hay kết quả đo.
-- Bất kỳ gold item nào bị independent reviewer nhận định là có thể suy chắc target axis, hoặc không thể kết luận hai axes còn lại, gây `HOLD_UNKNOWN_GOLD`. Thiếu/mơ hồ không được quietly map thành 0.
-- Không pooling challenge UNKNOWN vào denominator 64 M0 hoặc 128 M0X, không dùng unknown-as-wrong để làm đẹp specificity.
+**M0X count proposal:** 16 independent cores (4 strata×4), eight items/core =128, 16 per pattern, 64 positive and 64 negative per axis, 64 matched edges per axis (4/core). Independent inference unit=**16 cores**, not 128 item rows. Invalid gold/edge detected pre-score ⇒ `HOLD_GOLD_QA` whole cohort; post-score ⇒ terminal `HOLD_INVALID_GOLD_AFTER_SCORE` without denominator edits.
 
-## 5. Tổng ngân sách thiết kế, thứ tự đánh giá và stop rules
+## 4. IR-03 HIGH: all prespecified anti-shortcut controls mandatory
 
-| Set | New cores | Continuations | Raters | Output scope |
-|---|---:|---:|---:|---|
-| M0-ORIGINAL (MD1) | 32 | 64 | 2 | polarity `111/000`; frozen MD1 thresholds |
-| M0X-AXIS (proposed) | 16 | 128 | 2 | eight patterns, 64 paired edges/axis |
-| M0U-UNKNOWN (proposed) | 24 | 24 | 2 | one unknown target axis/item |
-| **Tổng đề xuất, chưa tạo dữ liệu** | **72** | **216** | 2 trên từng set | 432 item-rater assignments; 1296 axis-level decisions planned |
+Prior wording “one or more weak proxies fail” is replaced by this **complete compulsory catalogue**, subject to exact version/feature/fit budget/source freeze before data authoring:
 
-**Đơn vị độc lập là core**, không phải mọi continuation. Candidate allocations, rates và threshold ở M0X/M0U là prospective values để độc lập QA; **chưa hề được owner freeze**, phải duy trì `EXECUTION_NOT_AUTHORIZED`. Không định nghĩa adaptive second look nếu fail.
-
-**Thứ tự có điều kiện duy nhất khi sau này được owner GO (không được chạy nay):** admission gói tổng thể trước hết → M0 ORIGINAL → nếu source/gold/threshold/scoring PASS mới xem M0X → nếu M0X PASS mới xem M0U. FAIL/HOLD ở một cổng chặn downstream; không chuyển sang thử M1/2/3, huấn luyện hay đổi architecture. Cần prospective stop rule cho score-stage không cần mở micro-permit; một permit tổng hợp ở thời điểm thích hợp phải ghi rõ lịch chạy và fail-closed checkpoint.
-
-## 6. Scoring contract & provenance: thiết kế, không là runtime receipt
-
-**M0 unchanged:** per axis per rater TP,FN,TN,FP; `TP+FN=32`, `TN+FP=32`; confusion×6 tổng; raw agreement proposal `matches/64≥0.85⇒≥55`. Không thay bằng Cohen κ mà không có amendment.
-
-**M0X proposal:** per axis/per rater TP,FN,TN,FP; `TP+FN=64`, `TN+FP=64`; per-axis sensitivity/specificity, 64 matched edge results/rater/axis và invariant-axis checks, agreement matched/128; 8-pattern exact match, core-stratified logs, descriptive core-cluster bootstrap (n=16). Threshold mới phải được khóa trước gold authoring; `56/64` và `109/128` chỉ là **candidate author design**.
-
-**M0U proposal:** 3-class confusion, targeted UNKNOWN sensitivity n=8/axis/rater; non-target binary accuracy; false certainty; NO_RELABEL. Candidate targeted ≥7/8 chưa frozen. Chặn zero denominator, missing, duplicates, invalid ID, incomplete raters, unblinded source or rubric changes.
-
-**Gold & source rights:** owner-private human-source attestations nếu có, nếu không phải ghi AI-only exploratory. Rights/license/PII gate, new-source core/nonoverlap checks, exact tokenizer version and policy, no TRAIN/VAL/TEST/FINAL re-use, no private plaintext on GitHub. Scope SHA only once bytes exist; no fake hashes or pretend encrypted commitments are available now.
-
-**Blinding:** owner-private distinct full manifest of core and opaque item IDs; two rater packets cùng item list nhưng independent sessions, frozen output SHA and raw responses before reveal; custodian giữ permutation map, source/gold freeze SHA before any ratings; score checker code/schema independently QA before dispatch. No post-hoc item exclusion, rater replacement based on observed scores, threshold amendment or rerun consumed tests.
-
-## 7. Interpretation guard & read-across to existing science
-
-| Kết quả sau này nếu hợp lệ | Điều được phép nói | Điều vẫn KHÔNG được nói |
+| ID | Control and information permitted | Acceptance/reject rule |
 |---|---|---|
-| M0 PASS, M0X chưa PASS | Rater phân biệt cực tính rõ | Rater hiểu độc lập actor/object/goal |
-| M0X PASS, M0U HOLD | Trên factorial gold hợp lệ, rater tách từng trục trong stress có phạm vi | Rater đáng tin trên output thiếu thông tin |
-| M0, M0X, M0U PASS | Measurement qualification trên ba bộ thiết kế | Đã chứng minh model FAIL, measurement causality, human equivalence, hay kết quả FINAL cũ sai |
-| Bất kỳ source/gold/rights/mapping fail | HOLD đúng phạm vi | Được chọn lại items, chấm lại FINAL, đổi ngưỡng hoặc train để cứu |
+| `NC1_GLOBAL_VALENCE` | Always `000`, always `111`, and majority-bit global valence, evaluated on full 2³ pattern graph | These MUST fail M0X actor/object/goal and full-edge acceptance; if an obvious polarity shortcut passes ⇒ `HOLD_SHORTCUT` |
+| `NC2_LENGTH_FORMAT` | Non-semantic char/token lengths, punctuation, casing, whitespace, paragraph structure, EOS/format | Core-heldout score under nuisance threshold |
+| `NC3_STYLE_LEXICAL_CUES` | Preregistered hedges, negations, templates, role-name positions, stylistic marker combinations; **no fact ledger or gold bit** | Any cue representing a true semantic predicate requires construct review; no hidden exclusion |
+| `NC4_METADATA_ORDER` | Rater-visible ordering, index, surface template, author/stratum markers; hidden labels/core IDs MUST NOT leak | Immediate `HOLD_LEAKAGE` if identifiers/label correlates are visible |
+| `NC5_STRONG_NUISANCE_ENSEMBLE` | Preregistered combination NC2–NC4 with fixed classifier family, tuning budget and input schema | Every specified model/feature variant evaluated; do not report selectively |
+| `NC6_GOLD_COUPLING` | Independent ground-truth source inspection of 8 patterns and **all 12 edges per core** | Any semantic coupling ⇒ `HOLD_GOLD_QA` |
 
-Không thay MD1 historical 4 FAIL (F1–F4 của H-DATA, khác `SM4M-IR-F01–F05` của Foundation First). Không lẫn với PR #20 F01–F04 governance. Không dùng FC01 exploratory là positive control của M0X.
+**Evaluation split for learned NC2–NC5:** four predetermined folds, one *whole core from each stratum* held out per fold; all eight variants/core remain in same fold. Author/template IDs also disjoint when claiming those generalizations. If 16 cores lack independent author/template groups to implement an intended check, `HOLD_INADEQUATE_GROUP_DISJOINTNESS`, not an item-level leakage-prone split. Fixed feature vocabulary, proxy list, fit/tune budgets, fold mapping and random seed committed before authoring.
 
-## 8. Admission chỉ được ra một verdict, không phải chuỗi micro-permit
+**Candidate nuisance failure ceiling (NOT frozen):** For **every** registered learned nuisance model and **every** axis, heldout balanced accuracy must be ≤`0.625` and no model may meet simultaneous M0X sensitivity, specificity and edge requirements. Any score >0.625, acceptance success, leakage or missing proxy receipt ⇒ `HOLD_SHORTCUT`; there is no “one proxy failed so QA PASS”. This is an exploratory risk screen under n=16 cores, **not a proof of no possible shortcut**. Reviewer must assess threshold operating characteristics before owner freezes it. All NC gates require actual independent post-authoring evidence before S4.
 
-Các điều kiện nằm chi tiết ở tài liệu 07: exact source pin; original MD1 and owner closure unchanged; design/gold semantic isolation; sample/strata/threshold freeze; no leakage/cue-only shortcuts; rights/PII; blind rater, owner-private custody; scoring code/source QA; immutable manifests; independent reviewer; resource and checkpoint scope if a future model stage separately requested; owner science decision. **Tất cả hiện chưa đạt execution admission.**
+## 5. IR-04 HIGH: operational UNKNOWN, 3×3 scoring and always-abstain negative
 
-**Current proposed verdict:** `AUTHOR_PREEXEC_DESIGN_PACKET_READY_FOR_DISTINCT_REVIEW · PREEXEC_BLOCK · NO_SCIENCE`. Reviewer distinct có thể cho `GO_DESIGN_SCOPED` hoặc `HOLD_REVISE_DESIGN` trên tài liệu, không có quyền cho `GO_EXECUTION`.
+**Normative epistemic rule for a fixed proposition P and source E:**
+- Gold `1`: unambiguous evidence of P.
+- Gold `0`: explicit evidence refuting P, including exclusive alternative justified by a predeclared rule. Mere lack of evidence is NOT 0.
+- Gold `UNKNOWN`: neither P nor its explicit negation supported, but source coherent and referenced entities/time unambiguous; includes missing information or unresolved alternatives.
+- `INVALID_SOURCE` (unscored and HOLD): contradictory evidence, unresolved referent/time, missing core facts/ambiguous question. Source invalid ≠ epistemic UNKNOWN. Missing rater answer ≠ epistemic UNKNOWN.
+- Gold independently adjudicated with exact source spans; both non-target axes in M0U must be provably decidable.
 
-**Một bước kế tiếp:** distinct independent source & research-design review của exact candidate packet, một GO/HOLD về thiết kế. Chỉ sau owner adjudication mới được xem xét gói kiểm tra thực thi riêng; không làm tự động.
+**M0U proposal:** 24 new independent cores, 4 strata×6, one item/core, 8 target-UNKNOWN for each actor/object/goal (2 per stratum). For each target axis, all four combinations `00,01,10,11` of the **two decidable axes** appear twice over its eight target-UNKNOWN items. Thus for each measured axis: **8 gold UNKNOWN, 8 gold 1, 8 gold 0** across 24 items; two raters score all IDs in isolated contexts.
+
+**Candidate gates PER RATER/PER AXIS (NOT frozen):** on 8 true UNKNOWN, predict UNKNOWN ≥`7/8` (false certainty≤1/8); on 16 decidable items, binary correct ≥`14/16`, erroneous UNKNOWN≤`1/16`, and with 8 true positive/8 true negative, sensitivity and specificity each ≥`7/8`. **Full 3×3 confusion** matrix rows gold {0,1,UNKNOWN} each sum8; columns predicted {0,1,UNKNOWN}; overall 24. Report target recall, false certainty, false-UNKNOWN, non-target accuracy, coverage and stratum/core. Rater that **always answers UNKNOWN** scores 8/8 targeted recall but 0/16 decidable binary correct and false-UNKNOWN16/16 ⇒ FAIL. No pooling into M0 or M0X.
+
+## 6. IR-05 MEDIUM: thresholds, dependence and modest claims
+
+Planned, **none created**: M0 32 cores/64 items; M0X 16/128; M0U 24/24; total **72 cores, 216 items**, two raters =432 item-rater assignments and **1296 axis decisions**, **not** 1296 independent cases.
+
+**M0X candidate** unchanged: per rater/axis sensitivity≥`56/64`, specificity≥`56/64`, edge correctness≥`56/64` and two-rater exact agreement≥`109/128` on shared items. A **full-correct edge** requires both endpoints’ **entire three-axis vector** equal gold, not just target bit; no partial credit. Add per-stratum floor ≥`12/16` correct edges per axis, per rater, plus per-core and pattern table. Each edge shares endpoints and scores with other edges; statistical unit=16 story cores (4/stratum).
+
+**Rationale:** The 87.5% rates mimic original M0 calibration difficulty as a *candidate screening target*, not statistically proven transfer. Two completely bad cores can still consume 8 of 64 edge errors while meeting global threshold; per-stratum floors and all-core gold feasibility expose concentrated failures but cannot make this confirmatory. For M0U, even a naive independent-binomial Wilson 95% interval for 7/8 spans about **0.529–0.978**, and 14/16 about **0.640–0.965**; true uncertainty across texts/cores may be greater. No power-confirmatory claim, no T4 natural-output generalization. Future descriptive score readback must report core/stratum-specific failures and core-cluster uncertainty with a preregistered algorithm; no item-iid bootstrap and no post-hoc tuning.
+
+**Endpoint hierarchy:** pre-score gold/rights/anti-shortcut gates → M0 polarity → M0X per-axis/edge/stratum/proxy → M0U unknown/false-abstain. FAIL/HOLD stops all downstream in one frozen state machine. All NEW cutoffs (NC2–NC5 0.625, stratum12/16, M0X 56/64 and109/128, M0U 7/8,14/16,1/16) are only **candidate proposals**, requiring independent QA and owner freeze BEFORE any calibration item creation. This document does not freeze them.
+
+## 7. IR-06 MEDIUM: isolated rater contexts and variant leakage
+
+Each blinded item is evaluated **one at a time in a fresh isolated no-recall session**, with no full packet, no visibility of variants/core IDs/patterns/strata/gold or other scores. Custodian holds mapping and sends each rater exactly the **same underlying item set** under opaque IDs. Fixed concealed permutation interleaves cores and strata and prohibits adjacent same-core variants; no cross-session history or side-by-side access. For AI raters, independently verify disabled/shared memory/log retrieval and freeze provider/model/version/prompt settings. For humans, isolate display and disallow cross-item export; log independent identity and session. A second rater must not inherit first rater context.
+
+If cross-session recollection, core-variant comparisons, leaked label metadata, or exposure compromise is detected or cannot be ruled out under the declared provider, `HOLD_RATER_EXPOSURE`; freeze negative evidence, no replacement rater based on observed scores. Agreement alone does not prove rater validity.
+
+## 8. IR-07 MEDIUM: canonical checker semantics, negative QA and fail closed
+
+The source-only checker schema, rejection order, 12-edge graph validation, 3×3 M0U report, stage gates, exhaustive negative fixture table and reason codes are specified in document 07. Implementation and any checker execution are **NOT AUTHORIZED in this gate**. Prospective validation order: `PARSE→SCHEMA→COUNT/ID→GOLD_GRAPH/EVIDENCE→RIGHTS/NONOVERLAP/NUISANCE→FREEZE→BLIND_SCORE→IMMUTABLE_SCORE→CUSTODIAN_UNBLIND→SCORER→ADJUDICATION`. Any violation yields deterministic `HOLD`/`FAIL` and an append-only negative receipt without dropping items/retuning. M0/M0X require exact integers 0/1; M0U permits 0/1 or exact `UNKNOWN`, never silently coercing null, missing, NaN, out-of-range or string score values.
+
+## 9. Limits and next gate
+
+The original independent F2 `HOLD_REVISE_DESIGN` persists at `07adab...`. This remediation is **author design only** until separate QA. Neither semantic witnesses nor 72 cores, 216 items, independent gold, licensed source, custody SHA or blinded scoring exist yet. Existing Foundation First F01–F05 owner `GO_DESIGN_SCOPED` remains scoped and unaffected; F3/F4 remain unopened.
+
+`PREEXEC_BLOCK=TRUE · OWNER_DATA_AUTHORING_GO=FALSE · OWNER_SCORE_GO=FALSE · GOLD_NOT_AUTHORED · SOURCE_RIGHTS_NOT_ATTESTED · SCORER_NOT_IMPLEMENTED · NO_MODEL · NO_GPU · NO_TRAIN · NO_MERGE`.
+
+**Bước thực hiện tiếp theo — duy nhất:** after one integrated author adversarial/self-QA gate, distinct independent source/design review of the exact amended candidate with one `GO_DESIGN_SCOPED` or `HOLD_REVISE_DESIGN`. No automatic owner execution permit.

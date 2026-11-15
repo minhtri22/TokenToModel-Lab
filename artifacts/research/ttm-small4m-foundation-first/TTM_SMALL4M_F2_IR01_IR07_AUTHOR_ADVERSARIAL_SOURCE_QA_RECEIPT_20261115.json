@@ -1,0 +1,393 @@
+{
+  "schema": "ttm.small4m.f2.ir01_ir07.author_adversarial_qa.receipt.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE",
+  "mode": "SOURCE_ONLY_AUTHOR_ADVERSARIAL_QA_NO_SCIENCE",
+  "reviewed_old_head": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+  "previous_independent_verdict": "HOLD_REVISE_DESIGN",
+  "design_git_blobs": {
+    "protocol06": "a5cc0c51363de9772c27418ea667475c25c791b0",
+    "admission07": "d0ca205935c01a815aaebe86c90f4e3daf1a1291"
+  },
+  "qa_scope": "Author-run pure design consistency and symbolic fixture checks, NOT an independent or execution-level QA",
+  "test_count": 44,
+  "pass_count": 44,
+  "fail_count": 0,
+  "tests": [
+    {
+      "id": "QA01",
+      "name": "Source blobs exact loaded",
+      "pass": true,
+      "detail": {
+        "blobs": [
+          "a5cc0c51363de9772c27418ea667475c25c791b0",
+          "d0ca205935c01a815aaebe86c90f4e3daf1a1291"
+        ]
+      }
+    },
+    {
+      "id": "QA02",
+      "name": "Source preserves MD1 thresholds",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA03",
+      "name": "All 7 IR explicit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA04",
+      "name": "All six authoring states",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA05",
+      "name": "G12A separate from G12B",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA06",
+      "name": "S2 forbidden without owner",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA07",
+      "name": "S2 hypothetically reachable pre-data",
+      "pass": true,
+      "detail": {
+        "testOnly": true,
+        "ownerGranted": false
+      }
+    },
+    {
+      "id": "QA08",
+      "name": "S4 blocked absent post-evidence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA09",
+      "name": "S4 blocked absent distinct QA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA10",
+      "name": "S4 blocked for authoring-only permit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA11",
+      "name": "S4 requires signed release",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA12",
+      "name": "S4 conceptual path exists under complete hypothetical guards",
+      "pass": true,
+      "detail": {
+        "hypothetical": true,
+        "actualReleased": false
+      }
+    },
+    {
+      "id": "QA13",
+      "name": "S2 allows scoped nuisance/checker QA only",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA14",
+      "name": "G00–G12 complete",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA15",
+      "name": "2^3 patterns eight unique",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA16",
+      "name": "Three axes have exactly four edges each",
+      "pass": true,
+      "detail": {
+        "edges": 12
+      }
+    },
+    {
+      "id": "QA17",
+      "name": "Edges flip only one axis",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA18",
+      "name": "Valid symbolic cube",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA19",
+      "name": "Missing edge rejected",
+      "pass": true,
+      "detail": "HOLD_GRAPH"
+    },
+    {
+      "id": "QA20",
+      "name": "Duplicate pattern rejected",
+      "pass": true,
+      "detail": "HOLD_COUNT_STRATUM"
+    },
+    {
+      "id": "QA21",
+      "name": "Cross-core edge forbidden in documented schema",
+      "pass": true,
+      "detail": "HOLD_GRAPH"
+    },
+    {
+      "id": "QA22",
+      "name": "Semantic evidence/witness required",
+      "pass": true,
+      "detail": {
+        "realGoldVerified": false
+      }
+    },
+    {
+      "id": "QA23",
+      "name": "M0X 16x8, 64 per-axis pos/neg and 64 edges",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA24",
+      "name": "Global-valence shortcut fails 56/64",
+      "pass": true,
+      "detail": [
+        {
+          "tp": 48,
+          "tn": 48
+        },
+        {
+          "tp": 48,
+          "tn": 48
+        },
+        {
+          "tp": 48,
+          "tn": 48
+        }
+      ]
+    },
+    {
+      "id": "QA25",
+      "name": "Constant 000 or 111 must fail an axis class",
+      "pass": true,
+      "detail": {
+        "always000Sensitivity": 0,
+        "always111Specificity": 0
+      }
+    },
+    {
+      "id": "QA26",
+      "name": "NC1–NC6 are mandatory",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA27",
+      "name": "Core-disjoint feature QA required",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA28",
+      "name": "Proxy BA0.75 triggers HOLD",
+      "pass": true,
+      "detail": "HOLD_SHORTCUT"
+    },
+    {
+      "id": "QA29",
+      "name": "UNKNOWN 24 rows, 8/8/8 each axis",
+      "pass": true,
+      "detail": [
+        {
+          "zero": 8,
+          "one": 8,
+          "unk": 8
+        },
+        {
+          "zero": 8,
+          "one": 8,
+          "unk": 8
+        },
+        {
+          "zero": 8,
+          "one": 8,
+          "unk": 8
+        }
+      ]
+    },
+    {
+      "id": "QA30",
+      "name": "Always UNKNOWN fails decisable axis count",
+      "pass": true,
+      "detail": {
+        "targetRecall": "8/8",
+        "nonTargetCorrect": "0/16",
+        "falseUnknown": "16/16"
+      }
+    },
+    {
+      "id": "QA31",
+      "name": "UNKNOWN differs from missing/bad source",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA32",
+      "name": "3x3 confusion dimensions explicit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA33",
+      "name": "Binary scorer strictly typed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA34",
+      "name": "M0U ternary strictly typed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA35",
+      "name": "Rater single isolated item and exposure HOLD",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA36",
+      "name": "Graph and source reject order canonical",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA37",
+      "name": "27+1 negative fixture IDs in contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA38",
+      "name": "N01 priority count before semantic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA39",
+      "name": "N18 row-drop ID reason",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA40",
+      "name": "Historical source claim rejection explicit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA41",
+      "name": "New thresholds not owner frozen",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA42",
+      "name": "Sample arithmetic 72/216/432/1296",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA43",
+      "name": "Independent units cores not IID axis scores",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "id": "QA44",
+      "name": "F3/F4 not opened, no science",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "negative_fixture_plan_count": 28,
+  "self_detected_followup_corrections": [
+    "Resolved stage S2 permission for prerequisite nuisance proxy QA and checker synthetic QA under future conditional owner scope; no rater/model scoring",
+    "Aligned canonical reject priorities and negative-fixture reason codes N01, N04, N18, N26-N28"
+  ],
+  "reviewed_findings": [
+    {
+      "finding_id": "SM4M-F2-IR-01",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-02",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-03",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-04",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-05",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-06",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    },
+    {
+      "finding_id": "SM4M-F2-IR-07",
+      "author_status": "REMEDIATED_AT_DESIGN_SCOPE_PENDING_INDEPENDENT_QA"
+    }
+  ],
+  "blocked": {
+    "gold": false,
+    "calibration_items": false,
+    "owner_authoring_go": false,
+    "owner_score_go": false,
+    "science_execution": false,
+    "gpu": false,
+    "inference": false,
+    "training": false,
+    "f3_opened": false,
+    "f4_opened": false,
+    "merge": false
+  },
+  "not_verified": [
+    "8-pattern semantic feasibility on actual text",
+    "independent human/AI gold and rights",
+    "actual proxy performance",
+    "rater session isolation",
+    "full scorer code QA and cryptographic commitments",
+    "owner threshold freeze",
+    "model output generalization"
+  ],
+  "recommendation": "SEND_FOR_DISTINCT_SOURCE_DESIGN_REVIEW_ONLY",
+  "author_qa_verdict": "PASS_AUTHOR_SYMBOLIC_SOURCE_QA_ONLY__NO_INDEPENDENT_DESIGN_GO",
+  "no_execution": true
+}
