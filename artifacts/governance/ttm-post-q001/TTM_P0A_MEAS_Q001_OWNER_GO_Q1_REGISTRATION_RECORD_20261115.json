@@ -1,0 +1,133 @@
+{
+  "schema": "ttm.question_first.measurement.q1_registration.v1",
+  "operation": "TTM_P0A_Q1_OWNER_DESIGN_PASS_REASSESSMENT_AND_REGISTRATION_DECISION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "type": "MEASUREMENT",
+  "programme": "TTM-Small-4M P0-A Measurement / Construct / Source-visible Gold / AI-Rater",
+  "policy_id": "TTM-GOV-QF-20261115-V1",
+  "source": {
+    "baseline_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+    "exact_independent_design_reviewed_head": "a8fd21f35d56a87f869df673b318d437ed0c8b31",
+    "original_independent_hold_head": "f3225f4f2cbc48ef15cdbc92cf5c050c78f4fa1a",
+    "pre_owner_registration_pr_head": "f128af5f6bbdcd6f7ab9c5e9c7026707d4df8552",
+    "independent_report_git_blob_sha1": "38d009fa3cdc36db847565520307a8ff05d4c8c3",
+    "independent_report_sha256": "755efd1b49385a996ae03d2d264897576c91df3dbbe8d890046fb0765dea01a4",
+    "independent_receipt_git_blob_sha1": "203c4b0f84536e96921edc42bd30717357201535",
+    "independent_receipt_sha256": "8a94ace8f0bc74d8c07944afbf1b2bd0099b792c7d7ea9776dafe40440fdf886",
+    "source_design_git_blob_sha1": "22f7382dc7a76f3cbcbe695d700cb9111c246f60",
+    "source_contract_git_blob_sha1": "24c35ec70236fa64ff14488bf32189c81782faa6",
+    "lineage_git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "active_gate_before_sha1": "ad01aecdde99e17653b4e111325bed0b05cc8be2",
+    "registration_gate_blob_sha1": "6b29c962b48c4134c925935409433d4ae2804110",
+    "owner_go_blob_sha1": "3631fbd9935646a216bd42a6306addde32a4ec83",
+    "active_gate_new_blob_sha1": "288d4cd2c84315705e7ea06e45c246b6f3d67496",
+    "registration_main_commit": "POSTMERGE_READBACK_REQUIRED_NO_SELF_REFERENCE"
+  },
+  "owner": {
+    "decision": "GO_REGISTER_Q1_SCOPED",
+    "declaration": "Tôi quyết định GO_REGISTER_Q1_SCOPED cho TTM P0-A. Thực hiện một lượt đăng ký Question Gate trên main theo policy, giữ nguyên tất cả science/rights/gold/runner HOLD; kiểm tra điều kiện bắt buộc, không mở micro-permit và không tự cho phép merge implementation.",
+    "scope": "ONE_MEASUREMENT_QUESTION_ONLY",
+    "approves_governance_only_pr22_merge_for_registration": true,
+    "implementation_merge_permission": false,
+    "science_permission": false
+  },
+  "registration": {
+    "target_state": "Q1_QUESTION_REGISTERED_ON_MAIN_AFTER_VERIFIED_MERGE",
+    "question_count_active": 1,
+    "question_has_falsifiable_statement": true,
+    "assertion_family": "LOCATED_AT(entity_id,location_id,reference_time_id)",
+    "owner_approved_registration": true,
+    "independent_design": "PASS_Q1_DESIGN_SCOPE",
+    "independent_human_org_attestation": "NOT_EXTERNALLY_ATTESTED",
+    "new_q2": "NOT_EXECUTED",
+    "new_q3": "NOT_EXECUTED",
+    "new_q4": "NOT_DECIDED",
+    "baseline_small4m_root_cause": "NOT_IDENTIFIED",
+    "historical_q001": "Q4_CLOSED_HOLD_NEW_SCIENCE"
+  },
+  "admission_status": {
+    "benchmark_gold": "NOT_VALIDATED",
+    "rights": "NOT_VERIFIED",
+    "source_family_feasibility": "NOT_VERIFIED",
+    "effective_model_rater_material_fact_parity": "NOT_CAPTURED",
+    "gold_witness_item": "NOT_VALIDATED",
+    "same_task_independent_rater": "NOT_CALIBRATED",
+    "primary_endpoint": "NOT_FROZEN",
+    "threshold": "NOT_FROZEN",
+    "sample_size": "NOT_SET",
+    "budget": "NOT_AUTHORIZED_FOR_SCIENCE",
+    "checkpoint_custody": "NOT_VERIFIED",
+    "test_final": "SEALED",
+    "scorer": "NOT_AUTHORIZED",
+    "gpu": "NOT_AUTHORIZED"
+  },
+  "stage_requirements": {
+    "before_source_authoring": [
+      "AD-01R_RIGHTS",
+      "AD-02_TYPED_CONSTRUCT",
+      "AD-03_SOURCE_VISIBLE_WITNESS",
+      "AD-05_SHORTCUT_CONTROLS",
+      "AD-06_IF_CAUSAL_MATCHED",
+      "X14_VISIBLE_EXCLUSIVITY_AXIOM_IF_FALSE_OR_CONFLICT"
+    ],
+    "before_fixture_freeze": [
+      "AD-01T_IF_TOKEN_SENSITIVE",
+      "AD-03_MATERIAL_FACT_SET_PARITY",
+      "AD-05_NEGATIVE_CONTROLS",
+      "AD-06_MATCHED_IF_USED",
+      "AD-07_FROZEN_ENDPOINT_AND_THRESHOLD",
+      "X13_NO_RATER_ONLY_REFUTATION",
+      "X15_GATE_HOLD_AND_ITEM_REJECT_PRECEDENCE",
+      "EXACT_PROMPT_TOKENIZER_CONTEXT_AND_WITNESS_SPANS"
+    ],
+    "before_model_execution": [
+      "AD-00_SOURCE_RUNTIME_PINS",
+      "AD-01C_EXACT_CHECKPOINT_RIGHTS",
+      "AD-08_SEPARATE_OWNER_SCIENCE_AUTHORITY",
+      "Q2_Q3_Q4_CLOSED_APPROPRIATE_SCOPE"
+    ],
+    "before_scoring": [
+      "AD-04_INDEPENDENT_SAME_TASK_RATER_GOLD",
+      "AD-03_05_06_RECHECK",
+      "METRIC_THRESHOLD_PREREG_VERIFIED",
+      "NO_HIDDEN_GOLD_RATER"
+    ]
+  },
+  "future_decisions": {
+    "KEEP": "ALL_FUTURE_RIGHTS_PARITY_GOLD_RATER_THRESHOLD_VERIFIED",
+    "SIMPLIFY": "PRE_OUTCOME_LOCALIZED_VALID_RESTRICTION",
+    "PIVOT": "PROVEN_INFEASIBLE_PLUS_LAWFUL_ALTERNATIVE_NEW_Q",
+    "STOP": "PROVEN_IRREVERSIBLE_NO_LAWFUL_ALTERNATIVE",
+    "HOLD_EVIDENCE_INSUFFICIENT": "DEFAULT_WHEN_HARD_VETO_OR_MISSING_PROOF"
+  },
+  "deny_permissions": {
+    "new_research_branch": false,
+    "data_source_access": false,
+    "new_dataset": false,
+    "new_gold": false,
+    "new_scorer": false,
+    "inference": false,
+    "training": false,
+    "gpu": false,
+    "model_code_patch": false,
+    "science_run": false,
+    "F0_F2_reopen": false,
+    "test_final_replay": false,
+    "append_lineage": false,
+    "implementation_merge": false,
+    "automatic_Q2_Q3_Q4_pass": false
+  },
+  "PR22": {
+    "intent": "GOVERNANCE_DOCS_AND_EVIDENCE_ONLY",
+    "source_pr_number": 22,
+    "merge_status": "POST_MERGE_READBACK_REQUIRED",
+    "diff_allowed_prefixes": [
+      "docs/governance/",
+      "artifacts/governance/"
+    ],
+    "no_other_paths": true
+  },
+  "next_single_step": "TTM_P0A_MEAS_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_SINGLE_GATE"
+}
