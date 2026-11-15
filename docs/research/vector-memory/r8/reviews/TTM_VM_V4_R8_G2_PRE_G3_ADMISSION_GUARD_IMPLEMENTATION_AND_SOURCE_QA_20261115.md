@@ -3,7 +3,7 @@
 - **Operation:** `TTM_VM_V4_R8_G2_PRE_G3_ADMISSION_GUARD_IMPLEMENTATION_AND_SOURCE_QA_SINGLE_GATE`
 - **Date:** 2026-11-15 (Asia/Bangkok)
 - **Role:** implementation agent (not an independent reviewer)
-- **Disposition:** `PASS_SCOPED_SOURCE_FIXTURE_QA_19_OF_19`; `PRODUCTION_ADMISSION_NOT_ATTESTED`; `G2_HOLD · HOLD_INTEGRATED`
+- **Disposition:** `PASS_SCOPED_SOURCE_FIXTURE_QA_22_OF_22`; `PRODUCTION_ADMISSION_NOT_ATTESTED`; `G2_HOLD · HOLD_INTEGRATED`
 
 ## Frozen baseline and inherited evidence
 
@@ -19,8 +19,8 @@
   - SHA-256: `6bf5150b65718ad594dec4fc66f42a9dc6e29cf004828f265752af1d9e603a31`
   - Git blob SHA-1: `b35da231742d5bcf01f8d4ab48069afbfad37eea`
 - `docs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py`
-  - SHA-256: `65279926056b0e64a118c62a1d5e12f1a87213c7e6d1b9c9f1ed762c51b50e7c`
-  - Git blob SHA-1: `4b5ebfcd7316fe9267ccbf5254670c370412826a`
+  - SHA-256: `64d4b6bf4929373cd1a553c5b1e22cb5fa55ed915ea10ae5c0465b91ec744318`
+  - Git blob SHA-1: `9534a2d32e8cf53208634efe47ded4f02b9e9743`
 
 Both Git blobs were read back from GitHub and matched locally generated Git blob hashes. New code is additive; no modification to the frozen scientific modules.
 
@@ -36,7 +36,7 @@ Both Git blobs were read back from GitHub and matched locally generated Git blob
 
 Command: `PYTHONWARNINGS=error::ResourceWarning python -m unittest -v test_pre_g3_admission_guard.py`.
 
-- **19/19 unittest methods PASS**. Coverage includes valid fixture once, production-default deny, absent anchor, unsigned/mutable release, wrong anchor/session/manifest/version/tag, timestamp order, absent/incorrect acceptance, tampered private bytes, nonce, duplicate JSON, callback failure consumption, missing ledger directory, persistent replay and eight concurrent calls with **one** accepted callback.
+- **22/22 unittest methods PASS**. Coverage includes valid fixture once, production-default deny, absent anchor, unsigned/mutable release, wrong anchor/session/manifest/version/tag, timestamp order, absent/incorrect acceptance, tampered private bytes, nonce, duplicate JSON, callback failure consumption, missing ledger directory, persistent replay, wrong frozen source commit, malformed V2 lock and HMAC shapes, eight concurrent threads, and two **spawned processes** with exactly one accepted callback per race.
 - The tests ran in this agent's isolated Linux Python **3.13.5**, not on owner's Windows Python 3.12.10. They do not substitute for the previously attested Windows runtime or for future Windows native execution QA.
 - No real private key, real G_pre commitment, R8 gold, case text, G3 generator, research GPU or model execution was created or invoked.
 
@@ -52,7 +52,7 @@ Command: `PYTHONWARNINGS=error::ResourceWarning python -m unittest -v test_pre_g
 
 ## Adjudication and next review
 
-**Implementation and fixture QA:** `PASS_SCOPED_SOURCE_FIXTURE_QA_19_OF_19`.
+**Implementation and fixture QA:** `PASS_SCOPED_SOURCE_FIXTURE_QA_22_OF_22`.
 
 **Independent QA:** `NOT_EXECUTED`; self-testing is not an independent review.
 
