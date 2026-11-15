@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import hashlib
 import json
 from pathlib import Path
+import multiprocessing
 import tempfile
 import threading
 import unittest
@@ -38,6 +39,17 @@ class Proofs:
 
     def verify_accepted(self, *, session_id, public_digest):
         return self.receipt
+
+
+def cross_process_worker(ledger, envelope, anchor, receipt, start, output):
+    proofs = Proofs(anchor, receipt)
+    guard = PreG3AdmissionGuard(Path(ledger), proofs, proofs, fixture_mode=True)
+    start.wait(10)
+    try:
+        result = guard.dispatch(envelope, TAG, lambda: "CROSS_PROCESS_DISPATCHED")
+    except AdmissionDenied as exc:
+        result = str(exc)
+    output.put(result)
 
 
 class AdmissionQA(unittest.TestCase):
@@ -210,6 +222,42 @@ class AdmissionQA(unittest.TestCase):
         # A replay via a newly constructed guard still sees durable ledger state.
         fresh = PreG3AdmissionGuard(self.ledger, self.proofs, self.proofs, fixture_mode=True)
         self.deny("G3_ONE_SHOT_REPLAY_REJECTED", guard=fresh)
+
+
+    def test_20_wrong_private_source_commit_denies(self):
+        self.deny("SOURCE_COMMIT_PIN_MISMATCH",
+                  self.make_envelope(source_commit="e" * 40))
+
+    def test_21_invalid_private_lock_schema_or_hmac_denies(self):
+        bad_lock = canonical({"algorithm_id": ALGORITHM, "lock_schema": "V1",
+                              "preassignment_hmac": "a" * 64,
+                              "blueprint_hmac": "b" * 64})
+        self.deny("PRIVATE_LOCK_ALGORITHM_MISMATCH",
+                  replace(self.envelope, lock_bytes=bad_lock,
+                          exact_bytes=canonical(dict(self.obj, lock_sha256=sha(bad_lock)))))
+        bad_hmac = canonical({"algorithm_id": ALGORITHM, "lock_schema": SCHEMA,
+                              "preassignment_hmac": "invalid",
+                              "blueprint_hmac": "b" * 64})
+        self.deny("PRIVATE_LOCK_HMAC_MISSING",
+                  replace(self.envelope, lock_bytes=bad_hmac,
+                          exact_bytes=canonical(dict(self.obj, lock_sha256=sha(bad_hmac)))))
+
+    def test_22_two_spawned_processes_one_winner(self):
+        ctx = multiprocessing.get_context("spawn")
+        event = ctx.Event()
+        queue = ctx.Queue()
+        processes = [ctx.Process(target=cross_process_worker,
+                     args=(str(self.ledger), self.envelope, self.anchor,
+                           self.receipt, event, queue)) for _ in range(2)]
+        for process in processes:
+            process.start()
+        event.set()
+        results = [queue.get(timeout=20) for _ in processes]
+        for process in processes:
+            process.join(timeout=20)
+            self.assertEqual(process.exitcode, 0)
+        self.assertEqual(results.count("CROSS_PROCESS_DISPATCHED"), 1)
+        self.assertEqual(results.count("G3_ONE_SHOT_REPLAY_REJECTED"), 1)
 
 
 if __name__ == "__main__":
