@@ -69,7 +69,7 @@ if (-not (Test-Path -LiteralPath $Root -PathType Container)) {
 if (-not (Test-Path -LiteralPath $ReceiptDir -PathType Container)) {
     throw 'EXISTING_PRIVATE_RECEIPT_DIR_NOT_FOUND; do not create another custody root'
 }
-if (Is-Reparse $Root -or Is-Reparse $PrivateRoot -or Is-Reparse $ReceiptDir) {
+if ((Is-Reparse $Root) -or (Is-Reparse $PrivateRoot) -or (Is-Reparse $ReceiptDir)) {
     throw 'REPARSE_POINT_IN_CUSTODY_PATH'
 }
 if (Test-Path -LiteralPath $ReceiptPath) {
@@ -126,13 +126,14 @@ if($PythonExe) {
 else { Mark 'RUNTIME_EXACT_PIN' 'NOT_EXECUTED_PYTHON_EXE_NOT_PINNED' }
 
 # 3. Ephemeral DPAPI CurrentUser sentinel. NO stored key, ciphertext or G_pre.
+$plain=$null; $decoded=$null
 try {
     $plain=[Text.Encoding]::UTF8.GetBytes('TTM_VM_R8_G2_EPHEMERAL_SENTINEL_ONLY')
     $cipher=[Security.Cryptography.ProtectedData]::Protect(
        $plain,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
     $decoded=[Security.Cryptography.ProtectedData]::Unprotect(
        $cipher,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
-    if(-not [Linq.Enumerable]::SequenceEqual[byte]($plain,$decoded)) {throw 'DPAPI_SENTINEL_MISMATCH'}
+    if([Convert]::ToBase64String($plain) -cne [Convert]::ToBase64String($decoded)) {throw 'DPAPI_SENTINEL_MISMATCH'}
     Mark 'WINDOWS_DPAPI_CURRENTUSER_SENTINEL' 'PASS_SCOPED_SAME_PROFILE_ONLY'
 }
 catch { Mark 'WINDOWS_DPAPI_CURRENTUSER_SENTINEL' 'HOLD_DPAPI_EPHEMERAL_SENTINEL_FAILED' }
