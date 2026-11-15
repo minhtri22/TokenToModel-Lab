@@ -1,0 +1,59 @@
+name: TTM VM R8 G2 three-env Python pin diagnostic source QA
+
+on:
+  push:
+    branches:
+      - implementation/ttm-vm-r8-g2-owner-windows-preexec-20261115
+    paths:
+      - docs/research/vector-memory/r8/preexec/Diagnose-TTM-VM-R8-G2-Three-Pinned-Python-Environments-ReadOnly-PS51.ps1
+      - .github/workflows/ttm-vm-r8-g2-python-diagnostic-readonly-ps51-qa.yml
+
+permissions:
+  contents: read
+
+jobs:
+  ps51-readonly-parser-and-native-metadata-smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: PowerShell 5.1 parser, read-only syntax and native metadata argument smoke
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $Path='docs/research/vector-memory/r8/preexec/Diagnose-TTM-VM-R8-G2-Three-Pinned-Python-Environments-ReadOnly-PS51.ps1'
+          $Tokens=$null; $Errors=$null
+          $Ast=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $Path).Path,[ref]$Tokens,[ref]$Errors)
+          if(-not $Ast -or $Errors.Count -ne 0){
+            foreach($errorItem in $Errors){Write-Host ('PARSE_ERROR: ' + $errorItem.Message)}
+            throw 'G2_THREE_ENV_PS51_PARSE_FAIL'
+          }
+          $Blocked=@('Set-Content','Add-Content','Out-File','New-Item','Remove-Item','Copy-Item','Move-Item','Rename-Item','Set-Item','Start-Process','Invoke-WebRequest','Invoke-RestMethod','Invoke-Expression','git','gh','curl','pip','conda')
+          $Commands=$Ast.FindAll({param($a) $a -is [System.Management.Automation.Language.CommandAst]},$true)
+          foreach($Cmd in $Commands){
+            $Name=$Cmd.GetCommandName()
+            if($Name -and $Blocked -contains $Name){throw ('FORBIDDEN_COMMAND: '+$Name)}
+          }
+          $Raw=[IO.File]::ReadAllText((Resolve-Path $Path).Path)
+          foreach($Required in @('ORIGINAL_G2_RECEIPT_SHA256_MISMATCH','RUNTIME_ORIGINAL_MANIFEST_AND_LOADED_MODULE_SHA=NOT_ATTESTED','PRODUCTION_CUSTODY_HMAC_V2=NOT_EXECUTED','G3=NOT_EXECUTED')){
+            if(-not $Raw.Contains($Required)){throw ('CONTRACT_MISSING: '+$Required)}
+          }
+          Write-Host 'THREE_ENV_PS51_PARSE=PASS'
+          Write-Host 'THREE_ENV_AST_NONMUTATING_SCOPE=PASS'
+          # Smoke only the embedded -I -B metadata command, not the private file scan.
+          $Match=[regex]::Match($Raw,'(?m)^\$Code="([^"]+)"\r?$')
+          if(-not $Match.Success){throw 'EMBEDDED_PYTHON_SOURCE_NOT_FOUND'}
+          $Code=$Match.Groups[1].Value
+          $Output=(& python -I -B -c $Code 2>&1 | Out-String).Trim()
+          if($LASTEXITCODE -ne 0){throw 'HOSTED_NATIVE_PYTHON_METADATA_FAILED'}
+          $Parsed=$Output | ConvertFrom-Json
+          foreach($Package in @('numpy','scipy','scikit-learn','joblib','threadpoolctl')){
+            if(-not $Parsed.versions.PSObject.Properties[$Package]){throw ('MISSING_PACKAGE_FIELD: '+$Package)}
+          }
+          if(-not $Parsed.py -or -not $Parsed.prefix){throw 'EMBEDDED_JSON_MISSING_RUNTIME'}
+          Write-Host 'HOSTED_PS51_NATIVE_PYTHON_METADATA=PASS_SCOPED'
+          Write-Host 'OWNER_PRIVATE_ENVIRONMENT=NOT_EXECUTED'
