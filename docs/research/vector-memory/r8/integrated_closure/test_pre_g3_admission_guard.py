@@ -332,5 +332,13 @@ class AdmissionQA(unittest.TestCase):
         self.deny("ACCEPTED_RECEIPT_BINDING_MISMATCH")
 
 
+    def test_35_extra_trigger_on_ledger_denies(self):
+        with closing(sqlite3.connect(self.ledger)) as db:
+            db.execute('CREATE TABLE consumed(session_id TEXT PRIMARY KEY, commitment_digest TEXT NOT NULL UNIQUE, consumed_utc TEXT NOT NULL)')
+            db.execute('CREATE TRIGGER erase AFTER INSERT ON consumed BEGIN DELETE FROM consumed; END')
+            db.commit()
+        self.deny("PRIVATE_LEDGER_SCHEMA_UNTRUSTED")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
