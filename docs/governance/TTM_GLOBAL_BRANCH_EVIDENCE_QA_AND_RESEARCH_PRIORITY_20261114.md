@@ -8,10 +8,23 @@
 
 - GitHub current **65 branches**; previous snapshot 64; original **57 UNVERIFIED included main**. **56 non-main branches** were the actual prior-unknown set.
 - 23 branch-specific exact source artifacts, 4 branch-local lineage verdict pins; remaining unverifiable terminal source states retain UNVERIFIED.
-- 6 branches have no unique difference because they are ancestors of main; that is not scientific PASS.
+- 6 branches are true main ancestors with no unmerged diff; one additional PR #19 source branch is **DIVERGED_FROM_MAIN** but has identical tree content after squash merge. Neither condition establishes science PASS.
 - 3 open PRs were Draft: #13, #14, #18. No PR was merged or opened in this audit.
 - All 56 prior unverified non-main branch lineage files were examined at exact HEAD; source HEAD and main ancestry were compared. No model/checker/history run was repeated.
 - PASS/FAIL/HOLD represent scoped evidence statuses, independent of branch merge eligibility. Readback is not independent scientific validation.
+
+## PR #20 integrated remediation F01–F04 — 15/11/2026
+
+**Source of review:** prior distinct reviewer verdict `HOLD_PR20_SOURCE_QA_OR_GOVERNANCE_CONTRACT`. Reviewer Markdown/JSON SHA-256 are owner-reported, but local Windows reviewer bytes have **not** been independently rehashed by this implementation agent. Correction source facts were independently read from pinned GitHub objects. PR stays Draft/HOLD pending a distinct review of new HEAD.
+
+| Finding | Verified correction | Limits |
+|---|---|---|
+| F01 — BLOCKER | Lineage pin #24 (`0ec28d44587fde9ad4acba8cccae65648e367181:lineage.md`) corrected from `9110d101601e6ebfb64d9804f370a90cb284420` to `9110d101601e6ebfb64d9804f3704a90cb284420` **in both inventory and receipt**. | FRESH16 V2 remains FAIL scoped. |
+| F02 — BLOCKER | PR19 source commit `c6b3ec442eb7313851f05d53096d1588223a9d14` is `DIVERGED_FROM_MAIN`, although Git tree of it and main base are both `7177eb04f806c2a51aa3d7dc3ab674928d081146` after squash merge. Tree equivalence is a separate field. | No code diff needed, not an ancestor and not science PASS. |
+| F03 — FRESHNESS | VM R8 historical pin `12540962e96caef34c587e7a8ba59d58fd09c5c4`; new remote HEAD observed 15/11 `8dec9438bff96922e5defd64550971c309d5b32f`, `PINNED_SNAPSHOT_NOT_CURRENT_HEAD`. | No automatic promotion to new HEAD; G0/G1/G2 remain HOLD. |
+| F04 — DEDUP | Two T5 branches `archive/ttm-ollama-full-logits-scoped-20261111` and `research/ttm-t5-ollama-full-logits-20261111` share HEAD `99ca9eee4114c8bf4b9b8521cc642bb71b054f05` and Git blob `737ae1012a343319ba0f20fd4e62cc95c9aae612`, one evidence identity group `T5_CUSTOM_OLLAMA_4_PROMPTS_737ae1012a34`. | Two branch references are **one unique source artifact**, not two independent scientific confirmations. |
+
+**Counts:** 65 snapshot branch rows, 27 pinned source references, 26 unique Git blob objects. 6 actual ancestors of main plus 1 diverged/tree-equivalent PR19 branch. P1/P2/P3 are priorities for **branch review**, not independent experiment counts. `lineage.md` is unchanged by this remediation commit; prior L0029 remains append-only relative to `main`.
 
 ## Ma trận quyết định ưu tiên
 
@@ -61,7 +74,7 @@
 | `feature/p07-paged-attention-kernel-design-20261107` (`06b047856a84`) | T6_P07_P08 | `P07_XPU_PASS_SCOPED; OVERALL_FAIL_OR_INCONCLUSIVE_NO_AUTORERUN` | DIVERGED_FROM_MAIN | `NO_CODE_MERGE_AUTHORIZED` |
 | `feature/ttm-t6-dense-paged-ab-benchmark-fixture-20261109` (`0ebd59755b41`) | T6_P07_P08 | `NO_UNMERGED_DIFF; HISTORIC_QA_NOT_REVALIDATED` | ANCESTOR_IN_MAIN_NO_DIFF | `NO_MERGE_NEEDED` |
 | `governance/train-first-colab-and-branch-consolidation-20261108` (`706911a9048c`) | DOCUMENTATION_GOVERNANCE | `NO_UNMERGED_DIFF; HISTORIC_QA_NOT_REVALIDATED` | ANCESTOR_IN_MAIN_NO_DIFF | `NO_MERGE_NEEDED` |
-| `governance/ttm-global-lineage-append-only-r1-closure-20261114` (`c6b3ec442eb7`) | DOCUMENTATION_GOVERNANCE | `PR19_MERGED_DOCS_ONLY_SOURCE_BRANCH` | ANCESTOR_OF_MAIN_PR19_MERGED | `NO_MERGE_NEEDED` |
+| `governance/ttm-global-lineage-append-only-r1-closure-20261114` (`c6b3ec442eb7`) | DOCUMENTATION_GOVERNANCE | `PR19_MERGED_DOCS_ONLY_SOURCE_BRANCH` | DIVERGED_FROM_MAIN (tree equal after squash) | `NO_MERGE_NEEDED` |
 | `governance/ttm-parallel-workstreams-review-20261109` (`94aaced34335`) | DOCUMENTATION_GOVERNANCE | `UNVERIFIED_BRANCH_SCIENCE_QA` | DIVERGED_FROM_MAIN | `NO_CODE_MERGE_AUTHORIZED` |
 | `governance/ttm-t6-postmerge-p07-p08-readiness-20261114` (`d023dd16f4c0`) | T6_P07_P08 | `T6_CLOSED_MERGED_SCOPED; P07_PAUSED; P08_NOT_OPENED` | DIVERGED_FROM_MAIN | `DOCS_PR_REVIEW_CANDIDATE_NOT_APPROVED` |
 | `implementation/ttm-six-g1-preexec-admission-candidate-20261109` (`51636a3187ed`) | SIX_TTM | `UNVERIFIED_BRANCH_SCIENCE_QA` | DIVERGED_FROM_MAIN | `NO_CODE_MERGE_AUTHORIZED` |

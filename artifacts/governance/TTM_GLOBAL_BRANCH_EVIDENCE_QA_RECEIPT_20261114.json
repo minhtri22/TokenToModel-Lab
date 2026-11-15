@@ -38,7 +38,14 @@
       "NO_CODE_MERGE_AUTHORIZED": 55,
       "NO_MERGE_NEEDED": 8,
       "DOCS_PR_REVIEW_CANDIDATE_NOT_APPROVED": 2
-    }
+    },
+    "source_pin_references": 27,
+    "unique_source_pin_git_blobs": 26,
+    "source_pin_duplicate_groups": 1,
+    "actual_ancestor_no_diff_branches": 6,
+    "squash_tree_equivalent_diverged_branches": 1,
+    "vm_r8_snapshot_stale_pin_observed": 1,
+    "evidence_dedup_note": "Counts of branch rows and science corroborations are different; T5 has two pointers to one source blob."
   },
   "source_pins": [
     {
@@ -183,7 +190,7 @@
       "branch": "research/ttm-small4m-prompt-adherence-continuation-design-20261111",
       "gate": "FRESH16_V2_FAIL_SCOPED_FROM_BRANCH_LINEAGE",
       "path": "lineage.md",
-      "blob_sha1": "9110d101601e6ebfb64d9804f370a90cb284420"
+      "blob_sha1": "9110d101601e6ebfb64d9804f3704a90cb284420"
     },
     {
       "branch": "research/ttm-small4m-prompt-conditioning-objective-design-20261110",
@@ -208,5 +215,59 @@
   "entry_L0029_append_only": true,
   "scientific_execution": false,
   "merge_code": false,
-  "decision": "PASS_SCOPED_GOVERNANCE_AUDIT__HOLD_ALL_NEW_CODE_MERGES_AND_SCIENCE_PERMITS"
+  "decision": "PASS_SCOPED_GOVERNANCE_AUDIT__HOLD_ALL_NEW_CODE_MERGES_AND_SCIENCE_PERMITS",
+  "source_pin_deduplication": {
+    "source_pin_references": 27,
+    "unique_git_blob_sha1": 26,
+    "duplicate_groups": [
+      {
+        "blob_sha1": "737ae1012a343319ba0f20fd4e62cc95c9aae612",
+        "branches": [
+          "archive/ttm-ollama-full-logits-scoped-20261111",
+          "research/ttm-t5-ollama-full-logits-20261111"
+        ],
+        "branch_references": 2,
+        "unique_source_artifacts": 1
+      }
+    ],
+    "science_independent_confirmation_count": "NOT_ESTABLISHED"
+  },
+  "branch_relation_correction": {
+    "branch": "governance/ttm-global-lineage-append-only-r1-closure-20261114",
+    "old_relation": "ANCESTOR_OF_MAIN_PR19_MERGED",
+    "actual_relation": "DIVERGED_FROM_MAIN",
+    "tree_equivalence_sha1": "7177eb04f806c2a51aa3d7dc3ab674928d081146",
+    "main_base": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+    "squash_merge": true
+  },
+  "branch_freshness_observation": {
+    "branch": "evidence/ttm-vm-v4-r8-g0-f01-f03-single-closure-20261114",
+    "pinned_head": "12540962e96caef34c587e7a8ba59d58fd09c5c4",
+    "observed_head": "8dec9438bff96922e5defd64550971c309d5b32f",
+    "observed_date": "2026-11-15",
+    "pinned_gate": "HOLD_INTEGRATED",
+    "new_head_review": "NOT_EXECUTED"
+  },
+  "remediation": {
+    "operation": "TTM_PR20_F01_F02_F03_F04_INTEGRATED_SOURCE_PIN_ANCESTRY_FRESHNESS_DEDUP_REMEDIATION",
+    "date": "2026-11-15",
+    "original_review_decision": "HOLD_PR20_SOURCE_QA_OR_GOVERNANCE_CONTRACT",
+    "reviewer_artifact_sha256_user_reported": {
+      "markdown": "b114cbdbd3a62624d71039cf0ea59de70bd1a3d71425f056b4daed03e714bc57",
+      "json": "16aa0b6e7c0152f570ca2d6851715040aa8542609cfcfa0b5f54fca5669bc6d2"
+    },
+    "reviewer_artifact_bytes_available": false,
+    "source_head_before": "cc665c8264df92ddaeeb0e0af7bd2cf0793be172",
+    "source_main": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+    "fixes": {
+      "F01": "PIN24_GIT_BLOB_CORRECTED_IN_INVENTORY_AND_RECEIPT",
+      "F02": "DIVERGED_ANCESTRY_AND_TREE_EQUIVALENCE_SEPARATED",
+      "F03": "VM_R8_SNAPSHOT_FRESHNESS_DISCLOSED_WITHOUT_REBIND",
+      "F04": "T5_TWO_BRANCH_ALIASES_ONE_SOURCE_ARTIFACT"
+    },
+    "author_validation": "SOURCE_SCOPED_PASS; DISTINCT_REVIEW_PENDING",
+    "science_execution": false,
+    "PR20": "DRAFT_HOLD",
+    "main": "UNCHANGED"
+  }
 }

@@ -42,7 +42,14 @@
       "NO_CODE_MERGE_AUTHORIZED": 55,
       "NO_MERGE_NEEDED": 8,
       "DOCS_PR_REVIEW_CANDIDATE_NOT_APPROVED": 2
-    }
+    },
+    "source_pin_references": 27,
+    "unique_source_pin_git_blobs": 26,
+    "source_pin_duplicate_groups": 1,
+    "actual_ancestor_no_diff_branches": 6,
+    "squash_tree_equivalent_diverged_branches": 1,
+    "vm_r8_snapshot_stale_pin_observed": 1,
+    "evidence_dedup_note": "Counts of branch rows and science corroborations are different; T5 has two pointers to one source blob."
   },
   "limitations": [
     "Exact HEAD and lineage readback is NOT independent rerun of QA, a result of science, or by itself a branch-specific formal adjudication.",
@@ -124,7 +131,16 @@
       "priority": "P1_REVIEW_FIRST",
       "merge_decision": "NO_CODE_MERGE_AUTHORIZED",
       "open_pr": null,
-      "science_execution_authorized": false
+      "science_execution_authorized": false,
+      "evidence_alias": {
+        "group_id": "T5_CUSTOM_OLLAMA_4_PROMPTS_737ae1012a34",
+        "source_git_blob_sha1": "737ae1012a343319ba0f20fd4e62cc95c9aae612",
+        "shared_head": "99ca9eee4114c8bf4b9b8521cc642bb71b054f05",
+        "role": "ALIAS_POINTER",
+        "branch_refs": 2,
+        "unique_source_artifacts": 1,
+        "independent_science_confirmations": "NOT_ESTABLISHED"
+      }
     },
     {
       "branch": "archive/ttm-t5-windows-f32-evidence-20261111",
@@ -340,7 +356,14 @@
       "priority": "P2_CONDITIONAL",
       "merge_decision": "NO_CODE_MERGE_AUTHORIZED",
       "open_pr": null,
-      "science_execution_authorized": false
+      "science_execution_authorized": false,
+      "freshness": {
+        "historical_snapshot_head": "12540962e96caef34c587e7a8ba59d58fd09c5c4",
+        "remote_head_observed_2026_11_15": "8dec9438bff96922e5defd64550971c309d5b32f",
+        "status": "PINNED_SNAPSHOT_NOT_CURRENT_HEAD",
+        "new_head_independent_review": "NOT_EXECUTED",
+        "pinned_gates_preserved": "G0_G1_G2_HOLD"
+      }
     },
     {
       "branch": "evidence/ttm-vm-v4-r8-v4-integrated-closure-20261114",
@@ -425,14 +448,23 @@
       "head_sha": "c6b3ec442eb7313851f05d53096d1588223a9d14",
       "family": "DOCUMENTATION_GOVERNANCE",
       "original_20261114_unverified": false,
-      "main_relation": "ANCESTOR_OF_MAIN_PR19_MERGED",
+      "main_relation": "DIVERGED_FROM_MAIN",
       "source_gate": "PR19_MERGED_DOCS_ONLY_SOURCE_BRANCH",
       "source_evidence_level": "POST_MERGE_HISTORY_ALREADY_IN_MAIN",
       "source_evidence": null,
       "priority": "P1_REVIEW_FIRST",
       "merge_decision": "NO_MERGE_NEEDED",
       "open_pr": null,
-      "science_execution_authorized": false
+      "science_execution_authorized": false,
+      "tree_equivalence": {
+        "status": "TREE_EQUAL_AFTER_SQUASH_MERGE_PR19",
+        "branch_tree_sha1": "7177eb04f806c2a51aa3d7dc3ab674928d081146",
+        "main_tree_sha1": "7177eb04f806c2a51aa3d7dc3ab674928d081146",
+        "base_main": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "commit_ancestry": "DIVERGED_FROM_MAIN",
+        "tree_equal_does_not_imply_ancestor": true
+      },
+      "merge_reason": "NO_CONTENT_DELTA_FROM_TREE_EQUIVALENCE; NOT_AN_ANCESTOR"
     },
     {
       "branch": "governance/ttm-parallel-workstreams-review-20261109",
@@ -896,7 +928,7 @@
       "source_evidence_level": "BRANCH_LINEAGE_PINNED",
       "source_evidence": {
         "path": "lineage.md",
-        "git_blob_sha1": "9110d101601e6ebfb64d9804f370a90cb284420",
+        "git_blob_sha1": "9110d101601e6ebfb64d9804f3704a90cb284420",
         "ref": "0ec28d44587fde9ad4acba8cccae65648e367181"
       },
       "priority": "P2_CONDITIONAL",
@@ -1002,7 +1034,16 @@
       "priority": "P1_REVIEW_FIRST",
       "merge_decision": "NO_CODE_MERGE_AUTHORIZED",
       "open_pr": null,
-      "science_execution_authorized": false
+      "science_execution_authorized": false,
+      "evidence_alias": {
+        "group_id": "T5_CUSTOM_OLLAMA_4_PROMPTS_737ae1012a34",
+        "source_git_blob_sha1": "737ae1012a343319ba0f20fd4e62cc95c9aae612",
+        "shared_head": "99ca9eee4114c8bf4b9b8521cc642bb71b054f05",
+        "role": "CANONICAL_POINTER",
+        "branch_refs": 2,
+        "unique_source_artifacts": 1,
+        "independent_science_confirmations": "NOT_ESTABLISHED"
+      }
     },
     {
       "branch": "research/ttm-vector-memory-architecture-20261111",
@@ -1092,5 +1133,27 @@
       "open_pr": null,
       "science_execution_authorized": false
     }
-  ]
+  ],
+  "remediation": {
+    "operation": "TTM_PR20_F01_F02_F03_F04_INTEGRATED_SOURCE_PIN_ANCESTRY_FRESHNESS_DEDUP_REMEDIATION",
+    "date": "2026-11-15",
+    "original_review_decision": "HOLD_PR20_SOURCE_QA_OR_GOVERNANCE_CONTRACT",
+    "reviewer_artifact_sha256_user_reported": {
+      "markdown": "b114cbdbd3a62624d71039cf0ea59de70bd1a3d71425f056b4daed03e714bc57",
+      "json": "16aa0b6e7c0152f570ca2d6851715040aa8542609cfcfa0b5f54fca5669bc6d2"
+    },
+    "reviewer_artifact_bytes_available": false,
+    "source_head_before": "cc665c8264df92ddaeeb0e0af7bd2cf0793be172",
+    "source_main": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+    "fixes": {
+      "F01": "PIN24_GIT_BLOB_CORRECTED_IN_INVENTORY_AND_RECEIPT",
+      "F02": "DIVERGED_ANCESTRY_AND_TREE_EQUIVALENCE_SEPARATED",
+      "F03": "VM_R8_SNAPSHOT_FRESHNESS_DISCLOSED_WITHOUT_REBIND",
+      "F04": "T5_TWO_BRANCH_ALIASES_ONE_SOURCE_ARTIFACT"
+    },
+    "author_validation": "SOURCE_SCOPED_PASS; DISTINCT_REVIEW_PENDING",
+    "science_execution": false,
+    "PR20": "DRAFT_HOLD",
+    "main": "UNCHANGED"
+  }
 }
