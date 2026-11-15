@@ -1,0 +1,248 @@
+{
+  "schema": "ttm.p0a.q1.amended_distinct_source_design_review.receipt.v1",
+  "operation": "TTM_P0A_MEASUREMENT_GOLD_INTEGRATED_REMEDIATION_EXACT_CANDIDATE_DISTINCT_REREVIEW_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pr": 22,
+  "pr_url": "https://github.com/minhtri22/TokenToModel-Lab/pull/22",
+  "reviewed_head": "a8fd21f35d56a87f869df673b318d437ed0c8b31",
+  "original_reviewed_head": "f3225f4f2cbc48ef15cdbc92cf5c050c78f4fa1a",
+  "baseline_main": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "scope": "READ_ONLY_SOURCE_DESIGN_NO_SCIENCE",
+  "reviewer": {
+    "role": "ChatGPT distinct read-only AI source reviewer",
+    "authored_current_commit": false,
+    "human_organizational_independence": "NOT_EXTERNALLY_ATTESTED",
+    "original_reviewer_raw_report_sha256": "NOT_VERIFIED_LOCAL_ONLY"
+  },
+  "overall_verdict": "PASS_Q1_DESIGN_SCOPE",
+  "finding_dispositions": [
+    {
+      "finding": "F-CONSTRUCT",
+      "verdict": "PASS_DESIGN_REMEDIATED",
+      "notes": "One LOCATED_AT family; separate admission and truth label; explicit UNKNOWN/missing witness/false exclusivity"
+    },
+    {
+      "finding": "F-PARITY",
+      "verdict": "PASS_DESIGN_REMEDIATED",
+      "notes": "Effective model prefix post truncation vs rater facts; planned receipts and veto; actual proof not captured"
+    },
+    {
+      "finding": "F-DECISION",
+      "verdict": "PASS_DESIGN_REMEDIATED",
+      "notes": "Distinct evidence for KEEP/SIMPLIFY/PIVOT/STOP/HOLD; PASS_DESIGN not KEEP"
+    }
+  ],
+  "independent_symbolic_challenges": [
+    {
+      "id": "N01",
+      "scenario": "Source lưu W; cửa sổ 256 token xóa W chỉ ở model; rater còn W",
+      "expected": "HOLD_PARITY_LOST_AFTER_TRUNCATION",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N02",
+      "scenario": "Model có W nhưng rater không có W",
+      "expected": "HOLD_PARITY",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N03",
+      "scenario": "Nhãn TRUE/FALSE có sẵn nhưng witness bắt buộc mất",
+      "expected": "REJECT_MISSING_WITNESS_NOT_UNKNOWN",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N04",
+      "scenario": "Triple hợp lệ, miền hiển thị hữu hạn/đầy đủ, không suy được TRUE/FALSE",
+      "expected": "UNKNOWN_VALID",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N05",
+      "scenario": "Thiếu reference_time_id hoặc referent không phân giải",
+      "expected": "REJECT_INVALID_SCHEMA_OR_REFERENT",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N06",
+      "scenario": "Địa điểm khác được nhắc tới nhưng không có tiên đề duy nhất/loại trừ",
+      "expected": "UNKNOWN_VALID_IF_COMPLETE_NOT_FALSE",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N07",
+      "scenario": "Hai chứng cứ có thẩm quyền thực sự bất tương thích tại cùng thời điểm",
+      "expected": "REJECT_CONFLICTING_AUTHORITY",
+      "verdict": "PASS_WITH_AXIOM_CAUTION"
+    },
+    {
+      "id": "N08",
+      "scenario": "Cặp phản chứng thay đổi đồng thời location và time; có yêu cầu causal contrast",
+      "expected": "HOLD_AD06_IF_CAUSAL_CONTRAST",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N09",
+      "scenario": "Chưa xác minh quyền nguồn trước truy cập nội dung",
+      "expected": "HOLD_RIGHTS",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N10",
+      "scenario": "Hai người chấm độc lập trên cùng task bất đồng chưa phân xử",
+      "expected": "HOLD_RATER_COMPETENCE",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N11",
+      "scenario": "Yêu cầu chạy model khi Q chưa đăng ký/owner chưa cho phép",
+      "expected": "NO_MODEL_RUN",
+      "verdict": "PASS_LOGICAL"
+    },
+    {
+      "id": "N12",
+      "scenario": "Gold chỉ có trong E_core kín; rater không thấy witness",
+      "expected": "REJECT_MISSING_WITNESS",
+      "verdict": "PASS_LOGICAL"
+    }
+  ],
+  "additional_adversarial_checks": [
+    {
+      "id": "X13",
+      "scenario": "Model và rater cùng thấy W khẳng định; rater còn thấy chứng cứ phản bác mà model không thấy",
+      "expected": "HOLD_EVIDENCE_PARITY; witness equality alone is insufficient",
+      "source_sufficient": "Semantic information-budget equality is required by amended contract line 27; per-item audit remains NOT_VERIFIED",
+      "severity": "FOLLOWUP_BEFORE_FIXTURE_FREEZE"
+    },
+    {
+      "id": "X14",
+      "scenario": "Entity xuất hiện tại hai địa điểm cùng thời gian nhưng không có tiên đề địa điểm là duy nhất",
+      "expected": "Cannot classify conflict or FALSE solely from different places; UNKNOWN_VALID only if complete, else HOLD",
+      "source_sufficient": "False/exclusivity rule line 17; N06 line 60",
+      "severity": "FOLLOWUP_BEFORE_AUTHORING"
+    },
+    {
+      "id": "X15",
+      "scenario": "Author TRUE, witness W biến mất trong model vì truncation, rater vẫn có W",
+      "expected": "Gate HOLD_PARITY_LOST_AFTER_TRUNCATION and item REJECT_PARITY/REJECT_MISSING_WITNESS per specified precedence, NEVER UNKNOWN",
+      "source_sufficient": "The contract defines veto and reject but implementation-level precedence not yet encoded",
+      "severity": "FOLLOWUP_BEFORE_FIXTURE_FREEZE"
+    },
+    {
+      "id": "X16",
+      "scenario": "Nguồn/quyền/gold/rater/threshold chưa verified nhưng syntax Q1 design coherent",
+      "expected": "PASS_Q1_DESIGN_SCOPE may coexist with HOLD for authoring/science/benchmark",
+      "source_sufficient": "Explicit separation Q1 design vs future gold validity lines 37–49",
+      "severity": "NO_ISSUE"
+    }
+  ],
+  "source_integrity": {
+    "commit_delta_from_prior": "ahead_by=1 behind_by=0; direct child",
+    "modified_files": 2,
+    "added_files": 3,
+    "unchanged_prior_pr_files": 5,
+    "lineage_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "active_research_gate_sha1": "ad01aecdde99e17653b4e111325bed0b05cc8be2",
+    "all_10_git_blob_sha1_recomputed_and_matched": true,
+    "hash_method": "GitHub fetch_file base64 exact ref; raw byte decode; Git blob SHA-1 reconstructed; raw SHA-256 computed",
+    "manifest": [
+      {
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_MEASUREMENT_GOLD_PROSPECTIVE_QUESTION_CANDIDATE_20261115.md",
+        "git_blob_sha1_verified": "22f7382dc7a76f3cbcbe695d700cb9111c246f60",
+        "raw_sha256_verified": "8afeaddb0cb17361c4a9ab4fa90e80321551db02aaf986dbc40f8ffc9169c28d",
+        "bytes": 14032
+      },
+      {
+        "path": "artifacts/governance/ttm-post-q001/TTM_P0A_OWNER_SELECTION_AND_SOURCE_ONLY_DESIGN_CONTRACT_20261115.json",
+        "git_blob_sha1_verified": "24c35ec70236fa64ff14488bf32189c81782faa6",
+        "raw_sha256_verified": "9245aabb4e53a588adfb5d973ab816c25e71e0e82f67254b23d01f897f69f0a4",
+        "bytes": 15431
+      },
+      {
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_Q1_INTEGRATED_HOLD_REMEDIATION_SOURCE_CONTRACT_20261115.md",
+        "git_blob_sha1_verified": "6ab78594e1aee776cae81bba191e84d8cc39966c",
+        "raw_sha256_verified": "20f4440d9ee1ab0dcb0bbffaa08b13e6a98c165c28ddde6fa9fcd0e87ced03df",
+        "bytes": 9638
+      },
+      {
+        "path": "artifacts/governance/ttm-post-q001/TTM_P0A_Q1_INTEGRATED_HOLD_REMEDIATION_AUTHOR_QA_RECEIPT_20261115.json",
+        "git_blob_sha1_verified": "b6fdbc46b2241df6203ebb62f9a2e073db090655",
+        "raw_sha256_verified": "683cc8abddc743c5e856a3490eaf483d2becfe1de5100351bf26c59c07ac900d",
+        "bytes": 10899
+      },
+      {
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_Q1_EXACT_AMENDED_DISTINCT_REREVIEW_HANDOFF_20261115.md",
+        "git_blob_sha1_verified": "ebb18886a9de9ae8779d08e4770662a35248e25b",
+        "raw_sha256_verified": "618b2d1d07fed7b5d0a75d983db9e383903a8c6b7653497f53a3e52b492bea08",
+        "bytes": 7777
+      },
+      {
+        "path": "artifacts/governance/ttm-post-q001/TTM_P0A_SELECTION_AND_DESIGN_AUTHOR_QA_RECEIPT_20261115.json",
+        "git_blob_sha1_verified": "d5170037048a33f3353a4c61472d01f88aadfc2d",
+        "raw_sha256_verified": "2daafdcecd4deb975a499fa6c6462cae6761265f9250282708e405a3ad91c8c7",
+        "bytes": 6357
+      },
+      {
+        "path": "artifacts/governance/ttm-post-q001/TTM_POST_Q001_RESEARCH_DIRECTION_PRIORITY_MATRIX_20261115.json",
+        "git_blob_sha1_verified": "2118dbb5a2b2cf86e59285d88ff1a2b76f309f80",
+        "raw_sha256_verified": "f83f43612f85d67e650215fe9c98f4e342d2abadd6aa7ee6f31ae82d88340490",
+        "bytes": 15942
+      },
+      {
+        "path": "artifacts/governance/ttm-post-q001/TTM_POST_Q001_SOURCE_ONLY_AUTHOR_QA_RECEIPT_20261115.json",
+        "git_blob_sha1_verified": "a8810baaa29a1a81b97ca8c65d6116f2c5390db0",
+        "raw_sha256_verified": "47f1c2e96ebfafb4b17759a1c3d10c7576e4811cf8175fddbade3196804c1ed6",
+        "bytes": 4267
+      },
+      {
+        "path": "docs/governance/ttm-post-q001/TTM_POST_Q001_P0A_OWNER_SELECTION_AND_PRIORITY_DEPENDENCY_LOCK_20261115.md",
+        "git_blob_sha1_verified": "7ccc41b30743a44c5427368212db1e88197d3006",
+        "raw_sha256_verified": "3a1eb3996f50bd6109cc94b36d0b94cadaa7ecada58eff4a29ea16a7b6b59065",
+        "bytes": 4987
+      },
+      {
+        "path": "docs/governance/ttm-post-q001/TTM_POST_Q001_RESEARCH_DIRECTION_PRIORITY_MATRIX_20261115.md",
+        "git_blob_sha1_verified": "c8da20ffa47eaebafa0c4f6cc1e710f5cdffe167",
+        "raw_sha256_verified": "5f2dc6f680a7b43431c5125c3a4dc9d81b71c50fda1d7c7315ba185162c618c1",
+        "bytes": 14290
+      }
+    ]
+  },
+  "author_qa": {
+    "declared_pass": 85,
+    "independently_counted_pass": 85,
+    "distinct_check_ids": 85,
+    "scope": "AUTHOR_SOURCE_SCHEMA_SYMBOLIC_ONLY"
+  },
+  "residual_status": {
+    "benchmark_gold": "NOT_VALIDATED",
+    "source_rights": "NOT_VERIFIED",
+    "item_level_gold": "NOT_VALIDATED",
+    "actual_parity_receipts": "NOT_CAPTURED",
+    "same_task_rater": "NOT_CALIBRATED",
+    "threshold_and_sample_size": "NOT_FROZEN",
+    "checkpoint_custody": "NOT_VERIFIED",
+    "q1_registered": false,
+    "science_authorized": false,
+    "gold_authoring_authorized": false,
+    "scorer_authorized": false,
+    "test_final_status": "SEALED",
+    "pr22_merged": false
+  },
+  "no_automatic_authorization": [
+    "Q1_REGISTRATION",
+    "GOLD_AUTHORING",
+    "SOURCE_ACCESS",
+    "SCIENCE_EXECUTION",
+    "MODEL_RUN",
+    "SCORER_CREATION",
+    "NEW_RESEARCH_BRANCH",
+    "PR22_MERGE",
+    "LINEAGE_EDIT",
+    "MICRO_PERMITS"
+  ],
+  "review_markdown_path": "TTM_P0A_Q1_AMENDED_DISTINCT_REVIEW_20261115.md",
+  "review_markdown_raw_sha256": "755efd1b49385a996ae03d2d264897576c91df3dbbe8d890046fb0765dea01a4",
+  "next_single_step": "TTM_P0A_Q1_OWNER_DESIGN_PASS_REASSESSMENT_AND_REGISTRATION_DECISION_SINGLE_GATE"
+}
