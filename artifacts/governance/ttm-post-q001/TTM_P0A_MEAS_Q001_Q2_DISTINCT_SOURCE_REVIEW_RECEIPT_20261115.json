@@ -1,0 +1,424 @@
+{
+  "schema": "ttm.p0a.meas.q2.independent_source_review_receipt.v1",
+  "operation": "TTM_P0A_MEAS_Q2_EXACT_SOURCE_DISTINCT_REVIEW_AND_OWNER_ADMISSION_SINGLE_GATE",
+  "created_date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "mode": [
+    "READ_ONLY",
+    "SOURCE_ONLY",
+    "DESIGN_ONLY",
+    "INDEPENDENT_FROM_Q2_AUTHOR"
+  ],
+  "reviewer": "ChatGPT_distinct_AI_reviewer",
+  "reviewer_organizational_or_human_independence": "NOT_EXTERNALLY_ATTESTED",
+  "candidate_head_exact": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+  "base_main_exact": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+  "candidate_parent_exact": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+  "pr": {
+    "number": 23,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "branch": "governance/ttm-p0a-meas-q2-source-only-20261115",
+    "head_sha_rechecked": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+    "base_sha_rechecked": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+    "live_main_sha_rechecked": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+    "changes": {
+      "added": 4,
+      "modified": 0,
+      "deleted": 0,
+      "ahead_by": 1,
+      "behind_by": 0
+    }
+  },
+  "source_verification": {
+    "algorithm_self_test_sha256_abc": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "algorithm_self_test_sha1_abc": "a9993e364706816aba3e25717850c26c9cd0d89d",
+    "method": "GitHub connector fetch_file(encoding=base64) at exact ref, decode raw byte array, recompute Git blob SHA-1 and raw SHA-256",
+    "verified_count": 9,
+    "mismatched_count": 0,
+    "transport_independence": "NOT_CROSS_VERIFIED_OUTSIDE_GITHUB_CONNECTOR",
+    "files": [
+      {
+        "key": "q2_report",
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_REVIEW_20261115.md",
+        "ref": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+        "git_blob_sha1": "f05223a3aa8724054fcd7e4e0b2a87392a2cf789",
+        "raw_sha256": "4005c0c7a7c560fa2c4f56ba07e868c3bd23444db43e6b798a9e675e9320eae7",
+        "raw_bytes": 19744,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "q2_matrix",
+        "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_MECHANISM_DISCRIMINATION_AND_ADMISSION_MATRIX_20261115.json",
+        "ref": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+        "git_blob_sha1": "3591c22c0ae552a5a1e054fa29c2254a19701103",
+        "raw_sha256": "2015c37bf3330ff6edd4211292ecc2851a810a5ea0f63025bd1b908def4ad8cf",
+        "raw_bytes": 19367,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "q2_author_qa",
+        "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_AUTHOR_SOURCE_ONLY_QA_RECEIPT_20261115.json",
+        "ref": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+        "git_blob_sha1": "3d68334600f863d1efb809fb85f5c07104b42f55",
+        "raw_sha256": "6d6b49a276b82ce92d6f2e972beb39c0d42790e3866b1d25a5b8094948bb2069",
+        "raw_bytes": 11179,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "q2_handoff",
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_EXACT_SOURCE_DISTINCT_REVIEW_HANDOFF_20261115.md",
+        "ref": "8bf0601c716b5f6395e3b758ee066ff41c9a554d",
+        "git_blob_sha1": "5dfb910ad4bfa65911bcf2ea3534723d6aea5e64",
+        "raw_sha256": "563cfe1887ed0913df54b4742e5715aed39570c46a675a7bd81f5a0064b1dff1",
+        "raw_bytes": 7867,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "q1_registered",
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_REGISTERED_QUESTION_GATE_20261115.md",
+        "ref": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+        "git_blob_sha1": "6b29c962b48c4134c925935409433d4ae2804110",
+        "raw_sha256": "60ff7e43d5ae9b75a0b93d01a168bbc4aff48fc9d21ef0c5cd66ff8c962e9141",
+        "raw_bytes": 15676,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "active_gate",
+        "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+        "ref": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+        "git_blob_sha1": "288d4cd2c84315705e7ea06e45c246b6f3d67496",
+        "raw_sha256": "270919c4685cdfe1014142ed19635fb5cea1944d6009b2a7501d0ec95f6d54c9",
+        "raw_bytes": 7289,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "policy",
+        "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+        "ref": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+        "git_blob_sha1": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+        "raw_sha256": "a570b972d795ee25d572f466426d59cc746183fa620e2ed294484c68560b9df5",
+        "raw_bytes": 15342,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "q1_independent",
+        "path": "docs/governance/ttm-post-q001/TTM_P0A_Q1_AMENDED_DISTINCT_REVIEW_20261115.md",
+        "ref": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+        "git_blob_sha1": "38d009fa3cdc36db847565520307a8ff05d4c8c3",
+        "raw_sha256": "755efd1b49385a996ae03d2d264897576c91df3dbbe8d890046fb0765dea01a4",
+        "raw_bytes": 14001,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      },
+      {
+        "key": "lineage",
+        "path": "lineage.md",
+        "ref": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+        "git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+        "raw_sha256": "53bf28e79964001a91e5084fb8ecea1fabb6e0aa0b8eb48150fd3721dbfc2e0c",
+        "raw_bytes": 61725,
+        "verification": "RECOMPUTED_SHA1_AND_SHA256_FROM_GITHUB_CONNECTOR_BASE64"
+      }
+    ]
+  },
+  "author_QA": {
+    "declared_tests": 98,
+    "all_pass": 98,
+    "unique_ids": true,
+    "type": "AUTHOR_STATIC_SOURCE_SYMBOLIC_ONLY",
+    "is_independent": false
+  },
+  "independent_source_checks": {
+    "count": 20,
+    "checks": [
+      {
+        "id": "ID01",
+        "name": "exact_candidate_40_hex_and_commit",
+        "result": "PASS"
+      },
+      {
+        "id": "ID02",
+        "name": "single_parent_is_pinned_main",
+        "result": "PASS"
+      },
+      {
+        "id": "ID03",
+        "name": "compare_one_commit_ahead_zero_behind",
+        "result": "PASS"
+      },
+      {
+        "id": "ID04",
+        "name": "four_added_only",
+        "result": "PASS"
+      },
+      {
+        "id": "ID05",
+        "name": "protected_governance_active_q1_lineage_implementation_untouched",
+        "result": "PASS"
+      },
+      {
+        "id": "ID06",
+        "name": "pr23_draft_open_unchanged_head_rechecked",
+        "result": "PASS"
+      },
+      {
+        "id": "ID07",
+        "name": "live_main_equals_pinned_main_rechecked",
+        "result": "PASS"
+      },
+      {
+        "id": "BYTE08",
+        "name": "four_new_blobs_and_sha256_verified",
+        "result": "PASS"
+      },
+      {
+        "id": "BYTE09",
+        "name": "five_normative_blobs_and_sha256_verified",
+        "result": "PASS"
+      },
+      {
+        "id": "Q1_10",
+        "name": "q1_single_located_at_family_registered",
+        "result": "PASS"
+      },
+      {
+        "id": "Q1_11",
+        "name": "q1_truth_vs_reject_distinct",
+        "result": "PASS"
+      },
+      {
+        "id": "Q2_12",
+        "name": "five_unique_mechanisms_and_nonexclusive_confounds",
+        "result": "PASS"
+      },
+      {
+        "id": "Q2_13",
+        "name": "five_unique_options_and_hard_veto",
+        "result": "PASS"
+      },
+      {
+        "id": "Q2_14",
+        "name": "six_minimum_evidence_categories",
+        "result": "PASS"
+      },
+      {
+        "id": "Q2_15",
+        "name": "N01_N12_X13_X16_16_unique_symbolic_cases",
+        "result": "PASS_LOGICAL_ONLY"
+      },
+      {
+        "id": "QA16",
+        "name": "98_unique_author_tests_all_report_pass_not_independent",
+        "result": "PASS_SOURCE_RECORD"
+      },
+      {
+        "id": "AD17",
+        "name": "rights_model_rater_threshold_status_not_falsely_upgraded",
+        "result": "PASS"
+      },
+      {
+        "id": "AD18",
+        "name": "timing_stages_explicit_but_requires_forward_AD01R_AD02_separation",
+        "result": "PASS_WITH_FORWARD_FINDING"
+      },
+      {
+        "id": "SCI19",
+        "name": "no_q3_q4_science_runner_dataset_or_gold_pass_claim",
+        "result": "PASS"
+      },
+      {
+        "id": "IND20",
+        "name": "independent_adversarial_X17_X21_review_performed",
+        "result": "PASS"
+      }
+    ]
+  },
+  "scope": {
+    "family": "LOCATED_AT(entity_id,location_id,reference_time_id)",
+    "eligible_truth_labels": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN"
+    ],
+    "admission_codes_separate": true,
+    "unknown_valid_requires_complete_bounded_source": true,
+    "false_requires_visible_negation_or_exclusivity": true
+  },
+  "mechanism_dispositions": {
+    "M0_VISIBLE_CONSTRUCT": "PASS_PAPER_NECESSARY_HYPOTHESIS_NOT_EMPIRICAL; X17_SAMPLE_COVERAGE_VETO",
+    "M1_HIDDEN_ONLY": "TESTABLE_UNVERIFIED; SOURCE_GOLD_ORACLE_PROVENANCE_AND_TRUNCATION_SEPARATION",
+    "M2_AMBIGUITY": "TESTABLE_UNVERIFIED; COMPLETE_SOURCE_VS_VALID_UNKNOWN_AND_EXCLUSIVE_AXIOM",
+    "M3_SHORTCUT": "TESTABLE_NOT_EXECUTED; FACT_ONLY_CUE_ONLY_BALANCED_DISJOINT_CONTRAST",
+    "M4_RATER": "TESTABLE_NOT_CALIBRATED; AGREEMENT_NOT_CORRECTNESS"
+  },
+  "options_current_dispositions": {
+    "KEEP": "NOT_JUSTIFIED_ACTUAL_RIGHTS_GOLD_PARITY_RATER_THRESHOLDS_MISSING",
+    "SIMPLIFY": "NOT_JUSTIFIED_NO_PREOUTCOME_LOCALIZABLE_FAILURE",
+    "PIVOT": "NOT_JUSTIFIED_NO_PROVEN_FAILURE_OR_LAWFUL_ALTERNATE_ORACLE_NEW_Q",
+    "STOP": "NOT_JUSTIFIED_NO_IRREVERSIBLE_PROOF",
+    "HOLD_EVIDENCE_INSUFFICIENT": "CURRENT_DEFAULT_FOR_EMPIRICAL_ADMISSION_NOT_Q2_DESIGN_VERDICT"
+  },
+  "minimum_evidence": {
+    "E0_RIGHTS": "NOT_VERIFIED",
+    "E1_CONSTRUCT": "NOT_AUTHORED_OR_VERIFIED",
+    "E2_EFFECTIVE_VIEWS": "NOT_CAPTURED",
+    "E3_SHORTCUT_CONTRAST": "NOT_EXECUTED",
+    "E4_RATER_AGREEMENT": "NOT_EXECUTED",
+    "E5_PREREG": "NOT_FROZEN"
+  },
+  "negative_contracts": {
+    "source_ids": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N06",
+      "N07",
+      "N08",
+      "N09",
+      "N10",
+      "N11",
+      "N12",
+      "X13",
+      "X14",
+      "X15",
+      "X16"
+    ],
+    "source_reviewer_verdict": "PASS_LOGICAL_ONLY_NOT_RUNTIME",
+    "additional_reviewer_counterexamples": [
+      "X17_ELIGIBLE_SELECTION_COLLAPSE",
+      "X18_RATER_COMMON_MODE_ERROR",
+      "X19_TEMPORAL_SOURCE_INCOMPLETENESS",
+      "X20_ACCESS_AUTHORITY_CIRCULARITY",
+      "X21_REJECT_MULTIREASON_PRECEDENCE"
+    ]
+  },
+  "hard_vetos": [
+    {
+      "code": "AD-01R",
+      "before": "SOURCE_ACCESS",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "AD-02/03/05",
+      "before": "PRODUCTION_AUTHORING",
+      "condition": "AFTER_LAWFUL_LIMITED_FEASIBILITY_READ_ONLY_INSPECTION",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "AD-06",
+      "before": "CAUSAL_PAIR_AUTHORING",
+      "condition": "IF_PAIRED_CAUSAL_CONTRAST",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "code": "AD-01T",
+      "before": "FIXTURE_FREEZE",
+      "condition": "IF_TOKEN_SENSITIVE",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "AD-07/X13/X15",
+      "before": "FIXTURE_FREEZE",
+      "status": "NOT_FROZEN_OR_CAPTURED"
+    },
+    {
+      "code": "AD-00/AD-01C",
+      "before": "MODEL_EXECUTION",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "AD-04",
+      "before": "SCORING",
+      "status": "NOT_CALIBRATED"
+    },
+    {
+      "code": "Q4_OWNER_GO_AND_SEPARATE_PERMIT",
+      "before": "MODEL_EXECUTION",
+      "status": "NOT_AUTHORIZED"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-H01",
+      "severity": "HIGH",
+      "impact": "FORWARD_PROSPECTIVE_VETO_NOT_Q2_PAPER_BLOCKER",
+      "finding": "eligibility_censoring_and_unfrozen_coverage_rejection_denominator",
+      "anchor": "Q2_report:L28,L55,L59;Q1:L64-L66"
+    },
+    {
+      "id": "F-M01",
+      "severity": "MEDIUM",
+      "impact": "FORWARD_CLARIFICATION",
+      "finding": "source_access_vs_production_authoring_stage_conflation",
+      "anchor": "Q2_report:L69-L73;Q1:L70-L74"
+    },
+    {
+      "id": "F-M02",
+      "severity": "MEDIUM",
+      "impact": "FORWARD_RATER_VALIDITY",
+      "finding": "agreement_not_accuracy_common_mode_ontology_error",
+      "anchor": "Q2_report:L32,L58,L73"
+    },
+    {
+      "id": "F-M03",
+      "severity": "MEDIUM",
+      "impact": "FORWARD_CAUSAL_PROVENANCE",
+      "finding": "public_witness_not_sufficient_proof_hidden_gold_unused",
+      "anchor": "Q2_report:L29,L56"
+    },
+    {
+      "id": "F-M04",
+      "severity": "MEDIUM",
+      "impact": "FORWARD_CAUSAL_IDENTIFICATION",
+      "finding": "fact_only_cue_only_contrast_nuisance_balance",
+      "anchor": "Q2_report:L31,L57,L70-L71"
+    },
+    {
+      "id": "F-L01",
+      "severity": "LOW",
+      "impact": "DOCUMENTARY",
+      "finding": "typo_and_precedence_pending_implementation",
+      "anchor": "Q2_report:L57,L99-L102"
+    }
+  ],
+  "overall_review_verdict": "PASS_Q2_SOURCE_DESIGN_SCOPED",
+  "owner_decision": "PENDING_HUMAN_OWNER",
+  "owner_recommendation": "GO_ACCEPT_Q2_SOURCE_ONLY",
+  "recommended_Q2_acceptance_permits_science": false,
+  "next_step": "TTM_P0A_MEAS_Q2_OWNER_ADMISSION_AND_PR23_GOVERNANCE_CLOSURE_SINGLE_GATE",
+  "actual_admission": {
+    "rights": "HOLD_NOT_VERIFIED",
+    "dataset": "NOT_AUTHORED",
+    "gold": "NOT_VALIDATED",
+    "scorer": "NOT_AUTHORIZED",
+    "rater": "NOT_CALIBRATED",
+    "full_material_parity": "NOT_CAPTURED",
+    "threshold": "NOT_FROZEN",
+    "checkpoint": "NOT_VERIFIED",
+    "q3": "NOT_EXECUTED",
+    "q4": "NOT_DECIDED",
+    "scientific_execution": "NOT_EXECUTED",
+    "science": "HOLD",
+    "f0_f2": "PAUSED",
+    "lineage": "UNCHANGED",
+    "pr_merge": "NOT_EXECUTED"
+  },
+  "files_created_locally_only": true,
+  "github_mutations": false,
+  "local_review_document": {
+    "filename": "TTM_P0A_MEAS_Q001_Q2_DISTINCT_SOURCE_REVIEW_20261115.md",
+    "bytes": 24111,
+    "sha256": "5a0d721770739c39f6e46d6e8ee059679d4e02eddc3967c3b2691ceafa4ddae2"
+  },
+  "limitations": [
+    "No independent legal/rights attestation",
+    "No new private source/item or effective runtime bytes inspected",
+    "No model/scorer/rater/calibration executed",
+    "No external organizational independence attested",
+    "No read-only finding implies authoring/implementation permit"
+  ]
+}
