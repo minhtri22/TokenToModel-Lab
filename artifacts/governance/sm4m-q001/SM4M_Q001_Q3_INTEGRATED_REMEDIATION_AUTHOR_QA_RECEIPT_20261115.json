@@ -1,0 +1,291 @@
+{
+  "schema": "ttm.sm4m.q001.q3.integrated_remediation.author_qa.v1",
+  "operation": "SM4M_Q001_Q3_INTEGRATED_GOVERNANCE_AND_ADMISSION_SEQUENCING_REMEDIATION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "original_candidate_head": "3c53d062c7c6ff4218d80177253dd1c061ac6362",
+  "mode": "AUTHOR_SOURCE_ONLY_AND_SYMBOLIC_NEGATIVE_QA",
+  "file_blobs": {
+    "matrixOrig": "b7e87dbdd31c6624387f9943d7ff7db8efa8663a",
+    "matrixV2": "10d901906c24ca4a0bc93827e45982390cc18ae5",
+    "litOrig": "380582a4f1260dfda28d39e0cb56be2fc02709c5",
+    "litV2": "cbe529125d158c535c568fbed7bcffbdc8819cca",
+    "activeV2": "e3e096d43e2c042b2d542bcf4383d52e1328c1c2",
+    "amendment": "735861c41c4ab793a8af385779a22ae0284976e1",
+    "handoff": "0f74300f920cdb78a2369345825b651ea1e23223",
+    "q3OriginalReport": "0b85f84cfd17ff0612291706c5d0fa36d86800c7",
+    "q3Intake": "c9adc573af5c3417a3f09d80a4d456bca4d0c818"
+  },
+  "tests": [
+    {
+      "name": "v2 original blob pinned",
+      "pass": true
+    },
+    {
+      "name": "v2 revision schema",
+      "pass": true
+    },
+    {
+      "name": "10 study rows unchanged",
+      "pass": true
+    },
+    {
+      "name": "7 hypothesis rows unchanged",
+      "pass": true
+    },
+    {
+      "name": "9 admission statuses unchanged",
+      "pass": true
+    },
+    {
+      "name": "original source pins unchanged",
+      "pass": true
+    },
+    {
+      "name": "historical Q2 original verdict unchanged",
+      "pass": true
+    },
+    {
+      "name": "Q3 amendment not miscast as independent PASS",
+      "pass": true
+    },
+    {
+      "name": "AD-03 at authoring",
+      "pass": true
+    },
+    {
+      "name": "AD-06 at authoring",
+      "pass": true
+    },
+    {
+      "name": "AD-03 at freeze",
+      "pass": true
+    },
+    {
+      "name": "AD-06 at freeze",
+      "pass": true
+    },
+    {
+      "name": "AD-03 scoring recheck",
+      "pass": true
+    },
+    {
+      "name": "AD-06 scoring recheck",
+      "pass": true
+    },
+    {
+      "name": "first eligibility never scoring",
+      "pass": true
+    },
+    {
+      "name": "AD-01R before actual access",
+      "pass": true
+    },
+    {
+      "name": "AD-01T before tokens freeze",
+      "pass": true
+    },
+    {
+      "name": "AD-01C before model execution",
+      "pass": true
+    },
+    {
+      "name": "subconditions remain unverified",
+      "pass": true
+    },
+    {
+      "name": "private checkpoint not needed for abstract design",
+      "pass": true
+    },
+    {
+      "name": "rights conditional but never waived",
+      "pass": true
+    },
+    {
+      "name": "hidden-only gold not allowed",
+      "pass": true
+    },
+    {
+      "name": "AD08 no Q4 or science PASS",
+      "pass": true
+    },
+    {
+      "name": "active exactly one step",
+      "pass": true
+    },
+    {
+      "name": "active no stale Q2",
+      "pass": true
+    },
+    {
+      "name": "active no stale Q3",
+      "pass": true
+    },
+    {
+      "name": "active explicit Q3 HOLD",
+      "pass": true
+    },
+    {
+      "name": "active Q4 undecided",
+      "pass": true
+    },
+    {
+      "name": "active main sync BLOCKED",
+      "pass": true
+    },
+    {
+      "name": "active lineage unchanged",
+      "pass": true
+    },
+    {
+      "name": "active no new research authorization",
+      "pass": true
+    },
+    {
+      "name": "active one gate SM4M Q001",
+      "pass": true
+    },
+    {
+      "name": "original literature unchanged",
+      "pass": true
+    },
+    {
+      "name": "corrected literature P05",
+      "pass": true
+    },
+    {
+      "name": "amendment all 4 findings",
+      "pass": true
+    },
+    {
+      "name": "amendment explicitly no ZIP archive",
+      "pass": true
+    },
+    {
+      "name": "Q3 report exact verdict",
+      "pass": true
+    },
+    {
+      "name": "Q3 receipt original sha correctly recorded",
+      "pass": true
+    },
+    {
+      "name": "Q3 receipt ZIP NOT falsely archived",
+      "pass": true
+    },
+    {
+      "name": "Q3 report blob pinned",
+      "pass": true
+    },
+    {
+      "name": "handoff readback requires full exact HEAD",
+      "pass": true
+    },
+    {
+      "name": "handoff artifact links corrected",
+      "pass": true
+    },
+    {
+      "name": "handoff old Q3 candidate pinned",
+      "pass": true
+    },
+    {
+      "name": "handoff Q4 still owner controlled",
+      "pass": true
+    },
+    {
+      "name": "new science HOLD",
+      "pass": true
+    },
+    {
+      "name": "root cause not identified",
+      "pass": true
+    },
+    {
+      "name": "F0 F2 not authorized",
+      "pass": true
+    },
+    {
+      "name": "NEG hidden gold before authoring",
+      "pass": true
+    },
+    {
+      "name": "NEG missing pair before authoring",
+      "pass": true
+    },
+    {
+      "name": "NEG unapproved rights before content authoring",
+      "pass": true
+    },
+    {
+      "name": "NEG owner not granted before production authoring",
+      "pass": true
+    },
+    {
+      "name": "NEG visible witness missing before item freeze",
+      "pass": true
+    },
+    {
+      "name": "NEG one-fact change missing before freeze",
+      "pass": true
+    },
+    {
+      "name": "NEG tokenizer parity missing before fixture freeze",
+      "pass": true
+    },
+    {
+      "name": "NEG metric prereg missing before fixture freeze",
+      "pass": true
+    },
+    {
+      "name": "NEG checkpoint custody missing blocks model execution",
+      "pass": true
+    },
+    {
+      "name": "NEG no science permit blocks model execution",
+      "pass": true
+    },
+    {
+      "name": "NEG independent gold/rater missing blocks scoring",
+      "pass": true
+    },
+    {
+      "name": "NEG rater packet mismatch blocks scoring",
+      "pass": true
+    },
+    {
+      "name": "POS all hypothetical future guards satisfied",
+      "pass": true
+    }
+  ],
+  "pass_count": 60,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_Q3_REMEDIATION_SCOPED_ONLY",
+  "independent_q3_rereview": "NOT_EXECUTED",
+  "prior_independent_q3": "HOLD_Q3_REMEDIATION",
+  "root_cause_identified": false,
+  "new_science_admission": "HOLD",
+  "owner_q4": "NOT_DECIDED",
+  "science_executed": false,
+  "gpu_executed": false,
+  "model_inference_executed": false,
+  "training_executed": false,
+  "production_authoring_executed": false,
+  "new_gold_created": false,
+  "scorer_created": false,
+  "code_modified": false,
+  "lineage_modified": false,
+  "new_research_branch_created": false,
+  "pr21_merged": false,
+  "original_q2_seven_files_byte_preserved": true,
+  "original_q3_report_sha256": "e619ea9460abd112ab32016e7644c273a6cce2d20044fe8bd0e129d18d820680",
+  "original_q3_receipt_sha256": "529490652a7f140153292ec090496c1b5deec8ca36f54b25aa5b63c98cbd08ba",
+  "original_q3_receipt_zip_on_github": false,
+  "previous_oracle_revision": "Earlier source-only 65 assertions had one false negative matching exact English wording instead of meaning. Corrected in this complete re-run; no prior failing run counted as PASS.",
+  "limitations": [
+    "Author checks are static/symbolic tests, not independent review or admission",
+    "Exact Q3 receipt ZIP remains user-provided, not GitHub-archived byte-exact",
+    "No private model, gold, TRAIN/VAL/TEST or experiment run"
+  ],
+  "next_single_step": "SM4M_Q001_Q3_EXACT_AMENDED_CANDIDATE_DISTINCT_READBACK_AND_REREVIEW_SINGLE_GATE"
+}

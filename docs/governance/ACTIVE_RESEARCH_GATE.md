@@ -1,61 +1,52 @@
-# TTM — Trạng thái nghiên cứu hiện hành trên main (Active Research Gate)
+# TTM — Active Research Gate (trạng thái quản trị duy nhất)
 
-**Loại:** bảng điều phối được phép cập nhật, **không phải `lineage.md`** và không phải chứng cứ science PASS/FAIL.  
-**Chính sách điều khiển:** [TTM-GOV-QF-20261115-V1](TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md).  
-**Hiệu lực ban đầu:** commit quản trị thêm tài liệu này vào `main` (xem Git history, không tự bịa commit SHA của chính tài liệu).  
-**Ngày snapshot:** 2026-11-15. **Đây là nguồn trạng thái chủ động tại thời điểm publish**, không là tuyên bố mọi nhánh hiện có đã được kiểm toán.
+**Document type:** trạng thái điều phối có thể cập nhật, **KHÔNG** phải `lineage.md` và không phải scientific PASS/FAIL.  
+**Policy:** [TTM-GOV-QF-20261115-V1](TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md) (đã có hiệu lực trên `main`).  
+**Snapshot date:** 2026-11-15.  
+**Location of this revision:** đề xuất trên **Draft PR #21**, chưa có hiệu lực trên `main` đến khi độc lập QA và owner cho merge.  
+**Source-of-truth main baseline:** `6cab3b8e8430628aa5c944a494ccc08d8f8783fc`; **governance review candidate trước amendment:** `3c53d062c7c6ff4218d80177253dd1c061ac6362`. Exact amended candidate HEAD được xác lập trong PR sau commit, không ghi SHA tự tham chiếu.
 
-## 1. Gate duy nhất và trạng thái
+## 1. Trạng thái duy nhất của gate đang hoạt động
 
-| Trường | Giá trị |
+| Trường | Trạng thái tại candidate PR #21 |
 |---|---|
-| `policy_gate` | `TTM-GOV-QF-20261115-V1` — `GOVERNANCE_LOCKED_EFFECTIVE_ON_MAIN_AT_INTRODUCING_COMMIT` (policy still unchanged) |
-| `active_scientific_question` | `SM4M-Q001 · Q2_AUTHOR_PACKET_FROZEN · OWNER_Q2_SCOPE_ACCEPTED · Q3_REVIEW_AUTHORIZED_NOT_EXECUTED · Q4_NOT_DECIDED` |
-| `next_question_candidate` | `NONE_PENDING_Q001_CLOSURE`; F0–F2 **not authorized** until SM4M-Q001 Q4 owner closure |
-| `scientific_execution` | `NOT_AUTHORIZED` |
-| `new_research_branch_permission` | `NO` cho đến khi question gate được đăng ký, đánh giá, kết luận và owner quyết định |
-| `main_canonical_ref` | `main`; kiểm tra HEAD mới nhất **khi bắt đầu mỗi gate**, không ghi một SHA tương lai sai |
-| `research_gate_control` | `ONE_ACTIVE_QUESTION_ONLY · SM4M-Q001_REGISTERED` |
-| `new_branch_count_authorized` | 0 |
-| `historical_branches` | GitHub snapshot quan sát 68 refs, **không đồng nghĩa 68 ACTIVE**; chưa được phép xóa |
-| `open_pull_requests` | Snapshot 3 PR Draft #13, #14, #18; không tự merge |
-| `lineage` | L0000–L0029 trên main là lịch sử append-only; từ policy này **chỉ thêm scientific PASS/FAIL có implement HEAD** |
-| `policy_bootstrap_merge_scope` | Docs-only, không có science/implementation merge |
+| `policy_gate` | `TTM-GOV-QF-20261115-V1 · ACTIVE` |
+| `active_question` | `SM4M-Q001` — duy nhất |
+| `Q1` | `QUESTION_REGISTERED_ON_MAIN` |
+| `Q2` | `AUTHOR_PACK_FROZEN · OWNER_EVIDENCE_SCOPE_ACCEPTED` (chỉ scope, không AD PASS) |
+| `Q3` | `HOLD_Q3_REMEDIATION · AUTHOR_AMENDMENT_SUBMITTED_FOR_DISTINCT_REREVIEW` (không tự PASS) |
+| `Q3_original_exact_head` | `3c53d062c7c6ff4218d80177253dd1c061ac6362`; 2 HIGH (`Q3-F01/F02`), 1 MEDIUM (`Q3-F03`), 1 LOW (`Q3-F04`) |
+| `Q4` | `OWNER_CLOSURE_NOT_DECIDED` |
+| `root_cause` | `NOT_IDENTIFIED` |
+| `baseline` | `KEEP_HISTORICAL_REFERENCE_ONLY`; `HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE` |
+| `AD-00..AD-08` | Original Q2 statuses preserved; **NONE blanket-upgraded to PASS** |
+| `scientific_execution` | `HOLD · NOT_AUTHORIZED` |
+| `new_research_branch` | `NOT_AUTHORIZED`; 0 newly authorized |
+| `F0_F2` | `PAUSED_UNTIL_Q3_REREVIEW_AND_Q4` |
+| `merge_decision` | `HOLD_MERGE_REVIEW`; Draft PR #21 **NOT_MERGED** |
+| `lineage` | `APPEND_ONLY · UNCHANGED`; science PASS/FAIL only, never Q2/Q3 design QA |
+| `main_sync` | `MAIN_SYNC_BLOCKED_PENDING_INDEPENDENT_Q3_REREVIEW_AND_OWNER_MERGE_DECISION`; do not assert main updated |
+| `other_programmes` | EmbeddingGemma 2 / Vector Memory outside Q001; historical state preserved |
+| `branch_governance` | One short-lived `governance/sm4m-q001-q2-owner-scoped-q3-packet-20261115`; **NOT** research/implementation branch |
 
-## 2. Các nghiên cứu cần bảo toàn và routing
+## 2. Truy vết sự kiện, không có trạng thái cạnh tranh
 
-| Nhóm | Pinned reference / source | Trạng thái điều phối theo gate |
-|---|---|---|
-| Small-4M Foundation First F2 | `research/ttm-small4m-foundation-first-single-gate-20261115` exact HEAD `9b55596f580b36b436cf6bdb2ed5a4e45c6992de` | Thiết kế F2 đã tác giả tự QA có phạm vi 82/82; hai verdict độc lập trước đó `HOLD_REVISE_DESIGN`; bản sửa mới `DISTINCT_REVIEW_PENDING`. **PAUSED_PENDING_ARCHITECTURE_DECISION**; không merge code và không thực thi |
-| Foundation F01–F05 | Owner design decision tại `c233dff20b9b020aefd732ce62bfa2e7aebd3985` | `GO_DESIGN_SCOPED` **chỉ** kết thúc năm finding ở phạm vi thiết kế; không là science GO |
-| T4 checkpoint, VAL/TEST, FRESH16, A/C, H-DATA, FC01 | Exact science refs trong F0/F1 của nhánh Foundation First và `lineage.md` hiện hữu | Kết quả khoa học/FAIL/HOLD lịch sử bất biến; không chạy lại TEST/FINAL, không score lại |
-| EmbeddingGemma 2 / Vector Memory / TTM×SIX | Branch/historical evidence theo global inventory trên main | Giữ riêng kết quả scoped; không tự mở nghiên cứu, không nhập vào Small-4M |
-| T5/T6/P07/P08 / PR Draft | Theo `docs/governance/` và PR trên GitHub | Engineering / infrastructure / Draft giữ nguyên; không tự merge |
+- `Q1`: câu hỏi back-to-basics có trên `main` tại `6cab3b8e8430628aa5c944a494ccc08d8f8783fc`. Exact question [Q001](SM4M_Q001_BACK_TO_BASICS_ARCHITECTURE_DOC_CODE_EVIDENCE_20261115.md).
+- `Q2`: bảy tài liệu tác giả exact pinned tại `3c53d062c7c6ff4218d80177253dd1c061ac6362` và bảng SHA trong [Owner Scope Acceptance](sm4m-q001/SM4M_Q001_OWNER_SCOPED_Q2_ACCEPTANCE_20261115.md). Tự QA 38/38, 64/64, 59/59 là **author scoped QA**.
+- `Owner acceptance`: chỉ phạm vi và admission criteria, **không** công nhận causal cause hoặc execution permit.
+- `Independent Q3`: verdict **`HOLD_Q3_REMEDIATION`** trên exact `3c53d062c7c6ff4218d80177253dd1c061ac6362`. [Original Q3 report](sm4m-q001/SM4M_Q001_Q3_DISTINCT_INDEPENDENT_REVIEW_20261115.md) và JSON receipt gốc là tệp `Q3_RECEIPT.json` trong ZIP do reviewer tải lên; SHA-256 JSON `529490652a7f140153292ec090496c1b5deec8ca36f54b25aa5b63c98cbd08ba`. **ZIP không có bản GitHub byte-exact trong PR này**; không được tuyên bố đã archive. Q3 HOLD là review design, không phải scientific FAIL.
+- `Q3 remediation`: [one integrated amendment](sm4m-q001/SM4M_Q001_Q3_INTEGRATED_REMEDIATION_AND_PHASE_CONTRACT_20261115.md) điều chỉnh thời điểm AD-01/03/06, [versioned matrix v2](../../artifacts/governance/sm4m-q001/SM4M_Q001_Q2_CAUSAL_EVIDENCE_MATRIX_Q3_REMEDIATION_V2_20261115.json), [versioned literature v2](sm4m-q001/SM4M_Q001_Q2_LITERATURE_TRIAGE_Q3_REMEDIATION_V2_20261115.md). **7 bản Q2 gốc vẫn giữ nguyên byte**; không chuyển trạng thái admission.
+- `Q3 distinct re-readback`: chưa có biên nhận independent mới trên amended HEAD, **không** khẳng định Q3 PASS.
+- `Q4`: chỉ chủ sở hữu mới có quyền closure sau independent Q3 re-review.
 
-## 3. Quy tắc cập nhật sau mỗi gate
+## 3. Quy tắc khoa học và branch
 
-- Khi Q1 mới được owner cho phép đăng ký, tạo **một** question-record trên `main`, gắn QuestionID và exact baseline HEAD; cập nhật ô `active_scientific_question`. Không tạo nhánh hoặc chạy science.
-- Khi Q4 có câu trả lời + reviewer/owner decision, ghi `CLOSED_GO_SCOPED/CLOSED_HOLD/CLOSED_STOP`, bằng chứng/đường dẫn và quyết định hướng tiếp theo vào **bản ghi quản trị có thể sửa này** trên `main` trước mở nhánh kế tiếp.
-- Khi I4 kết thúc một phần nghiên cứu, luôn ghi quyết định `MERGE_APPROVED` / `EVIDENCE_ONLY_NO_MERGE` / `NO_MERGE_NEEDED` / `HOLD_MERGE_REVIEW` trong closure source, giữ pinned implement HEAD. Nếu có science PASS/FAIL **đúng nghĩa**, append riêng vào `lineage.md`; nếu không, tuyệt đối không append.
-- Không cập nhật `main` bằng cách merge một nhánh FAIL/HOLD chỉ để hiển thị “mới nhất”. Mới nhất ở đây là **quyết định, metadata, index chứng cứ hợp lệ và code đã được merge QA chấp thuận**.
-- Nếu việc đồng bộ main bị chặn bởi PR/QA, ghi `MAIN_SYNC_BLOCKED` với lý do và không mở gate kế tiếp; không nói `main` đã cập nhật khi chưa có readback.
+Giữ nguyên mọi kết quả T4 VAL/TEST, FRESH12/FRESH16, CF1, D1 EXP32, A/C, H-DATA-S1, FC01, D1 R1 theo đúng phạm vi. Không chạy lại TEST/FINAL đã niêm phong, không truy cập private bytes ngoài quyền hiện hành, không mở F0–F2, không đánh đồng QA source với science. Không tạo nhánh nghiên cứu mới, không dọn nhánh lịch sử và không merge implementation HOLD/FAIL. Các nhánh lịch sử không mặc nhiên là ACTIVE.
 
-**Bước thực hiện tiếp theo sau policy lock:** đăng ký câu hỏi đầu tiên theo mẫu `templates/TTM_RESEARCH_QUESTION_GATE.md` và đánh giá **necessity của kiến trúc phép đo** bằng framework phù hợp. **Chưa thực hiện gate nghiên cứu trong commit chính sách này.**
+Các snapshot trước (policy lock, đăng ký Q1, owner acceptance, Q3 HOLD) được bảo toàn bằng lịch sử Git; **không giữ các câu “bước tiếp theo” lịch sử trong bản active này**.
 
-## 4. SM4M-Q001 — Back-to-Basics Architecture Gate đã đăng ký (15/11/2026)
+## Bước thực hiện tiếp theo — duy nhất
 
-- **Đường dẫn câu hỏi:** [SM4M_Q001_BACK_TO_BASICS_ARCHITECTURE_DOC_CODE_EVIDENCE_20261115.md](SM4M_Q001_BACK_TO_BASICS_ARCHITECTURE_DOC_CODE_EVIDENCE_20261115.md).
-- **Trình tự bắt buộc:** Đọc tài liệu kiến trúc → đối chiếu source thực tế và T4 checkpoint/config → mapping kết quả khoa học Small-4M theo study/branch exact HEAD → chọn framework đúng vấn đề → trả lời Q001 → independent QA → owner Q4 closure → chỉ sau đó mới xem xét F0–F2.
-- **OUT OF SCOPE:** EmbeddingGemma 2 và Vector Memory không là module baseline Small-4M. Không sử dụng kết quả hai nhánh này.
-- **Hoạt động được phép:** source/document read-only và lập ma trận traceability, không train, không inference, không tạo gold/scorer, không sửa code/architecture, không tạo nhánh research/implementation.
-- **Trạng thái:** `Q1_REGISTERED; Q2_NOT_COMPLETED; Q3_NOT_REVIEWED; Q4_OWNER_NOT_DECIDED; F0_F2_PAUSED; SCIENCE_HOLD; LINEAGE_UNCHANGED; MERGE_NOT_AUTHORIZED`.
+`SM4M_Q001_Q3_EXACT_AMENDED_CANDIDATE_DISTINCT_READBACK_AND_REREVIEW_SINGLE_GATE`
 
-**Bước thực hiện tiếp theo — duy nhất:** thực hiện một lượt kiểm toán độc lập tài liệu → mã nguồn → kết quả Small-4M trên exact sources của Q001; nộp report và receipt để owner đóng Q4. Không tạo thí nghiệm trong lượt này.
-
-## 5. Q2 owner scoped acceptance — pending governance PR merge
-
-- **Owner decision 15/11/2026:** `ACCEPT_Q2_EVIDENCE_SCOPE_AND_ADMISSION_CRITERIA_FOR_DISTINCT_Q3_REVIEW_ONLY`. This is a scoped review authorization, **not** AD-00…AD-08 PASS, new science GO or Q4 owner closure.
-- Evidence package is on one governance-only Draft PR branch in `docs/governance/sm4m-q001/` and `artifacts/governance/sm4m-q001/` with exact seven byte-preserved Git blob pins. Read acceptance `docs/governance/sm4m-q001/SM4M_Q001_OWNER_SCOPED_Q2_ACCEPTANCE_20261115.md`, then handoff `docs/governance/sm4m-q001/SM4M_Q001_DISTINCT_Q3_HANDOFF_20261115.md`.
-- `Q2=AUTHOR_COMPLETED_AND_OWNER_SCOPE_ACCEPTED`; `Q3=DISTINCT_REVIEW_AUTHORIZED_NOT_EXECUTED`; `Q4=NOT_DECIDED`; `ROOT_CAUSE=NOT_IDENTIFIED`; `ADMISSION_FOR_NEW_SCIENCE=HOLD`; `F0_F2=PAUSED`.
-- No research/implementation branch, model run, DATA, gold, code patch or merge authorized. The proposed governance PR **does not update `main` until it is independently reviewed and merged with owner authorization**.
-- Single next step: distinct independent Q3 source/design review from the pinned governance PR HEAD; after Q3 verdict request owner Q4, not before.
+Reviewer độc lập phải kiểm exact candidate HEAD mới sau amendment, giải quyết Q3-F01…F04 và phát hành **một** verdict `PASS_Q3_SOURCE_AND_EVIDENCE_SCOPE_SCOPED` hoặc `HOLD_Q3_REMEDIATION`. Chỉ sau khi reviewer độc lập kết luận mới trình owner Q4/merge decision. **Không merge PR #21 khi Q3 vẫn HOLD.**

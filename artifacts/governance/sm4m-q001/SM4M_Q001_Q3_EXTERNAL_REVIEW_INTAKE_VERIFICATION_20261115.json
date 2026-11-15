@@ -1,0 +1,59 @@
+{
+  "schema": "ttm.sm4m.q001.q3.external_review_intake.v1",
+  "date": "2026-11-15",
+  "source_label": "DERIVED_INTAKE_RECORD__NOT_ORIGINAL_INDEPENDENT_Q3_RECEIPT",
+  "original_review_operation": "SM4M_Q001_DISTINCT_INDEPENDENT_ARCHITECTURE_SOURCE_EVIDENCE_ADMISSION_REVIEW_Q3_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "original_candidate_head": "3c53d062c7c6ff4218d80177253dd1c061ac6362",
+  "original_report": {
+    "uploaded_name": "SM4M_Q001_Q3_DISTINCT_INDEPENDENT_REVIEW_20261115(1).md",
+    "sha256": "e619ea9460abd112ab32016e7644c273a6cce2d20044fe8bd0e129d18d820680",
+    "git_sha1": "0b85f84cfd17ff0612291706c5d0fa36d86800c7",
+    "archived_path": "docs/governance/sm4m-q001/SM4M_Q001_Q3_DISTINCT_INDEPENDENT_REVIEW_20261115.md",
+    "byte_exact_git_blob_verified": true
+  },
+  "original_receipt": {
+    "upload_container": "Q3_RECEIPT(1).zip",
+    "zip_sha256": "816938d1d08479947c21206b6eeacc41da43c07abc29ac42dc31b0a844ae089d",
+    "zip_entry_name": "Q3_RECEIPT.json",
+    "entry_sha256": "529490652a7f140153292ec090496c1b5deec8ca36f54b25aa5b63c98cbd08ba",
+    "entry_git_sha1": "fa66262f92cc637177b8b1a39092f66586fc5fdc",
+    "entry_byte_verified_from_uploaded_zip": true,
+    "repository_archive_status": "NOT_ARCHIVED_EXACT_BINARY_TRANSFER_UNVERIFIED",
+    "not_a_substitute_for_original_json": true
+  },
+  "reviewer_verdict": "HOLD_Q3_REMEDIATION",
+  "blocking_findings": [
+    "Q3-F01",
+    "Q3-F02"
+  ],
+  "other_findings": [
+    {
+      "id": "Q3-F03",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "Q3-F04",
+      "severity": "LOW"
+    }
+  ],
+  "original_integrity": "PASS_7_OF_7_SHA1_AND_SHA256",
+  "affirmed_conclusions": [
+    "KEEP_HISTORICAL_REFERENCE_ONLY",
+    "HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE",
+    "ROOT_CAUSE_NOT_IDENTIFIED"
+  ],
+  "private_checkpoint_reverified": false,
+  "science_executed": false,
+  "code_modified": false,
+  "lineage_modified": false,
+  "merge_executed": false,
+  "root_cause_identified": false,
+  "remediation_scope": "Q3_F01_F04_SAME_GOVERNANCE_PR_VERSIONED_DOC_AMENDMENT",
+  "q3_re_review_not_executed": true,
+  "q4_not_decided": true,
+  "limitations": [
+    "This is an intake verification constructed by the Q2 author from the reviewer-uploaded report and ZIP receipt; not an independent signoff of remediation.",
+    "Do not treat absence of raw ZIP in PR as proof source archive completeness; reviewer original can be re-supplied by owner if exact JSON receipt is required."
+  ]
+}
