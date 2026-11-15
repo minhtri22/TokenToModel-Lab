@@ -165,7 +165,12 @@ R8_FAMILIES=8
 R8_PAIRS_PER_FAMILY=4
 R8_CARDS_PER_CASE=32
 R8_FAMILY_IDS=tuple(f"F{i:02d}" for i in range(1,9))
-R8_PREASSIGN_LOCK_SCHEMA="TTM_VM_R8_GPRE_HMAC_V1"
+# The component-message byte format (R8_GPRE_COMPONENT_V1) is distinct from
+# the *overall* G_pre fold/preassignment algorithm version.
+# B03-C changed ranking bytes. Legacy G_pre V1 commitments MUST NOT verify as V2.
+R8_PREASSIGN_LOCK_SCHEMA="TTM_VM_R8_GPRE_HMAC_V2"
+R8_GPRE_ALGORITHM_ID="R8_GPRE_CANONICAL_JSON_COMPONENT_RANKING_V2"
+R8_GPRE_PREASSIGNMENT_MAC_DOMAIN="R8_GPRE_FOLDS_V2"
 
 
 def validate_r8_blueprint_manifest(blueprints):
@@ -271,10 +276,11 @@ def preassign_r8(blueprints,private_hmac_key):
     # Freeze blueprint bytes, actual fold + graph components and readiness status.
     result={**assignment,
             "lock_schema":R8_PREASSIGN_LOCK_SCHEMA,
+            "algorithm_id":R8_GPRE_ALGORITHM_ID,
             "blueprint_hmac":blueprint_lock}
-    result["preassignment_hmac"]=_r8_hmac(key,"R8_GPRE_FOLDS_V1",
-        {k:result[k] for k in ("lock_schema","blueprint_hmac","fold",
-                                "component_id_pre","component_count",
+    result["preassignment_hmac"]=_r8_hmac(key,R8_GPRE_PREASSIGNMENT_MAC_DOMAIN,
+        {k:result[k] for k in ("lock_schema","algorithm_id","blueprint_hmac",
+                                "fold","component_id_pre","component_count",
                                 "case_count_by_fold","cv_status")})
     return result
 
@@ -291,6 +297,10 @@ def postcheck_r8(cases,blueprints,locked_preassignment,private_hmac_key):
         raise ValueError("INVALID_R8_LOCKED_FOLD_MANIFEST")
     if locked_preassignment.get("lock_schema")!=R8_PREASSIGN_LOCK_SCHEMA:
         raise ValueError("INVALID_R8_PREASSIGNMENT_SCHEMA")
+    # Reject legacy or unknown ranking algorithms even when their fold mapping
+    # happens to be identical. Never silently reinterpret V1 as current V2.
+    if locked_preassignment.get("algorithm_id")!=R8_GPRE_ALGORITHM_ID:
+        raise ValueError("INVALID_R8_GPRE_ALGORITHM_ID")
     expected=preassign_r8(blueprints,key)
     for field in ("blueprint_hmac","preassignment_hmac"):
         supplied=locked_preassignment.get(field)
