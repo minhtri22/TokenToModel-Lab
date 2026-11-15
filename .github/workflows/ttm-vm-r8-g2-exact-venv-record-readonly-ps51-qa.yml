@@ -1,0 +1,58 @@
+name: TTM VM R8 G2 exact venv RECORD read-only source QA
+
+on:
+  push:
+    branches:
+      - implementation/ttm-vm-r8-g2-owner-windows-preexec-20261115
+    paths:
+      - docs/research/vector-memory/r8/preexec/Verify-TTM-VM-R8-G2-Exact-Venv-Record-ReadOnly-PS51.ps1
+      - .github/workflows/ttm-vm-r8-g2-exact-venv-record-readonly-ps51-qa.yml
+
+permissions:
+  contents: read
+
+jobs:
+  windows-ps51-python-stdlib:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Parse script, forbid mutation commands and smoke embedded Python on hosted Windows
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $Path='docs/research/vector-memory/r8/preexec/Verify-TTM-VM-R8-G2-Exact-Venv-Record-ReadOnly-PS51.ps1'
+          $Tokens=$null; $Errors=$null
+          $Ast=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $Path).Path,[ref]$Tokens,[ref]$Errors)
+          if(-not $Ast -or $Errors.Count -ne 0){
+            foreach($item in $Errors){Write-Host ('PARSE_ERROR: '+$item.Message)}
+            throw 'EXACT_VENV_PS51_PARSE_FAIL'
+          }
+          $Forbidden=@('New-Item','Set-Content','Add-Content','Out-File','Remove-Item','Copy-Item','Move-Item','Rename-Item','Set-Item','Start-Process','Invoke-WebRequest','Invoke-RestMethod','Invoke-Expression','git','gh','curl','pip','conda')
+          foreach($node in $Ast.FindAll({param($a) $a -is [System.Management.Automation.Language.CommandAst]},$true)){
+            $Name=$node.GetCommandName()
+            if($Name -and $Forbidden -contains $Name){throw ('MUTATING_COMMAND: '+$Name)}
+          }
+          $Raw=[IO.File]::ReadAllText((Resolve-Path $Path).Path)
+          foreach($Required in @('ORIGINAL_G2_RECEIPT_AFTER=PASS_SHA256_UNCHANGED','ACTUAL_LOADED_NATIVE_MODULE_SHA=NOT_ATTESTED','HMAC_V2_KEY_READ=NOT_EXECUTED','G3=NOT_EXECUTED')){
+            if(-not $Raw.Contains($Required)){throw ('REQUIRED_GUARD_MISSING: '+$Required)}
+          }
+          Write-Host 'EXACT_VENV_PS51_PARSE=PASS'
+          Write-Host 'EXACT_VENV_READONLY_AST=PASS'
+          # Smoke only the Python stdlib code on hosted runner, NOT owner custody.
+          $Match=[regex]::Match($Raw,"(?s)\\\$Code=@'\\r?\\n(.*?)\\r?\\n'@")
+          if(-not $Match.Success){throw 'EMBEDDED_PYTHON_NOT_FOUND'}
+          $Code=$Match.Groups[1].Value
+          $ExpectedPrefix=& python -I -B -c 'import sys;print(sys.prefix)'
+          $Output=& python -I -B -c $Code $ExpectedPrefix
+          if($LASTEXITCODE -ne 0){throw 'EMBEDDED_PYTHON_EXEC_FAILED'}
+          $Value=$Output|ConvertFrom-Json
+          if($null -eq $Value.wheel_record_has_hash -or -not $Value.python_version -or -not $Value.status){
+            throw 'EMBEDDED_PYTHON_JSON_CONTRACT_FAIL'
+          }
+          Write-Host 'EMBEDDED_PYTHON_HOSTED_WINDOWS_STD_LIB=PASS_SCOPED'
+          Write-Host 'OWNER_EXACT_VENV_RECORD=NOT_EXECUTED_ON_HOSTED_RUNNER'
