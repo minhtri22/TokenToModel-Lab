@@ -128,6 +128,7 @@ else { Mark 'RUNTIME_EXACT_PIN' 'NOT_EXECUTED_PYTHON_EXE_NOT_PINNED' }
 # 3. Ephemeral DPAPI CurrentUser sentinel. NO stored key, ciphertext or G_pre.
 $plain=$null; $decoded=$null
 try {
+    Add-Type -AssemblyName System.Security -ErrorAction Stop
     $plain=[Text.Encoding]::UTF8.GetBytes('TTM_VM_R8_G2_EPHEMERAL_SENTINEL_ONLY')
     $cipher=[Security.Cryptography.ProtectedData]::Protect(
        $plain,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
@@ -136,7 +137,11 @@ try {
     if([Convert]::ToBase64String($plain) -cne [Convert]::ToBase64String($decoded)) {throw 'DPAPI_SENTINEL_MISMATCH'}
     Mark 'WINDOWS_DPAPI_CURRENTUSER_SENTINEL' 'PASS_SCOPED_SAME_PROFILE_ONLY'
 }
-catch { Mark 'WINDOWS_DPAPI_CURRENTUSER_SENTINEL' 'HOLD_DPAPI_EPHEMERAL_SENTINEL_FAILED' }
+catch {
+    $Meta['dpapi_exception_type']=$_.Exception.GetType().FullName
+    Mark 'WINDOWS_DPAPI_CURRENTUSER_SENTINEL' 'HOLD_DPAPI_EPHEMERAL_SENTINEL_FAILED'
+    Write-Host ('DPAPI_SENTINEL_EXCEPTION_TYPE=' + $Meta['dpapi_exception_type'])
+}
 finally {
     if($null -ne $plain) {[Array]::Clear($plain,0,$plain.Length)}
     if($null -ne $decoded) {[Array]::Clear($decoded,0,$decoded.Length)}
