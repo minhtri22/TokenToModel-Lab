@@ -1,0 +1,119 @@
+{
+  "schema": "ttm.small4m.foundation_first.f01_f05.owner_integrated_design_adjudication.v1",
+  "operation": "TTM_SMALL4M_FOUNDATION_FIRST_F01_F05_OWNER_INTEGRATED_DESIGN_ADJUDICATION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-foundation-first-single-gate-20261115",
+  "source_main_baseline": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+  "old_candidate": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+  "reviewed_remediation_candidate": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+  "owner_decision": "ACCEPT_GO_DESIGN_SCOPED_CLOSE_F01_F05",
+  "owner_decision_source": "EXPLICIT_USER_CONFIRMATION_IN_CURRENT_CONVERSATION_NOT_DIGITALLY_SIGNED",
+  "independent_review_verdict": "GO_DESIGN_SCOPED",
+  "prior_independent_review_verdict": "HOLD_REVISE_DESIGN",
+  "source_review_is_human_attestation": false,
+  "findings": [
+    {
+      "id": "SM4M-IR-F01",
+      "severity": "HIGH",
+      "owner_closure": "CLOSED_DESIGN",
+      "m0_per_axis_gold_verified": false
+    },
+    {
+      "id": "SM4M-IR-F02",
+      "severity": "HIGH",
+      "owner_closure": "CLOSED"
+    },
+    {
+      "id": "SM4M-IR-F03",
+      "severity": "MEDIUM",
+      "owner_closure": "CLOSED"
+    },
+    {
+      "id": "SM4M-IR-F04",
+      "severity": "MEDIUM",
+      "owner_closure": "CLOSED_DESIGN",
+      "frozen_executable_protocol_verified": false
+    },
+    {
+      "id": "SM4M-IR-F05",
+      "severity": "LOW",
+      "owner_closure": "CLOSED"
+    }
+  ],
+  "evidence_raw_attachments": [
+    {
+      "label": "ORIGINAL_HOLD_REVIEW_REPORT",
+      "path": "docs/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_FOUNDATION_FIRST_DISTINCT_INDEPENDENT_REVIEW_20261115.md",
+      "sha256_original_attachment": "3113f5b7c38e794de0504c859bdc0c0ee63d9fe5b285b2c9f29eb2ca194c84f4",
+      "git_blob_sha1_raw_bytes": "2bb77049ae4a3082d5c0a2e05a403e60b9b135ea",
+      "git_blob_created_match": true,
+      "review_verdict": "HOLD_REVISE_DESIGN"
+    },
+    {
+      "label": "ORIGINAL_HOLD_REVIEW_RECEIPT",
+      "path": "artifacts/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_FOUNDATION_FIRST_INDEPENDENT_REVIEW_RECEIPT_20261115.json",
+      "sha256_original_attachment": "e8bc21c533d46d3212fd8bac779d4e5e01ab8e906decce208261def2548158ef",
+      "git_blob_sha1_raw_bytes": "1080797cd6056a144efe2cd3f2a8e3621a9a9298",
+      "git_blob_created_match": true,
+      "review_verdict": "HOLD_REVISE_DESIGN"
+    },
+    {
+      "label": "REMEDIATION_GO_REVIEW_REPORT",
+      "path": "docs/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_FOUNDATION_FIRST_F01_F05_DISTINCT_REMEDIATION_REVIEW_20261115.md",
+      "sha256_original_attachment": "673dc3df32fce8d795d48a536c6de9c3e0ee683dc7e0615a7911b584f9d1bf73",
+      "git_blob_sha1_raw_bytes": "aaaead20b51a1c1e753d7805005105e197ee6af7",
+      "git_blob_created_match": true,
+      "review_verdict": "GO_DESIGN_SCOPED"
+    },
+    {
+      "label": "REMEDIATION_GO_REVIEW_RECEIPT",
+      "path": "artifacts/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_FOUNDATION_FIRST_F01_F05_INDEPENDENT_REVIEW_RECEIPT_20261115.json",
+      "sha256_original_attachment": "1cb661ac4af314c0ac77c3d450eea52013cd0549e2ef053496174683119f4fb8",
+      "git_blob_sha1_raw_bytes": "fe60dc041a1efd5f0240cf51d848db2cd579bad7",
+      "git_blob_created_match": true,
+      "review_verdict": "GO_DESIGN_SCOPED"
+    }
+  ],
+  "source_document_pins": {
+    "f0_unchanged": "22e823b0a9069f07a6d6912b6425762528e2f655",
+    "f1": "853411064bcdc58f5c6bad713b85237f2828182e",
+    "f2": "d87309aea043b845fafcc805ed13b2b4466f5e46",
+    "scope_unchanged": "4c3f3c000096dfe31d05e1fb2765e180276ddc76"
+  },
+  "m0_original_md1_thresholds_unchanged": {
+    "positive": 32,
+    "negative": 32,
+    "raters": 2,
+    "sensitivity_per_rater_axis": "28/32",
+    "specificity_per_rater_axis": "28/32",
+    "inter_rater_agreement_per_axis": 0.85
+  },
+  "execution_gates": {
+    "m0": "PREEXEC_BLOCK",
+    "f2": "DESIGN_ONLY",
+    "f3": "NOT_OPENED",
+    "f4": "NOT_OPENED",
+    "root_cause_identified": false,
+    "science_go": false,
+    "model_inference": false,
+    "training": false,
+    "gpu": false,
+    "test_final_reused": false,
+    "merge_authorized": false
+  },
+  "lineage": {
+    "current_baseline_last_id": "L0028",
+    "pr20_draft_uses": "L0029",
+    "lineage_md_modified": false,
+    "global_append": "DEFERRED_TO_SEPARATE_APPROVED_GOVERNANCE_INTEGRATION_AVOID_COLLISION"
+  },
+  "owner_closure_markdown_path": "docs/research/ttm-small4m-foundation-first/05_SMALL4M_F01_F05_OWNER_INTEGRATED_DESIGN_ADJUDICATION_20261115.md",
+  "limitations": [
+    "Owner approval is conversation declaration, not cryptographic signature",
+    "Independent audit is AI source/design review, not human science attestation",
+    "Raw attachment SHA256 checked locally and matching Git blob objects created; private model and per-item gold not accessed",
+    "No new scientific experiment or model inference",
+    "No repo main/lineage changes, no PR merge"
+  ]
+}

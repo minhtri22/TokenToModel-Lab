@@ -1,0 +1,361 @@
+{
+  "schema": "ttm.small4m.foundation_first.distinct_independent_design_review.receipt.v1",
+  "review_date": "2026-11-15",
+  "operation": "TTM_SMALL4M_FOUNDATION_FIRST_DISTINCT_INDEPENDENT_SOURCE_EVIDENCE_AND_DESIGN_REVIEW_SINGLE_GATE",
+  "reviewer_role": "INDEPENDENT_AI_SCIENTIFIC_AND_SOURCE_REVIEWER_NOT_HUMAN_ATTESTATION",
+  "review_mode": [
+    "READ_ONLY",
+    "SOURCE_ONLY",
+    "DESIGN_ONLY",
+    "NO_SCIENCE_EXECUTION"
+  ],
+  "repository": "minhtri22/TokenToModel-Lab",
+  "baseline_commit": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+  "candidate_commit": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+  "source_files_checked": {
+    "candidate_documents": [
+      {
+        "path": "docs/research/ttm-small4m-foundation-first/01_SMALL4M_ARCHITECTURE_COMPONENT_SPEC_20261115.md",
+        "ref": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+        "expected_git_blob_sha1": "22e823b0a9069f07a6d6912b6425762528e2f655",
+        "github_reported_git_blob_sha1": "22e823b0a9069f07a6d6912b6425762528e2f655",
+        "match": true,
+        "sha256": null,
+        "sha256_status": "NOT_RECOMPUTED_RAW_BYTES_UNAVAILABLE"
+      },
+      {
+        "path": "docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md",
+        "ref": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+        "expected_git_blob_sha1": "834200abc5a55791c42f27224b8296f70243edb6",
+        "github_reported_git_blob_sha1": "834200abc5a55791c42f27224b8296f70243edb6",
+        "match": true,
+        "sha256": null,
+        "sha256_status": "NOT_RECOMPUTED_RAW_BYTES_UNAVAILABLE"
+      },
+      {
+        "path": "docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md",
+        "ref": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+        "expected_git_blob_sha1": "4b1c5dea92f900d93adfa5747db0ccb6b8b10eaa",
+        "github_reported_git_blob_sha1": "4b1c5dea92f900d93adfa5747db0ccb6b8b10eaa",
+        "match": true,
+        "sha256": null,
+        "sha256_status": "NOT_RECOMPUTED_RAW_BYTES_UNAVAILABLE"
+      },
+      {
+        "path": "docs/research/ttm-small4m-foundation-first/04_SMALL4M_SCOPE_ISOLATION_DECISION_20261115.md",
+        "ref": "4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+        "expected_git_blob_sha1": "4c3f3c000096dfe31d05e1fb2765e180276ddc76",
+        "github_reported_git_blob_sha1": "4c3f3c000096dfe31d05e1fb2765e180276ddc76",
+        "match": true,
+        "sha256": null,
+        "sha256_status": "NOT_RECOMPUTED_RAW_BYTES_UNAVAILABLE"
+      }
+    ],
+    "baseline_implementation": [
+      {
+        "path": "src/p02/transformer_core.py",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+        "connector_content_read": true
+      },
+      {
+        "path": "tools/pilot_t4/integrated/t4_capacity_smoke.py",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "c9a6f256ba975228683ee7de2a1090e649110e97",
+        "connector_content_read": true
+      },
+      {
+        "path": "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+        "connector_content_read": true
+      },
+      {
+        "path": "tools/pilot_t4/integrated/source_t2/ttm_gpt2_bpe2048.py",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+        "connector_content_read": true
+      },
+      {
+        "path": "tools/pilot_t4/integrated/t1_source_split_tokenizer.py",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "3ef500ddd8259153e7e3d4602915a51b7060a40f",
+        "connector_content_read": true
+      }
+    ],
+    "science_and_design_reports": [
+      {
+        "study": "T4 VAL",
+        "path": "docs/pilot/TTM_T4_A2_REAL_SCIENCE_H1_FORMAL_ADJUDICATION_20261108.md",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "c1a471087ae30f31a696fbf786230eff3773a0d1",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "T4 TEST64",
+        "path": "docs/pilot/TTM_T4_TEST_64_SCIENCE_ADJUDICATION_AND_T5_TRAINED_F32_EXPORT_20261108.md",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "cf2bcb1c48d172afacb6b1f7406320851bfcbf65",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "FRESH12",
+        "path": "docs/pilot/ttm-small4m-source-of-truth/TTM_FRESH12_OWNER_CONTROLLED_UNBLIND_AND_SCOPED_QUALITY_ADJUDICATION_20261110.md",
+        "ref": "72cbf73c3adb78f9d4111f702de71fa10f713533",
+        "git_blob_sha1": "1862a39ed54cdc80c39213b615a3f7c4a4526d65",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "FRESH16",
+        "path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_FINAL_FROZEN_UNBLIND_SCIENTIFIC_ADJUDICATION_20261111.md",
+        "ref": "0ec28d44587fde9ad4acba8cccae65648e367181",
+        "git_blob_sha1": "ae8ded5bb03a595f9af4f333ef96271ed3991d7d",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "CF1 DEV36",
+        "path": "docs/research/TTM_CF1_DEV36_ONE_SHOT_INDEPENDENT_SCORE_READBACK_AND_SCIENCE_ADJUDICATION_20261111.md",
+        "ref": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+        "git_blob_sha1": "d6a094b2a9d0977728d5d2f13c7c945d7cb8ee96",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "D1 EXP32",
+        "path": "docs/research/ttm-small4m-quality-gap/TTM_SMALL4M_D1_EXP32_TERMINAL_EXPLORATORY_CLOSEOUT_AND_NEXT_RESEARCH_DIRECTION_20261112.md",
+        "ref": "0ec28d44587fde9ad4acba8cccae65648e367181",
+        "git_blob_sha1": "f53da235027be331682bf1a5b86b0d1e94cd5373",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "A/C FINAL24",
+        "path": "docs/research/TTM_AC_FINAL24_INDEPENDENT_QA_AND_FORMAL_ADJUDICATION_20261112.md",
+        "ref": "37165ce6eea0bb4b04d316e2998da579c91d13cf",
+        "git_blob_sha1": "1af1b6d3743f5e986edcc3ef1e737b0f05188d3c",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "H-DATA-S1",
+        "path": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_FINAL24_OWNER_UNBLIND_FORMAL_ADJUDICATION_20261114.md",
+        "ref": "ef4cc05037f98129082cd429a75092b8cc822efb",
+        "git_blob_sha1": "9cfb02e86c3893b2f927b1529c637bba797f40ae",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "FC01",
+        "path": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_SCIENTIFIC_REVIEW_AND_SINGLE_SCOPED_ADJUDICATION_20261113.md",
+        "ref": "b5dd5890b73a29744530ed3a1ffbc0dc7ae5195a",
+        "git_blob_sha1": "0a425cbadfaf644a117693fce1c9b80b069185a7",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "D1 R1",
+        "path": "docs/research/ttm-small4m-fact-conditioning/TTM_D1_R1_INDEPENDENT_HOLD_CLOSURE_AND_BENCHMARK_REDESIGN_REVIEW_20261114.md",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "43fa3aed1a802dde05511cf76afba6737eb47aa3",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      },
+      {
+        "study": "MD1",
+        "path": "docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_PROSPECTIVE_PREREG_AND_FOUR_FAIL_MECHANISM_PLAN_20261114.md",
+        "ref": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
+        "git_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
+        "source_report_read": true,
+        "private_raw_receipt_bytes_verified_this_review": false
+      }
+    ],
+    "governance": [
+      {
+        "path": "lineage.md",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "fa8d0f520bf64f89e32954b2f71d2ed5f017ea15"
+      },
+      {
+        "path": "docs/governance/TTM_GLOBAL_LINEAGE_MERGE_AUDIT_AND_RESEARCH_DIRECTION_MATRIX_20261114.md",
+        "ref": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+        "git_blob_sha1": "d10c44605c66ec51e7e22eea0895ad37b662089"
+      }
+    ]
+  },
+  "source_blob_readback": {
+    "method": "GitHub connector fetch_file with exact source ref and GitHub-reported Git blob SHA-1; compare to handoff / previously pinned source metadata",
+    "document_matches": 4,
+    "document_total": 4,
+    "implementation_matches": 5,
+    "implementation_total": 5,
+    "git_blob_sha1_is_sha256": false,
+    "raw_public_sha256_recomputed": false,
+    "private_checkpoint_sha256_recomputed": false
+  },
+  "component_audit": {
+    "verdict": "PASS_SOURCE_SCOPED",
+    "architecture": "decoder_only_transformer",
+    "unique_parameter_count_static": 3749376,
+    "vocab_size": 2048,
+    "context_length": 256,
+    "embedding_dim": 256,
+    "blocks": 4,
+    "heads": 4,
+    "head_dim": 64,
+    "position": "learned_absolute",
+    "normalization": "pre_layernorm_and_final_layernorm",
+    "attention": "causal_multihead_attention",
+    "ffn": "256_to_1024_to_256_GELU",
+    "output": "tied_token_embedding",
+    "loss": "next_token_cross_entropy_T4_masked",
+    "optimizer": "AdamW_T4",
+    "rmsnorm_used_in_T4": false,
+    "rope_used_in_T4": false,
+    "gqa_used_in_T4": false,
+    "moe_used_in_T4": false,
+    "p02_reference_defaults_distinguished": true,
+    "trained_checkpoint_private_bytes_reverified": false
+  },
+  "evidence_audit": {
+    "verdict": "PASS_WITH_REMEDIATION",
+    "evidence_groups_documented": 15,
+    "hypotheses_documented": 8,
+    "root_cause_identified": false,
+    "frozen_outcomes": {
+      "T4_VAL": "PASS_H1_CONFIRMATORY_VAL_SCOPE_11.880537_PERCENT_VS_BIGRAM",
+      "T4_TEST64": "PASS_TEST_HOLDOUT_DESCRIPTIVE_SCOPED_12.331694_PERCENT_CONSUMED",
+      "FRESH16": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED_0_OF_16_H1_0_OF_8_H2",
+      "CF1_DEV36": "FAIL_SCOPED_NO_TWO_CONTEXT_SWITCH_0_OF_36",
+      "AC_FINAL24": "FAIL_CANDIDATE_EFFICACY_C_MINUS_A_DELTA_ZERO_ABSOLUTE_BOTH_0.6667",
+      "HDATA_S1_FINAL24": "NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT_ALL_ABSOLUTE_ZERO",
+      "FC01": "PASS_SCOPED_EXPLORATORY_C_38_OF_64_A_4_OF_64_B_3_OF_64",
+      "D1_R1": "GO_CLOSE_R1_FORMULATION_DESIGN_ONLY_SCIENCE_HOLD"
+    },
+    "original_science_experiments_reexecuted": false,
+    "historical_private_raw_receipts_fully_reverified": false
+  },
+  "root_cause_design_audit": {
+    "verdict": "HOLD_M0_DISCRIMINATOR_DESIGN",
+    "m0_source": "MD1 prospective prereg public report, design only",
+    "m0_cases": 32,
+    "m0_positive": 32,
+    "m0_negative": 32,
+    "m0_strata": 4,
+    "m0_independent_raters": 2,
+    "sensitivity_threshold_per_rater_per_axis": "28/32",
+    "specificity_threshold_per_rater_per_axis": "28/32",
+    "inter_rater_agreement_threshold_per_axis": 0.85,
+    "thresholds_modified": false,
+    "m0_all_axes_change_together": true,
+    "m0_axis_discrimination_independently_identified": false,
+    "m0_pass_does_not_prove_model_failure": true,
+    "m0_fail_blocks_model_training": true,
+    "f0_status": "DOCUMENTED_SOURCE_SCOPED",
+    "f1_status": "EVIDENCE_MAPPED_WITH_REMEDIATION",
+    "f2_status": "DESIGN_ONLY_NOT_EXECUTED",
+    "f3_status": "NOT_OPENED",
+    "f4_status": "NOT_OPENED"
+  },
+  "scope_isolation_audit": {
+    "verdict": "PASS_SOURCE_SCOPED",
+    "embeddinggemma2": "INDEPENDENT_NOT_CORE",
+    "vector_memory": "INDEPENDENT_NOT_CORE",
+    "cross_project_results_used_as_small4m_science": false,
+    "donor_embedding_retriever_reader_added": false,
+    "pauses_reclassified_as_fails": false,
+    "unverified_branches_reclassified": false,
+    "lineage_modified": false
+  },
+  "git_diff_integrity": {
+    "verdict": "PASS_SCOPED_EXACT_GITHUB_COMPARE",
+    "compare_ref": "https://github.com/minhtri22/TokenToModel-Lab/compare/fbe4a1ed58eef66f896bbfe0471926b7cc45298e...4c97f2b1d1836b31d55b649e78a8b69fecc44482",
+    "status": "ahead",
+    "ahead_by": 4,
+    "behind_by": 0,
+    "total_commits": 4,
+    "added": 4,
+    "modified": 0,
+    "deleted": 0,
+    "added_paths": [
+      "docs/research/ttm-small4m-foundation-first/01_SMALL4M_ARCHITECTURE_COMPONENT_SPEC_20261115.md",
+      "docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md",
+      "docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md",
+      "docs/research/ttm-small4m-foundation-first/04_SMALL4M_SCOPE_ISOLATION_DECISION_20261115.md"
+    ],
+    "other_changes_detected": false,
+    "local_windows_checkout_checked": false
+  },
+  "findings": [
+    {
+      "finding_id": "SM4M-IR-F01",
+      "severity": "HIGH",
+      "claim": "M0 hiện là phép phân biệt H-MEAS trước khi xem xét cơ chế mô hình.",
+      "exact_source": "https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md#L24-L37; https://github.com/minhtri22/TokenToModel-Lab/blob/33021a421f05bb3bfa0999ad12bc3bd144366da9/docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_PROSPECTIVE_PREREG_AND_FOUR_FAIL_MECHANISM_PLAN_20261114.md#L38-L42",
+      "observed_evidence": "32 lõi × (positive đúng cả actor/object/goal, negative sai cả ba); từng rater và từng trục sens/spec ≥28/32, inter-rater agreement ≥0.85.",
+      "discrepancy": "Ba nhãn trục biến đổi đồng thời. Rater dùng một shortcut nhận biết 'positive/negative' tổng thể vẫn có thể vượt cả ba ngưỡng; không kiểm riêng sự nhạy với mỗi trục, trường hợp đúng một phần hoặc đầu ra tự nhiên mơ hồ. Agreement không khắc phục shortcut chung.",
+      "scientific_impact": "M0 PASS không loại trừ việc AI rater đánh 0 sai đối với một số đầu ra mô hình, cũng không chứng minh lỗi mô hình; việc dùng M0 làm discriminator quyết định có nguy cơ khóa sai giả thuyết.",
+      "required_remediation": "Sửa cách diễn giải F2 và hợp đồng thiết kế: M0 chỉ chứng nhận độ phân biệt trên đối chứng cực tính rõ; ghi điều kiện kiểm tra gold độc lập, anti-shortcut và kiểm soát riêng trục bằng prospective amendment trước khi cân nhắc thực thi. Không tạo dữ liệu trong review, không đổi 28/32 hay 0.85."
+    },
+    {
+      "finding_id": "SM4M-IR-F02",
+      "severity": "HIGH",
+      "claim": "Tài liệu F2 dùng 'A/C và H-DATA-S1 có điểm 0 trùng nhau' để biện minh ưu tiên H-MEAS.",
+      "exact_source": "https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md#L37; https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md#L20-L21; https://github.com/minhtri22/TokenToModel-Lab/blob/37165ce6eea0bb4b04d316e2998da579c91d13cf/docs/research/TTM_AC_FINAL24_INDEPENDENT_QA_AND_FORMAL_ADJUDICATION_20261112.md#L37-L45",
+      "observed_evidence": "A/C FINAL24: adherence tuyệt đối A=0.6667/3, C=0.6667/3; chỉ hiệu số C−A=0. H-DATA-S1: cả H0 và H1 có điểm semantic primary tuyệt đối 0/3.",
+      "discrepancy": "Đồng nhất hiệu số hai arm bằng 0 với các điểm tuyệt đối ở sàn 0. Hai chỉ báo thống kê khác bản chất, trên protocol/rater/task khác nhau.",
+      "scientific_impact": "Phóng đại mức độ phổ quát của measurement-floor hypothesis và làm yếu cơ sở xếp H-MEAS ưu tiên P0.",
+      "required_remediation": "Chỉnh lập luận roadmap: A/C cho NO_INCREMENTAL_GAIN (không phải all-zero absolute); H-DATA-S1 mới là all-zero absolute; không pooling các thước đo khác protocol. Giữ nguyên mọi số/score/thresh gốc và ưu tiên P0 có tính điều kiện."
+    },
+    {
+      "finding_id": "SM4M-IR-F03",
+      "severity": "MEDIUM",
+      "claim": "F1 mô tả '48/48 H-DATA-S1 semantic axes = 0'.",
+      "exact_source": "https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md#L39-L42; https://github.com/minhtri22/TokenToModel-Lab/blob/ef4cc05037f98129082cd429a75092b8cc822efb/docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_FINAL24_OWNER_UNBLIND_FORMAL_ADJUDICATION_20261114.md#L33-L55",
+      "observed_evidence": "24 cặp ×2 arm =48 continuations; mỗi continuation có ba trục primary actor/object/goal và mỗi trục được báo 0.",
+      "discrepancy": "'48/48 axes' dùng mẫu số của continuation làm số trục; không rõ 48 đoạn hay 144 giá trị trục.",
+      "scientific_impact": "Thiếu minh bạch đơn vị quan sát khi cân nhắc false-zero và agreement.",
+      "required_remediation": "Đổi cách viết thành '48/48 continuations có cả ba trục bằng 0 (144 axis-level scores)', sau khi đối chiếu đúng frozen receipt; tuyệt đối không sửa score lịch sử."
+    },
+    {
+      "finding_id": "SM4M-IR-F04",
+      "severity": "MEDIUM",
+      "claim": "Hợp đồng M0 nêu 'two-blind-independent-rater' và agreement ≥0.85 trên mỗi trục.",
+      "exact_source": "https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md#L30-L35; https://github.com/minhtri22/TokenToModel-Lab/blob/33021a421f05bb3bfa0999ad12bc3bd144366da9/docs/research/ttm-hdata-fail4-md1/TTM_HDATA_FAIL4_MD1_PROSPECTIVE_PREREG_AND_FOUR_FAIL_MECHANISM_PLAN_20261114.md#L38-L42",
+      "observed_evidence": "MD1 có ngưỡng sens/spec ≥28/32 mỗi rater/trục và agreement ≥0.85 mỗi trục, nhưng chưa đóng băng công thức agreement, mẫu số, xử lý missing/invalid, định nghĩa human-gold hay cơ chế chứng minh không lộ nhãn.",
+      "discrepancy": "Các ngưỡng có nhưng quy tắc chấm máy và quy trình custody trước khi thực thi còn thiếu chi tiết có thể kiểm toán; tài liệu F2 không đánh dấu explicit PREEXEC BLOCK cho các chi tiết này.",
+      "scientific_impact": "Hai nhóm reviewer có thể áp dụng công thức/mẫu số khác và cùng tuyên PASS; không nhất thiết là lỗi ở giai đoạn design-only, nhưng là lỗ hổng admission.",
+      "required_remediation": "Trước bất kỳ owner decision về M0 execution, khóa contract tính mẫu số, per-axis confusion matrices, cùng 64 items, anonymization, inter-rater scheme, invalid handling, gold provenance/rights/PII và independent review. Không sửa ngưỡng M0 đã có."
+    },
+    {
+      "finding_id": "SM4M-IR-F05",
+      "severity": "LOW",
+      "claim": "F1 ghi 'FRESH16 independent AI-rater' có thể đọc như hai rater đồng thuận.",
+      "exact_source": "https://github.com/minhtri22/TokenToModel-Lab/blob/4c97f2b1d1836b31d55b649e78a8b69fecc44482/docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md#L17; https://github.com/minhtri22/TokenToModel-Lab/blob/0ec28d44587fde9ad4acba8cccae65648e367181/docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_FINAL_FROZEN_UNBLIND_SCIENTIFIC_ADJUDICATION_20261111.md#L9-L13",
+      "observed_evidence": "FRESH16 dùng hai cuộc trò chuyện riêng: S1 chấm 32 đầu ra, S2 chấm 16 cặp; không có inter-rater reliability đo trên cùng items.",
+      "discrepancy": "Mô tả ngắn không nhắc đây là hai nhiệm vụ khác nhau; dễ bị hiểu nhầm là double-score agreement.",
+      "scientific_impact": "Rủi ro diễn giải quá độ độ tin cậy đo lường, không làm thay đổi 0/16 hay 0/8.",
+      "required_remediation": "Chú thích rater S1/S2 đánh giá các endpoint khác nhau; không có agreement benchmark."
+    }
+  ],
+  "integrated_remediation": "One owner-reviewed prospective design revision resolving F01–F05 without altered science evidence or prereg thresholds; no micro-permits.",
+  "final_decision": "HOLD_REVISE_DESIGN",
+  "science_executed": false,
+  "gpu_executed": false,
+  "training_executed": false,
+  "model_inference_executed": false,
+  "repository_modified": false,
+  "test_final_touched": false,
+  "merge_authorized": false,
+  "owner_next_decision": "REVIEW_INTEGRATED_DESIGN_VERDICT_AND_REMEDIATION_ONLY",
+  "limitations": [
+    "Pinned GitHub connector source readback only, not raw public SHA-256 independently computed",
+    "Private weights, checkpoints, gold, escrow, and raw experiment outputs were not accessed",
+    "The 15 evidence groups were reconciled through the cited source reports, not every primary raw receipt",
+    "No full source-level forensic QA of all other branches or local Windows working tree",
+    "Independent AI review is not external human attestation"
+  ]
+}
