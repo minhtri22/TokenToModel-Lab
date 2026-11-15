@@ -253,6 +253,11 @@ class PreG3AdmissionGuard:
                     return " ".join(value.replace("IF NOT EXISTS", "").split()).lower()
                 if not installed or normalize_ddl(installed[0]) != normalize_ddl(expected_ddl):
                     raise AdmissionDenied("PRIVATE_LEDGER_SCHEMA_UNTRUSTED")
+                extras = db.execute("SELECT type,name FROM sqlite_master WHERE "
+                                    "type IN ('trigger','view') OR "
+                                    "(type='index' AND name NOT LIKE 'sqlite_autoindex_%')").fetchall()
+                if extras:
+                    raise AdmissionDenied("PRIVATE_LEDGER_SCHEMA_UNTRUSTED")
                 if db.execute("PRAGMA integrity_check").fetchone()[0] != 'ok':
                     raise AdmissionDenied("PRIVATE_LEDGER_INTEGRITY_FAILED")
                 db.execute("INSERT INTO consumed VALUES(?,?,?)", (
