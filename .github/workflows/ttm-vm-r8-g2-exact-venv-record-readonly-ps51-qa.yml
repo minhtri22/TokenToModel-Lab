@@ -44,7 +44,7 @@ jobs:
           Write-Host 'EXACT_VENV_PS51_PARSE=PASS'
           Write-Host 'EXACT_VENV_READONLY_AST=PASS'
           # Smoke only the Python stdlib code on hosted runner, NOT owner custody.
-          $Match=[regex]::Match($Raw,"(?s)\\\$Code=@'\\r?\\n(.*?)\\r?\\n'@")
+          $Match=[regex]::Match($Raw, '(?s)\$Code=@''\r?\n(.*?)\r?\n''@')
           if(-not $Match.Success){throw 'EMBEDDED_PYTHON_NOT_FOUND'}
           $Code=$Match.Groups[1].Value
           $ExpectedPrefix=& python -I -B -c 'import sys;print(sys.prefix)'
