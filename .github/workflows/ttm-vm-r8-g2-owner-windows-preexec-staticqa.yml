@@ -31,7 +31,7 @@ jobs:
             throw 'PS51_PREEXEC_PARSE_FAIL'
           }
           $Raw = [IO.File]::ReadAllText((Resolve-Path $Path).Path)
-          foreach($required in @('ACTUAL_HMAC', 'G3_EXECUTED', 'GITHUB_REAL_SENTINEL_ATTESTATION', 'ONE_SHOT_RECEIPT_ALREADY_EXISTS')) {
+          foreach($required in @('GPRE_AUTHENTIC_HMAC', 'G3_EXECUTED', 'GITHUB_REAL_SENTINEL_ATTESTATION', 'ONE_SHOT_RECEIPT_ALREADY_EXISTS')) {
             if(-not $Raw.Contains($required)) {throw ('STATIC_CONTRACT_MISSING: '+$required)}
           }
           if($Raw -match '(?im)^\s*&\s*\$GitHubCliExe\s+release\s+(create|delete|upload|edit)\b') {
