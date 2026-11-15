@@ -19,18 +19,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: 'B03 final family enum, HMAC provenance, and production caller QA'
+      - name: 'B03-C canonical component membership source-only negative QA'
         shell: bash
         run: |
           set -euo pipefail
           python --version
           python -m compileall -q docs/research/vector-memory/r8/integrated_closure
-          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_b03_production_negative.py
+          python -m unittest discover -v -s docs/research/vector-memory/r8/integrated_closure -p test_g0_b03_component_signature.py
           sha256sum \
             docs/research/vector-memory/r8/integrated_closure/folds_raters.py \
             docs/research/vector-memory/r8/integrated_closure/r8_production_caller.py \
-            docs/research/vector-memory/r8/integrated_closure/test_g0_b03_production_negative.py \
-            docs/research/vector-memory/r8/integrated_closure/test_g0_final_three_findings.py
-          printf '%s\n' 'QA_SCOPE=G0_B03_FAMILY_HMAC_CALLER_DELTA_ONLY' \
-            'HISTORIC_37_25_15_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
+            docs/research/vector-memory/r8/integrated_closure/test_g0_b03_component_signature.py
+          printf '%s\n' 'QA_SCOPE=G0_B03_C_INJECTIVE_COMPONENT_SIGNATURE_ONLY' \
+            'HISTORIC_37_25_15_15_NOT_RERUN=TRUE' 'R8_GENERATED=FALSE' \
             'PRIVATE_GOLD=NOT_ACCESSED' 'GPU=NO' 'READER=0' 'PROBE256=SEALED'

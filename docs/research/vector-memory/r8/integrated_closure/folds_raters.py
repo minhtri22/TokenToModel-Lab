@@ -26,6 +26,25 @@ class DSU:
         for i in self.parent:out[self.root(i)].append(i)
         return [sorted(v) for v in sorted(out.values(),key=lambda v:min(v))]
 
+def _component_signature(comp):
+    """Injective G_pre HMAC input over an immutable component member list.
+
+    A bare delimiter join is ambiguous when accepted blueprint IDs contain
+    delimiters (e.g. ["a", "b|c"] versus ["a|b", "c"]).
+    Canonical JSON array encoding gives each member an unambiguous boundary.
+    Domain separation prevents reuse as a blueprint/preassignment MAC payload.
+    No private key or R8 case is materialized by this helper.
+    """
+    if not isinstance(comp,(tuple,list)) or any(type(x) is not str for x in comp):
+        raise ValueError("INVALID_GPRE_COMPONENT_MEMBERS")
+    ordered=sorted(comp)
+    if len(ordered)!=len(set(ordered)):
+        raise ValueError("DUPLICATE_GPRE_COMPONENT_MEMBER")
+    canonical=json.dumps(ordered,ensure_ascii=False,separators=(",",":"),
+                         allow_nan=False).encode("utf-8")
+    return b"R8_GPRE_COMPONENT_V1\\x00" + canonical
+
+
 def preassign(blueprints,private_hmac_key):
     """32 pair BLUEPRINT rows expected by design, never generated cases.
     The keyed order is private. Public results must suppress component membership.
@@ -45,7 +64,7 @@ def preassign(blueprints,private_hmac_key):
     comps=d.components()
     ranks=[]
     for comp in comps:
-        signature="|".join(comp).encode("utf-8")
+        signature=_component_signature(comp)
         digest=hmac.new(private_hmac_key,signature,hashlib.sha256).hexdigest()
         ranks.append((digest,comp))
     sizes=[0]*4; fold={}
