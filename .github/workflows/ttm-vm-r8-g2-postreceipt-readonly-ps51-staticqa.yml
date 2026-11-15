@@ -6,6 +6,7 @@ on:
       - implementation/ttm-vm-r8-g2-owner-windows-preexec-20261115
     paths:
       - docs/research/vector-memory/r8/preexec/Inspect-TTM-VM-R8-G2-Existing-Receipt-And-Pins-ReadOnly-PS51.ps1
+      - docs/research/vector-memory/r8/preexec/Find-TTM-VM-R8-G2-Historical-Python-Pin-ReadOnly-PS51.ps1
       - .github/workflows/ttm-vm-r8-g2-postreceipt-readonly-ps51-staticqa.yml
 
 permissions:
@@ -42,3 +43,28 @@ jobs:
           Write-Host 'POSTRECEIPT_PS51_PARSE=PASS'
           Write-Host 'POSTRECEIPT_READONLY_AST_SCOPE=PASS'
           Write-Host 'OWNER_PRIVATE_RECEIPT_READBACK=NOT_EXECUTED_ON_HOSTED_RUNNER'
+
+      - name: Parse historical exact-Python pin discovery under Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $Script='docs/research/vector-memory/r8/preexec/Find-TTM-VM-R8-G2-Historical-Python-Pin-ReadOnly-PS51.ps1'
+          $tokens=$null; $errors=$null
+          $ast=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $Script).Path,[ref]$tokens,[ref]$errors)
+          if(-not $ast -or $errors.Count -ne 0) {
+            foreach($item in $errors){Write-Host ('PARSE_ERROR: '+$item.Message)}
+            throw 'HISTORICAL_PYTHON_PS51_PARSE_FAILED'
+          }
+          $forbidden=@('Set-Content','Add-Content','Out-File','Write-OutputToFile','New-Item','Remove-Item','Copy-Item','Move-Item','Rename-Item','Set-Item','Invoke-WebRequest','Start-Process','git','gh','curl','Invoke-RestMethod','Invoke-Expression')
+          $commands=$ast.FindAll({param($a) $a -is [System.Management.Automation.Language.CommandAst]},$true)
+          foreach($node in $commands){
+            $name=$node.GetCommandName()
+            if($name -and $forbidden -contains $name) {throw ('FORBIDDEN_READONLY_COMMAND: '+$name)}
+          }
+          $raw=[IO.File]::ReadAllText((Resolve-Path $Script).Path)
+          foreach($required in @('EXISTING_G2_RECEIPT_SHA256=PASS_NO_MUTATION','0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14','RUNTIME_ORIGINAL_MANIFEST_AND_MODULE_BYTE_READBACK=NOT_ATTESTED','G3=NOT_EXECUTED','G2=HOLD_INTEGRATED')) {
+            if(-not $raw.Contains($required)){throw ('REQUIRED_STATUS_MISSING: '+$required)}
+          }
+          Write-Host 'HISTORICAL_PYTHON_PS51_PARSE=PASS'
+          Write-Host 'HISTORICAL_PYTHON_READONLY_AST_SCOPE=PASS'
+          Write-Host 'PRIVATE_RUNTIME_DISCOVERY=NOT_EXECUTED_ON_HOSTED_RUNNER'
