@@ -1,0 +1,180 @@
+{
+  "schema": "ttm.small4m.f2.prospective_measurement_preexec.author_design.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_DESIGN_SINGLE_GATE",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-small4m-foundation-first-single-gate-20261115",
+  "parent_head": "c233dff20b9b020aefd732ce62bfa2e7aebd3985",
+  "source_pins": {
+    "md1_ref": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
+    "md1_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
+    "foundation_roadmap_sha1": "d87309aea043b845fafcc805ed13b2b4466f5e46",
+    "owner_closure_sha1": "3fee9e58914de4c6f41851ca6f7ce89d6bf67124",
+    "owner_receipt_sha1": "de624ceaab21531ed7641fc4b8e784ccbbc9bd00"
+  },
+  "design_files": {
+    "protocol": {
+      "path": "docs/research/ttm-small4m-foundation-first/06_SM4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_PROTOCOL_20261115.md",
+      "git_blob_sha1": "cbf3641a9991e81349058e06564b49a84c7525e1"
+    },
+    "admission": {
+      "path": "docs/research/ttm-small4m-foundation-first/07_SM4M_F2_PREEXEC_ADMISSION_SCORING_AND_CUSTODY_MATRIX_20261115.md",
+      "git_blob_sha1": "fca4d946b51b50212f5888d513d84d887466c472"
+    },
+    "handoff": {
+      "path": "docs/research/ttm-small4m-foundation-first/08_SM4M_F2_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REVIEW_HANDOFF_20261115.md",
+      "git_blob_sha1": "f07a9bd22bc45ee4518fe0a346c08e4d8ef49f4d"
+    },
+    "receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_PREEXEC_DESIGN_AUTHOR_RECEIPT_20261115.json"
+    }
+  },
+  "programme_scope": "FOUNDATION_FIRST_F2_MEASUREMENT_ONLY",
+  "m0_original": {
+    "source": "MD1_UNCHANGED",
+    "new_cores_proposed_by_md1": 32,
+    "items": 64,
+    "strata": 4,
+    "cores_per_stratum": 8,
+    "gold_patterns": [
+      "111",
+      "000"
+    ],
+    "rater_count": 2,
+    "thresholds_source": "EXISTING_MD1",
+    "sensitivity_per_rater_axis": "28/32",
+    "specificity_per_rater_axis": "28/32",
+    "agreement_per_axis": 0.85,
+    "agreement_formula_status": "PROPOSED_FUTURE_FREEZE_RAW_MATCH_55_OF_64",
+    "data_created": false,
+    "science_executed": false
+  },
+  "m0x_axis_candidate": {
+    "status": "PROSPECTIVE_DESIGN_CANDIDATE_NOT_FROZEN",
+    "cores": 16,
+    "strata": 4,
+    "cores_per_stratum": 4,
+    "variants_per_core": 8,
+    "items": 128,
+    "patterns": [
+      "000",
+      "001",
+      "010",
+      "011",
+      "100",
+      "101",
+      "110",
+      "111"
+    ],
+    "each_pattern_count": 16,
+    "per_axis_gold_positive": 64,
+    "per_axis_gold_negative": 64,
+    "matched_single_axis_edges_per_axis": 64,
+    "rater_count": 2,
+    "candidate_sensitivity": "56/64",
+    "candidate_specificity": "56/64",
+    "candidate_paired_edge_full_correct": "56/64",
+    "candidate_raw_agreement": "109/128",
+    "candidate_thresholds_owner_frozen": false,
+    "axis_semantic_isolation_verified": false,
+    "gold_authored": false,
+    "source_rights_attested": false
+  },
+  "m0u_unknown_candidate": {
+    "status": "PROSPECTIVE_DESIGN_CANDIDATE_NOT_FROZEN",
+    "new_cores": 24,
+    "items": 24,
+    "target_unknown_per_axis": 8,
+    "other_axes_binary": true,
+    "rater_count": 2,
+    "candidate_target_abstention": "7/8",
+    "non_target_accuracy_gate": "TO_BE_FROZEN",
+    "gold_authored": false
+  },
+  "proposed_total": {
+    "cores": 72,
+    "items": 216,
+    "raters_per_set": 2,
+    "item_rater_assignments": 432,
+    "axis_decisions": 1296,
+    "caveat": "PLANNED_ONLY; NOT CREATED; ITEMS_NOT_IID"
+  },
+  "measurement_interpretation": {
+    "m0_polarity_scoped_only": true,
+    "per_axis_model_validity_proven": false,
+    "model_failure_proven": false,
+    "h_meas_causal_proven": false,
+    "root_cause_identified": false,
+    "distributions_generalized": false
+  },
+  "admission_gates": [
+    {
+      "id": "G00_SOURCE",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G01_RIGHTS",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G02_NONOVERLAP",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G03_M0_MD1",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G04_M0X_GOLD",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G05_M0U_GOLD",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G06_ANTI_SHORTCUT",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G07_THRESHOLDS",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G08_BLIND",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G09_SCORER",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G10_CUSTODY",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G11_RESOURCE",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    },
+    {
+      "id": "G12_OWNER",
+      "execution_status": "NOT_VERIFIED_OR_NOT_EXECUTED"
+    }
+  ],
+  "source_only_author_status": "AUTHOR_DESIGN_CANDIDATE_FOR_INDEPENDENT_SOURCE_QA",
+  "independent_review_status": "NOT_EXECUTED",
+  "owner_execution_go": false,
+  "model_inference_executed": false,
+  "training_executed": false,
+  "gpu_executed": false,
+  "calibration_items_created": false,
+  "gold_created": false,
+  "blind_mapping_created": false,
+  "scoring_executed": false,
+  "owner_previous_f01_f05_closure": "ACCEPT_GO_DESIGN_SCOPED_CLOSE_F01_F05",
+  "f3_status": "NOT_OPENED",
+  "f4_status": "NOT_OPENED",
+  "lineage_modified": false,
+  "merge_authorized": false,
+  "next_single_step": "TTM_SMALL4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_SINGLE_GATE"
+}
