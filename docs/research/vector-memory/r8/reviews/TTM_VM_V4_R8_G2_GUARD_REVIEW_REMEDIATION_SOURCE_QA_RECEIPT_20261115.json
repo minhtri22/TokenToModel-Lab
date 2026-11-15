@@ -1,0 +1,65 @@
+{
+  "schema": "ttm.vm.v4.r8.g2.guard.remediation.sourceqa.v1",
+  "operation": "TTM_VM_V4_R8_G2_GUARD_INDEPENDENT_F01_F09_REMEDIATION_SOURCE_QA_SINGLE_GATE",
+  "date": "2026-11-15",
+  "source_branch": "implementation/ttm-vm-r8-g2-guard-f01-f09-remediation-20261115",
+  "prior_review_commit": "94b377ce6c0d6aa9e1d08ae4ff628c215449be1f",
+  "frozen_scientific_commit": "84d9d5c95e9962ccfe294852570e261b145fe403",
+  "python_local": "3.13.5",
+  "qa_command": "python -B -W error::ResourceWarning -m unittest -q test_pre_g3_admission_guard.py",
+  "local_source_tests": {
+    "passed": 35,
+    "failed": 0,
+    "errors": 0,
+    "scope": "synthetic fixtures only",
+    "windows_312": "NOT_EXECUTED",
+    "independent": "NOT_EXECUTED"
+  },
+  "zip": {
+    "sha256": "4fcd7627182b170ef9483b6f3ebfd7644da99ac5f6c65a44fbe55d44b9231c71",
+    "git_blob": "3eedb709104b7e033be5cb58c59aec27f24bc701",
+    "bytes": 28512
+  },
+  "files": [
+    {
+      "path": "docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py",
+      "git_blob": "c2f4cd636ecb97b9bb2e11e737c371b469acf2e6",
+      "sha256": "83dc3c1fa98ba07487d251465c88be65423085ba60ae62740db300918223f2e6"
+    },
+    {
+      "path": "docs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py",
+      "git_blob": "cba02fb7d3cf180318d015345428a2fff125dd56",
+      "sha256": "9b1725fd660c861b6fd82576bb825df592214622652a416281fddf08bccad73d"
+    }
+  ],
+  "scope_resolution": {
+    "P14": "PASS_SCOPED_LOCAL_REGRESSION",
+    "P15": "PASS_SCOPED_LOCAL_REGRESSION",
+    "P16": "PASS_SCOPED_LOCAL_REGRESSION",
+    "P17": "PASS_SCOPED_LOCAL_REGRESSION_RECHECK_ONLY",
+    "P19": "PASS_SCOPED_LOCAL_SCHEMA_VALIDATION",
+    "P21": "PASS_SCOPED_LOCAL_HARDLINK_CHECK",
+    "P22": "PASS_SCOPED_TYPED_DENIAL",
+    "P23": "PASS_SCOPED_TYPED_DENIAL",
+    "P13": "HOLD_UNTRUSTED_CALLER_PROOFS",
+    "P18": "HOLD_ALTERNATE_LEDGER_REPLAY",
+    "P20": "HOLD_LEDGER_ROLLBACK"
+  },
+  "unresolved": [
+    "F01 fixture mode remains caller-selected, no trusted production verifier",
+    "F02 independent receipt/release signature trust root not established",
+    "F03 authentic HMAC V2 not recomputed from custodian key",
+    "F04 running source/runtime manifest bytes not independently attested",
+    "F05 anchor freshness after second check and downstream invalidation not proven",
+    "F06 protected ledger identity and antirollback not attested",
+    "F09 retention amendment needs reviewer distinct from its author"
+  ],
+  "adjudication": {
+    "implementation_regression": "PASS_SCOPED_LOCAL_35_OF_35",
+    "production": "NOT_ATTESTED",
+    "retention_amendment": "HOLD",
+    "G2": "HOLD_INTEGRATED",
+    "R8": "NOT_GENERATED",
+    "G3": "NOT_EXECUTED"
+  }
+}

@@ -1,0 +1,11 @@
+4fcd7627182b170ef9483b6f3ebfd7644da99ac5f6c65a44fbe55d44b9231c71  TTM_VM_V4_R8_G2_GUARD_REVIEW_REMEDIATION_20261115.zip
+83dc3c1fa98ba07487d251465c88be65423085ba60ae62740db300918223f2e6  pre_g3_admission_guard.py
+9b1725fd660c861b6fd82576bb825df592214622652a416281fddf08bccad73d  test_pre_g3_admission_guard.py
+
+Source branch: implementation/ttm-vm-r8-g2-guard-f01-f09-remediation-20261115
+Parent independent review: 94b377ce6c0d6aa9e1d08ae4ff628c215449be1f
+Git ZIP blob SHA-1: 3eedb709104b7e033be5cb58c59aec27f24bc701
+Archive size: 28512 bytes; members: 2; ZIP_STORED.
+Source blob: c2f4cd636ecb97b9bb2e11e737c371b469acf2e6
+Test blob: cba02fb7d3cf180318d015345428a2fff125dd56
+All entries checked against exact GitHub source blobs; private materials absent.
