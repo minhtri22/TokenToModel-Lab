@@ -2,10 +2,10 @@
 
 **Loại:** tài liệu nghiên cứu tham khảo, **không phải** bằng chứng kết quả thực nghiệm TTM / phán quyết Q3 / quyết định owner Q4.  
 **QuestionID:** `SM4M-Q001` · **Entry:** `SM4M-REF-PROSPECTIVE-001` · **Ngày bổ sung:** 2026-11-15.  
-**Nguồn đề xuất:** Owner cung cấp arXiv `2601.06002` và yêu cầu đưa vào nhóm tài liệu cần tham khảo.  
+**Nguồn đề xuất và phê duyệt:** Owner cung cấp arXiv `2601.06002` và đã xác nhận **đồng ý ghi nhận vào phần mở rộng** trong quyết định Q4 ngày 2026-11-15.  
 **Repo PR:** [Draft #21](https://github.com/minhtri22/TokenToModel-Lab/pull/21).  
 **Q3 reviewed exact design HEAD:** `c37ac0b3901eb6fd9c658d818c02e85f66b7936e`; entry này xuất hiện **sau** Q3 review, không nằm trong 13 nguồn frozen Q2, không làm thay đổi conclusion hoặc prior audit.  
-**Status:** `REFERENCE_ONLY · FUTURE_HYPOTHESIS_SUPPORT · NOT_ADMITTED_AS_SMALL4M_CAUSAL_EVIDENCE · NO_SCIENCE_PERMIT`.
+**Status:** `OWNER_ACCEPTED_REFERENCE_ONLY · FUTURE_HYPOTHESIS_SUPPORT · NOT_ADMITTED_AS_SMALL4M_CAUSAL_EVIDENCE · NO_SCIENCE_PERMIT`.
 
 ## 1. Hồ sơ thư mục chính thức
 
@@ -48,10 +48,12 @@
 ## 5. Ràng buộc và bất biến (hard boundaries)
 
 - `Q3=PASS_Q3_SOURCE_AND_EVIDENCE_SCOPE_SCOPED` chỉ gắn exact reviewed HEAD `c37ac0b3901eb6fd9c658d818c02e85f66b7936e`; entry reference mới **không tự coi là được reviewer Q3 xét duyệt**.
-- `Q4=OWNER_NOT_DECIDED`; `PR21=DRAFT_UNMERGED`; `main` không được coi là đã cập nhật trước merge được phép.
+- `Q4=Q4_CLOSED_HOLD_NEW_SCIENCE`; owner đã cấp `MERGE_APPROVED_GOVERNANCE_DOCS_ONLY` cho PR #21. Trạng thái merged thực tế kiểm từ GitHub PR, không suy ra từ tài liệu này.
 - `ROOT_CAUSE_NOT_IDENTIFIED`; `HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE`; `KEEP_HISTORICAL_REFERENCE_ONLY`; `F0_F2_PAUSED`.
 - **Không** sửa Q2 original 13 references, bảy Q2 blobs, ten original study verdicts, AD-00…AD-08 statuses, `ACTIVE_RESEARCH_GATE.md`, `lineage.md` hoặc source code vì entry này.
 - **Không** tạo dataset/gold/scorer, không train/inference/GPU, không mở research branch mới, không cấp science permit.
-- **Owner Q4 merge GO/HOLD chưa được đưa ra.** Việc bổ sung tài liệu tham khảo không là chấp thuận Q4.
+- **Owner Q4 đã GO** cho closure tài liệu quản trị và cho việc đưa bài báo vào reference watchlist; không cấp science GO hoặc admission cho Small-4M.
 
-**Bước tiếp theo của hồ sơ quản trị hiện hành (không mở gate mới):** `SM4M_Q001_Q4_OWNER_CLOSURE_AND_PR21_GOVERNANCE_ONLY_MERGE_GO_HOLD_SINGLE_GATE`.
+**Bước tiếp theo của hồ sơ quản trị hiện hành (design-only):** `TTM_POST_Q001_RESEARCH_DIRECTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE`.
+
+**Q4 closure record:** [Owner Q4 formal decision](SM4M_Q001_Q4_OWNER_CLOSURE_AND_GOVERNANCE_MERGE_DECISION_20261115.md). Bài báo giữ đúng vị thế tài liệu tham khảo định hướng tương lai, không nhập vào 13 nguồn đã khóa của Q2.
