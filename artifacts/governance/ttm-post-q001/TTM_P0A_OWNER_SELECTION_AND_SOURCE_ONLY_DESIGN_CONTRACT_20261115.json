@@ -1,0 +1,176 @@
+{
+  "schema": "ttm.post_q001.p0a.owner_selection_and_design_contract.v1",
+  "operation": "TTM_POST_Q001_PROSPECTIVE_QUESTION_SELECTION_OWNER_REVIEW_SINGLE_GATE",
+  "created_date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "source_draft_pr_head": "1c272bb7d3808ae2d8a5d226f2c3b566ef9bc974",
+  "source_lineage_git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+  "owner_declaration": "Đồng ý thực hiện theo ma trận và ưu tiên",
+  "owner_decision": "GO_SELECT_P0A_MEASUREMENT_GOLD_FIRST_FOR_SOURCE_ONLY_QUESTION_DESIGN",
+  "owner_scope": "PRIORITY_SEQUENCE_AND_SOURCE_ONLY_QUESTION_DESIGN_NOT_NEW_SCIENCE_AUTHORIZATION",
+  "selected_direction": "METRIC_GOLD",
+  "dependency_queue": [
+    {
+      "direction": "METRIC_GOLD",
+      "rank": "P0-A",
+      "status": "OWNER_SELECTED_SOURCE_ONLY_DESIGN"
+    },
+    {
+      "direction": "CAUSAL_IDENTIFIABILITY",
+      "rank": "P0-B",
+      "status": "DEPENDENT_NOT_OPENED"
+    },
+    {
+      "direction": "DATA_COVERAGE",
+      "rank": "P1",
+      "status": "TIED_NOT_OPENED"
+    },
+    {
+      "direction": "OBJECTIVE_ALIGNMENT",
+      "rank": "P1",
+      "status": "TIED_NOT_OPENED"
+    },
+    {
+      "direction": "CONTEXT_WINDOW",
+      "rank": "P2",
+      "status": "CONDITIONAL_NOT_OPENED"
+    },
+    {
+      "direction": "DECODING",
+      "rank": "P2",
+      "status": "CONDITIONAL_NOT_OPENED"
+    },
+    {
+      "direction": "CAPACITY_ARCH",
+      "rank": "P3",
+      "status": "DEFERRED_NOT_OPENED"
+    },
+    {
+      "direction": "LONG_COT_MOLESYN",
+      "rank": "P4",
+      "status": "OWNER_ACCEPTED_REFERENCE_ONLY"
+    }
+  ],
+  "candidate_question": {
+    "candidate_id": "P0A-CANDIDATE-NOT-A-QUESTION-ID",
+    "type": "MEASUREMENT",
+    "decision_question": "Can an independent adjudicator derive TRUE/FALSE/UNKNOWN/INVALID source-visible fact labels from the same permitted evidence packet shown to model and rater, without hidden gold, ambiguous roles or lexical shortcuts, before interpreting historical factual adherence outcomes?",
+    "hypotheses": [
+      {
+        "id": "M0_VISIBLE_CONSTRUCT",
+        "classification": "UNVERIFIED",
+        "falsifier": "Visible witness insufficient to derive unique label under prereg contract"
+      },
+      {
+        "id": "M1_HIDDEN_ONLY",
+        "classification": "UNVERIFIED",
+        "falsifier": "All target labels demonstrably derivable without E_core/hidden state"
+      },
+      {
+        "id": "M2_AMBIGUITY",
+        "classification": "UNVERIFIED",
+        "falsifier": "Every eligible case has unique typed event/time/actor/object/goal interpretation without forced binary labels"
+      },
+      {
+        "id": "M3_SHORTCUT",
+        "classification": "UNVERIFIED",
+        "falsifier": "Lexically matched semantic counterfactual controls show no cue-only predictive advantage"
+      },
+      {
+        "id": "M4_RATER",
+        "classification": "UNVERIFIED",
+        "falsifier": "Calibrated independent judges same task/packet show acceptable prereg agreement with resolved abstentions"
+      }
+    ],
+    "alternatives": [
+      "KEEP",
+      "SIMPLIFY",
+      "PIVOT",
+      "STOP",
+      "HOLD_EVIDENCE_INSUFFICIENT"
+    ],
+    "source_observations": [
+      "T4_NLL_VAL_TEST_PASS_SCOPED",
+      "FRESH16_H1_0_16_H2_0_8",
+      "FC01_LEXICAL_C38_64_ENTITY_LOCATION_C1_16",
+      "D1_R1_OOD_ADMITTED_0_16",
+      "D1_EXP32_RATER_INPUT_BYTES_UNVERIFIED"
+    ],
+    "unverified": [
+      "RIGHTS",
+      "ITEM_LEVEL_VISIBLE_WITNESS",
+      "CONSTRUCT_ONTOLOGY",
+      "INDEPENDENT_SAME_TASK_RATER_CALIBRATION",
+      "NEGATIVE_CONTROLS",
+      "ADMISSION_THRESHOLD",
+      "RESOURCE_BUDGET"
+    ],
+    "phase_contract": {
+      "design": [
+        "AD-02_PROPOSED",
+        "AD-03_VISIBLE_WITNESS_CONTRACT",
+        "AD-05_SHORTCUT_SPEC",
+        "AD-06_ONLY_IF_CONTRAST_REQUIRED"
+      ],
+      "before_authoring": [
+        "AD-01R",
+        "AD-02",
+        "AD-03",
+        "AD-05",
+        "AD-06_IF_CONTRAST",
+        "AD-08_OWNER_SCOPE"
+      ],
+      "before_freeze": [
+        "AD-01T_IF_TOKEN_SENSITIVE",
+        "AD-02",
+        "AD-03",
+        "AD-05",
+        "AD-06_IF_CONTRAST",
+        "AD-07"
+      ],
+      "before_model_run": [
+        "AD-00",
+        "AD-01C",
+        "AD-08_SEPARATE_SCIENCE_PERMIT"
+      ],
+      "before_scoring": [
+        "AD-03_RECHECK",
+        "AD-04",
+        "AD-05_RECHECK",
+        "AD-06_RECHECK_IF_CONTRAST",
+        "AD-07"
+      ]
+    },
+    "hard_veto": [
+      "HIDDEN_ONLY_GOLD",
+      "INVALID_OR_AMBIGUOUS_CONSTRUCT",
+      "NO_SOURCE_RIGHTS",
+      "NO_VISIBLE_WITNESS",
+      "LEAKAGE_OR_SHORTCUT",
+      "UNRESOLVED_SAME_TASK_RATER_DISAGREEMENT",
+      "NO_OWNER_SCIENCE_AUTHORITY"
+    ],
+    "primary_endpoint_status": "NOT_PREREGISTERED_NO_NEW_MEASUREMENTS",
+    "sample_count_status": "NOT_SET",
+    "threshold_status": "NOT_FROZEN",
+    "budget_status": "NOT_AUTHORIZED"
+  },
+  "implementation_permissions": {
+    "new_question_registered": false,
+    "new_implementation_branch": false,
+    "model_code_patch": false,
+    "science_execution": false,
+    "gold_data_authoring": false,
+    "scorer_construction": false,
+    "inference": false,
+    "training": false,
+    "gpu": false,
+    "test_final_replay": false,
+    "lineage_mutation": false,
+    "pr22_merge": false,
+    "active_gate_mutation": false
+  },
+  "next_single_step": "TTM_P0A_MEASUREMENT_GOLD_PROSPECTIVE_Q1_SOURCE_ADMISSION_AND_DISTINCT_REVIEW_SINGLE_GATE",
+  "status": "OWNER_P0A_SELECTED_DESIGN_ONLY_CANDIDATE_NOT_REGISTERED"
+}

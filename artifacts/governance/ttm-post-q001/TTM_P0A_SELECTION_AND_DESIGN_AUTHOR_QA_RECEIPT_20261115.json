@@ -1,0 +1,277 @@
+{
+  "schema": "ttm.p0a.owner_selection.source_only.author_qa.v1",
+  "operation": "TTM_POST_Q001_PROSPECTIVE_QUESTION_SELECTION_OWNER_REVIEW_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "author_scope": "SOURCE_ONLY_DESIGN_NO_SCIENCE",
+  "source_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "source_lineage_git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+  "source_priority_pr_number": 22,
+  "source_priority_pr_head": "1c272bb7d3808ae2d8a5d226f2c3b566ef9bc974",
+  "source_priority_json_git_blob_sha1": "2118dbb5a2b2cf86e59285d88ff1a2b76f309f80",
+  "candidate_blobs": {
+    "owner": "7ccc41b30743a44c5427368212db1e88197d3006",
+    "design": "fa45faadad78899cab3b48062c5befd3a141a53e",
+    "contract": "3fd84c44e0aa56c6dfab55326bfe6addbb18f580"
+  },
+  "tests": [
+    {
+      "id": "QA01",
+      "name": "source main unchanged and exact",
+      "pass": true
+    },
+    {
+      "id": "QA02",
+      "name": "source lineage SHA original",
+      "pass": true
+    },
+    {
+      "id": "QA03",
+      "name": "Question-first policy in force",
+      "pass": true
+    },
+    {
+      "id": "QA04",
+      "name": "Q001 closed before successor selection",
+      "pass": true
+    },
+    {
+      "id": "QA05",
+      "name": "No active Question Gate on main",
+      "pass": true
+    },
+    {
+      "id": "QA06",
+      "name": "PR22 remains draft base/main",
+      "pass": true
+    },
+    {
+      "id": "QA07",
+      "name": "Owner language preserved verbatim",
+      "pass": true
+    },
+    {
+      "id": "QA08",
+      "name": "Owner selected P0A only",
+      "pass": true
+    },
+    {
+      "id": "QA09",
+      "name": "Original P0A rank from authorized matrix",
+      "pass": true
+    },
+    {
+      "id": "QA10",
+      "name": "P0B still dependent on P0A",
+      "pass": true
+    },
+    {
+      "id": "QA11",
+      "name": "P1 data objective tied",
+      "pass": true
+    },
+    {
+      "id": "QA12",
+      "name": "P2 conditional only",
+      "pass": true
+    },
+    {
+      "id": "QA13",
+      "name": "Capacity deferred",
+      "pass": true
+    },
+    {
+      "id": "QA14",
+      "name": "LongCoT remains reference-only",
+      "pass": true
+    },
+    {
+      "id": "QA15",
+      "name": "No QID registered",
+      "pass": true
+    },
+    {
+      "id": "QA16",
+      "name": "No new research branch",
+      "pass": true
+    },
+    {
+      "id": "QA17",
+      "name": "Question scientifically falsifiable",
+      "pass": true
+    },
+    {
+      "id": "QA18",
+      "name": "Observable vs inferred vs unknown distinct",
+      "pass": true
+    },
+    {
+      "id": "QA19",
+      "name": "Alternatives 5 explicitly including HOLD",
+      "pass": true
+    },
+    {
+      "id": "QA20",
+      "name": "Five hypotheses complete",
+      "pass": true
+    },
+    {
+      "id": "QA21",
+      "name": "All hypotheses unverified",
+      "pass": true
+    },
+    {
+      "id": "QA22",
+      "name": "Hidden E_core not accepted as visible gold",
+      "pass": true
+    },
+    {
+      "id": "QA23",
+      "name": "AD-03 before authoring",
+      "pass": true
+    },
+    {
+      "id": "QA24",
+      "name": "AD-05 before authoring",
+      "pass": true
+    },
+    {
+      "id": "QA25",
+      "name": "AD-06 before authoring with conditionality",
+      "pass": true
+    },
+    {
+      "id": "QA26",
+      "name": "AD-01R rights before source access",
+      "pass": true
+    },
+    {
+      "id": "QA27",
+      "name": "AD-01T before token sensitive freeze",
+      "pass": true
+    },
+    {
+      "id": "QA28",
+      "name": "AD-01C before model execution",
+      "pass": true
+    },
+    {
+      "id": "QA29",
+      "name": "AD-04 before scoring same task",
+      "pass": true
+    },
+    {
+      "id": "QA30",
+      "name": "No metric threshold invented",
+      "pass": true
+    },
+    {
+      "id": "QA31",
+      "name": "No budget pretend authorization",
+      "pass": true
+    },
+    {
+      "id": "QA32",
+      "name": "No gold/data/scorer created",
+      "pass": true
+    },
+    {
+      "id": "QA33",
+      "name": "No GPU/model execution",
+      "pass": true
+    },
+    {
+      "id": "QA34",
+      "name": "No new TEST/FINAL replay",
+      "pass": true
+    },
+    {
+      "id": "QA35",
+      "name": "Keep lineage unchanged",
+      "pass": true
+    },
+    {
+      "id": "QA36",
+      "name": "Keep active main unchanged",
+      "pass": true
+    },
+    {
+      "id": "QA37",
+      "name": "No merge authorization",
+      "pass": true
+    },
+    {
+      "id": "QA38",
+      "name": "No scientific root-cause assertion",
+      "pass": true
+    },
+    {
+      "id": "QA39",
+      "name": "Reviewer is distinct and future",
+      "pass": true
+    },
+    {
+      "id": "QA40",
+      "name": "One next step in owner",
+      "pass": true
+    },
+    {
+      "id": "QA41",
+      "name": "One next step in candidate",
+      "pass": true
+    },
+    {
+      "id": "QA42",
+      "name": "NEG forbidden source access",
+      "pass": true
+    },
+    {
+      "id": "QA43",
+      "name": "NEG unknown construct",
+      "pass": true
+    },
+    {
+      "id": "QA44",
+      "name": "NEG hidden-only gold",
+      "pass": true
+    },
+    {
+      "id": "QA45",
+      "name": "NEG shortcut leakage",
+      "pass": true
+    },
+    {
+      "id": "QA46",
+      "name": "NEG owner permit missing",
+      "pass": true
+    },
+    {
+      "id": "QA47",
+      "name": "NEG hypothetical eligible model execution still blocked",
+      "pass": true
+    },
+    {
+      "id": "QA48",
+      "name": "NEG no covert Q1 registration",
+      "pass": true
+    }
+  ],
+  "pass_count": 48,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_SOURCE_ONLY_P0A_Q_CANDIDATE_SCOPED",
+  "independent_review_executed": false,
+  "question_registered": false,
+  "source_data_accessed": false,
+  "gold_created": false,
+  "scorer_created": false,
+  "inference_executed": false,
+  "training_executed": false,
+  "repo_main_changed": false,
+  "lineage_modified": false,
+  "limitations": [
+    "Author static logic QA does not prove task construct validity, gold, rights or independent rater reliability",
+    "P0-A remains a prospective Question Gate candidate, not Q1 registered on main",
+    "Negative symbolic cases are not experimental fixtures or rater evaluation"
+  ],
+  "next_single_step": "TTM_P0A_MEASUREMENT_GOLD_PROSPECTIVE_Q1_SOURCE_ADMISSION_AND_DISTINCT_REVIEW_SINGLE_GATE"
+}
