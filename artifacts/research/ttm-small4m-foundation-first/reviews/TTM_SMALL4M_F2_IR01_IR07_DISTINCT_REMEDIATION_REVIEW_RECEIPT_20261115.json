@@ -1,0 +1,373 @@
+{
+  "schema": "ttm.small4m.f2.ir01_ir07.distinct_remediation_review.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_IR01_IR07_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REREVIEW_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewer_role": "Independent AI Scientific, Measurement & Source Reviewer; NOT human gold adjudicator",
+  "review_mode": [
+    "READ_ONLY",
+    "SOURCE_ONLY",
+    "DESIGN_ONLY",
+    "NO_SCIENCE_EXECUTION",
+    "NO_REPOSITORY_WRITES"
+  ],
+  "source_commit": "cf0f459b54d0e91a7923e7a08b621d374e712e51",
+  "baseline_commit": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+  "source_blobs": {
+    "06": {
+      "path": "docs/research/ttm-small4m-foundation-first/06_SM4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_PROTOCOL_20261115.md",
+      "git_blob_sha1": "a5cc0c51363de9772c27418ea667475c25c791b0",
+      "exact_commit_verified": true
+    },
+    "07": {
+      "path": "docs/research/ttm-small4m-foundation-first/07_SM4M_F2_PREEXEC_ADMISSION_SCORING_AND_CUSTODY_MATRIX_20261115.md",
+      "git_blob_sha1": "d0ca205935c01a815aaebe86c90f4e3daf1a1291",
+      "exact_commit_verified": true
+    },
+    "09": {
+      "path": "docs/research/ttm-small4m-foundation-first/09_SM4M_F2_IR01_IR07_AUTHOR_ADVERSARIAL_SOURCE_QA_20261115.md",
+      "git_blob_sha1": "4fa489a0e941f142cdec454b08f64bf0be1d6a8e",
+      "exact_commit_verified": true
+    },
+    "10": {
+      "path": "docs/research/ttm-small4m-foundation-first/10_SM4M_F2_IR01_IR07_DISTINCT_REVIEW_HANDOFF_20261115.md",
+      "git_blob_sha1": "b97494e46b8d259380129ebc4ff5003cfc3ac887",
+      "exact_commit_verified": true
+    },
+    "qa_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_IR01_IR07_AUTHOR_ADVERSARIAL_SOURCE_QA_RECEIPT_20261115.json",
+      "git_blob_sha1": "01e589c62fded5e733bb50a24bbe73d83fe36ee0",
+      "exact_commit_verified": true
+    },
+    "author_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_PREEXEC_DESIGN_AUTHOR_RECEIPT_20261115.json",
+      "git_blob_sha1": "44ac2b451a4be356a920f0e9337dd729e9a77b15",
+      "exact_commit_verified": true
+    },
+    "old_report": {
+      "path": "docs/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_F2_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_20261115.md",
+      "git_blob_sha1": "e43774e67d9f0c20961bfb0c350971957153ad14",
+      "exact_commit_verified": true
+    },
+    "old_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/reviews/TTM_SMALL4M_F2_PREEXEC_DISTINCT_SOURCE_DESIGN_REVIEW_RECEIPT_20261115.json",
+      "git_blob_sha1": "eca67249b8bdd54e42d83c3e17395afa2605ee9f",
+      "exact_commit_verified": true
+    }
+  },
+  "diff_validation": {
+    "result": "PASS_EXACT_COMMIT_COMPARE",
+    "ahead_by": 1,
+    "behind_by": 0,
+    "total_commits": 1,
+    "added": 5,
+    "modified": 3,
+    "deleted": 0,
+    "lineage_md_changed": false,
+    "source_code_data_model_checkpoint_changed": false,
+    "main_unchanged_in_this_diff": true,
+    "main_head_historical_snapshot_verified": false
+  },
+  "original_hold_integrity": {
+    "report_git_blob_sha1": "e43774e67d9f0c20961bfb0c350971957153ad14",
+    "report_sha256": "c4a43c9236debc967a9a4c088c158074f5fbf0201648677c53e6ea49cffd5376",
+    "receipt_git_blob_sha1": "eca67249b8bdd54e42d83c3e17395afa2605ee9f",
+    "receipt_sha256": "70685237d07b20bb7b40b3028195e835b88b544e60151d7f0eb150f60a7357d2",
+    "raw_content_sha256_matches_handoff": true,
+    "sha256_method": "Pure-JS SHA256 on GitHub connector UTF-8 content; SHA256 abc self-test PASS",
+    "original_verdict_preserved": "HOLD_REVISE_DESIGN"
+  },
+  "md1_unchanged": true,
+  "md1_source": {
+    "commit": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
+    "git_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
+    "cores": 32,
+    "items": 64,
+    "gold_positive": 32,
+    "gold_negative": 32,
+    "raters": 2,
+    "sensitivity_per_axis_per_rater": "28/32",
+    "specificity_per_axis_per_rater": "28/32",
+    "inter_rater_agreement_min": 0.85
+  },
+  "owner_closure_unchanged": true,
+  "owner_closure": {
+    "commit": "c233dff20b9b020aefd732ce62bfa2e7aebd3985",
+    "git_blob_sha1": "3fee9e58914de4c6f41851ca6f7ce89d6bf67124",
+    "scope": "ACCEPT_GO_DESIGN_SCOPED_CLOSE_F01_F05_ONLY",
+    "execution_authorized": false
+  },
+  "author_qa_review": {
+    "qa_report_blob_sha1": "4fa489a0e941f142cdec454b08f64bf0be1d6a8e",
+    "qa_receipt_blob_sha1": "01e589c62fded5e733bb50a24bbe73d83fe36ee0",
+    "test_count_reported": 44,
+    "pass_count_reported": 44,
+    "fail_count_reported": 0,
+    "independent": false,
+    "scope": "SYMBOLIC_STRUCTURE_ONLY",
+    "actual_real_gold": false,
+    "actual_nuisance_proxy": false,
+    "scorer_negative_fixtures_executed": false,
+    "evidentiary_weight": "NOT_SUFFICIENT_TO_GRANT_GO_DESIGN"
+  },
+  "ir01_ir07_findings": [
+    {
+      "finding_id": "SM4M-F2-IR-01",
+      "original_finding_id": "SM4M-F2-IR-01",
+      "severity": "HIGH",
+      "exact_source": "06 §2–3; 07 §1",
+      "observed_evidence": "S0–S5 và G12A/G12B tách được P/E, nhưng 06 §3 yêu cầu “demonstrate 2³ feasibility ... before owner authoring GO” trong khi bằng chứng 8 continuation/core và gold là G04E chỉ được tạo từ S2. Chưa định nghĩa chứng minh tiền-authoring được phép là ký hiệu hay văn bản thực.",
+      "scientific_impact": "Có thể tái xuất hiện admission cycle hoặc đẩy tác giả tạo dữ liệu trước G12A.",
+      "required_remediation": "Tách G04P thành proof-of-concept thuần thiết kế/tính khả thi logic không tạo item; G04E thành kiểm chứng 8 văn bản thật và 12 cạnh sau G12A; sửa đồng bộ 06/07/receipt.",
+      "closure_condition": "Independent design reviewer chứng minh đường S0→S4 không phụ thuộc E-gate trước S2 và mọi proof trước S2 có đầu vào hợp pháp.",
+      "verdict": "HOLD_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-02",
+      "original_finding_id": "SM4M-F2-IR-02",
+      "severity": "HIGH",
+      "exact_source": "06 §3; 07 §2",
+      "observed_evidence": "Đã có fact ledger, 3 predicates, 12 cạnh/core, hai witness bất biến, hai gold adjudicators và fail-closed. Tuy nhiên gold được xác định từ E_core nhưng giao thức chưa buộc rater-visible item chứa đủ thông tin của cùng E_core để người chấm suy được từng nhãn. “Standalone texts” và cấm gửi source ledger không giải quyết việc này.",
+      "scientific_impact": "M0X có thể đo khả năng đoán/lexical cue hoặc kiến thức ngoài thay vì actor/object/goal theo một bằng chứng chung.",
+      "required_remediation": "Khóa rater-visible evidence envelope: story prefix, ngữ cảnh sự kiện/thời gian và văn bản biến thể; phải đủ cho ba câu hỏi mà không lộ intended gold, witness answer key hay điều kiện; kiểm chứng tính quyết định được ở cấp trục/stratum.",
+      "closure_condition": "Đặc tả đầy đủ một packet chuẩn và audit rằng mỗi gold 0/1 quyết định được từ chính đầu vào người chấm có quyền thấy; G04E vẫn hậu-authoring.",
+      "verdict": "HOLD_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-03",
+      "original_finding_id": "SM4M-F2-IR-03",
+      "severity": "HIGH",
+      "exact_source": "06 §4; 07 G06/§4",
+      "observed_evidence": "NC1–NC6 là danh mục bắt buộc, core-heldout 4 folds; mọi proxy phải qua, bất kỳ leak/BA>0.625 dẫn HOLD. Mô hình, feature vocabulary, budget/seed và threshold chưa frozen theo G06P.",
+      "scientific_impact": "Hạn chế lối tắt đã được quy định theo hướng fail-closed; không thể suy absence-of-all-shortcuts từ kết quả giả định hoặc 16 cores.",
+      "required_remediation": "Trước G12A phải freeze thực thể các proxy, danh sách cue và xử lý negation/role cues có ý nghĩa ngữ nghĩa thật; rà soát power và điều kiện author/template-disjoint.",
+      "closure_condition": "G06P độc lập PASS trước authoring; G06E mọi receipt thực sau authoring, không được suy từ 44 symbolic asserts.",
+      "verdict": "CLOSED_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-04",
+      "original_finding_id": "SM4M-F2-IR-04",
+      "severity": "HIGH",
+      "exact_source": "06 §5; 07 §2–4",
+      "observed_evidence": "0/1/UNKNOWN/INVALID_SOURCE được phân biệt theo nguồn, M0U 24 cores với gold từng trục 8/8/8 và bảng 3×3; rater always-UNKNOWN đạt 8/8 target nhưng 0/16 non-target, chắc chắn FAIL.",
+      "scientific_impact": "Failure mode always-abstain đã bị chặn về mặt số học; independent epistemic gold và ambiguity rulings vẫn chưa có.",
+      "required_remediation": "Giữ nguyên rule: source mâu thuẫn, referent không phân giải hoặc thiếu item là INVALID/HOLD, không quy ra UNKNOWN; áp dụng qua independent source gold trước score.",
+      "closure_condition": "Độc lập adjudicate nguồn cho các class khi có item thực, chốt ngưỡng ứng viên trước authoring.",
+      "verdict": "CLOSED_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-05",
+      "original_finding_id": "SM4M-F2-IR-05",
+      "severity": "MEDIUM",
+      "exact_source": "06 §6; 07 §3",
+      "observed_evidence": "Phân biệt 72 cores, 216 items, 432 rater rows và 1.296 axis decisions; n độc lập M0X=16 cores, M0U=24 cores; 56/64, 109/128, stratum floor 12/16 và 7/8 là candidate screening, không xác nhận power.",
+      "scientific_impact": "Đã loại phép suy IID giả và confirmatory overclaim; n nhỏ tạo uncertainty lớn và threshold BA0.625 chưa được hiệu chỉnh.",
+      "required_remediation": "Owner chỉ freeze sau khi có rationale/tradeoff và kế hoạch báo cáo cluster/stratum CI đủ chặt; không công bố phát hiện causal hay generalization.",
+      "closure_condition": "Tài liệu và kết quả sau này chỉ định lượng screening, tuyệt đối không coi item/edge/axis là iid observations.",
+      "verdict": "CLOSED_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-06",
+      "original_finding_id": "SM4M-F2-IR-06",
+      "severity": "MEDIUM",
+      "exact_source": "06 §7; 07 G08/§2",
+      "observed_evidence": "Fresh isolated item sessions, opaque IDs, memory/side-by-side ban, provider/version pin, exposure HOLD, và rater độc lập đã được quy định.",
+      "scientific_impact": "Người chấm là con người không thể được chứng thực tuyệt đối là không hồi tưởng; AI có thể có provider-level memory/logging ngoài tầm quan sát.",
+      "required_remediation": "G08P phải khóa phương pháp kiểm thử isolation có thể kiểm toán và chuẩn chứng cứ/ngoại lệ; nếu không thể kiểm chứng theo phương thức đã chọn thì HOLD.",
+      "closure_condition": "G08E chứng minh isolation thực cho provider/human đã chọn; hai raters cùng shortcut không là valid gold.",
+      "verdict": "CLOSED_DESIGN",
+      "preexec_pending": true
+    },
+    {
+      "finding_id": "SM4M-F2-IR-07",
+      "original_finding_id": "SM4M-F2-IR-07",
+      "severity": "MEDIUM",
+      "exact_source": "06 §8; 07 §2–4",
+      "observed_evidence": "Có 28 negative-fixture specifications, high-level reason codes và thứ tự các lớp; tuy nhiên private schemas chỉ liệt kê tên trường, không khóa type/enum/cross-reference cho các manifest, source/packet payload, cách chọn lỗi đầu tiên khi nhiều lỗi trong cùng lớp hoặc version/canonicalization.",
+      "scientific_impact": "Hai implementation đều có thể cho verdict/reason khác nhau; N01–N28 chưa chạy trên checker và không chứng minh determinism.",
+      "required_remediation": "Cung cấp machine-checkable schema hoặc bảng type+nullability+required/unique+constraints, canonical digest/packet fields, total precedence cho multi-fault, oracle fixture expected code; không chạy scorer trong review.",
+      "closure_condition": "Hai independent implementations hoặc independent design inspection thống nhất outcome tất cả path/multi-fault; checker executable QA vẫn G09E pending.",
+      "verdict": "HOLD_DESIGN",
+      "preexec_pending": true
+    }
+  ],
+  "admission_state_review": {
+    "status": "HOLD_DESIGN",
+    "stages": [
+      "S0_DESIGN_DRAFT",
+      "S1_DESIGN_FROZEN_FOR_OWNER",
+      "S2_PRIVATE_AUTHORING_ALLOWED",
+      "S3_PRE_SCORE_EVIDENCE",
+      "S4_PRE_SCORE_RELEASED",
+      "S5_TERMINAL_CLOSURE"
+    ],
+    "g12a_separate_from_g12b": true,
+    "current_g12a_granted": false,
+    "current_g12b_released": false,
+    "problem": "06 §3 mandates independent 2^3 feasibility demonstration before owner authoring GO, without separating permitted symbolic G04P from real-text G04E",
+    "actual_execution_approved": false
+  },
+  "semantic_isolation_review": {
+    "status": "HOLD_DESIGN",
+    "candidate_cube_patterns": 8,
+    "candidate_edges_per_core": 12,
+    "witness_requirement_present": true,
+    "rater_visible_fact_sufficiency_contract_complete": false,
+    "real_text_feasibility_proven": false,
+    "design_gap_ids": [
+      "NF-01",
+      "NF-02"
+    ]
+  },
+  "anti_shortcut_review": {
+    "status": "CLOSED_DESIGN_WITH_PREEXEC_PENDING",
+    "mandatory_controls": [
+      "NC1_GLOBAL_VALENCE",
+      "NC2_LENGTH_FORMAT",
+      "NC3_STYLE_LEXICAL_CUES",
+      "NC4_METADATA_ORDER",
+      "NC5_STRONG_NUISANCE_ENSEMBLE",
+      "NC6_GOLD_COUPLING"
+    ],
+    "candidate_balanced_accuracy_ceiling": 0.625,
+    "core_disjoint_four_folds": true,
+    "proxy_frozen": false,
+    "actual_proxy_executed": false,
+    "stronger_absence_of_shortcuts_proven": false
+  },
+  "unknown_scoring_review": {
+    "status": "CLOSED_DESIGN_WITH_PREEXEC_PENDING",
+    "m0u_cores": 24,
+    "gold_counts_per_axis": {
+      "0": 8,
+      "1": 8,
+      "UNKNOWN": 8
+    },
+    "always_unknown_expected_non_target_correct": "0/16",
+    "always_unknown_expected_false_unknown": "16/16",
+    "candidate_target_recall": "7/8",
+    "candidate_non_target_correct": "14/16",
+    "candidate_false_unknown_max": "1/16",
+    "three_by_three_matrix_defined": true,
+    "gold_created": false
+  },
+  "sample_threshold_review": {
+    "status": "CLOSED_DESIGN_WITH_LIMITED_SCREENING_SCOPE",
+    "cores_total": 72,
+    "items_total": 216,
+    "rater_rows_proposed": 432,
+    "axis_decisions_proposed": 1296,
+    "independent_units": "core: M0=32, M0X=16, M0U=24",
+    "new_thresholds_owner_frozen": false,
+    "confirmatory_claim_allowed": false,
+    "wilson_7_over_8_approx": [
+      0.529,
+      0.978
+    ]
+  },
+  "rater_exposure_review": {
+    "status": "CLOSED_DESIGN_PREEXEC_PENDING",
+    "isolated_item_sessions_required": true,
+    "opaque_ids_required": true,
+    "memory_retention_verified": false,
+    "rater_visible_evidence_payload_defined": false,
+    "actual_raters_executed": false
+  },
+  "scorer_contract_review": {
+    "status": "HOLD_DESIGN",
+    "negative_fixture_specs": 28,
+    "negative_fixture_execution": "NOT_EXECUTED",
+    "checker_implemented": false,
+    "score_type_rules_defined": true,
+    "all_manifest_type_and_foreign_key_rules_defined": false,
+    "compound_fault_precedence_complete": false
+  },
+  "new_findings": [
+    {
+      "finding_id": "NF-01",
+      "severity": "HIGH",
+      "title": "Rater-visible evidence parity missing",
+      "exact_source": "06 §3/§7; 07 §2 (core_manifest, rater_packet)",
+      "observed_evidence": "Gold depends on E_core witnesses; rater_packet specifies IDs, model pin, attestation but not a canonical narrative context/prefix/payload reference. 07 says rater never sees source ledger; 06 requires standalone items but does not define what facts each contains.",
+      "scientific_impact": "Gold may be decidable to adjudicators but not inferable to blind raters, invalidating actor/object/goal calibration.",
+      "required_remediation": "Define versioned rater-visible task payload with fact-bearing prefix/continuation and exact information parity; prohibit answer-key leakage; require item-level independent sufficiency review.",
+      "closure_condition": "For all axis strata and target classes, source evidence needed for a gold decision is present or logically recoverable from the blinded packet without looking at E_core private answer key.",
+      "verdict": "HOLD_DESIGN",
+      "related_original": [
+        "IR-02",
+        "IR-06",
+        "IR-07"
+      ]
+    },
+    {
+      "finding_id": "NF-02",
+      "severity": "HIGH",
+      "title": "Pre-G12A full cube feasibility proof is not stage-bounded",
+      "exact_source": "06 §3 last paragraph versus 06 §2 S1/S2 and 07 §1 G04P/G04E",
+      "observed_evidence": "The protocol demands independent demonstration of 2³ feasibility for each stratum before owner authoring GO; however it simultaneously treats full 8 real text variants and 12 source-supported edges as G04E after S2.",
+      "scientific_impact": "An ambiguous prerequisite can block all authoring or incentivize creation of unpermitted empirical calibration texts.",
+      "required_remediation": "Separate lawful static/abstract G04P feasibility proof from per-core real text G04E evidence; state whether hypothetical examples are allowed, and their non-science status.",
+      "closure_condition": "All stage dependencies and allowed artifacts are unambiguous and forward-only, including negative/invalid stratum stop rule.",
+      "verdict": "HOLD_DESIGN",
+      "related_original": [
+        "IR-01",
+        "IR-02"
+      ]
+    },
+    {
+      "finding_id": "NF-03",
+      "severity": "MEDIUM",
+      "title": "Strict schema and first-error contract not fully machine-defined",
+      "exact_source": "07 §2/§3/§4, especially manifest field lists and N01–N28",
+      "observed_evidence": "Scores types are enumerated, but other field types, nullability, key scopes, relation joins, schema versions, multi-error same-level order and canonical data signatures remain unspecified.",
+      "scientific_impact": "Potential divergent parser and reject-code decisions, undermining reproducible scoring and error-first semantics.",
+      "required_remediation": "Supply full schema, comparator priority, and compound-invalid fixture table, with authenticated packet binding; preserve N01–N28 as NOT_EXECUTED.",
+      "closure_condition": "Independent static readback can deterministically assign one output or one first error for every permitted input class.",
+      "verdict": "HOLD_DESIGN",
+      "related_original": [
+        "IR-07"
+      ]
+    }
+  ],
+  "execution_block_status": {
+    "root_cause_identified": false,
+    "f2_preexec_block": true,
+    "owner_data_authoring_go": false,
+    "owner_scoring_go": false,
+    "m0_execution": "NOT_AUTHORIZED",
+    "m0x_data": "NOT_CREATED",
+    "m0u_data": "NOT_CREATED",
+    "gold": "NOT_FROZEN",
+    "scorer_implementation": "NOT_EXECUTED",
+    "rater_execution": "NOT_EXECUTED",
+    "science": "HOLD",
+    "f3": "NOT_OPENED",
+    "f4": "NOT_OPENED"
+  },
+  "final_decision": "HOLD_REVISE_DESIGN",
+  "remediation_packet": [
+    "Bind rater-visible evidence payload and independent per-axis information-sufficiency criteria",
+    "Separate G04P static preowner construct demonstration from G04E real-text/edge gold after G12A",
+    "Freeze machine-complete scorer schemas, deterministic multi-error precedence and nuisance-proxy/candidate-threshold preregistration in one integrated design revision"
+  ],
+  "limitations": [
+    "GitHub content read via connected GitHub, not on-device clone",
+    "No main HEAD before/after historical comparison",
+    "No private texts/gold/rater/source-rights evidence",
+    "No actual proxy training or checker execution",
+    "No execution power calculation or confirmatory inference",
+    "AI read-only review is not independent human empirical adjudication"
+  ],
+  "science_executed": false,
+  "gpu_executed": false,
+  "training_executed": false,
+  "model_inference_executed": false,
+  "repository_modified": false,
+  "merge_authorized": false,
+  "next_single_gate": "TTM_SMALL4M_F2_IR01_IR02_IR07_AND_NF01_NF03_INTEGRATED_CONTRACT_REMEDIATION_SINGLE_GATE"
+}

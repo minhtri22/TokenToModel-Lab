@@ -1,0 +1,232 @@
+{
+  "schema": "ttm.sm4m.f2.nf01_nf03.author_structural_qa.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_IR01_IR02_IR07_AND_NF01_NF03_INTEGRATED_CONTRACT_REMEDIATION_SINGLE_GATE",
+  "mode": "AUTHOR_ONLY_SOURCE_STRUCTURE_AND_SYMBOLIC_FIXTURES",
+  "schema_pin_sha1": "3540ef5904c303e72431e1bdbafe181f046b74fe",
+  "tests": [
+    {
+      "id": "Q01",
+      "name": "Draft2020-12",
+      "pass": true
+    },
+    {
+      "id": "Q02",
+      "name": "Exactly ten strict types",
+      "pass": true
+    },
+    {
+      "id": "Q03",
+      "name": "All discriminator references valid",
+      "pass": true
+    },
+    {
+      "id": "Q04",
+      "name": "Valid record core_manifest",
+      "pass": true
+    },
+    {
+      "id": "Q05",
+      "name": "Valid record item_manifest",
+      "pass": true
+    },
+    {
+      "id": "Q06",
+      "name": "Valid record edge_manifest",
+      "pass": true
+    },
+    {
+      "id": "Q07",
+      "name": "Valid record unknown_manifest",
+      "pass": true
+    },
+    {
+      "id": "Q08",
+      "name": "Valid record rater_visible_request",
+      "pass": true
+    },
+    {
+      "id": "Q09",
+      "name": "Valid record packet_binding",
+      "pass": true
+    },
+    {
+      "id": "Q10",
+      "name": "Valid record gold_adjudication",
+      "pass": true
+    },
+    {
+      "id": "Q11",
+      "name": "Valid record score_row",
+      "pass": true
+    },
+    {
+      "id": "Q12",
+      "name": "Valid record stage_event",
+      "pass": true
+    },
+    {
+      "id": "Q13",
+      "name": "Valid record custody_receipt",
+      "pass": true
+    },
+    {
+      "id": "Q14",
+      "name": "Extra top-level key",
+      "pass": true
+    },
+    {
+      "id": "Q15",
+      "name": "Wrong record discriminator",
+      "pass": true
+    },
+    {
+      "id": "Q16",
+      "name": "Bad digest",
+      "pass": true
+    },
+    {
+      "id": "Q17",
+      "name": "Null not allowed",
+      "pass": true
+    },
+    {
+      "id": "Q18",
+      "name": "New unknown stratum",
+      "pass": true
+    },
+    {
+      "id": "Q19",
+      "name": "Story prefix required",
+      "pass": true
+    },
+    {
+      "id": "Q20",
+      "name": "Rater cannot see gold",
+      "pass": true
+    },
+    {
+      "id": "Q21",
+      "name": "Rater cannot see core",
+      "pass": true
+    },
+    {
+      "id": "Q22",
+      "name": "Three questions required",
+      "pass": true
+    },
+    {
+      "id": "Q23",
+      "name": "Binary score UNKNOWN reject",
+      "pass": true
+    },
+    {
+      "id": "Q24",
+      "name": "Binary bool score reject",
+      "pass": true
+    },
+    {
+      "id": "Q25",
+      "name": "Binary numeric string reject",
+      "pass": true
+    },
+    {
+      "id": "Q26",
+      "name": "Binary null reject",
+      "pass": true
+    },
+    {
+      "id": "Q27",
+      "name": "M0U UNKNOWN allowed",
+      "pass": true
+    },
+    {
+      "id": "Q28",
+      "name": "M0X gold UNKNOWN reject",
+      "pass": true
+    },
+    {
+      "id": "Q29",
+      "name": "M0X pattern U reject",
+      "pass": true
+    },
+    {
+      "id": "Q30",
+      "name": "Wrong edge axis reject",
+      "pass": true
+    },
+    {
+      "id": "Q31",
+      "name": "Early S1 without release valid",
+      "pass": true
+    },
+    {
+      "id": "Q32",
+      "name": "S2 without owner blocked",
+      "pass": true
+    },
+    {
+      "id": "Q33",
+      "name": "S2 with owner ref syntax accepted",
+      "pass": true
+    },
+    {
+      "id": "Q34",
+      "name": "S4 without evidence/release blocked",
+      "pass": true
+    },
+    {
+      "id": "Q35",
+      "name": "S4 structural references accepted, not permission",
+      "pass": true
+    },
+    {
+      "id": "Q36",
+      "name": "Negative span rejected",
+      "pass": true
+    },
+    {
+      "id": "Q37",
+      "name": "8 unique patterns",
+      "pass": true
+    },
+    {
+      "id": "Q38",
+      "name": "12 graph edges",
+      "pass": true
+    },
+    {
+      "id": "Q39",
+      "name": "4 edges per axis",
+      "pass": true
+    },
+    {
+      "id": "Q40",
+      "name": "Graph node degree3",
+      "pass": true
+    },
+    {
+      "id": "Q41",
+      "name": "S2 owner absent blocks",
+      "pass": true
+    },
+    {
+      "id": "Q42",
+      "name": "Symbolic G04P cannot release S4",
+      "pass": true
+    }
+  ],
+  "pass_count": 42,
+  "fail_count": 0,
+  "independent": false,
+  "science_executed": false,
+  "gold_created": false,
+  "model_inference": false,
+  "limitations": [
+    "Lightweight self-check of JSON Schema subset, not independent official meta-schema validation",
+    "No real texts, gold or rater-visible evidence parity demonstrated",
+    "No actual scorer implementation, protocol rights or owner authoring GO",
+    "No model, GPU, training or calibration scores"
+  ],
+  "verdict": "PASS_AUTHOR_SCHEMA_SELF_QA_ONLY__NOT_INDEPENDENT_PASS__PREEXEC_BLOCK"
+}

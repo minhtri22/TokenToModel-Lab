@@ -1,10 +1,10 @@
 {
   "schema": "ttm.small4m.f2.prospective_measurement_preexec.author_design.v1",
   "date": "2026-11-15",
-  "operation": "TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE",
+  "operation": "TTM_SMALL4M_F2_IR01_IR02_IR07_AND_NF01_NF03_INTEGRATED_CONTRACT_REMEDIATION_SINGLE_GATE",
   "repo": "minhtri22/TokenToModel-Lab",
   "branch": "research/ttm-small4m-foundation-first-single-gate-20261115",
-  "parent_head": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+  "parent_head": "cf0f459b54d0e91a7923e7a08b621d374e712e51",
   "source_pins": {
     "md1_ref": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
     "md1_blob_sha1": "384d077600ed864a917fdd5e74b5a5bca0ed8766",
@@ -15,15 +15,15 @@
   "design_files": {
     "protocol": {
       "path": "docs/research/ttm-small4m-foundation-first/06_SM4M_F2_PROSPECTIVE_MEASUREMENT_PREEXEC_INTEGRATED_PROTOCOL_20261115.md",
-      "git_blob_sha1": "a5cc0c51363de9772c27418ea667475c25c791b0"
+      "git_blob_sha1": "6b924e6e12a9bdf1e43e59ed4fd5bfae20f1f632"
     },
     "admission": {
       "path": "docs/research/ttm-small4m-foundation-first/07_SM4M_F2_PREEXEC_ADMISSION_SCORING_AND_CUSTODY_MATRIX_20261115.md",
-      "git_blob_sha1": "d0ca205935c01a815aaebe86c90f4e3daf1a1291"
+      "git_blob_sha1": "d83c713b1b9b94a9dff948e8a24d03aec82f5e70"
     },
     "handoff": {
-      "path": "docs/research/ttm-small4m-foundation-first/10_SM4M_F2_IR01_IR07_DISTINCT_REVIEW_HANDOFF_20261115.md",
-      "git_blob_sha1": "b97494e46b8d259380129ebc4ff5003cfc3ac887"
+      "path": "docs/research/ttm-small4m-foundation-first/13_SM4M_F2_IR01_IR02_IR07_NF01_NF03_DISTINCT_REVIEW_HANDOFF_20261115.md",
+      "git_blob_sha1": "49a7f526f93ff3efbfd85d31922789584a168eb9"
     },
     "receipt": {
       "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_PREEXEC_DESIGN_AUTHOR_RECEIPT_20261115.json"
@@ -40,6 +40,23 @@
     "author_adversarial_qa_receipt": {
       "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_IR01_IR07_AUTHOR_ADVERSARIAL_SOURCE_QA_RECEIPT_20261115.json",
       "git_blob_sha1": "01e589c62fded5e733bb50a24bbe73d83fe36ee0"
+    },
+    "machine_typed_schema": {
+      "path": "docs/research/ttm-small4m-foundation-first/11_SM4M_F2_TYPED_PRIVATE_RECORD_SCHEMA_20261115.json",
+      "git_blob_sha1": "3540ef5904c303e72431e1bdbafe181f046b74fe",
+      "schema_status": "SOURCE_ONLY_DRAFT_NOT_OWNER_FROZEN"
+    },
+    "author_qa_report": {
+      "path": "docs/research/ttm-small4m-foundation-first/12_SM4M_F2_IR01_IR02_IR07_NF01_NF03_AUTHOR_ADVERSARIAL_QA_20261115.md",
+      "git_blob_sha1": "935e5cfa587b88677bf94d93ac6c94c251963c15"
+    },
+    "schema_qa_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_IR01_IR02_IR07_NF01_NF03_AUTHOR_SCHEMA_QA_RECEIPT_20261115.json",
+      "git_blob_sha1": "7b56b7f005059cdb3e2bbc2f02fafb466dc422ee"
+    },
+    "integrated_qa_receipt": {
+      "path": "artifacts/research/ttm-small4m-foundation-first/TTM_SMALL4M_F2_IR01_IR02_IR07_NF01_NF03_AUTHOR_INTEGRATED_QA_RECEIPT_20261115.json",
+      "git_blob_sha1": "399cb258731c0570bf6836908909ef1e788d7cbe"
     }
   },
   "programme_scope": "FOUNDATION_FIRST_F2_MEASUREMENT_ONLY",
@@ -221,8 +238,8 @@
       "post_authoring_actual_evidence": "NOT_CREATED"
     }
   ],
-  "source_only_author_status": "PASS_AUTHOR_SYMBOLIC_QA_SCOPED__IR01_IR07_REMEDIATION_CANDIDATE",
-  "independent_review_status": "PENDING_DISTINCT_REVIEW_ON_NEW_REMEDIATION_COMMIT",
+  "source_only_author_status": "PASS_AUTHOR_82_82_SCOPED_ONLY__NO_DESIGN_GO",
+  "independent_review_status": "NOT_EXECUTED_ON_THIS_REMEDIATION_CANDIDATE",
   "owner_execution_go": false,
   "model_inference_executed": false,
   "training_executed": false,
@@ -236,7 +253,7 @@
   "f4_status": "NOT_OPENED",
   "lineage_modified": false,
   "merge_authorized": false,
-  "next_single_step": "TTM_SMALL4M_F2_IR01_IR07_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REREVIEW_SINGLE_GATE",
+  "next_single_step": "TTM_SMALL4M_F2_IR01_IR02_IR07_NF01_NF03_DISTINCT_INDEPENDENT_SOURCE_DESIGN_REVIEW_SINGLE_GATE",
   "previous_independent_review": {
     "source_candidate": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
     "verdict": "HOLD_REVISE_DESIGN",
@@ -249,14 +266,13 @@
     "original_receipt_sha256": "70685237d07b20bb7b40b3028195e835b88b544e60151d7f0eb150f60a7357d2"
   },
   "author_adversarial_qa": {
-    "status": "PASS_AUTHOR_SYMBOLIC_SOURCE_QA_ONLY__NO_INDEPENDENT_DESIGN_GO",
-    "tests_total": 44,
-    "tests_passed": 44,
-    "tests_failed": 0,
-    "negative_fixtures_specified": 28,
-    "first_author_qa_iteration": 28,
-    "all_science_inputs_created": false,
-    "scope": "AUTHOR_ONLY_SOURCE_CONTRACT_AND_SYMBOLIC_GUARD_SIMULATION"
+    "status": "PASS_AUTHOR_SOURCE_AND_SYNTHETIC_CONTRACT_QA_82_OF_82_ONLY",
+    "schema_checks": 42,
+    "source_contract_checks": 40,
+    "total_checks": 82,
+    "fail_count": 0,
+    "independent": false,
+    "real_gold_or_rater": false
   },
   "authorization_design": {
     "stage": "S0_DESIGN_DRAFT",
@@ -274,5 +290,56 @@
     ],
     "rule": "G12A owner conditional pre-data consent can occur without E proofs; after S2 independently verify all E gates before G12B release; no automatic release from design QA"
   },
-  "science_executed": false
+  "science_executed": false,
+  "current_design_revision_scope": "IR01_IR02_IR07_NF01_NF03_AUTHOR_ONLY_CONTRACT_REMEDIATION",
+  "previous_independent_review_history": [
+    {
+      "candidate": "07adab6262e50b5e17c6ea816bb133866e0a11d2",
+      "verdict": "HOLD_REVISE_DESIGN",
+      "source_status": "ARCHIVED_IN_PRIOR_COMMIT"
+    },
+    {
+      "candidate": "cf0f459b54d0e91a7923e7a08b621d374e712e51",
+      "verdict": "HOLD_REVISE_DESIGN",
+      "original_report_sha256": "fb868874d9369a4876792bfe8cf793de17a12f3a91d606d8bb7e3bcdaee47808",
+      "original_receipt_sha256": "13f298f31bc0ef4f8223bc284ec4b728c959e3a4d6d2ee7abf9793d56295e39a",
+      "raw_report_git_blob": "c04b0f74b65f9680afdf04acc794593561cfdfac",
+      "raw_receipt_git_blob": "39f67449d6e966bf54452fb3448a383fdf35eb85"
+    }
+  ],
+  "new_independent_findings": {
+    "IR-01": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA",
+    "IR-02": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA",
+    "IR-07": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA",
+    "NF-01": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA",
+    "NF-02": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA",
+    "NF-03": "AUTHOR_REMEDIATED_DESIGN_PENDING_DISTINCT_QA"
+  },
+  "closed_design_carried_forward": [
+    "IR-03",
+    "IR-04",
+    "IR-05",
+    "IR-06"
+  ],
+  "rater_visible_evidence_contract": {
+    "version": "sm4m-f2-v1",
+    "story_prefix_required": true,
+    "candidate_continuation_required": true,
+    "axis_questions_required": true,
+    "ledger_only_gold_forbidden": true,
+    "per_item_parity_verified_in_reality": false
+  },
+  "g04_stage_split": {
+    "g04p": "SYMBOLIC_ABSTRACT_ONLY_PRE_OWNER_G12A",
+    "g04e": "ACTUAL_PRIVATE_STORY_TEXT_AND_TWELVE_EDGES_AFTER_OWNER_G12A",
+    "g04e_real_evidence_created": false
+  },
+  "strict_schema_contract": {
+    "status": "AUTHOR_DESIGN_CANDIDATE_UNFROZEN",
+    "record_types": 10,
+    "first_error_codes": 16,
+    "compound_negative_fixture_specs": 12,
+    "reference_schema_qa": "NOT_EXECUTED",
+    "actual_scorer_implementation": "NOT_EXECUTED"
+  }
 }

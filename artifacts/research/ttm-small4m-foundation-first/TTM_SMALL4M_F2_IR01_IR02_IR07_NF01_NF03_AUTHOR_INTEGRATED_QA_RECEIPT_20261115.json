@@ -1,0 +1,231 @@
+{
+  "schema": "ttm.sm4m.f2.ir01_ir07_nf01_nf03.author_integrated_contract_qa.v1",
+  "date": "2026-11-15",
+  "operation": "TTM_SMALL4M_F2_IR01_IR02_IR07_AND_NF01_NF03_INTEGRATED_CONTRACT_REMEDIATION_SINGLE_GATE",
+  "mode": "AUTHOR_ONLY_SOURCE_LOGIC_CONTRACT_QA",
+  "source_blob_sha1": {
+    "protocol06": "6b924e6e12a9bdf1e43e59ed4fd5bfae20f1f632",
+    "admission07": "d83c713b1b9b94a9dff948e8a24d03aec82f5e70",
+    "schema11": "3540ef5904c303e72431e1bdbafe181f046b74fe",
+    "prior_schema_qa_receipt": "7b56b7f005059cdb3e2bbc2f02fafb466dc422ee"
+  },
+  "check_count": 40,
+  "checks_passed": 40,
+  "checks_failed": 0,
+  "checks": [
+    {
+      "id": "D01",
+      "name": "Explicit new operation both docs",
+      "pass": true
+    },
+    {
+      "id": "D02",
+      "name": "MD1 original pin unchanged",
+      "pass": true
+    },
+    {
+      "id": "D03",
+      "name": "MD1 thresholds 28/32 0.85",
+      "pass": true
+    },
+    {
+      "id": "D04",
+      "name": "Original historical HOLD both candidates preserved",
+      "pass": true
+    },
+    {
+      "id": "D05",
+      "name": "New G04P preowner symbolic only",
+      "pass": true
+    },
+    {
+      "id": "D06",
+      "name": "G04E postowner real text",
+      "pass": true
+    },
+    {
+      "id": "D07",
+      "name": "No under-specified actual preowner real text obligation",
+      "pass": true
+    },
+    {
+      "id": "D08",
+      "name": "Explicit hold if real stratum impossible",
+      "pass": true
+    },
+    {
+      "id": "D09",
+      "name": "Rater visible envelope fields",
+      "pass": true
+    },
+    {
+      "id": "D10",
+      "name": "Gold source visible parity check",
+      "pass": true
+    },
+    {
+      "id": "D11",
+      "name": "Private ledger not exposed",
+      "pass": true
+    },
+    {
+      "id": "D12",
+      "name": "No inferred missing evidence into false",
+      "pass": true
+    },
+    {
+      "id": "D13",
+      "name": "All 7 older IR ids mentioned",
+      "pass": true
+    },
+    {
+      "id": "D14",
+      "name": "Three new NF ids described",
+      "pass": true
+    },
+    {
+      "id": "D15",
+      "name": "Explicit 10 typed JSON records",
+      "pass": true
+    },
+    {
+      "id": "D16",
+      "name": "Schema QA checked 42/42",
+      "pass": true
+    },
+    {
+      "id": "D17",
+      "name": "All G00–G12 preserved",
+      "pass": true
+    },
+    {
+      "id": "D18",
+      "name": "N01–N28 still described but NOT_EXECUTED",
+      "pass": true
+    },
+    {
+      "id": "D19",
+      "name": "C01–C12 specified",
+      "pass": true
+    },
+    {
+      "id": "D20",
+      "name": "Never claims actual model/rater/custody implemented",
+      "pass": true
+    },
+    {
+      "id": "D21",
+      "name": "16 unique total precedence codes",
+      "pass": true
+    },
+    {
+      "id": "D22",
+      "name": "Priority C01",
+      "pass": true
+    },
+    {
+      "id": "D23",
+      "name": "Priority C02",
+      "pass": true
+    },
+    {
+      "id": "D24",
+      "name": "Priority C03",
+      "pass": true
+    },
+    {
+      "id": "D25",
+      "name": "Priority C04",
+      "pass": true
+    },
+    {
+      "id": "D26",
+      "name": "Priority C05",
+      "pass": true
+    },
+    {
+      "id": "D27",
+      "name": "Priority C06",
+      "pass": true
+    },
+    {
+      "id": "D28",
+      "name": "Priority C07",
+      "pass": true
+    },
+    {
+      "id": "D29",
+      "name": "Priority C08",
+      "pass": true
+    },
+    {
+      "id": "D30",
+      "name": "Priority C09",
+      "pass": true
+    },
+    {
+      "id": "D31",
+      "name": "Priority C10",
+      "pass": true
+    },
+    {
+      "id": "D32",
+      "name": "Priority C12",
+      "pass": true
+    },
+    {
+      "id": "D33",
+      "name": "C11 early stage ACCEPT documented",
+      "pass": true
+    },
+    {
+      "id": "D34",
+      "name": "Rank includes parity source hold",
+      "pass": true
+    },
+    {
+      "id": "D35",
+      "name": "Runtime owner gate checked before packet",
+      "pass": true
+    },
+    {
+      "id": "D36",
+      "name": "No stale N01–N27 cutoff",
+      "pass": true
+    },
+    {
+      "id": "D37",
+      "name": "Actual 8-text G04E NOT_CREATED",
+      "pass": true
+    },
+    {
+      "id": "D38",
+      "name": "Owner G12A FALSE",
+      "pass": true
+    },
+    {
+      "id": "D39",
+      "name": "IR03/04/05/06 design closure preserved",
+      "pass": true
+    },
+    {
+      "id": "D40",
+      "name": "QA positive scenario not execution authorization",
+      "pass": true
+    }
+  ],
+  "reviewer_original_verdict": "HOLD_REVISE_DESIGN",
+  "independent_review_of_remediation": "NOT_EXECUTED",
+  "science_executed": false,
+  "gold_created": false,
+  "rater_executed": false,
+  "scorer_implemented": false,
+  "owner_execution_go": false,
+  "limitations": [
+    "Text contract QA cannot prove semantic feasibility of natural stories",
+    "Symbolic first-error examples not executable scorer tests",
+    "No independent implementation validation of JSON Schema",
+    "Real rights/gold/proxy/isolation and model evaluation NOT_EXECUTED"
+  ],
+  "verdict": "PASS_AUTHOR_INTEGRATED_SOURCE_QA_ONLY__NOT_INDEPENDENT_GO"
+}

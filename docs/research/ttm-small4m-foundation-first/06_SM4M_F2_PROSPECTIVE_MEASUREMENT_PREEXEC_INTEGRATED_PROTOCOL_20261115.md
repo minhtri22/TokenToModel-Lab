@@ -1,9 +1,9 @@
 # TTM-Small-4M — SM4M-F2 Prospective Measurement Protocol · Integrated IR01–IR07 remediation
 
 **Date:** 2026-11-15  
-**Operation:** `TTM_SMALL4M_F2_PREEXEC_INTEGRATED_DESIGN_REMEDIATION_IR01_IR07_SINGLE_GATE`  
+**Operation:** `TTM_SMALL4M_F2_IR01_IR02_IR07_AND_NF01_NF03_INTEGRATED_CONTRACT_REMEDIATION_SINGLE_GATE`  
 **Mode:** `SOURCE_ONLY · DESIGN_ONLY · NO_DATA · NO_RATER · NO_MODEL · NO_GPU · NO_SCIENCE`.  
-**Prior independent verdict:** `HOLD_REVISE_DESIGN` for `07adab6262e50b5e17c6ea816bb133866e0a11d2` (4 HIGH, 3 MEDIUM; retained).  
+**Prior distinct audit history:** `07adab6262e50b5e17c6ea816bb133866e0a11d2` HOLD (4 HIGH, 3 MEDIUM); `cf0f459b54d0e91a7923e7a08b621d374e712e51` HOLD (IR01, IR02, IR07 + NF01/NF02/NF03); both remain historically unchanged.  
 **Source pins unchanged:** MD1 `33021a421f05bb3bfa0999ad12bc3bd144366da9` / Git blob `384d077600ed864a917fdd5e74b5a5bca0ed8766`; Foundation F2 roadmap blob `d87309aea043b845fafcc805ed13b2b4466f5e46`; F01–F05 owner design closure `c233dff20b9b020aefd732ce62bfa2e7aebd3985`.  
 **Status:** `AUTHOR_REMEDIATION_CANDIDATE · DISTINCT_REVIEW_PENDING · PREEXEC_BLOCK=TRUE`; **candidate thresholds are NOT OWNER-FROZEN**.
 
@@ -45,9 +45,29 @@ Only one **future** owner authorization is contemplated, with explicit condition
 2. Both unchanged axes retain **the same underlying reference and evidence witness**, not merely identical 0/1.
 3. No newly created actor/object/goal dependency, time change, referent ambiguity or lexical leak has altered meaning.
 4. All eight variants share the same stable `E_core` and are valid standalone texts.
-Exactly **12 undirected edges/core = four actor, four object, four goal**. All 12 require source-grounded individual decisions. Independent reviewers must demonstrate `2³` feasibility for each planned stratum (`object_custody`, `social_relation`, `causal_obstacle`, `temporal_rule`) before owner authoring GO; **not** by assuming equal bit counts imply semantic independence. If a stratum cannot instantiate all eight valid conditions, `HOLD_REVISE_CONSTRUCT`, no stealth stratum substitution.
+Exactly **12 undirected edges/core = four actor, four object, four goal**. All 12 require source-grounded individual decisions. **Stage split (IR01/NF02):** before `G12A`, `G04P` requires ONLY a formal **symbolic** feasibility argument for each planned stratum (`object_custody`, `social_relation`, `causal_obstacle`, `temporal_rule`), using abstract variables/propositions and a dependency matrix—not eight natural-language texts, no item IDs, no gold, no sampled story and no private science data. This proves logical satisfiability of a three-axis abstraction only, **not actual semantic feasibility**. After `G12A` authorizes bounded private authoring in S2, `G04E` requires actual eight distinct evidence-bearing text variants/core and all twelve independently adjudicated edges, verified against the rater-visible envelope. If actual feasibility fails in any stratum, `HOLD_REVISE_CONSTRUCT`/`HOLD_GOLD_QA` on the entire fixed packet; never silently replace a stratum, create pre-permit texts or treat symbolic G04P as source/gold PASS.
 
 **M0X count proposal:** 16 independent cores (4 strata×4), eight items/core =128, 16 per pattern, 64 positive and 64 negative per axis, 64 matched edges per axis (4/core). Independent inference unit=**16 cores**, not 128 item rows. Invalid gold/edge detected pre-score ⇒ `HOLD_GOLD_QA` whole cohort; post-score ⇒ terminal `HOLD_INVALID_GOLD_AFTER_SCORE` without denominator edits.
+
+## 3A. NF-01 HIGH — normative rater-visible evidence envelope and parity
+
+**Scientific condition:** gold must be decidable from the **same authorized visible information** given to a blinded rater, not from a separate private `E_core` answer key. Gold adjudicators may use the private ledger to confirm consistency, but **every decisive witness** must point to a source span or rule **inside the visible envelope**. If an axis can be resolved only with hidden source facts, `HOLD_EVIDENCE_PARITY` before scoring. This is a *design obligation*, not a claim that any actual item satisfies it.
+
+A future **versioned rater-visible request** (see typed schema in contract 11) consists of: `schema_version`, `packet_id`, opaque `presentation_id`, `task_version`, `story_prefix` (fixed fact-bearing narrative; relevant actors, objects, target rules, event/time), `candidate_continuation` (exactly one variant), `axis_questions` (same canonical definitions and reference frames for every item), `decision_rules_version`, `source_view_version`, a private custodian-visible `payload_sha256` and isolated `session_id`. The actual rater sees the task, prefix, continuation, axis questions and permitted rubric, **not** the private IDs, gold, bit pattern, `E_core`, witness offsets, item-to-core mapping, author/stratum, counterpart variants, adjacency or hash commitment. The scorer/QA can verify the full packet privately by opaque ID.
+
+`story_prefix` must carry enough **non-answer-leaking shared context** to resolve each gold 0/1 in M0/M0X. Specifically, the factual source/rule needed for adjudication must be present in the visible text; an explicit contradictory assertion in the continuation yields 0 against that visible source; mere omission yields UNKNOWN/INVALID as appropriate, never a fabricated 0. For M0U, UNKNOWN must be genuinely undecidable from the *visible* evidence; a hidden ledger must not know a decisive fact that the rater cannot see and use as if that were the correct binary answer.
+
+**G04E/G05E post-authoring parity test, per item/per axis:** (1) gold reviewers score *only a rendered rater-visible request* (before viewing `E_core` or intended pattern); (2) record predicted value and visible source-span offsets/explicit rubric rule, or explicit non-entailment rationale for UNKNOWN; (3) separately reconcile the same values with the frozen private ledger, with exact visible-span correspondence; (4) if reviewer needs hidden information, reference frame changes, ambiguity or a gold-only cue appears: `HOLD_EVIDENCE_PARITY` for whole packet. The private ledger is used for **audit**, never a privileged source of truth unavailable to the rater. Independent adjudicators, roles and timestamps must be pinned before rater scoring.
+
+**Anti-leakage:** no label-signalling filenames, choice order, pattern token, colored highlights, answer-key witness IDs or private mapping in visible payload; prefix wording/style must be identical across all 8 variants of a core (except the allowed variant continuation), and context-specific cues must pass NC1–NC6. The same task/rubric applies across cores; no extra per-item instructions. Raters get **one request per isolated fresh context**, and never the all-variant packet.
+
+**Stop rule:** an invalid/insufficient source visible envelope, or answer only recoverable from hidden `E_core`, causes `HOLD_EVIDENCE_PARITY` at G04E/G05E; no post-score edits, pre-score replacements, retroactive label changes or threshold relaxation.
+
+## 3B. NF-02 HIGH — G04P symbolic feasibility proof vs G04E empirical text admission
+
+`G04P` is a **SOURCE/DESIGN-only pre-owner test**: static finite constraints over abstract truth values `A,O,G∈{0,1}`, per-stratum declared causal-dependency exclusions, proof obligations that `P_A/P_O/P_G` have separate referents and witnesses *in the planned rubric*, 8 satisfiable abstract assignments, and 12 invariant Hamming-1 edges. No narrative, no real event, no human source text, no gold item, no calibration data, no model execution and no numbered real core. A static truth-table/DAG check may test the **logical specification**; this cannot attest actual text existence. Reviewer must state precisely which assumptions hold for each stratum; when a stratum’s declared causal constraints imply a dependency, `G04P=HOLD_CONSTRUCT` before G12A. Empty or handwaved constraints fail G04P.
+
+`G04E` is **POST-G12A ONLY**: author supplies the actual approved 16 private core manifests, 128 rater-visible text envelopes, independent per-item per-axis evidence witnesses, 8 independently verified patterns and 12 verified edge invariants/core. It also checks source rights, nonoverlap, and no global/lexical cue shortcuts on the real texts. A `G04P` PASS is not an authoring permit; after actual owner G12A and S2 authoring, an invalid E gate blocks S4. This makes the state dependency acyclic: `P → distinct design QA → owner G12A → private E → distinct pre-score QA/G12B → scoring`. **Currently G12A=FALSE, G04P=DESIGN_CANDIDATE, G04E=NOT_CREATED.**
 
 ## 4. IR-03 HIGH: all prespecified anti-shortcut controls mandatory
 
@@ -97,12 +117,23 @@ If cross-session recollection, core-variant comparisons, leaked label metadata, 
 
 ## 8. IR-07 MEDIUM: canonical checker semantics, negative QA and fail closed
 
-The source-only checker schema, rejection order, 12-edge graph validation, 3×3 M0U report, stage gates, exhaustive negative fixture table and reason codes are specified in document 07. Implementation and any checker execution are **NOT AUTHORIZED in this gate**. Prospective validation order: `PARSE→SCHEMA→COUNT/ID→GOLD_GRAPH/EVIDENCE→RIGHTS/NONOVERLAP/NUISANCE→FREEZE→BLIND_SCORE→IMMUTABLE_SCORE→CUSTODIAN_UNBLIND→SCORER→ADJUDICATION`. Any violation yields deterministic `HOLD`/`FAIL` and an append-only negative receipt without dropping items/retuning. M0/M0X require exact integers 0/1; M0U permits 0/1 or exact `UNKNOWN`, never silently coercing null, missing, NaN, out-of-range or string score values.
+The source-only checker schema, rejection order, 12-edge graph validation, 3×3 M0U report, stage gates, exhaustive negative fixture table and reason codes are specified in document 07 **and versioned contract 11 (machine-checkable JSON Schema + typed cross-record invariants).** A total reject precedence and multi-fault oracle take priority over informal descriptions. Implementation and any checker execution are **NOT AUTHORIZED in this gate**. Prospective validation order: `PARSE→SCHEMA→COUNT/ID→GOLD_GRAPH/EVIDENCE→RIGHTS/NONOVERLAP/NUISANCE→FREEZE→BLIND_SCORE→IMMUTABLE_SCORE→CUSTODIAN_UNBLIND→SCORER→ADJUDICATION`. Any violation yields deterministic `HOLD`/`FAIL` and an append-only negative receipt without dropping items/retuning. M0/M0X require exact integers 0/1; M0U permits 0/1 or exact `UNKNOWN`, never silently coercing null, missing, NaN, out-of-range or string score values.
 
 ## 9. Limits and next gate
 
-The original independent F2 `HOLD_REVISE_DESIGN` persists at `07adab...`. This remediation is **author design only** until separate QA. Neither semantic witnesses nor 72 cores, 216 items, independent gold, licensed source, custody SHA or blinded scoring exist yet. Existing Foundation First F01–F05 owner `GO_DESIGN_SCOPED` remains scoped and unaffected; F3/F4 remain unopened.
+Independent F2 `HOLD_REVISE_DESIGN` remains fixed for both reviewed commits `07adab...` and `cf0f...`; this third revision is an unreviewed author candidate. This remediation is **author design only** until separate QA. Neither semantic witnesses nor 72 cores, 216 items, independent gold, licensed source, custody SHA or blinded scoring exist yet. Existing Foundation First F01–F05 owner `GO_DESIGN_SCOPED` remains scoped and unaffected; F3/F4 remain unopened.
 
 `PREEXEC_BLOCK=TRUE · OWNER_DATA_AUTHORING_GO=FALSE · OWNER_SCORE_GO=FALSE · GOLD_NOT_AUTHORED · SOURCE_RIGHTS_NOT_ATTESTED · SCORER_NOT_IMPLEMENTED · NO_MODEL · NO_GPU · NO_TRAIN · NO_MERGE`.
 
 **Bước thực hiện tiếp theo — duy nhất:** after one integrated author adversarial/self-QA gate, distinct independent source/design review of the exact amended candidate with one `GO_DESIGN_SCOPED` or `HOLD_REVISE_DESIGN`. No automatic owner execution permit.
+
+
+## 10. Contract remediation ledger and QA boundary
+
+- `IR-01 / NF-02`: G04P symbolic-only legality, G04E actual texts after owner G12A; none of G04E, private texts or gold exists now.
+- `IR-02 / NF-01`: exact rater-visible information contract; gold evidence parity is checked per axis and core before any blind rating.
+- `IR-07 / NF-03`: typed strict schema and deterministic first-error rules in 11 and 07; author static QA may exercise *synthetic structures only*. It is not an implemented scorer or actual 28 negative fixtures.
+- `IR-03/04/05/06`: remain CLOSED_DESIGN under their earlier independent review, subject only to compatibility of changes; private actual results remain unverified.
+- `PREEXEC_BLOCK=TRUE; OWNER_DATA_AUTHORING_GO=FALSE; OWNER_SCORE_GO=FALSE; ROOT_CAUSE_IDENTIFIED=NO; F3/F4_NOT_OPENED; SCIENCE_HOLD; NO_MERGE.`
+
+**Next single gate:** author adversarial QA of this exact packet with evidence and no hidden execution, then distinct independent design review at the new exact commit. `GO_DESIGN_SCOPED` is not authorization for data, scoring, AI rater, model or GPU.
