@@ -1,0 +1,54 @@
+{
+  "schema": "ttm.p0a.meas.q3.distinct_source_review_receipt.v1",
+  "operation": "TTM_P0A_MEAS_Q3_EXACT_SOURCE_DISTINCT_ANSWER_REVIEW_AND_OWNER_Q3_ADMISSION_SINGLE_GATE",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "date": "2026-11-16",
+  "reviewed_candidate_commit": "ebf243d078dedae623a5b4028e353b4570654dff",
+  "reviewed_base_commit": "8c38528a8d52f7262d0da188443a8166ec843a5f",
+  "reviewed_input_git_blobs": {
+    "answer": "fdd8f9fb8f25c777d7aac231c841ddd0f2fd04b4",
+    "matrix": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+    "author_qa": "0f23b5f2341092f0e6b43df5a89e761c4ca63024",
+    "handoff": "357e6afb8397e9802e1ded2c53a9fd3ee7f60e97"
+  },
+  "review_checks": {
+    "candidate_40hex": true,
+    "base_pin": true,
+    "source_baseline_blobs_match": true,
+    "original_diff_four_added_only": true,
+    "seven_evidence_vetoes_preserved": true,
+    "negative_X13_to_X21_logical_only": true,
+    "author_35_of_35_not_independent": true,
+    "selection_bias_forward_hold": true,
+    "source_rights_before_access": true,
+    "ontology_and_temporal_closure_hold": true,
+    "full_effective_fact_parity_hold": true,
+    "independent_gold_rater_hold": true,
+    "prereg_and_sample_hold": true,
+    "checkpoint_and_science_permit_hold": true,
+    "q4_not_decided": true,
+    "lineage_unchanged_original_candidate": true,
+    "no_model_or_gold_execution": true
+  },
+  "review_limitations": [
+    "GITHUB_CONNECTOR_METADATA_NOT_EXTERNAL_BYTE_ATTESTATION",
+    "HUMAN_ORGANIZATIONAL_INDEPENDENCE_NOT_EXTERNALLY_ATTESTED",
+    "LOGICAL_COUNTEREXAMPLES_NOT_RUNTIME_TESTS",
+    "NO_PRIVATE_SOURCE_ACCESSED",
+    "NO_SCIENCE_EXECUTED"
+  ],
+  "reviewer": "DISTINCT_AI_SOURCE_ONLY",
+  "external_independence": "NOT_EXTERNALLY_ATTESTED",
+  "verdict": "PASS_Q3_SOURCE_ANSWER_SCOPED_WITH_EMPIRICAL_HOLD",
+  "actual_empirical_admission": "HOLD_EVIDENCE_INSUFFICIENT",
+  "q4": "NOT_DECIDED",
+  "owner_q3_admission": "PENDING",
+  "science_permit": "NO",
+  "report": {
+    "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_DISTINCT_SOURCE_ANSWER_REVIEW_20261116.md",
+    "raw_sha256": "20a9cbb6927e04dac927a5d9d983eb4d38b7325ae6d7b801e2d38f89cbf6530b",
+    "raw_utf8_bytes": 9161
+  },
+  "review_evidence_staging_commit": "c4600c679d6409e8b6620d6f15aff3205e722b9e",
+  "next_single_gate": "TTM_P0A_MEAS_Q3_OWNER_SOURCE_ONLY_ADMISSION_AND_PR24_GOVERNANCE_CLOSURE_SINGLE_GATE"
+}
