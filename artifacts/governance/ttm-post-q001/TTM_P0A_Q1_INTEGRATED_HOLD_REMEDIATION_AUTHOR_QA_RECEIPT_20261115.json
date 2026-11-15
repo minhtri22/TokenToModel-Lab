@@ -1,0 +1,461 @@
+{
+  "schema": "ttm.p0a.q1.hold_integrated_remediation.author_qa.v1",
+  "operation": "TTM_P0A_Q1_CONSTRUCT_EFFECTIVE_PARITY_DECISION_INTEGRATED_REMEDIATION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "original_independent_reviewed_head": "f3225f4f2cbc48ef15cdbc92cf5c050c78f4fa1a",
+  "source_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "blobs": {
+    "design": "22f7382dc7a76f3cbcbe695d700cb9111c246f60",
+    "contract": "24c35ec70236fa64ff14488bf32189c81782faa6",
+    "amendment": "6ab78594e1aee776cae81bba191e84d8cc39966c"
+  },
+  "original_independent_verdict": "HOLD_Q1_SOURCE_DESIGN",
+  "amended_independent_review": "NOT_EXECUTED",
+  "author_verdict": "PASS_AUTHOR_SOURCE_ONLY_REMEDIATION_QA",
+  "test_count": 85,
+  "pass_count": 85,
+  "fail_count": 0,
+  "checks": [
+    {
+      "id": "P0A-RQA-01",
+      "name": "Fixed source base main",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-02",
+      "name": "Original candidate immutable original HEAD pinned",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-03",
+      "name": "Original design SHA exact",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-04",
+      "name": "Original contract SHA exact",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-05",
+      "name": "Reviewer original HOLD preserved",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-06",
+      "name": "Three blocker findings preserved",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-07",
+      "name": "All three changes author only",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-08",
+      "name": "Q1 independent rerun NOT executed",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-09",
+      "name": "Reviewer raw receipt not misrepresented",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-10",
+      "name": "One scoped triple mandatory",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-11",
+      "name": "Reference time explicit",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-12",
+      "name": "Only atomic relation",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-13",
+      "name": "TinyStories feasibility unknown",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-14",
+      "name": "No accidental gold creation",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-15",
+      "name": "Question updated in prose",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-16",
+      "name": "Question updated in JSON",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-17",
+      "name": "Two orthogonal axes",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-18",
+      "name": "UNKNOWN only for eligible",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-19",
+      "name": "INVALID rejection not fact-label",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-20",
+      "name": "FALSE requires visible explicit negation or axiom",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-21",
+      "name": "TRUE exact visible entailment",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-22",
+      "name": "UNKNOWN not loss of witness",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-23",
+      "name": "Missing prelabel witness rejected not unknown",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-24",
+      "name": "Truncation missing proof rejected not unknown",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-25",
+      "name": "Conflicting authority rejected",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-26",
+      "name": "Rejected labels excluded denominator",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-27",
+      "name": "No actual labels yet",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-28",
+      "name": "Effective model view post truncation",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-29",
+      "name": "Effective rater view explicit",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-30",
+      "name": "Decisive witness equivalence required",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-31",
+      "name": "No wrapper byte identity assumption",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-32",
+      "name": "T4 target context 256 only",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-33",
+      "name": "Planned parity receipt: source_sha256",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-34",
+      "name": "Planned parity receipt: rights_ref",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-35",
+      "name": "Planned parity receipt: assertion_id",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-36",
+      "name": "Planned parity receipt: witness_span_id",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-37",
+      "name": "Planned parity receipt: prompt_builder_git_blob",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-38",
+      "name": "Planned parity receipt: rendered_prefix_sha256",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-39",
+      "name": "Planned parity receipt: tokenizer_id_sha256",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-40",
+      "name": "Planned parity receipt: context_window",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-41",
+      "name": "Planned parity receipt: truncation_side_and_policy",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-42",
+      "name": "Planned parity receipt: effective_token_range",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-43",
+      "name": "Planned parity receipt: model_effective_prefix_sha256",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-44",
+      "name": "Planned parity receipt: witness_token_span_after_truncation",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-45",
+      "name": "Planned parity receipt: witness_survives_model_window",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-46",
+      "name": "Planned parity receipt: rater_payload_sha256",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-47",
+      "name": "Planned parity receipt: rater_visible_witness_span",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-48",
+      "name": "Planned parity receipt: information_parity_verdict",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-49",
+      "name": "Parity veto before fixture freeze",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-50",
+      "name": "AD-01R rights before authoring",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-51",
+      "name": "AD-03 visible witness before authoring",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-52",
+      "name": "AD-06 conditional contrast before authoring/freeze",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-53",
+      "name": "AD-01T tokenizer before freeze",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-54",
+      "name": "AD-01C before model execution",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-55",
+      "name": "AD-04 before scoring",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-56",
+      "name": "Same-task parity rechecked before scoring",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-57",
+      "name": "Abstract paper review doesn't require checkpoint bytes",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-58",
+      "name": "All five decisions have differential evidence",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-59",
+      "name": "HOLD is default",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-60",
+      "name": "STOP requires proven impossibility",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-61",
+      "name": "PIVOT requires new owner Q",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-62",
+      "name": "KEEP requires future authorized science",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-63",
+      "name": "No thresholds invented",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-64",
+      "name": "Q1 design vs science separated",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-65",
+      "name": "All twelve negatives present",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-66",
+      "name": "All negative cases unique and marked symbolic",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-67",
+      "name": "Symbolic negative N01",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-68",
+      "name": "Symbolic negative N02",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-69",
+      "name": "Symbolic negative N03",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-70",
+      "name": "Symbolic negative N04",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-71",
+      "name": "Symbolic negative N05",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-72",
+      "name": "Symbolic negative N06",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-73",
+      "name": "Symbolic negative N07",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-74",
+      "name": "Symbolic negative N08",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-75",
+      "name": "Symbolic negative N09",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-76",
+      "name": "Symbolic negative N10",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-77",
+      "name": "Symbolic negative N11",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-78",
+      "name": "Symbolic negative N12",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-79",
+      "name": "Source amended reference to integrated contract",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-80",
+      "name": "Integrated contract has all three findings",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-81",
+      "name": "Original reviewer HOLD no upgrade",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-82",
+      "name": "Only one active step in updated source",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-83",
+      "name": "Updated step harmonized",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-84",
+      "name": "All implementation permissions still false",
+      "pass": true
+    },
+    {
+      "id": "P0A-RQA-85",
+      "name": "Source main Q001 remains closed",
+      "pass": true
+    }
+  ],
+  "reviewer_original_reports_raw_sha256": "NOT_VERIFIED_LOCAL_PATH_NOT_ARCHIVED",
+  "new_question_registered": false,
+  "benchmark_gold_validated": false,
+  "science_execution": false,
+  "data_gold_scorer_created": false,
+  "model_run": false,
+  "new_research_branch": false,
+  "lineage_edited": false,
+  "pr22_merged": false,
+  "limitations": [
+    "All checks are static schema/string/contract assertions and symbolic negatives; no item data/gold/model/rater executed",
+    "Original reviewer Markdown and JSON on Windows local path not obtained byte-exact; user-supplied synopsis only",
+    "PASS_AUTHOR_QA does not upgrade original independent Q1 HOLD"
+  ],
+  "next_single_step": "TTM_P0A_MEASUREMENT_GOLD_INTEGRATED_REMEDIATION_EXACT_CANDIDATE_DISTINCT_REREVIEW_SINGLE_GATE"
+}

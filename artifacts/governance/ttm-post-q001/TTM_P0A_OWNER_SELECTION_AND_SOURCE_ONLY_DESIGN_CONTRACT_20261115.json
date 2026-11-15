@@ -55,7 +55,7 @@
   "candidate_question": {
     "candidate_id": "P0A-CANDIDATE-NOT-A-QUESTION-ID",
     "type": "MEASUREMENT",
-    "decision_question": "Can an independent adjudicator derive TRUE/FALSE/UNKNOWN/INVALID source-visible fact labels from the same permitted evidence packet shown to model and rater, without hidden gold, ambiguous roles or lexical shortcuts, before interpreting historical factual adherence outcomes?",
+    "decision_question": "Can one LOCATED_AT(entity_id,location_id,reference_time_id) assertion family support source-visible TRUE/FALSE/UNKNOWN labels after effective prompt/tokenization/truncation, while excluding missing-witness/parity/invalid items, and prospectively distinguish KEEP/SIMPLIFY/PIVOT/STOP/HOLD?",
     "hypotheses": [
       {
         "id": "M0_VISIBLE_CONSTRUCT",
@@ -104,7 +104,11 @@
       "INDEPENDENT_SAME_TASK_RATER_CALIBRATION",
       "NEGATIVE_CONTROLS",
       "ADMISSION_THRESHOLD",
-      "RESOURCE_BUDGET"
+      "RESOURCE_BUDGET",
+      "EFFECTIVE_PREFIX_AND_RATER_PAYLOAD_HASHES",
+      "WITNESS_SPAN_AFTER_TRUNCATION",
+      "ASSERTION_FAMILY_FEASIBILITY",
+      "VISIBLE_SOURCE_COMPLETENESS"
     ],
     "phase_contract": {
       "design": [
@@ -119,7 +123,9 @@
         "AD-03",
         "AD-05",
         "AD-06_IF_CONTRAST",
-        "AD-08_OWNER_SCOPE"
+        "AD-08_OWNER_SCOPE",
+        "ASSERTION_GRAMMAR_SCOPED",
+        "VISIBLE_WITNESS_FEASIBILITY"
       ],
       "before_freeze": [
         "AD-01T_IF_TOKEN_SENSITIVE",
@@ -127,7 +133,10 @@
         "AD-03",
         "AD-05",
         "AD-06_IF_CONTRAST",
-        "AD-07"
+        "AD-07",
+        "MODEL_EFFECTIVE_PREFIX_SPAN_PROOF_POST_TRUNCATION",
+        "RATER_EFFECTIVE_VISIBLE_WITNESS_PARITY",
+        "REJECT_MISSING_WITNESS_NOT_UNKNOWN"
       ],
       "before_model_run": [
         "AD-00",
@@ -139,7 +148,8 @@
         "AD-04",
         "AD-05_RECHECK",
         "AD-06_RECHECK_IF_CONTRAST",
-        "AD-07"
+        "AD-07",
+        "EFFECTIVE_VIEW_PARITY_RECHECK"
       ]
     },
     "hard_veto": [
@@ -149,12 +159,205 @@
       "NO_VISIBLE_WITNESS",
       "LEAKAGE_OR_SHORTCUT",
       "UNRESOLVED_SAME_TASK_RATER_DISAGREEMENT",
-      "NO_OWNER_SCIENCE_AUTHORITY"
+      "NO_OWNER_SCIENCE_AUTHORITY",
+      "MODEL_RATER_EFFECTIVE_PARITY_MISSING",
+      "PRELABEL_GOLD_WITNESS_MISSING",
+      "INVALID_CONFLATED_WITH_UNKNOWN",
+      "NO_Q1_REGISTRATION"
     ],
     "primary_endpoint_status": "NOT_PREREGISTERED_NO_NEW_MEASUREMENTS",
     "sample_count_status": "NOT_SET",
     "threshold_status": "NOT_FROZEN",
-    "budget_status": "NOT_AUTHORIZED"
+    "budget_status": "NOT_AUTHORIZED",
+    "assertion_scope": {
+      "type": "ONE_ATOMIC_RELATION",
+      "grammar": "LOCATED_AT(entity_id,location_id,reference_time_id)",
+      "mandatory": [
+        "entity_id",
+        "location_id",
+        "reference_time_id"
+      ],
+      "time_must_be_visible": true,
+      "source_family_feasibility": "NOT_VERIFIED",
+      "exclude": [
+        "implicit time",
+        "goal",
+        "event transition",
+        "multi-hop",
+        "nested coreference",
+        "Long-CoT",
+        "other relation families",
+        "model score tests"
+      ],
+      "create_gold": false
+    },
+    "admission_and_labels": {
+      "dimensions": [
+        "ITEM_ADMISSION_STATUS",
+        "FACT_LABEL"
+      ],
+      "item_statuses": [
+        "ELIGIBLE",
+        "REJECT_RIGHTS",
+        "REJECT_INVALID_SCHEMA_OR_REFERENT",
+        "REJECT_CONFLICTING_AUTHORITY",
+        "REJECT_MISSING_WITNESS",
+        "REJECT_PARITY",
+        "REJECT_SHORTCUT"
+      ],
+      "labels_only_if_eligible": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN"
+      ],
+      "invalid_is_item_rejection": true,
+      "rules": {
+        "TRUE": "Exact asserted triple/time directly entailed by post-truncation model-visible and rater-visible witness",
+        "FALSE": "Explicit negation or incompatible same-time location with source-visible functional/exclusive axiom; no implicit closed-world",
+        "UNKNOWN": "Well-formed eligible assertion, bounded declared complete effective visible evidence neither entails nor refutes; NOT missing witness or truncation",
+        "INVALID": "REJECT_INVALID_SCHEMA_OR_REFERENT, not a scored label",
+        "AUTHOR_PRELABELED_TRUE_FALSE_WITNESS_MISSING": "REJECT_MISSING_WITNESS_NOT_UNKNOWN",
+        "TRUNCATED_SOURCE_MISSING_PROOF": "REJECT_PARITY_NOT_UNKNOWN",
+        "CONFLICTING_AUTHORITY": "REJECT_CONFLICTING_AUTHORITY"
+      },
+      "denominator_rule": "future authorized label scores count only ELIGIBLE items; rejected items tracked separately; unknown does not absorb invalid/missing witness",
+      "actual_item_labels": "NOT_GENERATED",
+      "gold_validation": "NOT_VALIDATED"
+    },
+    "model_rater_effective_parity": {
+      "source_flow": [
+        "permitted source with rights",
+        "witness span W",
+        "prompt builder + wrappers",
+        "exact tokenizer/config",
+        "context truncation policy",
+        "MODEL_EFFECTIVE_VISIBLE_PREFIX"
+      ],
+      "rater_flow": [
+        "rater packet builder + disclosed rubric",
+        "RATER_EFFECTIVE_VISIBLE_EVIDENCE"
+      ],
+      "planned_receipt_fields": [
+        "rights_ref",
+        "source_sha256",
+        "assertion_id",
+        "witness_span_id",
+        "prompt_builder_git_blob",
+        "rendered_prefix_sha256",
+        "tokenizer_id_sha256",
+        "context_window",
+        "truncation_side_and_policy",
+        "effective_token_range",
+        "model_effective_prefix_sha256",
+        "witness_token_span_after_truncation",
+        "witness_survives_model_window",
+        "rater_payload_sha256",
+        "rater_visible_witness_span",
+        "hidden_gold_absent_from_rater",
+        "information_parity_verdict"
+      ],
+      "if_t4_context": 256,
+      "require_decisive_witness_in_both_effective_views": true,
+      "rater_no_extra_hidden_gold": true,
+      "full_wrapper_byte_equal": false,
+      "preauthoring_requirement": "demonstrate design feasibility of witness mapping before any content production",
+      "before_freeze_requirement": "prove exact per-item model effective view (post truncation) and same decisive rater-visible evidence",
+      "before_scoring_requirement": "recheck post-render effective witness/packet parity",
+      "negative_model_loses_witness_rater_keeps": "HOLD_PARITY_LOST_AFTER_TRUNCATION",
+      "actual_receipts": "NOT_CAPTURED_NOT_VERIFIED",
+      "abstract_design_does_not_require_checkpoint_bytes": true
+    },
+    "decision_rules": {
+      "design_eligibility": "Reviewer may PASS_Q1_DESIGN_SCOPE only if one scoped question, falsifiers, two-axis labels, effective parity pre-freeze, hard-veto and decision tree coherent; this is NOT actual gold/benchmark admission",
+      "KEEP": "All future separately-authorized prospective rights, effective witness, parity, independent same-task gold/rater, negative controls, frozen thresholds verified and passed",
+      "SIMPLIFY": "Pre-outcome localized fixable subfamily issue with lawful visible parity; no after-outcome ontology change",
+      "PIVOT": "Documented original family structural infeasibility plus feasible lawful equal-information alternate oracle; requires a separate owner Q",
+      "STOP": "Documented irreversible legal/construct/oracle impossibility and no viable lawful alternative; unverified rights alone=>HOLD",
+      "HOLD_EVIDENCE_INSUFFICIENT": "Default when rights/witness/parity/gold/rater/threshold/custody not verified",
+      "precedence": [
+        "missing_proof_or_hard_veto=>HOLD",
+        "proven_irreversible_no_alternative=>STOP",
+        "proven_failure_and_lawful_alternate=>PIVOT_PROPOSAL",
+        "preoutcome_localized_repair=>SIMPLIFY_PROPOSAL",
+        "verified_prospective_all_checks=>KEEP"
+      ],
+      "thresholds_now": "NOT_FROZEN",
+      "no_numeric_experimental_thresholds": true
+    },
+    "negative_logic_cases": [
+      {
+        "id": "N01",
+        "predicate": "stored witness model truncates but rater retains",
+        "expected": "HOLD_PARITY_LOST_AFTER_TRUNCATION",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N02",
+        "predicate": "model witness exists rater missing",
+        "expected": "HOLD_PARITY",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N03",
+        "predicate": "prelabel TRUE/FALSE witness missing",
+        "expected": "REJECT_MISSING_WITNESS_NOT_UNKNOWN",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N04",
+        "predicate": "bounded complete visible source neither entail nor refute",
+        "expected": "UNKNOWN_VALID",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N05",
+        "predicate": "time id missing or unresolved referent",
+        "expected": "REJECT_INVALID_SCHEMA_OR_REFERENT",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N06",
+        "predicate": "alternative location but no visible exclusivity axiom",
+        "expected": "UNKNOWN_VALID_IF_COMPLETE_NOT_FALSE",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N07",
+        "predicate": "two conflicting authoritative locations same time",
+        "expected": "REJECT_CONFLICTING_AUTHORITY",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N08",
+        "predicate": "matched pair changes location and time",
+        "expected": "HOLD_AD06_IF_CAUSAL_CONTRAST",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N09",
+        "predicate": "source rights unverified",
+        "expected": "HOLD_RIGHTS",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N10",
+        "predicate": "independent same-task rater disagreement unresolved",
+        "expected": "HOLD_RATER_COMPETENCE",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N11",
+        "predicate": "model run without registered Q/owner permit",
+        "expected": "NO_MODEL_RUN",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      },
+      {
+        "id": "N12",
+        "predicate": "hidden E_core oracle only",
+        "expected": "REJECT_MISSING_WITNESS",
+        "kind": "SYMBOLIC_SPEC_NOT_EXECUTED_SCIENCE"
+      }
+    ]
   },
   "implementation_permissions": {
     "new_question_registered": false,
@@ -171,6 +374,39 @@
     "pr22_merge": false,
     "active_gate_mutation": false
   },
-  "next_single_step": "TTM_P0A_MEASUREMENT_GOLD_PROSPECTIVE_Q1_SOURCE_ADMISSION_AND_DISTINCT_REVIEW_SINGLE_GATE",
-  "status": "OWNER_P0A_SELECTED_DESIGN_ONLY_CANDIDATE_NOT_REGISTERED"
+  "next_single_step": "TTM_P0A_MEASUREMENT_GOLD_INTEGRATED_REMEDIATION_EXACT_CANDIDATE_DISTINCT_REREVIEW_SINGLE_GATE",
+  "status": "AUTHOR_INTEGRATED_REMEDIATION_DONE_DISTINCT_REVIEW_PENDING_Q1_HOLD",
+  "remediation": {
+    "prior_reviewed_head": "f3225f4f2cbc48ef15cdbc92cf5c050c78f4fa1a",
+    "old_design_blob_sha1": "fa45faadad78899cab3b48062c5befd3a141a53e",
+    "old_contract_blob_sha1": "3fd84c44e0aa56c6dfab55326bfe6addbb18f580",
+    "original_distinct_verdict": "HOLD_Q1_SOURCE_DESIGN",
+    "findings": [
+      {
+        "id": "F-CONSTRUCT",
+        "severity": "HIGH",
+        "status": "AUTHOR_REMEDIATED_PENDING_DISTINCT_REREVIEW",
+        "change": "Two-axis label/admission, scoped LOCATION_AT_TIME, valid UNKNOWN vs missing witness"
+      },
+      {
+        "id": "F-PARITY",
+        "severity": "HIGH",
+        "status": "AUTHOR_REMEDIATED_PENDING_DISTINCT_REREVIEW",
+        "change": "Model effective post-render/truncation vs rater visible witness equality + future trace receipt"
+      },
+      {
+        "id": "F-DECISION",
+        "severity": "HIGH",
+        "status": "AUTHOR_REMEDIATED_PENDING_DISTINCT_REREVIEW",
+        "change": "Evidence requirements and deterministic KEEP/SIMPLIFY/PIVOT/STOP/HOLD"
+      }
+    ],
+    "reviewer_source": "USER_SUPPLIED_SUMMARY_LOCAL_WINDOWS_PATH_NOT_BYTE_VERIFIED",
+    "reviewer_report_sha256": "NOT_VERIFIED",
+    "reviewer_receipt_sha256": "NOT_VERIFIED",
+    "amended_independent_review": "NOT_EXECUTED",
+    "benchmark_gold": "NOT_VALIDATED",
+    "question_registered": false,
+    "reference_contract": "docs/governance/ttm-post-q001/TTM_P0A_Q1_INTEGRATED_HOLD_REMEDIATION_SOURCE_CONTRACT_20261115.md"
+  }
 }
