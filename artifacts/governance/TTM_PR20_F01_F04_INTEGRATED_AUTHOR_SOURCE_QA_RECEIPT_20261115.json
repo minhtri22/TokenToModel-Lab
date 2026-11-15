@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.pr20.f01_f04.single_integrated_remediation.source_qa.v1",
+  "operation": "TTM_PR20_F01_F02_F03_F04_INTEGRATED_SOURCE_PIN_ANCESTRY_FRESHNESS_DEDUP_REMEDIATION",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pr": 20,
+  "parent_pr_head": "cc665c8264df92ddaeeb0e0af7bd2cf0793be172",
+  "base_main": "fbe4a1ed58eef66f896bbfe0471926b7cc45298e",
+  "mode": "AUTHOR_SOURCE_ONLY_QA; NOT_DISTINCT_INDEPENDENT_REVIEW",
+  "source_input_blobs": {
+    "inventory": "5c36afba23b20973f8461eaead109d1b3a4bb4c2",
+    "receipt": "2ef7b18ace1bbb0828164895e8bb2705c7a4115d",
+    "report": "8981e18b00a20395967733ec9c3504d6f79193bc",
+    "lineage": "3409e036241deb1da6674619a2abc834bea8a2d6"
+  },
+  "fixes": {
+    "F01": "PIN24_GIT_BLOB_CORRECTED_IN_INVENTORY_AND_RECEIPT",
+    "F02": "DIVERGED_ANCESTRY_AND_TREE_EQUIVALENCE_SEPARATED",
+    "F03": "VM_R8_SNAPSHOT_FRESHNESS_DISCLOSED_WITHOUT_REBIND",
+    "F04": "T5_TWO_BRANCH_ALIASES_ONE_SOURCE_ARTIFACT"
+  },
+  "source_facts": {
+    "F01_actual_blob": "9110d101601e6ebfb64d9804f3704a90cb284420",
+    "F02_tree": "7177eb04f806c2a51aa3d7dc3ab674928d081146",
+    "F03_remote_head": "8dec9438bff96922e5defd64550971c309d5b32f",
+    "F04_shared_blob": "737ae1012a343319ba0f20fd4e62cc95c9aae612"
+  },
+  "checks": {
+    "F01_correct_both": true,
+    "F02_diverged_separate_tree": true,
+    "F03_pin_stable": true,
+    "F04_two_alias_one_blob": true,
+    "branch_count": true,
+    "pins_27": true,
+    "unique_blobs_26": true,
+    "science_HOLD": true,
+    "lineage_not_updated": true
+  },
+  "decision": "PASS_AUTHOR_SCOPED_CORRECTION__HOLD_DISTINCT_NEW_HEAD_QA",
+  "reviewer_input_original_bytes": "NOT_AVAILABLE; SHA256_USER_REPORTED_ONLY",
+  "science_execution": 0,
+  "main_merge": "NOT_EXECUTED",
+  "lineage_write": "NONE"
+}
