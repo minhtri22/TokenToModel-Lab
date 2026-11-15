@@ -1,0 +1,360 @@
+{
+  "schema": "ttm.p0a.meas.q1.owner_registration.source_only_author_qa.v1",
+  "operation": "TTM_P0A_Q1_OWNER_DESIGN_PASS_REASSESSMENT_AND_REGISTRATION_DECISION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "source_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "source_evidence_head": "f128af5f6bbdcd6f7ab9c5e9c7026707d4df8552",
+  "reviewed_design_head": "a8fd21f35d56a87f869df673b318d437ed0c8b31",
+  "mode": "AUTHOR_STATIC_QA_NOT_INDEPENDENT_SCIENCE",
+  "new_governance_blobs": {
+    "q1": "6b29c962b48c4134c925935409433d4ae2804110",
+    "owner": "3631fbd9935646a216bd42a6306addde32a4ec83",
+    "active": "288d4cd2c84315705e7ea06e45c246b6f3d67496",
+    "registry": "1184ec598868059d82f8a12d732c93abf32dad27"
+  },
+  "checks": [
+    {
+      "id": "REG-QA-01",
+      "name": "Exactly current baseline main",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-02",
+      "name": "PR #22 branch exact, draft",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-03",
+      "name": "One distinct new QuestionID",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-04",
+      "name": "Owner explicit GO declaration",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-05",
+      "name": "Policy ID pinned",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-06",
+      "name": "Type MEASUREMENT",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-07",
+      "name": "Explicit statement falsifiable",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-08",
+      "name": "One scoped atomic LOCATED_AT family",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-09",
+      "name": "Distinct alternatives all 5",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-10",
+      "name": "OBSERVED status explicitly supplied",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-11",
+      "name": "INFERRED status explicitly supplied",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-12",
+      "name": "UNKNOWN status explicitly supplied",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-13",
+      "name": "History Q001 remains closed",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-14",
+      "name": "Historical root cause not identified",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-15",
+      "name": "New Q1 state active",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-16",
+      "name": "New Q2 not executed",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-17",
+      "name": "New Q3 not executed",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-18",
+      "name": "New Q4 not decided",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-19",
+      "name": "Independent original exact HEAD",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-20",
+      "name": "Original HOLD exact HEAD",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-21",
+      "name": "Evidence archived HEAD",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-22",
+      "name": "Review original source PASS",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-23",
+      "name": "Reviewer source report blob identity",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-24",
+      "name": "Reviewer JSON receipt blob identity",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-25",
+      "name": "Reviewer human independence not attested",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-26",
+      "name": "M0 visible construct mechanism",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-27",
+      "name": "M1 hidden-only mechanism",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-28",
+      "name": "M2 ambiguity mechanism",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-29",
+      "name": "M3 shortcut mechanism",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-30",
+      "name": "M4 rater mechanism",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-31",
+      "name": "Rights AD-01R before authoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-32",
+      "name": "Ontology AD-02 before authoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-33",
+      "name": "Visible witness AD-03 before authoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-34",
+      "name": "Negative AD-05 before authoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-35",
+      "name": "AD-06 causal only",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-36",
+      "name": "AD-01T before fixture freeze",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-37",
+      "name": "X13 material fact parity before freeze",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-38",
+      "name": "X14 explicit exclusivity before authoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-39",
+      "name": "X15 gate and item precedence before freeze",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-40",
+      "name": "X16 coexistence design pass actual hold",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-41",
+      "name": "AD-01C before model",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-42",
+      "name": "AD-04 before scoring",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-43",
+      "name": "Scientific rights not verified",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-44",
+      "name": "Gold not validated",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-45",
+      "name": "Actual parity not captured",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-46",
+      "name": "Independent rater not calibrated",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-47",
+      "name": "Threshold not frozen",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-48",
+      "name": "Sample size not set",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-49",
+      "name": "Budget not authorized",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-50",
+      "name": "Checkpoint not verified",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-51",
+      "name": "All 14 no-science permissions false",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-52",
+      "name": "No scientific lineage change",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-53",
+      "name": "No F0 F2 reopening",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-54",
+      "name": "Owner approves governance-only PR merge not implementation",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-55",
+      "name": "Only governance path allowed",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-56",
+      "name": "Q1 registration main commit not self-referenced",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-57",
+      "name": "All four authored new blob pins source",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-58",
+      "name": "Current main lineage Git blob pinned",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-59",
+      "name": "Single next step in Q1",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-60",
+      "name": "Single next step in owner",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-61",
+      "name": "Single next step in active",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-62",
+      "name": "Next Q2 source only consistent",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-63",
+      "name": "Active relative receipt link correct",
+      "pass": true
+    },
+    {
+      "id": "REG-QA-64",
+      "name": "Original Q1 request now historical",
+      "pass": true
+    }
+  ],
+  "pass_count": 64,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_Q1_REGISTRATION_PACKET_STATIC_QA",
+  "independent_q1_design": "PASS_Q1_DESIGN_SCOPE",
+  "human_independence": "NOT_EXTERNALLY_ATTESTED",
+  "owner": "GO_REGISTER_Q1_SCOPED",
+  "effective_registration": "ONLY_AFTER_MAIN_MERGE_READBACK",
+  "science_executed": false,
+  "data_created": false,
+  "gold_created": false,
+  "scorer_created": false,
+  "model_run": false,
+  "new_branch": false,
+  "pr22_implementation_merge": false,
+  "lineage_change": false,
+  "notes": [
+    "This author QA is not independent review nor actual benchmark validity",
+    "Reviewer PASS is for source/design only, not newly registered Q2/Q3/Q4",
+    "Prospective thresholds, rights, gold and rater remain unverified"
+  ],
+  "next_single_step": "TTM_P0A_MEAS_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_SINGLE_GATE"
+}

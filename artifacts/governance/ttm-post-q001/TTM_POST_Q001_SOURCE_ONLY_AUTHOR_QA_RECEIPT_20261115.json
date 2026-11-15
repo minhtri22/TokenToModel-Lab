@@ -1,0 +1,186 @@
+{
+  "schema": "ttm.post_q001.research_priority.author_qa.v1",
+  "operation": "TTM_POST_Q001_RESEARCH_DIRECTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_main_head": "3e6db6056dbc79747766bcdfa7cf2ce634ff6cf7",
+  "lineage_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+  "markdown_git_blob_sha1": "c8da20ffa47eaebafa0c4f6cc1e710f5cdffe167",
+  "matrix_git_blob_sha1": "2118dbb5a2b2cf86e59285d88ff1a2b76f309f80",
+  "tests": [
+    {
+      "name": "Source HEAD exact",
+      "pass": true
+    },
+    {
+      "name": "Lineage SHA exact",
+      "pass": true
+    },
+    {
+      "name": "Q4 SHA source",
+      "pass": true
+    },
+    {
+      "name": "Active SHA source",
+      "pass": true
+    },
+    {
+      "name": "Causal matrix SHA source",
+      "pass": true
+    },
+    {
+      "name": "Mole-Syn watchlist SHA source",
+      "pass": true
+    },
+    {
+      "name": "Q001 closed according to main",
+      "pass": true
+    },
+    {
+      "name": "No admission / science authorization",
+      "pass": true
+    },
+    {
+      "name": "Eight unique directions",
+      "pass": true
+    },
+    {
+      "name": "Measurement first",
+      "pass": true
+    },
+    {
+      "name": "Identifiability next",
+      "pass": true
+    },
+    {
+      "name": "Data vs objective tied rank",
+      "pass": true
+    },
+    {
+      "name": "Context vs decoding conditional",
+      "pass": true
+    },
+    {
+      "name": "Capacity deferred",
+      "pass": true
+    },
+    {
+      "name": "LongCoT is reference-only",
+      "pass": true
+    },
+    {
+      "name": "All seven Q001 hypothesis IDs covered",
+      "pass": true
+    },
+    {
+      "name": "Q2 ten outcomes not merged",
+      "pass": true
+    },
+    {
+      "name": "Q2 seven hypotheses",
+      "pass": true
+    },
+    {
+      "name": "T4 exact NLL values",
+      "pass": true
+    },
+    {
+      "name": "FRESH16 H1 H2 from lineage",
+      "pass": true
+    },
+    {
+      "name": "FC01 lexical outcomes from lineage",
+      "pass": true
+    },
+    {
+      "name": "FC01 limited entity-location",
+      "pass": true
+    },
+    {
+      "name": "Data typo removed",
+      "pass": true
+    },
+    {
+      "name": "D1 R1 design only",
+      "pass": true
+    },
+    {
+      "name": "GGUF parity kept separate",
+      "pass": true
+    },
+    {
+      "name": "VM and EmbeddingGemma separate",
+      "pass": true
+    },
+    {
+      "name": "P07 P08 held",
+      "pass": true
+    },
+    {
+      "name": "Historical branch count not current",
+      "pass": true
+    },
+    {
+      "name": "Q2 AD08 correctly labelled historical",
+      "pass": true
+    },
+    {
+      "name": "AD03 and AD06 before authoring and freeze",
+      "pass": true
+    },
+    {
+      "name": "Single next step",
+      "pass": true
+    },
+    {
+      "name": "No owner next question decision",
+      "pass": true
+    },
+    {
+      "name": "No execution flags",
+      "pass": true
+    },
+    {
+      "name": "No arbitrary MCDA weights",
+      "pass": true
+    },
+    {
+      "name": "Hidden-only gold rejected",
+      "pass": true
+    },
+    {
+      "name": "Unidentifiable pair rejected",
+      "pass": true
+    },
+    {
+      "name": "No data rights rejected",
+      "pass": true
+    },
+    {
+      "name": "No owner authority rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid construct rejected",
+      "pass": true
+    },
+    {
+      "name": "Hypothetical all fields cannot override no-execution",
+      "pass": true
+    }
+  ],
+  "pass_count": 40,
+  "fail_count": 0,
+  "source_kind": "AUTHOR_SOURCE_READBACK_PLUS_SYMBOLIC_NEGATIVE_TESTS",
+  "independent_review": false,
+  "verdict": "PASS_AUTHOR_SOURCE_ONLY_QA_NOT_INDEPENDENT",
+  "previous_qa_note": "Initial lexical assertion checked the English phrase 'status live'; report correctly used Vietnamese 'trạng thái live'. No substantive defect; fixed tester on complete re-run.",
+  "root_cause_identified": false,
+  "science_executed": false,
+  "new_question_registered": false,
+  "new_research_branch_created": false,
+  "model_code_modified": false,
+  "lineage_modified": false,
+  "new_science_authorized": false,
+  "next_single_step": "TTM_POST_Q001_PROSPECTIVE_QUESTION_SELECTION_OWNER_REVIEW_SINGLE_GATE"
+}
