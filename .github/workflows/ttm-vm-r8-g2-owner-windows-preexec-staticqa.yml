@@ -43,3 +43,36 @@ jobs:
           Write-Host 'PS51_PREEXEC_PARSE=PASS'
           Write-Host 'PS51_SAFE_STATIC_CONTRACT=PASS'
           Write-Host 'PREEXEC_EXECUTION=NOT_EXECUTED_ON_HOSTED_RUNNER'
+
+  hosted-public-sentinel-smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run public GitHub signature verification and ephemeral DPAPI sentinel only
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $root=$env:GITHUB_WORKSPACE
+          New-Item -ItemType Directory -Force -Path (Join-Path $root '_private\r8_custody\receipts') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $root '_tmp') | Out-Null
+          $script=Join-Path $root 'docs\research\vector-memory\r8\preexec\Invoke-TTM-VM-R8-G2-OwnerWindows-Integrated-Preexec-PS51.ps1'
+          & $script -ProjectRoot $root
+          if($LASTEXITCODE -and $LASTEXITCODE -ne 0){throw 'PREEXEC_SCRIPT_EXECUTION_ERROR'}
+          $receipt=Join-Path $root '_private\r8_custody\receipts\g2-owner-windows-protected-trust-boundary-preexec-20261115.json'
+          $record=Get-Content -LiteralPath $receipt -Raw | ConvertFrom-Json
+          if($record.states.WINDOWS_DPAPI_CURRENTUSER_SENTINEL -ne 'PASS_SCOPED_SAME_PROFILE_ONLY') {
+            throw 'HOSTED_DPAPI_SENTINEL_FAILED'
+          }
+          if($record.states.GITHUB_REAL_SENTINEL_ATTESTATION -ne 'PASS_SCOPED_GITHUB_SIGNED_PUBLIC_SENTINEL') {
+            throw 'HOSTED_GITHUB_SIGNED_SENTINEL_FAILED'
+          }
+          if($record.states.GPRE_AUTHENTIC_HMAC -ne 'NOT_EXECUTED' -or $record.states.G3_EXECUTED -ne $false) {
+            throw 'SCIENCE_BOUNDARY_VIOLATION'
+          }
+          Write-Host 'HOSTED_DPAPI_SENTINEL=PASS_SCOPED'
+          Write-Host 'HOSTED_GITHUB_SIGNED_SENTINEL=PASS_SCOPED'
+          Write-Host 'OWNER_WINDOWS_CUSTODY=NOT_EXECUTED'
