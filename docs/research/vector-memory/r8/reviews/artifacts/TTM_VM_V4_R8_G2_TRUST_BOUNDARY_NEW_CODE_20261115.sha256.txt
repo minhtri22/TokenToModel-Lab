@@ -1,0 +1,27 @@
+# TTM VM V4 R8 G2 — exact source package manifest
+
+Operation: TTM_VM_V4_R8_G2_PRODUCTION_TRUST_BOUNDARY_AND_LEDGER_ANTIROLLBACK_INTEGRATED_IMPLEMENTATION_SINGLE_GATE
+Parent remediation commit: 2c6aee6d9644bd2035c4624ab12f1b524a11e6e0
+Frozen scientific source: 84d9d5c95e9962ccfe294852570e261b145fe403
+Distinct review: 94b377ce6c0d6aa9e1d08ae4ff628c215449be1f
+
+Archive (2 newly authored Python files):
+e7637128d2e85b4e1da66b329cf6e31a8b421bf60085ac3740f7b40f6841b885  TTM_VM_V4_R8_G2_TRUST_BOUNDARY_NEW_CODE_20261115.zip
+ZIP Git blob SHA-1: 1f0cfe742f3fc437bd672c5825ce785f16faac01
+ZIP size: 10970 bytes, ZIP_DEFLATED
+
+Source SHA-256:
+de085cba7ec671de2787ea78837ac18a54cc30cc38e53f36af17214ab4253763  r8_production_trust_boundary.py
+15d43bdfec10659053116320a56f6a0b2b12771f62fbf8217837c126ae264c65  test_r8_production_trust_boundary.py
+
+Git blob SHA-1:
+f983d5493ba095a1b677bfe867e4c31570f0db23  r8_production_trust_boundary.py
+434919d726e1929d52307a2ce7c0d08c97bafff1  test_r8_production_trust_boundary.py
+
+Previously pinned remediation (UNCHANGED):
+83dc3c1fa98ba07487d251465c88be65423085ba60ae62740db300918223f2e6  pre_g3_admission_guard.py
+9b1725fd660c861b6fd82576bb825df592214622652a416281fddf08bccad73d  test_pre_g3_admission_guard.py
+
+Local source-only QA: 57/57 PASS on Linux CPython 3.13.5.
+Windows 3.12 CI: see GitHub Actions status for exact commit; do not infer PASS from local.
+PRODUCTION_ADMISSION=NOT_ATTESTED; NO_G3_GENERATOR_REGISTERED; G2=HOLD_INTEGRATED.

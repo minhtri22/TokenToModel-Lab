@@ -1,0 +1,29 @@
+name: TTM VM R8 G2 production trust source-only QA
+on:
+  push:
+    branches:
+      - implementation/ttm-vm-r8-g2-production-trust-antirollback-20261115
+    paths:
+      - docs/research/vector-memory/r8/integrated_closure/pre_g3_admission_guard.py
+      - docs/research/vector-memory/r8/integrated_closure/test_pre_g3_admission_guard.py
+      - docs/research/vector-memory/r8/integrated_closure/r8_production_trust_boundary.py
+      - docs/research/vector-memory/r8/integrated_closure/test_r8_production_trust_boundary.py
+      - .github/workflows/ttm-vm-r8-g2-production-trust-sourceqa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-source-only:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Frozen-science and side-effect boundaries
+        shell: pwsh
+        working-directory: docs/research/vector-memory/r8/integrated_closure
+        run: |
+          python -c "import sys; assert sys.version_info[:2] == (3, 12); print(sys.version)"
+          python -B -W error::ResourceWarning -m unittest -q test_pre_g3_admission_guard.py test_r8_production_trust_boundary.py
