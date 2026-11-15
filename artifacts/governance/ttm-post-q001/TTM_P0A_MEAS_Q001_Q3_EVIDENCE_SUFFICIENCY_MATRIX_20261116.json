@@ -1,0 +1,176 @@
+{
+  "schema": "ttm.p0a.meas.q3.source_only.evidence_sufficiency.v1",
+  "operation": "TTM_P0A_MEAS_Q3_SOURCE_EVIDENCE_ANSWER_AND_DISTINCT_QA_SINGLE_GATE",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "exact_main": "8c38528a8d52f7262d0da188443a8166ec843a5f",
+  "q1": "REGISTERED",
+  "q2": "ACCEPTED_SOURCE_ONLY",
+  "q3": "AUTHOR_SOURCE_ANSWER_PREPARED_DISTINCT_PENDING",
+  "q4": "NOT_DECIDED",
+  "answer": "DESIGN_CONDITIONS_IDENTIFIED_ACTUAL_FEASIBILITY_NOT_ESTABLISHED",
+  "actual_admission": "HOLD_EVIDENCE_INSUFFICIENT",
+  "evidence": [
+    {
+      "id": "E0_RIGHTS",
+      "mechanisms": [
+        "AD-01R"
+      ],
+      "status": "NOT_VERIFIED",
+      "observed": "Rights/PII/copyright/third-party processing chưa được chứng thực. Không được đọc nguồn.",
+      "required_future_proof": "Lawful access, transform, annotation, rater use, owner scope trước source access",
+      "veto": "HOLD_ACCESS"
+    },
+    {
+      "id": "E1_CONSTRUCT",
+      "mechanisms": [
+        "M0",
+        "M2",
+        "F-H01",
+        "X17",
+        "X19"
+      ],
+      "status": "NOT_VALIDATED",
+      "observed": "Chỉ có typed LOCATED_AT trên giấy; thiếu candidate frame/item thật, witness, authority, bounded temporal completeness, coverage và REJECT denominator.",
+      "required_future_proof": "Sau source access hợp pháp: fixed sampling frame, entity/location/time, ontology, exclusive axiom/visible negation, domain/source closure, reasons and eligible/reject ratio",
+      "veto": "HOLD_SOURCE_CONSTRUCT"
+    },
+    {
+      "id": "E2_PARITY",
+      "mechanisms": [
+        "M0",
+        "M1",
+        "M2",
+        "X13",
+        "X15"
+      ],
+      "status": "NOT_CAPTURED",
+      "observed": "Chưa có model-effective token prefix, rater-effective payload, full material-fact set, builder/tokenizer/window SHA.",
+      "required_future_proof": "Exact bytes/hashes after renderer/tokenization/truncation; every label-changing support/refutation/exclusivity fact in both effective views; hidden oracle custody separate",
+      "veto": "HOLD_FULL_FACT_PARITY"
+    },
+    {
+      "id": "E3_SHORTCUT",
+      "mechanisms": [
+        "M3",
+        "F-M04",
+        "AD-06"
+      ],
+      "status": "NOT_EXECUTED",
+      "observed": "Fact-only/cue-only matched disjoint contrast chưa chạy; không nhận diện nhân quả.",
+      "required_future_proof": "Group-disjoint prospective contrasts, matched/counterbalanced lexical/length/position cues, prereg AD-06 if causal",
+      "veto": "HOLD_CAUSAL_CLAIM"
+    },
+    {
+      "id": "E4_GOLD_RATER",
+      "mechanisms": [
+        "M1",
+        "M2",
+        "M4",
+        "F-M02",
+        "F-M03",
+        "X18"
+      ],
+      "status": "NOT_CALIBRATED",
+      "observed": "Không có blinded source-grounded independent gold/rater calibration cùng task; agreement không bằng correctness.",
+      "required_future_proof": "Gold authorship provenance without hidden key, blind re-derivation, source/ontology adjudication, abstention and disagreement rules",
+      "veto": "HOLD_GOLD_RATER"
+    },
+    {
+      "id": "E5_PREREG",
+      "mechanisms": [
+        "AD-07",
+        "F-H01"
+      ],
+      "status": "NOT_FROZEN",
+      "observed": "Chỉ có planned metrics; endpoint, sample unit/N, coverage/reject denominators, acceptance threshold, uncertainty/power, STOP, budget chưa khóa.",
+      "required_future_proof": "Before outcome/authoring: sampling frame, primary endpoint and denominator, eligible and reject coverage, n/CI or uncertainty, thresholds, STOP/cost/roles",
+      "veto": "HOLD_NOT_PREREGISTERED"
+    },
+    {
+      "id": "E6_RUNNER",
+      "mechanisms": [
+        "AD-00",
+        "AD-01C",
+        "Q4"
+      ],
+      "status": "NOT_AUTHORIZED",
+      "observed": "Historical T4/FINAL24 chưa được dùng lại làm Q3 study; checkpoint rights/source pins/owner science permit còn thiếu.",
+      "required_future_proof": "Exact runner/model rights/byte custody, separate owner Q4 and science GO, sealed TEST/FINAL preservation",
+      "veto": "HOLD_NO_SCIENCE_PERMIT"
+    }
+  ],
+  "options": {
+    "KEEP": "NOT_JUSTIFIED",
+    "SIMPLIFY": "NOT_JUSTIFIED",
+    "PIVOT": "NOT_JUSTIFIED",
+    "STOP": "NOT_JUSTIFIED",
+    "HOLD_EVIDENCE_INSUFFICIENT": "SUPPORTED_FOR_ACTUAL_ADMISSION"
+  },
+  "negative_cases": [
+    {
+      "id": "N01-N12",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X13",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X14",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X15",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X16",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X17",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X18",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X19",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X20",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    },
+    {
+      "id": "X21",
+      "review_type": "LOGICAL_ONLY",
+      "runtime": "NOT_EXECUTED"
+    }
+  ],
+  "no_claims": [
+    "NO_GOLD_VALIDATED",
+    "NO_SOURCE_RIGHTS_VERIFIED",
+    "NO_EFFECTIVE_PREFIX_CAPTURED",
+    "NO_RATER_CALIBRATED",
+    "NO_SAMPLE_OR_THRESHOLD_FROZEN",
+    "NO_CAUSAL_ROOT_IDENTIFIED",
+    "NO_SCIENCE_EXECUTED",
+    "NO_Q4_DECISION",
+    "NO_LINEAGE_CHANGE"
+  ],
+  "reviewer": "NOT_EXECUTED_INDEPENDENT",
+  "next_single_gate": "TTM_P0A_MEAS_Q3_EXACT_SOURCE_DISTINCT_ANSWER_REVIEW_AND_OWNER_Q3_ADMISSION_SINGLE_GATE"
+}
