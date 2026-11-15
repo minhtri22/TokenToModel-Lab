@@ -1,0 +1,409 @@
+{
+  "schema": "ttm.p0a.meas.q2.framework_alternatives.source_only.v1",
+  "operation": "TTM_P0A_MEAS_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_SINGLE_GATE",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "created_date": "2026-11-15",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "source_main_head": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+  "source_pins": {
+    "q1_git_blob": "6b29c962b48c4134c925935409433d4ae2804110",
+    "active_git_blob": "288d4cd2c84315705e7ea06e45c246b6f3d67496",
+    "policy_git_blob": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+    "lineage_git_blob": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "q1_independent_review_git_blob": "38d009fa3cdc36db847565520307a8ff05d4c8c3",
+    "q1_reviewed_exact_head": "a8fd21f35d56a87f869df673b318d437ed0c8b31",
+    "q1_registration_merge_commit": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87"
+  },
+  "state": {
+    "q1": "REGISTERED_ON_MAIN",
+    "q2": "AUTHOR_SOURCE_ONLY_PACKET_PREPARED_DISTINCT_Q2_QA_PENDING",
+    "q3": "NOT_EXECUTED_FOR_THIS_NEW_QUESTION",
+    "q4": "NOT_DECIDED_FOR_THIS_NEW_QUESTION",
+    "owner_q2_closure": "NOT_DECIDED",
+    "new_science": "NOT_AUTHORIZED",
+    "root_cause": "NOT_IDENTIFIED",
+    "source_family_proven": "NOT_VERIFIED",
+    "benchmark_gold": "NOT_VALIDATED",
+    "external_reviewer_human_independence": "NOT_ATTESTED",
+    "rights": "NOT_VERIFIED",
+    "actual_effective_parity": "NOT_CAPTURED",
+    "rater": "NOT_CALIBRATED",
+    "threshold": "NOT_FROZEN",
+    "source_access": "NOT_AUTHORIZED",
+    "new_research_branch": "NOT_AUTHORIZED",
+    "original_lineage_change": false
+  },
+  "single_assertion_scope": "LOCATED_AT(entity_id,location_id,reference_time_id)",
+  "reasoning_method": [
+    "5W1H_ACCESS_AND_MATERIAL_EVIDENCE_MAP",
+    "CONSTRUCT_VALIDITY",
+    "FALSIFICATION_OF_COMPETING_MECHANISMS",
+    "FAILURE_MODE_HARD_VETO",
+    "QUALITATIVE_DECISION_TREE_NO_MCDA_WEIGHTS"
+  ],
+  "mechanisms": [
+    {
+      "id": "M0_VISIBLE_CONSTRUCT",
+      "role": "necessary_validity_model",
+      "claim": "From the lawful bounded model-effective and rater-effective visible information, every eligible LOCATED_AT assertion has an operationally decidable TRUE/FALSE/UNKNOWN label and witness/proof of bounded source completeness.",
+      "source_basis": "Q1 registered; scoped independent design PASS, not actual item verification",
+      "discriminating_observation": "A blinded adjudicator can reproduce a supported TRUE or FALSE, or justify UNKNOWN_VALID based on a bounded complete permitted domain, using no hidden E_core, with full material-fact parity of both views.",
+      "adversarial_falsifier": "One purported ELIGIBLE item cannot justify a label from both effective views; rater-only defeating fact; or completeness cannot be established.",
+      "confound": "A single matching positive witness is insufficient; may miss negation, exclusivity or another label-changing fact.",
+      "present": "DESIGN_CONTRACT_ONLY_NOT_EMPIRICALLY_VALIDATED",
+      "candidate_decision": "KEEP only after prospective lawful validation; otherwise HOLD/SIMPLIFY."
+    },
+    {
+      "id": "M1_HIDDEN_ONLY",
+      "role": "competing_measurement_failure",
+      "claim": "Gold is derived from E_core/answer key/hidden facts absent in one or both effective permitted views.",
+      "source_basis": "Q1 historical reviewer F-PARITY corrected in design; actual parity NOT_CAPTURED",
+      "discriminating_observation": "Prospective provenance trace from any prelabel/gold claim to exact model-effective and rater-visible spans, including post-tokenizer/post-truncation view and full material-fact set; compare with separately access-controlled oracle provenance without revealing hidden answer to rater.",
+      "adversarial_falsifier": "All admitted gold claims have complete independently sufficient effective public witness on both views; no reliance on hidden-only metadata.",
+      "confound": "Truncation may mimic hidden-only data; source missing truth vs not allowed to see truth must be separately coded.",
+      "present": "UNVERIFIED_NOT_DEMONSTRATED_CAUSAL",
+      "candidate_decision": "HOLD/REJECT affected items; don't silently use hidden oracle or relabel UNKNOWN."
+    },
+    {
+      "id": "M2_AMBIGUITY",
+      "role": "competing_measurement_failure",
+      "claim": "Assertion referent/time/location or source closure is not sufficiently defined for a unique operational label.",
+      "source_basis": "Q1 F-CONSTRUCT design amendment; X14 exclusive-location caveat",
+      "discriminating_observation": "Predeclared single triple, explicit time and entity/location IDs, ontology authority and source completeness; independent derivation of mutually compatible truth outcomes.",
+      "adversarial_falsifier": "A defined qualified domain yields unique reproducible label without hidden disambiguation; alternate locations alone do NOT imply exclusivity.",
+      "confound": "UNKNOWN_VALID is an admissible truth outcome, whereas INVALID/REJECT_MISSING_WITNESS is outside truth label denominator.",
+      "present": "ONTOLOGY_DESIGN_ONLY_NO_ITEM_VALIDATION",
+      "candidate_decision": "SIMPLIFY only when localizable before outcomes; otherwise HOLD; PIVOT requires separate Q."
+    },
+    {
+      "id": "M3_SHORTCUT",
+      "role": "competing_measurement_failure",
+      "claim": "Lexical templates, order, length or style predict adjudication instead of the causal fact relation.",
+      "source_basis": "FC01 lexical positives restricted and Q1 AD-05 proposed",
+      "discriminating_observation": "Separately permitted prospective group-disjoint, matched-information semantic contrast keeping nuisance cues fixed plus a cue-only negative control, with rubrics and thresholds frozen before data authoring.",
+      "adversarial_falsifier": "Under predeclared changes of fact alone vs cue alone, measured decision reliably follows source-visible facts rather than cue position/format; label-change parity verified.",
+      "confound": "A matched pair changing multiple variables cannot identify a mechanism; AD-06 required IF causal contrast proposed.",
+      "present": "NOT_TESTED_WITH_NEW_PROSPECTIVE_DATA",
+      "candidate_decision": "HOLD if leakage or shortcut is unaddressed; no objective/data patch inferred."
+    },
+    {
+      "id": "M4_RATER",
+      "role": "competing_measurement_failure",
+      "claim": "The adjudicator's rules/competence/position effects yield scores not determined by the same visible source facts.",
+      "source_basis": "D1 EXP32 rater-visible custody gap and Q1 independent same-task calibration requirement",
+      "discriminating_observation": "Blinded independent qualified raters, exactly same task/visible evidence/rubric, calibrated on rights-cleared scope with explicit abstention, disagreement adjudication and format sensitivity checks.",
+      "adversarial_falsifier": "Prospective independent raters agree under precommitted metric/threshold on admissible evidence, and source-based negative controls show no positional bias.",
+      "confound": "FRESH16 S1 vs S2 are different roles, NOT a same-task inter-rater reliability result; shared rater bias is possible.",
+      "present": "NOT_CALIBRATED",
+      "candidate_decision": "HOLD scoring pending independent calibration; no model failure attribution."
+    }
+  ],
+  "mechanism_interactions": [
+    "M1_HIDDEN_ONLY + M2_AMBIGUITY may coexist",
+    "M3_SHORTCUT + M4_RATER may coexist",
+    "M0 is a necessary validity hypothesis rather than independently demonstrated scientific effect",
+    "M1 vs lost window witness distinguish stored truth from model-effective view",
+    "Rater error may imitate hidden gold/shortcut; do not attribute causality without controlled comparisons"
+  ],
+  "options": [
+    {
+      "id": "KEEP",
+      "trigger": "Only when a later owner-authorized prospective protocol verifies lawful source, eligible items, entire material-fact effective parity, independent item gold/rater, shortcut controls and frozen metric/threshold; no contradictory veto.",
+      "construction": "Retain the single LOCATED_AT relation and present rater protocol.",
+      "current": "NOT_JUSTIFIED_NO_ACTUAL_EVIDENCE",
+      "necessity": "High if measurement valid",
+      "discrimination": "Potentially strong after validation",
+      "implementation_fitness": "UNVERIFIED",
+      "cost": "UNKNOWN_EXTERNAL_CONSENT_AND_WORK"
+    },
+    {
+      "id": "SIMPLIFY",
+      "trigger": "Before outcome exposure prove a LOCALIZABLE ontology failure and a narrower fixed subfamily retaining rights/source visibility/material parity and ability to falsify.",
+      "construction": "Restrict a prereg-declared subfamily (e.g. explicit time/referent), NOT rewrite gold after scoring.",
+      "current": "NOT_JUSTIFIED_NO_LOCALIZED_EVIDENCE",
+      "necessity": "Conditional",
+      "discrimination": "May rescue construct but narrows external validity",
+      "implementation_fitness": "UNVERIFIED",
+      "cost": "UNKNOWN_REQUIRES_NEW_REVIEW"
+    },
+    {
+      "id": "PIVOT",
+      "trigger": "Prove source/ontology of LOCATED_AT fundamentally infeasible and identify a SPECIFIC lawful alternate oracle/task with equal permitted information and independent validation.",
+      "construction": "Propose a NEW Question Gate only after original Q closure and owner decision.",
+      "current": "NOT_JUSTIFIED_NO_ALTERNATIVE_PROOF",
+      "necessity": "Conditional",
+      "discrimination": "New construct not directly comparable",
+      "implementation_fitness": "UNVERIFIED",
+      "cost": "NEW_Q_RESOURCE_AND_RIGHTS_UNKNOWN"
+    },
+    {
+      "id": "STOP",
+      "trigger": "Document irreversible legal/construct/identifiability impossibility and absence of any feasible lawful alternative; lack of rights proof alone is not proof of impossibility.",
+      "construction": "Close this line without a falsified model verdict.",
+      "current": "NOT_JUSTIFIED_NO_PERMANENT_BARRIER_PROVEN",
+      "necessity": "Safety fallback",
+      "discrimination": "No model test",
+      "implementation_fitness": "NOT_APPLICABLE",
+      "cost": "PREVENTS_UNJUSTIFIED_RUN"
+    },
+    {
+      "id": "HOLD_EVIDENCE_INSUFFICIENT",
+      "trigger": "Any unmet hard veto or missing rights, item/witness proof, full parity, calibrated independent raters, threshold, checkpoint/runner consent, or independent review required at current phase.",
+      "construction": "Retain candidate and lineage; block source access, gold authoring, scoring and science until prospective conditions are admitted.",
+      "current": "CURRENT_DEFAULT_FOR_EMPIRICAL_ADMISSION_NOT_A_Q4_OWNER_DECISION",
+      "necessity": "Mandatory under current evidence",
+      "discrimination": "Avoids false scientific claims",
+      "implementation_fitness": "SOURCE_ONLY",
+      "cost": "NO_GPU_OR_DATA_RUN"
+    }
+  ],
+  "minimum_discriminating_evidence": [
+    {
+      "id": "E0_RIGHTS",
+      "definition": "Document lawful access/use/transformation/third-party rater rights and PII handling before reading any source",
+      "can_discriminate": [
+        "ADMISSION_VETO"
+      ],
+      "evidence_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "E1_CONSTRUCT",
+      "definition": "Single atomic triple with explicit entity,location,time, visible ontology, domain completeness and allowed TRUE/FALSE/UNKNOWN vs REJECT; authorization/source proof",
+      "can_discriminate": [
+        "M0_VISIBLE_CONSTRUCT",
+        "M2_AMBIGUITY"
+      ],
+      "evidence_status": "NOT_AUTHORED_OR_VERIFIED"
+    },
+    {
+      "id": "E2_EFFECTIVE_VIEWS",
+      "definition": "Exact source/builder/tokenizer/window and model-effective/rater-effective receipts with full label-changing fact set, not only common witness W; compare hidden oracle only under separate custody",
+      "can_discriminate": [
+        "M0_VISIBLE_CONSTRUCT",
+        "M1_HIDDEN_ONLY",
+        "M2_AMBIGUITY"
+      ],
+      "evidence_status": "NOT_CAPTURED"
+    },
+    {
+      "id": "E3_SHORTCUT_CONTRAST",
+      "definition": "Preregged group-disjoint negative semantic contrast holding lexical/length/order nuisance fixed; separate cue-only perturbation if permitted",
+      "can_discriminate": [
+        "M3_SHORTCUT"
+      ],
+      "evidence_status": "NOT_EXECUTED"
+    },
+    {
+      "id": "E4_RATER_AGREEMENT",
+      "definition": "Independent qualified same-task blind rater calibration, same permitted packet+rubric, explicit abstention and disagreement adjudication",
+      "can_discriminate": [
+        "M4_RATER",
+        "M2_AMBIGUITY"
+      ],
+      "evidence_status": "NOT_EXECUTED"
+    },
+    {
+      "id": "E5_PREREG",
+      "definition": "Predeclare primary endpoint/denominator/threshold/STOP, source sample eligibility, cost/time/resources, reviewer and budget",
+      "can_discriminate": [
+        "ADMISSION_VETO"
+      ],
+      "evidence_status": "NOT_FROZEN"
+    }
+  ],
+  "phases": [
+    {
+      "stage": "DESIGN_SOURCE_ONLY_Q2",
+      "required": [
+        "registered_Q1_exact_main_and_policy",
+        "one_atomic_LOCATED_AT_grammar",
+        "M0_to_M4_falsifiers_and_overlap",
+        "five_alternatives_with_hard_veto",
+        "future_minimum_evidence_spec_and_unknown_costs"
+      ],
+      "status": "AUTHOR_DESIGN_REVIEW_DRAFT",
+      "forbidden": [
+        "gold",
+        "dataset",
+        "scorer",
+        "inference",
+        "model",
+        "private_source"
+      ]
+    },
+    {
+      "stage": "BEFORE_SOURCE_ACCESS_OR_PRODUCTION_AUTHORING",
+      "required": [
+        "AD-01R_rights_PII_copyright_and_third_party_rater_permission",
+        "AD-02_typed_reference_time_and_source_completeness",
+        "AD-03_source_visible_witness_feasibility",
+        "AD-05_shortcut_and_leakage_protocol",
+        "X14_visible_exclusivity_axiom_for_FALSE_or_conflict",
+        "AD-06_IF_PAIRED_CAUSAL_CONTRAST",
+        "owner_new_scope_authority"
+      ],
+      "status": "NOT_ADMITTED",
+      "forbidden": [
+        "unpermitted_source_access",
+        "production_authoring"
+      ]
+    },
+    {
+      "stage": "BEFORE_FIXTURE_FREEZE",
+      "required": [
+        "AD-01T_tokenizer_and_split_exact_if_sensitive",
+        "exact_builder_wrapper_tokenizer_context_truncation_pins",
+        "MODEL_EFFECTIVE_PREFIX_AND_RATER_EFFECTIVE_PAYLOAD_BYTES",
+        "X13_PARITY_OF_ALL_LABEL_CHANGING_MATERIAL_FACTS",
+        "X15_GATE_HOLD_AND_ITEM_REJECT_PRECEDENCE",
+        "source_complete_domain_proof_FOR_UNKNOWN",
+        "negative_pairs_AND_GROUP_SPLITS_IF_CAUSAL",
+        "AD-07_metric_sample_threshold_rater_roles_locked"
+      ],
+      "status": "NOT_ADMITTED",
+      "forbidden": [
+        "fixture_freeze"
+      ]
+    },
+    {
+      "stage": "BEFORE_MODEL_EXECUTION",
+      "required": [
+        "AD-00_exact_source_runner_pins",
+        "AD-01C_rights_and_checkpoint_byte_custody",
+        "owner_GO_SCOPED_IMPLEMENT_after_Q4",
+        "separate_owner_science_permission",
+        "budget_resource_authorization",
+        "sealed_TEST_FINAL_nonreplay"
+      ],
+      "status": "NOT_ADMITTED",
+      "forbidden": [
+        "inference",
+        "training",
+        "gpu",
+        "MODEL_RUN"
+      ]
+    },
+    {
+      "stage": "BEFORE_SCORING",
+      "required": [
+        "AD-04_same_task_independent_blind_gold_rater_calibration",
+        "verified_rater_visible_material_facts",
+        "AD-03_05_06_rechecks",
+        "prereg_metric_threshold_STOP_LOCK",
+        "no_hidden_gold_to_rater"
+      ],
+      "status": "NOT_ADMITTED",
+      "forbidden": [
+        "scoring",
+        "adjudication_as_science"
+      ]
+    }
+  ],
+  "negatives": [
+    {
+      "id": "N01",
+      "challenge": "model-effective loses decisive witness after truncation while rater retains it",
+      "expected": "GATE_HOLD_PARITY_LOST_AFTER_TRUNCATION_AND_ITEM_REJECT_PARITY"
+    },
+    {
+      "id": "N02",
+      "challenge": "model sees decisive W but rater not",
+      "expected": "GATE_HOLD_EVIDENCE_PARITY_AND_ITEM_REJECT_PARITY"
+    },
+    {
+      "id": "N03",
+      "challenge": "prelabel TRUE/FALSE lacks decisive effective witness",
+      "expected": "ITEM_REJECT_MISSING_WITNESS_NOT_UNKNOWN"
+    },
+    {
+      "id": "N04",
+      "challenge": "bounded source proven complete and well formed, no entailment or refutation",
+      "expected": "UNKNOWN_VALID_ONLY_IF_ADMITTED"
+    },
+    {
+      "id": "N05",
+      "challenge": "explicit reference time missing or unresolved entity/location",
+      "expected": "INVALID_ITEM_REJECT_SCHEMA"
+    },
+    {
+      "id": "N06",
+      "challenge": "two locations same time without visible exclusivity axiom",
+      "expected": "DO_NOT_INFER_FALSE_OR_CONFLICT_BY_DEFAULT"
+    },
+    {
+      "id": "N07",
+      "challenge": "two authoritative facts conflict with visible incompatibility rule",
+      "expected": "ITEM_REJECT_CONFLICTING_AUTHORITY"
+    },
+    {
+      "id": "N08",
+      "challenge": "causal pair changes both time and place",
+      "expected": "HOLD_AD06_IF_CONTRAST"
+    },
+    {
+      "id": "N09",
+      "challenge": "rights unverified",
+      "expected": "HOLD_RIGHTS_NO_SOURCE_ACCESS"
+    },
+    {
+      "id": "N10",
+      "challenge": "same task independent rater disagreement unresolved",
+      "expected": "HOLD_RATER_COMPETENCE_NO_SCORING"
+    },
+    {
+      "id": "N11",
+      "challenge": "science requested at Q2 without Q4 owner GO/permit",
+      "expected": "NO_MODEL_RUN"
+    },
+    {
+      "id": "N12",
+      "challenge": "oracle only hidden E_core",
+      "expected": "HOLD_HIDDEN_ONLY_GOLD_NO_IMPUTATION"
+    },
+    {
+      "id": "X13",
+      "challenge": "rater has additional contradiction absent from model but both share positive W",
+      "expected": "HOLD_FULL_MATERIAL_FACT_SET_PARITY_NOT_JUST_W"
+    },
+    {
+      "id": "X14",
+      "challenge": "no visible exclusivity between two locations",
+      "expected": "NO_FALSE_NO_CONFLICT_UNLESS_OTHER_EXPLICIT_EVIDENCE"
+    },
+    {
+      "id": "X15",
+      "challenge": "post-truncation model missing W, rater retains W",
+      "expected": "GATE_HOLD_AND_ITEM_REJECT_WITH_DETERMINISTIC_PRECEDENCE_PENDING_IMPLEMENTATION"
+    },
+    {
+      "id": "X16",
+      "challenge": "Q1 design PASS but rights/gold/rater threshold unresolved",
+      "expected": "SOURCE_DESIGN_PASS_MAY_COEXIST_WITH_EMPIRICAL_HOLD"
+    }
+  ],
+  "decision_precedence": [
+    "NO_RIGHTS_OR_AUTHORITY=>HOLD_FOR_ACCESS",
+    "INVALID_SCHEMA_OR_PARITY=>ITEM_REJECT_PLUS_GATE_HOLD_IF_SYSTEMIC",
+    "UNKNOWN_VALID_ONLY_WITH_PROVEN_BOUNDED_COMPLETE_SOURCE",
+    "HOLD_IF_ANY_STAGE_HARD_VETO_UNRESOLVED",
+    "STOP_ONLY_IF_IRREVERSIBLE_INFEASIBILITY_WITH_NO_LAWFUL_ALTERNATIVE_PROVEN",
+    "PIVOT_REQUIRES_PROVEN_FAILURE_AND_ALTERNATIVE_NEW_Q",
+    "SIMPLIFY_REQUIRES_PREOUTCOME_LOCAL_RESTRICTION",
+    "KEEP_ONLY_AFTER_SEPARATELY_AUTHORIZED_PROSPECTIVE_PASS"
+  ],
+  "current_recommendation": "HOLD_EVIDENCE_INSUFFICIENT_FOR_ACTUAL_BENCHMARK_AUTHORING_OR_SCIENCE",
+  "current_q2_design_conclusion": "FRAMEWORK_AND_ALTERNATIVES_AUTHOR_REVIEW_COMPLETE_ONLY",
+  "no_claims": [
+    "NO_ROOT_CAUSE_IDENTIFIED",
+    "NO_BENCHMARK_GOLD_VALIDATED",
+    "NO_RIGHTS_ATTESTED",
+    "NO_RATER_CALIBRATION",
+    "NO_MODEL_SCIENCE_EXECUTED",
+    "NO_Q2_INDEPENDENT_REVIEW_YET",
+    "NO_NEW_QUESTION",
+    "NO_F0_F2",
+    "NO_LINEAGE_EDIT"
+  ],
+  "future_owner_required": "Q2_DISTINCT_SOURCE_QA_AND_OWNER_Q2_ACCEPTANCE_BEFORE_ACTIVE_GATE_UPDATE",
+  "next_single_step": "TTM_P0A_MEAS_Q2_EXACT_SOURCE_DISTINCT_REVIEW_AND_OWNER_ADMISSION_SINGLE_GATE"
+}

@@ -1,0 +1,534 @@
+{
+  "schema": "ttm.p0a.meas.q2.source_only.author_qa_receipt.v1",
+  "operation": "TTM_P0A_MEAS_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_SINGLE_GATE",
+  "created_date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "exact_main_head": "f31754c21b4e26f7d7a15e53096090f2fa9b5d87",
+  "source_q1_git_blob": "6b29c962b48c4134c925935409433d4ae2804110",
+  "source_active_gate_git_blob": "288d4cd2c84315705e7ea06e45c246b6f3d67496",
+  "source_policy_git_blob": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+  "source_lineage_git_blob": "3409e036241deb1da6674619a2abc834bea8a2d6",
+  "report_git_blob_sha1": "f05223a3aa8724054fcd7e4e0b2a87392a2cf789",
+  "matrix_git_blob_sha1": "3591c22c0ae552a5a1e054fa29c2254a19701103",
+  "qa_type": "AUTHOR_STATIC_SOURCE_AND_SYMBOLIC_CONTRACT_REVIEW_ONLY",
+  "independent_q2_review": false,
+  "owner_q2_approval": false,
+  "tests": [
+    {
+      "id": "Q2-AQA-01",
+      "name": "Exact live main source",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-02",
+      "name": "Q1 registered exact ID",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-03",
+      "name": "One active registered question",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-04",
+      "name": "Question source SHA",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-05",
+      "name": "Active source SHA",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-06",
+      "name": "Policy source SHA",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-07",
+      "name": "Lineage source SHA",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-08",
+      "name": "Review source SHA",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-09",
+      "name": "Q1 reviewed HEAD pinned",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-10",
+      "name": "Question-First operation exact",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-11",
+      "name": "Question single family",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-12",
+      "name": "M0-M4 unique",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-13",
+      "name": "Mechanism M0_VISIBLE_CONSTRUCT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-14",
+      "name": "Mechanism M1_HIDDEN_ONLY",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-15",
+      "name": "Mechanism M2_AMBIGUITY",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-16",
+      "name": "Mechanism M3_SHORTCUT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-17",
+      "name": "Mechanism M4_RATER",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-18",
+      "name": "Every mechanism discriminating evidence",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-19",
+      "name": "Every mechanism confound disclosed",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-20",
+      "name": "Nonexclusive explanations declared",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-21",
+      "name": "No causal root claim",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-22",
+      "name": "Q2 author-only not independent",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-23",
+      "name": "Option count five",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-24",
+      "name": "Option KEEP",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-25",
+      "name": "Option SIMPLIFY",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-26",
+      "name": "Option PIVOT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-27",
+      "name": "Option STOP",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-28",
+      "name": "Option HOLD_EVIDENCE_INSUFFICIENT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-29",
+      "name": "KEEP rights prospective",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-30",
+      "name": "SIMPLIFY before outcomes",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-31",
+      "name": "PIVOT needs new Q",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-32",
+      "name": "STOP missing rights not sufficient",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-33",
+      "name": "HOLD default empirical",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-34",
+      "name": "5W1H method",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-35",
+      "name": "No fake MCDA scoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-36",
+      "name": "Six evidence classes",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-37",
+      "name": "Evidence E0_RIGHTS",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-38",
+      "name": "Evidence E1_CONSTRUCT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-39",
+      "name": "Evidence E2_EFFECTIVE_VIEWS",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-40",
+      "name": "Evidence E3_SHORTCUT_CONTRAST",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-41",
+      "name": "Evidence E4_RATER_AGREEMENT",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-42",
+      "name": "Evidence E5_PREREG",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-43",
+      "name": "E2 full label-changing fact set",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-44",
+      "name": "E3 no study run",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-45",
+      "name": "E4 no same-task rater run",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-46",
+      "name": "E5 threshold not frozen",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-47",
+      "name": "Five phased conditions",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-48",
+      "name": "Rights before access",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-49",
+      "name": "AD02 construct before authoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-50",
+      "name": "AD03 witness before authoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-51",
+      "name": "AD05 shortcut before authoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-52",
+      "name": "AD06 causal conditional",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-53",
+      "name": "X14 exclusivity before authoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-54",
+      "name": "AD01T before freeze",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-55",
+      "name": "AD07 before freeze",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-56",
+      "name": "X13 before freeze",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-57",
+      "name": "X15 before freeze",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-58",
+      "name": "AD00 source pins before run",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-59",
+      "name": "AD01C checkpoint before run",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-60",
+      "name": "Q4 GO before model execution",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-61",
+      "name": "AD04 before scoring",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-62",
+      "name": "Sixteen adversarial logical cases",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-63",
+      "name": "Case N01",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-64",
+      "name": "Case N02",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-65",
+      "name": "Case N03",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-66",
+      "name": "Case N04",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-67",
+      "name": "Case N05",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-68",
+      "name": "Case N06",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-69",
+      "name": "Case N07",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-70",
+      "name": "Case N08",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-71",
+      "name": "Case N09",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-72",
+      "name": "Case N10",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-73",
+      "name": "Case N11",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-74",
+      "name": "Case N12",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-75",
+      "name": "Case X13",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-76",
+      "name": "Case X14",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-77",
+      "name": "Case X15",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-78",
+      "name": "Case X16",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-79",
+      "name": "Missing witness does not become UNKNOWN",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-80",
+      "name": "UNKNOWN requires admissibility",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-81",
+      "name": "X13 entire material fact parity",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-82",
+      "name": "X14 no implicit exclusivity",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-83",
+      "name": "X15 precedence not implemented",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-84",
+      "name": "HOLD rights",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-85",
+      "name": "HOLD benchmark_gold",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-86",
+      "name": "HOLD actual_effective_parity",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-87",
+      "name": "HOLD rater",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-88",
+      "name": "HOLD threshold",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-89",
+      "name": "HOLD source_access",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-90",
+      "name": "HOLD new_science",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-91",
+      "name": "HOLD new_research_branch",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-92",
+      "name": "HOLD source_family_proven",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-93",
+      "name": "Q3 not executed",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-94",
+      "name": "Q4 not decided",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-95",
+      "name": "Owner Q2 not decided",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-96",
+      "name": "Lineage not altered",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-97",
+      "name": "One next step only",
+      "pass": true
+    },
+    {
+      "id": "Q2-AQA-98",
+      "name": "Next step scoped distinct review",
+      "pass": true
+    }
+  ],
+  "pass_count": 98,
+  "fail_count": 0,
+  "verdict": "PASS_AUTHOR_Q2_SOURCE_ONLY_STATIC_QA_NOT_INDEPENDENT",
+  "no_source_access": true,
+  "no_dataset_created": true,
+  "no_gold_created": true,
+  "no_scorer_created": true,
+  "no_model_inference": true,
+  "no_training": true,
+  "no_gpu": true,
+  "no_new_research_branch": true,
+  "no_science": true,
+  "no_lineage_mutation": true,
+  "remaining_hold": [
+    "RIGHTS",
+    "ITEM_SOURCE_FEASIBILITY",
+    "FULL_MODEL_RATER_EFFECTIVE_PARITY",
+    "GOLD",
+    "RATER_CALIBRATION",
+    "METRIC_THRESHOLDS",
+    "CHECKPOINT_CUSTODY",
+    "OWNER_SCIENCE_PERMIT"
+  ],
+  "next_single_step": "TTM_P0A_MEAS_Q2_EXACT_SOURCE_DISTINCT_REVIEW_AND_OWNER_ADMISSION_SINGLE_GATE",
+  "previous_test_note": "Initial QA 63/65 held on tester references to Q1 registration self-referential postmerge SHA and a lexical mismatch for full label-changing fact set; corrected test criteria and reran all checks."
+}
