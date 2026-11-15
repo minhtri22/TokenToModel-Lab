@@ -219,7 +219,7 @@ class AdmissionQA(unittest.TestCase):
         self.proofs.receipt = None
         self.deny("INDEPENDENT_ADMISSION_RECEIPT_MISSING")
 
-    def test_19_cross_session_same_commitment_rejected(self):
+    def test_19_same_session_replay_new_guard_instance_rejected(self):
         self.guard.dispatch(self.envelope, TAG, self.generator)
         self.called = 0
         # A replay via a newly constructed guard still sees durable ledger state.
