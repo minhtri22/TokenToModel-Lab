@@ -1,0 +1,311 @@
+{
+  "operation": "TTM_GLOBAL_POSTMERGE_RESEARCH_PRIORITY_OWNER_ADJUDICATION_SINGLE_GATE",
+  "date": "2026-11-15",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "main_source_exact": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+  "main_tree": "7a018b73e165b387a24e6d3f2b77b961ced46152",
+  "foundation_source_branch": "research/ttm-small4m-foundation-first-single-gate-20261115",
+  "foundation_head": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+  "global_branch_snapshot_from_main": 65,
+  "live_branch_count_observed": 67,
+  "live_open_prs": [
+    {
+      "number": 18,
+      "draft": true,
+      "head": "d023dd16f4c07a954d2ae1d3af150ab3439b40f2"
+    },
+    {
+      "number": 14,
+      "draft": true,
+      "head": "3ae00b45d09465fe19bb64d7b9a876dd74234d55"
+    },
+    {
+      "number": 13,
+      "draft": true,
+      "head": "72cbf73c3adb78f9d4111f702de71fa10f713533"
+    }
+  ],
+  "mode": "SOURCE_ONLY_DESIGN_ONLY_GOVERNANCE_ONLY_NO_SCIENCE",
+  "source_pins": [
+    {
+      "key": "MAIN_MATRIX",
+      "ref": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+      "path": "docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md",
+      "blob": "09a9f9c5003d0e8d899151f7f426707eb1505d44",
+      "certainty": "EXACT_MAIN_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d8974676b8a67b038a1e3b042bd6299cfa8fad0a/docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md"
+    },
+    {
+      "key": "MAIN_LINEAGE",
+      "ref": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+      "path": "lineage.md",
+      "blob": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "certainty": "EXACT_MAIN_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d8974676b8a67b038a1e3b042bd6299cfa8fad0a/lineage.md"
+    },
+    {
+      "key": "FOUNDATION_ARCHITECTURE_F0",
+      "ref": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+      "path": "docs/research/ttm-small4m-foundation-first/01_SMALL4M_ARCHITECTURE_COMPONENT_SPEC_20261115.md",
+      "blob": "22e823b0a9069f07a6d6912b6425762528e2f655",
+      "certainty": "SOURCE_READBACK_AUTHOR_DESIGN",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/97731311ba2fc3a8000c2532bd4e5a0470c437ba/docs/research/ttm-small4m-foundation-first/01_SMALL4M_ARCHITECTURE_COMPONENT_SPEC_20261115.md"
+    },
+    {
+      "key": "FOUNDATION_EVIDENCE_F1",
+      "ref": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+      "path": "docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md",
+      "blob": "853411064bcdc58f5c6bad713b85237f2828182e",
+      "certainty": "SOURCE_READBACK_AUTHOR_REMEDIATED_REVIEW_PENDING",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/97731311ba2fc3a8000c2532bd4e5a0470c437ba/docs/research/ttm-small4m-foundation-first/02_SMALL4M_EVIDENCE_FAILURE_ROOT_CAUSE_MATRIX_20261115.md"
+    },
+    {
+      "key": "FOUNDATION_ROADMAP_F0_F4",
+      "ref": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+      "path": "docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md",
+      "blob": "d87309aea043b845fafcc805ed13b2b4466f5e46",
+      "certainty": "SOURCE_READBACK_AUTHOR_REMEDIATED_REVIEW_PENDING",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/97731311ba2fc3a8000c2532bd4e5a0470c437ba/docs/research/ttm-small4m-foundation-first/03_SMALL4M_ROOT_CAUSE_RESEARCH_ROADMAP_F0_F4_20261115.md"
+    },
+    {
+      "key": "FOUNDATION_SCOPE",
+      "ref": "97731311ba2fc3a8000c2532bd4e5a0470c437ba",
+      "path": "docs/research/ttm-small4m-foundation-first/04_SMALL4M_SCOPE_ISOLATION_DECISION_20261115.md",
+      "blob": "4c3f3c000096dfe31d05e1fb2765e180276ddc76",
+      "certainty": "SOURCE_READBACK_AUTHOR_DESIGN",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/97731311ba2fc3a8000c2532bd4e5a0470c437ba/docs/research/ttm-small4m-foundation-first/04_SMALL4M_SCOPE_ISOLATION_DECISION_20261115.md"
+    },
+    {
+      "key": "T4_VAL",
+      "ref": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+      "path": "docs/pilot/TTM_T4_A2_REAL_SCIENCE_H1_FORMAL_ADJUDICATION_20261108.md",
+      "blob": "c1a471087ae30f31a696fbf786230eff3773a0d1",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d8974676b8a67b038a1e3b042bd6299cfa8fad0a/docs/pilot/TTM_T4_A2_REAL_SCIENCE_H1_FORMAL_ADJUDICATION_20261108.md"
+    },
+    {
+      "key": "T4_TEST",
+      "ref": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+      "path": "docs/pilot/TTM_T4_TEST_64_SCIENCE_ADJUDICATION_AND_T5_TRAINED_F32_EXPORT_20261108.md",
+      "blob": "cf2bcb1c48d172afacb6b1f7406320851bfcbf65",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d8974676b8a67b038a1e3b042bd6299cfa8fad0a/docs/pilot/TTM_T4_TEST_64_SCIENCE_ADJUDICATION_AND_T5_TRAINED_F32_EXPORT_20261108.md"
+    },
+    {
+      "key": "FRESH16",
+      "ref": "0ec28d44587fde9ad4acba8cccae65648e367181",
+      "path": "docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_FINAL_FROZEN_UNBLIND_SCIENTIFIC_ADJUDICATION_20261111.md",
+      "blob": "ae8ded5bb03a595f9af4f333ef96271ed3991d7d",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/0ec28d44587fde9ad4acba8cccae65648e367181/docs/research/ttm-small4m-quality-gap/TTM_FRESH16_V2_FINAL_FROZEN_UNBLIND_SCIENTIFIC_ADJUDICATION_20261111.md"
+    },
+    {
+      "key": "FC01",
+      "ref": "6023ed90612e614ce4bbdc45fee88689fbed6b6e",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_SCIENTIFIC_REVIEW_AND_SINGLE_SCOPED_ADJUDICATION_20261113.md",
+      "blob": "0a425cbadfaf644a117693fce1c9b80b069185a7",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/6023ed90612e614ce4bbdc45fee88689fbed6b6e/docs/research/ttm-small4m-fact-conditioning/TTM_FC01_ABC_ONE_SHOT_INDEPENDENT_SCIENTIFIC_REVIEW_AND_SINGLE_SCOPED_ADJUDICATION_20261113.md"
+    },
+    {
+      "key": "CF1",
+      "ref": "d725c39094a5a584fd76386145db21ca6dc5eaf6",
+      "path": "docs/research/TTM_CF1_DEV36_ONE_SHOT_INDEPENDENT_SCORE_READBACK_AND_SCIENCE_ADJUDICATION_20261111.md",
+      "blob": "d6a094b2a9d0977728d5d2f13c7c945d7cb8ee96",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d725c39094a5a584fd76386145db21ca6dc5eaf6/docs/research/TTM_CF1_DEV36_ONE_SHOT_INDEPENDENT_SCORE_READBACK_AND_SCIENCE_ADJUDICATION_20261111.md"
+    },
+    {
+      "key": "HDATA",
+      "ref": "33021a421f05bb3bfa0999ad12bc3bd144366da9",
+      "path": "docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_FINAL24_OWNER_UNBLIND_FORMAL_ADJUDICATION_20261114.md",
+      "blob": "9cfb02e86c3893b2f927b1529c637bba797f40ae",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/33021a421f05bb3bfa0999ad12bc3bd144366da9/docs/research/ttm-small4m-h-data-s1/TTM_HDATA_S1_FINAL24_OWNER_UNBLIND_FORMAL_ADJUDICATION_20261114.md"
+    },
+    {
+      "key": "D1_R1_CLOSURE",
+      "ref": "d8974676b8a67b038a1e3b042bd6299cfa8fad0a",
+      "path": "docs/research/ttm-small4m-fact-conditioning/TTM_D1_R1_INDEPENDENT_HOLD_CLOSURE_AND_BENCHMARK_REDESIGN_REVIEW_20261114.md",
+      "blob": "43fa3aed1a802dde05511cf76afba6737eb47aa3",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d8974676b8a67b038a1e3b042bd6299cfa8fad0a/docs/research/ttm-small4m-fact-conditioning/TTM_D1_R1_INDEPENDENT_HOLD_CLOSURE_AND_BENCHMARK_REDESIGN_REVIEW_20261114.md"
+    },
+    {
+      "key": "EMBED_OOD256",
+      "ref": "d4550cb9c88103ccfb4ce0b3683c13f4136e4bd1",
+      "path": "docs/pilot/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENTIFIC_ADJUDICATION_20261111.md",
+      "blob": "dda35d3f8154de346e93c454cf3832c3ac461eaf",
+      "certainty": "EXACT_SOURCE_ADJUDICATION_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d4550cb9c88103ccfb4ce0b3683c13f4136e4bd1/docs/pilot/TTM_GEMMA2_OOD256_12ARM_FINAL_INDEPENDENT_SCIENTIFIC_ADJUDICATION_20261111.md"
+    },
+    {
+      "key": "EMBED_NEXT",
+      "ref": "d4550cb9c88103ccfb4ce0b3683c13f4136e4bd1",
+      "path": "docs/pilot/TTM_GEMMA2_OOD256_SCIENCE_CLOSURE_AND_SEMANTICS_VS_GEOMETRY_NEXT_HYPOTHESIS_REVIEW_20261111.md",
+      "blob": "f9f1579838096fa1f94d4e83ee67052da798ca82",
+      "certainty": "EXACT_SOURCE_DESIGN_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d4550cb9c88103ccfb4ce0b3683c13f4136e4bd1/docs/pilot/TTM_GEMMA2_OOD256_SCIENCE_CLOSURE_AND_SEMANTICS_VS_GEOMETRY_NEXT_HYPOTHESIS_REVIEW_20261111.md"
+    },
+    {
+      "key": "EMBED_A0E",
+      "ref": "2583dadc254a7b1f0bcc1e6b283f1226407752c8",
+      "path": "docs/pilot/TTM_GEMMA2_A0E_OWNER_GOLD_CUSTODIAN_FOURARM_NULL_QA_FINAL_NO_GO_20261111.md",
+      "blob": "a704a1a1788d24553529b999fad117f2e697566b",
+      "certainty": "EXACT_SOURCE_GOVERNANCE_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/2583dadc254a7b1f0bcc1e6b283f1226407752c8/docs/pilot/TTM_GEMMA2_A0E_OWNER_GOLD_CUSTODIAN_FOURARM_NULL_QA_FINAL_NO_GO_20261111.md"
+    },
+    {
+      "key": "VM_R8",
+      "ref": "8dec9438bff96922e5defd64550971c309d5b32f",
+      "path": "docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G0_G1_G2_F01_F03_DISTINCT_INDEPENDENT_READBACK_ADJUDICATION_20261114.md",
+      "blob": "4b53bcb7cdccf14f5b01cf63bd2b9c014138036b",
+      "certainty": "EXACT_SOURCE_GOVERNANCE_READBACK; NOT_R8_CURRENT_SCIENCE",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/8dec9438bff96922e5defd64550971c309d5b32f/docs/research/vector-memory/r8/reviews/TTM_VM_V4_R8_G0_G1_G2_F01_F03_DISTINCT_INDEPENDENT_READBACK_ADJUDICATION_20261114.md"
+    },
+    {
+      "key": "P07",
+      "ref": "06b047856a841a2213803608edfe336588857f59",
+      "path": "artifacts/qa/p07/P07_ONE_SHOT_XPU_PASS_DISK_BUDGET_BLOCK_20261108.json",
+      "blob": "be29b57c231b8254c7bd3157699b0dedac5f9d29",
+      "certainty": "EXACT_SOURCE_TECHNICAL_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/06b047856a841a2213803608edfe336588857f59/artifacts/qa/p07/P07_ONE_SHOT_XPU_PASS_DISK_BUDGET_BLOCK_20261108.json"
+    },
+    {
+      "key": "T6",
+      "ref": "d023dd16f4c07a954d2ae1d3af150ab3439b40f2",
+      "path": "docs/governance/TTM_T6_POST_MERGE_CLOSURE_AND_P07_P08_DEPENDENCY_REVIEW_20261114.md",
+      "blob": "5c1f35d6b86a887384521c555c22fdbe0e672c4c",
+      "certainty": "EXACT_SOURCE_TECHNICAL_READBACK",
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/blob/d023dd16f4c07a954d2ae1d3af150ab3439b40f2/docs/governance/TTM_T6_POST_MERGE_CLOSURE_AND_P07_P08_DEPENDENCY_REVIEW_20261114.md"
+    }
+  ],
+  "primary_scientific_observations": {
+    "model_parameters": 3749376,
+    "T4_VAL_NLL": 3.5223388517,
+    "TRAIN_BIGRAM_VAL_NLL": 3.997231417,
+    "VAL_relative_improvement_percent": 11.880537,
+    "T4_TEST_descriptive_relative_improvement_percent": 12.331694436,
+    "FRESH16_prompt_pass": 0,
+    "FRESH16_prompt_total": 16,
+    "FRESH16_counterfactual_pass": 0,
+    "FRESH16_counterfactual_total": 8,
+    "CF1_both_context_correct": 0,
+    "CF1_total": 36,
+    "AC_final24_A_abs_mean": 0.6667,
+    "AC_final24_C_abs_mean": 0.6667,
+    "AC_final24_diff": 0,
+    "HDATA_primary_axis_zero": 144,
+    "HDATA_primary_axis_total": 144,
+    "FC01_C_success": 38,
+    "FC01_total": 64,
+    "FC01_entity_location_C_success": 1,
+    "FC01_entity_location_total": 16,
+    "D1_R1_admitted_new_OOD": 0,
+    "EMBED_tau_residual_ood": 0.06836278721978761,
+    "EMBED_gamma_real_ood": 0.0479801420718878
+  },
+  "root_cause_identified": false,
+  "foundation_latest_branch_status": {
+    "F0": "INDEPENDENT_PASS_SOURCE_SCOPED_AS_REPORTED_IN_AUTHOR_DOCS",
+    "F1": "AUTHOR_F01_F05_REMEDIATED_REREVIEW_PENDING",
+    "F2": "DESIGN_ONLY_HOLD_NEW_EXECUTION",
+    "F3": "NOT_OPENED",
+    "F4": "NOT_OPENED",
+    "original_review": "HOLD_REVISE_DESIGN",
+    "new_finding_rereview": "NOT_EXECUTED",
+    "private_checkpoint_and_rater_bytes_reverified": "NO"
+  },
+  "recommendation": "KEEP_SMALL4M_FOUNDATION_FIRST_ACTIVE_SOURCE_DESIGN_ONLY__PAUSE_INDEPENDENT_WORKSTREAM_EXECUTION__ARCHIVE_NEGATIVES",
+  "owner_ratification": "PENDING_EXPLICIT_OWNER_DECISION",
+  "priority_matrix": [
+    {
+      "order": 0,
+      "stream": "TTM-Small-4M Foundation First F0–F4",
+      "type": "CORE_RESEARCH",
+      "current_gate": "F0 independent PASS source scoped as author-reported; F1 author remediation F01–F05 awaiting distinct re-review; F2 design-only HOLD, M0 NOT_EXECUTED; F3/F4 NOT_OPENED",
+      "direction": "KEEP_ACTIVE_DESIGN_READ_ONLY",
+      "next": "ONE DISTINCT F01–F05 integrated source/design QA at exact foundation HEAD; no M0 execution",
+      "why": "Diagnosis of NLL vs factual prompt adherence has highest root-cause relevance and requires validating measurement first",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 1,
+      "stream": "EmbeddingGemma 2 / OOD256 independent program",
+      "type": "SEPARATE_RESEARCH",
+      "current_gate": "OOD256 CLOSED_PASS_SCOPED; causal semantic-vs-geometry unresolved; A0E NO_GO_HOLD",
+      "direction": "PAUSE_NEW_SCIENCE; PRESERVE_RESULT",
+      "next": "Potential geometry-matched residual control design only after separate owner reprioritization",
+      "why": "Positive scoped donor transport but not a fix to Small-4M fact conditioning",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 1,
+      "stream": "Vector Memory V4",
+      "type": "SEPARATE_RESEARCH",
+      "current_gate": "R7 FROZEN_FAIL; R8 G0/G1/G2 HOLD; R8 NOT_GENERATED; reader=0",
+      "direction": "PAUSE_NEW_SCIENCE; HOLD_BOUNDARIES",
+      "next": "If owner later prioritizes, close source F02/F03 and custody/rights as one integrated review",
+      "why": "Cannot promote partially qualified retrieval/source QA to production or Small-4M science",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 2,
+      "stream": "P07 GPU PagedAttention / P08",
+      "type": "TECHNICAL_INFRA",
+      "current_gate": "XPU GPU smoke PASS_SCOPED; V1 overall FAIL_OR_INCONCLUSIVE 6.037>6.0 GiB; P07 G1/G2 NOT_EXECUTED; P08 NOT_OPENED",
+      "direction": "PAUSED_NO_AUTORERUN",
+      "next": "Preserve receipts; no GPU kernel dispatch without independent backend and owner decision",
+      "why": "Serving optimization distinct from semantics; no direct-paged GPU kernel correctness",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 2,
+      "stream": "T5/T6 inference serving and PR #14/#18 docs",
+      "type": "TECHNICAL_GOVERNANCE",
+      "current_gate": "T6 CLOSED_MERGED_SCOPED; T5 raw logits 4/4 scoped; PR14/18 Draft and rights not released",
+      "direction": "PRESERVE_BASELINE; DOCS_REVIEW_CONDITIONAL",
+      "next": "No new runtime; optional separate docs-only QA on draft PRs",
+      "why": "Engineering assets useful but do not establish science adherence or production readiness",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 3,
+      "stream": "MoE / alternate attention / scaling",
+      "type": "UNOPENED_HYPOTHESIS",
+      "current_gate": "NO_CAUSAL_ROOT_CAUSE_PROOF; NOT_OPENED",
+      "direction": "DO_NOT_OPEN",
+      "next": "Only if future F2 shows context/access or capacity bottleneck, one component prereg in F3",
+      "why": "Avoid fitting architecture to uncontrolled measurement/quality failures",
+      "permit": "NOT_GRANTED"
+    },
+    {
+      "order": 3,
+      "stream": "FRESH12/FRESH16, CF1, A/C FINAL24, H-DATA, D1 R1, O0/R3A, SIX G1",
+      "type": "HISTORICAL_NEGATIVE_OR_SCOPED",
+      "current_gate": "CONSUMED / FAIL_SCOPED / CLOSED_HOLD / EXPLORATORY_NO_SIGNAL (study-specific)",
+      "direction": "ARCHIVE_PRESERVE_NO_RERUN",
+      "next": "Reference by pinned SHA and lineage source-local ID; no rerun/re-score",
+      "why": "Important negative evidence; does not imply global impossibility",
+      "permit": "NOT_GRANTED"
+    }
+  ],
+  "merge": "NOT_EXECUTED",
+  "science_permit": "NOT_GRANTED",
+  "training": 0,
+  "inference": 0,
+  "gpu": 0,
+  "test": "SEALED",
+  "FC02": "NOT_OPENED",
+  "FROZEN_V6": "UNCHANGED",
+  "lineage_md": "UNCHANGED",
+  "independent_review_of_this_priority_packet": "NOT_EXECUTED",
+  "next_single_action": "TTM_SMALL4M_FOUNDATION_FIRST_F01_F05_DISTINCT_EXACT_HEAD_SOURCE_DESIGN_REVIEW_SINGLE_GATE",
+  "scope_notes": [
+    "Prior global 65 branch snapshot remains immutable and was not rescored as live 67 branches.",
+    "Foundation First current source is outside snapshot/main and must not be silently promoted as merged source.",
+    "Priority P0/P1/P2/P3 refers to portfolio coordination, NOT old per-branch review priority, science ranks or permissions.",
+    "Initial Foundation First independent review sha mentioned in author docs is a provenance pointer, not separately byte-verified in this gate.",
+    "No model, private weights, score, checkpoint, or TEST rerun."
+  ]
+}
