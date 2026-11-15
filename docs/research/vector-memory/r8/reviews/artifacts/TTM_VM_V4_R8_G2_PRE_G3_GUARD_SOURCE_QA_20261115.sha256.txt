@@ -1,0 +1,17 @@
+# G2 pre-G3 admission guard: GitHub archive SHA-256
+
+Archive file: TTM_VM_V4_R8_G2_PRE_G3_GUARD_SOURCE_QA_20261115.zip
+Source candidate commit: 9d210f1392e81a17f1c35cea12230bf7ff74fb02
+Archive first committed: 63e45126625cd99064f9d476affe39c5d347e21d
+Git ZIP blob (SHA-1): 34dc0d5abc32799df96449c8c00714bc3adbfe61
+ZIP SHA-256: d1bf1b43f2cd9d482c989173ab1736594eb4593d5931094df285f8c95c174b77
+ZIP size: 30727 bytes (ZIP_STORED, 3 public-safe files)
+
+Individual entries (SHA-256):
+6bf5150b65718ad594dec4fc66f42a9dc6e29cf004828f265752af1d9e603a31  pre_g3_admission_guard.py
+64d4b6bf4929373cd1a553c5b1e22cb5fa55ed915ea10ae5c0465b91ec744318  test_pre_g3_admission_guard.py
+ab719a0e5a9d371a014a244c1c2c1767c7f806f2ea3d76ecd1ddca5e6e4be696  TTM_VM_V4_R8_G2_PRE_G3_ADMISSION_GUARD_IMPLEMENTATION_AND_SOURCE_QA_20261115.md
+
+Each entry matches its exact source Git blob at candidate commit 9d210f13.
+This archive contains neither private receipts nor R8 data/secrets.
+Verify ZIP by independently retrieving GitHub bytes and checking SHA-256 and CRC.
