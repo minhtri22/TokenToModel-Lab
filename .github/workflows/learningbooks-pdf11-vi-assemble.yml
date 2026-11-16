@@ -1,0 +1,43 @@
+name: PDF11 assemble verified bilingual PDF bytes
+
+on:
+  push:
+    branches:
+      - "docs/learningbooks-dive-into-llms-vi-20261116"
+    paths:
+      - "docs/learningbooks/dive-into-llms/PDF11_VI/_upload_parts/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdf11-vi-binary-assemble
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    if: github.repository == 'minhtri22/TokenToModel-Lab'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Check exact branch and reconstruct validated assets
+        shell: bash
+        run: |
+          test "$GITHUB_REF" = "refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/assemble_exact_binary.py"
+      - name: Commit only scoped docs and clean temporary parts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "docs/learningbooks/dive-into-llms/PDF11_VI/chapter"*.pdf "docs/learningbooks/dive-into-llms/PDF11_VI/GHI_CHU_TIENg_VIET" "docs/learningbooks/dive-into-llms/PDF11_VI/BINARY_UPLOAD_RECEIPT_20261116.json"
+          git rm -r -- "docs/learningbooks/dive-into-llms/PDF11_VI/_upload_parts"
+          test "$(git diff --cached --name-only | grep -cv '^docs/learningbooks/dive-into-llms/PDF11_VI/' || true)" -eq 0
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs(learningbooks): assemble 11 exact bilingual PDFs and editable slide notes'
+          git push origin "HEAD:refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
