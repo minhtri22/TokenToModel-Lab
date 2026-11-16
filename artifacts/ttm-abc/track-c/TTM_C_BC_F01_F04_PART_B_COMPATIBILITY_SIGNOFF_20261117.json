@@ -1,0 +1,85 @@
+{
+  "schema": "ttm.agent_c.bc.f01_f04.part_b_compatibility_signoff.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "role": "AGENT_C_CONTRACT_OWNER_NOT_FINAL_THIRD_PARTY_ADJUDICATOR",
+  "B_exact_tested_source_head": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+  "B_source_git_blob": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+  "B_evidence_later_head": "dc151252070e0b118d14f3459823f8e89c6b6723",
+  "compare_to_tested_head": "ONLY_DOCS_AND_ARTIFACTS_NO_SRC_OR_TESTS_CHANGE",
+  "C_exact_v2_head": "66c9b92a30cd403aa909528008ffaa6d83286285",
+  "C_v2_reference_git_blob": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+  "C_review_evidence_branch": "review/ttm-c-bc-f01-f04-20261117",
+  "C_review_evidence_commit": "2ea93e69f3c57e797110affc6eda747539d0296c",
+  "C_report_git_blob": "309d766a6503e8fc69a739b1953bf91a339d5271",
+  "C_receipt_git_blob": "6a791c3c808c2ff4e654dfcfc6f1e5d0ff6c4951",
+  "QA": {
+    "C_v2_source_only": {
+      "run": 43918786173,
+      "windows": "18/18 PASS",
+      "linux": "18/18 PASS"
+    },
+    "C_independent_from_B_test_authorship": {
+      "run": 43919831949,
+      "windows": "19/19 PASS",
+      "linux": "19/19 PASS",
+      "torch": "2.10.0+cpu",
+      "optimizer_steps": 0
+    },
+    "first_failed_runner": {
+      "run": 43919542829,
+      "reason": "python -S skipped site-packages torch, tests did not run",
+      "preserved": true
+    },
+    "B_author_v2": {
+      "run": 43918069534,
+      "windows": "SUCCESS",
+      "linux": "SUCCESS"
+    }
+  },
+  "physical_7_artifacts": {
+    "verified": 7,
+    "total": 7,
+    "lf_final": 7,
+    "crlf": 0,
+    "source_B_evidence_commit": "2f1fb24d417cf174804b939c826fa75e94921127",
+    "manifest_git_blob": "cba9f094d5d05787ffb50ffdef849049945bbfc8",
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2"
+  },
+  "source_findings": {
+    "BC-F01": "PASS_C_SCOPED_V2_TYPED_BRIDGE",
+    "BC-F02": "PASS_C_SCOPED_V2_SCHEMA_METADATA_ONLY",
+    "BC-F03": "PASS_C_SCOPED_V2_EXACT_LF_CANONICAL",
+    "BC-F04": "PASS_C_SCOPED_SEVEN_PHYSICAL_SHA_READBACK"
+  },
+  "gate_results": {
+    "BC-0": "PASS_C_SOURCE_CUSTODY_SCOPED",
+    "BC-1": "PASS_C_TYPED_CODEC_BRIDGE_SCOPED",
+    "BC-2": "PASS_C_ROLE_MASK_SHIFT_CE_SCOPED",
+    "BC-3": "PASS_C_CPU_FORWARD_BACKWARD_SCOPED",
+    "BC-4": "PASS_C_V2_SCHEMA_SEVEN_ACTUAL_SHA_SCOPED",
+    "BC-5": "HOLD_THIRD_PARTY_DISTINCT_AND_PM_ADJUDICATION"
+  },
+  "verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED",
+  "BC5": "HOLD_DISTINCT_REVIEW_AND_PM_FINAL_ADJUDICATION",
+  "C_design_gate": "PASS_DESIGN_SCOPED",
+  "B_M3_prior_pm_pass": "PRESERVED",
+  "B_G5_V3_failed_predicate": "PRESERVED",
+  "B_G5_reviewer_dissent": "PRESERVED",
+  "advisories": [
+    "B generic oracle max_len <=257 but model-bound pack uses 33; future trainer strict entry required",
+    "B manifest.json symlink lacks explicit guard; independent reviewer should scope"
+  ],
+  "prohibitions": {
+    "science": false,
+    "real_sft": false,
+    "optimizer": false,
+    "gpu": false,
+    "historical_TEST": false,
+    "merges": false,
+    "main_edited": false,
+    "lineage_edited": false,
+    "B_branch_edited_by_C": false
+  },
+  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE"
+}

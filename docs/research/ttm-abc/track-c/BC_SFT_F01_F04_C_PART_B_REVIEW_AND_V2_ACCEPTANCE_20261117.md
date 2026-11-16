@@ -63,7 +63,7 @@ A separate raw `source_bytes.bin` digest is recommended for byte-level provenanc
 | A02 | Optional SYS, role alternation and EOT/EOS | `PASS_B_AUTHOR_CI_SCOPED` | cross-type bridge must preserve roles |
 | A03 | Role provenance and injection, C-F02 | `PASS_B_AUTHOR_CI_SCOPED` | test B and C directly on same inputs, reject mask flip |
 | A04 | +1 shift assistant-only labels | `PASS_B_AUTHOR_CI_SCOPED` | C→B equal IDs/labels byte-for-byte |
-| A05 | EOT/EOS generation stop | `PASS_B_AUTHOR_CI_SCOPED` | no double EOS and user EOT supervised |
+| A05 | EOT/EOS generation stop | `PASS_B_AUTHOR_CI_SCOPED` | no double EOS; user EOT **NOT supervised** (only assistant EOT/final EOS) |
 | A06 | ignore -100 and normalized CE, C-F01 | `PASS_B_AUTHOR_CI_SCOPED` | independent exact output and zero direct prompt CE |
 | A07 | Actual B masked loss callsite | `PASS_B_AUTHOR_CI_SCOPED` | unchanged masked `cross_entropy_valid` verified on B exact candidate |
 | A08 | Right padding and one-row-one-dialogue | `PASS_B_AUTHOR_CI_SCOPED` | no left padding or packing |
@@ -124,3 +124,16 @@ The earlier sections' **four HOLD findings apply specifically to B v1 at `5f2b71
 **Current C contract decision:** `C_V2_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED` (B's names/policy accepted as candidate) but **`C_CONTRACT_COMPATIBILITY_PASS_SCOPED=NOT_YET_ADJUDICATED`** pending exact new B CI and independent executable test of actual file bytes/model path. `BC-5=HOLD`, B-G5 older disputed decisions are append-only. `main`, B branch, A, `lineage.md` unchanged by Agent C; no merge or science.
 
 **Single next operation remains:** `TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE` with C's exact-candidate Part B judgement, independent reviewer execution and PM acceptance in one packet.
+
+
+## 8. C final Part B review on exact B v2 — scoped compatibility PASS (2026-11-17)
+
+**Agent C result:** `C_CONTRACT_COMPATIBILITY_PASS_SCOPED`; **NOT** the third-party reviewer or PM's `BC_INTERFACE_PASS_ENGINEERING_SCOPED`. The previously recorded four F01–F04 HOLDs refer to B v1 `5f2b71c5...`. The B v2 additive bridge source pinned at `724f62a025b8ecc7c452b9ee16c926adfd2b8c7e`, Git blob `f2cc02821efa4f9628964657d90c7a98c4d67e13`, remedied them for **synthetic CPU engineering**. B PR #36's later evidence commits up to `dc151252070e0b118d14f3459823f8e89c6b6723` were compared against code HEAD `724f62a0...`: only artifacts/docs changed, no `src/` or `tests/` edits.
+
+**C independent-from-B execution:** [review branch `review/ttm-c-bc-f01-f04-20261117`](https://github.com/minhtri22/TokenToModel-Lab/tree/review/ttm-c-bc-f01-f04-20261117), [evidence commit `2ea93e69f3c57e797110affc6eda747539d0296c`](https://github.com/minhtri22/TokenToModel-Lab/commit/2ea93e69f3c57e797110affc6eda747539d0296c), [QA run 43919831949](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43919831949). **19/19 PASS on Linux Python 3.12, 19/19 PASS on Windows Python 3.12**; C-authored tests on exact B code, source C oracle byte-identical and independent rehash of 7 physical GitHub files **7/7 match**. P02 CPU forward/backward finite, causal/right-padding, no optimizer; no model training, GPU, historic TEST or weights. Prior [runner failure 43919542829](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43919542829) preserved (Python `-S` excluded torch installation before tests; only CI workflow changed).
+
+**Detailed 16-row review** and **SHA-anchored receipt** are in [C review report](https://github.com/minhtri22/TokenToModel-Lab/blob/2ea93e69f3c57e797110affc6eda747539d0296c/docs/research/ttm-abc/track-c/independent_review/C_BC_F01_F04_PART_B_EXACT_IMPLEMENTATION_REVIEW_20261117.md) and [review receipt](https://github.com/minhtri22/TokenToModel-Lab/blob/2ea93e69f3c57e797110affc6eda747539d0296c/artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_INTEGRATION_REVIEW_RECEIPT_20261117.json). Distinguish Agent C cross-track verification from a **new, third-party independent reviewer**; BC-5 remains `HOLD_DISTINCT_REVIEW_AND_PM_ADJUDICATION`.
+
+**BC gates after C review:** BC-0..4=`PASS_C_COMPATIBILITY_SCOPED` on byte-pinned B v2; BC-5=`HOLD_DISTINCT_FINAL_QA`. Preserve the earlier B-M3 scoped PM resource decision, historical V3 FAIL, and newer reviewer's peak-accounting dissent without rerunning V3 or retroactively erasing anything. No branch B/main/lineage change by C, no merge or owner science GO.
+
+**Bước thực hiện tiếp theo — duy nhất:** `TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE`: reviewer **distinct from Agent B and Agent C** inspects exact B/C sources, seven actual physical bytes and resource/manifest symlink advisories, then PM issues **one** final `BC_INTERFACE_PASS_ENGINEERING_SCOPED` or `HOLD_INTERFACE` adjudication, no micro-permit.

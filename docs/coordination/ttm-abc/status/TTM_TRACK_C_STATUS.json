@@ -49,8 +49,8 @@
   "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
   "real_sft": "NOT_EXECUTED",
   "data_objective_capacity_science": "NOT_EXECUTED",
-  "phase_status": "BC_V2_SCHEMA_SOURCE_SIGNOFF_SCOPED_B_ADAPTER_NATIVE_INDEPENDENT_PENDING",
-  "review": "C_M4_DESIGN_DISTINCT_PASS_SCOPED_BC_B_PR36_SOURCE_REVIEW_F01_F04_HOLD",
+  "phase_status": "BC_F01_F04_C_CONTRACT_COMPATIBILITY_PASS_SCOPED_BC5_DISTINCT_HOLD",
+  "review": "C_PART_B_CROSS_TRACK_QA_PASS_19_OF_19_WIN_LINUX_AND_7_OF_7_SHA_THIRD_PARTY_PENDING",
   "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
   "source_qa": {
     "m4_distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
@@ -63,10 +63,11 @@
     "bc_part_a_independent_reviewer": "NOT_EXECUTED",
     "bc_part_b_b_adapter": "NOT_EXECUTED",
     "bc_native_windows_py312": "NOT_EXECUTED",
-    "bc_f01_f04_c_v2_tests": "PREVIOUS_SOURCE_ONLY_CI_PASS_18_OF_18_BEFORE_SCHEMA_NAMES_ALIGNMENT; NEW_CI_PENDING",
-    "bc_f01_f04_b_actual_bridge": "B_V2_SOURCE_PRESENT_AT_724f62a0_NOT_INDEPENDENTLY_EXECUTED_BY_C",
-    "bc_f01_f04_native_windows_py312": "NOT_EXECUTED",
-    "bc_f01_f04_distinct_review": "NOT_EXECUTED_ON_NEW_B_V2"
+    "bc_f01_f04_c_v2_tests": "PASS_18_OF_18_ON_LINUX_AND_WINDOWS_PY312_CI_43918786173",
+    "bc_f01_f04_b_actual_bridge": "PASS_C_19_OF_19_ON_LINUX_AND_WINDOWS_PY312_ON_PINNED_B_SOURCE_CI_43919831949",
+    "bc_f01_f04_native_windows_py312": "PASS_GITHUB_HOSTED_WINDOWS_SCOPED_NOT_OWNER_NATIVE",
+    "bc_f01_f04_distinct_review": "NOT_EXECUTED_SEPARATE_FROM_AGENT_C",
+    "bc_f01_f04_real_file_sha": "PASS_7_OF_7_GITHUB_READBACK_BY_C"
   },
   "bc_interface": {
     "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
@@ -78,14 +79,14 @@
     "c_contract_commit": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
     "c_independent_review_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
     "candidate_codec_sha256": "3852983cc03de36733000e878e193d2b02b87d738b56346a7294cc48206bd142",
-    "verdict": "HOLD_INTERFACE_PENDING_EXACT_B_V2_NATIVE_AND_DISTINCT_QA",
+    "verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED_BC5_HOLD",
     "gates": {
-      "BC-0": "PASS_B_C_EXACT_SOURCE_PINS_SCOPED",
-      "BC-1": "B_V2_SOURCE_REVIEW_PASS_SCOPED_B_NATIVE_CROSS_QA_PENDING",
-      "BC-2": "B_V2_SOURCE_REVIEW_PASS_SCOPED_CROSS_ORACLE_PENDING",
-      "BC-3": "B_V2_CPU_SOURCE_QA_DEFINED_AUTHOR_CI_PENDING",
-      "BC-4": "C_V2_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED_ACTUAL_HASH_DISTINCT_PENDING",
-      "BC-5": "HOLD_NEW_BC_INDEPENDENT_QA"
+      "BC-0": "PASS_C_SOURCE_CUSTODY_SCOPED",
+      "BC-1": "PASS_C_TYPED_CODEC_BRIDGE_SCOPED",
+      "BC-2": "PASS_C_ROLE_MASK_SHIFT_CE_SCOPED",
+      "BC-3": "PASS_C_CPU_FORWARD_BACKWARD_SCOPED",
+      "BC-4": "PASS_C_V2_SCHEMA_SEVEN_ACTUAL_SHA_SCOPED",
+      "BC-5": "HOLD_THIRD_PARTY_DISTINCT_AND_PM_ADJUDICATION"
     },
     "existing_codec_collisions": "B_BYTE_0_255_VS_C_TOY_SPECIAL_0_6",
     "proposed_noncolliding_specials": {
@@ -110,10 +111,10 @@
     "latest_author_ci": "B_29_OF_29_WINDOWS_PLUS_29_OF_29_LINUX_AT_IMPLEMENTATION_7a8e15a",
     "c_v2_contract": "C_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED_B_V2_NAMES_PENDING_DISTINCT_REVIEW",
     "findings": {
-      "BC-F01": "B_V2_SOURCE_REVIEW_REMEDIATED_DISTINCT_EXEC_PENDING",
-      "BC-F02": "C_V2_SCHEMA_NAMES_ACCEPTED_SCOPED_DISTINCT_PENDING",
-      "BC-F03": "C_V2_CANONICAL_BYTES_ACCEPTED_SCOPED_DISTINCT_PENDING",
-      "BC-F04": "B_V2_SEVEN_ACTUAL_FILE_HASH_CODE_REVIEW_REMEDIATED_DISTINCT_READBACK_PENDING"
+      "BC-F01": "PASS_C_SCOPED_V2_TYPED_BRIDGE",
+      "BC-F02": "PASS_C_SCOPED_V2_SCHEMA_METADATA_ONLY",
+      "BC-F03": "PASS_C_SCOPED_V2_EXACT_LF_CANONICAL",
+      "BC-F04": "PASS_C_SCOPED_SEVEN_PHYSICAL_SHA_READBACK"
     },
     "b_g5_m3_prior_pm": "PASS_ADJUDICATED_HARD_RESOURCE_ENGINEERING_SCOPED",
     "b_g5_v3_immutable": "HOLD_NATIVE_QA",
@@ -130,7 +131,16 @@
       "chat_template": "ttm.bc.synthetic.chat_template.v2",
       "canonical": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2",
       "bridge": "ttm.bc.c_string_to_b_bytes.v2"
-    }
+    },
+    "b_v2_exact_tested_code_head": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+    "b_v2_evidence_head": "dc151252070e0b118d14f3459823f8e89c6b6723",
+    "review_branch": "review/ttm-c-bc-f01-f04-20261117",
+    "c_cross_track_evidence_commit": "2ea93e69f3c57e797110affc6eda747539d0296c",
+    "c_cross_track_ci_run": 43919831949,
+    "c_cross_track_qa": "PASS_19_OF_19_WINDOWS_AND_LINUX_PY312",
+    "seven_actual_artifact_hashes": "PASS_7_OF_7_GITHUB_BYTE_READBACK",
+    "independent_final_reviewer": "NOT_EXECUTED",
+    "pm_final_BC_decision": "NOT_ADJUDICATED"
   },
-  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_SOURCE_REVIEW_RECEIPT_20261117.json"
+  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_COMPATIBILITY_SIGNOFF_20261117.json"
 }
