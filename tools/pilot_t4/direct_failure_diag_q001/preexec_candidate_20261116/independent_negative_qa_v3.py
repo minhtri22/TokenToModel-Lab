@@ -29,6 +29,15 @@ def expect_hold(fn, label: str) -> bool:
     return False
 
 
+
+def forged_go_failed_closed(proc, output_dir: Path) -> bool:
+    """Accept ONLY explicit pre-check exit 86 or admission exit 2, no output."""
+    native_guard = (proc.returncode == 86 and
+                    'HOLD_WINJOB_LIMIT_READBACK_MISMATCH' in proc.stderr)
+    admission_guard = (proc.returncode == 2 and 'HOLD_' in proc.stderr)
+    return (native_guard or admission_guard) and not output_dir.exists()
+
+
 def test_all() -> dict:
     checks={}
     meta, raw = diag.mock_token_inventory()
@@ -93,14 +102,19 @@ def test_all() -> dict:
              '--tokenizer-source',str(root/'no-underlying-tokens.json'),
              '--fixture-dir',str(fixture),'--out',str(root/'output')]
         proc=subprocess.run(cmd,text=True,capture_output=True,timeout=15)
-        # Native Job Object preflight may fail closed with exit 86 before the
-        # ordinary admission parser runs (exit 2). Do NOT accept generic 86.
-        # Require the exact earlier guard string and untouched output path.
-        held_by_job = (proc.returncode == 86 and
-                       'HOLD_WINJOB_LIMIT_READBACK_MISMATCH' in proc.stderr)
-        held_by_admission = (proc.returncode == 2 and 'HOLD_' in proc.stderr)
-        checks['no_checkpoint_read_under_forged_go'] = (
-            (held_by_admission or held_by_job) and not (root/'output').exists())
+        checks['no_checkpoint_read_under_forged_go'] = forged_go_failed_closed(
+            proc, root/'output')
+        from types import SimpleNamespace
+        checks['native_86_exact_guard_accepted'] = forged_go_failed_closed(
+            SimpleNamespace(returncode=86,
+                            stderr='HOLD_WINJOB_LIMIT_READBACK_MISMATCH'),
+            root/'no_output_86')
+        checks['native_86_generic_error_rejected'] = not forged_go_failed_closed(
+            SimpleNamespace(returncode=86, stderr='HOLD_SOMETHING_ELSE'),
+            root/'no_output_86')
+        checks['false_success_zero_exit_rejected'] = not forged_go_failed_closed(
+            SimpleNamespace(returncode=0, stderr=''),
+            root/'no_output_86')
         # MOCK-only substitution of in-memory root/hostname pins to exercise
         # the atomic claim path, NOT an authenticated release or runtime trust.
         nonce='f'*64
