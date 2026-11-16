@@ -1,0 +1,224 @@
+{
+  "schema": "ttm.pm.abc.scoped_closure_release_barrier_design.v1",
+  "operation": "TTM_PM_ABC_SCOPED_ENGINEERING_CLOSURE_LINEAGE_INVENTORY_AND_PROSPECTIVE_RELEASE_BARRIER_DESIGN_SINGLE_GATE",
+  "snapshot_date_local": "2026-11-17",
+  "mode": "DESIGN_ONLY_EXISTING_EVIDENCE_READBACK",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "main": {
+    "exact_head": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "lineage_path": "lineage.md",
+    "lineage_git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "lineage_entries": 30,
+    "last_id": "L0029",
+    "last_record_date": "2026-11-14",
+    "edited_in_this_operation": false
+  },
+  "prs": {
+    "28": {
+      "head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+      "base": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+      "draft": true,
+      "merged": false
+    },
+    "33": {
+      "head": "771314c07ba061ebeb1baa87018248ed73181079",
+      "base": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+      "draft": true,
+      "merged": false
+    },
+    "34": {
+      "head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "base": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+      "draft": true,
+      "merged": false
+    },
+    "35": {
+      "head": "00afd25aa2234e30f7602592d49d5d9f2947965b",
+      "base": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+      "draft": true,
+      "merged": false
+    },
+    "36": {
+      "head": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "base": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "draft": true,
+      "merged": false
+    }
+  },
+  "review_evidence": {
+    "A_I1": {
+      "source_exact": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+      "review_commit": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+      "review_path": "artifacts/ttm-abc/track-a/M0_V3_POST_HOLD_DISTINCT_I1_20261117/REVIEW.md",
+      "checks_distinct": "35/35",
+      "native_custody": "38/38",
+      "case_digests": "80/80",
+      "group_digests": "5/5",
+      "fixture_sha256": "823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d",
+      "decision": "I1_PASS_SCOPED_MEASUREMENT",
+      "release": "HOLD_OWNER_INTERNAL_I1_NOT_PASS_EXIT_2",
+      "I2": "NOT_EXECUTED"
+    },
+    "B_M3": {
+      "source_exact": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "pm_review_commit": "fdffbf2cc3c517d25dddae89501c091c58f2608d",
+      "review_path": "docs/research/ttm-abc/track-b/independent_review/B_G5_G6_V3_FULL_RECEIPT_INTEGRATED_PM_ADJUDICATION_20261116.md",
+      "prior_pm_decision": "PASS_ENGINEERING_BASELINE_SCOPED_BY_PM_ADJUDICATION",
+      "V3_historical_run": "HOLD_NATIVE_QA",
+      "V3_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+      "differential_receipt_sha256": "2503cc19067b1861a8495aa7cbed59e17a4f5dcbddbe54224a7c1cb1ab6a62d2",
+      "differential_tests": "3/3",
+      "kernel_peak_accounting": "UNRESOLVED",
+      "reviewer_position": "HOLD_PEAK_ACCOUNTING",
+      "new_sft_resource_release": "NOT_AUTHORIZED"
+    },
+    "C_M4": {
+      "reviewed_design_source": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+      "review_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+      "review_path": "docs/research/ttm-abc/track-c/independent_review/C_M4_EXACT_AMENDMENT_DISTINCT_REREVIEW_20261116.md",
+      "tests": "35/35",
+      "decision": "PASS_DESIGN_SCOPED",
+      "real_data": "C-G1_HOLD_REAL_DATA_UNAVAILABLE",
+      "gold_rubric": "C-G2_DESIGN_VALIDITY_UNPROVEN",
+      "science": "NOT_EXECUTED"
+    },
+    "BC_INTERFACE": {
+      "source_code_exact": "a83e1526bce842761f3051dad28b90a55395a6aa",
+      "pr36_evidence_head": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "pm_final_review_commit": "82aaf2a881bd677afd8f6e600eb570aea897fdba",
+      "report_path": "docs/research/ttm-abc/bc-sft/independent_review/BC_V2_F05_F06_PM_FINAL_DISTINCT_ENGINEERING_ADJUDICATION_20261117.md",
+      "reviewer_ci_run": 43937370201,
+      "reviewer_windows": "12/12_PASS_NO_SKIP",
+      "reviewer_linux": "12/12_PASS_NO_SKIP",
+      "C_cross_contract_ci_run": 43932738585,
+      "C_windows": "34/34_PASS_NO_SKIP",
+      "C_linux": "34/34_PASS_NO_SKIP",
+      "B_author_ci_run": 43928511412,
+      "B_windows": "29+26+3+18_PASS",
+      "B_linux": "29+26+3+18_PASS",
+      "immutable_artifact_manifest_git_blobs": "8/8",
+      "actual_file_sha256_checked": "7/7",
+      "historical_pre_fix_failure_run": 43923286066,
+      "decision": "BC_INTERFACE_PASS_ENGINEERING_SCOPED",
+      "scope": "SYNTHETIC_CPU_PY312_TRUSTED_IMMUTABLE_BUNDLE_ONLY",
+      "real_weights_loaded": false,
+      "optimizer_steps": 0
+    }
+  },
+  "lineage_candidates": [
+    {
+      "candidate_id": "ABC-CAND-001",
+      "subject": "A I1",
+      "status": "PROPOSED_NOT_APPENDED"
+    },
+    {
+      "candidate_id": "ABC-CAND-002",
+      "subject": "B M3 with V3 HOLD and reviewer dissent",
+      "status": "PROPOSED_NOT_APPENDED"
+    },
+    {
+      "candidate_id": "ABC-CAND-003",
+      "subject": "C M4 design",
+      "status": "PROPOSED_NOT_APPENDED"
+    },
+    {
+      "candidate_id": "ABC-CAND-004",
+      "subject": "BC v2 engineering",
+      "status": "PROPOSED_NOT_APPENDED"
+    },
+    {
+      "candidate_id": "ABC-CAND-005",
+      "subject": "PM closure and prospective barrier design",
+      "status": "PROPOSED_NOT_APPENDED"
+    }
+  ],
+  "release_barriers": [
+    {
+      "id": "R0",
+      "name": "Exact source and dependency lock",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "PARTIAL_MERGE_NOT_AUTHORIZED"
+    },
+    {
+      "id": "R1",
+      "name": "Measurement/gold/rater validity",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "A_I1_PASS_C_G2_UNPROVEN"
+    },
+    {
+      "id": "R2",
+      "name": "Source rights/provenance/fresh split",
+      "A_I2": "AS_APPLICABLE_TO_SOURCE",
+      "SFT_M6": "REQUIRED",
+      "status": "C_G1_HOLD"
+    },
+    {
+      "id": "R3",
+      "name": "Actual checkpoint/tokenizer compatibility",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "BC_METADATA_ONLY_NO_REAL_WEIGHTS"
+    },
+    {
+      "id": "R4",
+      "name": "Owner-native hard resource and watchdog",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "NOT_VERIFIED_ON_NEW_EXACT_REAL_RUNNER"
+    },
+    {
+      "id": "R5",
+      "name": "TOCTOU/path/receipt immutability",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "A_ONEPACK_RISKS_BC_TRUSTED_PATH_ONLY"
+    },
+    {
+      "id": "R6",
+      "name": "Frozen prereg and fair compute",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "DESIGN_ONLY_NO_NEW_FROZEN_PROTOCOL"
+    },
+    {
+      "id": "R7",
+      "name": "Independent exact science candidate QA",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "ONLY_EXISTING_SYNTHETIC_SCOPED_PASS"
+    },
+    {
+      "id": "R8",
+      "name": "Explicit integrated owner GO/HOLD",
+      "A_I2": "REQUIRED",
+      "SFT_M6": "REQUIRED",
+      "status": "NOT_GRANTED"
+    }
+  ],
+  "program_gate": "PASS_SCOPED_ABC_ENGINEERING_AND_DESIGN_INVENTORY__HOLD_ALL_PROSPECTIVE_RELEASES",
+  "owner_decision": "NO_SCIENCE_GO_NO_MERGE",
+  "limits": [
+    "Existing main lineage records other historical science; NO_NEW_SCIENCE_THIS_GATE applies only to this task.",
+    "Distinct AI reviewer sessions share GitHub publication identity, not authenticated human-independent review.",
+    "PR #33 stacked on PR #28; PR #36 stacked on PR #34. Mergeable property is not a permit.",
+    "Track B and C status JSON/PR36 title are stale relative to latest independent PM decisions; reconcile only when authorized.",
+    "Do not append lineage or assign global IDs based on current tail without fresh exact main HEAD check.",
+    "Future real SFT requires own native resource admission; do not reuse M3 native V3 result.",
+    "BC model checkpoint schema is metadata-only; synthetic byte codec is not proven identical to original T4 BPE.",
+    "All R0–R8 are prospective requirements, not individual permits."
+  ],
+  "actions": {
+    "created_governance_branch_only": true,
+    "main_edited": false,
+    "lineage_md_edited": false,
+    "science_run": false,
+    "model_forward": false,
+    "optimizer_steps": 0,
+    "gpu_run": false,
+    "owner_permission_issued": false,
+    "merges_performed": false
+  },
+  "next_operation": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE"
+}
