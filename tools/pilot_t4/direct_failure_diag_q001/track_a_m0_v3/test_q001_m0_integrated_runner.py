@@ -3,6 +3,9 @@
 from __future__ import annotations
 import copy
 import hashlib
+import importlib.util
+import importlib._bootstrap_external
+import os
 import json
 from pathlib import Path
 import subprocess
@@ -100,9 +103,62 @@ class IntegratedM0SourceQA(unittest.TestCase):
         self.assertEqual(out["gold_rank"],2)
 
     def test_tampered_scorer_pin_stops(self):
-        with patch.object(diag, "sha256_file", return_value="0"*64):
+        with patch.object(diag, "TRACK_A_V3_SOURCE_SHA256", "0"*64), \
+                patch.object(diag, "TRACK_A_V3_CRLF_SHA256", "0"*64):
             with self.assertRaisesRegex(RuntimeError, "TRACK_A_V3_SOURCE_SHA_MISMATCH"):
                 diag.track_a_v3()
+
+    def test_stale_mtime_size_pyc_is_never_executed(self):
+        # Genuine reproduction of review F02: forge valid timestamp-based pyc
+        # while the reviewed source bytes/mtime/size stay completely unchanged.
+        with tempfile.TemporaryDirectory(prefix="_q001_v3_pyc_", dir=HERE.parents[3]) as d:
+            root = Path(d)
+            runner_dir = root / "preexec_candidate_20261116"
+            score_dir = root / "track_a_m0_v3"
+            runner_dir.mkdir()
+            score_dir.mkdir()
+            source = score_dir / "q001_m0_goldblind.py"
+            source.write_bytes((HERE / source.name).read_bytes())
+            st = source.stat()
+            malicious = compile("PYC_SENTINEL_EXECUTED = True\n",
+                                str(source), "exec")
+            cache = Path(importlib.util.cache_from_source(str(source)))
+            cache.parent.mkdir(exist_ok=True)
+            cache.write_bytes(importlib._bootstrap_external._code_to_timestamp_pyc(
+                malicious, int(st.st_mtime), st.st_size))
+            # Positive control: the formerly used loader DOES execute the forged cache.
+            spec = importlib.util.spec_from_file_location("old_loader_positive", source)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            self.assertTrue(getattr(mod, "PYC_SENTINEL_EXECUTED", False))
+            self.assertEqual(source.read_bytes(), (HERE / source.name).read_bytes())
+            self.assertEqual(source.stat().st_size, st.st_size)
+            with patch.object(diag, "__file__", str(runner_dir / "ttm_sm4m_diag_q001.py")):
+                secure = diag.track_a_v3()
+            self.assertFalse(hasattr(secure, "PYC_SENTINEL_EXECUTED"))
+            self.assertEqual(secure.VOCAB, 2048)
+
+    def test_preserve_pre_remediation_private_manifest_by_exact_pins_only(self):
+        # Use MOCK bytes to reach the compatibility branch without private I1.
+        with tempfile.TemporaryDirectory(prefix="_q001_v3_oldmf_", dir=HERE.parents[3]) as d:
+            directory = Path(d)
+            records = directory / "FIXTURE_RECORDS.json"
+            manifest = directory / "FIXTURE_MANIFEST.json"
+            records.write_bytes(diag.json_bytes(self.rows))
+            new_mf = diag.case_and_group_manifest(self.rows)
+            old_mf = dict(new_mf,
+                scorer_sha256=diag.TRACK_A_V3_PRE_REPAIR_SCORER_SHA256)
+            manifest.write_bytes(diag.json_bytes(old_mf))
+            digest = diag.sha256_file(records)
+            with patch.object(diag, "TRACK_A_V3_FROZEN_RECORDS_SHA256", digest), \
+                 patch.object(diag, "TRACK_A_V3_FROZEN_MANIFEST_SHA256", diag.sha256_file(manifest)):
+                self.assertEqual(
+                    diag.read_frozen_fixture(directory, digest, allowed=self.ids),
+                    self.rows)
+                manifest.write_bytes(manifest.read_bytes() + b" ")
+                with self.assertRaises(RuntimeError):
+                    diag.read_frozen_fixture(directory, digest, allowed=self.ids)
+
 
     def test_mutated_fixture_gold_rejected(self):
         broken = copy.deepcopy(self.rows)
