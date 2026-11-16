@@ -152,12 +152,14 @@
       "pages": 24,
       "pdf_path": "chapter11_VI_bilingual.pdf",
       "md_path": "GHI_CHU_TIENg_VIET/chapter11_VI_by_slide.md",
-      "pdf_sha256": "e754a82ac3ca44de5e25b26c2a26a199534bdea81b81a597d0965bbb74ef3dea",
-      "md_sha256": "589c713899be7d13f337e7023980abd86bc3054e0318c1f4c60c9f3993160709",
+      "pdf_sha256": "da3af54598f3f4b2aa509cf17b75fd2ac78054a44e0e301a01ed4f7c95994634",
+      "md_sha256": "66ecc346b645d1e13395a4349117696a9c50a7045c60bc77ab9dd22dbcc39176",
       "source_pdf_before_sha256": "a5b36d7d4e3304f1a97e7ac2e5d6471e95a1236d1263e9383b5e866d713ca269",
       "page_height_min": 1210,
       "page_height_max": 1400,
-      "was_reflowed": true
+      "was_reflowed": true,
+      "formula_correction": "11:17, gradient estimator equality sign source-verified"
     }
-  ]
+  ],
+  "formula_symbol_exactness": "11:17 '=' matches source"
 }
