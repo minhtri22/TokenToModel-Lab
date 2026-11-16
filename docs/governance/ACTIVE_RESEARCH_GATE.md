@@ -27,7 +27,7 @@
 | `T4_checkpoint` | `KEEP_HISTORICAL_REFERENCE_ONLY`; `HOLD_BASELINE_ADMISSION_FOR_NEW_SCIENCE` |
 | `AD-00_to_AD-08` | Không nâng thành admission PASS; AD-01R/T/C phase-specific giữ NOT_VERIFIED; AD-03/06 design/freeze requirements |
 | `scientific_execution` | `NOT_AUTHORIZED · HOLD` |
-| `F0_F2` | `PAUSED_PENDING_PROSPECTIVE_ADMISSION_AND_Q4_OWNER_GO` — Q1 registration **không** mở F0–F2 |
+| `F0_F2` | `PAUSED_Q4_CLOSED_HOLD · PROSPECTIVE_ADMISSION_NOT_ESTABLISHED · NO_SCIENCE_PERMIT` — Q4 GO chỉ đóng governance, không phải GO thực thi F0–F2 |
 | `next_science_question` | `NONE_AUTOMATIC`; câu hỏi `TTM-P0A-MEAS-Q001` đã được owner đóng HOLD, hướng kế tiếp chỉ đề xuất qua priority matrix và owner Question Gate mới; không tự mở nhánh, gold, runner, permit |
 | `research_branch_permission` | `NO_NEW_BRANCH_AUTHORIZED` |
 | `lineage` | `UNMODIFIED_APPEND_ONLY · NO_Q3_Q4_DESIGN_ENTRY` |
