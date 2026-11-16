@@ -16,14 +16,13 @@
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
   "executor": "AGENT_C_CHATGPT_DESIGN_ONLY",
-  "phase_status": "C_M4_SINGLE_AMENDMENT_AUTHOR_QA_PASS_PENDING_DISTINCT_REREVIEW",
   "gates": {
     "C-G0": "PASS_SOURCE_INVENTORY_SCOPED",
     "C-G1": "HOLD_REAL_DATA_UNAVAILABLE",
     "C-G2": "DESIGN_VALIDITY_UNPROVEN",
     "C-G3": "DESIGN_ONLY",
     "C-G4": "WAIT_A_B",
-    "C-G5": "HOLD_DESIGN_INTERFACE_PENDING_DISTINCT_REVIEW_AMENDMENT_AUTHOR_QA_PASS",
+    "C-G5": "PASS_DESIGN_SCOPED_B_INTEGRATION_NOT_EXECUTED",
     "C-G6": "DESIGN_ONLY",
     "C-G7": "NOT_AUTHORIZED",
     "C-G8": "NOT_EXECUTED"
@@ -34,36 +33,70 @@
     "independent_review_branch": "review/ttm-track-c-m4-independent-design-20261116",
     "independent_review_commit": "98af7af0632ba38f1b9747cd784964257e39cf16",
     "independent_reviewed_head": "8e0a1880e564e92d017847e9f18e53e42b7353c8",
-    "independent_verdict": "HOLD_DESIGN",
+    "independent_verdict": "HOLD_DESIGN_SUPERSEDED_FOR_C_F01_C_F02_ONLY_BY_9fac5a",
     "blockers": [
       "C-F01",
       "C-F02"
     ],
-    "advisory": "C-F03"
+    "advisory": "C-F03",
+    "distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+    "distinct_rereview_verdict": "PASS_DESIGN_SCOPED",
+    "distinct_rereview_tests": "35_OF_35"
   },
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "HOLD_DESIGN_ORIGINAL_98af7af_REMEDIATION_AUTHOR_QA_PASS_REREVIEW_PENDING",
-  "next_operation": "C_M4_EXACT_AMENDMENT_DISTINCT_REREVIEW_SINGLE_GATE",
-  "source_qa": {
-    "author_static_checks": "PASS_14_OF_14",
-    "offhost_python_unittest": "PASS_14_OF_14",
-    "offhost_python_version": "3.13.5",
-    "offhost_python_command": "python -S -B -m unittest discover -s tests/ttm_track_c -p test_synthetic_contract.py -v",
-    "windows_python312": "NOT_EXECUTED",
-    "github_git_blob_match": "PASS_BOTH_FILES",
-    "independent_reviewer": "NOT_EXECUTED",
-    "amendment_author_synthetic_tests": "PASS_24_OF_24",
-    "original_independent_red_cases_author_rerun": "PASS_2_OF_2",
-    "randomly_generated_dialogues": 1000,
-    "tested_source_sha256": "522618430f32fd0cc74da945a7bf208aad3a146c1f113a320a13e9490f9e2b88",
-    "amendment_test_sha256": "f89f86dffaf61e92eb016f1d8fcf5b4a2075c24e4ab7f53af24413f5b08e11d4",
-    "amendment_independent_reviewer": "PENDING_DISTINCT_REREVIEW",
-    "tested_platform": "CPython 3.13.5 Linux"
-  },
   "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
   "real_sft": "NOT_EXECUTED",
   "data_objective_capacity_science": "NOT_EXECUTED",
-  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_TRACK_C_M4_SINGLE_AMENDMENT_AUTHOR_QA_RECEIPT_20261116.json"
+  "phase_status": "BC_SFT_PART_A_AUTHOR_ORACLE_18_18_PASS_B_IMPLEMENTATION_HOLD",
+  "review": "C_M4_DISTINCT_DESIGN_PASS_SCOPED_BC_INTEGRATION_INDEPENDENT_NOT_EXECUTED",
+  "next_operation": "TTM_C_BC_EXACT_B_ADAPTER_HEAD_INTEGRATION_REVIEW_SINGLE_GATE",
+  "source_qa": {
+    "m4_distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+    "m4_distinct_rereview": "PASS_DESIGN_SCOPED_35_35",
+    "bc_part_a_candidate_oracle": "AUTHOR_18_OF_18_PASS",
+    "bc_part_a_test_environment": "CPython3.13.5_Linux_stdlib_only",
+    "bc_part_a_random_multi_turn_dialogues": 1000,
+    "bc_part_a_test_file_sha256": "1237f530b0d97288d8cad003813eec400e6e9178f766fd3c3a67748ca434bcf7",
+    "bc_part_a_oracle_sha256": "bbd72ecb890d74188b20ae808dd518dbbc70c3ae945b03a710b9a7bc3ba603b0",
+    "bc_part_a_independent_reviewer": "NOT_EXECUTED",
+    "bc_part_b_b_adapter": "NOT_EXECUTED",
+    "bc_native_windows_py312": "NOT_EXECUTED"
+  },
+  "bc_interface": {
+    "operation": "TTM_C_BC_SFT_INTERFACE_CONTRACT_REVIEW_AND_INTEGRATION_ACCEPTANCE_SINGLE_GATE",
+    "b_baseline_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "b_pr": 34,
+    "b_baseline_scaffold_blob": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+    "b_p02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "b_new_sft_adapter_commit": null,
+    "c_contract_commit": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+    "c_independent_review_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+    "candidate_codec_sha256": "3852983cc03de36733000e878e193d2b02b87d738b56346a7294cc48206bd142",
+    "verdict": "HOLD_INTERFACE_PENDING_B_ADAPTER",
+    "gates": {
+      "BC-0": "PASS_B_C_BASELINE_SOURCE_PIN_SCOPED",
+      "BC-1": "HOLD_B_CODEC_IMPLEMENTATION",
+      "BC-2": "HOLD_B_MASKED_SFT_WIRING",
+      "BC-3": "NOT_EXECUTED",
+      "BC-4": "HOLD_B_NEW_SCHEMA_AND_PINS",
+      "BC-5": "WAIT_B_G5_G6"
+    },
+    "existing_codec_collisions": "B_BYTE_0_255_VS_C_TOY_SPECIAL_0_6",
+    "proposed_noncolliding_specials": {
+      "EOS": 256,
+      "PAD": 257,
+      "BOS": 258,
+      "SYS": 259,
+      "USER": 260,
+      "ASSIST": 261,
+      "EOT": 262
+    },
+    "native_resource_gate": "B_G5_HOLD",
+    "independent_B_gate": "B_G6_HOLD",
+    "science": "NOT_EXECUTED",
+    "B_branch_unchanged": true
+  },
+  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_SFT_PART_A_AUTHOR_QA_RECEIPT_20261116.json"
 }
