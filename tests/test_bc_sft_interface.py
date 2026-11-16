@@ -9,7 +9,7 @@ from src.ttm_track_b.scaffold import cross_entropy_valid
 
 C_PATH = Path(__file__).parent/"ttm_track_bc"/"c_m4_source_pinned.py"
 def pinned_c():
-    if hashlib.sha256(C_PATH.read_bytes()).hexdigest()!=b.C_SOURCE_SHA256:
+    if hashlib.sha256(C_PATH.read_bytes().replace(b'\r\n', b'\n')).hexdigest()!=b.C_SOURCE_SHA256:
         raise AssertionError("C_SOURCE_SHA256_MISMATCH")
     spec=importlib.util.spec_from_file_location("c_m4_exact_pinned",C_PATH)
     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -26,7 +26,7 @@ class BCInterfaceQA(unittest.TestCase):
         self.assertEqual(b.CODEC_SHA256,b.digest(b.codec_contract()))
 
     def test_02_c_exact_source_sha(self):
-        self.assertEqual(hashlib.sha256(C_PATH.read_bytes()).hexdigest(),b.C_SOURCE_SHA256)
+        self.assertEqual(hashlib.sha256(C_PATH.read_bytes().replace(b'\r\n', b'\n')).hexdigest(),b.C_SOURCE_SHA256)
 
     def test_03_pinned_c_oracle_cross_role_mask(self):
         c=pinned_c()
