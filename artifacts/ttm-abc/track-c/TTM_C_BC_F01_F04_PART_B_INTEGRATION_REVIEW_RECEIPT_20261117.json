@@ -1,0 +1,148 @@
+{
+  "schema": "ttm.agent_c.bc.f01_f04.part_b_integration_review_receipt.v1",
+  "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "date": "2026-11-17",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "review_branch": "review/ttm-c-bc-f01-f04-20261117",
+  "role": "AGENT_C_CONTRACT_OWNER_TECHNICAL_REVIEWER_NOT_DISTINCT_FINAL_REVIEWER",
+  "source": {
+    "pm_handoff": "40788f557799c7c8a688df32271510aab73a9180",
+    "B_pr": 36,
+    "B_v1_reviewed_head": "5f2b71c5f493405c180d6995a21dd7373bd2dbb2",
+    "B_v2_exact_tested_code_head": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+    "B_v2_code_git_blob": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+    "B_v2_author_tests_git_blob": "cb08038adcceb4848790694b62c97f648d0b1b62",
+    "B_evidence_published_head": "888acd454d407713a79c02a751c18c8fe009b3e2",
+    "B_compare_from_tested_to_evidence": {
+      "ahead_by": 11,
+      "files_only_artifacts_and_docs": true,
+      "source_or_test_changes": false
+    },
+    "C_part_a_head": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+    "C_v2_aligned_head": "66c9b92a30cd403aa909528008ffaa6d83286285",
+    "C_v2_reference_blob": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+    "C_part_b_test_blob": "ccd9b3fdae116a217ef730bf90905cce78de59f0"
+  },
+  "qa": {
+    "B_author_CI": {
+      "run": 43918069534,
+      "result": "SUCCESS",
+      "platforms": [
+        "windows-latest python3.12",
+        "ubuntu-latest python3.12"
+      ],
+      "scope": "B_v2_24_tests+unchanged_B_v1_29_tests+C_18_routed+CPU_probe+real_7_artifacts",
+      "not_distinct": true
+    },
+    "C_v2_source_only_CI": {
+      "run": 43918786173,
+      "result": "SUCCESS",
+      "tests_per_platform": 18,
+      "platforms": [
+        "windows-latest python3.12",
+        "ubuntu-latest python3.12"
+      ]
+    },
+    "C_part_b_cross_track_CI": {
+      "run": 43919831949,
+      "result": "SUCCESS",
+      "linux_job_id": 133483813655,
+      "windows_job_id": 133483814215,
+      "linux_tests": {
+        "passed": 19,
+        "total": 19
+      },
+      "windows_tests": {
+        "passed": 19,
+        "total": 19
+      },
+      "torch": "2.10.0+cpu",
+      "python": "3.12",
+      "scope": "INDEPENDENT_FROM_B_AUTHOR_TEST_CODE_BUT_AGENT_C_AUTHORED_NOT_FINAL_DISTINCT_REVIEWER"
+    },
+    "first_failed_C_CI": {
+      "run": 43919542829,
+      "result": "FAIL",
+      "cause": "RUNNER_USED_PYTHON_MINUS_S_DISABLED_SITE_PACKAGES_SO_TORCH_IMPORT_FAILED_BEFORE_TESTS",
+      "source_test_changed_for_fix": false,
+      "workflow_only_fix_commit": "0feffa41806ab8078cc6952fcc9cc9c8dcab1cc1",
+      "preserved": true
+    },
+    "synthetic_P02_forward_backward": true,
+    "optimizer_steps": 0,
+    "real_sft": false,
+    "gpu": false,
+    "historical_test_data_used": false,
+    "historical_weights_loaded": false
+  },
+  "physical_evidence": {
+    "exact_B_commit": "2f1fb24d417cf174804b939c826fa75e94921127",
+    "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/",
+    "manifest": "artifacts/ttm-abc/bc-sft/v2/MANIFEST_CANONICAL_LF.json",
+    "manifest_git_blob_sha1": "cba9f094d5d05787ffb50ffdef849049945bbfc8",
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "seven_verified_against_actual_github_utf8_file_bytes": 7,
+    "expected_count": 7,
+    "all_terminal_lf": true,
+    "all_no_crlf": true,
+    "sha256_selftest": "KNOWN_ABC_VECTOR_PASS",
+    "sha256": {
+      "tokenizer_sha256": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template_sha256": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs_sha256": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks_sha256": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels_sha256": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config_sha256": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema_sha256": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    }
+  },
+  "v2_accepted_names": {
+    "schema": "ttm.bc.synthetic.sft_pack.v2",
+    "checkpoint_schema": "ttm.bc.synthetic.sft_checkpoint.v2",
+    "checkpoint_meaning": "METADATA_ONLY_NOT_RESUMABLE_NO_WEIGHTS",
+    "chat_template_schema": "ttm.bc.synthetic.chat_template.v2",
+    "bridge_schema": "ttm.bc.c_string_to_b_bytes.v2",
+    "canonical": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2",
+    "v1_digest_reuse": false
+  },
+  "findings": {
+    "BC-F01": "PASS_C_SCOPED",
+    "BC-F02": "PASS_C_SCOPED",
+    "BC-F03": "PASS_C_SCOPED",
+    "BC-F04": "PASS_C_SCOPED"
+  },
+  "gates": {
+    "BC-0": "PASS_C_EXACT_SOURCE_CUSTODY_SCOPED",
+    "BC-1": "PASS_C_CODEC_BRIDGE_SCOPED",
+    "BC-2": "PASS_C_ROLE_MASK_CE_SCOPED",
+    "BC-3": "PASS_C_CPU_FORWARD_BACKWARD_SCOPED",
+    "BC-4": "PASS_C_SCHEMA_PHYSICAL_SHA_SCOPED",
+    "BC-5": "HOLD_DISTINCT_REVIEW_AND_PM_ADJUDICATION"
+  },
+  "A01_A15": "PASS_C_COMPATIBILITY_SCOPED",
+  "A16": "HOLD_FINAL_DISTINCT_QA",
+  "risks": [
+    "GENERIC_B_ORACLE_MAX_LEN_UP_TO_257_WHILE_MODEL_BOUND_INPUTS_MUST_BE_33",
+    "B_VERIFY_BUNDLE_MANIFEST_JSON_SYMLINK_NOT_EXPLICITLY_REJECTED"
+  ],
+  "B_G5_prior_pm": "PASS_ADJUDICATED_HARD_RESOURCE_ENGINEERING_SCOPED",
+  "B_G5_V3_historical": "HOLD_NATIVE_QA",
+  "B_G5_distinct_reviewer_dissent": "HOLD_PEAK_ACCOUNTING",
+  "B_G5_counter_unresolved": true,
+  "BC5_new_sft": "HOLD",
+  "C_verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED",
+  "full_BC_engineering_verdict": "HOLD_PENDING_DISTINCT_AND_PM_ADJUDICATION",
+  "source_qa_separate_from_science": true,
+  "flags": {
+    "B_branch_mutated_by_C": false,
+    "C_original_contract_mutated_by_review": false,
+    "main_changed": false,
+    "lineage_changed": false,
+    "merge": false,
+    "science": false,
+    "real_sft": false,
+    "gpu": false,
+    "owner_science_GO": false
+  },
+  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE"
+}
