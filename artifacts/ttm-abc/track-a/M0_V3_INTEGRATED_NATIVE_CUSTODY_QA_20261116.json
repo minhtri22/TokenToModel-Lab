@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.track_a.m0v3.integrated_native_source_and_real_custody.v1",
+  "date": "2026-11-16",
+  "operation": "A_M0_V3_INTEGRATED_REAL_FIXTURE_RUNNER_CUSTODY_NATIVE_AND_DISTINCT_I1_ADJUDICATION_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-track-a-small4m-diagnosis-20261116",
+  "stacked_pr": 33,
+  "base_pr": 28,
+  "historical_base_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+  "reviewed_source_commit": "639a662ef52d028d0b3f07234bdc6d0a5ed5be62",
+  "integration": {
+    "runner_path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+    "runner_sha256": "ccc4f496edbda23517c8efa6110b447eeab807d84a087b0284277670e78cc73d",
+    "scorer_path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py",
+    "scorer_sha256": "98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587",
+    "integration_points": [
+      "versioned fixture_generator",
+      "versioned validate_fixture",
+      "versioned case/group manifest",
+      "read_frozen_fixture compare to v3 regeneration",
+      "fixture-freeze v3 receipt",
+      "evaluate_goldblind_logits",
+      "guarded evaluate uses same v3 scorer",
+      "release remains fail-closed under historical I1 HOLD"
+    ],
+    "legacy_runner_branch_untouched": true,
+    "historical_fixture_sha256": "5f1234f583ccf719ca9f0e68de4f47d8b653af777271b8115c5f02307f764e5a",
+    "mock_fixture_sha256": "f696d20af567ba52dbb9187aba87092829b4da7f3974fbe062608659bd99e726"
+  },
+  "qa": {
+    "source_ci_run_id": 43895224590,
+    "source_ci_job_id": 133396827310,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43895224590",
+    "operating_system": "Windows Server 2022 GitHub-hosted",
+    "python_version": "3.12.10",
+    "powershell_51_compatibility": "PASS",
+    "powershell_51_onepack_parser": "PASS_NO_PRIVATE_EXECUTION",
+    "author_mock_source_checks": "PASS_10_10",
+    "integrated_adversarial_unit_tests": "PASS_27_27",
+    "guarded_runner_source_qa": "PASS_18_18",
+    "adversarial_negative_qa": "PASS_45_45",
+    "alternate_algorithmic_checker": "PASS_MOCK_LOGIC_NOT_DISTINCT_REVIEWER",
+    "native_job_object_memory_runtime_reexecuted": false,
+    "checkpoint_access": false,
+    "real_tokenizer_access": false,
+    "real_freeze_executed": false
+  },
+  "real_source_custody": {
+    "windows_host": "DESKTOP-4PSD0G2",
+    "original_t1_manifest_relative_path": "_tmp/ttm_t1_real_source_v1/T1_BPE2048_REAL_TRAIN_MANIFEST.json",
+    "source_file_observed_by_read_only_directory_listing": true,
+    "original_bpe_source_sha256_expected": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "bytes_read_and_sha_verified_this_operation": false,
+    "private_fixture_records_generated": false,
+    "real_fixture_sha256": null,
+    "public_real_fixture_evidence_committed": false,
+    "execution_blocker": "REMOTE_MANAGED_TASK_BINDING_UNAVAILABLE",
+    "observed_errors": [
+      "run_command: managed mode requires task_job_submit",
+      "project_register: paired execution devices require project_register_on_device",
+      "project_register_on_device: remote project kind changed"
+    ],
+    "onepack_path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1",
+    "onepack_scope": "PREPARED_STATIC_QA_ONLY_NOT_EXECUTED",
+    "private_token_ids_exposed_to_github": false
+  },
+  "adjudication": {
+    "I1": "HOLD_I1_PENDING_DISTINCT_REVIEW_AND_REAL_CUSTODY",
+    "distinct_agent_reviewer": "NOT_EXECUTED",
+    "reason": "Real-source fixture freeze and distinct reviewer have not completed; historical release guard still refers to prior HOLD verdict",
+    "I2": "NOT_EXECUTED",
+    "model_forward": false,
+    "optimizer_steps": 0,
+    "one_shot_nonce_claimed": false,
+    "merge": false,
+    "lineage_modified": false
+  }
+}
