@@ -576,6 +576,7 @@ def run(args):
     src=Path(__file__).resolve()
     root=Path(args.root).resolve()
     checkpoint=Path(args.checkpoint).resolve()
+    fixture_dir=Path(args.fixture_dir).resolve()
     require_hard_job()
     for check_path in (src, checkpoint, fixture_dir, Path(args.out)):
         exact_scoped_path(root, check_path)

@@ -20,7 +20,7 @@ if (-not $RunnerPath) {$RunnerPath=$PinnedRunner}
 if ([IO.Path]::GetFullPath($RunnerPath) -ine $PinnedRunner) {throw 'HOLD_RUNNER_PATH_NOT_PINNED'}
 if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_RUNNER_PIN_FORMAT'}
 if ($ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_WATCHDOG_PIN_FORMAT'}
-if ($ExpectedRunnerSHA256 -cne '8801854f864a2c509a51f462bbd48ab659136007a45bb9f7740cb812d521b188') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
+if ($ExpectedRunnerSHA256 -cne '1a42cebd00b79031655316d23f1992f1669227d8becdf784936a5a3cc7405916') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
 if ($ExpectedWatchdogSHA256 -cne 'd80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c') {throw 'HOLD_WATCHDOG_PIN_NOT_REVIEWED'}
 $WatchdogModule=Join-Path $PSScriptRoot 'Watch-TTM-SM4M-ProcessTree-PS51.ps1'
 if (-not (Test-Path -LiteralPath $WatchdogModule -PathType Leaf)) {throw 'HOLD_WATCHDOG_MODULE_MISSING'}
