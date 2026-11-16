@@ -24,6 +24,7 @@ QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
 RELEASE_GUARD_GIT_BLOB = '273cc989d5e94ae7a8e58c08a709cf7dd8229ab2'
+RSS_MODULE_GIT_BLOB = '51748fb86184ec8dd9de51211b3173514255c159'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -552,13 +553,16 @@ def run(args):
     admission=signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest,root=root)
     if not checkpoint.is_file() or checkpoint.stat().st_size!=MODEL_SIZE or sha256_file(checkpoint)!=MODEL_SHA:
         stop('CHECKPOINT_PRIVATE_BYTES_MISMATCH')
-    import psutil
-    process=psutil.Process(os.getpid())
+    # Stdlib Windows RSS replaces optional psutil, with Git blob custody.
+    rss_module = src.with_name('windows_rss_native.py')
+    if not rss_module.is_file() or git_blob(rss_module) != RSS_MODULE_GIT_BLOB:
+        stop('WINDOWS_RSS_NATIVE_MODULE_NOT_PINNED')
+    from windows_rss_native import current_process_rss_bytes
     begin=time.monotonic()
     peak_rss=0
     def resource_guard():
         nonlocal peak_rss
-        peak_rss=max(peak_rss,process.memory_info().rss)
+        peak_rss=max(peak_rss,current_process_rss_bytes())
         if time.monotonic()-begin>WALL_SECONDS:
             stop('RESOURCE_WALL_TIME_900S')
         if peak_rss>MEMORY_BYTES:
