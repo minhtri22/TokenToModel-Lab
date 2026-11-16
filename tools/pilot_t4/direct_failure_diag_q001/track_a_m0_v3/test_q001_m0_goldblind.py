@@ -144,5 +144,30 @@ class M0AdversarialTests(unittest.TestCase):
             "full_vocab_top1_correct"] for r in self.rows), 0)
 
 
+    def test_15_candidate_only_cannot_replace_full_vocab(self):
+        r = next(r for r in self.rows if r["group"] == "TRAIN"
+                 and r["gold"] != r["no_answer"])
+        logits = [0.0] * VOCAB
+        logits[r["gold"]] = 4.0
+        logits[0] = 9.0  # outside the public MOCK allowed-ID pool
+        s = score_logits(logits, r)
+        self.assertTrue(s["candidate_only_top1_correct_secondary"])
+        self.assertFalse(s["full_vocab_top1_correct"])
+        self.assertEqual(s["full_vocab_gold_rank"], 2)
+
+    def test_16_unseen_random_candidate_pool_does_not_inject_gold(self):
+        for r in self.rows:
+            varied = copy.deepcopy(r)
+            varied["value_pool"] = list(range(900, 940))
+            varied["choices"] = candidates_from_visible(
+                varied["context"], varied["no_answer"], varied["value_pool"])
+            self.assertEqual(len(set(varied["choices"])), 4)
+            self.assertIn(r["gold"], varied["choices"])
+            self.assertEqual(varied["choices"], candidates_from_visible(
+                varied["context"], varied["no_answer"], varied["value_pool"]))
+            self.assertTrue(score_logits([0.0] * VOCAB, varied)[
+                "candidate_tie_abstained"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
