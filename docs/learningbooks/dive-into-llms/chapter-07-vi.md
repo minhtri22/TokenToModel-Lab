@@ -1,8 +1,10 @@
-# Chương 07: Giấu tin trong văn bản sinh
+> **Ranh giới:** Đây là ghi chú học thuật do trợ lý tổng hợp từ chủ đề của giáo trình nguồn; chưa phải dịch toàn văn, không được dùng làm nguồn chứng minh năng lực hoặc thành công của bất kỳ dự án nghiên cứu nào.
+
+# Ghi chú học tập — Chương 07: Giấu tin trong văn bản sinh
 
 **Tài liệu học tập tiếng Việt viết mới (original Vietnamese study guide), không phải bản dịch nguyên văn.**  
 **Nguồn đối chiếu:** [upstream chương 7](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0/documents/chapter7) · **Commit nguồn:** `f84c04268794ef94f8949808bbc14ab8636763a0`  
-**Mức liên quan:** Tham khảo · **Trạng thái:** `VI_STUDY_GUIDE_AUTHORED / SOURCE_NOTE_ONLY / NO_SCIENCE`
+**Phân loại:** Ghi chú kiến thức học tập độc lập, không suy diễn từ nghiên cứu đang tiến hành · **Trạng thái:** `STUDY_NOTES_ONLY / NOT_FULL_TRANSLATION / NOT_SCIENCE`
 
 ## Bài học cốt lõi
 Steganography (giấu tin) là việc che giấu sự tồn tại của thông điệp trong một vật mang trông bình thường. Trong mô hình ngôn ngữ, lựa chọn token có thể mang các bit phụ nếu người gửi và người nhận chia sẻ quy tắc mã hóa. Điều này khác với encryption: mã hóa làm nội dung khó đọc, còn giấu tin làm tín hiệu khó bị nhận ra.
@@ -14,10 +16,6 @@ Gọi `B` là số bit giấu và `T` là số token văn bản, tỷ lệ paylo
 
 ## Tình huống minh họa
 Một phương án giả định nhúng bit bằng lựa chọn giữa hai từ đồng nghĩa. Phân tích nguyên nhân thất bại nếu paraphrase đổi từ hoặc bộ từ vựng không chứa cặp hợp lệ. Không cần sinh văn bản thật để chứng minh thí nghiệm giả định có failure mode.
-
-## Quan hệ với dự án
-**TTM:** là kiến thức bổ trợ để hiểu decoding distribution, tính bất biến và giám sát đầu ra. Không đề nghị thêm kênh giấu tin vào TTM.
-**CLDP:** không liên quan trực tiếp tới functional equivalence của Phase3F-R. Có thể sử dụng như một ví dụ về hidden state bị mất đồng bộ, với chú thích rõ đây chỉ là phép tương tự.
 
 ## Tự kiểm tra
 1. Giấu tin và watermark giống/khác nhau ở đâu?

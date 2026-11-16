@@ -1,8 +1,10 @@
-# Chương 01: Tinh chỉnh và triển khai mô hình
+> **Ranh giới:** Đây là ghi chú học thuật do trợ lý tổng hợp từ chủ đề của giáo trình nguồn; chưa phải dịch toàn văn, không được dùng làm nguồn chứng minh năng lực hoặc thành công của bất kỳ dự án nghiên cứu nào.
+
+# Ghi chú học tập — Chương 01: Tinh chỉnh và triển khai mô hình
 
 **Tài liệu học tập tiếng Việt viết mới (original Vietnamese study guide), không phải bản dịch nguyên văn.**  
 **Nguồn đối chiếu:** [upstream chương 1](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0/documents/chapter1) · **Commit nguồn:** `f84c04268794ef94f8949808bbc14ab8636763a0`  
-**Mức liên quan:** TTM · **Trạng thái:** `VI_STUDY_GUIDE_AUTHORED / SOURCE_NOTE_ONLY / NO_SCIENCE`
+**Phân loại:** Ghi chú kiến thức học tập độc lập, không suy diễn từ nghiên cứu đang tiến hành · **Trạng thái:** `STUDY_NOTES_ONLY / NOT_FULL_TRANSLATION / NOT_SCIENCE`
 
 ## Bài học cốt lõi
 Một hệ thống dùng mô hình ngôn ngữ có tối thiểu năm phần khác nhau: nguồn dữ liệu, bộ chuyển thành token, mô hình, thuật toán tối ưu và giao thức đánh giá. Khi huấn luyện hoặc tinh chỉnh (fine-tuning), kết quả chịu tác động đồng thời của tất cả các phần này. Không nên suy luận “kiến trúc tốt hơn” chỉ vì một cấu hình được huấn luyện lâu hơn hoặc được cấp dữ liệu dễ hơn.
@@ -17,11 +19,7 @@ Loss token dự đoán tiếp theo thường có dạng:
 Cần xác định token bị mask, padding và cách cộng mẫu số N trước khi so sánh. Hai con số “loss” tính trên cách mask khác nhau không có giá trị đối chứng trực tiếp.
 
 ## Ví dụ tự học, không chạy mô hình
-Tạo một bảng gồm các cột `item_id`, `source_id`, `group_id`, `split`, `license_status`, `token_count`, `mask_policy`. Viết bằng lời ba trường hợp mà một hàng dữ liệu không được vào tập đánh giá: thiếu quyền dùng, trùng nhóm với TRAIN, và sai cấu trúc nhãn. Đây là bài tập phân tích hồ sơ, không tạo gold hay dataset cho TTM.
-
-## Ứng dụng với TTM/CLDP
-**TTM:** dùng để tách lỗi nguồn dữ liệu, loss, tokenizer, trainer và cách tính metric. Trước khi chọn SFT, phải trả lời liệu cơ chế đang dùng đã được kiểm tra với baseline cân bằng ngân sách hay chưa.
-**CLDP:** giữ mô hình chức năng Layered Blackboard; chỉ mượn ý tưởng “pipeline contract” và “đánh giá trên tập giữ lại” chứ không nhập transformer vào mô hình trạng thái.
+Tạo một bảng gồm các cột `item_id`, `source_id`, `group_id`, `split`, `license_status`, `token_count`, `mask_policy`. Viết bằng lời ba trường hợp mà một hàng dữ liệu không được vào tập đánh giá: thiếu quyền dùng, trùng nhóm với TRAIN, và sai cấu trúc nhãn. Đây là bài tập phân tích hồ sơ, không tạo dữ liệu hay gold thực nghiệm.
 
 ## Câu hỏi tự kiểm tra
 1. Vì sao TRAIN loss giảm nhưng TEST không đổi?

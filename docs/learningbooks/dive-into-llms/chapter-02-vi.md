@@ -1,8 +1,10 @@
-# Chương 02: Prompting và chuỗi suy luận
+> **Ranh giới:** Đây là ghi chú học thuật do trợ lý tổng hợp từ chủ đề của giáo trình nguồn; chưa phải dịch toàn văn, không được dùng làm nguồn chứng minh năng lực hoặc thành công của bất kỳ dự án nghiên cứu nào.
+
+# Ghi chú học tập — Chương 02: Prompting và chuỗi suy luận
 
 **Tài liệu học tập tiếng Việt viết mới (original Vietnamese study guide), không phải bản dịch nguyên văn.**  
 **Nguồn đối chiếu:** [upstream chương 2](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0/documents/chapter2) · **Commit nguồn:** `f84c04268794ef94f8949808bbc14ab8636763a0`  
-**Mức liên quan:** TTM · **Trạng thái:** `VI_STUDY_GUIDE_AUTHORED / SOURCE_NOTE_ONLY / NO_SCIENCE`
+**Phân loại:** Ghi chú kiến thức học tập độc lập, không suy diễn từ nghiên cứu đang tiến hành · **Trạng thái:** `STUDY_NOTES_ONLY / NOT_FULL_TRANSLATION / NOT_SCIENCE`
 
 ## Bài học cốt lõi
 Prompting là cách đóng gói yêu cầu tại thời điểm suy luận; nó không đồng nhất với học tham số. Zero-shot chỉ mô tả nhiệm vụ, few-shot thêm ví dụ trong ngữ cảnh. Chain-of-Thought (CoT) yêu cầu biểu diễn các bước trung gian. Một thay đổi prompt có thể tăng điểm đo mà không chứng minh mạng đã học một cơ chế suy luận mới.
@@ -19,10 +21,6 @@ Self-consistency (nhiều mẫu và bỏ phiếu) tăng chi phí lấy mẫu; ph
 
 ## Phân tích shortcut
 Mô hình có thể đoán bằng tín hiệu bề mặt. Đề xuất ba loại kiểm tra: đổi tên thực thể nhưng giữ logic, đảo thứ tự dữ kiện, và tạo cặp phản thực tế (counterfactual) cùng độ dài. Không dùng một ví dụ đơn lẻ để khẳng định tổng quát hóa.
-
-## Ứng dụng với TTM/CLDP
-**TTM:** phù hợp với câu hỏi liệu Small4M không tuân thủ prompt do template, dữ liệu, objective hay năng lực. Đầu ra chỉ để thiết kế đối chứng; gate P0-A hiện vẫn `CLOSED_HOLD_EVIDENCE_INSUFFICIENT`.
-**CLDP:** phép tương tự là phân biệt giao thức yêu cầu với khả năng xử lý trạng thái; không biến CoT thành benchmark chứng minh compositional intelligence.
 
 ## Tự kiểm tra
 1. Zero-shot khác few-shot ở đâu?

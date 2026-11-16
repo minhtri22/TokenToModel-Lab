@@ -1,3 +1,5 @@
+> **Sửa phạm vi:** Tài liệu tự học độc lập; TTM và CLDP chưa chứng minh năng lực tổng thể. Không được coi 11 ghi chú là kết quả nghiên cứu hoặc 11 bản dịch hoàn chỉnh.
+
 # Checklist kiểm kê và hoàn thành — 2026-11-16
 
 **Nguồn khóa:** [`f84c04268794ef94f8949808bbc14ab8636763a0`](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0)  
@@ -17,7 +19,7 @@
 - [x] Chương 10 — [An toàn hệ thống tác nhân](chapter-10-vi.md)
 - [x] Chương 11 — [RLHF và tối ưu chính sách bằng PPO](chapter-11-vi.md)
 
-**Số chương chưa có giáo trình Việt viết mới: 0/11.** Tuy nhiên đây **không phải** 11 bản dịch đầy đủ của README upstream.
+**Số chương chưa có ghi chú tự học tiếng Việt: 0/11.** Đây **không phải** bản dịch đầy đủ README upstream, không phải sách từ kết quả TTM/CLDP.
 
 ## 2. Checklist chuyển ngữ nguyên văn theo loại tài sản
 
@@ -34,7 +36,7 @@
 ## 3. QA đã thực hiện và chưa thực hiện
 
 - [x] Đã đối chiếu danh mục upstream từ Git tree exact commit.
-- [x] Đã biên soạn 11 bài học tiếng Việt mới, có khái niệm, ví dụ và liên hệ TTM/CLDP.
+- [x] Đã biên soạn 11 ghi chú học tập tiếng Việt tự biên soạn về 11 chủ đề từ upstream, không có kết luận về TTM/CLDP.
 - [x] Bản thảo giữ nhánh tài liệu; không sửa `main`, `lineage.md`, code khoa học, frozen checkpoints.
 - [ ] Independent reviewer kiểm chứng tính chính xác và đầy đủ của 11 bài.
 - [ ] Bản dịch nguyên văn PDF/README/notebook từng file và quyền tái phân phối bản dịch (nếu muốn xuất bản).

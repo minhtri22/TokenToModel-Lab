@@ -1,8 +1,10 @@
-# Chương 09: Tác nhân điều khiển giao diện
+> **Ranh giới:** Đây là ghi chú học thuật do trợ lý tổng hợp từ chủ đề của giáo trình nguồn; chưa phải dịch toàn văn, không được dùng làm nguồn chứng minh năng lực hoặc thành công của bất kỳ dự án nghiên cứu nào.
+
+# Ghi chú học tập — Chương 09: Tác nhân điều khiển giao diện
 
 **Tài liệu học tập tiếng Việt viết mới (original Vietnamese study guide), không phải bản dịch nguyên văn.**  
 **Nguồn đối chiếu:** [upstream chương 9](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0/documents/chapter9) · **Commit nguồn:** `f84c04268794ef94f8949808bbc14ab8636763a0`  
-**Mức liên quan:** Agent Orchestrator · **Trạng thái:** `VI_STUDY_GUIDE_AUTHORED / SOURCE_NOTE_ONLY / NO_SCIENCE`
+**Phân loại:** Ghi chú kiến thức học tập độc lập, không suy diễn từ nghiên cứu đang tiến hành · **Trạng thái:** `STUDY_NOTES_ONLY / NOT_FULL_TRANSLATION / NOT_SCIENCE`
 
 ## Bài học cốt lõi
 GUI agent phải ánh xạ quan sát màn hình và lịch sử thao tác thành một hành động có thể thực hiện. Sai khác giữa “đề xuất hành động” và “đã thực hiện thành công” là cực kỳ quan trọng. Phải xác minh hậu điều kiện (postcondition) sau thao tác, tránh biến điểm confidence do model tự sinh thành xác suất thành công đã hiệu chuẩn.
@@ -18,10 +20,5 @@ Một vòng an toàn có các trạng thái: quan sát → mô tả mục tiêu 
 ## Bài tập điều phối
 Một agent đề xuất bấm nút “Lưu” khi cửa sổ chưa bật. Xác định failure mode và đề xuất cách báo `BLOCK_STALE_OBSERVATION` thay vì âm thầm nhấn lại. So sánh với tình huống có quyền nhưng thao tác đổi dữ liệu cần confirmation.
 
-## Liên hệ dự án
-**Agent Orchestrator / CMH / RemoteMCP:** chương này quan trọng vì cần session isolation, action allowlist, idempotency, evidence retention và readback. Hình ảnh GUI chỉ là đầu vào; quyết định kiểm toán phải dựa trên trace thực.
-**TTM:** hiện chỉ là tài liệu ứng dụng mô hình, không là phép đo reasoning của Small4M.
-**CLDP:** tương đồng với kiểm soát trạng thái, nhưng không chứng minh cùng thuật toán.
-
 ## Ranh giới
-Không mở phiên GUI, không nhấn hành động, không chạy tác vụ qua RemoteMCP ở bước học tập. Không coi successful screenshot là kết quả khoa học.
+Không mở phiên GUI, không nhấn hành động, không chạy tác vụ qua công cụ kết nối ở bước học tập. Không coi successful screenshot là kết quả khoa học.

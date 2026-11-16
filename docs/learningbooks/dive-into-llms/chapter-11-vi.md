@@ -1,8 +1,10 @@
-# Chương 11: RLHF và tối ưu chính sách bằng PPO
+> **Ranh giới:** Đây là ghi chú học thuật do trợ lý tổng hợp từ chủ đề của giáo trình nguồn; chưa phải dịch toàn văn, không được dùng làm nguồn chứng minh năng lực hoặc thành công của bất kỳ dự án nghiên cứu nào.
+
+# Ghi chú học tập — Chương 11: RLHF và tối ưu chính sách bằng PPO
 
 **Tài liệu học tập tiếng Việt viết mới (original Vietnamese study guide), không phải bản dịch nguyên văn.**  
 **Nguồn đối chiếu:** [upstream chương 11](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0/documents/chapter11) · **Commit nguồn:** `f84c04268794ef94f8949808bbc14ab8636763a0`  
-**Mức liên quan:** TTM · **Trạng thái:** `VI_STUDY_GUIDE_AUTHORED / SOURCE_NOTE_ONLY / NO_SCIENCE`
+**Phân loại:** Ghi chú kiến thức học tập độc lập, không suy diễn từ nghiên cứu đang tiến hành · **Trạng thái:** `STUDY_NOTES_ONLY / NOT_FULL_TRANSLATION / NOT_SCIENCE`
 
 ## Bài học cốt lõi
 Reinforcement Learning from Human Feedback (RLHF) gồm ít nhất ba khối phải tách: thu thập preference/feedback, xây dựng tín hiệu reward, và tối ưu policy. PPO là một thuật toán RL dùng cập nhật có kiểm soát; thuật toán PPO không tự tạo ra gold đúng, không tự khắc phục dữ liệu preference sai lệch.
@@ -20,10 +22,6 @@ Nhưng việc giới hạn cập nhật không đảm bảo policy an toàn hay 
 
 ## Bài tập trên giấy
 Một reward model cho điểm cao câu trả lời dài, bất kể đáp án. Xây dựng negative control gồm hai câu trả lời: đáp án đúng ngắn và đáp án sai dài. Hãy giải thích vì sao reward ranking có thể ngược accuracy và tại sao cần independent rater.
-
-## Liên hệ TTM/CLDP
-**TTM:** chỉ cân nhắc RLHF khi đủ nguồn preference, quyền sử dụng, rater agreement, budget, matched baseline và stop rule. Không đề xuất PPO trực tiếp cho Small4M lúc gold/rater vẫn HOLD.
-**CLDP:** không nhập PPO vào Mealy8 chỉ vì thấy từ “reinforcement”. Chỉ giữ bài học về objective misalignment và kiểm tra shortcut.
 
 ## Tự kiểm tra
 1. Reward và gold có cùng vai trò không?
