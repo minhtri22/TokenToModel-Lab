@@ -146,5 +146,19 @@
     "pr_draft": true,
     "merge": false,
     "lineage_modified": false
-  }
+  },
+  "current_authoritative_i1": {
+    "verdict": "I1_PASS_SCOPED_MEASUREMENT",
+    "exact_source_sha": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "independent_review_evidence_sha": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+    "applies_to": "M0_V3_MEASUREMENT_ONLY",
+    "does_not_authorize_i2": true
+  },
+  "current_release_preflight": {
+    "status": "HOLD",
+    "exit_code": 2,
+    "reason": "HOLD_OWNER_INTERNAL_I1_NOT_PASS",
+    "release_not_authorized": true
+  },
+  "I2": "NOT_EXECUTED"
 }
