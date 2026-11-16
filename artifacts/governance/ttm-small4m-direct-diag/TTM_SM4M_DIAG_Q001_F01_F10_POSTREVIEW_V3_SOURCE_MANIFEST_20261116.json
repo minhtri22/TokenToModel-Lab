@@ -1,0 +1,133 @@
+{
+  "schema": "ttm.sm4m.diag.q001.f01_f10_postreview_integrated_source_manifest.v3",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "baseline_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "distinct_reviewed_remediation_head": "18fabe4255823e573b7ab5156974310eab8e71d9",
+  "distinct_review_evidence_head": "0deff11241ec588fdab5410425937f1ca96a357a",
+  "branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "scope": "ONE_INTEGRATED_F01_F10_SOURCE_CORRECTION_NO_SCIENCE",
+  "files": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "git_blob_sha1": "cbaab1556dec7059acba2139a0bae25149adfc61",
+      "sha256": "c0552b0dd55f671db93f4e64924877aaadf084243df1cefd04660b26721b70b8",
+      "size_utf8_bytes": 33688,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "git_blob_sha1": "66461481f05c19b89f7ae928719dd78b7db2768c",
+      "sha256": "30515fa475b283bcd3d713391bd947c54bb63e60986f35c1e67a2cec239b5eb1",
+      "size_utf8_bytes": 6260,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "git_blob_sha1": "20129b81cb32595b1639e6b6aa714109cc50fa01",
+      "sha256": "334b91e07e1eaccf97a1dd6a60758557143a46ad1161dac57b1c6c5caa44d9db",
+      "size_utf8_bytes": 3728,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "git_blob_sha1": "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+      "sha256": "c18ea2097b837eaefb8dddcc4008ac751b75517fca7816f50ad0840ee16cc47e",
+      "size_utf8_bytes": 5114,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1",
+      "git_blob_sha1": "210368daa8090a6b00219976979709951e0a5391",
+      "sha256": "ad589fadbd4d0fa8e801f00757a109c2d3a72f9a9126b4ef8765bb6e91d8cda2",
+      "size_utf8_bytes": 4419,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+      "git_blob_sha1": "dd97ec53c022a3b529c48739250629248f0bb481",
+      "sha256": "d9a0408a06c5322f752348a08e45669802ffb10b356ee9dd44464aec7fb8c3fb",
+      "size_utf8_bytes": 10527,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "git_blob_sha1": "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+      "sha256": "47d12e0248830518584ffb8e9af44323f418214234568411bfbde192f274f623",
+      "size_utf8_bytes": 8884,
+      "origin": "CURRENT_V3_REMEDIATION"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "git_blob_sha1": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "size_utf8_bytes": 1432,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+      "git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "size_utf8_bytes": 8160,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "size_utf8_bytes": 4959,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "size_utf8_bytes": 1938,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "size_utf8_bytes": 1335,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "size_utf8_bytes": 1156,
+      "origin": "HISTORICAL_UNMODIFIED_SOURCE"
+    }
+  ],
+  "author_source_readback": {
+    "sha256_implementation": "JS_FIPS180_4_SOFTWARE_IN_MEMORY",
+    "sha256_selftest_abc": "PASS",
+    "github_blob_checks": 13,
+    "blob_sha1_pins_verified_from_fetch_file": 13,
+    "native_python_qa": "NOT_EXECUTED",
+    "native_windows_ps51": "NOT_EXECUTED",
+    "mock_qa_v3": "NOT_EXECUTED",
+    "model_run": false
+  },
+  "adjudication": {
+    "candidate_source": "REMEDIATED_NEEDS_DISTINCT_SOURCE_AND_NATIVE_NEGATIVE_QA",
+    "i1_release": "HOLD_I1",
+    "i2": "NOT_EXECUTED",
+    "owner_conditional_go": "PRESERVED",
+    "checkpoint_and_tokenizer_rights": "NOT_VERIFIED",
+    "external_trust_anchors": "EMPTY_FAIL_CLOSED",
+    "actual_fixture_frozen": false
+  },
+  "frozen_constraints": {
+    "train": 24,
+    "nontrain": 56,
+    "step_cap": 256,
+    "seed": 20261116,
+    "wall_seconds": 900,
+    "rss_gib": 12,
+    "output_gib": 1
+  },
+  "research_lineage_modified": false
+}
