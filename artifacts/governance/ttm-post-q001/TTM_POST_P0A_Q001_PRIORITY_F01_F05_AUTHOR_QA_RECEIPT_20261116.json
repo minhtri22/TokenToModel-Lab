@@ -23,11 +23,11 @@
     },
     "original_review": {
       "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.md",
-      "git_blob": "e72ffeb1190ad92778fd1d4d2ff17297b6b333e2"
+      "git_blob": "dcbd3f32a6c4d473efad9e4d080385a3f6d20ef5"
     },
     "original_review_receipt": {
       "path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.json",
-      "git_blob": "19b25b92417488b228b7926df306fbfc9986c9bd"
+      "git_blob": "b41123bc8148554c2ebd9fc8a9936613336e30a9"
     },
     "original_author_qa": {
       "path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_AUTHOR_QA_RECEIPT_20261116.json",
@@ -35,7 +35,7 @@
     },
     "remediation_report": {
       "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_F01_F05_INTEGRATED_SOURCE_REMEDIATION_20261116.md",
-      "git_blob": "90c8293cdc452792acc745055c6de58aac758c9d"
+      "git_blob": "64cec2e45bc2a04e8349245cfd37a23f5f073dce"
     }
   },
   "source_manifest": [
@@ -305,5 +305,22 @@
   "new_research_branch": false,
   "lineage_changed": false,
   "main_changed": false,
-  "next_single_gate": "TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE"
+  "next_single_gate": "TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE",
+  "custody_erratum": {
+    "issue": "files.read text omitted final LF from initial archive of two uploaded attachments",
+    "resolution": "Both original uploaded files restored exact LF and Git blob hashes computed from original bytes",
+    "initial_git_blobs": [
+      "e72ffeb1190ad92778fd1d4d2ff17297b6b333e2",
+      "19b25b92417488b228b7926df306fbfc9986c9bd"
+    ],
+    "corrected_git_blobs": [
+      "dcbd3f32a6c4d473efad9e4d080385a3f6d20ef5",
+      "b41123bc8148554c2ebd9fc8a9936613336e30a9"
+    ],
+    "original_uploaded_sha256": [
+      "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+      "0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926"
+    ],
+    "status": "PASS_EXACT_UPLOADED_BYTES"
+  }
 }
