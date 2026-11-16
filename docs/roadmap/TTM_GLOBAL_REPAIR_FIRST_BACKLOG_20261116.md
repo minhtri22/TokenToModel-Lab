@@ -4,13 +4,16 @@
 
 **Thứ tự:** P0=chẩn đoán đúng Small-4M, P1=bug/custody/measurement baseline, P2=data/posttrain/inference chuẩn, P3=architecture/scaling/serving. **P3 không được khởi chạy trước khi quyết định R1/R2/R3 có evidence.** `OPEN` và `DESIGN_ONLY` không có nghĩa đã được cấp phép khoa học. P0 I2 chỉ chạy nếu I1 thật PASS theo conditional GO đã ghi.
 
+> **RF-00 cập nhật evidence 16/11/2026 (không mở phase):** PR #28 đã ghi native Windows 16/16 và Job Object hard committed-memory/owner-internal/byte custody theo receipt, nhưng independent no-model reproduction khớp fixture SHA `5f1234f5...` và chứng minh **gold-dependent restricted scorer: constant logits 80/80, context-blind 15/16 recombined và 16/16 novel/counterfactual**. Vì vậy RF-00 hiện **`HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE`**, I2 chưa chạy và nonce chưa tiêu thụ. [Independent review và một kế hoạch sửa scorer tích hợp](https://github.com/minhtri22/TokenToModel-Lab/blob/evidence/ttm-rf00-independent-scorer-adjudication-20261116/docs/governance/ttm-small4m-direct-diag/TTM_RF00_DISTINCT_SCORER_CUSTODY_AND_I1_HOLD_REVIEW_20261116.md). **Không lặp QA native không đổi.** Khi sửa scorer phải bảo toàn Q001/fixture/receipt gốc, ghi amendment versioned, hard-negative controls và một I1 re-review; không mở micro-permit.
+
+
 **Kiểu ticket:** `HISTORICAL BUG / SCOPED FIX` = lỗi lịch sử có sửa scoped, không tự coi còn hỏng; `HYPOTHESIS` = chưa tái hiện; `EVIDENCE GAP` = cần đo/đọc nguồn; `MISSING FEATURE` = chưa được triển khai; `HOLD kỹ thuật` = blocker có căn cứ. Chi phí L=source/CPU synthetic, M=native CPU/T4 hữu hạn, H=GPU/multi-arm/large-scale; là phân loại tương đối **không phải USD đo thật**. Checkpoint enum chỉ định tính tương thích, không tự xác nhận chạy.
 
 ## Ma trận ưu tiên tóm tắt
 
 | ID | Prio | Type | State | Action / bug hypothesis | Dependency | Cost |
 |---|---|---|---|---|---|---|
-| [RF-00](#rf-00) | P0 | HOLD kỹ thuật | `BLOCKED_I1` | Q001 last-mile: single owner admission + native hard-memory guard | none | M (native no-model) |
+| [RF-00](#rf-00) | P0 | HOLD kỹ thuật | `HOLD_I1_SCORER_LABEL_LEAKAGE` | Q001 last-mile: single owner admission + native hard-memory guard | none | M (native no-model) |
 | [RF-01](#rf-01) | P0 | EVIDENCE GAP | `WAIT_RF-00` | Checkpoint/tokenizer/80-case exact-custody + I2 once | RF-00 | M (one CPU run, conditional) |
 | [RF-02](#rf-02) | P1 | HYPOTHESIS | `WAIT_RF-01` | Phân loại lỗi mô hình theo failure-tree, không đoán kiến trúc | RF-01 | L (read receipt) |
 | [RF-03](#rf-03) | P1 | EVIDENCE GAP | `OPEN_SOURCE_ONLY` | Bản đồ quyền nguồn dataset theo hành động | none | L |
@@ -50,7 +53,7 @@
 
 **Công việc:** Q001 last-mile: single owner admission + native hard-memory guard
 
-**Ưu tiên:** P0 · **Phase:** Small-4M · **Loại:** HOLD kỹ thuật · **State:** `BLOCKED_I1` · **Chi phí:** M (native no-model) · **Checkpoint:** `EXACT_NO_WEIGHT_CHANGE`.
+**Ưu tiên:** P0 · **Phase:** Small-4M · **Loại:** HOLD kỹ thuật · **State:** `HOLD_I1_SCORER_LABEL_LEAKAGE` · **Chi phí:** M (native no-model) · **Checkpoint:** `EXACT_NO_WEIGHT_CHANGE`.
 
 - **Nghi vấn/khoảng trống:** Mã owner-internal/Win32 Job Object mới chưa native-qualified và wrapper hard-cap chưa gắn I2.
 - **Test tái hiện / phản chứng:** Python3.12/PS5.1 exact current PR28 HEAD; negative wrong-root/host/nonce/hash/expiry, process-tree leaks, memory pressure, no-model.
