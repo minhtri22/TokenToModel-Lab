@@ -1,0 +1,46 @@
+{
+  "schema": "ttm.bc.c_part_b.v2_schema_source_alignment_readback.v1",
+  "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "date": "2026-11-17",
+  "evidence_scope": "C_SOURCE_SCHEMA_SIGNOFF_AND_C_AUTHOR_ORACLE_CI_ONLY; NOT_FULL_C_PART_B_NATIVE_ACCEPTANCE",
+  "b_tested_exact_code": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+  "b_author_ci": "43918069534",
+  "b_author_ci_status": "SUCCESS_29_PLUS_24_PLUS_C_EXACT18_ON_WINDOWS_AND_LINUX",
+  "b_latest_evidence_head_before_this_addendum": "4916ceba6e58626511e849de2216374639093945",
+  "b_pr": 36,
+  "c_pr": 35,
+  "c_source_signoff_head": "66c9b92a30cd403aa909528008ffaa6d83286285",
+  "c_source_report": "docs/research/ttm-abc/track-c/BC_SFT_F01_F04_C_PART_B_REVIEW_AND_V2_ACCEPTANCE_20261117.md",
+  "c_source_report_git_blob": "f5bfb63d925427edffc7706cf96c3f9bec707efb",
+  "c_source_receipt": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_SOURCE_REVIEW_RECEIPT_20261117.json",
+  "c_source_receipt_git_blob": "b2698027608fe627e95e14b2011cec33b6303274",
+  "c_source_verdict": "C_V2_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED_B_IDENTIFIERS_ACCEPTED",
+  "c_identifiers": {
+    "pack": "ttm.bc.synthetic.sft_pack.v2",
+    "checkpoint_metadata": "ttm.bc.synthetic.sft_checkpoint.v2",
+    "canonical": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2"
+  },
+  "c_exact_source_oracle_ci": {
+    "id": 43918786173,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43918786173",
+    "conclusion": "success",
+    "tests": "18/18_each",
+    "windows": "Python3.12.10",
+    "ubuntu": "Python3.12.16",
+    "scope": "C_OWN_ORACLE_ONLY_NO_B_MODEL"
+  },
+  "actual_B_seven_byte_source": "GitHub committed 7 JSON+manifest byte-identical to both Linux/Windows original CI artifacts; see BC_F01_F04_V2_AUTHOR_CI_AND_BYTE_CUSTODY_RECEIPT_20261117.json",
+  "C_advisories": [
+    "Generic text serialization max_len allows up to 257 for reference C tests; P02 model-bound artifact path is frozen to MAX_MODEL_CONTEXT=32 and max_len=33; no science dispatch.",
+    "Source review asks explicit manifest symlink guard; full threat model and distinct QA pending; no production admission."
+  ],
+  "final_C_part_b_cross_execution": "NOT_EXECUTED_BY_DISTINCT_C_REVIEWER_NEW_C_AUTHOR_ORACLE_ONLY",
+  "distinct_B_C_new_head_review": "NOT_EXECUTED",
+  "B_M3_Prior_PM": "PASS_ENGINEERING_BASELINE_SCOPED_WITH_PEAK_ACCOUNTING_DISSENT_PRESERVED",
+  "BC_5": "HOLD_NEW_INTEGRATION_NATIVE_DISTINCT",
+  "overall": "HOLD_BC_INTERFACE_PENDING_C_PART_B_RUNTIME_AND_DISTINCT_REVIEW",
+  "no_science": true,
+  "no_training": true,
+  "no_merge": true,
+  "next_operation": "TTM_PM_BC_V2_EXACT_HEAD_C_PART_B_DISTINCT_QA_AND_FINAL_ADJUDICATION_ONEPACK"
+}
