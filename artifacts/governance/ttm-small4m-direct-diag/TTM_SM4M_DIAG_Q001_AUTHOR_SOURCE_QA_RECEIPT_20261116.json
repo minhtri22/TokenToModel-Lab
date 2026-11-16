@@ -1,0 +1,228 @@
+{
+  "schema": "ttm.sm4m.diag_q001.author_source_qa.v1",
+  "operation": "TTM_SMALL4M_DIRECT_FAILURE_REPRO_OVERFIT_GENERALIZATION_ONEPACK",
+  "base_main": "434a2592dc94a038d1dc33026eb5fb12b68c8af1",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "QA_scope": "AUTHOR_SOURCE_DESIGN_STATIC_ONLY_NOT_INDEPENDENT",
+  "checks": [
+    {
+      "name": "BASE_MAIN_PIN",
+      "status": "PASS"
+    },
+    {
+      "name": "MAIN_STILL_PIN",
+      "status": "PASS"
+    },
+    {
+      "name": "Q1_REGISTRY_NAME",
+      "status": "PASS"
+    },
+    {
+      "name": "Q1_REGISTRY_SOURCE_ONLY",
+      "status": "PASS"
+    },
+    {
+      "name": "Q001_PRIOR_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "name": "Q1_OWNER_GRANT_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "name": "DIFFERENT_ENGINEERING",
+      "status": "PASS"
+    },
+    {
+      "name": "P0B_WITHDRAWN",
+      "status": "PASS"
+    },
+    {
+      "name": "Q2_NOT_ACCEPTED",
+      "status": "PASS"
+    },
+    {
+      "name": "Q3_NOT_ACCEPTED",
+      "status": "PASS"
+    },
+    {
+      "name": "Q4_PENDING",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_IMPL_AUTH",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_CHECKPOINT_ACCESS",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_SCIENCE_EXEC",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_MODEL_RUN",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_FIXTURE_GENERATED",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_TRAINER_CREATED",
+      "status": "PASS"
+    },
+    {
+      "name": "LINEAGE_NO_APPEND",
+      "status": "PASS"
+    },
+    {
+      "name": "CODE_PIN",
+      "status": "PASS"
+    },
+    {
+      "name": "T4_MODEL_CONFIG",
+      "status": "PASS"
+    },
+    {
+      "name": "PARAMS_ALGEBRA",
+      "status": "PASS"
+    },
+    {
+      "name": "CHECKPOINT_PRIVATE_SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "STRICT_CHECKPOINT_LOAD",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_WRONG_P02_DEFAULT",
+      "status": "PASS"
+    },
+    {
+      "name": "GRAMMAR_9_TOKENS",
+      "status": "PASS"
+    },
+    {
+      "name": "TARGET_1_TOKEN",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_TARGET_IN_CONTEXT",
+      "status": "PASS"
+    },
+    {
+      "name": "TOKEN_SPECIAL_EXCLUSION",
+      "status": "PASS"
+    },
+    {
+      "name": "TRAIN_24",
+      "status": "PASS"
+    },
+    {
+      "name": "NONTRAIN_56",
+      "status": "PASS"
+    },
+    {
+      "name": "TOTAL_80",
+      "status": "PASS"
+    },
+    {
+      "name": "CF_NOT_IID_HELDOUT",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_HELDOUT_GRAD",
+      "status": "PASS"
+    },
+    {
+      "name": "ORACLE_80",
+      "status": "PASS"
+    },
+    {
+      "name": "NEGATIVE_ORACLE",
+      "status": "PASS"
+    },
+    {
+      "name": "SOURCE_ONLY_POLICY_ORDER",
+      "status": "PASS"
+    },
+    {
+      "name": "LAST_TOKEN_LOSS",
+      "status": "PASS"
+    },
+    {
+      "name": "ONE_TRAINING_ARM",
+      "status": "PASS"
+    },
+    {
+      "name": "DETERMINISTIC_SEED",
+      "status": "PASS"
+    },
+    {
+      "name": "STEP_256",
+      "status": "PASS"
+    },
+    {
+      "name": "CPU_FP32_PY312",
+      "status": "PASS"
+    },
+    {
+      "name": "RESOURCE_CAPS",
+      "status": "PASS"
+    },
+    {
+      "name": "PRIMARY_THRESHOLD_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "name": "SECONDARY_NO_SIG_CLAIM",
+      "status": "PASS"
+    },
+    {
+      "name": "NO_DECODER_BUG_INFERENCE",
+      "status": "PASS"
+    },
+    {
+      "name": "REQUIRED_RIGHTS_CHECK",
+      "status": "PASS"
+    },
+    {
+      "name": "OWNER_ONE_GO_HOLD",
+      "status": "PASS"
+    },
+    {
+      "name": "SCOPED_DIFF",
+      "status": "PASS"
+    }
+  ],
+  "passed": 48,
+  "total": 48,
+  "source_sha_pins_pass": "8/8_AT_EXACT_BASE_MAIN",
+  "source_files": [
+    {
+      "path": "docs/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_REGISTERED_QUESTION_AND_ONEPACK_20261116.md",
+      "git_blob_sha1": "76fff4c22b85e0ba9711016555f5da246ca25547"
+    },
+    {
+      "path": "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json",
+      "git_blob_sha1": "027289f67a7e936dc1e58ae2e8159a59d0216a14"
+    },
+    {
+      "path": "docs/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_OWNER_SINGLE_EXECUTION_DECISION_AND_INDEPENDENT_PREEXEC_HANDOFF_20261116.md",
+      "git_blob_sha1": "a6c7bea6376f0f01498d8310baca91002676b9fa"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1": "012be27ef761a80663e0c650fa1dce341de33575"
+    }
+  ],
+  "erratum": "Two preliminary author-check attempts misdefined the parameter-count assertion: first wrong algebra, then compared against a nonexistent config.params field instead of t4_checkpoint.params. Correct analytical count = vocab*d + max_seq*d + n_layers*(12*d*d+13*d)+2*d = 3,749,376. Full corrected static test set rerun, no model or fixture execution.",
+  "independent_review": "NOT_EXECUTED",
+  "Q4_owner_execution_decision": "PENDING",
+  "model_execution": false,
+  "lineage_unchanged": true,
+  "main_update_pending": true
+}
