@@ -6,8 +6,8 @@ memory ceiling; assign it BEFORE ResumeThread; ensure KILL_ON_JOB_CLOSE.
 The job-wide *committed* memory is NOT resident RSS. Retain existing 12-GiB
 sampled process-tree RSS monitor and never claim that one equals the other.
 
-This wrapper is deliberately not wired into Run-Approved-OneShot-PS51.ps1
-until native Win32 struct/handle tests and distinct source review PASS.
+This is a proposed I2 hard-commit guard. Native Win32 testing and distinct
+adjudication are required before the guarded launcher is eligible for I1 PASS.
 """
 from __future__ import annotations
 
@@ -61,6 +61,22 @@ class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(ctypes.Structure):
         ("PeakJobMemoryUsed", ctypes.c_size_t),
     ]
 
+# JobObjectBasicAccountingInformation = 1. A terminated parent must not
+# mask a still-running descendant; KILL_ON_JOB_CLOSE is only cleanup, not PASS.
+JobObjectBasicAccountingInformation = 1
+
+class JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(ctypes.Structure):
+    _fields_ = [
+        ("TotalUserTime", ctypes.c_longlong),
+        ("TotalKernelTime", ctypes.c_longlong),
+        ("ThisPeriodTotalUserTime", ctypes.c_longlong),
+        ("ThisPeriodTotalKernelTime", ctypes.c_longlong),
+        ("TotalPageFaultCount", wintypes.DWORD),
+        ("TotalProcesses", wintypes.DWORD),
+        ("ActiveProcesses", wintypes.DWORD),
+        ("TotalTerminatedProcesses", wintypes.DWORD),
+    ]
+
 class STARTUPINFOW(ctypes.Structure):
     _fields_ = [
         ("cb", wintypes.DWORD),
@@ -97,6 +113,7 @@ def struct_sizes() -> dict[str, int]:
         ("IO_COUNTERS", IO_COUNTERS),
         ("JOBOBJECT_BASIC_LIMIT_INFORMATION", JOBOBJECT_BASIC_LIMIT_INFORMATION),
         ("JOBOBJECT_EXTENDED_LIMIT_INFORMATION", JOBOBJECT_EXTENDED_LIMIT_INFORMATION),
+        ("JOBOBJECT_BASIC_ACCOUNTING_INFORMATION", JOBOBJECT_BASIC_ACCOUNTING_INFORMATION),
         ("STARTUPINFOW", STARTUPINFOW),
         ("PROCESS_INFORMATION", PROCESS_INFORMATION),
     ]}
@@ -174,7 +191,9 @@ def run_job_guarded(
         si.hStdInput = k32.GetStdHandle(0xFFFFFFF6)
         si.hStdOutput = k32.GetStdHandle(0xFFFFFFF5)
         si.hStdError = k32.GetStdHandle(0xFFFFFFF4)
-        if not si.hStdOutput or not si.hStdError:
+        if not si.hStdOutput or not si.hStdError or \
+                int(si.hStdOutput) == ctypes.c_void_p(-1).value or \
+                int(si.hStdError) == ctypes.c_void_p(-1).value:
             raise RuntimeError("HOLD_WINJOB_STD_HANDLES_UNAVAILABLE")
         cmd = ctypes.create_unicode_buffer(subprocess.list2cmdline(argv))
         require(k32.CreateProcessW(
@@ -205,6 +224,14 @@ def run_job_guarded(
             raise RuntimeError("HOLD_WINJOB_LIMIT_NOT_ACTIVE")
         if int(info.JobMemoryLimit) != max_job_commit_bytes:
             raise RuntimeError("HOLD_WINJOB_LIMIT_VALUE_MISMATCH")
+        # If a tracked descendant survives its parent, return HOLD rather than
+        # wrongly reporting success. The finally block will kill the full job.
+        accounting = JOBOBJECT_BASIC_ACCOUNTING_INFORMATION()
+        require(k32.QueryInformationJobObject(
+            job, JobObjectBasicAccountingInformation, ctypes.byref(accounting),
+            ctypes.sizeof(accounting), None), "QUERY_ACCOUNTING")
+        if int(accounting.ActiveProcesses) != 0:
+            raise RuntimeError("HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT")
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
         # KILL_ON_JOB_CLOSE guarantees fail-closed descendant cleanup.
@@ -215,29 +242,76 @@ def run_job_guarded(
             k32.CloseHandle(pi.hProcess)
         k32.CloseHandle(job)
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    """One executable may be used in 3 non-science modes.
+
+    --guard is the *only* supported path for production I2 and must be
+    launched by the pinned PowerShell launcher. Native QA modes run dummy
+    Python subprocesses and NEVER inspect a private checkpoint/tokenizer.
+    """
     import json
+    from pathlib import Path
     p = argparse.ArgumentParser()
-    p.add_argument("--struct-shape", action="store_true")
-    p.add_argument("--native-smoke", action="store_true")
-    a = p.parse_args()
+    modes = p.add_mutually_exclusive_group(required=True)
+    modes.add_argument("--struct-shape", action="store_true")
+    modes.add_argument("--native-smoke", action="store_true")
+    modes.add_argument("--native-negative", action="store_true")
+    modes.add_argument("--guard", action="store_true")
+    p.add_argument("--cwd", default=".")
+    p.add_argument("--max-job-commit-bytes", type=int, default=12 * (1024**3))
+    p.add_argument("--wall-seconds", type=int, default=900)
+    p.add_argument("command", nargs=argparse.REMAINDER)
+    a = p.parse_args(argv)
     if a.struct_shape:
         print(json.dumps(struct_sizes(), sort_keys=True))
         return 0
     if a.native_smoke:
-        # NO_MODEL: verify that a process created suspended can run in job.
-        # More important negative tests and edge cases are required by Codex.
         code, peak = run_job_guarded(
             [sys.executable, "-c", "print('WINJOB_NO_MODEL_SMOKE')"],
             cwd=".", max_job_commit_bytes=256 * (1024**2),
             timeout_seconds=10
         )
-        print(json.dumps({"exit":code, "peak_job_commit_bytes":peak,
-                          "model_execution":False,
-                          "rss_hard_cap_proven":False}, sort_keys=True))
+        print(json.dumps({"mode":"NO_MODEL_SMOKE", "exit":code,
+             "peak_job_commit_bytes":peak,"model_execution":False,
+             "rss_hard_cap_proven":False}, sort_keys=True))
         return 0 if code == 0 else 2
-    p.error("choose --struct-shape or --native-smoke")
-    return 2
+    if a.native_negative:
+        # Require *all* three cases: timeout, hard-commit pressure and an
+        # orphan descendant. These are not substitute for independent QA.
+        checks = {}
+        def negative(name: str, command: list[str], cap: int, seconds: int):
+            try:
+                code, peak = run_job_guarded(command, cwd=".",
+                    max_job_commit_bytes=cap, timeout_seconds=seconds)
+                checks[name] = {"rejected":code != 0, "code":code,
+                                "peak_job_commit_bytes":peak}
+            except (TimeoutError, RuntimeError, OSError) as exc:
+                checks[name] = {"rejected":True, "reason":str(exc)}
+        negative("hard_commit_pressure", [sys.executable, "-c",
+                "x=bytearray(512*1024*1024); print(len(x))"],
+                128 * (1024**2), 10)
+        negative("wall_timeout", [sys.executable, "-c",
+                "import time; time.sleep(5)"], 256 * (1024**2), 1)
+        negative("orphan_descendant", [sys.executable, "-c",
+                "import subprocess,sys; subprocess.Popen([sys.executable,'-c','import time;time.sleep(5)'])"],
+                256 * (1024**2), 3)
+        ok = len(checks) == 3 and all(v["rejected"] for v in checks.values())
+        print(json.dumps({"mode":"NATIVE_NEGATIVE_NO_MODEL","pass":ok,
+             "checks":checks,"model_execution":False}, sort_keys=True))
+        return 0 if ok else 2
+    command = a.command[1:] if a.command and a.command[0] == "--" else a.command
+    if not command or not Path(command[0]).is_absolute() or not Path(command[0]).is_file():
+        raise RuntimeError("HOLD_WINJOB_EXACT_EXECUTABLE_REQUIRED")
+    if not Path(a.cwd).resolve().is_dir():
+        raise RuntimeError("HOLD_WINJOB_CWD_MISSING")
+    code, peak = run_job_guarded(command, cwd=a.cwd,
+         max_job_commit_bytes=a.max_job_commit_bytes,
+         timeout_seconds=a.wall_seconds)
+    print(json.dumps({"mode":"GUARDED_PROCESS_TREE", "child_exit":code,
+         "job_commit_limit_bytes":a.max_job_commit_bytes,
+         "peak_job_commit_bytes":peak, "rss_sampling_separate":True,
+         "private_bytes_not_logged":True}, sort_keys=True))
+    return 0 if code == 0 else 2
 
 if __name__ == "__main__":
     raise SystemExit(main())
