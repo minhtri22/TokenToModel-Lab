@@ -236,7 +236,7 @@ class BCCandidateV2QA(unittest.TestCase):
     def test_23_structurally_consistent_roles_not_authenticity(self):
         forged=[{"role":"user","content":"fabricated source"},
                 {"role":"assistant","content":"fabricated answer"}]
-        self.assertTrue(any(v!=-100 for v in b.build(forged,33)[1]))
+        self.assertTrue(any(v!=-100 for v in b.build(forged,100)[1]))
         doc=b._bundle_documents()["serialized_inputs_sha256"]
         self.assertEqual(doc["source_role_authenticity"],"DECLARED_UNVERIFIED")
         self.assertTrue(all(r["declared_roles_authenticated"] is False for r in doc["rows"]))
