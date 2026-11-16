@@ -64,6 +64,21 @@ class NativeNoModel(unittest.TestCase):
         self.assertEqual(code, 0, out.getvalue())
         self.assertIn("NO_MODEL_SMOKE", out.getvalue())
 
+    def test_guard_real_cli_no_model(self):
+        # This exercises the same argument handoff as the I2 launcher but
+        # starts ONLY a synthetic Python print, never checkpoint/tokenizer.
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            code = winjob.main([
+                "--guard", "--cwd", str(Path.cwd()),
+                "--max-job-commit-bytes", str(256 * 1024**2),
+                "--wall-seconds", "10", "--",
+                str(Path(sys.executable).resolve()), "-c",
+                "print('RF00_REAL_GUARD_NO_MODEL')"
+            ])
+        self.assertEqual(code, 0, out.getvalue())
+        self.assertIn('"mode": "GUARDED_PROCESS_TREE"', out.getvalue())
+        self.assertIn('"child_exit": 0', out.getvalue())
+
     def test_native_negative_memory_timeout_orphan(self):
         with contextlib.redirect_stdout(io.StringIO()) as out:
             code = winjob.main(["--native-negative"])
