@@ -1,0 +1,38 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_INDEPENDENT_SOURCE_TARGET_LANGUAGE_ADJUDICATION_SINGLE_GATE",
+  "source_pin": "f84c04268794ef94f8949808bbc14ab8636763a0",
+  "reviewed_target_parent_sha": "9544b06b9c95a319cae764957bad2c7450b11a9f",
+  "source_zip_sha256": "251d0d49601e536bf1eb94deb727da665693126a3ef7d04d8efff9f3550406fe",
+  "review_scope": {
+    "machine_page_screen": 495,
+    "source_target_scoped_semantic_pages": 22,
+    "not_semantically_adjudicated": 473,
+    "visual_pages": 8
+  },
+  "sampled_findings": {
+    "blocked": 8,
+    "paraphrased": 6,
+    "scoped_semantic_match": 8
+  },
+  "screen_flag_counts": {
+    "source_600_and_note_ratio_below_0_5": 113,
+    "very_dense_source_note_ratio_below_0_75": 34,
+    "low_untranslated_technical_label_recall": 80,
+    "source_image_objects_at_least_5": 75,
+    "keyword_possible_table_or_algorithm": 7
+  },
+  "manual_language_qa_by_independent_qualified_reviewer": "NOT_EXECUTED",
+  "review_method": "SEPARATE_SOURCE_ANCHORED_AI_AUDIT_NOT_INDEPENDENT_HUMAN",
+  "report_git_blob": "2654fc377a1cd3c3d545607ff352c7881fb3065f",
+  "page_matrix_git_blob": "937b8fccb81439afe7a692819455792a367f3458",
+  "result": "FAIL_FULL_LITERAL_TRANSLATION_ADMISSION",
+  "owner_decision": "HOLD_NO_PASS_FIDELITY",
+  "science_executed": false,
+  "merge_main": false,
+  "lineage_edited": false,
+  "limitations": [
+    "char ratios are screening heuristics, not translation scores",
+    "22 scoped reviews cannot certify 473 remaining pages",
+    "independent human language rater not engaged"
+  ]
+}

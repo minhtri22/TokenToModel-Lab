@@ -39,3 +39,12 @@
 Đây là **bản tham khảo song ngữ theo từng trang**, không phải bản dịch nguyên văn đầy đủ. **53 trang từng bị lỗi đã được khắc phục ở lớp ký tự theo QA kỹ thuật; hiện 0/495 trang phát hiện ký tự điều khiển/ký tự thay thế.** Bố cục đã dựng lại và 33 mẫu slide gốc so khớp tuyệt đối, nhưng chưa qua thẩm định khả năng đọc độc lập toàn bộ. Một số bảng, hình và đoạn dài vẫn được diễn giải, không phải nguyên văn. F01: PASS_STATIC; F03: PASS_STATIC_SAMPLE_33; F02: HOLD; QA ngôn ngữ độc lập: NOT_EXECUTED. **Fidelity tổng thể vẫn HOLD.**
 
 Không merge `main`, không sửa `lineage.md`, không mở phase khoa học, không tuyên bố năng lực TTM/CLDP.
+
+## Đối chiếu độc lập — 22 trang, sàng lọc đủ 495 trang
+
+- [Biên bản phân xử nguồn ↔ tiếng Việt](independent_adjudication/INDEPENDENT_ADJUDICATION_REPORT_20261116.md) — **HOLD_NO_PASS_FIDELITY**.
+- [Ma trận rà soát toàn bộ 495 trang](independent_adjudication/PAGE_SCREEN_495.csv) — các chỉ số chỉ để phân luồng, **không** chứng minh dịch đúng.
+- Có **8 blocker cụ thể**, trong đó chương 09 trang 14 có lỗi ánh xạ nhóm phương pháp xây dựng GUI Agent; 6 trang diễn giải/rút gọn và 8 trang khớp ý nghĩa trong phạm vi đối chiếu.
+- 473 trang chưa được đánh giá ngữ nghĩa; không có chứng nhận ngôn ngữ bởi rater độc lập.
+
+**Không thay đổi bản dịch trong lượt phân xử này.** 11 PDF/495 trang vẫn giữ nguyên byte tại commit nền của lượt QA.
