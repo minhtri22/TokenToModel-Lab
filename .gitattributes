@@ -4,3 +4,10 @@ src/p05/dense_kv_cache.py text eol=lf
 src/p06/paged_kv_manager.py text eol=lf
 tools/t6/*.py text eol=lf
 tests/t6/*.py text eol=lf
+
+# Q001 owner record and guarded native runner exact Git-blob custody on Windows
+docs/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_OWNER_INTERNAL_SCOPE_AND_LAST_MILE_AMENDMENT_20261116.md text eol=lf
+tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/*.py text eol=lf
+tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/*.ps1 text eol=lf
+tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/*.json text eol=lf
+tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/*.md text eol=lf
