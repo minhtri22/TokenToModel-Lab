@@ -1,0 +1,113 @@
+{
+  "scope": "CODEX_ADVERSARIAL_NATIVE_WINDOWS_SOURCE_AND_MOCK",
+  "trust_store_modified_on_disk": false,
+  "model_execution": false,
+  "private_inputs_read": false,
+  "checks": {
+    "real_pinned_root_and_hostname": {
+      "passed": true
+    },
+    "worktree_is_not_an_execution_root": {
+      "expected": "HOLD_PROJECT_ROOT_NOT_SIGNED_TRUST_ROOT",
+      "actual": "HOLD_PROJECT_ROOT_NOT_SIGNED_TRUST_ROOT",
+      "passed": true
+    },
+    "foreign_hostname": {
+      "expected": "HOLD_HOSTNAME_NOT_SIGNED_TRUST_HOST",
+      "actual": "HOLD_HOSTNAME_NOT_SIGNED_TRUST_HOST",
+      "passed": true
+    },
+    "canonical_alias_resolves_to_pinned_root": {
+      "passed": true
+    },
+    "junction_escape": {
+      "expected": "HOLD_DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT",
+      "actual": "HOLD_DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT",
+      "passed": true
+    },
+    "symlink_escape": {
+      "expected": "HOLD_DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT",
+      "actual": "HOLD_DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT",
+      "passed": true
+    },
+    "first_mock_nonce_claim": {
+      "passed": true
+    },
+    "same_nonce_two_worktree_sources": {
+      "expected": "HOLD_ONESHOT_NONCE_ALREADY_CONSUMED_NO_RETRY",
+      "actual": "HOLD_ONESHOT_NONCE_ALREADY_CONSUMED_NO_RETRY",
+      "passed": true
+    },
+    "same_nonce_root_junction_alias": {
+      "expected": "HOLD_ONESHOT_NONCE_ALREADY_CONSUMED_NO_RETRY",
+      "actual": "HOLD_ONESHOT_NONCE_ALREADY_CONSUMED_NO_RETRY",
+      "passed": true
+    },
+    "ledger_reparse_denied_before_mkdir": {
+      "expected": "HOLD_ONESHOT_LEDGER_REPARSE_OR_SYMLINK",
+      "actual": "HOLD_ONESHOT_LEDGER_REPARSE_OR_SYMLINK",
+      "passed": true
+    },
+    "no_foreign_ledger_write": {
+      "passed": true
+    },
+    "real_empty_trust_denies_unsigned": {
+      "expected": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "actual": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "passed": true
+    },
+    "real_empty_trust_denies_forged": {
+      "expected": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "actual": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "passed": true
+    },
+    "real_empty_trust_denies_expired": {
+      "expected": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "actual": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "passed": true
+    },
+    "trust_empty_no_private_open": {
+      "passed": true,
+      "observed_basenames": [
+        "release_auth_v2.py",
+        "synthetic-invalid-expired.json",
+        "synthetic-invalid-forged.json",
+        "synthetic-invalid-unsigned.json",
+        "ttm_sm4m_diag_q001.py"
+      ]
+    },
+    "direct_function_denies_before_model_or_nonce": {
+      "expected": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "actual": "HOLD_AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE",
+      "passed": true
+    },
+    "no_private_checkpoint_open_or_model_call": {
+      "passed": true
+    },
+    "expiration_validator_missing": {
+      "expected": "HOLD_SIGNED_PERMIT_EXPIRY_REQUIRED",
+      "actual": "HOLD_SIGNED_PERMIT_EXPIRY_REQUIRED",
+      "passed": true
+    },
+    "expiration_validator_malformed": {
+      "expected": "HOLD_SIGNED_PERMIT_EXPIRY_INVALID",
+      "actual": "HOLD_SIGNED_PERMIT_EXPIRY_INVALID",
+      "passed": true
+    },
+    "expiration_validator_past": {
+      "expected": "HOLD_SIGNED_PERMIT_EXPIRED",
+      "actual": "HOLD_SIGNED_PERMIT_EXPIRED",
+      "passed": true
+    },
+    "expiration_validator_future": {
+      "passed": true
+    },
+    "frozen_resource_constants": {
+      "passed": true
+    }
+  },
+  "crypto_with_external_keys": "NOT_EXERCISED_EMPTY_PRODUCTION_STORE",
+  "organizational_signoff": "NOT_INCLUDED",
+  "passed": 22,
+  "total": 22
+}

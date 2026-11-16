@@ -1,0 +1,37 @@
+{
+  "pr": {
+    "baseRefOid": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "headRefOid": "2e875f18490e3cb7f6e967e5a91d2c6af04d16f0",
+    "isDraft": true,
+    "reviewDecision": "",
+    "reviews": [],
+    "state": "OPEN",
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/pull/28"
+  },
+  "issue": {
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29",
+    "state": "OPEN",
+    "comments": [
+      {
+        "author": "minhtri22",
+        "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6913335756"
+      },
+      {
+        "author": "minhtri22",
+        "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6913997614"
+      },
+      {
+        "author": "minhtri22",
+        "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6914237419"
+      },
+      {
+        "author": "minhtri22",
+        "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6914780393"
+      },
+      {
+        "author": "minhtri22",
+        "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6915190196"
+      }
+    ]
+  }
+}

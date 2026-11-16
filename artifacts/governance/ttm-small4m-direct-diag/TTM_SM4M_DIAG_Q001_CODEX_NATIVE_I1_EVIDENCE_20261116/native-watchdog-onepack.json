@@ -1,0 +1,134 @@
+{
+  "schema": "ttm.sm4m.diag.q001.native_watchdog_negative_qa.v1",
+  "scope": "WINDOWS_POWERSHELL_5_1_PYTHON_3_12_SOURCE_ONLY",
+  "checks": {
+    "normal_exit_pass": true,
+    "postexit_total_output_rejected": true,
+    "wall_time_kill": true,
+    "child_memory_in_aggregate": true,
+    "orphan_child_after_parent_exit": true
+  },
+  "cases": {
+    "normal": {
+      "expected": "PASS",
+      "actual": "PASS",
+      "parent_pid": 24896,
+      "child_pid": null,
+      "wall_limit_seconds": 8,
+      "rss_limit_bytes": 1073741824,
+      "output_limit_bytes": 1073741824,
+      "parent_exited_before_fixture_cleanup": true,
+      "child_exited_before_fixture_cleanup": null,
+      "parent_exit_code": 0,
+      "observed": {
+        "Status": "PASS_WATCHDOG_SAMPLE_BOUNDED",
+        "PeakTreeRssBytesSampled": 0,
+        "FinalTotalOutputBytes": 4,
+        "ElapsedSeconds": 0.4973452,
+        "TrackedPidCount": 2,
+        "ExitCode": 0
+      },
+      "stdout_bytes": 4,
+      "stderr_bytes": 0
+    },
+    "exit_big": {
+      "expected": "HOLD_WATCHDOG_TOTAL_LOG_AND_OUTPUT_BYTES",
+      "actual": "HOLD_WATCHDOG_TOTAL_LOG_AND_OUTPUT_BYTES",
+      "parent_pid": 28904,
+      "child_pid": null,
+      "wall_limit_seconds": 8,
+      "rss_limit_bytes": 1073741824,
+      "output_limit_bytes": 4096,
+      "parent_exited_before_fixture_cleanup": true,
+      "child_exited_before_fixture_cleanup": null,
+      "parent_exit_code": 0,
+      "observed": {
+        "PeakTreeRssBytesSampled": 20885504,
+        "LastTotalOutputBytes": 65536,
+        "TrackedPids": [
+          28904,
+          31308
+        ],
+        "ElapsedSeconds": 1.3738902
+      },
+      "stdout_bytes": 65536,
+      "stderr_bytes": 0
+    },
+    "stall": {
+      "expected": "HOLD_WATCHDOG_WALL_TIME",
+      "actual": "HOLD_WATCHDOG_WALL_TIME",
+      "parent_pid": 33388,
+      "child_pid": null,
+      "wall_limit_seconds": 1,
+      "rss_limit_bytes": 1073741824,
+      "output_limit_bytes": 1073741824,
+      "parent_exited_before_fixture_cleanup": true,
+      "child_exited_before_fixture_cleanup": null,
+      "parent_exit_code": 1,
+      "observed": {
+        "PeakTreeRssBytesSampled": 25075712,
+        "LastTotalOutputBytes": 0,
+        "TrackedPids": [
+          26076,
+          33388
+        ],
+        "ElapsedSeconds": 1.2496021
+      },
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    "parent_child": {
+      "expected": "HOLD_WATCHDOG_AGGREGATE_PROCESS_TREE_RSS",
+      "actual": "HOLD_WATCHDOG_AGGREGATE_PROCESS_TREE_RSS",
+      "parent_pid": 29956,
+      "child_pid": 31472,
+      "wall_limit_seconds": 8,
+      "rss_limit_bytes": 50331648,
+      "output_limit_bytes": 1073741824,
+      "parent_exited_before_fixture_cleanup": true,
+      "child_exited_before_fixture_cleanup": true,
+      "parent_exit_code": 1,
+      "observed": {
+        "PeakTreeRssBytesSampled": 133357568,
+        "LastTotalOutputBytes": 0,
+        "TrackedPids": [
+          2932,
+          29956,
+          31472
+        ],
+        "ElapsedSeconds": 1.7388622999999999
+      },
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    "parent_exit_child": {
+      "expected": "HOLD_WATCHDOG_ORPHAN_DESCENDANT_AFTER_PARENT_EXIT",
+      "actual": "HOLD_WATCHDOG_ORPHAN_DESCENDANT_AFTER_PARENT_EXIT",
+      "parent_pid": 33020,
+      "child_pid": 33548,
+      "wall_limit_seconds": 8,
+      "rss_limit_bytes": 1073741824,
+      "output_limit_bytes": 1073741824,
+      "parent_exited_before_fixture_cleanup": true,
+      "child_exited_before_fixture_cleanup": true,
+      "parent_exit_code": 0,
+      "observed": {
+        "PeakTreeRssBytesSampled": 133259264,
+        "LastTotalOutputBytes": 0,
+        "TrackedPids": [
+          15072,
+          33020,
+          33548
+        ],
+        "ElapsedSeconds": 1.4951291
+      },
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  },
+  "pass": 5,
+  "total": 5,
+  "model_execution": false,
+  "checkpoint_read": false,
+  "rights_verified": false
+}
