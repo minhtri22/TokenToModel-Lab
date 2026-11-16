@@ -1,0 +1,205 @@
+{
+  "schema": "ttm.post_p0a_q001.evidence_priority_author_source_qa.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_POST_P0A_Q001_CLOSED_HOLD_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE",
+  "source_main": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af",
+  "branch": "governance/ttm-post-p0a-q001-evidence-priority-20261116",
+  "report_path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_20261116.md",
+  "report_git_blob_sha1": "effdf66ed93405524d92b55504b919dabfcf5348",
+  "matrix_path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_MATRIX_20261116.json",
+  "matrix_git_blob_sha1": "a62b7c7add8071c122bdacd7b242171d20d9ebe0",
+  "source_git_blobs": [
+    {
+      "path": "lineage.md",
+      "git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md",
+      "git_blob_sha1": "bb21cf560c91a083680e072adb7d5ce5a5508d11",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "git_blob_sha1": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md",
+      "git_blob_sha1": "09a9f9c5003d0e8d899151f7f426707eb1505d44",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "git_blob_sha1": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+      "git_blob_sha1": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    }
+  ],
+  "author_qa": {
+    "pass": 35,
+    "total": 35,
+    "scope": "AUTHOR_SOURCE_STATIC_ONLY_NOT_INDEPENDENT",
+    "tests": [
+      {
+        "name": "main_commit_exact",
+        "status": "PASS"
+      },
+      {
+        "name": "lineage_pin_correct",
+        "status": "PASS"
+      },
+      {
+        "name": "seven_source_pins",
+        "status": "PASS"
+      },
+      {
+        "name": "main_Q4_closed_hold",
+        "status": "PASS"
+      },
+      {
+        "name": "main_question_none",
+        "status": "PASS"
+      },
+      {
+        "name": "lineage_unchanged_required",
+        "status": "PASS"
+      },
+      {
+        "name": "six_evidence_gaps",
+        "status": "PASS"
+      },
+      {
+        "name": "P0_rights_first",
+        "status": "PASS"
+      },
+      {
+        "name": "P1_construct",
+        "status": "PASS"
+      },
+      {
+        "name": "P1_parity",
+        "status": "PASS"
+      },
+      {
+        "name": "P1_gold_rater",
+        "status": "PASS"
+      },
+      {
+        "name": "P1_prereg",
+        "status": "PASS"
+      },
+      {
+        "name": "causal_vs_execution_separated",
+        "status": "PASS"
+      },
+      {
+        "name": "six_next_question_options",
+        "status": "PASS"
+      },
+      {
+        "name": "unique_ids",
+        "status": "PASS"
+      },
+      {
+        "name": "option_order",
+        "status": "PASS"
+      },
+      {
+        "name": "one_question_candidate_only",
+        "status": "PASS"
+      },
+      {
+        "name": "no_science_and_access",
+        "status": "PASS"
+      },
+      {
+        "name": "no_research_branch",
+        "status": "PASS"
+      },
+      {
+        "name": "no_question_auto",
+        "status": "PASS"
+      },
+      {
+        "name": "no_active_mutation",
+        "status": "PASS"
+      },
+      {
+        "name": "no_lineage_append",
+        "status": "PASS"
+      },
+      {
+        "name": "no_merge_authorized",
+        "status": "PASS"
+      },
+      {
+        "name": "old_inventory_historical_not_current",
+        "status": "PASS"
+      },
+      {
+        "name": "L0011_positive_preserved",
+        "status": "PASS"
+      },
+      {
+        "name": "L0012_descriptive_preserved",
+        "status": "PASS"
+      },
+      {
+        "name": "L0015_negative_preserved",
+        "status": "PASS"
+      },
+      {
+        "name": "L0013_14_scope_preserved",
+        "status": "PASS"
+      },
+      {
+        "name": "D1_R1_HOLD_preserved",
+        "status": "PASS"
+      },
+      {
+        "name": "VM_Embedding_scoped",
+        "status": "PASS"
+      },
+      {
+        "name": "no_numeric_mcda",
+        "status": "PASS"
+      },
+      {
+        "name": "no_fake_cost",
+        "status": "PASS"
+      },
+      {
+        "name": "source_only_one_next_gate",
+        "status": "PASS"
+      },
+      {
+        "name": "diff_2_added_governance",
+        "status": "PASS"
+      },
+      {
+        "name": "branch_base_exact",
+        "status": "PASS"
+      }
+    ]
+  },
+  "gates_count": 6,
+  "candidate_research_directions_count": 6,
+  "independent_review": "NOT_EXECUTED",
+  "owner_next_question_choice": "PENDING",
+  "new_question_id_registered": false,
+  "source_access_authorized": false,
+  "science_authorized": false,
+  "main_updated": false,
+  "lineage_updated": false,
+  "next_single_gate": "TTM_POST_P0A_Q001_DISTINCT_PRIORITY_MATRIX_SOURCE_REVIEW_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE"
+}
