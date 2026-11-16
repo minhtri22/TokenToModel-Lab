@@ -260,8 +260,10 @@ def synthetic_cpu_probe():
     y=torch.tensor([row["y"]],dtype=torch.long)
     captured=[]
     def record(_mod,_inputs,emb):
-        emb.retain_grad()
-        captured.append(emb)
+        # Hook also fires during causal inference_mode(); retain only on autograd tensors.
+        if emb.requires_grad:
+            emb.retain_grad()
+            captured.append(emb)
     hook=model.tok.register_forward_hook(record)
     try:
         logits,_=model(x)
