@@ -24,3 +24,20 @@
 **Verdict:** `HOLD_I1_CUSTODY_LOCAL_HOST_AND_DISTINCT_REVIEW_PENDING`. `I2=NOT_EXECUTED`; owner conditional GO preserved; PR #28 Draft/unmerged/untouched; main, lineage.md, T4 and sealed TEST/FINAL24 untouched. QA no-model is not new science.
 
 **Bước thực hiện tiếp theo duy nhất (continue RF-00, no micro-permits):** one combined owner-host exact tokenizer/fixture byte-custody + Win11 QA + genuinely distinct I1 decision. Only if I1 passes, existing owner GO permits one frozen Q001 I2, not now.
+
+
+---
+
+## Addendum — Current PR #28 evidence supersedes snapshot-only custody gaps
+
+**Readback later in this same task:** [PR #28](https://github.com/minhtri22/TokenToModel-Lab/pull/28) advanced independently from original reviewed head `8bded861...` to **`ebdc54575eed1ff60c402eecf60289f408bb38ca`**. The independently reviewed executable candidate is `6dc04c0545b28d4a0cad21ad8be8b70461c57790`. This report's earlier R01–R04 blocker ledger was an **older-source snapshot** and MUST NOT be presented as the active PR #28 blockers.
+
+Source of truth: [new distinct Codex technical review](https://github.com/minhtri22/TokenToModel-Lab/blob/ebdc54575eed1ff60c402eecf60289f408bb38ca/artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_NATIVE_20261116/distinct-technical-review.md), [I1 receipt](https://github.com/minhtri22/TokenToModel-Lab/blob/ebdc54575eed1ff60c402eecf60289f408bb38ca/artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_I1_20261116.json).
+
+**External native/custody evidence now recorded on PR #28:** Windows 11 `DESKTOP-4PSD0G2`, PowerShell 5.1, Python 3.12.10, 11 owner-internal tests + 5 Win32 native tests PASS, exact checkpoint and original T1 TRAIN-only BPE source byte pins matched; 80 real synthetic cases frozen and per-case/group SHA recorded. This independent review **does not cover RF-00 alternative branch code**, and our GitHub Actions PASS cannot be substituted for review of PR #28's newer runner.
+
+**New decisive blocker (PR #28): `HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE`.** The candidate list has gold at index 0; with constant equal logits, tie-breaking returns that first gold item for **80/80 restricted items**. An additional context-blind, constant full-vocabulary score order reaches the predeclared restricted-vs-full signpost on HELDOUT_RECOMBINED (15/16 restricted vs 0/16 full), NOVEL_IDS (16/16 vs 0/16) and PAIRED_COUNTERFACTUAL (16/16 vs 0/16). This **falsifies use of that gap to diagnose actual model decoding capability**, independently of model training. The frozen fixture and historical data remain unchanged; no I2.
+
+**Current authoritative verdict:** `HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE`; `I2=NOT_EXECUTED`. Do not request another owner GO, don't erase native receipts, don't run a new science round or merge PR #28/31. This alternative PR #31 remains an *unmerged supplementary engineering candidate*; overlapping implementation with PR #28 must be reconciled at exact HEAD before any code merge.
+
+**Updated one next technical action:** repair the existing Q001 candidate/scorer so options are generated independently of the gold label, tie-breaking is independent of gold position, and context-blind/equal-logit negative controls no longer meet the decision signpost; have the **distinct reviewer** re-adjudicate I1 on exact new source. Keep original Q001 scientific contract, fixture and threshold immutable. Only after a real I1 PASS may existing conditional GO authorize one I2.
