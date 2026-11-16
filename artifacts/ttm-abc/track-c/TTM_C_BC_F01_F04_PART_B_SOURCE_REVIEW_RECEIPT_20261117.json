@@ -1,0 +1,67 @@
+{
+  "schema": "ttm.track_c.bc_sft.f01_f04.part_b_source_review.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "pm_handoff": "40788f557799c7c8a688df32271510aab73a9180",
+  "scope": "C_PART_B_PR36_EXACT_SOURCE_REVIEW_AND_V2_PROPOSAL_NOT_B_V2_INTEGRATION_ACCEPTANCE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "exact_pins": {
+    "b_pr": 36,
+    "b_head": "5f2b71c5f493405c180d6995a21dd7373bd2dbb2",
+    "b_code_tested_previous": "7a8e15a4451577ab727d5cada6ce15fec2c22080",
+    "b_adapter_git_blob": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+    "b_adapter_sha256": "f8a4751e896081237565af802dc960ddcfeee44d53f991fbf6e76fc5402a2207",
+    "b_author_ci_run": "43908305162",
+    "b_author_ci_29_29_per_lane": true,
+    "c_pr": 35,
+    "c_original_part_a_head": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+    "c_part_a_oracle_git_blob": "233c678c89afc3471af4addc55f827e0c52b0383",
+    "c_m4_distinct_review": "9fac5a675955d8b91d6855d27907f239cbfb745f"
+  },
+  "findings": {
+    "BC-F01": "HOLD_TYPED_STR_UTF8_TO_B_LIST_INT",
+    "BC-F02": "HOLD_PACK_AND_RESUME_METADATA_SCHEMA_MISMATCH",
+    "BC-F03": "HOLD_JSON_TERMINAL_LF_CANONICAL_MISMATCH",
+    "BC-F04": "HOLD_MISSING_SEVEN_ACTUAL_ARTIFACT_HASH_READBACK"
+  },
+  "candidate_v2": {
+    "joint_acceptance": "NOT_YET_B_SIGNED",
+    "canonical": "ttm.bc.canonical_json_utf8_lf.v2",
+    "pack_schema": "ttm.bc.synthetic.sft.pack.v2",
+    "metadata_schema": "ttm.bc.synthetic.sft.resume_metadata.v2",
+    "bytes": "UTF8_SORTED_COMPACT_ONE_FINAL_LF_NO_NORMALIZATION_NO_CRLF_TRANSFORM",
+    "seven_keys": [
+      "tokenizer_sha256",
+      "chat_template_sha256",
+      "serialized_inputs_sha256",
+      "target_masks_sha256",
+      "target_labels_sha256",
+      "config_sha256",
+      "checkpoint_schema_sha256"
+    ],
+    "c_reference_source_git_blob": "d12d6e03a33534b8351b278f941ec78f5943bbb8",
+    "c_reference_negative_test_git_blob": "40d9e524d1211363d4200302c65144e4632c2879",
+    "c_tests_author": "NOT_EXECUTED_PENDING_GITHUB_CI",
+    "b_v2_runtime": "NOT_IMPLEMENTED",
+    "b_v2_7_hash_real_files": "NOT_AVAILABLE",
+    "b_v2_distinct_qa": "NOT_EXECUTED"
+  },
+  "gates": {
+    "BC-0": "PASS_B_C_SOURCE_READBACK_SCOPED",
+    "BC-1": "PASS_B_AUTHOR_CI_ONLY_C_BRIDGE_HOLD",
+    "BC-2": "PASS_B_AUTHOR_CI_ONLY_C_BRIDGE_HOLD",
+    "BC-3": "PASS_B_AUTHOR_CI_CPU_ONLY_DISTINCT_PENDING",
+    "BC-4": "HOLD_INTERFACE_F01_F04",
+    "BC-5": "HOLD_DISTINCT_NEW_SFT_INTEGRATION"
+  },
+  "verdict": "HOLD_INTERFACE",
+  "m4_design": "PASS_DESIGN_SCOPED",
+  "m3_b_older_pm": "PASS_ENGINEERING_BASELINE_SCOPED_WITH_REVIEWER_PEAK_DISSENT",
+  "v3_immutable": "HOLD_NATIVE_QA",
+  "science": "NOT_EXECUTED",
+  "main_mutated": false,
+  "lineage_mutated": false,
+  "b_branch_mutated_by_c": false,
+  "merge": false,
+  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE"
+}

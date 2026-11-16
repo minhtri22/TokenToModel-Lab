@@ -49,9 +49,9 @@
   "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
   "real_sft": "NOT_EXECUTED",
   "data_objective_capacity_science": "NOT_EXECUTED",
-  "phase_status": "BC_SFT_PART_A_AUTHOR_ORACLE_18_18_PASS_B_IMPLEMENTATION_HOLD",
-  "review": "C_M4_DISTINCT_DESIGN_PASS_SCOPED_BC_INTEGRATION_INDEPENDENT_NOT_EXECUTED",
-  "next_operation": "TTM_C_BC_EXACT_B_ADAPTER_HEAD_INTEGRATION_REVIEW_SINGLE_GATE",
+  "phase_status": "BC_F01_F04_PART_B_SOURCE_REVIEW_HOLD_INTERFACE_V2_C_PROPOSAL_ONLY",
+  "review": "C_M4_DESIGN_DISTINCT_PASS_SCOPED_BC_B_PR36_SOURCE_REVIEW_F01_F04_HOLD",
+  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
   "source_qa": {
     "m4_distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
     "m4_distinct_rereview": "PASS_DESIGN_SCOPED_35_35",
@@ -62,10 +62,14 @@
     "bc_part_a_oracle_sha256": "bbd72ecb890d74188b20ae808dd518dbbc70c3ae945b03a710b9a7bc3ba603b0",
     "bc_part_a_independent_reviewer": "NOT_EXECUTED",
     "bc_part_b_b_adapter": "NOT_EXECUTED",
-    "bc_native_windows_py312": "NOT_EXECUTED"
+    "bc_native_windows_py312": "NOT_EXECUTED",
+    "bc_f01_f04_c_v2_tests": "NOT_EXECUTED_PENDING_CI_AT_COMMIT",
+    "bc_f01_f04_b_actual_bridge": "NOT_IMPLEMENTED_AT_INSPECTED_B_HEAD",
+    "bc_f01_f04_native_windows_py312": "NOT_EXECUTED",
+    "bc_f01_f04_distinct_review": "NOT_EXECUTED"
   },
   "bc_interface": {
-    "operation": "TTM_C_BC_SFT_INTERFACE_CONTRACT_REVIEW_AND_INTEGRATION_ACCEPTANCE_SINGLE_GATE",
+    "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
     "b_baseline_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
     "b_pr": 34,
     "b_baseline_scaffold_blob": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
@@ -74,14 +78,14 @@
     "c_contract_commit": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
     "c_independent_review_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
     "candidate_codec_sha256": "3852983cc03de36733000e878e193d2b02b87d738b56346a7294cc48206bd142",
-    "verdict": "HOLD_INTERFACE_PENDING_B_ADAPTER",
+    "verdict": "HOLD_INTERFACE",
     "gates": {
-      "BC-0": "PASS_B_C_BASELINE_SOURCE_PIN_SCOPED",
-      "BC-1": "HOLD_B_CODEC_IMPLEMENTATION",
-      "BC-2": "HOLD_B_MASKED_SFT_WIRING",
-      "BC-3": "NOT_EXECUTED",
-      "BC-4": "HOLD_B_NEW_SCHEMA_AND_PINS",
-      "BC-5": "WAIT_B_G5_G6"
+      "BC-0": "PASS_B_C_SOURCE_READBACK_SCOPED",
+      "BC-1": "PASS_B_AUTHOR_CI_ONLY_C_BRIDGE_HOLD",
+      "BC-2": "PASS_B_AUTHOR_CI_ONLY_C_BRIDGE_HOLD",
+      "BC-3": "PASS_B_AUTHOR_CI_CPU_ONLY_DISTINCT_PENDING",
+      "BC-4": "HOLD_INTERFACE_F01_F04",
+      "BC-5": "HOLD_DISTINCT_NEW_SFT_INTEGRATION"
     },
     "existing_codec_collisions": "B_BYTE_0_255_VS_C_TOY_SPECIAL_0_6",
     "proposed_noncolliding_specials": {
@@ -96,7 +100,26 @@
     "native_resource_gate": "B_G5_HOLD",
     "independent_B_gate": "B_G6_HOLD",
     "science": "NOT_EXECUTED",
-    "B_branch_unchanged": true
+    "B_branch_unchanged": true,
+    "b_integration_pr": 36,
+    "b_exact_unamended_head": "5f2b71c5f493405c180d6995a21dd7373bd2dbb2",
+    "b_reviewed_adapter_git_blob": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+    "b_adapter_sha256": "f8a4751e896081237565af802dc960ddcfeee44d53f991fbf6e76fc5402a2207",
+    "c_previous_head": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+    "pm_handoff_commit": "40788f557799c7c8a688df32271510aab73a9180",
+    "latest_author_ci": "B_29_OF_29_WINDOWS_PLUS_29_OF_29_LINUX_AT_IMPLEMENTATION_7a8e15a",
+    "c_v2_contract": "PROPOSAL_PENDING_B_SIGNOFF_NOT_BACKDATED_TO_V1",
+    "findings": {
+      "BC-F01": "HOLD_TYPED_STR_UTF8_TO_B_LIST_INT",
+      "BC-F02": "HOLD_PACK_AND_RESUME_METADATA_SCHEMA_MISMATCH",
+      "BC-F03": "HOLD_JSON_TERMINAL_LF_CANONICAL_MISMATCH",
+      "BC-F04": "HOLD_MISSING_SEVEN_ACTUAL_ARTIFACT_HASH_READBACK"
+    },
+    "b_g5_m3_prior_pm": "PASS_ADJUDICATED_HARD_RESOURCE_ENGINEERING_SCOPED",
+    "b_g5_v3_immutable": "HOLD_NATIVE_QA",
+    "b_g5_reviewer_dissent": "HOLD_PEAK_ACCOUNTING",
+    "bc5": "HOLD_NEW_SFT_INDEPENDENT_QA",
+    "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE"
   },
-  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_SFT_PART_A_AUTHOR_QA_RECEIPT_20261116.json"
+  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_SOURCE_REVIEW_RECEIPT_20261117.json"
 }
