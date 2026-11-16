@@ -169,5 +169,29 @@ class M0AdversarialTests(unittest.TestCase):
                 "candidate_tie_abstained"])
 
 
+    def test_17_large_uniform_logits_stable_nll(self):
+        # A reviewer found the former m + log_sum - gold collapsed to zero.
+        for value in (0.0, 1e20, -1e20, 1e100, -1e100):
+            z = [value] * VOCAB
+            for row in self.rows:
+                s = score_logits(z, row)
+                self.assertAlmostEqual(s["full_vocab_gold_nll"],
+                                       math.log(VOCAB), places=10)
+                self.assertTrue(s["full_vocab_tie_abstained"])
+                self.assertTrue(s["candidate_tie_abstained"])
+
+    def test_18_large_shift_does_not_change_nll(self):
+        row = self.rows[0]
+        # Choose differences larger than the ULP near 1e20.
+        base = [float(-65536*i) for i in range(VOCAB)]
+        shifted = [1e20 + x for x in base]
+        a = score_logits(base, row)
+        b = score_logits(shifted, row)
+        self.assertAlmostEqual(a["full_vocab_gold_nll"],
+                               b["full_vocab_gold_nll"], delta=65536)
+        # Exact flat logit-shift invariance is tested separately above.
+
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
