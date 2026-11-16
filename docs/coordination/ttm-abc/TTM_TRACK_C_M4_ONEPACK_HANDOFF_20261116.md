@@ -7,12 +7,12 @@
 
 ## Deliverable map
 
-1. \`docs/research/ttm-abc/track-c/C_EVAL_CONSTRUCT_AND_DATA_AUDIT.md\` — traced historical numbers vs missing real histogram/dedup/license/splits; endpoint/rubric/positive-negative controls, floor policy.
-2. \`docs/research/ttm-abc/track-c/C_DATA_OBJECTIVE_CAPACITY_MATRIX.md\` — D0/D1/D2 and prospective O/P arms, exposure arithmetic vs FLOPs, seed/power/resource gates, checkpoint compatibility.
-3. \`docs/research/ttm-abc/track-c/C_SFT_PROTOCOL.md\` — nanochat-at-pin interpretation, B-facing serialization, shift/assistant-answer mask and no cross-document packing.
-4. \`tests/ttm_track_c/synthetic_contract.py\` / \`test_synthetic_contract.py\` — pure-stdlib toy audit/serialize/slot scoring and negative QA, no model or sensitive material.
-5. \`configs/ttm_track_c_design_only_v1.json\` — machine-readable proposal, not locked runtime config.
-6. \`artifacts/ttm-abc/track-c/\` — QA receipt to be added after test evidence, distinguishing native vs author-only verification.
+1. `docs/research/ttm-abc/track-c/C_EVAL_CONSTRUCT_AND_DATA_AUDIT.md` — traced historical numbers vs missing real histogram/dedup/license/splits; endpoint/rubric/positive-negative controls, floor policy.
+2. `docs/research/ttm-abc/track-c/C_DATA_OBJECTIVE_CAPACITY_MATRIX.md` — D0/D1/D2 and prospective O/P arms, exposure arithmetic vs FLOPs, seed/power/resource gates, checkpoint compatibility.
+3. `docs/research/ttm-abc/track-c/C_SFT_PROTOCOL.md` — nanochat-at-pin interpretation, B-facing serialization, shift/assistant-answer mask and no cross-document packing.
+4. `tests/ttm_track_c/synthetic_contract.py` / `test_synthetic_contract.py` — pure-stdlib toy audit/serialize/slot scoring and negative QA, no model or sensitive material.
+5. `configs/ttm_track_c_design_only_v1.json` — machine-readable proposal, not locked runtime config.
+6. `artifacts/ttm-abc/track-c/` — QA receipt: artifacts/ttm-abc/track-c/TTM_TRACK_C_M4_AUTHOR_SYNTHETIC_QA_RECEIPT_20261116.json; 14/14 offhost Python 3.13.5, independently reviewed NOT_EXECUTED, distinguishing native vs author-only verification.
 
 ## Gates (do not promote via paper checks)
 
@@ -33,4 +33,4 @@
 **Compute estimate:** only 4,194,304 labels/seed/arm and planning multipliers are known, no actual measured GPU-s/FLOPs/VRAM. **Histogram / dedup:** actual unavailable; toy only. No scientific inference.
 
 **Single blocker:** rights-scoped, source/hashed, fresh nonleaking dataset and A-qualified measurement endpoint (or independently qualified replacement) are missing; B pipeline required for training.
-**Bước thực hiện tiếp theo — duy nhất:** \`C_M4_INDEPENDENT_DESIGN_AND_SYNTHETIC_CONTRACT_REVIEW_SINGLE_GATE\` — distinct reviewer challenges gold/negative controls, leakage policy, mask/shift/stop and arm budgets on the exact PR #35 HEAD; report PASS_DESIGN or HOLD_DESIGN without training or micro-permit.
+**Bước thực hiện tiếp theo — duy nhất:** `C_M4_INDEPENDENT_DESIGN_AND_SYNTHETIC_CONTRACT_REVIEW_SINGLE_GATE` — distinct reviewer challenges gold/negative controls, leakage policy, mask/shift/stop and arm budgets on the exact PR #35 HEAD; report PASS_DESIGN or HOLD_DESIGN without training or micro-permit.

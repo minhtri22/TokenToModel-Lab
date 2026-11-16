@@ -15,23 +15,39 @@
   ],
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
-  "executor": "UNASSIGNED",
-  "phase_status": "HANDOFF_READY_AGENT_NOT_STARTED",
+  "executor": "AGENT_C_CHATGPT_DESIGN_ONLY",
+  "phase_status": "C_M4_ONEPACK_AUTHOR_SYNTHETIC_QA_PASS_INDEPENDENT_PENDING_SCIENCE_HOLD",
   "gates": {
-    "C-G0": "NOT_EXECUTED",
-    "C-G1": "NOT_EXECUTED",
-    "C-G2": "NOT_EXECUTED",
+    "C-G0": "AUTHOR_SOURCE_INVENTORY_PASS_SCOPED_INDEPENDENT_PENDING",
+    "C-G1": "HOLD_REAL_DATA_UNAVAILABLE",
+    "C-G2": "DESIGN_TOY_CONTROLS_ONLY_INDEPENDENT_PENDING",
     "C-G3": "DESIGN_ONLY",
     "C-G4": "WAIT_A_B",
-    "C-G5": "DESIGN_ONLY",
+    "C-G5": "TOY_MASK_QA_14_14_B_INTEGRATION_PENDING",
     "C-G6": "DESIGN_ONLY",
     "C-G7": "NOT_AUTHORIZED",
     "C-G8": "NOT_EXECUTED"
   },
-  "preexisting_evidence": null,
+  "preexisting_evidence": {
+    "content_commit": "e75ce2b7ca7e30b75acb6d6ab3464f5a933f7b49",
+    "review_source": "GITHUB_CONNECTOR"
+  },
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "NOT_EXECUTED",
-  "next_operation": "C_M4_DATA_AUDIT_MEASUREMENT_CONSTRUCT_AND_SFT_MASK_DESIGN_ONLY_ONEPACK"
+  "review": "INDEPENDENT_NOT_EXECUTED",
+  "next_operation": "C_M4_INDEPENDENT_DESIGN_AND_SYNTHETIC_CONTRACT_REVIEW_SINGLE_GATE",
+  "source_qa": {
+    "author_static_checks": "PASS_14_OF_14",
+    "offhost_python_unittest": "PASS_14_OF_14",
+    "offhost_python_version": "3.13.5",
+    "offhost_python_command": "python -S -B -m unittest discover -s tests/ttm_track_c -p test_synthetic_contract.py -v",
+    "windows_python312": "NOT_EXECUTED",
+    "github_git_blob_match": "PASS_BOTH_FILES",
+    "independent_reviewer": "NOT_EXECUTED"
+  },
+  "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
+  "real_sft": "NOT_EXECUTED",
+  "data_objective_capacity_science": "NOT_EXECUTED",
+  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_TRACK_C_M4_AUTHOR_SYNTHETIC_QA_RECEIPT_20261116.json"
 }

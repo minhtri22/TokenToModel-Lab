@@ -35,7 +35,7 @@ Design for multiple independent seeds: pilot 5, confirmatory candidate 12, not f
 
 ## 4. Nanochat transport lessons and compatibility boundaries
 
-nanochat pinned SHA 92d63d4e8bb4df75c3b71618f31ddde2378b2bcd: \`scripts/base_train.py\` measures token/data/compute, \`nanochat/gpt.py\` has FLOPs estimator, \`runs/miniseries.sh\` reports parameters/tokens/val bpb/time, \`nanochat/optim.py\` implements mixed MuonAdamW, \`scripts/chat_sft.py\` uses assistant loss mask. Transfer **measurement principles**, not claimed identical GPT math or speed.
+nanochat pinned SHA 92d63d4e8bb4df75c3b71618f31ddde2378b2bcd: `scripts/base_train.py` measures token/data/compute, `nanochat/gpt.py` has FLOPs estimator, `runs/miniseries.sh` reports parameters/tokens/val bpb/time, `nanochat/optim.py` implements mixed MuonAdamW, `scripts/chat_sft.py` uses assistant loss mask. Transfer **measurement principles**, not claimed identical GPT math or speed.
 
 One architecture arm per comparison: LayerNorm→RMSNorm; absolute embeddings→RoPE; GELU→ReLU² or SwiGLU separately; QK-Norm; GQA; MuonAdamW→AdamW or reverse as optimization arm. Schema/tokenizer and optimizer-state changes require exact compatibility checks and fresh training if needed. P02 RMSNorm exists as **optional** candidate, T4 used LayerNorm. Keep T5 strict-logit FAIL32/32 and GELU_ERF scoped PASS4/4 as historic bounded findings; **no universal GGUF parity claim**. KV and serving are post-quality: TTFT/TPOT, concurrency, stop, memory with model-specific parity; CPU synthetic paged KV is not GPU paged attention.
 
