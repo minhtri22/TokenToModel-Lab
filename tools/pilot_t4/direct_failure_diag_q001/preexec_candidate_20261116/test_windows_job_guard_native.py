@@ -23,12 +23,15 @@ class SourceContract(unittest.TestCase):
         self.assertGreater(d["PROCESS_INFORMATION"], 0)
 
     def test_max_commit_cap_precondition(self):
-        with self.assertRaises(RuntimeError):
-            winjob.run_job_guarded([sys.executable], cwd=".", max_job_commit_bytes=12 * 1024**3, timeout_seconds=5) if sys.platform != "win32" else self._invalid_cap()
-
-    def _invalid_cap(self):
-        with self.assertRaises(ValueError):
-            winjob.run_job_guarded([sys.executable], cwd=".", max_job_commit_bytes=13 * 1024**3, timeout_seconds=5)
+        # Non-Windows fails before argument checks; native Windows rejects >12GiB.
+        if sys.platform == "win32":
+            with self.assertRaises(ValueError):
+                winjob.run_job_guarded([sys.executable], cwd=".",
+                    max_job_commit_bytes=13 * 1024**3, timeout_seconds=5)
+        else:
+            with self.assertRaises(RuntimeError):
+                winjob.run_job_guarded([sys.executable], cwd=".",
+                    max_job_commit_bytes=13 * 1024**3, timeout_seconds=5)
 
     def test_cli_no_arbitrary_executable(self):
         with self.assertRaisesRegex(RuntimeError, "EXACT_EXECUTABLE"):
