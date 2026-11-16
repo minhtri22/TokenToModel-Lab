@@ -1,0 +1,38 @@
+# INDEPENDENT SOURCE REVIEW — TTM-SM4M-DIAG-Q001 — fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5
+
+**Date:** 2026-11-16 · **Scope:** exact GitHub source/protocol, read-only; no checkpoint, no model, no fixture freeze.  
+**Reviewed PR:** #28, commit `fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5` (NOT any later dynamic branch HEAD).  
+**Q1 main:** `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3`; **owner conditional GO:** PR #27 comment `6910234144`, unchanged.  
+**Source verdict:** `HOLD_DIAG_Q001_CANDIDATE_SOURCE`; **release decision:** `HOLD_I1`; **I2:** `NOT_EXECUTED`.  
+**Reviewer attribution:** Separate assistant source review. GitHub evidence may be committed using owner's connected GitHub identity; this is **not** an independent external human signoff or proof of executed adversarial runtime tests.
+
+## Verified and not verified
+
+- PASS: exact PR HEAD before evidence commit = `fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5`; all 8 GitHub source blob SHA-1 readbacks match manifest table; all 8 historical Q1 blob pins match source ref `434a2592dc94a038d1dc33026eb5fb12b68c8af1`. Detailed 8+8 paths/hashes in adjacent machine receipt.
+- SOURCE-INSPECTION ONLY: 9 context IDs -> tenth-token label from last-position logits; explicit 24 TRAIN-only update indices, 256-step AdamW loop, baseline/post read-only evaluation of 80 cases, and separated unrestricted/restricted scoring appear consistent.
+- AUTHOR REPORTED ONLY: mock `18/18`, same-author checker `21/21`, historical ZIP SHA256/manifest. Neither is an independently rerun QA result. This review did not recalculate file SHA256 from downloaded bytes.
+- NOT VERIFIED: independently executed adversarial tests, Windows PowerShell 5.1 / Python 3.12 integration, checkpoint current custody and AD-00/AD-01C/E6 rights, real tokenizer inventory, independent fixture 80/80 check, resource watchdog, one-shot CPU run.
+- No original checkpoint, private tokenizer inventory, TEST or FINAL24 bytes were accessed. No PR merge, no permission claims, no science result.
+
+## Concrete findings, smallest scoped fixes
+
+| ID | Severity | Source | Finding and required remedy |
+|---|---|---|---|
+| F01 | BLOCKER | `ttm_sm4m_diag_q001.py:281-303` | **Locally editable JSON strings are treated as owner/reviewer/rights authorization without validating external attestation, issuer, signature or exact evidence reference. SHA equality of local inputs does not prove lawful access.** Remedy: Bind runner release to GitHub-pinned/independently authenticated reviewer and owner evidence plus AD-00/AD-01C/E6 attestation, deny mismatched/missing/replayed/spoofed permits in independent negative QA. |
+| F02 | BLOCKER | `ttm_sm4m_diag_q001.py:66-89` | **underlying_inventory_sha256 is checked only as 64 lowercase hex, not against frozen original tokenizer inventory or verified non-special/reserved taxonomy. A fabricated metadata JSON with any 64-hex value passes format checks.** Remedy: Verify source inventory bytes against pinned SHA and reserved/special identity through a separate authorized custody receipt; test forged, zero, swapped or mismatched metadata without inspecting private bytes before rights. |
+| F03 | BLOCKER | `ttm_sm4m_diag_q001.py:306-347` | **fixture-freeze writes only a hash/receipt, not the 80 immutable case records, per-case oracle/group SHA, or demonstrably externally frozen pre-I2 evidence. Run recomputes fixture and compares an editable permit field.** Remedy: Persist locked 80-case fixture and per-case/group manifest within approved private scope, independent 80/80 oracle and mutation QA, authenticated pre-I2 receipt, and make I2 verify those exact bytes with no silent regeneration/substitution. |
+| F04 | BLOCKER | `Run-SourceQA-PS51.ps1:8` | **Both default paths point to _tmp/ttm_sm4m_diag_q001_candidate instead of the GitHub-vetted tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116 directory; default path cannot select the reviewed runner reliably.** Remedy: Fix defaults to an exact GitHub checkout relative to script location, enforce full 64-hex runner SHA, verify PowerShell 5.1 on Windows Python 3.12 using source-only tests. Do not silently copy or rename ZIP files. |
+| F05 | BLOCKER | `SOURCE_QA_RECEIPT.json:6-19` | **18/18 mock and 21/21 author-created checker do not cover independently exercised wrong shift/full-sequence CE, eval gradient leak, forged owner permit/rights, broken P02/checkpoint pins, process/resource STOP, malformed output, or actual Windows integration.** Remedy: Provide one distinct pinned-source negative test suite and readback; test failures before any model execution; rights-dependent checks remain NOT_EXECUTED until authorized. |
+| F06 | BLOCKER | `SOURCE_QA_RECEIPT.json:16-19` | **AD-00/AD-01C/E6 and private step1024 checkpoint current custody unverified; historical checkpoint SHA does not constitute authorized access. Host CPU/torch/psutil and exact runtime not independently verified.** Remedy: Owner/external rights attestation scoped to exact checkpoint/model and source, authorized private byte readback, frozen Python 3.12/torch/psutil environment and resource preflight before any I1 release/I2 run. |
+| F07 | MAJOR | `ttm_sm4m_diag_q001.py:443-485` | **Finite gradients are checked but nonzero weight delta is not measured or asserted; the frozen primary endpoint requires finite gradient AND weight change. Receipt lacks measured weight-delta and peak RSS.** Remedy: Record pinned parameter pre/post SHA/norm and strictly positive finite delta, sampled/peak RSS, executable versions, and full step0/256 counts without changing optimizer or endpoints. |
+| F08 | MAJOR | `ttm_sm4m_diag_q001.py:418-422` | **Python resource check is cooperative between operations, while 1GiB limit covers serialized receipt only, not total files/log streams. External 900s process-tree kill has no independent Windows negative QA.** Remedy: Independently test watchdog kill, peak RSS and aggregate log/output cap in Windows; account for crash/stall and no-retry one-shot semantics. |
+| F09 | MINOR | `README.md:64-65` | **README says 17/17 but original receipt says 18/18 mock source QA.** Remedy: Fix README in a new remediation commit; retain original SHA-pinned candidate evidence. |
+| F10 | MINOR | `ttm_sm4m_diag_q001.py:126-137` | **Four-choice set places gold first and draws mainly from fixed low-sorted value tokens; it does not validate per-case distractor hardness or include bound-value distractors systematically. Restricted comparison must not be overinterpreted.** Remedy: Document exact candidate-choice semantics and limitations, or propose protocol amendment before I1 with distinct review, never posthoc after model outputs. |
+
+## I1/I2 adjudication
+
+**I1 is HOLD**, not a technical-training failure. F01–F06 are blocking for candidate release. F07–F08 require bounded implementation/QA correction; F09–F10 are documentation/interpretation findings. The user already granted a conditional single-scoped GO; **do not request it again**. A local JSON containing `VERIFIED_SCOPED` or `GO_SINGLE_ONE_SHOT_CPU` does not prove independent authorization.
+
+**Exact next action (one integrated remediation):** repair findings in one new implementation/review candidate, preserve this review's source pins and frozen Q1 thresholds, add real independent negative/source QA and verifiable rights/model/tokenizer custody; then one I1 adjudication and, only if ALL gates pass, exactly one CPU 256-step probe without retry/reseed. Do not merge PR #28 or alter `lineage.md` based on this source-only HOLD.
+
+**Evidence:** see `TTM_SM4M_DIAG_Q001_FB0_INDEPENDENT_REVIEW_RECEIPT_20261116.json` (same evidence commit); the reviewer explicitly labels all unexecuted tests.

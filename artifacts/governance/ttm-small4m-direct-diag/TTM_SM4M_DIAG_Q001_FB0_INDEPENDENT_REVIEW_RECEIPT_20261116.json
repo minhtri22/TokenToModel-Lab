@@ -1,0 +1,182 @@
+{
+  "schema": "ttm.sm4m.diag.q001.distinct_source_review_receipt.v1",
+  "operation": "TTM_SM4M_DIAG_Q001_DISTINCT_PREEXEC_RIGHTS_CUSTODY_AND_I1_RELEASE_SINGLE_GATE",
+  "review_date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "reviewed_exact_head": "fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5",
+  "review_branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "review_pr": 28,
+  "q1_registered_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "q1_historical_pins_ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1",
+  "source_git_blob_sha1_verified_by_github_readback": {
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py": "0e34694a4733affff015305a590df1f95c659703",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1": "d727ac512d86e105e81f4dd0d897e55e27d7a05c",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1": "033b77253f73ff63ec3dbf1f8bb187457ab9ae77",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md": "a44ef622273924bc507f055f676be0ae6e5721ec",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+    "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962"
+  },
+  "source_git_blob_checks": {
+    "pass": 8,
+    "total": 8,
+    "method": "GitHub fetch_file at exact commit; Git object SHA metadata, not local byte rehash"
+  },
+  "q1_historical_pin_sha1_verified_by_github_readback": {
+    "lineage.md": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "docs/governance/ACTIVE_RESEARCH_GATE.md": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+    "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+    "templates/TTM_RESEARCH_QUESTION_GATE.md": "8516dabe80fa937f1009ebaf67f72c38b6da90a1",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "tools/pilot_t4/integrated/t4_capacity_smoke.py": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md": "bb21cf560c91a083680e072adb7d5ce5a5508d11"
+  },
+  "q1_historical_pin_checks": {
+    "pass": 8,
+    "total": 8,
+    "method": "GitHub fetch_file at historical source ref"
+  },
+  "author_reported_checks": {
+    "mock_source_qa": "18/18 PASS as author receipt only",
+    "same_author_checker": "21/21 PASS as author receipt only",
+    "independent_negative_execution": "NOT_EXECUTED"
+  },
+  "independent_review_mode": "STATIC_SOURCE_AND_PROTOCOL_READ_ONLY; distinct conversational reviewer, not a verified external human/organizational signoff",
+  "independently_confirmed_by_source_inspection": [
+    "9 context tokens -> last logit predicts single target",
+    "24 gradient cases only; nontrain evaluated baseline/post with no gradient",
+    "256 AdamW optimizer loop syntactically planned",
+    "separate full-vocab and restricted-4 top-1",
+    "P02 historical source blob matched",
+    "OWNER conditional GO present on PR27 comment 6910234144"
+  ],
+  "independent_runtime_tests": "NOT_EXECUTED",
+  "cpu_256": "NOT_EXECUTED",
+  "checkpoint_read": false,
+  "model_loaded": false,
+  "fixture_freeze": false,
+  "external_rights_attestation": "NOT_VERIFIED",
+  "current_checkpoint_sha256": "NOT_REVERIFIED",
+  "source_verdict": "HOLD_DIAG_Q001_CANDIDATE_SOURCE",
+  "i1_release": "HOLD_I1",
+  "i2_runtime": "NOT_EXECUTED",
+  "owner_conditional_go": "PRESERVED_NOT_EXERCISED",
+  "pr_merge": "NOT_AUTHORIZED",
+  "lineage_changed": false,
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "BLOCKER",
+      "category": "AUTHORIZATION",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:281-303",
+        "ttm_sm4m_diag_q001.py:318-331",
+        "Run-Approved-OneShot-PS51.ps1:30-38"
+      ],
+      "issue": "Locally editable JSON strings are treated as owner/reviewer/rights authorization without validating external attestation, issuer, signature or exact evidence reference. SHA equality of local inputs does not prove lawful access.",
+      "remedy": "Bind runner release to GitHub-pinned/independently authenticated reviewer and owner evidence plus AD-00/AD-01C/E6 attestation, deny mismatched/missing/replayed/spoofed permits in independent negative QA."
+    },
+    {
+      "id": "F02",
+      "severity": "BLOCKER",
+      "category": "TOKEN_CUSTODY",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:66-89"
+      ],
+      "issue": "underlying_inventory_sha256 is checked only as 64 lowercase hex, not against frozen original tokenizer inventory or verified non-special/reserved taxonomy. A fabricated metadata JSON with any 64-hex value passes format checks.",
+      "remedy": "Verify source inventory bytes against pinned SHA and reserved/special identity through a separate authorized custody receipt; test forged, zero, swapped or mismatched metadata without inspecting private bytes before rights."
+    },
+    {
+      "id": "F03",
+      "severity": "BLOCKER",
+      "category": "FIXTURE_PROSPECTIVITY",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:306-347",
+        "ttm_sm4m_diag_q001.py:426-432"
+      ],
+      "issue": "fixture-freeze writes only a hash/receipt, not the 80 immutable case records, per-case oracle/group SHA, or demonstrably externally frozen pre-I2 evidence. Run recomputes fixture and compares an editable permit field.",
+      "remedy": "Persist locked 80-case fixture and per-case/group manifest within approved private scope, independent 80/80 oracle and mutation QA, authenticated pre-I2 receipt, and make I2 verify those exact bytes with no silent regeneration/substitution."
+    },
+    {
+      "id": "F04",
+      "severity": "BLOCKER",
+      "category": "WINDOWS_INTEGRATION",
+      "locations": [
+        "Run-SourceQA-PS51.ps1:8",
+        "Run-Approved-OneShot-PS51.ps1:15"
+      ],
+      "issue": "Both default paths point to _tmp/ttm_sm4m_diag_q001_candidate instead of the GitHub-vetted tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116 directory; default path cannot select the reviewed runner reliably.",
+      "remedy": "Fix defaults to an exact GitHub checkout relative to script location, enforce full 64-hex runner SHA, verify PowerShell 5.1 on Windows Python 3.12 using source-only tests. Do not silently copy or rename ZIP files."
+    },
+    {
+      "id": "F05",
+      "severity": "BLOCKER",
+      "category": "INDEPENDENT_NEGATIVE_QA",
+      "locations": [
+        "SOURCE_QA_RECEIPT.json:6-19",
+        "qa_crosscheck.py:1-6",
+        "ttm_sm4m_diag_q001.py:234-278"
+      ],
+      "issue": "18/18 mock and 21/21 author-created checker do not cover independently exercised wrong shift/full-sequence CE, eval gradient leak, forged owner permit/rights, broken P02/checkpoint pins, process/resource STOP, malformed output, or actual Windows integration.",
+      "remedy": "Provide one distinct pinned-source negative test suite and readback; test failures before any model execution; rights-dependent checks remain NOT_EXECUTED until authorized."
+    },
+    {
+      "id": "F06",
+      "severity": "BLOCKER",
+      "category": "RIGHTS_RUNTIME_ADMISSION",
+      "locations": [
+        "SOURCE_QA_RECEIPT.json:16-19",
+        "TTM_SM4M_DIAG_Q001_PREEXEC_CANDIDATE_GITHUB_SOURCE_CUSTODY_20261116.json:governance"
+      ],
+      "issue": "AD-00/AD-01C/E6 and private step1024 checkpoint current custody unverified; historical checkpoint SHA does not constitute authorized access. Host CPU/torch/psutil and exact runtime not independently verified.",
+      "remedy": "Owner/external rights attestation scoped to exact checkpoint/model and source, authorized private byte readback, frozen Python 3.12/torch/psutil environment and resource preflight before any I1 release/I2 run."
+    },
+    {
+      "id": "F07",
+      "severity": "MAJOR",
+      "category": "OPTIMIZATION_VALIDITY",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:443-485"
+      ],
+      "issue": "Finite gradients are checked but nonzero weight delta is not measured or asserted; the frozen primary endpoint requires finite gradient AND weight change. Receipt lacks measured weight-delta and peak RSS.",
+      "remedy": "Record pinned parameter pre/post SHA/norm and strictly positive finite delta, sampled/peak RSS, executable versions, and full step0/256 counts without changing optimizer or endpoints."
+    },
+    {
+      "id": "F08",
+      "severity": "MAJOR",
+      "category": "RESOURCE_ENFORCEMENT",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:418-422",
+        "ttm_sm4m_diag_q001.py:486-491",
+        "Run-Approved-OneShot-PS51.ps1:44-56"
+      ],
+      "issue": "Python resource check is cooperative between operations, while 1GiB limit covers serialized receipt only, not total files/log streams. External 900s process-tree kill has no independent Windows negative QA.",
+      "remedy": "Independently test watchdog kill, peak RSS and aggregate log/output cap in Windows; account for crash/stall and no-retry one-shot semantics."
+    },
+    {
+      "id": "F09",
+      "severity": "MINOR",
+      "category": "DOCUMENTATION",
+      "locations": [
+        "README.md:64-65"
+      ],
+      "issue": "README says 17/17 but original receipt says 18/18 mock source QA.",
+      "remedy": "Fix README in a new remediation commit; retain original SHA-pinned candidate evidence."
+    },
+    {
+      "id": "F10",
+      "severity": "MINOR",
+      "category": "DIAGNOSTIC_INTERPRETATION",
+      "locations": [
+        "ttm_sm4m_diag_q001.py:126-137",
+        "ttm_sm4m_diag_q001.py:396-403"
+      ],
+      "issue": "Four-choice set places gold first and draws mainly from fixed low-sorted value tokens; it does not validate per-case distractor hardness or include bound-value distractors systematically. Restricted comparison must not be overinterpreted.",
+      "remedy": "Document exact candidate-choice semantics and limitations, or propose protocol amendment before I1 with distinct review, never posthoc after model outputs."
+    }
+  ],
+  "remediation_scope": "Single integrated amendment at new commit, same QuestionID and frozen control parameters; remediate and obtain distinct source/negative QA plus rights before I1/I2"
+}
