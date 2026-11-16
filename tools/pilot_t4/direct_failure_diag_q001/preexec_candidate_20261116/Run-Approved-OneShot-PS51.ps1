@@ -1,4 +1,4 @@
-# Guarded I2 CPU launcher; requires three authenticated external signatures.
+# Guarded I2 CPU launcher; exact owner-internal policy OR legacy authenticated signatures.
 # NO execution merely because owner selected conditional GO. No auto-retries.
 param(
   [string]$ProjectRoot = 'D:\WORK\RESEARCH\TokenToModel-Lab',
@@ -19,7 +19,7 @@ if (-not $RunnerPath) {$RunnerPath=$PinnedRunner}
 if ([IO.Path]::GetFullPath($RunnerPath) -ine $PinnedRunner) {throw 'HOLD_RUNNER_PATH_NOT_PINNED'}
 if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_RUNNER_PIN_FORMAT'}
 if ($ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_WATCHDOG_PIN_FORMAT'}
-if ($ExpectedRunnerSHA256 -cne 'd4e41a935ee2c9c82975e91e14f943427f68e1648333bb4327c706da8b099e3c') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
+if ($ExpectedRunnerSHA256 -cne '8f2606f075738dcb85a15a9f1a506aafbbb3a255f0ec2f1f1615b2f8930bd693') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
 if ($ExpectedWatchdogSHA256 -cne 'd80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c') {throw 'HOLD_WATCHDOG_PIN_NOT_REVIEWED'}
 $WatchdogModule=Join-Path $PSScriptRoot 'Watch-TTM-SM4M-ProcessTree-PS51.ps1'
 if (-not (Test-Path -LiteralPath $WatchdogModule -PathType Leaf)) {throw 'HOLD_WATCHDOG_MODULE_MISSING'}
@@ -48,7 +48,7 @@ if ((Get-FileHash -LiteralPath $guard -Algorithm SHA256).Hash.ToLowerInvariant()
 if (Test-Path -LiteralPath $OutputDir) {throw 'HOLD_OUTPUT_NOT_FRESH'}
 & $Python -c 'import sys; assert sys.version_info[:2]==(3,12)'
 if ($LASTEXITCODE -ne 0) {throw 'HOLD_PYTHON_VERSION'}
-# Authenticate signatures and tokenizer rights BEFORE checking private checkpoint.
+# Authenticate exact reviewed owner scope or legacy signatures BEFORE private checkpoint reads.
 & $Python $RunnerPath release-preflight --root $ProjectRoot --permit $PermitPath --token-inventory $TokenInventoryPath --tokenizer-source $TokenizerSourcePath --fixture-dir $FixtureDir
 if ($LASTEXITCODE -ne 0) {throw 'HOLD_AUTHENTICATED_RELEASE_PREFLIGHT'}
 if (-not (Test-Path -LiteralPath $CheckpointPath -PathType Leaf)) {throw 'HOLD_CHECKPOINT_NOT_FOUND'}
