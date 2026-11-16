@@ -1,0 +1,42 @@
+name: TTM PM distinct B/C v2 F05-F06 final QA (no science)
+
+on:
+  push:
+    branches:
+      - review/ttm-pm-bc-v2-f05-f06-final-distinct-20261117
+    paths:
+      - tests/ttm_track_bc/test_pm_final_distinct_v2_manifest_boundary_20261117.py
+      - .github/workflows/track-bc-pm-f05-f06-final-distinct-py312.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  distinct-bc-f05-f06:
+    name: PM independent v2 manifest - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert frozen B source and original PM negative-test Git blobs
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD:src/ttm_track_b/bc_sft_bridge_v2.py)" = 'c56d98b520fef387fab43bac87b7a9247287b17c'
+          test "$(git rev-parse HEAD:tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py)" = '3003566952116f3bc0e4ba21c7306fda460a3017'
+          python -B -c "import sys; assert sys.version_info[:2]==(3,12); print('EXACT_B_SOURCE_AND_PY312_PASS_NO_MODEL_NO_SCIENCE')"
+      - name: Rerun frozen original 3 PM reviewer cases
+        shell: bash
+        run: |
+          python -B -m unittest discover -s tests/ttm_track_bc -p 'test_pm_distinct_v2_manifest_negative_20261117.py' -v
+      - name: Run 9 additional independent filesystem/schema controls
+        shell: bash
+        run: |
+          python -B -m unittest discover -s tests/ttm_track_bc -p 'test_pm_final_distinct_v2_manifest_boundary_20261117.py' -v
