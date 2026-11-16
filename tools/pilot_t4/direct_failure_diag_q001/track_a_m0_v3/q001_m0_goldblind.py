@@ -196,6 +196,8 @@ def validate_fixture(rows):
 
 def unique_top1(pairs):
     """Order-independent argmax. Ambiguous ties abstain; never first-choice."""
+    pairs = list(pairs)  # consume generators once, not twice
+    require(bool(pairs), "EMPTY_ARGMAX")
     m = max(v for _, v in pairs)
     winners = [i for i, v in pairs if v == m]
     return winners[0] if len(winners) == 1 else None
