@@ -122,23 +122,48 @@ def mock_token_inventory() -> tuple[dict, bytes]:
                 reserved_ids=reserved, underlying_inventory_sha256=hashlib.sha256(raw).hexdigest())
     return meta, raw
 
-# New Track A scorer is source SHA-pinned; no fallback to old fixture protocol.
-TRACK_A_V3_SOURCE_SHA256 = '98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587'
+# Track A source custody: exact Git LF bytes OR their deterministic CRLF checkout.
+# Hash the very same buffer that compile() executes; never ask importlib to run .pyc.
+TRACK_A_V3_SOURCE_SHA256 = '2d0b980768a0ac3079f361d94244cd694c97ed90e978fc83fb7991dc82b5c2ac'
+TRACK_A_V3_CRLF_SHA256 = 'd76936db04caec358ddfb6947656d60023dee7de5c3388f810c7ecbf08288b63'
+TRACK_A_V3_PRE_REPAIR_SCORER_SHA256 = '98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587'
+TRACK_A_V3_FROZEN_RECORDS_SHA256 = '823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d'
+TRACK_A_V3_FROZEN_MANIFEST_SHA256 = '0b80368a6747994df5f5b8d0e7b35137266ac82f6c9b83d26af5b61f79b3cb04'
 TRACK_A_V3_PROTOCOL = 'ttm.sm4m.q001.track_a.measurement.v3.integrated'
 
 
 def track_a_v3():
+    """Compile only the SHA-verified source buffer, bypassing .pyc and TOCTOU."""
+    import types
+
     source = (Path(__file__).resolve().parent.parent /
               'track_a_m0_v3' / 'q001_m0_goldblind.py')
-    if not source.is_file() or sha256_file(source) != TRACK_A_V3_SOURCE_SHA256:
+    if not source.is_file():
+        stop('TRACK_A_V3_SOURCE_MISSING')
+    raw = source.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    if actual not in (TRACK_A_V3_SOURCE_SHA256, TRACK_A_V3_CRLF_SHA256):
         stop('TRACK_A_V3_SOURCE_SHA_MISMATCH')
-    spec = importlib.util.spec_from_file_location('_ttm_sm4m_track_a_v3', source)
-    if spec is None or spec.loader is None:
-        stop('TRACK_A_V3_IMPORT')
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    # Mixed EOL, lone CR and rewritten bytes are disallowed, not normalized away.
+    if b'\r\n' in raw:
+        if b'\n' in raw.replace(b'\r\n', b'') or b'\r' in raw.replace(b'\r\n', b''):
+            stop('TRACK_A_V3_MIXED_EOL')
+        canonical = raw.replace(b'\r\n', b'\n')
+    else:
+        if b'\r' in raw:
+            stop('TRACK_A_V3_MIXED_EOL')
+        canonical = raw
+    if hashlib.sha256(canonical).hexdigest() != TRACK_A_V3_SOURCE_SHA256:
+        stop('TRACK_A_V3_CANONICAL_SHA_MISMATCH')
+    try:
+        code = compile(canonical.decode('utf-8'), str(source), 'exec',
+                       dont_inherit=True)
+    except (UnicodeError, SyntaxError) as exc:
+        stop('TRACK_A_V3_VERIFIED_COMPILE_FAILED')
+    module = types.ModuleType('_ttm_sm4m_track_a_v3')
+    module.__file__ = str(source)
+    exec(code, module.__dict__)
     return module
-
 
 def fixture_generator(allowed: list[int], seed: int = SEED) -> list[dict]:
     """Versioned gold-blind fixture; older frozen record bytes are invalid."""
