@@ -1,0 +1,427 @@
+{
+  "schema": "ttm.track_a.pm_release_barrier_negative_matrix.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_TRACK_A_I2_RELEASE_BARRIER_TOCTOU_ATOMICITY_AND_OWNER_AUTHORITY_DESIGN_SINGLE_GATE",
+  "parent_program_gate": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
+  "parent_issue": 32,
+  "reviewed_i1_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+  "prior_i1_independent_review_evidence": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+  "design_base_commit": "f7d6153fdae526b12303d324ccb7a271adee376b",
+  "design_only": true,
+  "tests_executed": 0,
+  "native_qa_executed": false,
+  "distinct_adjudication": "NOT_EXECUTED",
+  "status": "DESIGN_MATRIX_READY_FOR_DISTINCT_REVIEW__RELEASE_HOLD",
+  "expected_negative_counts": {
+    "BR-I2-01": 18,
+    "BR-I2-02": 20,
+    "INTEGRATED": 5
+  },
+  "proposed_negative_tests": [
+    {
+      "id": "AUTH-01",
+      "blocker": "BR-I2-01",
+      "negative": "Submit historical HOLD_I1 verdict as if PASS",
+      "expected": "HOLD_STALE_I1_NO_RELEASE",
+      "evidence": "Versioned policy trace + immutable old verdict SHA",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-02",
+      "blocker": "BR-I2-01",
+      "negative": "Submit reviewed I1 PASS as I2 execution permit",
+      "expected": "HOLD_MEASUREMENT_NOT_RELEASE",
+      "evidence": "Decision class trace, no checkpoint opened",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-03",
+      "blocker": "BR-I2-01",
+      "negative": "Forged GitHub comment or unsigned local owner GO",
+      "expected": "HOLD_UNAUTHENTICATED_OWNER_AUTHORITY",
+      "evidence": "Signature verification failure, Git history preserved",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-04",
+      "blocker": "BR-I2-01",
+      "negative": "Misbind source from ec197b5f to another executable SHA",
+      "expected": "HOLD_SOURCE_SHA_MISMATCH",
+      "evidence": "All source SHA fields, Git blob comparison",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-05",
+      "blocker": "BR-I2-01",
+      "negative": "Misbind frozen records or manifest SHA",
+      "expected": "HOLD_FIXTURE_OR_MANIFEST_SHA_MISMATCH",
+      "evidence": "Records/manifest SHA and source agreement",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-06",
+      "blocker": "BR-I2-01",
+      "negative": "Bind I1 evidence at an unreviewed head or branch name only",
+      "expected": "HOLD_EVIDENCE_COMMIT_UNPINNED",
+      "evidence": "Evidence commit and blobs exact, no mutable-ref trust",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-07",
+      "blocker": "BR-I2-01",
+      "negative": "Wrong reviewer checker SHA or 35/35 claim without matching receipt",
+      "expected": "HOLD_DISTINCT_QA_PROVENANCE",
+      "evidence": "Checker + report + receipt exact hashes",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-08",
+      "blocker": "BR-I2-01",
+      "negative": "Missing owner signature/approval",
+      "expected": "HOLD_REQUIRED_OWNER_SIGNATURE",
+      "evidence": "Role-by-role signature verification",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-09",
+      "blocker": "BR-I2-01",
+      "negative": "Reused same signer key across owner/reviewer/rights roles",
+      "expected": "HOLD_SIGNER_NOT_DISTINCT",
+      "evidence": "Actual verified distinct key fingerprints",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-10",
+      "blocker": "BR-I2-01",
+      "negative": "Self-inserted signing public key in supplied permit",
+      "expected": "HOLD_UNTRUSTED_KEY",
+      "evidence": "Reviewed separate trust-anchor policy SHA",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-11",
+      "blocker": "BR-I2-01",
+      "negative": "Expired or revoked release authorization",
+      "expected": "HOLD_EXPIRED_OR_REVOKED",
+      "evidence": "UTC expiry, revocation source and verification",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-12",
+      "blocker": "BR-I2-01",
+      "negative": "Wrong phase / QID / root / hostname / checkpoint pin",
+      "expected": "HOLD_SCOPE_MISMATCH",
+      "evidence": "Signed payload vs canonical host/root/phase",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-13",
+      "blocker": "BR-I2-01",
+      "negative": "Missing signed run nonce or nonce reused after prior claim",
+      "expected": "HOLD_NONCE_REQUIRED_OR_REPLAY",
+      "evidence": "Shared append-only claim ledger, no model entry",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "AUTH-14",
+      "blocker": "BR-I2-01",
+      "negative": "Accept obsolete runtime SHA map from old Q001 verdict",
+      "expected": "HOLD_RUNTIME_SOURCE_MAP_MISMATCH",
+      "evidence": "Exact versioned source inventory vs signed scope",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-15",
+      "blocker": "BR-I2-01",
+      "negative": "Downgrade required signing policy or omit role silently",
+      "expected": "HOLD_POLICY_DOWNGRADE",
+      "evidence": "Policy schema and signer-role count exact",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-16",
+      "blocker": "BR-I2-01",
+      "negative": "Attempt to overwrite/delete old historical HOLD verdict",
+      "expected": "HOLD_APPEND_ONLY_VIOLATION",
+      "evidence": "Git diff and original Git blob unchanged",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-17",
+      "blocker": "BR-I2-01",
+      "negative": "Substitute a valid M0 measurement for rights/resource/prereg gates",
+      "expected": "HOLD_PROGRAM_R0_R8_INCOMPLETE",
+      "evidence": "PM integrated R0–R8 gate matrix",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "AUTH-18",
+      "blocker": "BR-I2-01",
+      "negative": "Claim signature via common GitHub publication account alone",
+      "expected": "HOLD_SIGNER_PROVENANCE_INSUFFICIENT",
+      "evidence": "Reviewer session and independent approved key custody",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "ATOMIC-01",
+      "blocker": "BR-I2-02",
+      "negative": "Destination receipt exists before publish",
+      "expected": "HOLD_DEST_EXISTS_UNCHANGED",
+      "evidence": "Original destination hash/mtime and no overwrite",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-02",
+      "blocker": "BR-I2-02",
+      "negative": "Two writers race to same final receipt",
+      "expected": "EXACTLY_ONE_PUBLISH_OTHER_HOLD",
+      "evidence": "Concurrent process logs, one final SHA only",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-03",
+      "blocker": "BR-I2-02",
+      "negative": "Crash after exclusive temp create, before bytes flushed",
+      "expected": "NO_FINAL_RECEIPT_OR_PARTIAL_PUBLISH",
+      "evidence": "Fault injection + tmp quarantine listing",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-04",
+      "blocker": "BR-I2-02",
+      "negative": "Crash after temp FlushFileBuffers, before atomic rename",
+      "expected": "NO_FINAL_RECEIPT_AND_RECOVERABLE_TMP",
+      "evidence": "Durable stage SHA, no incomplete final",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-05",
+      "blocker": "BR-I2-02",
+      "negative": "Crash after atomic publish but before stdout acknowledgement",
+      "expected": "IDEMPOTENT_EXACT_MATCH_NOT_REWRITE",
+      "evidence": "Final exact digest, inode/file ID and no duplicate",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-06",
+      "blocker": "BR-I2-02",
+      "negative": "Replace parent directory with symlink/junction mid-check",
+      "expected": "HOLD_REPARSE_OR_DIRECTORY_ID_CHANGED",
+      "evidence": "Handle-based root chain IDs/reparse tags",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-07",
+      "blocker": "BR-I2-02",
+      "negative": "Destination is a symlink/reparse point",
+      "expected": "HOLD_DEST_REPARSE",
+      "evidence": "Final path/reparse tag check using opened handles",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-08",
+      "blocker": "BR-I2-02",
+      "negative": "Source fixture or manifest is a symlink/reparse point",
+      "expected": "HOLD_INPUT_REPARSE",
+      "evidence": "Open-by-handle without follow or explicit deny policy",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-09",
+      "blocker": "BR-I2-02",
+      "negative": "Source bytes change after initial SHA check",
+      "expected": "HOLD_INPUT_SNAPSHOT_CHANGED",
+      "evidence": "Stable handle byte hash + identity before publish",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-10",
+      "blocker": "BR-I2-02",
+      "negative": "Manifest semantically equal but byte-different",
+      "expected": "HOLD_EXACT_MANIFEST_SHA",
+      "evidence": "Raw file SHA not JSON semantic equivalence",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "ATOMIC-11",
+      "blocker": "BR-I2-02",
+      "negative": "Freeze receipt SHA mismatches pinned historic b82a7e...",
+      "expected": "HOLD_FREEZE_RECEIPT_SHA",
+      "evidence": "Exact freeze receipt SHA pin",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "ATOMIC-12",
+      "blocker": "BR-I2-02",
+      "negative": "Target escapes project root with .., UNC, path alias",
+      "expected": "HOLD_PATH_OUT_OF_SCOPE",
+      "evidence": "Canonical root/handle path comparison",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-13",
+      "blocker": "BR-I2-02",
+      "negative": "SMB, exFAT, unexpected volume or cross-volume staging",
+      "expected": "HOLD_FS_ATOMICITY_NOT_PROVEN",
+      "evidence": "Filesystem/volume identity and no-copy proof",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-14",
+      "blocker": "BR-I2-02",
+      "negative": "Insufficient ACL or third party can replace parent contents",
+      "expected": "HOLD_ACL_CUSTODY_UNPROVEN",
+      "evidence": "Directory ACL and handle/ownership evidence",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-15",
+      "blocker": "BR-I2-02",
+      "negative": "Writer writes directly to final file or opens with truncate",
+      "expected": "HOLD_NON_ATOMIC_FINAL_WRITE",
+      "evidence": "Win32 call trace, final always rename/create-new",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-16",
+      "blocker": "BR-I2-02",
+      "negative": "Temp file left from earlier crash/retry",
+      "expected": "QUARANTINE_TEMP_NO_AUTO_DELETE",
+      "evidence": "Staging journal, no overwrite/reuse",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-17",
+      "blocker": "BR-I2-02",
+      "negative": "After publish, final bytes differ from staged hash",
+      "expected": "HOLD_POSTPUBLISH_DIGEST",
+      "evidence": "Staging and final exact SHA + opened object ID",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-18",
+      "blocker": "BR-I2-02",
+      "negative": "Source EOL LF/CRLF mixed, BOM, terminal newline truncated",
+      "expected": "HOLD_SOURCE_BLOB_OR_EOL_MISMATCH",
+      "evidence": "Exact pinned Git blob and byte hashes",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "ATOMIC-19",
+      "blocker": "BR-I2-02",
+      "negative": "PowerShell 5.1 quoting/strictmode JSON receipt failure",
+      "expected": "HOLD_POWERSHELL_RECEIPT_SERIALIZATION",
+      "evidence": "PS5.1 AST plus native JSON round-trip",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "ATOMIC-20",
+      "blocker": "BR-I2-02",
+      "negative": "Final receipt path is hardlink to unrelated existing file",
+      "expected": "HOLD_LINK_COUNT_OR_OBJECT_ID_MISMATCH",
+      "evidence": "Handle metadata incl link count/file ID and ACL",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "INTEG-01",
+      "blocker": "INTEGRATED",
+      "negative": "I1 certificate PASS but program R0–R8 incomplete",
+      "expected": "HOLD_ALL_PROSPECTIVE_RELEASES",
+      "evidence": "Single PM gate summary not multiple permits",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "INTEG-02",
+      "blocker": "INTEGRATED",
+      "negative": "BR-I2-01 passes while atomicity lacks native independent QA",
+      "expected": "HOLD_I2_NO_PARTIAL_PROMOTION",
+      "evidence": "One combined packet verdict",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "INTEG-03",
+      "blocker": "INTEGRATED",
+      "negative": "BR-I2-02 passes while owner signing/key policy remains absent",
+      "expected": "HOLD_I2_NO_PARTIAL_PROMOTION",
+      "evidence": "One combined packet verdict",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    },
+    {
+      "id": "INTEG-04",
+      "blocker": "INTEGRATED",
+      "negative": "Bad source identity or old code in run preflight",
+      "expected": "HOLD_BEFORE_CHECKPOINT_OR_NONCE",
+      "evidence": "0 checkpoint/forward/nonce claim assertion",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "NATIVE_REQUIRED_FUTURE"
+    },
+    {
+      "id": "INTEG-05",
+      "blocker": "INTEGRATED",
+      "negative": "Simulated release GO without explicit PM release decision",
+      "expected": "HOLD_OWNER_GO_REQUIRED",
+      "evidence": "No release dispatch; PM Issue32 remains canonical",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "tier": "SOURCE_QA_FUTURE"
+    }
+  ],
+  "positive_controls": [
+    {
+      "id": "POS-01",
+      "scope": "DESIGN_ONLY",
+      "expected": "Original I1 PASS source/evidence record parses as valid measurement certificate; release still HOLD"
+    },
+    {
+      "id": "POS-02",
+      "scope": "NATIVE_FUTURE",
+      "expected": "Unique new receipt on validated NTFS path publishes once and is byte-identical to staged receipt (mock only)"
+    },
+    {
+      "id": "POS-03",
+      "scope": "NATIVE_FUTURE",
+      "expected": "Already-published identical receipt returns readback acknowledgement without writing again"
+    }
+  ],
+  "acceptance": "All relevant source and native cases must pass with exact SHA and no skip before separately integrated PM release decision; these are NOT performed tests."
+}

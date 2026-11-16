@@ -33,7 +33,7 @@
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
   "review": "I1_PASS_SCOPED_MEASUREMENT_DISTINCT_20261117__RELEASE_PREFLIGHT_HOLD",
-  "next_operation": "TTM_TRACK_A_I2_RELEASE_BARRIER_TOCTOU_ATOMICITY_AND_OWNER_AUTHORITY_DESIGN_SINGLE_GATE",
+  "next_operation": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
   "m0": {
     "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
     "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
@@ -191,5 +191,33 @@
     "optimizer_steps": 0,
     "checkpoint_access": 0,
     "nonce_claimed": false
+  },
+  "m0v3_release_barrier_design": {
+    "operation": "TTM_TRACK_A_I2_RELEASE_BARRIER_TOCTOU_ATOMICITY_AND_OWNER_AUTHORITY_DESIGN_SINGLE_GATE",
+    "parent_program_gate": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
+    "pm_issue": 32,
+    "pm_authorization": "DESIGN_ONLY",
+    "source_baseline": "f7d6153fdae526b12303d324ccb7a271adee376b",
+    "reviewed_i1_exact_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "contract": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_INTEGRATED_DESIGN_CONTRACT_20261117.md",
+    "matrix": "artifacts/ttm-abc/track-a/BR_I2_01_02_NEGATIVE_QA_MATRIX_20261117.json",
+    "handoff": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_DISTINCT_REVIEW_AND_PM_HANDOFF_20261117.md",
+    "negative_cases_planned": 43,
+    "negative_counts": {
+      "BR-I2-01": 18,
+      "BR-I2-02": 20,
+      "INTEGRATED": 5
+    },
+    "positive_controls_planned": 3,
+    "negative_executed": 0,
+    "independent_design_review": "NOT_EXECUTED",
+    "BR_I2_01": "DESIGN_PREPARED_UNDER_PM_GATE_REVIEW_PENDING",
+    "BR_I2_02": "DESIGN_PREPARED_UNDER_PM_GATE_REVIEW_PENDING",
+    "owner_release": "HOLD",
+    "I2": "NOT_EXECUTED",
+    "release_guard_modified": false,
+    "real_fixture_modified": false,
+    "no_merge": true,
+    "implementation": "NOT_AUTHORIZED"
   }
 }
