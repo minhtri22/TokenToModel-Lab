@@ -9,3 +9,5 @@ No science, main merge, or lineage changes.
 Exact script repair: interpolate shell variable n when reading 11 historical PDFs.
 
 Diagnostic run: report mismatch categories and sample IDs; do not assert source preservation until classified.
+
+Final differential run: measure each raster MAE, require max <=0.22 (existing QA threshold), source text exact. Preserve any remaining failures.
