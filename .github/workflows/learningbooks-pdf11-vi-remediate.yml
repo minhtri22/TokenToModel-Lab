@@ -1,0 +1,91 @@
+name: PDF11 Vietnamese fidelity remediation (single gate)
+
+on:
+  push:
+    branches:
+      - "docs/learningbooks-dive-into-llms-vi-20261116"
+    paths:
+      - "docs/learningbooks/dive-into-llms/PDF11_VI/remediation/RELEASE_REQUEST_20261116.md"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdf11-vi-fidelity-remediation
+  cancel-in-progress: false
+
+jobs:
+  remediation:
+    if: github.repository == 'minhtri22/TokenToModel-Lab'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact docs branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Guard the single operation and install PDF renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
+          python3 -m pip install --disable-pip-version-check "pymupdf==1.26.7"
+          test -f "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+      - name: Verify and decode three pinned remediation source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64,gzip,hashlib
+          from pathlib import Path
+          root=Path("docs/learningbooks/dive-into-llms/PDF11_VI/remediation")
+          expect={
+            "remediate_pdf11.py":"d301719eb5ccfcbaa02c1980a15b77e28f9021e4f497e83bbdbc5e37e6b55012",
+            "github_qa.py":"9e0e2b7b70c805b13615284b40e2b833a493c707919bf9db3633d0c9c986af0d",
+            "overrides.json":"3b5602e339e63082f0257881d0982e94ff26f53596806c1dfab917f62aa3094a"
+          }
+          for name,expected in expect.items():
+            data=gzip.decompress(base64.b64decode((root/(name+".gz.b64")).read_text(encoding="ascii"),validate=True))
+            assert hashlib.sha256(data).hexdigest()==expected,"SOURCE_HASH_MISMATCH:"+name
+            (root/name).write_bytes(data)
+            print("PINNED_SOURCE_PASS",name,expected)
+          PY
+      - name: Preserve exact pre-remediation baseline and run generator
+        shell: bash
+        run: |
+          set -euo pipefail
+          DOC="docs/learningbooks/dive-into-llms/PDF11_VI"
+          mkdir -p /tmp/pdf11-before
+          cp "$DOC"/chapter*_VI_bilingual.pdf /tmp/pdf11-before/
+          cp -a "$DOC/GHI_CHU_TIENg_VIET" /tmp/pdf11-before/
+          python3 "$DOC/remediation/remediate_pdf11.py" --root "$DOC" --out "$DOC" --overrides "$DOC/remediation/overrides.json"
+      - name: Separate QA checker - 495 page source-preservation and glyph gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          DOC="docs/learningbooks/dive-into-llms/PDF11_VI"
+          python3 "$DOC/remediation/github_qa.py" --baseline "/tmp/pdf11-before" --output "$DOC" --receipt "$DOC/REMEDIATION_STATIC_QA_20261116.json"
+          python3 - <<'PY'
+          import json,pathlib
+          root=pathlib.Path("docs/learningbooks/dive-into-llms/PDF11_VI")
+          r=json.loads((root/"REMEDIATION_STATIC_QA_20261116.json").read_text())
+          assert r["static_qa"]=="PASS" and r["total_pages"]==495
+          assert r["independent_human_linguistic_qa"]=="NOT_EXECUTED"
+          assert r["translation_fidelity"]=="HOLD_NOT_FULL_LITERAL"
+          PY
+      - name: Commit exact scoped PDFs, notes, QA, and readable sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          DOC="docs/learningbooks/dive-into-llms/PDF11_VI"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DOC"/chapter*_VI_bilingual.pdf "$DOC/GHI_CHU_TIENg_VIET"
+          git add -- "$DOC/REMEDIATION_MANIFEST_20261116.json" "$DOC/REMEDIATION_LAYOUT_DETAIL_20261116.json" "$DOC/REMEDIATION_STATIC_QA_20261116.json"
+          git add -- "$DOC/remediation/remediate_pdf11.py" "$DOC/remediation/github_qa.py" "$DOC/remediation/overrides.json"
+          git rm -f -- "$DOC"/remediation/*.gz.b64
+          test "$(git diff --cached --name-only | grep -cv '^docs/learningbooks/dive-into-llms/PDF11_VI/' || true)" -eq 0
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs(learningbooks): reflow 11 PDF Vietnamese text layers with static QA; fidelity HOLD'
+          git push origin "HEAD:refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
