@@ -12,7 +12,7 @@
 
 ## II. B/C v2 source and CI custody
 
-- B [Draft PR #36](https://github.com/minhtri22/TokenToModel-Lab/pull/36) at **`dc151252070e0b118d14f3459823f8e89c6b6723`**; tested B code `724f62a025b8ecc7c452b9ee16c926adfd2b8c7e`. GitHub compare shows only eleven new docs/evidence + seven physical artifacts/manifest since tested code (no subsequent executable or test edits). B v2 bridge blob `f2cc02821efa4f9628964657d90c7a98c4d67e13`.
+- B [Draft PR #36](https://github.com/minhtri22/TokenToModel-Lab/pull/36) at **`dc151252070e0b118d14f3459823f8e89c6b6723`**; tested B code `724f62a025b8ecc7c452b9ee16c926adfd2b8c7e`. GitHub compare shows only additive documentation/evidence, the seven physical artifacts and their manifest since tested code (no subsequent executable or test edits). B v2 bridge blob `f2cc02821efa4f9628964657d90c7a98c4d67e13`.
 - B v2 [author CI](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43918069534): Windows Python3.12.10 & Linux Python3.12.16 passed original 29/29, new 24/24, C's exact 18/18 routed via B bridge, finite P02 CPU forward/backward with **zero optimizer**.
 - C [Draft PR #35](https://github.com/minhtri22/TokenToModel-Lab/pull/35) at **`a5255422f695205fe45d3bba5ad748b157cb1f32`**; C Part B [CI](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43919831949) 19/19 separately authored acceptance checks on Windows/Linux Python3.12; C verdict `C_CONTRACT_COMPATIBILITY_PASS_SCOPED`. C is the contract author and **not** the third-party distinct reviewer.
 
