@@ -63,7 +63,11 @@ def encode_bytes(raw: bytes) -> list[int]:
 
 
 def decode_bytes(ids: list[int]) -> bytes:
-    return b.decode_bytes(ids)
+    # C Part A public wire error contract; B v1 exception text remains untouched.
+    try:
+        return b.decode_bytes(ids)
+    except ValueError as exc:
+        raise ValueError('BYTE_ID_RANGE') from exc
 
 
 def validate_codec() -> bool:
