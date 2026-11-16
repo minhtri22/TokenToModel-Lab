@@ -64,6 +64,15 @@ class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(ctypes.Structure):
 # JobObjectBasicAccountingInformation = 1. A terminated parent must not
 # mask a still-running descendant; KILL_ON_JOB_CLOSE is only cleanup, not PASS.
 JobObjectBasicAccountingInformation = 1
+JobObjectBasicProcessIdList = 3
+MAX_JOB_PIDS_FOR_QA = 4096
+
+class JOBOBJECT_BASIC_PROCESS_ID_LIST(ctypes.Structure):
+    _fields_ = [
+        ("NumberOfAssignedProcesses", wintypes.DWORD),
+        ("NumberOfProcessIdsInList", wintypes.DWORD),
+        ("ProcessIdList", ctypes.c_size_t * MAX_JOB_PIDS_FOR_QA),
+    ]
 
 class JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(ctypes.Structure):
     _fields_ = [
@@ -114,6 +123,7 @@ def struct_sizes() -> dict[str, int]:
         ("JOBOBJECT_BASIC_LIMIT_INFORMATION", JOBOBJECT_BASIC_LIMIT_INFORMATION),
         ("JOBOBJECT_EXTENDED_LIMIT_INFORMATION", JOBOBJECT_EXTENDED_LIMIT_INFORMATION),
         ("JOBOBJECT_BASIC_ACCOUNTING_INFORMATION", JOBOBJECT_BASIC_ACCOUNTING_INFORMATION),
+        ("JOBOBJECT_BASIC_PROCESS_ID_LIST", JOBOBJECT_BASIC_PROCESS_ID_LIST),
         ("STARTUPINFOW", STARTUPINFOW),
         ("PROCESS_INFORMATION", PROCESS_INFORMATION),
     ]}
@@ -230,7 +240,21 @@ def run_job_guarded(
         require(k32.QueryInformationJobObject(
             job, JobObjectBasicAccountingInformation, ctypes.byref(accounting),
             ctypes.sizeof(accounting), None), "QUERY_ACCOUNTING")
-        if int(accounting.ActiveProcesses) != 0:
+        # Windows accounting may transiently include the already-signaled
+        # root process. Enumerate actual job PIDs, exclude that exact root PID
+        # ONLY after WaitForSingleObject and GetExitCodeProcess succeeded.
+        # Remaining PIDs mean live descendants; a happy child alone is PASS.
+        pid_list = JOBOBJECT_BASIC_PROCESS_ID_LIST()
+        require(k32.QueryInformationJobObject(
+            job, JobObjectBasicProcessIdList, ctypes.byref(pid_list),
+            ctypes.sizeof(pid_list), None), "QUERY_ACTIVE_PID_LIST")
+        listed = int(pid_list.NumberOfProcessIdsInList)
+        if listed > MAX_JOB_PIDS_FOR_QA or listed < 0:
+            raise RuntimeError("HOLD_WINJOB_PID_LIST_OVERFLOW")
+        remaining = {
+            int(pid_list.ProcessIdList[i]) for i in range(listed)
+        } - {int(pi.dwProcessId)}
+        if remaining:
             raise RuntimeError("HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT")
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
