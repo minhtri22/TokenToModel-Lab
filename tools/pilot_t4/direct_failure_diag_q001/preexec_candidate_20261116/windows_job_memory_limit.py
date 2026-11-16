@@ -1,21 +1,16 @@
-"""Windows 11 Job Object *commit* memory limit, source-only I1 candidate.
-
-NO I2 DISPATCH HERE. Must be independently tested on Windows Python 3.12.
-Purpose: launch a child in CREATE_SUSPENDED state; set a job-wide OS committed
-memory ceiling; assign it BEFORE ResumeThread; ensure KILL_ON_JOB_CLOSE.
-The job-wide *committed* memory is NOT resident RSS. Retain existing 12-GiB
-sampled process-tree RSS monitor and never claim that one equals the other.
-
-This wrapper is deliberately not wired into Run-Approved-OneShot-PS51.ps1
-until native Win32 struct/handle tests and distinct source review PASS.
-"""
+"""Win32 job-wide committed-memory containment for the Q001 CPU launcher."""
 from __future__ import annotations
 
 import argparse
 import ctypes
 from ctypes import wintypes
+import json
+import msvcrt
+import os
+from pathlib import Path
 import subprocess
 import sys
+import time
 
 JOB_OBJECT_LIMIT_JOB_MEMORY = 0x00000200
 JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE = 0x00002000
@@ -26,7 +21,11 @@ STARTF_USESTDHANDLES = 0x00000100
 WAIT_OBJECT_0 = 0x00000000
 WAIT_TIMEOUT = 0x00000102
 WAIT_FAILED = 0xFFFFFFFF
-STILL_ACTIVE = 259
+EXTENDED_STARTUPINFO_PRESENT = 0x00080000
+PROC_THREAD_ATTRIBUTE_HANDLE_LIST = 0x00020002
+PROC_THREAD_ATTRIBUTE_JOB_LIST = 0x0002000D
+COMMIT_CAP = 12 * 1024**3
+RESOURCE_EXIT = 86
 
 class IO_COUNTERS(ctypes.Structure):
     _fields_ = [
@@ -83,6 +82,23 @@ class STARTUPINFOW(ctypes.Structure):
         ("hStdError", wintypes.HANDLE),
     ]
 
+class STARTUPINFOEXW(ctypes.Structure):
+    _fields_ = [("StartupInfo", STARTUPINFOW), ("lpAttributeList", ctypes.c_void_p)]
+
+
+class JOB_ACCOUNTING(ctypes.Structure):
+    _fields_ = [
+        ("TotalUserTime", ctypes.c_longlong),
+        ("TotalKernelTime", ctypes.c_longlong),
+        ("ThisPeriodTotalUserTime", ctypes.c_longlong),
+        ("ThisPeriodTotalKernelTime", ctypes.c_longlong),
+        ("TotalPageFaultCount", wintypes.DWORD),
+        ("TotalProcesses", wintypes.DWORD),
+        ("ActiveProcesses", wintypes.DWORD),
+        ("TotalTerminatedProcesses", wintypes.DWORD),
+    ]
+
+
 class PROCESS_INFORMATION(ctypes.Structure):
     _fields_ = [
         ("hProcess", wintypes.HANDLE),
@@ -99,23 +115,13 @@ def struct_sizes() -> dict[str, int]:
         ("JOBOBJECT_EXTENDED_LIMIT_INFORMATION", JOBOBJECT_EXTENDED_LIMIT_INFORMATION),
         ("STARTUPINFOW", STARTUPINFOW),
         ("PROCESS_INFORMATION", PROCESS_INFORMATION),
+        ("STARTUPINFOEXW", STARTUPINFOEXW),
+        ("JOB_ACCOUNTING", JOB_ACCOUNTING),
     ]}
 
-def run_job_guarded(
-    argv: list[str], *, cwd: str, max_job_commit_bytes: int,
-    timeout_seconds: int
-) -> tuple[int, int]:
-    """Run child+descendants with OS committed-memory ceiling from birth.
-
-    Returns (child exit code, peak job committed bytes). Fail-closed on any
-    setup or query error. Does not attest absolute RSS or external rights.
-    """
+def _kernel():
     if sys.platform != "win32" or ctypes.sizeof(ctypes.c_void_p) != 8:
         raise RuntimeError("HOLD_WIN32_X64_REQUIRED")
-    if not argv or max_job_commit_bytes <= 0 or not 0 < timeout_seconds <= 900:
-        raise ValueError("HOLD_JOB_GUARD_ARGS")
-    if max_job_commit_bytes > 12 * (1024**3):
-        raise ValueError("HOLD_JOB_COMMIT_LIMIT_EXCEEDS_12GIB")
     k32 = ctypes.WinDLL("kernel32", use_last_error=True)
     k32.CreateJobObjectW.argtypes = [ctypes.c_void_p, wintypes.LPCWSTR]
     k32.CreateJobObjectW.restype = wintypes.HANDLE
@@ -131,16 +137,26 @@ def run_job_guarded(
     k32.CreateProcessW.argtypes = [
         wintypes.LPCWSTR, wintypes.LPWSTR, ctypes.c_void_p,
         ctypes.c_void_p, wintypes.BOOL, wintypes.DWORD, ctypes.c_void_p,
-        wintypes.LPCWSTR, ctypes.POINTER(STARTUPINFOW),
+        wintypes.LPCWSTR, ctypes.POINTER(STARTUPINFOEXW),
         ctypes.POINTER(PROCESS_INFORMATION)
     ]
     k32.CreateProcessW.restype = wintypes.BOOL
-    k32.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
-    k32.AssignProcessToJobObject.restype = wintypes.BOOL
+    k32.IsProcessInJob.argtypes = [wintypes.HANDLE, wintypes.HANDLE,
+                                  ctypes.POINTER(wintypes.BOOL)]
+    k32.IsProcessInJob.restype = wintypes.BOOL
     k32.ResumeThread.argtypes = [wintypes.HANDLE]
     k32.ResumeThread.restype = wintypes.DWORD
-    k32.GetStdHandle.argtypes = [wintypes.DWORD]
-    k32.GetStdHandle.restype = wintypes.HANDLE
+    k32.InitializeProcThreadAttributeList.argtypes = [
+        ctypes.c_void_p, wintypes.DWORD, wintypes.DWORD, ctypes.POINTER(ctypes.c_size_t)
+    ]
+    k32.InitializeProcThreadAttributeList.restype = wintypes.BOOL
+    k32.UpdateProcThreadAttribute.argtypes = [
+        ctypes.c_void_p, wintypes.DWORD, ctypes.c_size_t, ctypes.c_void_p,
+        ctypes.c_size_t, ctypes.c_void_p, ctypes.c_void_p
+    ]
+    k32.UpdateProcThreadAttribute.restype = wintypes.BOOL
+    k32.DeleteProcThreadAttributeList.argtypes = [ctypes.c_void_p]
+    k32.DeleteProcThreadAttributeList.restype = None
     k32.WaitForSingleObject.argtypes = [wintypes.HANDLE, wintypes.DWORD]
     k32.WaitForSingleObject.restype = wintypes.DWORD
     k32.GetExitCodeProcess.argtypes = [wintypes.HANDLE, ctypes.POINTER(wintypes.DWORD)]
@@ -150,15 +166,46 @@ def run_job_guarded(
     k32.CloseHandle.argtypes = [wintypes.HANDLE]
     k32.CloseHandle.restype = wintypes.BOOL
 
-    def require(ok, what: str) -> None:
-        if not ok:
-            raise OSError(ctypes.get_last_error(), "HOLD_WINJOB_" + what)
+    return k32
+
+
+def require(ok, what: str) -> None:
+    if not ok:
+        raise OSError(ctypes.get_last_error(), "HOLD_WINJOB_" + what)
+
+
+def query(k32, job, kind, structure):
+    info = structure()
+    require(k32.QueryInformationJobObject(job, kind, ctypes.byref(info),
+                                            ctypes.sizeof(info), None), "QUERY")
+    return info
+
+
+def read_limits(k32, job, cap):
+    info = query(k32, job, JobObjectExtendedLimitInformation,
+                 JOBOBJECT_EXTENDED_LIMIT_INFORMATION)
+    flags = JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+    if info.BasicLimitInformation.LimitFlags != flags or info.JobMemoryLimit != cap:
+        raise RuntimeError("HOLD_WINJOB_LIMIT_READBACK_MISMATCH")
+    return info
+
+
+def require_current_job():
+    read_limits(_kernel(), None, COMMIT_CAP)
+
+
+def run_job_guarded(argv: list[str], *, cwd: str, max_job_commit_bytes: int,
+                    timeout_seconds: int) -> tuple[int, int]:
+    """Return the actual child exit code and peak job committed bytes."""
+    if not argv or not os.path.isabs(argv[0]) or not 0 < timeout_seconds <= 900:
+        raise ValueError("HOLD_JOB_GUARD_ARGS")
+    if not 0 < max_job_commit_bytes <= COMMIT_CAP:
+        raise ValueError("HOLD_JOB_COMMIT_LIMIT_RANGE")
+    k32 = _kernel()
 
     job = k32.CreateJobObjectW(None, None)
     require(job, "CREATE")
     pi = PROCESS_INFORMATION()
-    created = False
-    assigned = False
     try:
         limit = JOBOBJECT_EXTENDED_LIMIT_INFORMATION()
         limit.BasicLimitInformation.LimitFlags = (
@@ -167,25 +214,49 @@ def run_job_guarded(
         limit.JobMemoryLimit = max_job_commit_bytes
         require(k32.SetInformationJobObject(job, JobObjectExtendedLimitInformation,
             ctypes.byref(limit), ctypes.sizeof(limit)), "SET_COMMIT_LIMIT")
-        si = STARTUPINFOW()
-        si.cb = ctypes.sizeof(si)
-        si.dwFlags = STARTF_USESTDHANDLES
-        # 0xFFFFFFF6=STD_INPUT, F5=STD_OUTPUT, F4=STD_ERROR.
-        si.hStdInput = k32.GetStdHandle(0xFFFFFFF6)
-        si.hStdOutput = k32.GetStdHandle(0xFFFFFFF5)
-        si.hStdError = k32.GetStdHandle(0xFFFFFFF4)
-        if not si.hStdOutput or not si.hStdError:
-            raise RuntimeError("HOLD_WINJOB_STD_HANDLES_UNAVAILABLE")
-        cmd = ctypes.create_unicode_buffer(subprocess.list2cmdline(argv))
-        require(k32.CreateProcessW(
-            argv[0], cmd, None, None, True,
-            CREATE_SUSPENDED | CREATE_NO_WINDOW, None, cwd,
-            ctypes.byref(si), ctypes.byref(pi)), "CREATE_SUSPENDED")
-        created = True
-        require(k32.AssignProcessToJobObject(job, pi.hProcess),
-                "ASSIGN_BEFORE_RESUME")
-        assigned = True
-        if k32.ResumeThread(pi.hThread) == WAIT_FAILED:
+        read_limits(k32, job, max_job_commit_bytes)
+        size = ctypes.c_size_t()
+        k32.InitializeProcThreadAttributeList(None, 2, 0, ctypes.byref(size))
+        require(size.value > 0 and ctypes.get_last_error() == 122, "ATTRIBUTE_SIZE")
+        attributes = ctypes.create_string_buffer(size.value)
+        require(k32.InitializeProcThreadAttributeList(attributes, 2, 0,
+                ctypes.byref(size)), "ATTRIBUTES_INIT")
+        try:
+            # Duplicate only these descriptors. Never inherit the job handle.
+            from contextlib import ExitStack
+            with ExitStack() as stack:
+                null_input = stack.enter_context(open(os.devnull, "rb"))
+                handles = []
+                for fd in (null_input.fileno(), sys.stdout.fileno(), sys.stderr.fileno()):
+                    dupe = os.dup(fd)
+                    stack.callback(os.close, dupe)
+                    os.set_inheritable(dupe, True)
+                    handles.append(msvcrt.get_osfhandle(dupe))
+                allowed_handles = (wintypes.HANDLE * 3)(*handles)
+                jobs = (wintypes.HANDLE * 1)(job)
+                for attribute, values in (
+                    (PROC_THREAD_ATTRIBUTE_HANDLE_LIST, allowed_handles),
+                    (PROC_THREAD_ATTRIBUTE_JOB_LIST, jobs),
+                ):
+                    require(k32.UpdateProcThreadAttribute(attributes, 0, attribute,
+                            values, ctypes.sizeof(values), None, None), "ATTRIBUTE_SET")
+                si = STARTUPINFOEXW()
+                si.StartupInfo.cb = ctypes.sizeof(si)
+                si.StartupInfo.dwFlags = STARTF_USESTDHANDLES
+                si.StartupInfo.hStdInput, si.StartupInfo.hStdOutput, si.StartupInfo.hStdError = handles
+                si.lpAttributeList = ctypes.addressof(attributes)
+                cmd = ctypes.create_unicode_buffer(subprocess.list2cmdline(argv))
+                # Atomic job assignment closes the gap if the supervisor dies
+                # during process creation. The primary thread still starts suspended.
+                require(k32.CreateProcessW(argv[0], cmd, None, None, True,
+                    CREATE_SUSPENDED | CREATE_NO_WINDOW | EXTENDED_STARTUPINFO_PRESENT,
+                    None, cwd, ctypes.byref(si), ctypes.byref(pi)), "CREATE_ASSIGNED_SUSPENDED")
+        finally:
+            k32.DeleteProcThreadAttributeList(attributes)
+        member = wintypes.BOOL()
+        require(k32.IsProcessInJob(pi.hProcess, job, ctypes.byref(member))
+                and member.value, "MEMBERSHIP_BEFORE_RESUME")
+        if k32.ResumeThread(pi.hThread) != 1:
             raise OSError(ctypes.get_last_error(), "HOLD_WINJOB_RESUME")
         waited = k32.WaitForSingleObject(pi.hProcess, timeout_seconds * 1000)
         if waited == WAIT_TIMEOUT:
@@ -193,51 +264,66 @@ def run_job_guarded(
         if waited != WAIT_OBJECT_0:
             raise OSError(ctypes.get_last_error(), "HOLD_WINJOB_WAIT")
         code = wintypes.DWORD()
-        require(k32.GetExitCodeProcess(pi.hProcess, ctypes.byref(code)),
-                "EXIT_CODE")
-        if code.value == STILL_ACTIVE:
-            raise RuntimeError("HOLD_WINJOB_EXIT_STATUS_STILL_ACTIVE")
-        info = JOBOBJECT_EXTENDED_LIMIT_INFORMATION()
-        require(k32.QueryInformationJobObject(
-            job, JobObjectExtendedLimitInformation, ctypes.byref(info),
-            ctypes.sizeof(info), None), "QUERY_LIMITS")
-        if info.BasicLimitInformation.LimitFlags & JOB_OBJECT_LIMIT_JOB_MEMORY == 0:
-            raise RuntimeError("HOLD_WINJOB_LIMIT_NOT_ACTIVE")
-        if int(info.JobMemoryLimit) != max_job_commit_bytes:
-            raise RuntimeError("HOLD_WINJOB_LIMIT_VALUE_MISMATCH")
+        require(k32.GetExitCodeProcess(pi.hProcess, ctypes.byref(code)), "EXIT_CODE")
+        info = read_limits(k32, job, max_job_commit_bytes)
+        # The process wait can signal just before job accounting is updated.
+        # Allow time for the exited root to be removed from the active count.
+        settled = time.monotonic() + 0.25
+        while query(k32, job, 1, JOB_ACCOUNTING).ActiveProcesses:
+            if time.monotonic() >= settled:
+                raise RuntimeError("HOLD_WINJOB_DESCENDANT_ACTIVE_AFTER_PARENT_EXIT")
+            time.sleep(0.01)
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
-        # KILL_ON_JOB_CLOSE guarantees fail-closed descendant cleanup.
-        if assigned:
-            k32.TerminateJobObject(job, 1)
-        if created:
+        if pi.hProcess:
+            # Last close also kills the job if the supervisor itself is stopped.
+            k32.TerminateJobObject(job, RESOURCE_EXIT)
             k32.CloseHandle(pi.hThread)
             k32.CloseHandle(pi.hProcess)
         k32.CloseHandle(job)
 
+
 def main() -> int:
-    import json
     p = argparse.ArgumentParser()
-    p.add_argument("--struct-shape", action="store_true")
-    p.add_argument("--native-smoke", action="store_true")
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--struct-shape", action="store_true")
+    mode.add_argument("--native-smoke", action="store_true")
+    mode.add_argument("--guard-run", nargs=argparse.REMAINDER)
     a = p.parse_args()
     if a.struct_shape:
         print(json.dumps(struct_sizes(), sort_keys=True))
         return 0
     if a.native_smoke:
-        # NO_MODEL: verify that a process created suspended can run in job.
-        # More important negative tests and edge cases are required by Codex.
-        code, peak = run_job_guarded(
-            [sys.executable, "-c", "print('WINJOB_NO_MODEL_SMOKE')"],
-            cwd=".", max_job_commit_bytes=256 * (1024**2),
-            timeout_seconds=10
-        )
-        print(json.dumps({"exit":code, "peak_job_commit_bytes":peak,
-                          "model_execution":False,
-                          "rss_hard_cap_proven":False}, sort_keys=True))
-        return 0 if code == 0 else 2
-    p.error("choose --struct-shape or --native-smoke")
-    return 2
+        argv = [sys.executable, "-c", "print('WINJOB_NO_MODEL_SMOKE')"]
+        cap, timeout = 256 * 1024**2, 10
+    else:
+        runner = Path(__file__).resolve().with_name("ttm_sm4m_diag_q001.py")
+        argv = [sys.executable, "-I", "-B", str(runner), "run", *a.guard_run]
+        cap, timeout = COMMIT_CAP, 900
+    try:
+        code, peak = run_job_guarded(argv, cwd=os.getcwd(),
+                                     max_job_commit_bytes=cap, timeout_seconds=timeout)
+    except (OSError, ValueError, RuntimeError) as exc:
+        print(json.dumps({"status": "HOLD_RESOURCE_INCOMPLETE", "reason": str(exc),
+                          "job_commit_limit_bytes": cap}), file=sys.stderr, flush=True)
+        return RESOURCE_EXIT
+    print(json.dumps({"child_exit_code": code, "job_commit_limit_bytes": cap,
+                      "peak_job_commit_bytes": peak}), flush=True)
+    # The peak counter can reflect a rejected commit charge. Treat a peak over
+    # the hard limit conservatively even if the child retried internally.
+    if peak > cap:
+        print(json.dumps({"status": "HOLD_RESOURCE_INCOMPLETE",
+                          "reason": "JOB_PEAK_COMMIT_CHARGE_EXCEEDED_LIMIT",
+                          "child_exit_code": code}), file=sys.stderr, flush=True)
+        return RESOURCE_EXIT
+    # A native crash or explicit allocation failure is incomplete execution.
+    if code not in (0, 2):
+        print(json.dumps({"status": "HOLD_RESOURCE_INCOMPLETE",
+                          "reason": "GUARDED_CHILD_ABNORMAL_EXIT",
+                          "child_exit_code": code}), file=sys.stderr, flush=True)
+        return RESOURCE_EXIT
+    return code
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

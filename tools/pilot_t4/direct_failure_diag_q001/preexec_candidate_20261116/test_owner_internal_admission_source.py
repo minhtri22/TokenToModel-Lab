@@ -1,123 +1,107 @@
-"""Windows Python 3.12 SOURCE-ONLY owner policy negative QA. No model files.
-
-Run under Codex-controlled scoped project worktree; result is not independent
-organisational signoff. The test uses a fake tokenizer digest for validator
-schema QA only, and NEVER calls the actual runner/private data.
-"""
-from __future__ import annotations
-
+"""No-model regression probes for owner-internal I1 admission on Windows."""
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
-import json
+import hashlib
 from pathlib import Path
-import platform
-import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
-from unittest import mock
+from unittest.mock import patch
 
 import owner_internal_admission as owner
+import release_auth_v2
+import ttm_sm4m_diag_q001 as runner
 
-ROOT = Path(owner.ROOT)
 
-def permit_payload(phase="run") -> dict:
-    payload = {
-        "question_id": owner.QUESTION_ID,
-        "question_gate_main_sha": owner.Q1_MAIN,
-        "project_root": owner.ROOT,
-        "hostname": owner.HOST,
-        "owner_decision": owner.OWNER_GO,
-        "owner_research_scope": "LOCAL_INTERNAL_NONCOMMERCIAL_NO_REDISTRIBUTION",
-        "owner_scope_document_git_blob": owner.OWNER_RECORD_BLOB,
-        "owner_declaration_status": "OWNER_DECLARED_INTERNAL_SCOPE",
-        "phase": phase,
-        "checkpoint_sha256": owner.EXPECTED_CHECKPOINT_SHA256,
-        "runner_sha256": "a"*64,
-        "token_inventory_sha256": "b"*64,
-        "underlying_inventory_sha256": "c"*64,
-        "train_count": 24,
-        "nontrain_count": 56,
-        "seed": 20261116,
-        "max_steps": 256,
-        "expires_utc": (datetime.now(timezone.utc)+timedelta(hours=2)).strftime("%Y-%m-%dT%H:%M:%SZ"),
-    }
-    if phase == "run":
-        payload["one_shot_nonce"] = "d"*64
-        payload["frozen_fixture_sha256"] = "e"*64
-    return payload
+class OwnerInternalQA(unittest.TestCase):
+    root = Path(release_auth_v2.TRUSTED_PROJECT_ROOT)
 
-class OwnerInternalSourceQa(unittest.TestCase):
     def setUp(self):
-        self.assertTrue(ROOT.is_dir(), "Only run within declared Windows project root")
-        temp = ROOT / "_tmp"
-        temp.mkdir(exist_ok=True)
-        self.tmp = tempfile.TemporaryDirectory(dir=str(temp), prefix="sm4m_owner_policy_test_")
-        self.path = Path(self.tmp.name) / "fake_source_only_permit.json"
-        self.doc_probe = owner._verify_owner_scope_record()
-        self.kwargs = dict(phase="run",runner_sha256="a"*64,
-            tokenizer_sha256="b"*64,underlying_sha256="c"*64,
-            frozen_fixture_sha256="e"*64,project_root=ROOT)
+        self.runtime = {"runner": "a" * 64}
+        self.digest = "b" * 64
+        self.verdict = {
+            "I1": "I1_PASS_SCOPED_INTERNAL_RESEARCH",
+            "scope": deepcopy(owner.SCOPE),
+            "runtime_sha256": dict(self.runtime),
+            "expires_utc": (datetime.now(timezone.utc) + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "fixture_sha256": self.digest,
+        }
 
-    def tearDown(self):
-        self.tmp.cleanup()
+    def test_reviewed_verdict_schema(self):
+        self.assertEqual(owner.validate_verdict(self.verdict, runtime_sha256=self.runtime), self.digest)
 
-    def send(self, *, patch=None, package_patch=None):
-        payload = permit_payload()
-        if patch:
-            payload.update(patch)
-        package = {"mode":owner.MODE,"owner_scope_record":owner.OWNER_ISSUE_RECORD,"payload":payload}
-        if package_patch:
-            package.update(package_patch)
-        self.path.write_text(json.dumps(package), encoding="utf-8")
-        return owner.authenticate_owner_internal(self.path, **self.kwargs)
+    def test_scope_mutations(self):
+        for field in ("question_gate_main_sha", "question_id", "project_root", "hostname",
+                      "seed", "steps", "owner_decision", "owner_scope_record",
+                      "owner_scope_document_git_blob", "tokenizer_source_sha256",
+                      "checkpoint_sha256", "train_count", "nontrain_count"):
+            with self.subTest(field=field):
+                tampered = deepcopy(self.verdict)
+                tampered["scope"][field] = None
+                with self.assertRaisesRegex(owner.OwnerInternalHold, "I1_SCOPE"):
+                    owner.validate_verdict(tampered, runtime_sha256=self.runtime)
 
-    def test_01_valid_scoped_schema_only(self):
-        # Valid source-only schema: no checkpoint or tokenizer bytes accessed.
-        result=self.send()
-        self.assertEqual(result["owner_declaration_status"],"OWNER_DECLARED_INTERNAL_SCOPE")
+    def test_verdict_mutations(self):
+        for field, value in {"I1": "HOLD_I1", "runtime_sha256": {}, "fixture_sha256": "bad",
+                             "expires_utc": "2020-01-01T00:00:00Z"}.items():
+            with self.subTest(field=field):
+                with self.assertRaises(owner.OwnerInternalHold):
+                    owner.validate_verdict(dict(self.verdict, **{field: value}), runtime_sha256=self.runtime)
 
-    def test_02_wrong_question_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"question_id":"OTHER"})
+    def test_live_scope_and_foreign_identity(self):
+        owner.require_scope(self.root)
+        with self.assertRaisesRegex(release_auth_v2.AdmissionHold, "PROJECT_ROOT"):
+            owner.require_scope(self.root / "_fake")
+        with patch.object(release_auth_v2.platform, "node", return_value="foreign-host"):
+            with self.assertRaisesRegex(release_auth_v2.AdmissionHold, "HOSTNAME"):
+                owner.require_scope(self.root)
 
-    def test_03_wrong_seed_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"seed":20261117})
+    def test_tampered_owner_document(self):
+        with patch.object(owner, "OWNER_RECORD_BLOB", "0" * 40):
+            with self.assertRaisesRegex(owner.OwnerInternalHold, "SCOPE_DOCUMENT"):
+                owner.require_scope(self.root)
 
-    def test_04_wrong_model_sha_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"checkpoint_sha256":"0"*64})
+    def test_tampered_owner_module(self):
+        args = SimpleNamespace(permit="", token_inventory="", tokenizer_source="dummy")
+        with patch.object(runner, "OWNER_INTERNAL_GUARD_GIT_BLOB", "0" * 40):
+            with self.assertRaisesRegex(RuntimeError, "ADMISSION_SOURCE_NOT_PINNED"):
+                runner.owner_admission(args, self.root, run=False)
 
-    def test_05_wrong_runner_sha_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"runner_sha256":"0"*64})
+    def test_forged_local_owner_packet(self):
+        args = SimpleNamespace(permit="fake.json", token_inventory="", tokenizer_source="dummy")
+        with self.assertRaisesRegex(RuntimeError, "LOCAL_OWNER_PACKET_DENIED"):
+            runner.owner_admission(args, self.root, run=True)
 
-    def test_06_wrong_owner_record_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(package_patch={"owner_scope_record":"local JSON permission"})
+    def test_missing_github_verdict_denied_before_tokenizer(self):
+        args = SimpleNamespace(permit="", token_inventory="", tokenizer_source="dummy")
+        with patch("urllib.request.OpenerDirector.open", side_effect=OSError("offline")):
+            with self.assertRaisesRegex(owner.OwnerInternalHold, "GITHUB_READBACK"):
+                runner.owner_admission(args, self.root, run=True)
 
-    def test_07_wrong_mode_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(package_patch={"mode":"LEGACY_FAKE"})
+    def test_wrong_original_source(self):
+        with self.assertRaisesRegex(owner.OwnerInternalHold, "ORIGINAL_BPE_SHA256"):
+            owner.original_token_ids(b'{"tokens":[],"eos_id":256}')
 
-    def test_08_extra_signature_field_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(package_patch={"signatures":{"fake":"key"}})
+    def test_fixture_tamper(self):
+        meta, raw = runner.mock_token_inventory()
+        rows = runner.fixture_generator(runner.permitted_ids(meta, raw))
+        fixture = runner.json_bytes(rows)
+        digest = hashlib.sha256(fixture).hexdigest()
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp)
+            (target / "FIXTURE_MANIFEST.json").write_bytes(runner.json_bytes(runner.case_and_group_manifest(rows)))
+            records = target / "FIXTURE_RECORDS.json"
+            records.write_bytes(fixture)
+            self.assertEqual(runner.read_frozen_fixture(target, digest, meta, raw), rows)
+            records.write_bytes(fixture + b"\n")
+            with self.assertRaisesRegex(RuntimeError, "FIXTURE_BYTES_CHANGED"):
+                runner.read_frozen_fixture(target, digest, meta, raw)
 
-    def test_09_bad_nonce_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"one_shot_nonce":"NOT_A_HASH"})
+    def test_legacy_still_denies_missing_trust_anchors(self):
+        with self.assertRaisesRegex(release_auth_v2.AdmissionHold, "TRUST_ANCHORS"):
+            release_auth_v2.authenticate_release(Path("dummy"), phase="run", runner_sha256="x",
+                tokenizer_sha256="x", underlying_sha256="x", project_root=self.root)
 
-    def test_10_false_fixture_hash_denied(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"frozen_fixture_sha256":"0"*64})
 
-    def test_11_expired_denied(self):
-        then=(datetime.now(timezone.utc)-timedelta(hours=2)).strftime("%Y-%m-%dT%H:%M:%SZ")
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"expires_utc":then})
-
-    def test_12_owner_noncommercial_scope_denied_if_changed(self):
-        with self.assertRaises(owner.OwnerInternalHold):self.send(patch={"owner_research_scope":"PUBLIC_RELEASE"})
-
-    def test_13_absent_record_denied(self):
-        with mock.patch.object(owner,"OWNER_RECORD_BLOB","0"*40):
-            with self.assertRaises(owner.OwnerInternalHold):self.send()
-
-    def test_14_foreign_host_denied(self):
-        with mock.patch.object(platform,"node",return_value="OTHER"):
-            with self.assertRaises(Exception):self.send()
-
-if __name__=="__main__":
-    if sys.version_info[:2]!=(3,12):
-        raise SystemExit("HOLD_EXACT_PYTHON312")
-    unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main()

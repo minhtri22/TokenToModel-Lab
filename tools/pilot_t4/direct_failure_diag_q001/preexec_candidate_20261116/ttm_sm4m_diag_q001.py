@@ -20,12 +20,16 @@ import random
 import sys
 import time
 
+# Python -I omits the script directory. Resolve reviewed companions here.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
 RELEASE_GUARD_GIT_BLOB = '273cc989d5e94ae7a8e58c08a709cf7dd8229ab2'
 RSS_MODULE_GIT_BLOB = '51748fb86184ec8dd9de51211b3173514255c159'
-OWNER_INTERNAL_GUARD_GIT_BLOB = 'dc19c6686bfdca1b6de57efb631ecfa3bec24175'
+OWNER_INTERNAL_GUARD_GIT_BLOB = 'd816fd282f717669cd127732f49254d5b6e604a5'
+JOB_MODULE_GIT_BLOB = '3060e77fceb8dc76c8f96996281fd2034a6082bc'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -343,27 +347,13 @@ def signed_admission(path: Path, source: Path, meta_path: Path,
     payload = permit.get('payload')
     if not isinstance(payload, dict):
         stop('SIGNED_PERMIT_PAYLOAD_MISSING')
-    if permit.get('mode') == 'OWNER_INTERNAL_NONCOMMERCIAL_Q001_V1':
-        # One explicit owner-managed research scope, not pretend signatures.
-        owner_module=source.with_name('owner_internal_admission.py')
-        if not owner_module.is_file() or git_blob(owner_module)!=OWNER_INTERNAL_GUARD_GIT_BLOB:
-            stop('OWNER_INTERNAL_ADMISSION_SOURCE_NOT_PINNED')
-        from owner_internal_admission import authenticate_owner_internal
-        auth=authenticate_owner_internal(
-            path, phase=phase, runner_sha256=sha256_file(source),
-            tokenizer_sha256=payload.get('token_inventory_sha256'),
-            underlying_sha256=payload.get('underlying_inventory_sha256'),
-            frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
-    elif permit.get('mode') is None:
-        # Historical 3-signer path retained, deliberately fail closed while
-        # trust store is empty; never fabricate organizational signatures.
-        auth=authenticate_release(
-            path, phase=phase, runner_sha256=sha256_file(source),
-            tokenizer_sha256=payload.get('token_inventory_sha256'),
-            underlying_sha256=payload.get('underlying_inventory_sha256'),
-            frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
-    else:
-        stop('UNKNOWN_OWNER_ADMISSION_MODE')
+    if permit.get('mode') is not None:
+        stop('LOCAL_OWNER_PACKET_DENIED')
+    auth=authenticate_release(
+        path, phase=phase, runner_sha256=sha256_file(source),
+        tokenizer_sha256=payload.get('token_inventory_sha256'),
+        underlying_sha256=payload.get('underlying_inventory_sha256'),
+        frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
     # Allowed only after one exact approved admission mode; now validate bytes.
     if not meta_path.is_file() or not underlying_path.is_file():
         stop('TOKENIZER_PRIVATE_SOURCE_MISSING')
@@ -372,6 +362,31 @@ def signed_admission(path: Path, source: Path, meta_path: Path,
     if sha256_file(underlying_path) != auth['underlying_inventory_sha256']:
         stop('TOKEN_UNDERLYING_SIGNATURE_SHA_MISMATCH')
     return auth
+
+
+def owner_admission(args, root: Path, *, run: bool):
+    if args.permit or args.token_inventory:
+        stop('LOCAL_OWNER_PACKET_DENIED')
+    src = Path(__file__).resolve()
+    exact_scoped_path(root, src)
+    module = src.with_name('owner_internal_admission.py')
+    if not module.is_file() or git_blob(module) != OWNER_INTERNAL_GUARD_GIT_BLOB:
+        stop('OWNER_INTERNAL_ADMISSION_SOURCE_NOT_PINNED')
+    from owner_internal_admission import (
+        ONE_SHOT_NONCE, original_token_ids, published_fixture_sha256, require_scope,
+    )
+    require_scope(root)
+    digest = published_fixture_sha256(root) if run else None
+    tokenizer = exact_scoped_path(root, Path(args.tokenizer_source))
+    return original_token_ids(tokenizer.read_bytes()), digest, ONE_SHOT_NONCE
+
+
+def require_hard_job():
+    job = Path(__file__).resolve().with_name('windows_job_memory_limit.py')
+    if not job.is_file() or git_blob(job) != JOB_MODULE_GIT_BLOB:
+        stop('WINDOWS_JOB_OBJECT_MODULE_NOT_PINNED')
+    from windows_job_memory_limit import require_current_job
+    require_current_job()
 
 
 def case_and_group_manifest(rows: list[dict]) -> dict:
@@ -386,10 +401,15 @@ def case_and_group_manifest(rows: list[dict]) -> dict:
 
 
 def read_frozen_fixture(fixture_dir: Path, signed_fixture_sha: str,
-                        meta: dict, underlying: bytes) -> list[dict]:
+                        meta: dict | None = None, underlying: bytes | None = None,
+                        *, allowed: list[int] | None = None) -> list[dict]:
     """I2 reads the byte-exact 80-case frozen file; never regenerates fixtures."""
     original = fixture_dir/'FIXTURE_RECORDS.json'
     mf_path = fixture_dir/'FIXTURE_MANIFEST.json'
+    if original.resolve() != original.absolute():
+        stop('FROZEN_FIXTURE_RECORDS_REPARSE')
+    if mf_path.resolve() != mf_path.absolute():
+        stop('FROZEN_FIXTURE_MANIFEST_REPARSE')
     if not original.is_file() or not mf_path.is_file():
         stop('FROZEN_80_RECORDS_NOT_FOUND')
     if sha256_file(original) != signed_fixture_sha:
@@ -400,8 +420,8 @@ def read_frozen_fixture(fixture_dir: Path, signed_fixture_sha: str,
         stop('FROZEN_FIXTURE_INVALID')
     if not isinstance(rows,list):
         stop('FROZEN_FIXTURE_SCHEMA')
-    permitted = permitted_ids(meta, underlying)
-    # Reconstructed oracle uses no model outputs and no regenerated fixture.
+    permitted = allowed if allowed is not None else permitted_ids(meta, underlying)
+    # Check the frozen bytes against the deterministic oracle in memory.
     ref = fixture_generator(permitted)
     if rows!=ref:
         stop('FROZEN_CASES_NOT_MATCH_PROTOCOL')
@@ -415,17 +435,19 @@ def read_frozen_fixture(fixture_dir: Path, signed_fixture_sha: str,
 
 
 def fixture_freeze(args):
-    """One I1-only future freeze, strictly after external signed rights admission."""
+    """Freeze the 80 cases before I2, within the admitted I1 scope."""
     src = Path(__file__).resolve()
     root = Path(args.root).resolve()
     meta_path = Path(args.token_inventory).resolve()
     underlying_path = Path(args.tokenizer_source).resolve()
     out = Path(args.out).resolve()
     exact_scoped_path(root, out)
-    signed_admission(Path(args.permit).resolve(),src,meta_path,underlying_path,
-                     phase='fixture-freeze',root=root)
-    meta = json_read(meta_path)
-    allowed = permitted_ids(meta,underlying_path.read_bytes())
+    if args.owner_internal:
+        allowed, _, _ = owner_admission(args, root, run=False)
+    else:
+        signed_admission(Path(args.permit).resolve(),src,meta_path,underlying_path,
+                         phase='fixture-freeze',root=root)
+        allowed = permitted_ids(json_read(meta_path), underlying_path.read_bytes())
     rows = fixture_generator(allowed)
     mf = case_and_group_manifest(rows)
     if out.exists() or not out.is_relative_to(root) or not out.parent.exists():
@@ -435,7 +457,7 @@ def fixture_freeze(args):
     (out/'FIXTURE_MANIFEST.json').write_bytes(json_bytes(mf))
     receipt = dict(schema='ttm.sm4m.diag.q001.I1.fixture_freeze.v2',
                    question_id=QID, source_sha256=sha256_file(src),
-                   token_inventory_sha256=sha256_file(meta_path),
+                   token_inventory_sha256=None if args.owner_internal else sha256_file(meta_path),
                    underlying_inventory_sha256=sha256_file(underlying_path),
                    frozen_fixture_sha256=mf['fixture_sha256'],
                    per_case_manifest_sha256=sha256_file(out/'FIXTURE_MANIFEST.json'),
@@ -448,7 +470,7 @@ def fixture_freeze(args):
 def load_model(checkpoint: Path, root: Path):
     """This function is called ONLY after require_permit and rights admission."""
     import torch
-    if torch.__version__ is None or sys.version_info[:2] != (3, 12):
+    if torch.__version__ != "2.11.0+cpu" or sys.version_info[:2] != (3, 12):
         stop('PYTHON_TORCH_VERSION')
     core = root / 'src' / 'p02' / 'transformer_core.py'
     if git_blob(core) != SOURCE_BLOB:
@@ -554,20 +576,25 @@ def run(args):
     src=Path(__file__).resolve()
     root=Path(args.root).resolve()
     checkpoint=Path(args.checkpoint).resolve()
-    inventory=Path(args.token_inventory).resolve()
-    underlying=Path(args.tokenizer_source).resolve()
-    fixture_dir=Path(args.fixture_dir).resolve()
-    permit_path=Path(args.permit).resolve()
-    for check_path in (src,checkpoint,inventory,underlying,fixture_dir,permit_path,Path(args.out)):
-        exact_scoped_path(root,check_path)
-    # Extract untrusted claimed fixture digest for cryptographic validation;
-    # do NOT read private inventory or checkpoint before authenticated release.
-    packet=json_read(permit_path)
-    payload=packet.get('payload')
-    if not isinstance(payload,dict):
-        stop('SIGNED_RUN_PAYLOAD_MISSING')
-    fixture_digest=payload.get('frozen_fixture_sha256')
-    admission=signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest,root=root)
+    require_hard_job()
+    for check_path in (src, checkpoint, fixture_dir, Path(args.out)):
+        exact_scoped_path(root, check_path)
+    if args.owner_internal:
+        allowed, fixture_digest, nonce = owner_admission(args, root, run=True)
+        rows = read_frozen_fixture(fixture_dir, fixture_digest, allowed=allowed)
+    else:
+        inventory = exact_scoped_path(root, Path(args.token_inventory))
+        underlying = exact_scoped_path(root, Path(args.tokenizer_source))
+        permit_path = exact_scoped_path(root, Path(args.permit))
+        payload = json_read(permit_path).get('payload')
+        if not isinstance(payload, dict):
+            stop('SIGNED_RUN_PAYLOAD_MISSING')
+        fixture_digest = payload.get('frozen_fixture_sha256')
+        admission = signed_admission(permit_path, src, inventory, underlying,
+                                     'run', fixture_digest, root=root)
+        nonce = admission['one_shot_nonce']
+        rows = read_frozen_fixture(fixture_dir, fixture_digest,
+                                   json_read(inventory), underlying.read_bytes())
     if not checkpoint.is_file() or checkpoint.stat().st_size!=MODEL_SIZE or sha256_file(checkpoint)!=MODEL_SHA:
         stop('CHECKPOINT_PRIVATE_BYTES_MISMATCH')
     # Stdlib Windows RSS replaces optional psutil, with Git blob custody.
@@ -584,14 +611,12 @@ def run(args):
             stop('RESOURCE_WALL_TIME_900S')
         if peak_rss>MEMORY_BYTES:
             stop('RESOURCE_RSS_12GIB')
-    meta=json_read(inventory)
-    rows=read_frozen_fixture(fixture_dir,fixture_digest,meta,underlying.read_bytes())
-    claim_file=claim_one_shot(root,admission['one_shot_nonce'])
+    claim_file=claim_one_shot(root,nonce)
     model,torch=load_model(checkpoint,root)
     torch.set_num_threads(min(8,max(1,os.cpu_count() or 1)))
     torch.manual_seed(SEED)
     fixture_hash=hashlib.sha256(json_bytes(rows)).hexdigest()
-    # Model execution begins only after signed release, custody and fixture checks.
+    # Model execution begins only after release, custody and fixture checks.
     all_idx=list(range(len(rows)))
     baseline=evaluate(model,torch,rows,all_idx,resource_guard)
     # Finite nonzero post-update weight delta is an explicit primary validity gate.
@@ -648,7 +673,7 @@ def run(args):
       'status':'COMPLETED_ONE_SHOT_TINY_OVERFIT_PASS' if achieved else 'COMPLETED_ONE_SHOT_TINY_OVERFIT_NOT_REACHED',
       'scope':'SYNTHETIC_ONLY_NO_SEMANTIC_BENCHMARK_CLAIM','seed':SEED,'steps':256,
       'model_sha256':MODEL_SHA,'p02_blob':SOURCE_BLOB,'fixture_sha256':fixture_hash,
-      'one_shot_nonce':payload['one_shot_nonce'],'claim_file':str(claim_file),
+      'one_shot_nonce':nonce,'claim_file':claim_file.name,
       'runner_sha256':sha256_file(src),'groups':GROUPS,
       'post_correct_by_group':dict(post_by),'train_ce':train_nll,'monitor':monitor,
       'baseline':baseline,'post':post,'resource_elapsed_s':time.monotonic()-begin,
@@ -677,6 +702,7 @@ def run(args):
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('mode',choices=['source-qa','release-preflight','fixture-freeze','run'])
+    ap.add_argument('--owner-internal', action='store_true')
     ap.add_argument('--root',default='')
     ap.add_argument('--permit',default='')
     ap.add_argument('--checkpoint',default='')
@@ -691,35 +717,49 @@ def main():
             print(json.dumps(out,sort_keys=True))
             if out['passed'] != out['total']:
                 sys.exit(3)
-        elif args.mode=='release-preflight':
-            if not all([args.root,args.permit,args.token_inventory,args.tokenizer_source,args.fixture_dir]):
-                stop('MISSING_RELEASE_PREFLIGHT_ARGUMENTS')
-            root=Path(args.root).resolve()
-            for check_path in (Path(__file__).resolve(),Path(args.permit),
-                               Path(args.token_inventory),Path(args.tokenizer_source),
-                               Path(args.fixture_dir)):
-                exact_scoped_path(root,check_path)
-            packet=json_read(Path(args.permit).resolve())
-            payload=packet.get('payload')
-            if not isinstance(payload,dict) or not isinstance(payload.get('frozen_fixture_sha256'),str):
-                stop('SIGNED_PREFLIGHT_PAYLOAD_REQUIRED')
-            signed_admission(Path(args.permit).resolve(), Path(__file__).resolve(),
-                             Path(args.token_inventory).resolve(),
-                             Path(args.tokenizer_source).resolve(),'run',
-                             payload['frozen_fixture_sha256'],root=root)
-            print(json.dumps({'status':'SIGNED_RELEASE_PREFLIGHT_PASS_NO_CHECKPOINT_READ'}))
-        elif args.mode=='fixture-freeze':
-            if not all([args.root,args.permit,args.token_inventory,args.tokenizer_source,args.out]):
-                stop('MISSING_FIXTURE_FREEZE_ARGUMENTS')
+            return
+        if not args.owner_internal and not (args.permit and args.token_inventory):
+            stop('MISSING_LEGACY_ADMISSION_FLAGS')
+        if not args.root or not args.tokenizer_source:
+            stop('MISSING_SCOPED_SOURCE_FLAGS')
+        if args.mode == 'fixture-freeze':
+            if not args.out:
+                stop('MISSING_FIXTURE_FREEZE_OUTPUT')
             fixture_freeze(args)
+        elif args.mode == 'release-preflight':
+            if not args.fixture_dir:
+                stop('MISSING_FROZEN_FIXTURE_DIR')
+            root = Path(args.root).resolve()
+            source = Path(__file__).resolve()
+            fixture = exact_scoped_path(root, Path(args.fixture_dir))
+            if args.owner_internal:
+                allowed, digest, _ = owner_admission(args, root, run=True)
+                read_frozen_fixture(fixture, digest, allowed=allowed)
+            else:
+                permit = exact_scoped_path(root, Path(args.permit))
+                payload = json_read(permit).get('payload')
+                if not isinstance(payload, dict) or not isinstance(payload.get('frozen_fixture_sha256'), str):
+                    stop('SIGNED_PREFLIGHT_PAYLOAD_REQUIRED')
+                signed_admission(permit, source, Path(args.token_inventory).resolve(),
+                                 Path(args.tokenizer_source).resolve(), 'run',
+                                 payload['frozen_fixture_sha256'], root=root)
+            print(json.dumps({'status':'RELEASE_PREFLIGHT_PASS_NO_CHECKPOINT_READ'}))
         else:
-            if not all([args.root,args.permit,args.checkpoint,args.token_inventory,args.tokenizer_source,args.fixture_dir,args.out]):
+            if not all((args.checkpoint, args.fixture_dir, args.out)):
                 stop('MISSING_REQUIRED_RUN_FLAGS')
             run(args)
     except Exception as exc:
-        print(json.dumps({'status':'HOLD','error':str(exc),'run_finished':False,
-                          'model_execution_not_asserted':True},sort_keys=True),file=sys.stderr)
-        sys.exit(2)
+        message = str(exc).casefold()
+        resource = (isinstance(exc, MemoryError)
+                    or getattr(exc, 'winerror', None) in (8, 14, 112, 1455, 1816)
+                    or any(marker in message for marker in (
+                        'hold_resource_', 'hold_winjob_', 'hold_output_size_cap',
+                        "can't allocate memory", 'not enough memory', 'out of memory',
+                        'paging file is too small', 'not enough quota')))
+        print(json.dumps({'status':'HOLD_RESOURCE_INCOMPLETE' if resource else 'HOLD',
+                          'error':str(exc), 'run_finished':False}, sort_keys=True),
+              file=sys.stderr)
+        sys.exit(86 if resource else 2)
 
 if __name__=='__main__':
     main()
