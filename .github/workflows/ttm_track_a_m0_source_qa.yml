@@ -77,8 +77,8 @@ jobs:
           [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $script),[ref]$tokens,[ref]$errs)
           if ($errs.Count -ne 0) { $errs | Format-List; throw 'POWERSHELL_AST_NOT_VALID' }
           $raw=[System.IO.File]::ReadAllText((Resolve-Path $script))
-          foreach ($req in @('fixture-freeze','ORIGINAL_T1_SOURCE_SHA_MISMATCH','I2=NOT_EXECUTED','SOURCE_COMMIT','GIT')) {
+          foreach ($req in @('ReadbackOnly','FROZEN_RECORD_BYTES_CHANGED','GIT_BLOB_MISMATCH','I2=NOT_EXECUTED','SCORER_LF_CRLF_PIN')) {
             if (-not $raw.Contains($req)) { throw ('MISSING_GUARD_'+$req) }
           }
           if ($raw -match '(^|\s)\b(run|train)\b\s+--checkpoint') { throw 'UNEXPECTED_MODEL_ENTRY' }
-          Write-Host 'PS51_FREEZE_ONEPACK_AST=PASS_NO_PRIVATE_EXECUTION'
+          Write-Host 'PS51_READBACK_ONLY_AST=PASS_NO_PRIVATE_EXECUTION'
