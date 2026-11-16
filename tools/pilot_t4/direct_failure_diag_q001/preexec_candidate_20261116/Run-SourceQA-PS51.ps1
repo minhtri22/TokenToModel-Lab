@@ -1,19 +1,23 @@
-# Source-QA ONLY. Does not access checkpoint or invoke model inference.
-# Runs from the project root; no files or worktrees written outside project.
+# TTM-SM4M-DIAG-Q001 — source-only, no private checkpoint/model invocation.
 param(
-  [string] $ProjectRoot = 'D:\WORK\RESEARCH\TokenToModel-Lab',
-  [string] $CandidatePath = ''
+  [string]$ProjectRoot = 'D:\WORK\RESEARCH\TokenToModel-Lab',
+  [Parameter(Mandatory=$true)][string]$ExpectedRunnerSHA256,
+  [string]$CandidatePath = ''
 )
-$ErrorActionPreference = 'Stop'
-if (-not $CandidatePath) { $CandidatePath = Join-Path $ProjectRoot '_tmp\ttm_sm4m_diag_q001_candidate\ttm_sm4m_diag_q001.py' }
-$Python = 'C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
-if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) { throw 'PYTHON312_NOT_FOUND' }
-if (-not (Test-Path -LiteralPath $CandidatePath -PathType Leaf)) { throw 'SOURCE_CANDIDATE_NOT_FOUND' }
-$root = [IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\') + '\'
-$actual = [IO.Path]::GetFullPath($CandidatePath)
-if (-not $actual.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)) { throw 'CANDIDATE_OUTSIDE_PROJECT_ROOT' }
-& $Python -c 'import sys; assert sys.version_info[:2] == (3,12), sys.version'
-if ($LASTEXITCODE -ne 0) { throw 'PYTHON_VERSION_HOLD' }
-& $Python $CandidatePath source-qa
-if ($LASTEXITCODE -ne 0) { throw 'SOURCE_QA_HOLD' }
-Write-Output 'TTM_SM4M_DIAG_Q001_SOURCE_QA_COMPLETE_NO_MODEL_EXECUTION'
+$ErrorActionPreference='Stop'
+$Python='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
+# Script is checked out in exact-reviewed GitHub source directory; never _tmp.
+if (-not $CandidatePath) { $CandidatePath=Join-Path $PSScriptRoot 'ttm_sm4m_diag_q001.py' }
+$root=[IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\')+'\'
+$source=[IO.Path]::GetFullPath($CandidatePath)
+if (-not $source.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)) {throw 'HOLD_RUNNER_OUTSIDE_PROJECT'}
+if (-not (Test-Path -LiteralPath $source -PathType Leaf)) {throw 'HOLD_RUNNER_MISSING'}
+if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) {throw 'HOLD_PYTHON312_NOT_FOUND'}
+if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_RUNNER_PIN_64HEX_REQUIRED'}
+$actual=(Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($actual -cne $ExpectedRunnerSHA256) {throw 'HOLD_SOURCE_SHA_MISMATCH'}
+& $Python -c 'import sys; assert sys.version_info[:2]==(3,12)'
+if ($LASTEXITCODE -ne 0) {throw 'HOLD_PY312_VERSION'}
+& $Python $source source-qa
+if ($LASTEXITCODE -ne 0) {throw 'HOLD_SOURCE_QA_FAILED'}
+Write-Output 'PASS_SOURCE_QA_ONLY_NO_FIXTURES_NO_MODEL'
