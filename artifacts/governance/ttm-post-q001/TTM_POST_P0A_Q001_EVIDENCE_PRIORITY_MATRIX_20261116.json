@@ -1,0 +1,516 @@
+{
+  "schema": "ttm.post_p0a_q001.evidence_gap_priority.v2_integrated_F01_F05_remediation",
+  "operation": "TTM_POST_P0A_Q001_CLOSED_HOLD_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "exact_main": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af",
+  "source_manifest": [
+    {
+      "path": "lineage.md",
+      "git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md",
+      "git_blob_sha1": "bb21cf560c91a083680e072adb7d5ce5a5508d11",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "git_blob_sha1": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md",
+      "git_blob_sha1": "09a9f9c5003d0e8d899151f7f426707eb1505d44",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "git_blob_sha1": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+      "git_blob_sha1": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    }
+  ],
+  "prior_question": {
+    "id": "TTM-P0A-MEAS-Q001",
+    "status": "Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT",
+    "q1_to_q3": "SOURCE_ONLY_ACCEPTED",
+    "science": "HOLD",
+    "root_cause": "NOT_IDENTIFIED",
+    "active_question": "NONE",
+    "lineage_unchanged": true
+  },
+  "framework": {
+    "priority_method": "NONCOMPENSATORY_LEXICOGRAPHIC_QUALITATIVE_DECISION_VALUE",
+    "ordering": [
+      "RIGHTS_BEFORE_ANY_ACCESS",
+      "DECISION_CHANGING_EVIDENCE",
+      "CONSTRUCT_AND_GOLD_VALIDITY",
+      "EXACT_INDEPENDENT_PROVENANCE",
+      "MULTIPLE_HYPOTHESIS_REUSE",
+      "COST_AND_REVERSIBILITY_IF_GROUNDED"
+    ],
+    "numerical_mcda": "NOT_USED_NO_VERIFIED_UTILITIES_WEIGHTS_OR_RESOURCE_ESTIMATES",
+    "priority_distinction": "P0 legal prerequisite, P1 integrated measurement validity, P2 conditional science, P3 separate or lower direct semantic decision value"
+  },
+  "evidence_gaps": [
+    {
+      "id": "G0_RIGHTS",
+      "tier": "P0_PREREQUISITE_NOT_SCIENCE",
+      "decision_value": "ENABLE_OR_BLOCK_LAWFUL_INSPECTION",
+      "status": "NOT_VERIFIED",
+      "evidence": "Written rights/PII/copyright/transform/annotation/third-party rater scope and owner legal authorization",
+      "hard_veto": "AD-01R X20 before source access",
+      "dependencies": [],
+      "lineage": [
+        "Q4_CLOSURE"
+      ],
+      "decision_change": "If unattainable, keep empirical HOLD or consider a lawfully distinct source; if attested, enable only separately approved scoped feasibility inspection",
+      "cost": "UNKNOWN_NO_RIGHTS_SCOPE",
+      "no_execution": true
+    },
+    {
+      "id": "G1_SOURCE_CONSTRUCT",
+      "tier": "P1_HIGH",
+      "decision_value": "VALID_MEASUREMENT_FAMILY_OR_UNADMISSIBLE_CONSTRUCT",
+      "status": "NOT_VALIDATED",
+      "evidence": "Candidate sampling frame fixed prospectively; typed entity/location/time, authority, bounded time closure, witness/negation/exclusivity; all candidate/eligible/reject/abstain denominators and reasons, nonzero coverage with prereg threshold",
+      "hard_veto": "E1 F-H01 X14 X17 X19",
+      "dependencies": [
+        "G0_RIGHTS"
+      ],
+      "lineage": [
+        "L0015",
+        "L0022",
+        "Q4_CLOSURE"
+      ],
+      "decision_change": "Construct feasible with honest coverage -> measurement remains candidate; systemic insufficiency -> HOLD/SIMPLIFY/PIVOT under new Q4, not post-hoc filtering",
+      "cost": "UNKNOWN_DATA_RIGHTS_AND_ANNOTATION",
+      "no_execution": true
+    },
+    {
+      "id": "G2_FULL_EFFECTIVE_PARITY",
+      "tier": "P1_HIGH",
+      "decision_value": "FAIR_INFORMATION_BUDGET_AND_LABEL_IDENTIFIABILITY",
+      "status": "NOT_CAPTURED",
+      "evidence": "All label-changing material support/refutation/exclusivity facts preserved in both model-effective and rater-effective payloads after renderer/tokenizer/window/truncation; separate hidden key/oracle custody; exact byte provenance",
+      "hard_veto": "E2 X13 X15",
+      "dependencies": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT"
+      ],
+      "lineage": [
+        "Q4_CLOSURE"
+      ],
+      "decision_change": "Parity established -> model-vs-rater agreement interpretable; parity violation -> item REJECT and measurement admission HOLD, not UNKNOWN",
+      "cost": "UNKNOWN_BUILDER_CONTEXT_AND_CUSTODY",
+      "no_execution": true
+    },
+    {
+      "id": "G3_GOLD_RATER",
+      "tier": "P1_HIGH",
+      "decision_value": "LABEL_CORRECTNESS_VS_RATER_AGREEMENT",
+      "status": "NOT_CALIBRATED",
+      "evidence": "Independent source-grounded hidden gold derivation, blind same-task calibration and disagreements/adjudication, no shared ontology error, correct custody and permitted rater use",
+      "hard_veto": "E4 M1 M4 X18",
+      "dependencies": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY"
+      ],
+      "lineage": [
+        "L0015",
+        "L0026",
+        "Q4_CLOSURE"
+      ],
+      "decision_change": "Validated gold -> semantic adherence distinguishable from evaluator failure; shared error -> benchmark HOLD",
+      "cost": "UNKNOWN_RATER_RESOURCES",
+      "no_execution": true
+    },
+    {
+      "id": "G4_PROSPECTIVE_PREREG_COST",
+      "tier": "P1_INTEGRATED_FREEZE",
+      "decision_value": "DEFENSIBLE_GO_FAIL_STOP_BOUNDARY",
+      "status": "NOT_FROZEN",
+      "evidence": "Question/endpoint, unit and n with uncertainty/power; candidate/eligible/reject/abstain coverage; exact REJECT precedence preserving all reasons; threshold, STOP, budget and owner role frozen before outcomes",
+      "hard_veto": "E5 AD-07 F-H01 X21",
+      "dependencies": [
+        "G0_RIGHTS"
+      ],
+      "lineage": [
+        "L0011",
+        "L0015",
+        "Q4_CLOSURE"
+      ],
+      "decision_change": "GO/HOLD/STOP becomes auditable under frozen decision threshold; unknown costs cannot justify quantitative promise",
+      "cost": "NO_GROUNDED_NUMERIC_CEILING",
+      "no_execution": true
+    },
+    {
+      "id": "G5_CAUSAL_CONTRASTS",
+      "tier": "P2_CONDITIONAL_ONLY",
+      "decision_value": "SHORTCUT_CAUSAL_IDENTIFICATION",
+      "status": "NOT_EXECUTED",
+      "evidence": "Prospectively matched/group-disjoint fact-only vs cue-only contrasts with balanced lexical/position/length and prereg AD-06, only if causal shortcut attribution is desired",
+      "hard_veto": "E3 M3 F-M04 for causal claims ONLY",
+      "dependencies": [
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "lineage": [
+        "L0015",
+        "L0022"
+      ],
+      "decision_change": "Distinguish genuine fact sensitivity from cue shortcut; without contrast avoid causal claim",
+      "cost": "UNKNOWN_MATCHED_DESIGN",
+      "no_execution": true
+    }
+  ],
+  "next_research_options": [
+    {
+      "id": "D1",
+      "rank": 1,
+      "priority": "P1_CONDITIONAL_OWNER_CHOICE",
+      "name": "MEASUREMENT_VALIDITY_EVIDENCE_GAP_NO_NEW_Q001_DUPLICATE",
+      "kind": "MEASUREMENT",
+      "lineage_ids": [
+        "L0011",
+        "L0012",
+        "L0015",
+        "L0022",
+        "L0026"
+      ],
+      "required": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "decision_value": "HIGHEST_FOR_SMALL4M_SEMANTIC_ADMISSION",
+      "readiness": "Q001_CLOSED_HOLD_NO_NEW_SOURCE_DELTA_NO_SELECTABLE_P0B",
+      "suggested_proof": "NOT_AN_EXECUTION_OR_QUESTION_PROPOSAL; new distinct lawful evidence/decision required before owner considers a new Q1",
+      "what_would_change": "Establishes whether a valid score can ever support comparing model/data/objective/decoder",
+      "authorization": "BLOCK_NEW_MEASUREMENT_Q_REPETITION_F01",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_AD01R_BEFORE_EXTERNAL_SOURCE_ACCESS"
+      ],
+      "measurement_validity_prerequisites": [
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "execution_prerequisites": [
+        "ONLY_IF_Q4_GO_SCOPED_IMPLEMENT",
+        "E6_AD00_AD01C_AND_OWNER_RUN_PERMIT_IF_MODEL_INVOLVED"
+      ]
+    },
+    {
+      "id": "D2",
+      "rank": 2,
+      "priority": "P2_AFTER_VALID_MEASUREMENT",
+      "name": "DATA_VS_OBJECTIVE_EQUAL_INFORMATION_AND_COMPUTE_BUDGET",
+      "kind": "SCIENCE",
+      "lineage_ids": [
+        "L0011",
+        "L0015",
+        "L0016",
+        "L0025",
+        "L0026"
+      ],
+      "required": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST",
+        "E6_MODEL_DATA_RIGHTS_CUSTODY_AND_OWNER_EXECUTION_PERMIT"
+      ],
+      "decision_value": "IDENTIFY_DATA_OR_OBJECTIVE_CONTRIBUTION_IF_VALID_ORACLE",
+      "readiness": "H_DATA_S1_NO_DEMONSTRATED_SCOPED_SEMANTIC_BENEFIT_NO_FRESH_PERMISSION",
+      "suggested_proof": "Counterbalanced prospective data/objective controls with equal effective information and training budget; no reused FINAL24 or FRESH16",
+      "what_would_change": "GO data-focused or objective-focused revision, or HOLD causal attribution",
+      "authorization": "NOT_OPENED",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_AD01R_BEFORE_EXTERNAL_SOURCE_ACCESS"
+      ],
+      "measurement_validity_prerequisites": [
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "execution_prerequisites": [
+        "E6_CHECKPOINT_DATA_RIGHTS_AND_BYTE_CUSTODY",
+        "AD00_AD01C_SCOPED_OWNER_Q4_AND_EXECUTION_PERMIT",
+        "INDEPENDENT_RUNNER_QA"
+      ]
+    },
+    {
+      "id": "D3",
+      "rank": 3,
+      "priority": "P2_AFTER_VALID_MEASUREMENT",
+      "name": "DECODER_CONTEXT_CAPACITY_CONTROLLED_CAUSAL_DIAGNOSTIC",
+      "kind": "SCIENCE",
+      "lineage_ids": [
+        "L0011",
+        "L0012",
+        "L0015",
+        "L0026"
+      ],
+      "required": [
+        "G0_RIGHTS_IF_EXTERNAL_SOURCE",
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST",
+        "E6_EXECUTION_CHECKPOINT_RIGHTS_AND_OWNER_PERMIT"
+      ],
+      "decision_value": "DISTINGUISH_DECODING_FAILURE_FROM_MODEL_CAPACITY_OR_CONTEXT",
+      "readiness": "NO_CAUSAL_LOCALIZATION_NOT_AUTHORIZED",
+      "suggested_proof": "Held-out prospective same-task output metrics with frozen decoder/length/context/equal budget and no sealed TEST replay",
+      "what_would_change": "Evidence for simpler decoder/context interventions before architecture scaling",
+      "authorization": "NOT_OPENED",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_AD01R_IF_EXTERNAL_SOURCE",
+        "LAWFUL_FIXTURE_PROVENANCE_IF_SYNTHETIC"
+      ],
+      "measurement_validity_prerequisites": [
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "execution_prerequisites": [
+        "E6_CHECKPOINT_EXECUTABLE_RIGHTS_AND_CUSTODY",
+        "AD00_AD01C_SCOPED_OWNER_Q4_AND_EXECUTION_PERMIT",
+        "INDEPENDENT_RUNNER_QA"
+      ]
+    },
+    {
+      "id": "D4",
+      "rank": 4,
+      "priority": "P3_INDEPENDENT_ENGINEERING",
+      "name": "T5_T6_CPU_PARITY_AND_INFERENCE_BASELINE",
+      "kind": "ENGINEERING",
+      "lineage_ids": [
+        "L0013",
+        "L0014",
+        "L0027",
+        "L0029"
+      ],
+      "required": [
+        "NO_SEMANTIC_GOLD_REQUIREMENT_FOR_STRICT_SYNTHETIC_NUMERIC_PARITY",
+        "E6_MODEL_GGUF_EXE_AND_FIXTURE_RIGHTS_CUSTODY",
+        "AD00_AD01C_OWNER_SCOPED_Q4_AND_EXECUTION_PERMISSION",
+        "INDEPENDENT_TECHNICAL_QA"
+      ],
+      "decision_value": "ENGINEERING_REPRODUCIBILITY_NOT_SEMANTIC_ROOT_CAUSE",
+      "readiness": "L0013_FAIL_32_OF_32_L0014_PASS_4_OF_4_SCOPED_T6_TECH_MERGED",
+      "suggested_proof": "Separate exact executable/model/GGUF pin and predeclared strict parity across new legal fixtures; no assumption universal parity",
+      "what_would_change": "GO/HOLD deployment or runtime baseline only, not Q001 measurement",
+      "authorization": "NOT_OPENED",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_IF_EXTERNAL_DATA",
+        "LAWFUL_SYNTHETIC_FIXTURE_AND_REFERENCE_PROVENANCE"
+      ],
+      "measurement_validity_prerequisites": [
+        "NOT_APPLICABLE_STRICT_NUMERIC_PARITY_NOT_SEMANTIC_GOLD"
+      ],
+      "execution_prerequisites": [
+        "E6_P02_CHECKPOINT_GGUF_EXE_RIGHTS_AND_EXACT_SHA",
+        "AD00_AD01C_SCOPED_OWNER_Q4_AND_EXECUTION_PERMIT",
+        "INDEPENDENT_NEGATIVE_REGRESSION_QA",
+        "FRESH_SYNTHETIC_FIXTURES_ONLY_NOT_HISTORICAL_REPLAY"
+      ]
+    },
+    {
+      "id": "D5",
+      "rank": 5,
+      "priority": "P3_SEPARATE_QUESTION_ONLY",
+      "name": "EMBEDDINGGEMMA_VECTOR_MEMORY_INFORMATION_PATH",
+      "kind": "SCIENCE",
+      "lineage_ids": [
+        "L0023",
+        "L0024",
+        "L0029"
+      ],
+      "required": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "E6_MODEL_DATA_RIGHTS_CUSTODY_AND_OWNER_EXECUTION_PERMIT"
+      ],
+      "decision_value": "SEMANTIC_VS_GEOMETRIC_TRANSPORT_IF_VALID_ORACLE",
+      "readiness": "OOD256_PASS_SCOPED_TRANSPORT_VM_MARKER_SHORTCUT_FAIL_R8_HOLD",
+      "suggested_proof": "Independent semantic/geometry nulls with matched accessible facts, no shortcut/leakage, fresh prereg; not OOD256 reuse",
+      "what_would_change": "Whether memory/vector pathway adds task semantics rather than geometric transport",
+      "authorization": "NOT_OPENED",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_AD01R_BEFORE_EXTERNAL_SOURCE_ACCESS"
+      ],
+      "measurement_validity_prerequisites": [
+        "G1_SOURCE_CONSTRUCT",
+        "G2_FULL_EFFECTIVE_PARITY",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST"
+      ],
+      "execution_prerequisites": [
+        "E6_ALL_MODEL_AND_SOURCE_RIGHTS_BYTE_CUSTODY",
+        "AD00_AD01C_OWNER_EXECUTION_PERMIT",
+        "MARKER_SHORTCUT_CONTROLS_IF_CAUSAL_CLAIM"
+      ]
+    },
+    {
+      "id": "D6",
+      "rank": 6,
+      "priority": "P3_ARCHIVE_AND_REASSESS_ONLY",
+      "name": "D1_BRIDGE_ACTION_CAUSAL_TASK_ONTOLOGY_REDESIGN",
+      "kind": "MEASUREMENT",
+      "lineage_ids": [
+        "L0016",
+        "L0017",
+        "L0018",
+        "L0019",
+        "L0020",
+        "L0021",
+        "L0022"
+      ],
+      "required": [
+        "G0_RIGHTS",
+        "G1_SOURCE_CONSTRUCT",
+        "G3_GOLD_RATER",
+        "G4_PREREG_BEFORE_OUTCOME",
+        "E6_IF_LATER_MODEL_RUN"
+      ],
+      "decision_value": "MAY_YIELD_NEW_TESTABLE_CONSTRUCT_NOT_EXISTING_Q001",
+      "readiness": "R1_DESIGN_CLOSED_HOLD_ONTOLOGY_FEASIBILITY",
+      "suggested_proof": "Distinct new task goals, clock/events, oracle and action-causal first-action uniqueness with verified OOD non-overlap; no decorative skeleton",
+      "what_would_change": "Potential separately registered action-causal research question if construct can be shown valid",
+      "authorization": "NOT_OPENED",
+      "source_access_prerequisites": [
+        "G0_RIGHTS_IF_EXTERNAL_SOURCE"
+      ],
+      "measurement_validity_prerequisites": [
+        "G1_SOURCE_CONSTRUCT",
+        "G3_GOLD_RATER",
+        "G4_PROSPECTIVE_PREREG_COST",
+        "G2_FULL_EFFECTIVE_PARITY_IF_LANGUAGE_MODEL_MEASUREMENT"
+      ],
+      "execution_prerequisites": [
+        "NOT_APPLICABLE_FOR_SOURCE_ONLY_DESIGN",
+        "E6_AD00_AD01C_REQUIRED_IF_LATER_MODEL_RUN"
+      ]
+    }
+  ],
+  "proposed_successor": {
+    "historical_withdrawn_placeholder_id": "TTM-P0B-MEAS-FEASIBILITY-PROPOSED",
+    "status": "WITHDRAWN_NOT_REGISTERED_NOT_SELECTABLE",
+    "reason": "F01_DUPLICATE_OF_TTM_P0A_MEAS_Q001_CLOSED_HOLD",
+    "next_measurement_question_candidate": null,
+    "new_lawful_source_delta": "NOT_VERIFIED",
+    "engineering_alternative": "DISTINCT_T5_T6_STRICT_PARITY_QUESTION_ONLY_PROPOSED_NOT_REGISTERED",
+    "hard_stop": "NO_Q1_DISTINCTNESS_OR_Q4_GO_NO_I1_OR_SOURCE_INSPECTION",
+    "execution_authorized": false
+  },
+  "governance": {
+    "owner_choice": "PENDING_POST_REMEDIATION_REVIEW",
+    "distinct_QA": "ORIGINAL_HOLD_REMEDIATED_CANDIDATE_PENDING_DISTINCT_QA",
+    "new_question_authorized": false,
+    "new_research_branch": false,
+    "source_access_permit": false,
+    "gold_created": false,
+    "science_execution": false,
+    "active_register_update": false,
+    "lineage_append": false,
+    "governance_merge_authorized": false
+  },
+  "next_single_gate": "TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE",
+  "review_history": {
+    "original_reviewed_candidate_head": "cef770d386c2e6862dc33e0f6e7d4e1866f7c00b",
+    "verdict": "HOLD_POST_P0A_EVIDENCE_PRIORITY",
+    "findings": [
+      "F01_BLOCKER",
+      "F02_BLOCKER",
+      "F03_MAJOR",
+      "F04_MAJOR",
+      "F05_MINOR"
+    ],
+    "independent_report_sha256": "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+    "independent_receipt_sha256": "0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926",
+    "remediation_is_independent_PASS": false
+  },
+  "distinctness_gate": {
+    "predecessor": "TTM-P0A-MEAS-Q001",
+    "predecessor_closure": "Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT",
+    "withdrawn_identifier": "TTM-P0B-MEAS-FEASIBILITY-PROPOSED",
+    "status": "WITHDRAWN_DUPLICATE_CLOSED_Q001_NOT_SELECTABLE",
+    "new_measurement_question_registered": false,
+    "preconditions": [
+      "EXACT_CUSTODIED_NEW_LAWFUL_SOURCE_EVIDENCE_OR_DISTINCT_SOURCE_FAMILY",
+      "OR_SEPARATE_FALSIFIABLE_DECISION_OUTSIDE_CLOSED_Q001",
+      "SHOW_COUNTERFACTUAL_Q001_CANNOT_ANSWER_NEW_QUESTION",
+      "OWNER_EXPLICIT_Q1_AFTER_SOURCE_ONLY_DISTINCT_REVIEW"
+    ],
+    "current_delta": "NONE_VERIFIED",
+    "fallback": "NO_ACTIVE_QUESTION"
+  },
+  "policy_state_machine": {
+    "ordered_states": [
+      "Q0_CLOSED_OR_NO_ACTIVE",
+      "Q1_QUESTION_REGISTERED",
+      "Q2_FRAMEWORK_AND_ALTERNATIVES_EVALUATED",
+      "Q3_ANSWER_REVIEWED",
+      "Q4_OWNER_DECIDED_AND_CLOSED",
+      "I1_ONE_IMPLEMENTATION_BRANCH",
+      "I2_EXECUTION_AND_EVIDENCE",
+      "I3_INDEPENDENT_ADJUDICATION",
+      "I4_MERGE_OR_EVIDENCE_ONLY_CLOSURE",
+      "Q0"
+    ],
+    "q1_q3": "EXISTING_PINNED_SOURCE_DESIGN_ONLY_NO_NEW_SOURCE_INSPECTION_OR_GOLD",
+    "q4": "OWNER_GO_SCOPED_IMPLEMENT_OR_CLOSED_HOLD_BEFORE_I1",
+    "i1_i2": "ONLY_IF_OWNER_SCOPED_GO_AND_RIGHTS_BEFORE_ACCESS_AND_PROSPECTIVE_PREREG",
+    "i3_i4": "INDEPENDENT_EMPIRICAL_REVIEW_THEN_CLOSURE",
+    "checkpoint_run_permit": "SEPARATE_E6_OWNER_EXECUTION_PERMISSION",
+    "current_state": "Q0_NO_ACTIVE",
+    "permission_granted": false
+  },
+  "family_selection_protocol": {
+    "status": "PROSPECTIVE_UNDEFINED_NOT_AUTHORIZED",
+    "freeze_before_decision_relevant_outcomes": [
+      "LAWFUL_SOURCE_FAMILY_SEARCH_UNIVERSE",
+      "FAMILY_SAMPLING_UNIT_AND_SEARCH_SELECTION_ALGORITHM",
+      "CANDIDATE_FAMILY_DENOMINATOR",
+      "INSPECTED_SCREENED_EXCLUDED_FAMILY_COUNTS_AND_REASONS",
+      "WITHIN_FAMILY_CANDIDATE_ITEM_FRAME",
+      "CANDIDATE_ELIGIBLE_REJECT_ABSTAIN_ITEM_COUNTS_AND_REASONS",
+      "PROSPECTIVE_FAMILY_AND_ITEM_COVERAGE_THRESHOLDS",
+      "SAMPLE_N_UNCERTAINTY_POWER_AND_RESOURCE_STOP",
+      "DETERMINISTIC_PRIMARY_REJECT_PRECEDENCE_ALL_REASONS"
+    ],
+    "exploratory_vs_confirmatory": "DISCOVERY_FAMILIES_OR_ITEM_SAMPLES_DISJOINT_FROM_UNTOUCHED_CONFIRMATORY_FRAME; OTHERWISE_EXPLORATORY_ONLY",
+    "forbidden": "AT_LEAST_ONE_EASY_FAMILY_POST_HOC_AS_CONFIRMATORY_SUCCESS",
+    "rights_attestation": "RIGHTS_ONLY_DOCUMENTARY_STEP_BEFORE_ACCESS_NOT_SCORED_OUTCOME",
+    "actual_values": "UNKNOWN_NO_DATA_OR_PERMIT"
+  },
+  "dependency_taxonomy": {
+    "source_access_prerequisites": "G0/AD01R for external data, or explicit lawful synthetic provenance; rights attestation alone is not science",
+    "measurement_validity_prerequisites": "G1/G2/G3/G4 when assessing a semantic model; numerical parity alone does not require semantic gold",
+    "execution_prerequisites": "E6/AD00/AD01C checkpoint/executable/fixture rights+SHA and independent technical QA, owner Q4 implementation GO and separate run permit; even synthetic cannot waive execution custody"
+  }
+}

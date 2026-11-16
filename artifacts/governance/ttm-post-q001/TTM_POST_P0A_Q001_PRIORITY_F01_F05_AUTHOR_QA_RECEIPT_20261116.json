@@ -1,0 +1,326 @@
+{
+  "schema": "ttm.post_p0a_q001.priority_f01_f05.author_source_qa.v1",
+  "operation": "TTM_POST_P0A_Q001_PRIORITY_MATRIX_F01_F04_INTEGRATED_SOURCE_REMEDIATION_AND_EXACT_HEAD_DISTINCT_READBACK_SINGLE_GATE",
+  "date": "2026-11-16",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "main_exact": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af",
+  "original_reviewed_head": "cef770d386c2e6862dc33e0f6e7d4e1866f7c00b",
+  "original_independent_verdict": "HOLD_POST_P0A_EVIDENCE_PRIORITY",
+  "original_independent_review_sha256": "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+  "original_independent_receipt_sha256": "0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926",
+  "files": {
+    "remediated_report": {
+      "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_20261116.md",
+      "git_blob": "3f5a9c822f55ec9971b9de1e86244aa1052e91a4"
+    },
+    "remediated_matrix": {
+      "path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_MATRIX_20261116.json",
+      "git_blob": "023fb16483b3ce3ff71934f8abbb5ad33ce73da8"
+    },
+    "remediated_handoff": {
+      "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_DISTINCT_REVIEW_AND_OWNER_SELECTION_HANDOFF_20261116.md",
+      "git_blob": "1414fcd49add8ce72f1989c346c315c1986c0f78"
+    },
+    "original_review": {
+      "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.md",
+      "git_blob": "dcbd3f32a6c4d473efad9e4d080385a3f6d20ef5"
+    },
+    "original_review_receipt": {
+      "path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.json",
+      "git_blob": "b41123bc8148554c2ebd9fc8a9936613336e30a9"
+    },
+    "original_author_qa": {
+      "path": "artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_AUTHOR_QA_RECEIPT_20261116.json",
+      "git_blob": "47517a14acfd2e575643762f39ea8d719ddea158"
+    },
+    "remediation_report": {
+      "path": "docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_F01_F05_INTEGRATED_SOURCE_REMEDIATION_20261116.md",
+      "git_blob": "64cec2e45bc2a04e8349245cfd37a23f5f073dce"
+    }
+  },
+  "source_manifest": [
+    {
+      "path": "lineage.md",
+      "git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md",
+      "git_blob_sha1": "bb21cf560c91a083680e072adb7d5ce5a5508d11",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "git_blob_sha1": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md",
+      "git_blob_sha1": "09a9f9c5003d0e8d899151f7f426707eb1505d44",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "git_blob_sha1": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+      "git_blob_sha1": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9",
+      "commit": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af"
+    }
+  ],
+  "author_QA": {
+    "verdict": "PASS_AUTHOR_SOURCE_QA_ONLY",
+    "checks": [
+      {
+        "id": "PR_DRAFT_OPEN",
+        "pass": true
+      },
+      {
+        "id": "PR_BASE_PIN",
+        "pass": true
+      },
+      {
+        "id": "MAIN_EXACT_UNMOVED",
+        "pass": true
+      },
+      {
+        "id": "SEVEN_SOURCE_PINS_MATCH",
+        "pass": true
+      },
+      {
+        "id": "LINEAGE_EXACT_SHA",
+        "pass": true
+      },
+      {
+        "id": "ACTIVE_Q4_CLOSED_HOLD",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_REVIEW_RETAINED_HOLD",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_REVIEW_PIN",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_FINDINGS_F01_F05",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_MD_HASH_DECLARED",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_AUTHOR_QA_ONLY_OLD",
+        "pass": true
+      },
+      {
+        "id": "F01_WITHDRAWN_REPORT",
+        "pass": true
+      },
+      {
+        "id": "F01_WITHDRAWN_MATRIX",
+        "pass": true
+      },
+      {
+        "id": "F01_DISTINCTNESS_GATE_REQUIRED",
+        "pass": true
+      },
+      {
+        "id": "F01_NO_QID_REGISTERED",
+        "pass": true
+      },
+      {
+        "id": "F01_PRIOR_Q001_CLOSED",
+        "pass": true
+      },
+      {
+        "id": "F02_EXACT_STATE_ORDER",
+        "pass": true
+      },
+      {
+        "id": "F02_Q1_Q3_SOURCE_DESIGN_ONLY",
+        "pass": true
+      },
+      {
+        "id": "F02_Q4_BEFORE_I1",
+        "pass": true
+      },
+      {
+        "id": "F02_I1_I2_OWNER_SCOPE",
+        "pass": true
+      },
+      {
+        "id": "F02_RIGHTS_FIRST",
+        "pass": true
+      },
+      {
+        "id": "F02_NO_I1_DATA_AS_Q4",
+        "pass": true
+      },
+      {
+        "id": "F02_EXECUTION_NOT_AUTO",
+        "pass": true
+      },
+      {
+        "id": "F03_MACHINE_TAXONOMY",
+        "pass": true
+      },
+      {
+        "id": "F03_SIX_OPTIONS_COMPLETE",
+        "pass": true
+      },
+      {
+        "id": "F03_D3_RIGHTS",
+        "pass": true
+      },
+      {
+        "id": "F03_D3_EXECUTION",
+        "pass": true
+      },
+      {
+        "id": "F03_D4_NO_EMPTY_REQUIRED",
+        "pass": true
+      },
+      {
+        "id": "F03_D4_P02_GGUF_RIGHTS",
+        "pass": true
+      },
+      {
+        "id": "F03_D4_OWNER_Q4_RUN",
+        "pass": true
+      },
+      {
+        "id": "F03_D4_NEGATIVE_QA",
+        "pass": true
+      },
+      {
+        "id": "F03_D4_STRICT_PARITY_NOT_SEMANTIC_GOLD",
+        "pass": true
+      },
+      {
+        "id": "F03_MODEL_EXECUTION_PERMISSIONS_ALL_DIRECTIONS",
+        "pass": true
+      },
+      {
+        "id": "F04_SOURCE_FAMILY_FRAME",
+        "pass": true
+      },
+      {
+        "id": "F04_FAMILY_SELECTION_ALGORITHM",
+        "pass": true
+      },
+      {
+        "id": "F04_CANDIDATE_FAMILY_DENOMINATOR",
+        "pass": true
+      },
+      {
+        "id": "F04_FAMILY_REJECTION_COUNT",
+        "pass": true
+      },
+      {
+        "id": "F04_ITEM_DENOMINATORS",
+        "pass": true
+      },
+      {
+        "id": "F04_THRESHOLD_AND_POWER",
+        "pass": true
+      },
+      {
+        "id": "F04_REJECT_PRECEDENCE",
+        "pass": true
+      },
+      {
+        "id": "F04_FRESH_DISJOINT_CONFIRMATION",
+        "pass": true
+      },
+      {
+        "id": "F04_POSTHOC_CONVENIENCE_FORBIDDEN",
+        "pass": true
+      },
+      {
+        "id": "F04_UNKNOWN_N_COST",
+        "pass": true
+      },
+      {
+        "id": "F05_REPORT_LINK_CORRECT",
+        "pass": true
+      },
+      {
+        "id": "F05_OLD_NESTED_LINK_REMOVED",
+        "pass": true
+      },
+      {
+        "id": "INDEPENDENT_REVIEW_PENDING_NEW_HEAD",
+        "pass": true
+      },
+      {
+        "id": "ORIGINAL_HOLD_NOT_RECLASSIFIED",
+        "pass": true
+      },
+      {
+        "id": "OWNER_AND_MERGE_NOT_AUTHORIZED",
+        "pass": true
+      },
+      {
+        "id": "NO_ACCESS_OR_EXECUTION",
+        "pass": true
+      },
+      {
+        "id": "NO_RESEARCH_BRANCH_OR_LINEAGE",
+        "pass": true
+      },
+      {
+        "id": "NLL_PASS_SEMANTIC_FAIL_PRESERVED",
+        "pass": true
+      },
+      {
+        "id": "CONSUMED_TEST_NOT_REUSED",
+        "pass": true
+      },
+      {
+        "id": "ONE_REVIEW_NEXT_GATE",
+        "pass": true
+      }
+    ],
+    "pass_count": 53,
+    "fail_count": 0
+  },
+  "preliminary_QA_erratum": "PRELIMINARY_49_OF_50_DUE_TO_TRUNCATED_EXPECTED_LINEAGE_SHA_IN_CHECKER_FIXED_AND_ALL_RERUN",
+  "F01_F05": "AUTHOR_REMEDIATED_PENDING_NEW_DISTINCT_QA",
+  "new_distinct_review": "NOT_EXECUTED",
+  "owner_next_question_choice": "PENDING",
+  "governance_merge_authorized": false,
+  "source_access_authorized": false,
+  "science_permit": false,
+  "new_QuestionID_registered": false,
+  "new_research_branch": false,
+  "lineage_changed": false,
+  "main_changed": false,
+  "next_single_gate": "TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE",
+  "custody_erratum": {
+    "issue": "files.read text omitted final LF from initial archive of two uploaded attachments",
+    "resolution": "Both original uploaded files restored exact LF and Git blob hashes computed from original bytes",
+    "initial_git_blobs": [
+      "e72ffeb1190ad92778fd1d4d2ff17297b6b333e2",
+      "19b25b92417488b228b7926df306fbfc9986c9bd"
+    ],
+    "corrected_git_blobs": [
+      "dcbd3f32a6c4d473efad9e4d080385a3f6d20ef5",
+      "b41123bc8148554c2ebd9fc8a9936613336e30a9"
+    ],
+    "original_uploaded_sha256": [
+      "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+      "0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926"
+    ],
+    "status": "PASS_EXACT_UPLOADED_BYTES"
+  }
+}
