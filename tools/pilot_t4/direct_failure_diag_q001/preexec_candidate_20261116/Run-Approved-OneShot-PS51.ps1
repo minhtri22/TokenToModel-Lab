@@ -14,15 +14,25 @@ param(
 )
 $ErrorActionPreference='Stop'
 $Python='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
-if (-not $RunnerPath) {$RunnerPath=Join-Path $PSScriptRoot 'ttm_sm4m_diag_q001.py'}
+$PinnedRunner=Join-Path $PSScriptRoot 'ttm_sm4m_diag_q001.py'
+if (-not $RunnerPath) {$RunnerPath=$PinnedRunner}
+if ([IO.Path]::GetFullPath($RunnerPath) -ine $PinnedRunner) {throw 'HOLD_RUNNER_PATH_NOT_PINNED'}
 if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_RUNNER_PIN_FORMAT'}
 if ($ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_WATCHDOG_PIN_FORMAT'}
+if ($ExpectedRunnerSHA256 -cne 'f3a8ab2952f85873b0e1ec5e50b5f12faea527f57f2b0041b91a3c86ebf62c02') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
+if ($ExpectedWatchdogSHA256 -cne 'd80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c') {throw 'HOLD_WATCHDOG_PIN_NOT_REVIEWED'}
 $WatchdogModule=Join-Path $PSScriptRoot 'Watch-TTM-SM4M-ProcessTree-PS51.ps1'
 if (-not (Test-Path -LiteralPath $WatchdogModule -PathType Leaf)) {throw 'HOLD_WATCHDOG_MODULE_MISSING'}
-$ActualWatchdogSHA256=(Get-FileHash -LiteralPath $WatchdogModule -Algorithm SHA256).Hash.ToLowerInvariant()
+$WatchdogBytes=[IO.File]::ReadAllBytes($WatchdogModule)
+$hasher=[Security.Cryptography.SHA256]::Create()
+try {
+    $ActualWatchdogSHA256=[BitConverter]::ToString($hasher.ComputeHash($WatchdogBytes)).Replace('-','').ToLowerInvariant()
+} finally {
+    $hasher.Dispose()
+}
 if ($ActualWatchdogSHA256 -cne $ExpectedWatchdogSHA256) {throw 'HOLD_WATCHDOG_SOURCE_SHA'}
-# Bind the single reviewed watchdog module before admitting any model process.
-. $WatchdogModule
+# Execute the exact verified buffer, without reopening a mutable module path.
+. ([scriptblock]::Create([Text.Encoding]::UTF8.GetString($WatchdogBytes)))
 if (-not (Get-Command Invoke-TTMDiagProcessWatch -CommandType Function -ErrorAction SilentlyContinue)) {
     throw 'HOLD_WATCHDOG_FUNCTION_NOT_LOADED'
 }
@@ -33,6 +43,8 @@ foreach($path in @($RunnerPath,$PermitPath,$CheckpointPath,$TokenInventoryPath,$
 }
 if (-not (Test-Path -LiteralPath $RunnerPath -PathType Leaf)) {throw 'HOLD_RUNNER_MISSING'}
 if ((Get-FileHash -LiteralPath $RunnerPath -Algorithm SHA256).Hash.ToLowerInvariant() -cne $ExpectedRunnerSHA256) {throw 'HOLD_RUNNER_SHA'}
+$guard=Join-Path $PSScriptRoot 'release_auth_v2.py'
+if ((Get-FileHash -LiteralPath $guard -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'cd0d2ff8496186146f605d1c07f24ba7a87a6d92343bc23b4c9b4ba10564ec09') {throw 'HOLD_RELEASE_GUARD_SHA'}
 if (Test-Path -LiteralPath $OutputDir) {throw 'HOLD_OUTPUT_NOT_FRESH'}
 & $Python -c 'import sys; assert sys.version_info[:2]==(3,12)'
 if ($LASTEXITCODE -ne 0) {throw 'HOLD_PYTHON_VERSION'}
@@ -49,7 +61,10 @@ if ((Test-Path -LiteralPath $logOut) -or (Test-Path -LiteralPath $logErr)) {thro
 $argv=@($RunnerPath,'run','--root',$ProjectRoot,'--permit',$PermitPath,'--checkpoint',$CheckpointPath,
         '--token-inventory',$TokenInventoryPath,'--tokenizer-source',$TokenizerSourcePath,
         '--fixture-dir',$FixtureDir,'--out',$OutputDir)
-$proc=Start-Process -FilePath $Python -ArgumentList $argv -WorkingDirectory $ProjectRoot -PassThru -RedirectStandardOutput $logOut -RedirectStandardError $logErr
+# Start-Process joins ArgumentList. Quote each argument and normalize paths
+# beforehand so a leading/nonterminal space stays part of its argument.
+$quotedArgs=@($argv | ForEach-Object {'"' + $_.TrimEnd('\') + '"'})
+$proc=Start-Process -FilePath $Python -ArgumentList $quotedArgs -WorkingDirectory $ProjectRoot -PassThru -RedirectStandardOutput $logOut -RedirectStandardError $logErr
 # Independent resource enforcement module: samples parent+descendant RSS,
 # total stdout+stderr+recursively saved output, including after normal exit.
 # If a child remains after parent exit the complete run is HOLD and killed.

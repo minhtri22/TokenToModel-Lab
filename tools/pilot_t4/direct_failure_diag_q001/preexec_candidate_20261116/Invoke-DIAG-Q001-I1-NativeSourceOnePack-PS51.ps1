@@ -1,4 +1,4 @@
-# TTM-SM4M-DIAG-Q001: native SOURCE-ONLY QA on managed Windows task.
+# TTM-SM4M-DIAG-Q001: native Windows SOURCE-ONLY QA.
 # Absolutely no checkpoint, private token inventory, real fixture or model run.
 # Must be run from exact candidate checkout and commit SHA readback on GitHub.
 param(
@@ -40,7 +40,7 @@ $receipt=[ordered]@{
   error=$null
 }
 $project=[IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\')+'\'
-$qaDir=Join-Path $project ('_tmp\ttm_sm4m_diag_q001_managed_native_qa_'+$PID)
+$qaDir=Join-Path $project ('_tmp\ttm_sm4m_diag_q001_native_source_qa_'+$PID)
 New-Item -ItemType Directory -Path $qaDir -ErrorAction Stop | Out-Null
 $receiptPath=Join-Path $qaDir 'I1_NATIVE_SOURCE_QA_RECEIPT.json'
 try {
@@ -89,9 +89,9 @@ try {
   $needles=@(
     'if ($ExpectedRunnerSHA256 -cnotmatch ''^[0-9a-f]{64}$'')',
     'if ($ExpectedWatchdogSHA256 -cnotmatch ''^[0-9a-f]{64}$'')',
-    'Get-FileHash -LiteralPath $WatchdogModule -Algorithm SHA256',
+    '$WatchdogBytes=[IO.File]::ReadAllBytes($WatchdogModule)',
     'if ($ActualWatchdogSHA256 -cne $ExpectedWatchdogSHA256)',
-    '. $WatchdogModule',
+    '. ([scriptblock]::Create(
     'Get-Command Invoke-TTMDiagProcessWatch',
     '$proc=Start-Process'
   )
@@ -120,9 +120,11 @@ try {
   $receipt.tests.PY_V3_MOCK_NEGATIVE=$true
   $receipt.v3_negative_count=($negative.passed.ToString()+'/'+$negative.total.ToString())
 
-  $watchOut=(& powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass
-    -File $files.native_watch -ProjectRoot $ProjectRoot
-    -ExpectedWatchdogSHA256 $ExpectedWatchdogSHA256 | Out-String)
+  $powerShell=Join-Path $PSHOME 'powershell.exe'
+  $watchArgs=@('-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass',
+      '-File',$files.native_watch,'-ProjectRoot',$ProjectRoot,
+      '-ExpectedWatchdogSHA256',$ExpectedWatchdogSHA256)
+  $watchOut=(& $powerShell @watchArgs | Out-String)
   if ($LASTEXITCODE -ne 0 -or $watchOut -notmatch 'NATIVE_WATCHDOG_NEGATIVE_QA=5/5') {
     throw ('HOLD_NATIVE_ADVERSARIAL_WATCHDOG:'+($watchOut.Trim()))
   }

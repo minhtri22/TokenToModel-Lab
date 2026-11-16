@@ -1,7 +1,6 @@
 # Windows PowerShell 5.1 - independently testable no-model watchdog.
-# All limits are hard ceilings; checks run DURING polling AND AFTER normal exit.
-# Monitoring samples parent + descendants; a Windows Job Object with OS hard
-# memory cap remains stronger and requires independent native review.
+# This watchdog samples limits during execution and checks again at exit.
+# A hard memory ceiling requires separate OS enforcement.
 function Invoke-TTMDiagProcessWatch {
     [CmdletBinding()]
     param(
@@ -26,6 +25,8 @@ function Invoke-TTMDiagProcessWatch {
     $passed=$false
     $stopCode=$null
     try {
+        # Keep Start-Process -PassThru's process handle for exit status.
+        $null=$Process.Handle
         while ($true) {
             # Build a transitive descendant closure from the original parent and
             # every child previously observed (including an already-exited parent).
@@ -82,6 +83,7 @@ function Invoke-TTMDiagProcessWatch {
                     $stopCode='HOLD_WATCHDOG_ORPHAN_DESCENDANT_AFTER_PARENT_EXIT'
                     throw $stopCode
                 }
+                if ($null -eq $Process.ExitCode) {throw 'HOLD_WATCHDOG_EXIT_CODE_UNAVAILABLE'}
                 if ($Process.ExitCode -ne 0) {
                     $stopCode='HOLD_RUN_EXIT_'+$Process.ExitCode
                     throw $stopCode
@@ -98,6 +100,12 @@ function Invoke-TTMDiagProcessWatch {
             }
             Start-Sleep -Milliseconds $PollMilliseconds
         }
+    } catch {
+        $_.Exception.Data['PeakTreeRssBytesSampled']=$peak
+        $_.Exception.Data['LastTotalOutputBytes']=$lastBytes
+        $_.Exception.Data['TrackedPids']=@($known | Sort-Object)
+        $_.Exception.Data['ElapsedSeconds']=$clock.Elapsed.TotalSeconds
+        throw
     } finally {
         if (-not $passed) {
             # Fail closed and attempt to stop the full tree. taskkill /T first;
@@ -109,7 +117,7 @@ function Invoke-TTMDiagProcessWatch {
                 if ($id -eq $PID) {continue}
                 $alive=Get-Process -Id $id -ErrorAction SilentlyContinue
                 if ($alive) {
-                    try {$alive.Kill()} catch {}
+                    try {$alive.Kill(); $null=$alive.WaitForExit(2000)} catch {}
                 }
             }
         }

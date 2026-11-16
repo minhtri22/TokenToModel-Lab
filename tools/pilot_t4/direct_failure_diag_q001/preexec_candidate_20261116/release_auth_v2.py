@@ -7,6 +7,7 @@ The API has no ``mock`` bypass in a production call.
 """
 from __future__ import annotations
 import base64
+from datetime import datetime, timezone
 import hashlib
 import json
 import ntpath
@@ -42,6 +43,21 @@ def _hold(message: str):
 
 def _hex(value, length=64):
     return isinstance(value, str) and len(value) == length and all(c in '0123456789abcdef' for c in value)
+
+
+def require_unexpired(payload: dict) -> None:
+    # The UTC expiration is part of the signed payload for both phases.
+    value = payload.get('expires_utc')
+    if not isinstance(value, str):
+        _hold('SIGNED_PERMIT_EXPIRY_REQUIRED')
+    try:
+        expires = datetime.strptime(value, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
+    except ValueError:
+        _hold('SIGNED_PERMIT_EXPIRY_INVALID')
+    if expires.strftime('%Y-%m-%dT%H:%M:%SZ') != value:
+        _hold('SIGNED_PERMIT_EXPIRY_INVALID')
+    if datetime.now(timezone.utc) >= expires:
+        _hold('SIGNED_PERMIT_EXPIRED')
 
 
 def trusted_execution_root(root: Path) -> Path:
@@ -135,4 +151,5 @@ def authenticate_release(permit_path: Path, *, phase: str, runner_sha256: str,
             Ed25519PublicKey.from_public_bytes(pub).verify(signed, encoded)
         except (ValueError, InvalidSignature, UnicodeEncodeError):
             _hold('SIGNATURE_INVALID_' + role)
+    require_unexpired(payload)
     return payload

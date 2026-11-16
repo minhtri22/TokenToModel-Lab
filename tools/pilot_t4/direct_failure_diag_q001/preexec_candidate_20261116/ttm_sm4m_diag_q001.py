@@ -23,7 +23,7 @@ import time
 QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
-RELEASE_GUARD_GIT_BLOB = '66461481f05c19b89f7ae928719dd78b7db2768c'
+RELEASE_GUARD_GIT_BLOB = '273cc989d5e94ae7a8e58c08a709cf7dd8229ab2'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -512,9 +512,9 @@ def claim_one_shot(root: Path, nonce: str) -> Path:
     legacy=root/'_tmp'/'ttm_sm4m_diag_q001_onetime_claim'/('RUN_'+nonce+'.json')
     if legacy.exists():
         stop('ONESHOT_NONCE_ALREADY_CONSUMED_LEGACY')
-    directory.mkdir(parents=True,exist_ok=True)
     if directory.resolve(strict=False) != directory:
         stop('ONESHOT_LEDGER_REPARSE_OR_SYMLINK')
+    directory.mkdir(parents=True,exist_ok=True)
     target=directory/('RUN_'+nonce+'.json')
     try:
         fd=os.open(str(target),os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
@@ -549,7 +549,7 @@ def run(args):
     if not isinstance(payload,dict):
         stop('SIGNED_RUN_PAYLOAD_MISSING')
     fixture_digest=payload.get('frozen_fixture_sha256')
-    signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest,root=root)
+    admission=signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest,root=root)
     if not checkpoint.is_file() or checkpoint.stat().st_size!=MODEL_SIZE or sha256_file(checkpoint)!=MODEL_SHA:
         stop('CHECKPOINT_PRIVATE_BYTES_MISMATCH')
     import psutil
@@ -565,7 +565,7 @@ def run(args):
             stop('RESOURCE_RSS_12GIB')
     meta=json_read(inventory)
     rows=read_frozen_fixture(fixture_dir,fixture_digest,meta,underlying.read_bytes())
-    claim_file=claim_one_shot(root,payload.get('one_shot_nonce'))
+    claim_file=claim_one_shot(root,admission['one_shot_nonce'])
     model,torch=load_model(checkpoint,root)
     torch.set_num_threads(min(8,max(1,os.cpu_count() or 1)))
     torch.manual_seed(SEED)
