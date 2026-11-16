@@ -254,6 +254,25 @@ def run_job_guarded(
         remaining = {
             int(pid_list.ProcessIdList[i]) for i in range(listed)
         } - {int(pi.dwProcessId)}
+        # Windows can retain a just-exiting console helper for a few scheduler
+        # ticks. Bounded 500ms drain applies after the parent has already
+        # exited; it is not a waiver for an active descendant. The 5-second
+        # intentional orphan fixture MUST continue returning HOLD.
+        if remaining:
+            import time
+            deadline = time.monotonic() + 0.5
+            while remaining and time.monotonic() < deadline:
+                time.sleep(0.05)
+                pid_list = JOBOBJECT_BASIC_PROCESS_ID_LIST()
+                require(k32.QueryInformationJobObject(
+                    job, JobObjectBasicProcessIdList, ctypes.byref(pid_list),
+                    ctypes.sizeof(pid_list), None), "QUERY_DRAIN_PID_LIST")
+                listed = int(pid_list.NumberOfProcessIdsInList)
+                if listed > MAX_JOB_PIDS_FOR_QA or listed < 0:
+                    raise RuntimeError("HOLD_WINJOB_PID_LIST_OVERFLOW")
+                remaining = {
+                    int(pid_list.ProcessIdList[i]) for i in range(listed)
+                } - {int(pi.dwProcessId)}
         if remaining:
             # Preserve native evidence about an unexpected resident child.
             # QueryFullProcessImageNameW is diagnostic ONLY; no exemption for
