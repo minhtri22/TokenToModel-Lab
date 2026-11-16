@@ -1,0 +1,154 @@
+{
+  "schema": "ttm.bc.f05_f06.manifest_fail_closed.author_exact_head_receipt.v1",
+  "operation": "TTM_PM_BC_V2_MANIFEST_FAIL_CLOSED_F05_F06_EXACT_HEAD_AMENDMENT_AND_DISTINCT_RERUN_SINGLE_GATE",
+  "date": "2026-11-17",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "integration/ttm-bc-synthetic-sft-interface-20261116",
+  "draft_pr": 36,
+  "prior_pr_head": "dc151252070e0b118d14f3459823f8e89c6b6723",
+  "corrected_source_and_test_ci_head": "a83e1526bce842761f3051dad28b90a55395a6aa",
+  "corrected_docs_commit": "6f5b83eebdb64c47710fe0804fd069f9afb9fecc",
+  "previous_pass_source_sha": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+  "baseline_b": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+  "frozen_c_source": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+  "changed_files": {
+    "src/ttm_track_b/bc_sft_bridge_v2.py": {
+      "old_blob_sha1": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+      "new_blob_sha1": "c56d98b520fef387fab43bac87b7a9247287b17c",
+      "new_sha256": "4fcbcf45d90c1ca577d3762ac4c26369d0c51e88cbe1f9bd8e172c8847c6157e",
+      "change": "F05 exact bridge schema; F06 manifest symlink/non-file pre-read guard",
+      "diff_add": 8,
+      "diff_delete": 1
+    },
+    "tests/test_bc_sft_bridge_v2.py": {
+      "old_blob_sha1": "cb08038adcceb4848790694b62c97f648d0b1b62",
+      "new_blob_sha1": "a27395e4b3167534b87363e4d79d5880b73670d0",
+      "new_sha256": "59ddacce72c184ec8ea4d530e5f7683e9420befb567f111d0ea739f1219dfa70",
+      "new_test_cases": 2,
+      "numbered_tests_total": 26
+    },
+    "tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py": {
+      "immutable_pm_source_commit": "e26a754c0bb6c3ca435e175e03a9fd7c62a8967b",
+      "immutable_pm_source_blob_sha1": "3003566952116f3bc0e4ba21c7306fda460a3017",
+      "new_copied_blob_sha1": "3003566952116f3bc0e4ba21c7306fda460a3017",
+      "new_sha256": "dcf76526cad5eb5d4491fafe8edf89408ec1d711c8bbabc93984d3935faac644",
+      "byte_identical_to_pm_source": true,
+      "author_edited_pm_test": false
+    },
+    ".github/workflows/track-bc-sft-interface-py312.yml": {
+      "old_blob_sha1": "a0379fbe9e942bccc2a7db387b6534bdb1cf7d6e",
+      "new_blob_sha1": "be250d278fddb95c364e0ccdd57f87d56d123e0a",
+      "new_sha256": "707778cee61175d421aaa382cbb9c39faac83d6ea31bb77403534edf6a5fa7f9",
+      "change": "invoke immutable original PM three-case suite in Windows/Linux CI"
+    }
+  },
+  "source_diff": "https://github.com/minhtri22/TokenToModel-Lab/compare/dc151252070e0b118d14f3459823f8e89c6b6723...a83e1526bce842761f3051dad28b90a55395a6aa",
+  "old_independent_reviewer_execution": {
+    "source_commit": "e26a754c0bb6c3ca435e175e03a9fd7c62a8967b",
+    "run_id": 43923286066,
+    "job_id": 133495938264,
+    "python": "3.12 Linux",
+    "verdict": "FAIL",
+    "valid_fixture": "PASS",
+    "forged_bridge_schema": "FAIL_EXPECTED_REJECTION_NOT_RAISED",
+    "manifest_external_symlink": "FAIL_EXPECTED_REJECTION_NOT_RAISED",
+    "test_report": "https://github.com/minhtri22/TokenToModel-Lab/blob/e26a754c0bb6c3ca435e175e03a9fd7c62a8967b/docs/research/ttm-abc/bc-sft/independent_review/TTM_PM_A_I1_AND_BC_V2_DISTINCT_QA_ADJUDICATION_20261117.md",
+    "immutable_fail_preserved": true
+  },
+  "new_ci_reexecution": {
+    "run_id": 43928511412,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43928511412",
+    "head_sha": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "status": "completed",
+    "conclusion": "success",
+    "windows": {
+      "job_id": 133514324483,
+      "python": "3.12.10",
+      "torch": "2.10.0+cpu",
+      "pm_original_three": "3/3 PASS",
+      "pm_original_skip_count": 0,
+      "b_v1": "29/29 PASS",
+      "b_v2_including_new_two": "26/26 PASS",
+      "C_pinned_original": "18/18 PASS",
+      "synthetic_cpu_p02": "PASS",
+      "seven_sha_readback": "PASS"
+    },
+    "linux": {
+      "job_id": 133514325422,
+      "python": "3.12.16",
+      "torch": "2.10.0+cpu",
+      "pm_original_three": "3/3 PASS",
+      "pm_original_skip_count": 0,
+      "b_v1": "29/29 PASS",
+      "b_v2_including_new_two": "26/26 PASS",
+      "C_pinned_original": "18/18 PASS",
+      "synthetic_cpu_p02": "PASS",
+      "seven_sha_readback": "PASS"
+    },
+    "test_cases_authored_by": "distinct PM reviewer; unmodified",
+    "tests_executed_by": "Agent B branch GitHub Actions; distinct reviewer independent amended-HEAD adjudication NOT EXECUTED"
+  },
+  "b_core_regression_ci": {
+    "run_id": 43928511207,
+    "head_sha": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "conclusion": "success",
+    "windows_job": 133514322980,
+    "linux_job": 133514323517,
+    "windows_ps51": "PASS"
+  },
+  "artifact_integrity": {
+    "blob_check_before_and_after": "8/8 EXACT GIT BLOB SHA1 MATCH",
+    "old_bundle_data_not_replaced": true,
+    "data_folder": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/",
+    "manifest_path": "artifacts/ttm-abc/bc-sft/v2/MANIFEST_CANONICAL_LF.json",
+    "saved_file_sha256": {
+      "tokenizer_sha256": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template_sha256": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs_sha256": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks_sha256": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels_sha256": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config_sha256": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema_sha256": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    },
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "new_ci_windows_artifact": {
+      "id": 14256344475,
+      "zip_sha256": "586228436aa6d17bb478516f162603f0ef11ab98f4cc03b149c76504737f6ed3"
+    },
+    "new_ci_linux_artifact": {
+      "id": 14256313563,
+      "zip_sha256": "d38f7e514c55c0387826ff1a5e83e678291fe2a900d649ecdf1fdcda5767ae78"
+    }
+  },
+  "security_scope": {
+    "file_path_level_symlink_check": true,
+    "hostile_reparse_point_hardening": false,
+    "windows_junctions_fully_covered": false,
+    "TOCTOU_safe_handle_open": false,
+    "atomic_open_no_follow": false,
+    "trusted_bundle_root_assumption": true,
+    "warning": "Path.is_symlink/is_file checks are not atomic with read_bytes; Win32 junction/reparse and parent substitution need separate HANDLE verification; no absolute filesystem guarantee."
+  },
+  "gate_decisions": {
+    "BC-QA-F05": "PASS_AUTHOR_REMEDIATED_FROZEN_PM_ORACLE_REEXECUTED",
+    "BC-QA-F06": "PASS_AUTHOR_REMEDIATED_FROZEN_PM_ORACLE_REEXECUTED",
+    "BC-0": "PASS_SOURCE_READBACK_SCOPED",
+    "BC-1": "PASS_TYPED_CODEC_SCOPED",
+    "BC-2": "PASS_ROLE_SHIFT_MASK_SCOPED",
+    "BC-3": "PASS_CPU_SYNTHETIC_SCOPED",
+    "BC-4": "PASS_AUTHOR_CI_FAIL_CLOSED_SCOPED_PENDING_DISTINCT_ADJUDICATION",
+    "BC-5": "HOLD_DISTINCT_NEW_INTEGRATION",
+    "C_PART_B_NEW_EXACT_HEAD": "PENDING_AGENT_C",
+    "PM_DISTINCT_NEW_EXACT_HEAD": "PENDING_DISTINCT_REVIEW",
+    "B_M3_PRIOR_PM": "PASS_ENGINEERING_BASELINE_SCOPED_WITH_V3_PEAK_ACCOUNTING_DISSENT",
+    "SFT_SCIENCE": "NOT_EXECUTED",
+    "GPU_TEST_MERGE": "NOT_AUTHORIZED"
+  },
+  "historical_b_g5_v3_immutable_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "author_verdict": "B_V2_F05_F06_IMPLEMENTED_AUTHOR_QA_PASS_SCOPED",
+  "program_verdict": "HOLD_BC_5_PENDING_C_DISTINCT_PM",
+  "no_science": true,
+  "no_merge": true,
+  "no_v3_rerun": true,
+  "next_operation": "TTM_BC_V2_F05_F06_AGENT_C_EXACT_CANDIDATE_CONTRACT_REVIEW_HANDOFF"
+}
