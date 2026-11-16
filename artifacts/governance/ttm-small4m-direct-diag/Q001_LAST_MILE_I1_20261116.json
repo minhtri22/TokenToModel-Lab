@@ -1,0 +1,109 @@
+{
+  "schema": "ttm.sm4m.diag.q001.i1_adjudication.v1",
+  "date": "2026-11-16",
+  "I1": "HOLD_I1",
+  "I2": "NOT_EXECUTED",
+  "blocker": "HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE",
+  "scope": {
+    "question_id": "TTM-SM4M-DIAG-Q001",
+    "question_gate_main_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "project_root": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "hostname": "DESKTOP-4PSD0G2",
+    "owner_decision": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+    "owner_scope_record": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6916584568",
+    "owner_scope_document_git_blob": "aaf01f2cf0925f588ba38c0d4cd04e7c6578372b",
+    "owner_declaration_status": "OWNER_DECLARED_INTERNAL_SCOPE",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_bytes": 45074891,
+    "tokenizer_source_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "seed": 20261116,
+    "steps": 256,
+    "train_count": 24,
+    "nontrain_count": 56
+  },
+  "runtime_sha256": {
+    "ttm_sm4m_diag_q001.py": "1a42cebd00b79031655316d23f1992f1669227d8becdf784936a5a3cc7405916",
+    "owner_internal_admission.py": "cdecdf2eb34392ccaf6940f10c47a379a625be6b8e90f80cfc5292292845d18e",
+    "release_auth_v2.py": "cd0d2ff8496186146f605d1c07f24ba7a87a6d92343bc23b4c9b4ba10564ec09",
+    "windows_rss_native.py": "3eef12b49b05b14fe608ae4f555d9a6e4bbfbd7dc8ad1582e7eaa3c3938948b9",
+    "windows_job_memory_limit.py": "e2d3c936bdf8b2b70ce91c348f8f2a6236127bcbc170182414879a5ab8177f57",
+    "Run-Approved-OneShot-PS51.ps1": "78ab67a2d491a6d395984fd5a7198470af2c3161f27161836870bbc13ebd317e",
+    "Watch-TTM-SM4M-ProcessTree-PS51.ps1": "d80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c"
+  },
+  "exact_reviewed_source": "6dc04c0545b28d4a0cad21ad8be8b70461c57790",
+  "fixture_sha256": "5f1234f583ccf719ca9f0e68de4f47d8b653af777271b8115c5f02307f764e5a",
+  "independent_review": {
+    "role": "Distinct Codex technical reviewer",
+    "independent_of_implementation": true,
+    "verdict": "HOLD_I1",
+    "read_scope": [
+      "Exact candidate source",
+      "Native author receipts",
+      "Aggregate controls on frozen synthetic fixture"
+    ],
+    "report": "artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_NATIVE_20261116/distinct-technical-review.md"
+  },
+  "restricted_scorer_negative_control": {
+    "rules": "For equal logits, restricted argmax takes the first choice. The blind full-vocabulary logit order places NO_ANSWER last and otherwise orders by integer token ID. Restrict the same logits to each frozen candidate set.",
+    "context_read_by_scoring_rule": false,
+    "result": {
+      "HELDOUT_ABSENT": {
+        "blind_full_vocab": 0,
+        "blind_restricted": 0,
+        "equal_logits_restricted": 8,
+        "n": 8
+      },
+      "HELDOUT_NOVEL_IDS": {
+        "blind_full_vocab": 0,
+        "blind_restricted": 16,
+        "equal_logits_restricted": 16,
+        "n": 16
+      },
+      "HELDOUT_RECOMBINED": {
+        "blind_full_vocab": 0,
+        "blind_restricted": 15,
+        "equal_logits_restricted": 16,
+        "n": 16
+      },
+      "PAIRED_COUNTERFACTUAL": {
+        "blind_full_vocab": 0,
+        "blind_restricted": 16,
+        "equal_logits_restricted": 16,
+        "n": 16
+      },
+      "TRAIN": {
+        "blind_full_vocab": 0,
+        "blind_restricted": 14,
+        "equal_logits_restricted": 24,
+        "n": 24
+      }
+    },
+    "q1_competition_threshold": {
+      "restricted_min_16": 12,
+      "full_vocab_max_16": 8
+    },
+    "falsified_groups": [
+      "HELDOUT_RECOMBINED",
+      "PAIRED_COUNTERFACTUAL",
+      "HELDOUT_NOVEL_IDS"
+    ]
+  },
+  "additional_split_finding": {
+    "recombined_cases": 16,
+    "repeat_any_train_binding": 6,
+    "repeat_queried_train_binding": 1,
+    "repeat_unordered_train_two_binding_set": 0
+  },
+  "case_native_evidence": "artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_NATIVE_20261116/native-receipt.json",
+  "owner_go": "EXISTING_CONDITIONAL_GO",
+  "one_shot_nonce_claimed": false,
+  "model_forward": false,
+  "optimizer_steps": 0,
+  "publication": {
+    "pr": 28,
+    "draft": true,
+    "merge": false,
+    "review_issue": 29,
+    "checkpoint_and_tokenizer_bytes_in_public_evidence": false
+  }
+}
