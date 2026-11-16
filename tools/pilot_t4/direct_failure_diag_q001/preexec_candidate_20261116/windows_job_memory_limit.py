@@ -255,7 +255,7 @@ def run_job_guarded(
             int(pid_list.ProcessIdList[i]) for i in range(listed)
         } - {int(pi.dwProcessId)}
         if remaining:
-            raise RuntimeError("HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT")
+            raise RuntimeError(f"HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT parent={int(pi.dwProcessId)} live={sorted(remaining)} accounting_active={int(accounting.ActiveProcesses)}")
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
         # KILL_ON_JOB_CLOSE guarantees fail-closed descendant cleanup.
