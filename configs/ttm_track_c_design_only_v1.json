@@ -45,7 +45,12 @@
     "target_shift": 1,
     "packing": "ONE_CONVERSATION_PER_ROW",
     "truncation": "REJECT",
-    "native_b_compatibility": "NOT_VERIFIED"
+    "native_b_compatibility": "NOT_VERIFIED",
+    "mask_validation": "RECONSTRUCT_ROLE_BOUND_MASK_AND_COMPARE_ALL_FLAGS",
+    "b_facing_boundary": "build_sft_targets(messages,max_len)_TOY_ONLY",
+    "prompt_direct_ce_weight": 0,
+    "prompt_context_gradient": "ALLOWED_NONZERO_NOT_AN_ACCEPTANCE_FAILURE",
+    "actual_B_integration": "NOT_EXECUTED"
   },
   "data_arms": [
     {
@@ -68,6 +73,12 @@
   "actual_resource_flops": null,
   "actual_peak_vram": null,
   "owner_science_go": false,
-  "independent_review": "PENDING",
+  "independent_review": {
+    "previous_head": "8e0a1880e564e92d017847e9f18e53e42b7353c8",
+    "receipt_commit": "98af7af0632ba38f1b9747cd784964257e39cf16",
+    "verdict": "HOLD_DESIGN",
+    "amendment_author_qa": "PASS_24_PLUS_REVIEWER_RED_2",
+    "amendment_independent_review": "PENDING"
+  },
   "science_admission": "HOLD"
 }

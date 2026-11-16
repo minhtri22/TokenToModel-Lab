@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from hashlib import sha256
 import json
 import re
+import unicodedata
 
 PAD, BOS, SYS, USER, ASSIST, EOT, EOS = range(7)
 IGNORE = -100
@@ -46,14 +47,67 @@ def serialize(messages: list[dict], max_len: int) -> tuple[list[int], list[int]]
         raise ValueError("no silent truncation allowed")
     return ids, flags
 
+def _derive_assistant_mask(ids: list[int]) -> list[int]:
+    """Reparse a complete toy dialogue; caller flags cannot declare a new target.
+
+    This establishes structural role provenance for reserved toy token IDs, NOT
+    cryptographic authenticity or trust in the originating training corpus.
+    """
+    if not isinstance(ids, list) or len(ids) < 8 or ids[0] != BOS or ids[-1] != EOS:
+        raise ValueError("invalid SFT dialogue boundary")
+    if any(type(t) is not int or t < 0 for t in ids):
+        raise ValueError("invalid token IDs")
+    mask = [0] * len(ids)
+    i, limit = 1, len(ids) - 1
+    if i < limit and ids[i] == SYS:
+        i += 1
+        start = i
+        while i < limit and ids[i] >= 7:
+            i += 1
+        if i == start or i >= limit or ids[i] != EOT:
+            raise ValueError("invalid system span")
+        i += 1
+    expect, num_turns = USER, 0
+    while i < limit:
+        if ids[i] != expect:
+            raise ValueError("invalid role alternation or reserved ID")
+        role = expect
+        i += 1
+        start = i
+        while i < limit and ids[i] >= 7:
+            if role == ASSIST:
+                mask[i] = 1
+            i += 1
+        if i == start or i >= limit or ids[i] != EOT:
+            raise ValueError("invalid content/EOT boundary")
+        if role == ASSIST:
+            mask[i] = 1
+        i += 1
+        num_turns += 1
+        expect = ASSIST if expect == USER else USER
+    if num_turns < 2 or expect != USER:
+        raise ValueError("SFT dialogue must end after assistant")
+    mask[-1] = 1
+    return mask
+
+def build_sft_targets(messages: list[dict], max_len: int):
+    """B-facing toy boundary: derive labels internally from role-checked messages.
+
+    Never accept free-standing (ids, flags) as proof of source authenticity.
+    """
+    ids, flags = serialize(messages, max_len)
+    return shifted_padded_targets(ids, flags, max_len)
+
 def shifted_padded_targets(ids: list[int], flags: list[int], max_len: int):
-    """One-step target shift; pad all unused labels to IGNORE=-100."""
-    if len(ids) != len(flags) or not ids or ids[0] != BOS:
+    """Role-validate caller flags then shift; pad to IGNORE=-100 (not model auth)."""
+    if not isinstance(max_len, int) or isinstance(max_len, bool) or max_len < 8:
+        raise ValueError("invalid max_len")
+    if not isinstance(ids, list) or not isinstance(flags, list) or len(ids) != len(flags):
         raise ValueError("invalid ids/mask")
-    if len(ids) > max_len or max_len < 2 or flags[0] != 0:
-        raise ValueError("invalid length")
-    if any(t < 0 for t in ids) or any(f not in (0, 1) for f in flags):
-        raise ValueError("invalid token or mask")
+    if len(ids) > max_len or any(type(f) is not int or f not in (0, 1) for f in flags):
+        raise ValueError("invalid length or flags")
+    if flags != _derive_assistant_mask(ids):
+        raise ValueError("mask provenance/role mismatch")
     padded = ids + [PAD] * (max_len - len(ids))
     mask = flags + [0] * (max_len - len(ids))
     x = padded[:-1]
@@ -101,7 +155,7 @@ def audit_toy_records(records: list[dict]) -> dict:
         ids.add(item_id)
         raw = value.encode("utf-8")
         h = sha256(raw).hexdigest()
-        hn = sha256(re.sub(r"\s+", " ", value.casefold()).strip().encode("utf-8")).hexdigest()
+        hn = sha256(unicodedata.normalize("NFC", re.sub(r"\s+", " ", unicodedata.normalize("NFC", value).casefold()).strip()).encode("utf-8")).hexdigest()
         split_counts[split] += 1
         length_bins["lt32" if len(raw) < 32 else "32to127" if len(raw) < 128 else "ge128"] += 1
         exact[h].add(split)

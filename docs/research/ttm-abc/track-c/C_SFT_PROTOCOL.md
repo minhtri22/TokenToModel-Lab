@@ -23,6 +23,18 @@ Given `ids[0:L]` and `mask[0:L]` with 1 marking assistant **target** positions, 
 
 **Packing:** v1 = no inter-conversation packing. Plain concatenation with BOS separators without block-diagonal attention risks cross-conversation leakage; don't enable nanochat-style packing until attention reset is validated (including at boundaries and after padding), and verify no target attends to another conversation's tokens. B must version positional IDs when extending. Synthetic QA in `tests/ttm_track_c/` uses **no model, weights, private tokenizer, GPU or data downloads**.
 
+### M4 Single Amendment — C-F01/C-F02: semantics và nguồn gốc mask
+
+**C-F01 (đã sửa ở mức giao thức):** Với \(L=-\log p_\theta(a\mid s,u)\), `target[j]=-100` cho mọi vị trí đích của system/user/header/pad. Vì vậy các vị trí đó có **trọng số cross-entropy trực tiếp bằng 0**, không có term loss dự đoán token prompt. Tuy nhiên gradient của **assistant loss** vẫn được phép, và thường cần, lan truyền qua embedding prompt/context và attention; \(\partial L/\partial e_{prompt}\) **không buộc bằng 0**. Không detach/stop-gradient toàn bộ prompt. Khi tích hợp Track B, kiểm tra `per_token_loss`/unreduced CE và số supervised labels sau shift, không dùng điều kiện zero gradient của prompt embedding. Bộ kiểm thử `test_cf01_zero_direct_prompt_ce_not_zero_context_gradient` dùng chứng minh chain-rule vô hướng tổng hợp, **không chạy mô hình thực**.
+
+**C-F02 (đã sửa ở mức hợp đồng toy):** `build_sft_targets(messages, max_len)` là entrypoint B-facing được đề xuất. Nó tự gọi `serialize` sau kiểm tra vai trò, sau đó gọi `shifted_padded_targets`. Hàm thấp hơn **tái dựng** mask hợp lệ từ chuỗi token có BOS, SYS tùy chọn, cặp USER/ASSIST xen kẽ, EOT và EOS; so khớp **toàn bộ** `flags` do caller cung cấp, từ chối bất cứ bit sai hay chuỗi đặc biệt sai. Phản chứng `flags[2]=1` ở token USER trả `ValueError("mask provenance/role mismatch")`. Bao gồm test giả cờ system/user EOT, tắt cờ assistant, chuỗi sai, bool flag và boundary; 1.000 hội thoại seeded xác minh nhánh đúng.
+
+**Ranh giới tin cậy:** Đây là xác minh **cấu trúc role/mask** của toy token ID, không phải mật mã chứng nhận nguồn dữ liệu. Một tuple `(ids,flags)` tự tạo *cùng nhất quán* không chứng minh nguồn văn bản, tính đúng vai trò do uploader khai báo, tokenizer thật hay quyền dữ liệu. Track B phải dùng dữ liệu có provenance, source/split hashes, role map và versioned chat template riêng; không đưa `flags` chưa kiểm vào cross-entropy; phải tích hợp và nhận QA độc lập trước khi nhận hợp đồng.
+
+**C-F03 (khuyến nghị):** Toy cross-split normalized duplicate hiện dùng `NFC + casefold + whitespace collapse + NFC`; byte-hash thô không đổi. Đây **không** thay thế kiểm toán near-duplicate/family/PII của corpus T4 thực.
+
+**Exact amendment source pins:** `tests/ttm_track_c/synthetic_contract.py` Git blob `83c6d5abe0948c24c9e49375ffc2a17e3143a793`, SHA-256 `522618430f32fd0cc74da945a7bf208aad3a146c1f113a320a13e9490f9e2b88`; `tests/ttm_track_c/test_amendment_negative.py` blob `30c3ddbdbcf907d5d16ca9247c1f683d26d26150`, SHA-256 `f89f86dffaf61e92eb016f1d8fcf5b4a2075c24e4ab7f53af24413f5b08e11d4`. Giữ nguyên 14 tests gốc blob `0681c0fd6550675baa011de78d2590fc27ba604f`.
+
 ## 3. Data & outcome contract
 
 SFT candidates: synthetic generated local instruction-answer pairs with known slot answers, formats, Vietnamese/English language tags, unknown/abstain, counterfactual attribute changes and malicious role delimiter examples. Any real training requires source rights, disjoint TRAIN/VAL/PROBE family hashing, exact tokenizer/weights baseline pin, oversampling disclosure and actual token counts. SFT must not consume historical TEST64, FRESH16 or FINAL24.
@@ -32,8 +44,8 @@ When science separately authorized: same B base checkpoint; SFT vs unchanged bas
 ## 4. B integration acceptance (not already achieved)
 
 1. B exposes tokenizer/chat-template version, `encode`, special token map and frozen schema; B trainer accepts masked targets `IGNORE=-100` and per-target reduction, with no unexpected EOS/PAD behavior.
-2. Paired SHA-256 of exact serialized inputs, shifted targets, target masks and training config; one-step synthetic CPU test and negative assertions on prompt-gradient contribution.
+2. Paired SHA-256 of exact serialized inputs, shifted targets, target masks and training config; one-step synthetic CPU test and negative QA asserting zero **direct per-position cross-entropy weight** for system/user/headers/padding under `ignore_index=-100` after `+1` target shift, while assistant answer/EOT/EOS targets remain supervised; do **NOT** assert zero prompt-embedding or context gradients.
 3. Native B train/val smoke permitted separately and independently checked (never replace historical T4 arithmetic silently).
 4. Versioned checkpoint schema and non-resumable incompatibility flag for changes to embedding/token IDs, positional encoding, activation, optimizer state.
 
-**Current handoff:** template + mask only; **B integration = NOT_EXECUTED**. M6 real SFT remains HOLD.
+**Current handoff:** candidate template + structurally validated toy mask only; amendment author QA passed, distinct re-review pending. **C-G5=HOLD_DESIGN_INTERFACE_PENDING_REREVIEW**; **B integration = NOT_EXECUTED**. M6 real SFT remains HOLD.
