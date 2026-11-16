@@ -1,0 +1,84 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_SOURCE_ANCHORED_CONTENT_REMEDIATION_AND_EXTERNAL_RATER_FULL_COVERAGE_ONEPACK",
+  "review_mode": "INDEPENDENT_STATIC_CODE_PATH_ONLY",
+  "total_pages": 495,
+  "tested_pages": 495,
+  "amended_pages": 13,
+  "source_anchor_rows": 495,
+  "font_control_fail_pages": [],
+  "target_content_mismatch_pages": [],
+  "errors": [],
+  "static_qa": "PASS",
+  "external_human_rater": "NOT_EXECUTED",
+  "external_rater_verified_pages": 0,
+  "full_literal_fidelity": "HOLD",
+  "science_executed": false,
+  "documents": [
+    {
+      "chapter": 1,
+      "pages": 77,
+      "pdf_sha256": "2ee6eec76250f7005f5d8720f55c425f7047460f4bfd4dafb6a83a55de6de313",
+      "notes_sha256": "93f0003913bb41ac74062202dd72cb083ad99f2a4d817c8a235150e6684fbd87"
+    },
+    {
+      "chapter": 2,
+      "pages": 76,
+      "pdf_sha256": "df74fcc9ba1cb984986868fc089a2381c19b9c16e230a110df9577c2fab330ea",
+      "notes_sha256": "c4daef2bacbf75df3657bfd478018fca7de330658eeaff1b53a13d29321ac605"
+    },
+    {
+      "chapter": 3,
+      "pages": 21,
+      "pdf_sha256": "3d2be1d9ca03a3a90a69f5382ef95dab9181a168bb3d1745061959d058031b4b",
+      "notes_sha256": "0ef0255bbfc5ec06c514c735f9a225072ec770b0483277659367249619e5018d"
+    },
+    {
+      "chapter": 4,
+      "pages": 17,
+      "pdf_sha256": "16acb7f75bca3842347608c5151aad2ba5c3d689c3617056dc2995417834902e",
+      "notes_sha256": "9cd2e970e6f7f23b30f1be9307db0662cbe764438f030520302e0b311df57ce4"
+    },
+    {
+      "chapter": 5,
+      "pages": 48,
+      "pdf_sha256": "0603ea12b8c8639b4f1dc99a1730ef916defa61773218f74c282fb4b5057eb91",
+      "notes_sha256": "4f8f87be2ca1ed694095e09c56162a0d509e5e985b18b1ad92321fff4a099b16"
+    },
+    {
+      "chapter": 6,
+      "pages": 44,
+      "pdf_sha256": "a47dc437f6e667d298de45e5e11260c9607411bd2cb465b3b39d45e522266d07",
+      "notes_sha256": "244323efccd3feea1330d52e05599de45839db11466cf24f868fe4a72cf151c8"
+    },
+    {
+      "chapter": 7,
+      "pages": 13,
+      "pdf_sha256": "66f75988d3a43192893c4fbf5fed5994a8068c0619458a3d86972ce0cfb4ce64",
+      "notes_sha256": "f7f1452570bb9b0a1f05e4a39b2f1947996ebce77f12ca95f115ab3c4a7bc3a9"
+    },
+    {
+      "chapter": 8,
+      "pages": 81,
+      "pdf_sha256": "eb92be3ab53d47ab7c4d2afeaadc5f33386caa9ff6980f8fbf8561650bbed328",
+      "notes_sha256": "66fec1f6331bbbfe0015555375a92418e152b79d45a8a2360dc88ab2c0f16ed9"
+    },
+    {
+      "chapter": 9,
+      "pages": 43,
+      "pdf_sha256": "9aa347f198a7552208b90586917a207b1184442512d26e2d74befdb48d0b44f7",
+      "notes_sha256": "a562ba6b42136cbc2f955eb2cea185e81fe13f14e643510a3bcbfa2aa81f626f"
+    },
+    {
+      "chapter": 10,
+      "pages": 51,
+      "pdf_sha256": "e04ad0a4e7db08890537606643e9fe8799be92aa90a29a10ec6afe9cdc673cdc",
+      "notes_sha256": "b284548933212228ea5e25ee6b1ae555afa3ac41737ffbd841fefcc82ee6de63"
+    },
+    {
+      "chapter": 11,
+      "pages": 24,
+      "pdf_sha256": "e754a82ac3ca44de5e25b26c2a26a199534bdea81b81a597d0965bbb74ef3dea",
+      "notes_sha256": "589c713899be7d13f337e7023980abd86bc3054e0318c1f4c60c9f3993160709"
+    }
+  ]
+}
