@@ -1,0 +1,143 @@
+{
+  "schema": "ttm.bc_v2.f05_f06.final_pm_distinct_qa_receipt.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_BC_V2_F05_F06_DISTINCT_FINAL_QA_AND_ENGINEERING_GATE_ADJUDICATION_SINGLE_GATE",
+  "original_B_PR36_head": "09de6a46574146d863f416e056fcf01091f3efb8",
+  "original_B_ci_code_sha": "a83e1526bce842761f3051dad28b90a55395a6aa",
+  "original_B_bridge_git_blob": "c56d98b520fef387fab43bac87b7a9247287b17c",
+  "original_B_bridge_sha256": "4fcbcf45d90c1ca577d3762ac4c26369d0c51e88cbe1f9bd8e172c8847c6157e",
+  "original_PM_frozen_test_git_blob": "3003566952116f3bc0e4ba21c7306fda460a3017",
+  "original_qa_failure": {
+    "run": 43923286066,
+    "source": "dc151252070e0b118d14f3459823f8e89c6b6723",
+    "positive": 1,
+    "negative_failed": 2,
+    "retained": true
+  },
+  "corrected_B_ci": {
+    "run": 43928511412,
+    "windows": {
+      "job": 133514324483,
+      "python": "3.12.10",
+      "v1": 29,
+      "v2": 26,
+      "original_pm": 3,
+      "c_oracle": 18,
+      "passed": true
+    },
+    "linux": {
+      "job": 133514325422,
+      "python": "3.12.16",
+      "v1": 29,
+      "v2": 26,
+      "original_pm": 3,
+      "c_oracle": 18,
+      "passed": true
+    },
+    "CPU_P02_forward_backward": true,
+    "optimizer_steps": 0,
+    "real_sft": false
+  },
+  "corrected_B_core_regression": {
+    "run": 43928511207,
+    "windows_job": 133514322980,
+    "linux_job": 133514323517,
+    "conclusion": "success"
+  },
+  "C_exact_review": {
+    "C_PR35_HEAD": "00afd25aa2234e30f7602592d49d5d9f2947965b",
+    "review_evidence_commit": "9578291ae7c64ac58960fca679356e956ad9d51b",
+    "run": 43932738585,
+    "windows": {
+      "job": 133529184970,
+      "new_tests": 15,
+      "regression": 19,
+      "skipped": 0,
+      "conclusion": "success"
+    },
+    "linux": {
+      "job": 133529185493,
+      "new_tests": 15,
+      "regression": 19,
+      "skipped": 0,
+      "conclusion": "success"
+    },
+    "C_contract_verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED_V2_F05_F06_CLOSED"
+  },
+  "PM_final_distinct": {
+    "review_branch": "review/ttm-pm-bc-v2-f05-f06-final-distinct-20261117",
+    "tested_source_branch_base": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "CI_tested_review_head": "ce047feeb511949319f2788758506bbdbc962807",
+    "run": 43937370201,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43937370201",
+    "tests": "original_unmodified_3_plus_new_PM_authored_9",
+    "new_test_path": "tests/ttm_track_bc/test_pm_final_distinct_v2_manifest_boundary_20261117.py",
+    "workflow_path": ".github/workflows/track-bc-pm-f05-f06-final-distinct-py312.yml",
+    "windows": {
+      "job": 133545394363,
+      "python": "3.12",
+      "frozen_original_pass": 3,
+      "new_pass": 9,
+      "failed": 0,
+      "skipped": 0,
+      "symlink_executed": true,
+      "conclusion": "success"
+    },
+    "linux": {
+      "job": 133545393767,
+      "python": "3.12",
+      "frozen_original_pass": 3,
+      "new_pass": 9,
+      "failed": 0,
+      "skipped": 0,
+      "symlink_executed": true,
+      "conclusion": "success"
+    },
+    "B_source_blob_exact_match": true,
+    "PM_original_test_blob_exact_match": true,
+    "no_torch_model_gpu_science": true
+  },
+  "artifact_custody": {
+    "eight_git_blob_unchanged_against_before_fix": 8,
+    "seven_sha256_independently_verified_in_prior_PM_review": 7,
+    "manifest_git_blob": "cba9f094d5d05787ffb50ffdef849049945bbfc8",
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "artifact_seven_sha256": {
+      "tokenizer.json": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template.json": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs.json": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks.json": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels.json": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config.json": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema.json": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    }
+  },
+  "gates": {
+    "BC-F01..F04": "PASS_ENGINEERING_SCOPED_CLOSED",
+    "BC-QA-F05": "PASS_DISTINCT_WINDOWS_LINUX_PY312",
+    "BC-QA-F06": "PASS_DISTINCT_WINDOWS_LINUX_PY312",
+    "BC-0": "PASS_SOURCE_CUSTODY_SCOPED",
+    "BC-1": "PASS_TYPED_CODEC_SCOPED",
+    "BC-2": "PASS_MASK_SHIFT_LOSS_SCOPED",
+    "BC-3": "PASS_CPU_FORWARD_BACKWARD_AUTHOR_AND_C_SCOPED",
+    "BC-4": "PASS_FAIL_CLOSED_TRUSTED_BUNDLE_SCOPED",
+    "BC-5": "PASS_DISTINCT_CI_ENGINEERING_SCOPED",
+    "BC_INTERFACE": "PASS_ENGINEERING_SCOPED",
+    "BC_OWNER_NATIVE_HARD_RESOURCE_ADMISSION": "HOLD_NOT_EXECUTED_FOR_NEW_SFT",
+    "BC_UNTRUSTED_FILESYSTEM_TOCTOU_JUNCTION": "NOT_VERIFIED",
+    "B_M3": "PRIOR_PM_SCOPED_PASS_WITH_V3_FAIL_AND_PEAK_DISSENT_PRESERVED",
+    "A_I1": "PRIOR_PM_PASS_SCOPED_MEASUREMENT",
+    "A_I2": "HOLD",
+    "REAL_SFT_TRAINING": "NOT_AUTHORIZED",
+    "GPU_TEST": "NOT_EXECUTED",
+    "MERGE": "NOT_AUTHORIZED"
+  },
+  "limitations": [
+    "Run on GitHub Windows/Linux workers, not owner's physical Windows machine.",
+    "Path.is_symlink() is not atomic/no-follow-open or Windows HANDLE/reparse-point guarantee; trust immutable bundle root.",
+    "Review authored by separate ChatGPT PM session via linked GitHub identity, not authenticated human auditor.",
+    "No SFT optimizer step/checkpoint weights/real data; not science admission.",
+    "Previous V3 native receipt still HOLD with peak-accounting dissent."
+  ],
+  "next_operation": "TTM_PM_ABC_SCOPED_ENGINEERING_CLOSURE_LINEAGE_INVENTORY_AND_PROSPECTIVE_RELEASE_BARRIER_DESIGN_SINGLE_GATE"
+}
