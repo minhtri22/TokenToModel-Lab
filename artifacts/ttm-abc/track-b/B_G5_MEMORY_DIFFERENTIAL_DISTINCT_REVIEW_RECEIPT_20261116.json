@@ -1,0 +1,82 @@
+{
+  "schema": "ttm.track_b.g5.memory_differential.distinct_review_receipt.v1",
+  "operation": "TTM_B_G5_MEMORY_NEGATIVE_DIFFERENTIAL_INDEPENDENT_ADJUDICATION_SOURCE_AND_RECEIPT_ONLY",
+  "review_date": "2026-11-16",
+  "source_branch": "research/ttm-track-b-gpt-core-20261116",
+  "source_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+  "owner_v3_script_sha256": "33093ba616f785981eb3854170f4a5e666a35f4e86b780684ae8e3cd7c19233e",
+  "owner_v3_receipt_sha256_reported_not_directly_read": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "independent_uploaded_bytes_checked": {
+    "B_G5_MEMORY_DIAG_RECEIPT.json": "2503cc19067b1861a8495aa7cbed59e17a4f5dcbddbe54224a7c1cb1ab6a62d2",
+    "over256_alloc400.stderr.log": "652f0a2538814147882e7efbe858709cebeca9b7c983294a6c873d4da8cde423",
+    "relaxed512_alloc400.stdout.log": "1a36d4c6a4914e505ef711a62acc9f57be30569426a4bf6b2d03b8437c367afb",
+    "under256_alloc64.stdout.log": "752764b909a6a2cfad60b5ee7c928f5447b61b11c3c862d20833aeb2ca138a21"
+  },
+  "manifest_crosscheck": "PASS_4_OF_4",
+  "script_sha256_crosscheck": "4c1c4e6d6c8f4c04266186deb5a22e784305e7edcc8f5f4faf542ab370622353",
+  "runtime_reported": {
+    "powershell": "5.1.26100.9818",
+    "python_major_minor_asserted": "3.12"
+  },
+  "independent_review": {
+    "source_inspected": true,
+    "windows_subprocess_executed_by_reviewer": false,
+    "real_model_executed": false,
+    "gpu_executed": false,
+    "science_executed": false
+  },
+  "probe_evidence": [
+    {
+      "name": "under256_alloc64",
+      "limit_bytes": 268435456,
+      "allocation_bytes": 67108864,
+      "exit_code": 0,
+      "expected_result": "SUCCESS",
+      "observed_result": "SUCCESS",
+      "peak_job_commit_bytes": 74297344,
+      "peak_working_set_bytes": 77332480,
+      "pass": true
+    },
+    {
+      "name": "over256_alloc400",
+      "limit_bytes": 268435456,
+      "allocation_bytes": 419430400,
+      "exit_code": 1,
+      "expected_result": "MemoryError",
+      "observed_result": "MemoryError",
+      "peak_job_commit_bytes": 427319296,
+      "peak_working_set_bytes": 10264576,
+      "peak_above_limit_bytes": 158883840,
+      "pass": true
+    },
+    {
+      "name": "relaxed512_alloc400",
+      "limit_bytes": 536870912,
+      "allocation_bytes": 419430400,
+      "exit_code": 0,
+      "expected_result": "SUCCESS",
+      "observed_result": "SUCCESS",
+      "peak_job_commit_bytes": 427249664,
+      "peak_working_set_bytes": 429608960,
+      "pass": true
+    }
+  ],
+  "gate_decision": {
+    "B_G5_DIFF_PROBES": "PASS_3_OF_3",
+    "B_G5_HARD_ALLOCATION_REJECTION": "PASS_SCOPED_BY_NATIVE_DIFFERENTIAL",
+    "B_G5_PEAK_COUNTER_INTERPRETATION": "HOLD_UNRESOLVED",
+    "B_G5_FORMAL": "HOLD_PENDING_INTEGRATED_RESOURCE_REVIEW",
+    "B_G6": "HOLD_DISTINCT_FULL_EXACT_HEAD_QA_NOT_ADJUDICATED",
+    "B_M3": "HOLD",
+    "BC_INTERFACE_WORK": "ALLOWED_SYNTHETIC_ENGINEERING",
+    "MERGE": "NOT_AUTHORIZED",
+    "SCIENCE": "NOT_EXECUTED"
+  },
+  "limitations": [
+    "V3 historical full native receipt not uploaded to this review",
+    "Only four of seven/eight log-related files uploaded; all four checked against provided SHA256SUMS",
+    "Microsoft official API documentation does not specify whether a rejected allocation contributes to PeakJobMemoryUsed",
+    "No prospective acceptance-rule amendment has been formally adopted"
+  ],
+  "next_operation": "TTM_B_G5_G6_V3_EXISTING_FULL_RECEIPT_AND_PROSPECTIVE_NEGATIVE_GATE_ADJUDICATION_SINGLE_GATE"
+}
