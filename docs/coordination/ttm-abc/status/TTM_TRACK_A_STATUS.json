@@ -14,14 +14,14 @@
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
   "executor": "Agent A / ChatGPT session",
-  "phase_status": "M0_V3_RUNNER_INTEGRATED_WINDOWS_MOCK_QA_PASS_REAL_FIXTURE_HOLD",
+  "phase_status": "M0_V3_F01_F02_AUTHOR_FIX_QA_PASS__I1_HOLD_REVIEW_PENDING",
   "gates": {
-    "A0": "PASS_SCOPED_BASE_SOURCE_PIN",
-    "A1": "HOLD_REAL_TOKENIZER_FIXTURE_AND_DISTINCT_ADJUDICATION",
-    "A2": "PASS_SCOPED_WINDOWS_PY312_PS51_SOURCE_NEGATIVES_27_27_45_45",
-    "A3": "DESIGN_ONLY",
+    "A0": "PASS_SCOPED_GITHUB_SOURCE_AND_PRIOR_REAL_FIXTURE_CUSTODY",
+    "A1": "HOLD_I1_PENDING_DISTINCT_REASSESSMENT_OF_F01_F02",
+    "A2": "PASS_SCOPED_WINDOWS_PY312_PS51_SOURCE_QA_31_31_48_48",
+    "A3": "MEASUREMENT_DESIGN_UNCHANGED",
     "A4": "NOT_EXECUTED",
-    "A5": "PENDING_DISTINCT_REVIEW_HOLD_I1"
+    "A5": "HOLD_I1_UNTIL_DISTINCT_EXACT_HEAD_VERDICT"
   },
   "preexisting_evidence": {
     "I1": "HOLD_I1_SCORER_LABEL_LEAKAGE",
@@ -32,8 +32,8 @@
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "DISTINCT_ADJUDICATOR_HANDOFF_COMMITTED__I1_HOLD",
-  "next_operation": "A_M0_V3_DISTINCT_REAL_BYTE_CUSTODY_AND_MEASUREMENT_I1_SINGLE_ADJUDICATION",
+  "review": "PRIOR_DISTINCT_HOLD_05041501_PRESERVED__F01_F02_AUTHOR_REMEDIATED__RE_REVIEW_PENDING",
+  "next_operation": "A_M0_V3_F01_F02_AND_ONEPACK_DISTINCT_EXACT_SOURCE_REVIEW_SINGLE_GATE",
   "m0": {
     "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
     "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
@@ -75,5 +75,33 @@
     "optimizer_steps": 0,
     "lineage_changed": false,
     "merge": false
+  },
+  "m0v3_post_hold_remediation": {
+    "operation": "A_M0_V3_I1_F01_F02_NUMERIC_BYTECODE_AND_PS51_REMEDIATION_SOURCE_ONLY",
+    "prior_distinct_review_commit": "05041501bfe84822feffd39290c6800b2152055a",
+    "original_distinct_verdict": "HOLD_I1",
+    "real_fixture_sha256": "823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d",
+    "real_manifest_sha256": "0b80368a6747994df5f5b8d0e7b35137266ac82f6c9b83d26af5b61f79b3cb04",
+    "frozen_fixture_modified": false,
+    "new_scorer_sha256_lf": "2d0b980768a0ac3079f361d94244cd694c97ed90e978fc83fb7991dc82b5c2ac",
+    "new_scorer_sha256_crlf": "d76936db04caec358ddfb6947656d60023dee7de5c3388f810c7ecbf08288b63",
+    "new_runner_sha256_lf": "20c147f9f2629c494c157da5bab3519e01d755096638adfd10e07bb5dda3c4b8",
+    "new_runner_sha256_crlf": "9a6a6bbcdd1ce80d40cc40b2b6dce1b46ca2932806fc0f77b036681a401eee0e",
+    "ci_source_commit": "8cc069095724e96fd051561a3037f579d01d9222",
+    "ci_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43903520071",
+    "author_unit_tests": "PASS_31_31",
+    "author_native_platform_negative_qa": "PASS_48_48",
+    "runner_source_qa": "PASS_18_18",
+    "ps51_onepack": "PASS_SOURCE_AST_ONLY_READBACK_NOT_EXECUTED",
+    "same_host_real_readback_after_fix": "NOT_EXECUTED",
+    "distinct_re_review": "NOT_EXECUTED",
+    "qa_receipt": "artifacts/ttm-abc/track-a/M0_V3_POST_HOLD_REMEDIATION_20261116/QA_RECEIPT.json",
+    "independent_handoff": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_M0V3_POST_HOLD_DISTINCT_REVIEW_HANDOFF_20261116.md",
+    "I1": "HOLD_I1",
+    "I2": "NOT_EXECUTED",
+    "model_forward": 0,
+    "optimizer_steps": 0,
+    "merged": false,
+    "lineage_modified": false
   }
 }
