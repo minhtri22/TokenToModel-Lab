@@ -91,7 +91,7 @@ try {
     'if ($ExpectedWatchdogSHA256 -cnotmatch ''^[0-9a-f]{64}$'')',
     '$WatchdogBytes=[IO.File]::ReadAllBytes($WatchdogModule)',
     'if ($ActualWatchdogSHA256 -cne $ExpectedWatchdogSHA256)',
-    '. ([scriptblock]::Create(
+    '. ([scriptblock]::Create(',
     'Get-Command Invoke-TTMDiagProcessWatch',
     '$proc=Start-Process'
   )
