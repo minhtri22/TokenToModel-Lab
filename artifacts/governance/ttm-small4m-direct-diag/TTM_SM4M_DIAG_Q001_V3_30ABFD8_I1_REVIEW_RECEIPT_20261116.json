@@ -1,0 +1,96 @@
+{
+  "schema": "ttm.sm4m.diag.q001.v3.i1.independent_exact_head_readback.v1",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewed_exact_head": "30abfd8efe18a2d116c2f1fd16ff67a6332ea49c",
+  "baseline_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "pr": 28,
+  "issue": 29,
+  "operation": "TTM_SM4M_DIAG_Q001_V3_EXACT_HEAD_NATIVE_NEGATIVE_QA_AND_RIGHTS_CUSTODY_SINGLE_I1_READBACK",
+  "source_manifest_blob_sha1": "ac1f44cd8a4d6eabee10b7f7eaf681c5be15ec69",
+  "hash_method": "independent_js_fips180_4_sha256_utf8_and_github_blob_sha1",
+  "sha256_selftest_abc": "PASS",
+  "file_counts": {
+    "entries": 13,
+    "sha256_pass": 13,
+    "blob_sha1_pass": 13,
+    "size_utf8_bytes_pass": 13
+  },
+  "immutable_baseline": {
+    "lineage_blob": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "p02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "both_unchanged": true
+  },
+  "source_findings": [
+    {
+      "id": "V3-N05",
+      "severity": "HARD_BLOCK",
+      "file": "Run-Approved-OneShot-PS51.ps1",
+      "line": 18,
+      "problem": "Unterminated PowerShell quote and incomplete if",
+      "validated_via": [
+        "fetch_file",
+        "fetch_blob"
+      ],
+      "native_parser_executed": false
+    },
+    {
+      "id": "V3-N06",
+      "severity": "HARD_BLOCK",
+      "file": "Run-Approved-OneShot-PS51.ps1",
+      "line": 12,
+      "problem": "ExpectedWatchdogSHA256 declared but never consumed or matched to watchdog file"
+    },
+    {
+      "id": "V3-N07",
+      "severity": "HARD_BLOCK",
+      "file": "Run-Approved-OneShot-PS51.ps1",
+      "line": 46,
+      "problem": "Invoke-TTMDiagProcessWatch called without dot-source/import of separate function module"
+    },
+    {
+      "id": "V3-N08",
+      "severity": "OPEN",
+      "file": "Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "problem": "Sampled aggregate RSS not an OS-hard memory limit; no native observations"
+    }
+  ],
+  "native": {
+    "target": "DESKTOP-4PSD0G2",
+    "device": "machine-1",
+    "observed_state": "ONLINE",
+    "authoritative_active_node_jobs": 0,
+    "attempted_operation": "project_register_on_device",
+    "attempted_path": "D:\\WORK\\RESEARCH\\TokenToModel-Lab",
+    "attempt_status": "REJECTED",
+    "first_error": "remote project kind changed",
+    "task_created": false,
+    "lease_claimed": false,
+    "negative_qa_executed": false,
+    "negative_qa_receipt": "NOT_EXECUTED",
+    "managed_bypass_used": false
+  },
+  "rights": {
+    "trusted_ed25519_public_keys": "EMPTY",
+    "owner_signer": "NOT_VERIFIED",
+    "distinct_reviewer_signer": "NOT_VERIFIED",
+    "rights_custodian_signer": "NOT_VERIFIED",
+    "ad00_ad01c_e6": "NOT_VERIFIED",
+    "tokenizer_original_provenance": "NOT_VERIFIED",
+    "checkpoint_actual_bytes": "NOT_VERIFIED",
+    "checkpoint_expected_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_expected_size": 45074891,
+    "private_80_case_fixture": "NOT_FROZEN_OR_INDEPENDENTLY_REVIEWED"
+  },
+  "source_verdict": "HOLD_DIAG_Q001_V3_SOURCE",
+  "single_i1_verdict": "HOLD_I1",
+  "i2": "NOT_EXECUTED",
+  "owner_conditional_go": "PRESERVED_NOT_REISSUED",
+  "model_executed": false,
+  "checkpoint_read": false,
+  "real_tokenizer_read": false,
+  "pr_merge": false,
+  "baseline_modified": false,
+  "lineage_modified": false,
+  "reviewer_limitation": "conversational_AI_source_assessment_via_owner_connected_GitHub_not_external_human_signer"
+}
