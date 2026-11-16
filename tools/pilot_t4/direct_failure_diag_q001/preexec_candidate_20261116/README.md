@@ -61,5 +61,49 @@ rights, checkpoint byte pin, fixture SHA pin, and token inventory SHA pin. A
 local reviewer must verify the permit and related evidence independently; do
 not synthesize a permit to bypass gates.
 
-This is a local reviewer-candidate source artifact, **not** an accepted
-implementation. Do not promote its 17/17 mock source-QA score to model QA.
+This is a remediation reviewer-candidate source artifact, **not** an accepted
+implementation. The historical author MOCK source QA was **18/18**, not 17/17.
+Do not promote any source QA score to model QA.
+
+
+## F01–F10 remediation — new candidate, not I1 PASS
+
+- F01: `release_auth_v2.py` verifies three separate Ed25519 signatures
+  (owner, reviewer, rights custodian) against reviewed **code-pinned public keys**.
+  No keys are available or inserted now; `AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE`
+  is the mandatory fail-closed outcome. Local permit JSON cannot grant rights.
+- F02: The 2048-ID underlying inventory must match its SHA-256 and a complete
+  non-special/special/reserved taxonomy. A locally invented 64-hex digest is
+  rejected; private bytes are not opened before external signed authorization.
+- F03: Future authenticated I1 `fixture-freeze` stores 80 exact case records
+  plus 80 per-case and five per-group hashes in a separate private folder.
+  I2 must re-read signed and frozen bytes, never regenerate an alternate set.
+- F04: Both PowerShell launchers use `$PSScriptRoot` rather than `_tmp`,
+  and demand full lowercase runner SHA-256. Windows PS 5.1 execution
+  **NOT_EXECUTED** in author test environment.
+- F05: `independent_negative_qa_v2.py` is an author-supplied distinct-path
+  MOCK adversarial suite; it passed **30/30** under Linux Python 3.13.
+  A genuinely separate Windows Python 3.12 reviewer must rerun it.
+- F06: AD-00/AD-01C/E6 external rights, signer trust anchors, live checkpoint
+  byte custody, tokenizer inventory, and Windows runtime are **NOT_VERIFIED**.
+  I1 release and I2 256-step CPU run remain **HOLD/NOT_EXECUTED**.
+- F07: If ever admitted, the runner records parameter SHA-256 and L2 norms
+  before/after training, strictly positive weight delta and sampled peak RSS.
+- F08: The PowerShell process watchdog polls wall time, RSS, stderr/stdout and
+  total generated output, and kills the process tree on breach; native Windows
+  watchdog negative QA is still **NOT_EXECUTED**.
+- F09: Historical README mismatch fixed: 18/18, not 17/17.
+- F10: Restricted four-choice options contain gold at index zero and low-sorted
+  distractors, so their correct rate is *exploratory and biased*. No inference
+  of a decoder defect may be drawn from restricted vs full-vocabulary scores.
+  The frozen protocol is unchanged; an alternative hard-distractor design would
+  require a separately accepted Q1 amendment.
+
+The historical `SHA256_MANIFEST.json` and `SOURCE_QA_RECEIPT.json` remain
+custodial evidence for **original** reviewed commit `fb0bd357...`, not current
+source. Consult `TTM_SM4M_DIAG_Q001_F01_F10_REMEDIATION_SOURCE_MANIFEST_20261116.json`
+under artifacts/governance for the new reviewed source pins.
+
+Owner's conditional GO stays recorded but is **not equivalent** to authenticated
+rights or I1/I2 admission. No private checkpoints, historic TEST/FINAL, or real
+experimental fixtures have been accessed in this source-remediation pass.
