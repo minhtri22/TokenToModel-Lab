@@ -1,0 +1,214 @@
+{
+  "schema": "ttm.p0a.meas.q4.author_qa.v1",
+  "operation": "TTM_P0A_MEAS_Q4_OWNER_ALTERNATIVES_HOLD_EVIDENCE_AND_FORMAL_QUESTION_CLOSURE_SINGLE_GATE",
+  "date": "2026-11-16",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "exact_main": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2",
+  "source_manifest": [
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "sha": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "templates/TTM_RESEARCH_QUESTION_GATE.md",
+      "sha": "8516dabe80fa937f1009ebaf67f72c38b6da90a1",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_REGISTERED_QUESTION_GATE_20261115.md",
+      "sha": "6b29c962b48c4134c925935409433d4ae2804110",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_REVIEW_20261115.md",
+      "sha": "f05223a3aa8724054fcd7e4e0b2a87392a2cf789",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_DISTINCT_SOURCE_REVIEW_20261115.md",
+      "sha": "47576b60e50137972ce8cdf814415172eebbe6d9",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_ADMISSION_ORDER_CLARIFICATION_20261116.md",
+      "sha": "40bada66289b96aa7ba8c3b9d56f3a678e621ddb",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_SOURCE_EVIDENCE_ANSWER_20261116.md",
+      "sha": "fdd8f9fb8f25c777d7aac231c841ddd0f2fd04b4",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "sha": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_DISTINCT_SOURCE_ANSWER_REVIEW_20261116.md",
+      "sha": "97835d61b697732a1e1b35341b2a4d2591fab105",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_DISTINCT_SOURCE_ANSWER_REVIEW_RECEIPT_20261116.json",
+      "sha": "7b5bae4fdd9fbdbc8767f5133e0787ef158f46ef",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_OWNER_SOURCE_ONLY_ADMISSION_AND_CLOSURE_20261116.md",
+      "sha": "0bb743deda7b8b41444a681eebdbbcf5e7a8458c",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "sha": "fcb38ff3330cfc337da70b990ba4b96723348cc3",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "lineage.md",
+      "sha": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    }
+  ],
+  "report": {
+    "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_HARD_VETO_FALSIFICATION_FMEA_OWNER_DECISION_BRIEF_20261116.md",
+    "git_blob": "3261c7ce58d78d079b73fdba48b2c5475a424e65"
+  },
+  "matrix": {
+    "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+    "git_blob": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9"
+  },
+  "checks": [
+    {
+      "id": "question",
+      "status": "PASS"
+    },
+    {
+      "id": "main_pinned",
+      "status": "PASS"
+    },
+    {
+      "id": "source_pins_13",
+      "status": "PASS"
+    },
+    {
+      "id": "5_options",
+      "status": "PASS"
+    },
+    {
+      "id": "unique_options",
+      "status": "PASS"
+    },
+    {
+      "id": "hard_veto_primary",
+      "status": "PASS"
+    },
+    {
+      "id": "falsification",
+      "status": "PASS"
+    },
+    {
+      "id": "fmea_qualitative",
+      "status": "PASS"
+    },
+    {
+      "id": "no_mcda",
+      "status": "PASS"
+    },
+    {
+      "id": "evidence_seven",
+      "status": "PASS"
+    },
+    {
+      "id": "rights_first_X20",
+      "status": "PASS"
+    },
+    {
+      "id": "selection_X17",
+      "status": "PASS"
+    },
+    {
+      "id": "parity_X15",
+      "status": "PASS"
+    },
+    {
+      "id": "ontology_X19",
+      "status": "PASS"
+    },
+    {
+      "id": "rater_X18",
+      "status": "PASS"
+    },
+    {
+      "id": "reject_X21",
+      "status": "PASS"
+    },
+    {
+      "id": "causal_FM04",
+      "status": "PASS"
+    },
+    {
+      "id": "stop_not_impossible",
+      "status": "PASS"
+    },
+    {
+      "id": "keep_no_empirical",
+      "status": "PASS"
+    },
+    {
+      "id": "hold_only_preferred",
+      "status": "PASS"
+    },
+    {
+      "id": "close_hold_recommended",
+      "status": "PASS"
+    },
+    {
+      "id": "owner_not_decided",
+      "status": "PASS"
+    },
+    {
+      "id": "review_not_executed",
+      "status": "PASS"
+    },
+    {
+      "id": "no_main_update",
+      "status": "PASS"
+    },
+    {
+      "id": "no_science",
+      "status": "PASS"
+    },
+    {
+      "id": "no_lineage",
+      "status": "PASS"
+    },
+    {
+      "id": "no_research_branch",
+      "status": "PASS"
+    },
+    {
+      "id": "risk_no_RPN",
+      "status": "PASS"
+    },
+    {
+      "id": "report_not_owner_signed",
+      "status": "PASS"
+    },
+    {
+      "id": "next_gate",
+      "status": "PASS"
+    }
+  ],
+  "pass_count": 30,
+  "fail_count": 0,
+  "verdict": "PASS_Q4_AUTHOR_SOURCE_QA_NOT_INDEPENDENT",
+  "distinct_Q4": "NOT_EXECUTED",
+  "owner_Q4": "NOT_DECIDED",
+  "empirical": "HOLD",
+  "science": false,
+  "main_unchanged": true,
+  "lineage_unchanged": true,
+  "next_single_gate": "TTM_P0A_MEAS_Q4_DISTINCT_HARD_VETO_DECISION_REVIEW_AND_SINGLE_OWNER_CLOSURE_ADMISSION_ONEPACK"
+}
