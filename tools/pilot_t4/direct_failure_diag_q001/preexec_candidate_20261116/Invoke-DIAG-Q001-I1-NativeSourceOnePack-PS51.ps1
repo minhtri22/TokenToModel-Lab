@@ -87,10 +87,10 @@ try {
 
   $launcherText=[IO.File]::ReadAllText($files.launcher)
   $needles=@(
-    "if (\$ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}\$')",
-    "if (\$ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}\$')",
-    "Get-FileHash -LiteralPath \$WatchdogModule -Algorithm SHA256",
-    "if (\$ActualWatchdogSHA256 -cne \$ExpectedWatchdogSHA256)",
+    'if ($ExpectedRunnerSHA256 -cnotmatch ''^[0-9a-f]{64}$'')',
+    'if ($ExpectedWatchdogSHA256 -cnotmatch ''^[0-9a-f]{64}$'')',
+    'Get-FileHash -LiteralPath $WatchdogModule -Algorithm SHA256',
+    'if ($ActualWatchdogSHA256 -cne $ExpectedWatchdogSHA256)',
     '. $WatchdogModule',
     'Get-Command Invoke-TTMDiagProcessWatch',
     '$proc=Start-Process'
