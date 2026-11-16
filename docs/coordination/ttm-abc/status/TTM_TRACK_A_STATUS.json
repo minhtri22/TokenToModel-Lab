@@ -14,14 +14,14 @@
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
   "executor": "Agent A / ChatGPT session",
-  "phase_status": "M0_MOCK_SOURCE_QA_COMPLETE__I1_HOLD",
+  "phase_status": "M0_V3_RUNNER_INTEGRATED_WINDOWS_MOCK_QA_PASS_REAL_FIXTURE_HOLD",
   "gates": {
-    "A0": "PASS_SCOPED_SOURCE_PIN_AND_BASE",
-    "A1": "HOLD_NEW_PROTOCOL_END_TO_END_NOT_ATTESTED",
-    "A2": "PASS_SCOPED_WINDOWS_PY312_PS51_MOCK_ONLY",
+    "A0": "PASS_SCOPED_BASE_SOURCE_PIN",
+    "A1": "HOLD_REAL_TOKENIZER_FIXTURE_AND_DISTINCT_ADJUDICATION",
+    "A2": "PASS_SCOPED_WINDOWS_PY312_PS51_SOURCE_NEGATIVES_27_27_45_45",
     "A3": "DESIGN_ONLY",
     "A4": "NOT_EXECUTED",
-    "A5": "HOLD_I1_DISTINCT_REVIEWER_REQUIRED"
+    "A5": "PENDING_DISTINCT_REVIEW_HOLD_I1"
   },
   "preexisting_evidence": {
     "I1": "HOLD_I1_SCORER_LABEL_LEAKAGE",
@@ -32,8 +32,8 @@
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "MOCK_ALTERNATE_LOGIC_PASS__EXTERNAL_DISTINCT_REVIEW_PENDING",
-  "next_operation": "A_M0_V3_INTEGRATED_REAL_FIXTURE_RUNNER_CUSTODY_NATIVE_AND_DISTINCT_I1_ADJUDICATION_SINGLE_GATE",
+  "review": "DISTINCT_ADJUDICATOR_HANDOFF_COMMITTED__I1_HOLD",
+  "next_operation": "A_M0_V3_DISTINCT_REAL_BYTE_CUSTODY_AND_MEASUREMENT_I1_SINGLE_ADJUDICATION",
   "m0": {
     "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
     "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
@@ -51,5 +51,29 @@
     "legacy_scorer_changed": false,
     "model_forward": false,
     "optimizer_steps": 0
+  },
+  "m0v3_integrated": {
+    "operation": "A_M0_V3_INTEGRATED_REAL_FIXTURE_RUNNER_CUSTODY_NATIVE_AND_DISTINCT_I1_ADJUDICATION_SINGLE_GATE",
+    "source_qa_pin": "639a662ef52d028d0b3f07234bdc6d0a5ed5be62",
+    "runner_sha256": "ccc4f496edbda23517c8efa6110b447eeab807d84a087b0284277670e78cc73d",
+    "scorer_sha256": "98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587",
+    "ci_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43895224590",
+    "adversarial_unittest": "PASS_27_27",
+    "legacy_runner_source_qa": "PASS_18_18",
+    "negative_qa": "PASS_45_45",
+    "ps51_onepack_ast": "PASS_NO_PRIVATE_EXECUTION",
+    "real_tokenizer_path_seen": "D:\\WORK\\RESEARCH\\TokenToModel-Lab\\_tmp\\ttm_t1_real_source_v1\\T1_BPE2048_REAL_TRAIN_MANIFEST.json",
+    "real_source_hash_verified_this_turn": false,
+    "real_fixture_freeze": "NOT_EXECUTED_REMOTE_MANAGED_BINDING",
+    "real_fixture_sha256": null,
+    "distinct_review": "NOT_EXECUTED",
+    "handoff": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_M0V3_DISTINCT_I1_REVIEW_HANDOFF_20261116.md",
+    "receipt": "artifacts/ttm-abc/track-a/M0_V3_INTEGRATED_NATIVE_CUSTODY_QA_20261116.json",
+    "i1": "HOLD_I1_PENDING_DISTINCT_REVIEW",
+    "i2": "NOT_EXECUTED",
+    "model_forward": false,
+    "optimizer_steps": 0,
+    "lineage_changed": false,
+    "merge": false
   }
 }
