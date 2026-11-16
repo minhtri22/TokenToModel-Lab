@@ -1,0 +1,103 @@
+{
+  "schema": "ttm.p0a.meas.q4.distinct_ai_source_decision_review_receipt.v1",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "operation": "TTM_P0A_MEAS_Q4_DISTINCT_HARD_VETO_DECISION_REVIEW_AND_SINGLE_OWNER_CLOSURE_ADMISSION_ONEPACK",
+  "date": "2026-11-16",
+  "reviewer": "DISTINCT_AI_SOURCE_DECISION_REVIEWER",
+  "independence_scope": "DIFFERENT_REVIEW_FROM_AUTHOR; HUMAN_ORGANIZATIONAL_INDEPENDENCE_NOT_EXTERNALLY_ATTESTED",
+  "review_scope": "SOURCE_DESIGN_GOVERNANCE_ONLY_NO_EMPIRICAL_ADMISSION",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewed_candidate_commit": "f2ad56e373c453c92a321dc12fe4253a4b870864",
+  "reviewed_main_commit": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2",
+  "original_pr": 25,
+  "original_pr_draft": true,
+  "original_pr_unmerged_at_review": true,
+  "reviewed_q4_git_blobs": {
+    "brief": "3261c7ce58d78d079b73fdba48b2c5475a424e65",
+    "matrix": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9",
+    "author_receipt": "d42c85e7657e16d6612dc4e2644d7fa50e3387e0",
+    "handoff": "8cd2f49124c03c98830cbc94e7bb10919629ede4"
+  },
+  "source_git_pins": {
+    "manifest_file": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+    "checked_count": 13,
+    "match_count": 13,
+    "all_match": true,
+    "checked_ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2",
+    "active_gate_blob": "fcb38ff3330cfc337da70b990ba4b96723348cc3",
+    "lineage_blob": "3409e036241deb1da6674619a2abc834bea8a2d6"
+  },
+  "original_diff": {
+    "ahead": 4,
+    "behind": 0,
+    "added_files": 4,
+    "modified_files": 0,
+    "deleted_files": 0,
+    "governance_evidence_only": true
+  },
+  "q1_q2_q3_merged_provider_verified": true,
+  "checks": {
+    "hard_veto_noncompensatory": "PASS",
+    "falsification_five_options": "PASS_SCOPED",
+    "qualitative_fmea_no_measured_probabilities": "PASS",
+    "no_pseudonumeric_mcda": "PASS",
+    "proportionality_closed_vs_open_hold": "PASS_SCOPED",
+    "keep_historical_vs_empirical_distinction": "PASS",
+    "F_H01_X17_candidate_denominators": "PASS_FORWARD_VETO_NOT_RUNTIME",
+    "X13_X15_all_material_facts_effective_parity": "PASS_FORWARD_VETO_NOT_RUNTIME",
+    "X14_X19_exclusivity_temporal_domain": "PASS_FORWARD_VETO_NOT_RUNTIME",
+    "X18_source_correct_rater": "PASS_FORWARD_VETO_NOT_RUNTIME",
+    "X20_rights_before_access_order": "PASS",
+    "X21_all_reject_reasons_deterministic_precedence": "PASS_FORWARD_REQUIREMENT_NOT_IMPLEMENTED",
+    "E3_F_M04_causal_only": "PASS",
+    "E6_checkpoint_test_final_execution_only": "PASS",
+    "separate_author_and_distinct_reviewer": "PASS",
+    "source_design_not_empirical_science": "PASS",
+    "source_13_blob_pins": "PASS",
+    "original_4_file_diff": "PASS",
+    "q1_q3_main_acceptance": "PASS",
+    "lineage_unchanged_original_diff": "PASS"
+  },
+  "options": {
+    "KEEP": "NOT_JUSTIFIED_EMPIRICAL",
+    "SIMPLIFY": "NOT_JUSTIFIED",
+    "PIVOT": "NOT_JUSTIFIED",
+    "STOP": "NOT_JUSTIFIED",
+    "HOLD_EVIDENCE_INSUFFICIENT": "RECOMMEND_CLOSED_HOLD_AFTER_OWNER_GO"
+  },
+  "unresolved": {
+    "E0_RIGHTS": "NOT_VERIFIED",
+    "E1_CONSTRUCT": "NOT_VALIDATED",
+    "E2_PARITY": "NOT_CAPTURED",
+    "E3_CAUSAL_SHORTCUT": "NOT_EXECUTED_CAUSAL_CLAIM_ONLY",
+    "E4_GOLD_RATER": "NOT_CALIBRATED",
+    "E5_PREREG": "NOT_FROZEN",
+    "E6_RUNNER": "NOT_AUTHORIZED",
+    "root_cause": "NOT_IDENTIFIED"
+  },
+  "nonblocking_caveats": [
+    "CLOSED_HOLD_MEANS_THIS_Q_CURRENT_EVIDENCE_REVIEW_ONLY_NOT_PERMANENT_STOP",
+    "STOP_COULD_USE_PREDECLARED_RESOURCE_LIMIT_BUT_NONE_PRESENT",
+    "OPEN_HOLD_RECONSIDER_IF_CONCRETE_VERIFIED_LAWFUL_PENDING_DEPENDENCY_PRESENTED",
+    "SOURCE_QA_NOT_EXTERNAL_ORG_ATTESTATION"
+  ],
+  "material_decision_blockers": [],
+  "verdict": "PASS_Q4_SOURCE_DECISION_FRAMEWORK_SCOPED",
+  "recommended_owner_command": "GO_Q4_CLOSE_HOLD_EVIDENCE_INSUFFICIENT",
+  "owner_decision": "PENDING_EXPLICIT_OWNER_GO_OR_HOLD",
+  "suggested_question_closure": "CLOSED_HOLD_EVIDENCE_INSUFFICIENT_ONLY_AFTER_OWNER_GO",
+  "empirical_admission": "HOLD",
+  "science_permit": false,
+  "source_access_permit": false,
+  "research_branch_authorized": false,
+  "lineage_edit_authorized": false,
+  "merge_authorized": false,
+  "review_document": {
+    "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_DISTINCT_DECISION_FRAMEWORK_REVIEW_20261116.md",
+    "git_blob": "230f4d2b038ab75b91c24643034b486cfd1654b4",
+    "raw_sha256": "cf67c2723d42ba200cc5658da713dca6570d8ce8086cd997fbd554f574da2518",
+    "raw_utf8_bytes": 10689,
+    "first_publication_commit": "7998a0462c9979ac78f592e2ca71a720c000e578"
+  },
+  "next_single_gate": "TTM_P0A_MEAS_Q4_OWNER_EXPLICIT_GO_HOLD_AND_GOVERNANCE_ONLY_CLOSURE_PR25_SINGLE_GATE"
+}
