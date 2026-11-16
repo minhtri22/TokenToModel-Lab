@@ -1,0 +1,78 @@
+{
+  "schema": "ttm.rf00.independent_exact_source_and_scoring_adjudication.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_RF00_INDEPENDENT_NATIVE_EVIDENCE_READBACK_AND_NO_MODEL_REPRODUCTION_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "baseline_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "reviewed_pr": 28,
+  "reviewed_pr_head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+  "reviewed_tested_source": "6dc04c0545b28d4a0cad21ad8be8b70461c57790",
+  "independent_reproduction_method": "Pure-stdlib Python reimplementation from reviewed source; no runner imports, private tokenizer bytes, model, or TEST/FINAL. Exact frozen fixture hash and both scoring controls reproduce.",
+  "tested_environment": "Isolated reviewer Linux Python 3.13.5 for no-model reconstruction; NOT native Windows rerun",
+  "reproduced_fixture_sha256": "5f1234f583ccf719ca9f0e68de4f47d8b653af777271b8115c5f02307f764e5a",
+  "fixture_sha_matches_recorded": true,
+  "fixture_group_counts": {
+    "TRAIN": 24,
+    "HELDOUT_RECOMBINED": 16,
+    "HELDOUT_NOVEL_IDS": 16,
+    "PAIRED_COUNTERFACTUAL": 16,
+    "HELDOUT_ABSENT": 8
+  },
+  "controls": {
+    "equal_logits_restricted_correct": 80,
+    "total": 80,
+    "context_blind_full_vocab_correct_by_group": {
+      "TRAIN": 0,
+      "HELDOUT_RECOMBINED": 0,
+      "HELDOUT_NOVEL_IDS": 0,
+      "PAIRED_COUNTERFACTUAL": 0,
+      "HELDOUT_ABSENT": 0
+    },
+    "context_blind_restricted_correct_by_group": {
+      "TRAIN": 14,
+      "HELDOUT_RECOMBINED": 15,
+      "HELDOUT_NOVEL_IDS": 16,
+      "PAIRED_COUNTERFACTUAL": 16,
+      "HELDOUT_ABSENT": 0
+    },
+    "recombined_any_train_binding_repeat": 6,
+    "recombined_queried_train_binding_repeat": 1
+  },
+  "root_cause": {
+    "finding": "CONFIRMED_SOURCE_AND_FROZEN_FIXTURE",
+    "root": "Gold-dependent candidate construction opts=[gold] + fixed low-ID distractors, tied logits select index zero. A context-blind vocabulary ordering meets the registered candidate-vs-full gap.",
+    "references": [
+      "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py:159-170",
+      "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py:527-535"
+    ],
+    "independent_fixture_reproduction_executed": true
+  },
+  "native_evidence_readback": {
+    "recorded_windows_native_qa": "PASS 16/16 on tested source",
+    "recorded_job_commit_cap_denial": "Single oversize and descendant aggregate denial, WinError 1455 at scaled threshold",
+    "recorded_ps51_tree_rss": "Observed separately from job committed memory",
+    "recorded_checkpoint_custody": "Original Drive and Windows SHA matched per native receipt; independent private-byte rehash not performed by this reviewer",
+    "recorded_tokenizer_custody": "T1 TRAIN BPE SHA pinned, 2047 allowed non-special IDs per native receipt; independent private-byte rehash not performed by this reviewer",
+    "independent_native_windows_execution": false,
+    "source_of_claim": "artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_NATIVE_20261116/native-receipt.json",
+    "limits": "Evidence readback only: do not call it a second Windows native certification"
+  },
+  "verdict": {
+    "I1": "HOLD_I1",
+    "reason": "HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE",
+    "I2": "NOT_EXECUTED",
+    "one_shot_nonce_claimed": false,
+    "optimizer_steps": 0,
+    "new_science": false
+  },
+  "next_integrated_packet": "Q001_GOLD_INDEPENDENT_CANDIDATE_SCORER_AND_HARD_NEGATIVE_PROTOCOL_AMENDMENT_NATIVE_SOURCE_QA_AND_SINGLE_I1_REREVIEW",
+  "safeguards": {
+    "original_fixture_sha_preserved": true,
+    "historical_results_preserved": true,
+    "changed_pr28": false,
+    "changed_main": false,
+    "changed_lineage": false,
+    "no_micro_permits": true,
+    "no_model_forward": true
+  }
+}
