@@ -1,0 +1,36 @@
+name: Track BC SFT interface synthetic Python 3.12 QA
+on:
+  pull_request:
+    paths:
+      - "src/ttm_track_b/bc_sft_interface.py"
+      - "tests/test_bc_sft_interface.py"
+      - "tests/ttm_track_bc/**"
+      - "docs/research/ttm-abc/bc-sft/**"
+      - ".github/workflows/track-bc-sft-interface-py312.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bc-sft-synthetic-only:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU-only torch; never download private data
+        run: python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Test exact Python and synthetic CPU BC interface
+        run: |
+          python -c "import sys,torch; assert sys.version_info[:2] == (3,12); assert not torch.cuda.is_available(); print(sys.version,torch.__version__)"
+          python -m unittest discover -s tests -p test_bc_sft_interface.py -v
+      - name: One bounded forward/backward with no optimizer
+        run: |
+          python -c "from src.ttm_track_b import bc_sft_interface as b; p=b.synthetic_cpu_probe(); assert p['optimizer_steps']==0 and not p['sft_science_executed']; print(p)"
