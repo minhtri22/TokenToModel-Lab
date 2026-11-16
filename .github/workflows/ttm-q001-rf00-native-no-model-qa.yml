@@ -54,6 +54,12 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_SMOKE" }
           python windows_job_memory_limit.py --native-negative 2>&1 | Tee-Object rf00_negative.log
           if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_NEGATIVE" }
+          # Structural/source-contract probes only; this CI does NOT assert
+          # owner's exact Windows root/host, original tokenizer, or I1 release.
+          python -c "import owner_internal_admission as o; o._verify_owner_scope_record(); print('OWNER_SCOPE_BLOB_SOURCE_QA_PASS_ONLY')" 2>&1 | Tee-Object rf00_owner_scope.log
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_OWNER_SOURCE_PIN" }
+          python -c "from windows_rss_native import current_process_rss_bytes; print('WIN32_NATIVE_CURRENT_RSS_BYTES', current_process_rss_bytes())" 2>&1 | Tee-Object rf00_rss.log
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_WIN32_RSS_API" }
       - name: "Archive technical QA evidence (not model science)"
         if: always()
         uses: actions/upload-artifact@v4
