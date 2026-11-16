@@ -1,0 +1,271 @@
+{
+  "schema": "ttm.p0a.meas.q4.alternatives_source_only.v1",
+  "operation": "TTM_P0A_MEAS_Q4_OWNER_ALTERNATIVES_HOLD_EVIDENCE_AND_FORMAL_QUESTION_CLOSURE_SINGLE_GATE",
+  "date": "2026-11-16",
+  "question_id": "TTM-P0A-MEAS-Q001",
+  "exact_main": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2",
+  "source_manifest": [
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "sha": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "templates/TTM_RESEARCH_QUESTION_GATE.md",
+      "sha": "8516dabe80fa937f1009ebaf67f72c38b6da90a1",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_REGISTERED_QUESTION_GATE_20261115.md",
+      "sha": "6b29c962b48c4134c925935409433d4ae2804110",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_FRAMEWORK_ALTERNATIVES_SOURCE_ONLY_REVIEW_20261115.md",
+      "sha": "f05223a3aa8724054fcd7e4e0b2a87392a2cf789",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_DISTINCT_SOURCE_REVIEW_20261115.md",
+      "sha": "47576b60e50137972ce8cdf814415172eebbe6d9",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q2_ADMISSION_ORDER_CLARIFICATION_20261116.md",
+      "sha": "40bada66289b96aa7ba8c3b9d56f3a678e621ddb",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_SOURCE_EVIDENCE_ANSWER_20261116.md",
+      "sha": "fdd8f9fb8f25c777d7aac231c841ddd0f2fd04b4",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "sha": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_DISTINCT_SOURCE_ANSWER_REVIEW_20261116.md",
+      "sha": "97835d61b697732a1e1b35341b2a4d2591fab105",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_DISTINCT_SOURCE_ANSWER_REVIEW_RECEIPT_20261116.json",
+      "sha": "7b5bae4fdd9fbdbc8767f5133e0787ef158f46ef",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_OWNER_SOURCE_ONLY_ADMISSION_AND_CLOSURE_20261116.md",
+      "sha": "0bb743deda7b8b41444a681eebdbbcf5e7a8458c",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "sha": "fcb38ff3330cfc337da70b990ba4b96723348cc3",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    },
+    {
+      "path": "lineage.md",
+      "sha": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "ref": "2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2"
+    }
+  ],
+  "framework": {
+    "primary": "NONCOMPENSATORY_HARD_VETO_DECISION_TREE",
+    "support": [
+      "FALSIFICATION",
+      "QUALITATIVE_FMEA",
+      "PROPORTIONALITY_AND_OPTION_PRESERVATION"
+    ],
+    "mcda": "NOT_USED_NO_PRELOCKED_WEIGHTS_OR_GROUNDED_CARDINAL_DATA",
+    "limits": "No actual occurrence probabilities, costs, power, source prevalence or RPN"
+  },
+  "evidence": [
+    {
+      "id": "E0_RIGHTS",
+      "status": "NOT_VERIFIED",
+      "scope": "SOURCE_ACCESS_HOLD"
+    },
+    {
+      "id": "E1_CONSTRUCT",
+      "status": "NOT_VALIDATED",
+      "scope": "EMPIRICAL_MEASUREMENT_HOLD"
+    },
+    {
+      "id": "E2_PARITY",
+      "status": "NOT_CAPTURED",
+      "scope": "EMPIRICAL_MEASUREMENT_HOLD"
+    },
+    {
+      "id": "E3_SHORTCUT",
+      "status": "NOT_EXECUTED",
+      "scope": "CAUSAL_CLAIM_HOLD"
+    },
+    {
+      "id": "E4_GOLD_RATER",
+      "status": "NOT_CALIBRATED",
+      "scope": "EMPIRICAL_MEASUREMENT_HOLD"
+    },
+    {
+      "id": "E5_PREREG",
+      "status": "NOT_FROZEN",
+      "scope": "EMPIRICAL_MEASUREMENT_HOLD"
+    },
+    {
+      "id": "E6_RUNNER",
+      "status": "NOT_AUTHORIZED",
+      "scope": "MODEL_EXECUTION_HOLD"
+    }
+  ],
+  "options": [
+    {
+      "id": "KEEP",
+      "decision": "NOT_JUSTIFIED_EMPIRICAL",
+      "need": [
+        "E0_RIGHTS",
+        "E1_CONSTRUCT",
+        "E2_PARITY",
+        "E4_GOLD_RATER",
+        "E5_PREREG"
+      ],
+      "necessary_when": "actual lawfully sourced benchmark is feasible",
+      "falsifier": "Prospective eligible items lack visible material facts, valid temporal ontology or rights",
+      "change": "lawful rights, predeclared full sampling frame and coverage, complete label-changing-fact parity, independent blind correct gold/rater, prereg threshold/uncertainty, permit for execution",
+      "tradeoff": "Keeps original question, but legality/measurement validity unknown and cost not estimated"
+    },
+    {
+      "id": "SIMPLIFY",
+      "decision": "NOT_JUSTIFIED",
+      "need": [
+        "PROSPECTIVE_LOCALIZED_SUBFAMILY_FAILURE",
+        "E1_CONSTRUCT"
+      ],
+      "necessary_when": "identified, prospectively bounded subfamily is provably invalid and narrower one valid",
+      "falsifier": "Outcome-driven restriction or suppressed rejection denominator means F-H01 selection bias",
+      "change": "independently documented localized failure and predeclared narrower construct, with excluded candidate denominator and rights/parity",
+      "tradeoff": "Potentially smaller budget but unjustified post-hoc narrowing risks false high performance"
+    },
+    {
+      "id": "PIVOT",
+      "decision": "NOT_JUSTIFIED",
+      "need": [
+        "STRUCTURAL_INFEASIBILITY_PROVEN",
+        "RIGHTS_COMPLIANT_ALTERNATE_ORACLE"
+      ],
+      "necessary_when": "current source or ontology structurally fails despite lawful inspection",
+      "falsifier": "One lawful sufficiently complete existing-family oracle undercuts asserted need to pivot",
+      "change": "proof of present construct failure plus alternative source/ontology with valid info-budget contrast and new QuestionID owner decision",
+      "tradeoff": "Unknown cost and new question/assumptions; no comparator yet"
+    },
+    {
+      "id": "STOP",
+      "decision": "NOT_JUSTIFIED",
+      "need": [
+        "IMPOSSIBILITY_PROOF_OR_LOCKED_BUDGET_LIMIT"
+      ],
+      "necessary_when": "proof of no lawful valid path or untenable prespecified resources",
+      "falsifier": "A credible lawful feasible path refutes impossibility",
+      "change": "auditable proof all relevant source/ontology/parity alternatives fail or prospectively bounded resource ceiling infeasible",
+      "tradeoff": "May avoid sunk cost but unjustified irreversible rejection now"
+    },
+    {
+      "id": "HOLD_EVIDENCE_INSUFFICIENT",
+      "decision": "RECOMMEND_CLOSED_HOLD",
+      "need": [],
+      "necessary_when": "evidence sufficient to answer Q3 only, not to admit actual measurement, and no additional admissible evidence now",
+      "falsifier": "Proof on frozen Q1–Q3 record that rights/construct/parity/gold/prereg were in fact already validated",
+      "change": "new lawful externally attested source-rights and prospectively grounded feasibility evidence, through new owner-approved Q gate",
+      "tradeoff": "No science run or new gold, minimal governance cost, preserves falsifiability, does not imply impossibility"
+    }
+  ],
+  "risks": [
+    {
+      "id": "F-H01/X17",
+      "severity": "HIGH",
+      "mode": "Selection, candidate denominator and coverage",
+      "control": "Candidate frame, REJECT/abstain reasons and threshold prospective; no outcome-aware filtering",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "X14/X19",
+      "severity": "HIGH",
+      "mode": "Ontology and temporal closure",
+      "control": "Typed entity/location/time and source completeness; explicit negation/exclusivity; missing record=REJECT, not UNKNOWN_VALID",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "M1/X13/X15",
+      "severity": "HIGH",
+      "mode": "Hidden gold and loss of effective-view facts after truncation",
+      "control": "Exact builder/tokenizer/window, all label-changing facts in model and rater views; gate HOLD/item REJECT",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "M4/X18",
+      "severity": "HIGH",
+      "mode": "Raters agree but share wrong ontology",
+      "control": "Independent source-grounded blind adjudication, correctness, abstain",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "X20/F-M01",
+      "severity": "CRITICAL_IF_ACCESS",
+      "mode": "Circular source access/right verification",
+      "control": "AD-01R and owner lawful scope BEFORE access; AD-02/03/05 after lawful limited inspection and BEFORE production authoring",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "F-M04/AD-06",
+      "severity": "HIGH_IF_CAUSAL",
+      "mode": "Shortcut confounded by cues",
+      "control": "Matched, counterbalanced, group-disjoint fact-only vs cue-only comparisons if causal attribution claimed",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "AD-07/X21",
+      "severity": "HIGH",
+      "mode": "Adaptive primary reject and endpoint threshold",
+      "control": "Freeze sampling, all reasons, deterministic primary precedence, metric, n/uncertainty, STOP and budget pre-outcomes",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    },
+    {
+      "id": "E6/AD-00/AD-01C",
+      "severity": "CRITICAL_IF_RUN",
+      "mode": "Unauthorized checkpoint, sealed TEST/FINAL or runner",
+      "control": "No run before rights+byte custody+owner science permit",
+      "frequency": "NOT_MEASURED",
+      "detectability": "UNMEASURED_OR_STATUS_ONLY"
+    }
+  ],
+  "decision_path": [
+    "Q1_Q3_SOURCE_ACCEPTED",
+    "E0_RIGHTS_UNVERIFIED",
+    "E1_E2_E4_E5_ACTUAL_MEASUREMENT_HOLD",
+    "E3_CAUSAL_HOLD_ONLY",
+    "E6_EXECUTION_HOLD_ONLY",
+    "SIMPLIFY_NO_LOCALIZED_FAILURE",
+    "PIVOT_NO_ALTERNATIVE_ORACLE",
+    "STOP_NO_IMPOSSIBILITY_OR_COST_PROOF",
+    "HOLD_ONLY_JUSTIFIED_EMPIRICAL_OPTION"
+  ],
+  "recommendation": "CLOSED_HOLD_EVIDENCE_INSUFFICIENT",
+  "owner_q4": "NOT_DECIDED",
+  "distinct_q4_review": "NOT_EXECUTED",
+  "empirical_admission": "HOLD",
+  "science_permit": false,
+  "merge_authority": false,
+  "active_register_update": false,
+  "lineage_edit": false,
+  "research_branch_authorized": false,
+  "recommended_merge_disposition": "EVIDENCE_ONLY_NO_SCIENCE_MERGE_GOVERNANCE_ONLY_AFTER_OWNER",
+  "reentry": "A new lawful evidence package and registered owner-approved question; no automatic re-open or execution",
+  "next_single_gate": "TTM_P0A_MEAS_Q4_DISTINCT_HARD_VETO_DECISION_REVIEW_AND_SINGLE_OWNER_CLOSURE_ADMISSION_ONEPACK"
+}
