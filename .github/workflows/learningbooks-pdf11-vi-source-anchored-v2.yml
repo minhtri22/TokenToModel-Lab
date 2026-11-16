@@ -1,0 +1,63 @@
+name: PDF11 source-anchored Vietnamese remediation V2
+
+on:
+  push:
+    branches: ["docs/learningbooks-dive-into-llms-vi-20261116"]
+    paths:
+      - "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/RELEASE_REQUEST.md"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdf11-vi-source-anchored-v2
+  cancel-in-progress: false
+
+jobs:
+  reflow:
+    if: github.repository == 'minhtri22/TokenToModel-Lab'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Guard exact branch and install pinned layout engine
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
+          python3 -m pip install --disable-pip-version-check "pymupdf==1.26.7"
+          test -f /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+      - name: Reflow affected PDF chapters and prepare 495-page rater queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/build_v2.py"
+      - name: Separate static QA - no false human independent verdicts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/independent_static_qa_v2.py"
+          python3 - <<'PY'
+          import json,pathlib
+          d=pathlib.Path("docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2")
+          q=json.loads((d/"REMEDIATION_V2_STATIC_QA.json").read_text())
+          assert q["static_qa"]=="PASS" and q["tested_pages"]==495
+          assert q["external_human_rater"]=="NOT_EXECUTED"
+          assert q["full_literal_fidelity"]=="HOLD"
+          PY
+      - name: Commit only scoped PDF/QA outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          R="docs/learningbooks/dive-into-llms/PDF11_VI"
+          V="$R/source_anchored_v2"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$R"/chapter*_VI_bilingual.pdf "$V/REMEDIATION_V2_MANIFEST.json" "$V/REMEDIATION_V2_STATIC_QA.json" "$V/EXTERNAL_RATER_QUEUE_495.csv"
+          test "$(git diff --cached --name-only | grep -cv '^docs/learningbooks/dive-into-llms/PDF11_VI/' || true)" -eq 0
+          git diff --cached --quiet && exit 1
+          git commit -m "docs(learningbooks): reflow source-anchored 13 amended slides and retain external-rater HOLD"
+          git push origin "HEAD:refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
