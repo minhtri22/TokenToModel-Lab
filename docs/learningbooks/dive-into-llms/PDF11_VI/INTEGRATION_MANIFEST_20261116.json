@@ -1,0 +1,207 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_TRANSLATION_FIDELITY_REVIEW_ONEPACK",
+  "source_repo": "Lordog/dive-into-llms",
+  "source_commit": "f84c04268794ef94f8949808bbc14ab8636763a0",
+  "source_zip_sha256": "251d0d49601e536bf1eb94deb727da665693126a3ef7d04d8efff9f3550406fe",
+  "bilingual_zip_sha256": "73b10765deb7e932e6e8a16ca1f96709b8a6f9149d6c803937ed0417bfc1788e",
+  "source_pages": 495,
+  "bilingual_pages": 495,
+  "pages_with_vi_annotations": 495,
+  "flagged_text_layer_pages": 53,
+  "semantic_pages_spot_checked": 11,
+  "review": {
+    "structural": "PASS",
+    "font_and_symbol": "FAIL",
+    "full_literal_fidelity": "HOLD",
+    "independent_linguistic": "NOT_EXECUTED",
+    "adjudication": "HOLD_FIDELITY_PENDING_REMEDIATION"
+  },
+  "binary_pdf_upload_status": "NOT_UPLOADED_IN_THIS_COMMIT",
+  "files": [
+    {
+      "chapter": 1,
+      "pages": 77,
+      "source_path": "documents/chapter1/dive-into-llm.pdf",
+      "source_sha256": "c887bc75d57ede385baea51e18d221516ab894972756e9787dd11acc92c52356",
+      "bilingual_path": "chapter01_VI_bilingual.pdf",
+      "bilingual_sha256": "e176d4a0c52629a80eb9e31bf613ce36119db34595c9eb91736035d39b4da5be",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter01_VI_by_slide.md",
+      "notes_sha256": "92a69c68a9017576c026d3276a8c79d77912387dbeb4edfda3db20148d3d83bc",
+      "affected_text_layer_pages": [
+        1,
+        23,
+        31,
+        35,
+        47,
+        48,
+        64,
+        69,
+        70
+      ]
+    },
+    {
+      "chapter": 2,
+      "pages": 76,
+      "source_path": "documents/chapter2/dive-into-prompting.pdf",
+      "source_sha256": "12653a80b33c0e313b1d27f567cbed87d7b19bac6ec6551be72aa51b60fb21b8",
+      "bilingual_path": "chapter02_VI_bilingual.pdf",
+      "bilingual_sha256": "b5f446492079c3ffd1d742cfc7d66c251de6dcb4ae551b8d783168062aa8d491",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter02_VI_by_slide.md",
+      "notes_sha256": "e023243a3b69ac1b2e21e0c51da1247e5d39b11659b2c6d73e427f69ee39e9ae",
+      "affected_text_layer_pages": [
+        1,
+        4,
+        8,
+        12,
+        13,
+        16,
+        19,
+        28,
+        33,
+        34,
+        35,
+        36,
+        40,
+        41,
+        44,
+        45,
+        47,
+        49
+      ]
+    },
+    {
+      "chapter": 3,
+      "pages": 21,
+      "source_path": "documents/chapter3/dive_edit_0410.pdf",
+      "source_sha256": "707c7ab2786a499502a4b7b4c5ee30e1c5eeba640bdc25bfc925acdf21194ae6",
+      "bilingual_path": "chapter03_VI_bilingual.pdf",
+      "bilingual_sha256": "733e452f0f79f365f3cff2e6d88071dda05d59e86350cc7b8e95f7128ae32733",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter03_VI_by_slide.md",
+      "notes_sha256": "5b0c500ed80efe9fcd88ad44051f75ee2235df7c03e881b7ac4b65e682647c57",
+      "affected_text_layer_pages": [
+        21
+      ]
+    },
+    {
+      "chapter": 4,
+      "pages": 17,
+      "source_path": "documents/chapter4/math.pdf",
+      "source_sha256": "63445393755fc4f4c19f892d0c9f4ae93711d26db67c4eec68a99e968248098e",
+      "bilingual_path": "chapter04_VI_bilingual.pdf",
+      "bilingual_sha256": "c345485a07e0a02dc141c90e3b3e321432b3670c358fa0a5c33ac6c478f4432a",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter04_VI_by_slide.md",
+      "notes_sha256": "c92304c79fd9b8e3f33daf63767fa263d9b311c7acb113af3a385c9f8aa8961b",
+      "affected_text_layer_pages": [
+        1,
+        14
+      ]
+    },
+    {
+      "chapter": 5,
+      "pages": 48,
+      "source_path": "documents/chapter5/watermark.pdf",
+      "source_sha256": "fd0a83c8b8cc231ba14803b724894b4c2826c3c40946bea8aae117199c1d01b8",
+      "bilingual_path": "chapter05_VI_bilingual.pdf",
+      "bilingual_sha256": "2a658c73038c03d7325ef068b6a89655e229422fc21796a14a0ec69c8cfde124",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter05_VI_by_slide.md",
+      "notes_sha256": "2dac40a4058f8bc932483803a07cceb6194d680f7f418b7589094ebb0b362f30",
+      "affected_text_layer_pages": [
+        9,
+        12,
+        14,
+        17,
+        20,
+        21,
+        26,
+        36,
+        37,
+        38,
+        40,
+        41,
+        44
+      ]
+    },
+    {
+      "chapter": 6,
+      "pages": 44,
+      "source_path": "documents/chapter6/dive-Jailbreak.pdf",
+      "source_sha256": "39c62374a92f615caa15709a361168e1e7a1bae45c1d56d77956e67415d34cc3",
+      "bilingual_path": "chapter06_VI_bilingual.pdf",
+      "bilingual_sha256": "3e5fef86a9c8ee3af2b1727fbca3c647c44512b33daf0d727e32008f9034048d",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter06_VI_by_slide.md",
+      "notes_sha256": "086916c4c4a0066b5b82baf3b72dde97d7cbe5419785a80d8531c3a8a411f603",
+      "affected_text_layer_pages": [
+        1
+      ]
+    },
+    {
+      "chapter": 7,
+      "pages": 13,
+      "source_path": "documents/chapter7/stega.pdf",
+      "source_sha256": "b6dd9726fe012f7934642e3c0a2148af3d938f8d71cddfa0690a0c93691c1a6e",
+      "bilingual_path": "chapter07_VI_bilingual.pdf",
+      "bilingual_sha256": "3b8c1b149b1b90b4eeae110d0320a2f551795fb65b8042dd74b9e7f574040a32",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter07_VI_by_slide.md",
+      "notes_sha256": "a8bcce21f888988b34fb36a5f235b0aed1739bcd9ac7a97e27ef7b18047124ef",
+      "affected_text_layer_pages": [
+        1,
+        11
+      ]
+    },
+    {
+      "chapter": 8,
+      "pages": 81,
+      "source_path": "documents/chapter8/mllms.pdf",
+      "source_sha256": "4fbb76d9f218ebd890610aedeca850458081eef8e26124cb4261b72eb05647f6",
+      "bilingual_path": "chapter08_VI_bilingual.pdf",
+      "bilingual_sha256": "9643f1603702ca3dfacdb0d828606d978c65b132802a6bdf832b2a234e4ae2f7",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter08_VI_by_slide.md",
+      "notes_sha256": "c89dac2913e93c14a23f6db724351568e283618b48d994786ea0375b262c3b56",
+      "affected_text_layer_pages": [
+        8
+      ]
+    },
+    {
+      "chapter": 9,
+      "pages": 43,
+      "source_path": "documents/chapter9/GUIagent.pdf",
+      "source_sha256": "d2488b8fb883c0843f371313d4295c618a243da1dcf878c094da7b92fe1cc41c",
+      "bilingual_path": "chapter09_VI_bilingual.pdf",
+      "bilingual_sha256": "579110ad32373992bae42f87510c26611a7fdbc40d0082a695c7742a2b966dd9",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter09_VI_by_slide.md",
+      "notes_sha256": "ed603a145fb0501a924a0bed8aa4e6a83196886ff1aad7c94aa5eec2594fdad6",
+      "affected_text_layer_pages": [
+        1,
+        5,
+        17
+      ]
+    },
+    {
+      "chapter": 10,
+      "pages": 51,
+      "source_path": "documents/chapter10/dive-into-safety.pdf",
+      "source_sha256": "e07d59a88887086fc3e5189516d4a9b6f01507473ee65d10570106075a315e62",
+      "bilingual_path": "chapter10_VI_bilingual.pdf",
+      "bilingual_sha256": "40fa5ecbee5abd65ab0286189a595b231bc9eef7953b0177f4a595a815d3cf38",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter10_VI_by_slide.md",
+      "notes_sha256": "e5ffaa14e697fca8096d5051e98bbe328e0e2cb12945b97ca23f046df6c11876",
+      "affected_text_layer_pages": [
+        1
+      ]
+    },
+    {
+      "chapter": 11,
+      "pages": 24,
+      "source_path": "documents/chapter11/RLHF.pdf",
+      "source_sha256": "78630effb8d801bfcde899721e2dcb2e8cf9d9993c63caeeb44ebe1f3f21bf46",
+      "bilingual_path": "chapter11_VI_bilingual.pdf",
+      "bilingual_sha256": "2d9d4a56c588fec14eb79eb5b1ba61a25d4448f05abec811236e5d6976ce6086",
+      "notes_path": "GHI_CHU_TIENg_VIET/chapter11_VI_by_slide.md",
+      "notes_sha256": "9d996657892fece67ab135f1b798fe88c93d76f323975210066af8fa183a2bc2",
+      "affected_text_layer_pages": [
+        1,
+        17
+      ]
+    }
+  ]
+}

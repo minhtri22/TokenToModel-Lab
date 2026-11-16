@@ -20,6 +20,12 @@
 
 Mỗi mục là phần giải thích khái niệm, ví dụ do trợ lý tự soạn và câu hỏi tự học. **Không** được gọi đây là bản dịch đầy đủ của tài liệu nguồn.
 
+## PDF song ngữ 11 chương (ứng viên tham khảo)
+
+- [Gói 11 PDF song ngữ và biên bản QA](PDF11_VI/README.md).
+- ZIP kết quả đã được kiểm tra 11/11 SHA và 495/495 trang, nhưng **chưa upload binary PDF lên nhánh tại commit metadata**.
+- Fidelity HOLD: bản dịch chưa nguyên văn toàn bộ; 53 trang có lỗi ký tự trong lớp text.
+
 ## Chưa hoàn thành
 
 - **34/34** tài liệu chính (README, notebook, PDF) **chưa có bản dịch toàn văn được đối chiếu từng tệp**.
