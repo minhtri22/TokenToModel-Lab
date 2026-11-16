@@ -101,7 +101,7 @@ def test_all() -> dict:
     checks['PS5_wall_RSS_output_tree_watchdog']=all(x in ps_one for x in ('taskkill.exe','Elapsed.TotalSeconds','WorkingSet64','HOLD_TOTAL_OUTPUT_1GIB'))
     script=(BASE/'ttm_sm4m_diag_q001.py').read_text()
     checks['last_context_position_target']=all(s in script for s in ('logits[:,-1,:]','cross_entropy(answer_logits,y)',"rows[i]['gold']"))
-    checks['no_full_prompt_CE']=not bool(re.search(r'cross_entropy\\(logits\\.reshape',script))
+    checks['no_full_prompt_CE']=not bool(re.search(r'cross_entropy\(logits\.reshape',script))
     checks['no_eval_gradient']= 'with torch.no_grad():' in script
     checks['weight_delta_recorded']=all(s in script for s in ('parameter_absolute_delta_sum','ZERO_OR_NONFINITE_WEIGHT_DELTA','(p.detach()-before[i]).abs()','parameter_sha256_before','parameter_sha256_after','PARAMETER_FINGERPRINT_UNCHANGED'))
     checks['resource_bounds_present']=all(s in script for s in ('WALL_SECONDS = 900','MEMORY_BYTES = 12 * 1024**3','OUTPUT_BYTES = 1024**3'))
