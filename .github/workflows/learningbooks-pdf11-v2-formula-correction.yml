@@ -1,0 +1,48 @@
+name: PDF11 correct exact policy-gradient formula symbol
+on:
+  push:
+    branches: ["docs/learningbooks-dive-into-llms-vi-20261116"]
+    paths:
+      - "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/FORMULA_RELEASE_REQUEST.md"
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.repository == 'minhtri22/TokenToModel-Lab'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 1,persist-credentials: true}
+      - name: Install pinned renderer and apply exact formula correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
+          python3 -m pip install --disable-pip-version-check "pymupdf==1.26.7"
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/patch_formula_11_17.py"
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/independent_static_qa_v2.py"
+      - name: Source region 495-page comparison with historical immutable candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 9544b06b9c95a319cae764957bad2c7450b11a9f
+          mkdir -p /tmp/pdf11_v2_historical
+          ROOT="docs/learningbooks/dive-into-llms/PDF11_VI"
+          for n in $(seq -w 1 11); do
+            git show "9544b06b9c95a319cae764957bad2c7450b11a9f:$ROOT/chapter$n"_VI_bilingual.pdf > "/tmp/pdf11_v2_historical/chapter$n"_VI_bilingual.pdf
+          done
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/source_preservation_495.py"
+      - name: Commit only one corrected PDF and QA receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          R="docs/learningbooks/dive-into-llms/PDF11_VI"
+          V="$R/source_anchored_v2"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$R/chapter11_VI_bilingual.pdf" "$V/REMEDIATION_V2_MANIFEST.json" "$V/EXTERNAL_RATER_QUEUE_495.csv" "$V/REMEDIATION_V2_STATIC_QA.json" "$V/EXACT_SOURCE_SLIDE_READBACK_495.json"
+          test "$(git diff --cached --name-only | grep -cv '^docs/learningbooks/dive-into-llms/PDF11_VI/' || true)" -eq 0
+          git diff --cached --quiet && exit 1
+          git commit -m "docs(learningbooks): correct exact PG equality symbol and independently recheck 495 PDF pages"
+          git push origin "HEAD:refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"

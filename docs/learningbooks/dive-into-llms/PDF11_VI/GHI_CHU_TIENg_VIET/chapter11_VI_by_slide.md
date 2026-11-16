@@ -119,7 +119,7 @@ POLICY GRADIENT — LẤY MẪU QUỸ ĐẠO VÀ CẬP NHẬT THAM SỐ
 Actor tương tác với môi trường (environment), thu nhiều quỹ đạo τ¹, τ², ... (episode sample/trajectory). Trong một quỹ đạo có các cặp trạng thái–hành động (s₁¹,a₁¹), (s₂¹,a₂¹), ... và phần thưởng tổng quỹ đạo R(τ¹); tương tự với τ² và R(τ²). Các mẫu được đưa vào quá trình huấn luyện để cập nhật tham số θ của chính sách πθ.
 CÔNG THỨC 1 — BƯỚC CẬP NHẬT MÔ HÌNH: θ ← θ + η ∇R̄θ. η là bước học (learning rate); ∇R̄θ là gradient của phần thưởng kỳ vọng.
 CÔNG THỨC 2 — ƯỚC LƯỢNG POLICY GRADIENT TRÊN HÌNH:
-∇R̄θ ≈ (1/N) Σ[n=1..N] Σ[t=1..Tₙ] R(τⁿ) ∇ log Pθ(aₜⁿ | sₜⁿ).
+∇R̄θ = (1/N) Σ[n=1..N] Σ[t=1..Tₙ] R(τⁿ) ∇ log Pθ(aₜⁿ | sₜⁿ).
 Ở đây N là số quỹ đạo lấy mẫu, Tₙ là số bước trong quỹ đạo n, Pθ(a|s) là xác suất chọn hành động a tại trạng thái s theo chính sách θ, còn R(τⁿ) là phần thưởng của quỹ đạo.
 Mũi tên “Data Sample” nối các quỹ đạo với bộ ước lượng gradient; mũi tên “Update Model” biểu thị dùng gradient đó cập nhật tham số.
 Công thức được chép nghĩa từ hình nguồn: nó mô tả bộ ước lượng REINFORCE đơn giản mà slide trình bày, không tự bổ sung baseline hay advantage chưa xuất hiện.
