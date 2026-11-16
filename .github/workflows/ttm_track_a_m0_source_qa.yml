@@ -1,0 +1,36 @@
+name: TTM Track A M0 source-only mock QA
+on:
+  pull_request:
+    paths:
+      - 'tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/**'
+      - '.github/workflows/ttm_track_a_m0_source_qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mock-source-qa-windows-py312:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert stdlib-only and Python 3.12
+        shell: pwsh
+        run: |
+          python -c "import sys; assert sys.version_info[:2] == (3,12)"
+      - name: Mock gold-blind scorer QA
+        shell: pwsh
+        run: |
+          python tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py mock-qa
+      - name: Adversarial unit tests
+        shell: pwsh
+        run: |
+          python -m unittest discover -s tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3 -p 'test_*.py' -v
+      - name: Separately implemented negative checker (not human independence)
+        shell: pwsh
+        run: |
+          python tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/independent_m0_review.py
