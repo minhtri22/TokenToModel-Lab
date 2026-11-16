@@ -13,15 +13,15 @@
   ],
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
-  "executor": "UNASSIGNED",
-  "phase_status": "HANDOFF_READY_AGENT_NOT_STARTED",
+  "executor": "Agent A / ChatGPT session",
+  "phase_status": "M0_MOCK_SOURCE_QA_COMPLETE__I1_HOLD",
   "gates": {
-    "A0": "NOT_EXECUTED",
-    "A1": "NOT_EXECUTED",
-    "A2": "NOT_EXECUTED",
+    "A0": "PASS_SCOPED_SOURCE_PIN_AND_BASE",
+    "A1": "HOLD_NEW_PROTOCOL_END_TO_END_NOT_ATTESTED",
+    "A2": "PASS_SCOPED_WINDOWS_PY312_PS51_MOCK_ONLY",
     "A3": "DESIGN_ONLY",
     "A4": "NOT_EXECUTED",
-    "A5": "NOT_EXECUTED"
+    "A5": "HOLD_I1_DISTINCT_REVIEWER_REQUIRED"
   },
   "preexisting_evidence": {
     "I1": "HOLD_I1_SCORER_LABEL_LEAKAGE",
@@ -32,6 +32,24 @@
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "NOT_EXECUTED",
-  "next_operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW"
+  "review": "MOCK_ALTERNATE_LOGIC_PASS__EXTERNAL_DISTINCT_REVIEW_PENDING",
+  "next_operation": "A_M0_V3_INTEGRATED_REAL_FIXTURE_RUNNER_CUSTODY_NATIVE_AND_DISTINCT_I1_ADJUDICATION_SINGLE_GATE",
+  "m0": {
+    "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
+    "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
+    "qa_run": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43891380753",
+    "author_checks": "PASS_10_10",
+    "adversarial_tests": "PASS_16_16",
+    "independent_logic_checker": "PASS_MOCK_LOGIC_NOT_DISTINCT_ACTOR",
+    "mock_fixture_sha256": "f696d20af567ba52dbb9187aba87092829b4da7f3974fbe062608659bd99e726",
+    "independent_holdout_train_binding_leaks": 0,
+    "authoritative_i1": "HOLD_I1",
+    "blocker": "NEW_PROTOCOL_NOT_END_TO_END_ADMITTED",
+    "source_qa_receipt": "artifacts/ttm-abc/track-a/M0_20261116_GOLDBLIND_SOURCE_QA.json",
+    "independent_review": "artifacts/ttm-abc/track-a/M0_20261116_GOLDBLIND_INDEPENDENT_REVIEW.md",
+    "mock_manifest": "artifacts/ttm-abc/track-a/M0_V3_MOCK_FIXTURE_MANIFEST_20261116.json",
+    "legacy_scorer_changed": false,
+    "model_forward": false,
+    "optimizer_steps": 0
+  }
 }
