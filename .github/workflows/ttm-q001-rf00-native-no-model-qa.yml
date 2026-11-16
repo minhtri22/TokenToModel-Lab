@@ -5,6 +5,7 @@ on:
       - "fix/ttm-sm4m-q001-rf00-winjob-hard-cap-20261116"
     paths:
       - ".github/workflows/ttm-q001-rf00-native-no-model-qa.yml"
+      - ".gitattributes"
       - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/windows_job_memory_limit.py"
       - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/test_windows_job_guard_native.py"
       - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1"
