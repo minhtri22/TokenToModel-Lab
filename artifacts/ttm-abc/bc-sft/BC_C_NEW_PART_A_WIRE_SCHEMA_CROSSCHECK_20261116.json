@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.bc.c_new_part_a_crosscheck.v1",
+  "operation": "TTM_PM_BC_SYNTHETIC_SFT_INTERFACE_QUALIFICATION_SINGLE_GATE",
+  "date": "2026-11-16",
+  "mode": "READ_ONLY_C_BRANCH_CROSSCHECK",
+  "b_integration_tested_code_sha": "7a8e15a4451577ab727d5cada6ce15fec2c22080",
+  "b_integration_author_ci": "SUCCESS_29_OF_29_WINDOWS_AND_LINUX",
+  "c_original_contract_head_user_pinned": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+  "c_new_part_a_head": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+  "c_part_a_files": {
+    "docs/research/ttm-abc/track-c/BC_SFT_INTERFACE_CONTRACT_REVIEW_20261116.md": "8c41ae8d0913de5d0148c90593e49df9c83f2a96",
+    "configs/ttm/track_c_bc_sft_candidate_codec_v1.json": "31c5ffe04a664e522aae2b78c53cb3d766f9d990",
+    "tests/ttm_track_c/bc_sft_wire_oracle.py": "233c678c89afc3471af4addc55f827e0c52b0383",
+    "tests/ttm_track_c/test_bc_sft_wire_oracle.py": "5c422bc5c4a7a5dc7c107dc1dda4718361b0851e"
+  },
+  "c_part_a_author_qa": "18_OF_18_PASS_LINUX_PY313_STDLIB_NO_B_MODEL",
+  "c_part_a_verdict_at_review_time": "HOLD_INTERFACE_B_ADAPTER_NOT_DISCOVERED_AT_B_BASE",
+  "comparison": {
+    "special_ids_exact_match": true,
+    "content_semantics_match_at_token_id_level": true,
+    "explicit_mismatch_1": "B messages use list[int] raw bytes; new C candidate uses str UTF-8 content. A typed transform is needed for native C-record-to-B binding; no silent reinterpretation.",
+    "explicit_mismatch_2": "B pack schema ttm.bc.synthetic.sft.pack.v1 differs from C candidate ttm.bc.synthetic.sft_pack.v1.",
+    "explicit_mismatch_3": "B resume metadata schema ttm.bc.synthetic.sft.resume.v1 differs from C candidate checkpoint schema ttm.bc.synthetic.sft_checkpoint.v1. Neither is a real SFT checkpoint.",
+    "explicit_mismatch_4": "B canonical JSON hashing excludes terminal LF; new C oracle canonical JSON includes terminal LF, so literal SHA256 bundles not interchangeable without versioned serialization policy.",
+    "b_ci_29_tests_includes_new_c_part_a_18_test_oracle": false,
+    "source_comparison_only": true,
+    "conclusion": "C_NEW_PART_A_NOT_YET_EXACT_B_BINDING_QUALIFIED"
+  },
+  "gate_integrity": {
+    "BC_0_4": "AUTHOR_CI_PASS_ON_B_OWN_CODEC_ONLY",
+    "BC_5": "HOLD_DISTINCT_AND_B_G5_G6",
+    "B_G5": "HOLD_JOB_MEMORY_NEGATIVE_V3_LOG_MISSING",
+    "B_G6": "HOLD",
+    "C_G1": "HOLD",
+    "C_G2": "DESIGN_VALIDITY_UNPROVEN",
+    "C_G8": "NOT_EXECUTED",
+    "science": false,
+    "main_changed": false,
+    "c_branch_changed_by_b": false
+  },
+  "preserved_b_native_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "next_step": "TTM_BC_EXACT_INTEGRATION_HEAD_DISTINCT_NEGATIVE_QA_AND_B_G5_V3_LOG_ADJUDICATION_ONEPACK"
+}
