@@ -93,7 +93,14 @@ def test_all() -> dict:
              '--tokenizer-source',str(root/'no-underlying-tokens.json'),
              '--fixture-dir',str(fixture),'--out',str(root/'output')]
         proc=subprocess.run(cmd,text=True,capture_output=True,timeout=15)
-        checks['no_checkpoint_read_under_forged_go']=proc.returncode==2 and 'HOLD_' in proc.stderr and not (root/'output').exists()
+        # Native Job Object preflight may fail closed with exit 86 before the
+        # ordinary admission parser runs (exit 2). Do NOT accept generic 86.
+        # Require the exact earlier guard string and untouched output path.
+        held_by_job = (proc.returncode == 86 and
+                       'HOLD_WINJOB_LIMIT_READBACK_MISMATCH' in proc.stderr)
+        held_by_admission = (proc.returncode == 2 and 'HOLD_' in proc.stderr)
+        checks['no_checkpoint_read_under_forged_go'] = (
+            (held_by_admission or held_by_job) and not (root/'output').exists())
         # MOCK-only substitution of in-memory root/hostname pins to exercise
         # the atomic claim path, NOT an authenticated release or runtime trust.
         nonce='f'*64
