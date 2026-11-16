@@ -15,7 +15,17 @@ param(
 $ErrorActionPreference='Stop'
 $Python='C:\Users\minht\AppData\Local\Programs\Python\Python312\python.exe'
 if (-not $RunnerPath) {$RunnerPath=Join-Path $PSScriptRoot 'ttm_sm4m_diag_q001.py'}
-if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}
+if ($ExpectedRunnerSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_RUNNER_PIN_FORMAT'}
+if ($ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_WATCHDOG_PIN_FORMAT'}
+$WatchdogModule=Join-Path $PSScriptRoot 'Watch-TTM-SM4M-ProcessTree-PS51.ps1'
+if (-not (Test-Path -LiteralPath $WatchdogModule -PathType Leaf)) {throw 'HOLD_WATCHDOG_MODULE_MISSING'}
+$ActualWatchdogSHA256=(Get-FileHash -LiteralPath $WatchdogModule -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($ActualWatchdogSHA256 -cne $ExpectedWatchdogSHA256) {throw 'HOLD_WATCHDOG_SOURCE_SHA'}
+# Bind the single reviewed watchdog module before admitting any model process.
+. $WatchdogModule
+if (-not (Get-Command Invoke-TTMDiagProcessWatch -CommandType Function -ErrorAction SilentlyContinue)) {
+    throw 'HOLD_WATCHDOG_FUNCTION_NOT_LOADED'
+}
 if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) {throw 'HOLD_PY312_NOT_FOUND'}
 $root=[IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\')+'\'
 foreach($path in @($RunnerPath,$PermitPath,$CheckpointPath,$TokenInventoryPath,$TokenizerSourcePath,$FixtureDir,$OutputDir)) {
