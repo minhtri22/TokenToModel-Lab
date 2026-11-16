@@ -54,7 +54,7 @@
     "BC-4": "HOLD_INTERFACE_F01_F04",
     "BC-5": "HOLD_DISTINCT_NEW_SFT_INTEGRATION"
   },
-  "verdict": "HOLD_INTERFACE",
+  "verdict": "HOLD_INTERFACE_PENDING_B_V2_AUTHOR_CI_AND_DISTINCT_QA",
   "m4_design": "PASS_DESIGN_SCOPED",
   "m3_b_older_pm": "PASS_ENGINEERING_BASELINE_SCOPED_WITH_REVIEWER_PEAK_DISSENT",
   "v3_immutable": "HOLD_NATIVE_QA",
@@ -63,5 +63,40 @@
   "lineage_mutated": false,
   "b_branch_mutated_by_c": false,
   "merge": false,
-  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE"
+  "next_operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "c_v2_alignment": {
+    "review_b_exact_head": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+    "b_v2_bridge_git_blob": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+    "b_v2_tests_git_blob": "cb08038adcceb4848790694b62c97f648d0b1b62",
+    "source_only_verdict": "C_V2_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED",
+    "b_v2_schema": {
+      "pack": "ttm.bc.synthetic.sft_pack.v2",
+      "checkpoint": "ttm.bc.synthetic.sft_checkpoint.v2",
+      "semantics": "METADATA_ONLY_NOT_ACTUAL_WEIGHTS",
+      "canonical": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2"
+    },
+    "c_v2_reference_git_blob": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+    "c_test_suite_git_blob": "40d9e524d1211363d4200302c65144e4632c2879",
+    "prior_c_v2_unaligned_run": {
+      "run_id": 43917885265,
+      "status": "SUCCESS",
+      "scope": "C_OWN_ORACLE_NOT_B_ORIGINAL_AND_NOT_CURRENT_SCHEMA_NAMES"
+    },
+    "aligned_c_v2_ci": "PENDING_NEW_EXACT_C_HEAD",
+    "b_v2_author_ci": "PENDING_EXACT_B_HEAD",
+    "independent_b_v2_qa": "NOT_EXECUTED",
+    "B_source_static_checks": [
+      "TYPE_STRICT_UTF8_BRIDGE",
+      "SEVEN_PHYSICAL_ARTIFACTS_SAVED_READBACK_HASH",
+      "NEW_VERSIONED_SCHEMA",
+      "CANONICAL_WITH_TERMINAL_LF",
+      "C18_ROUTING_PRESENT",
+      "MASK_CE_P02_CPU_PROBE_PRESENT"
+    ],
+    "advisory": [
+      "MAX_LEN_GENERIC_API_ALLOWS_257_B_MODEL_REQUIRES_33_CHECK_MODEL_BOUND_ENTRY",
+      "MANIFEST_JSON_SYMLINK_NOT_EXPLICITLY_CHECKED"
+    ]
+  },
+  "c_schema_signoff": "SOURCE_SCOPED_ONLY_B_IDENTIFIERS_ACCEPTED"
 }

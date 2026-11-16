@@ -1,4 +1,4 @@
-"""Agent C v2 *candidate* acceptance oracle; NOT the B implementation.
+"""Agent C v2 contract oracle aligned to B candidate names; NOT B implementation.
 
 This is a source/design validation helper only, with no model, training, real
 checkpoint, real data or network IO.  No authority to migrate B v1 receipts.
@@ -11,12 +11,12 @@ import os
 from pathlib import Path
 import re
 
-WIRE_SCHEMA = "ttm.bc.synthetic.sft.wire.v2"
-PACK_SCHEMA = "ttm.bc.synthetic.sft.pack.v2"
-RESUME_METADATA_SCHEMA = "ttm.bc.synthetic.sft.resume_metadata.v2"
-CODEC_SCHEMA = "ttm.bc.synthetic.byte_chat_codec.v2"
-TEMPLATE_SCHEMA = "ttm.bc.synthetic.role_bound_template.v2"
-CANON_SCHEMA = "ttm.bc.canonical_json_utf8_lf.v2"
+WIRE_SCHEMA = "ttm.bc.c_string_to_b_bytes.v2"
+PACK_SCHEMA = "ttm.bc.synthetic.sft_pack.v2"
+RESUME_METADATA_SCHEMA = "ttm.bc.synthetic.sft_checkpoint.v2"
+CODEC_SCHEMA = "ttm.bc.synthetic.byte_codec.v2"
+TEMPLATE_SCHEMA = "ttm.bc.synthetic.chat_template.v2"
+CANON_SCHEMA = "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2"
 SPECIAL = {"EOS": 256, "PAD": 257, "BOS": 258, "SYS": 259,
            "USER": 260, "ASSIST": 261, "EOT": 262}
 IGNORE = -100
@@ -39,6 +39,8 @@ LEGACY_SCHEMAS = frozenset({
     "ttm.p04.model_checkpoint.v1",
     "ttm.t4.science.checkpoint.v1",
     "ttm.track_b.synthetic.train_checkpoint.v1",
+    "ttm.bc.synthetic.sft.pack.v2",  # C provisional name: never shipped as B artifact
+    "ttm.bc.synthetic.sft.resume_metadata.v2",  # C provisional name
 })
 HEX64 = re.compile(r"[0-9a-f]{64}\Z")
 
@@ -116,7 +118,8 @@ def validate_new_schema(schema: str, *, role: str) -> None:
     required = PACK_SCHEMA if role == "pack" else RESUME_METADATA_SCHEMA
     if schema in LEGACY_SCHEMAS or schema != required:
         raise ValueError("SCHEMA_VERSION_MISMATCH")
-    # Resume metadata is not a checkpoint weight artifact.
+    # Despite checkpoint_schema name, candidate scope is RESUME METADATA ONLY,
+    # with weights NOT_CREATED; not a real trained checkpoint.
 
 
 def _safe_path(root: Path, name: str) -> Path:

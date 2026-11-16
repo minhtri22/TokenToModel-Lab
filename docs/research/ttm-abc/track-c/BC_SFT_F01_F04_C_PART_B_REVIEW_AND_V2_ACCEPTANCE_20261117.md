@@ -2,7 +2,7 @@
 
 **Operation:** `TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE`  
 **Role:** Agent C — Contract Owner/Technical Reviewer, not B Implementation Owner.  
-**Date:** 2026-11-17. **Verdict on inspected candidate:** **`HOLD_INTERFACE`** (four confirmed cross-track blockers).  
+**Date:** 2026-11-17. **Initial verdict on inspected v1 candidate:** **`HOLD_INTERFACE`** (four confirmed cross-track blockers). Updated addendum below reviews B v2 implementation candidate separately.  
 **No production science, no real dataset/weights, no GPU, no optimizer step, no TEST reuse, no merge.**
 
 ## 1. Exact sources, repair responsibilities and preservation
@@ -27,16 +27,16 @@ Token-ID namespace itself **agrees** in B and C Part A: payload byte `0..255`, `
 
 ## 3. Proposed shared *v2* wire contract — C recommendation (B signoff PENDING)
 
-This is **not a unilateral change to B** and does not supersede old v1 evidence. It becomes jointly accepted only when B explicitly references the same exact v2 schema/byte policy in new PR #36 commit.
+**C design acceptance for proposed v2 identifiers** follows the new B PR #36 implementation at exact `724f62a025b8ecc7c452b9ee16c926adfd2b8c7e`, without altering earlier B v1 evidence. C accepts this naming and canonical-byte policy as a **provisional shared candidate**; B's new CI and distinct QA are evaluated separately. The name `sft_checkpoint.v2` MUST mean metadata-only and MUST NOT imply real weights or resumable training.
 
 | Component | Proposed frozen v2 identity | Semantics |
 |---|---|---|
-| Wire | `ttm.bc.synthetic.sft.wire.v2` | synthetic engineering only |
-| Codec | `ttm.bc.synthetic.byte_chat_codec.v2` | UTF-8 raw bytes to token IDs 0..255, specials 256..262 |
-| Chat template | `ttm.bc.synthetic.role_bound_template.v2` | BOS, optional SYS, alternating USER/ASSIST, EOT each role, final EOS; assistant-only target |
-| SFT pack | **`ttm.bc.synthetic.sft.pack.v2`** | separate from `ttm.bc.synthetic.sft.pack.v1`, `sft_pack.v1`, and old byte windows |
-| Resume **metadata** | **`ttm.bc.synthetic.sft.resume_metadata.v2`** | `weights=NOT_CREATED`; NOT a trained checkpoint |
-| Canonical bytes | **`ttm.bc.canonical_json_utf8_lf.v2`** | sorted JSON keys; compact separators `(',', ':')`; `ensure_ascii=False`; `allow_nan=False`; UTF-8 **exactly one final LF (0x0a)**; no Unicode normalization; no CRLF conversion |
+| Wire | `ttm.bc.c_string_to_b_bytes.v2` | synthetic engineering only |
+| Codec | `ttm.bc.synthetic.byte_codec.v2` | UTF-8 raw bytes to token IDs 0..255, specials 256..262 |
+| Chat template | `ttm.bc.synthetic.chat_template.v2` | BOS, optional SYS, alternating USER/ASSIST, EOT each role, final EOS; assistant-only target |
+| SFT pack | **`ttm.bc.synthetic.sft_pack.v2`** | separate from `ttm.bc.synthetic.sft.pack.v1`, `sft_pack.v1`, and old byte windows |
+| Resume **metadata** | **`ttm.bc.synthetic.sft_checkpoint.v2`** | `weights=NOT_CREATED`; NOT a trained checkpoint |
+| Canonical bytes | **`ttm.bc.canonical_json_utf8_sorted_compact_lf.v2`** | sorted JSON keys; compact separators `(',', ':')`; `ensure_ascii=False`; `allow_nan=False`; UTF-8 **exactly one final LF (0x0a)**; no Unicode normalization; no CRLF conversion |
 | Data | strict source `str`→`encode('utf-8','strict')`→byte `list[int]` | preserve NUL, role literals, emoji, NFD/NFC differences; do not coerce bytes/lists into text |
 | Max sequence | B synthetic `max_len=33` = P02 context 32 plus one target | `x=ids[:-1]`, `y=ids[1:]` masked by trusted role flags; no truncation or padding-left |
 | Loss | `ignore_index=-100`; `CE_sum(valid)/count(valid)` | zero **direct** prompt label loss; gradient **may flow** through prompt embeddings/context |
@@ -102,3 +102,25 @@ One C-authored v2 design/negative suite **cannot close** A12–A16 without B v2 
 **Final Part B result for currently available B PR #36:** **`HOLD_INTERFACE`**. There is an implementation but not the repaired, jointly agreed v2 candidate, and **BC-5 stays HOLD**. C M4 `PASS_DESIGN_SCOPED` remains valid; C-G1 HOLD, C-G2 UNPROVEN, C-G8 NOT_EXECUTED. No merge or science dispatch.
 
 **Bước thực hiện tiếp theo — duy nhất:** `TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE` — B submits amended PR #36 exact source and physical hash receipt; C reviews once against frozen v2 candidate; distinct reviewer performs new negative/native synthetic QA; PM adjudicates in a single shared evidence packet.
+
+
+## 7. 2026-11-17 B v2 bridge readback — new candidate, not v1 reversal
+
+The earlier sections' **four HOLD findings apply specifically to B v1 at `5f2b71c5...`**. They are not automatically statements about the new B candidate.
+
+**Latest C-read B exact source:** [PR #36 at `724f62a025b8ecc7c452b9ee16c926adfd2b8c7e`](https://github.com/minhtri22/TokenToModel-Lab/commit/724f62a025b8ecc7c452b9ee16c926adfd2b8c7e). New `src/ttm_track_b/bc_sft_bridge_v2.py` Git blob **`f2cc02821efa4f9628964657d90c7a98c4d67e13`**; new `tests/test_bc_sft_bridge_v2.py` blob **`cb08038adcceb4848790694b62c97f648d0b1b62`**. Pinned `run_c18_on_b_v2.py` routes C's 18 unchanged bodies through B implementation via explicit compatibility shim; the shim's old `verify_manifest` metadata test is **not** a substitute for B `verify_bundle(root)` actual-file custody.
+
+**Static source outcomes for B v2:**
+
+- **BC-F01 — SOURCE_REVIEW_PASS_SCOPED:** `to_byte_messages` strictly requires C `str`, UTF-8 identity; `from_byte_messages` rejects invalid byte strings and is separate from B's `raw_b_byte_only`. Negative source tests cover NUL, surrogate, role-literal, multibyte, NFC/NFD and invalid structures. Real C→B executable cross-oracle on this exact HEAD remains reviewer-dependent.
+- **BC-F02 — C_SCHEMA_NAMES_ACCEPTED_SCOPED:** C accepts B's *new and distinct* v2 identities `ttm.bc.synthetic.sft_pack.v2` and `ttm.bc.synthetic.sft_checkpoint.v2`. The **checkpoint-named schema is metadata only** (`scope=METADATA_ONLY_NO_ACTUAL_CHECKPOINT`, `resume_enabled=False`, `weights=NOT_CREATED`), not a training checkpoint. All v1, old T4/P04, plus **C's superseded draft v2 alternative names**, must be rejected without mapping aliases to the same digest.
+- **BC-F03 — C_CANONICAL_POLICY_ACCEPTED_SCOPED:** `ttm.bc.canonical_json_utf8_sorted_compact_lf.v2`: sorted compact UTF-8, no normalization, **exact one LF**, `allow_nan=False`. B `canonical()` implementation has that encoding; it is intentionally different from immutable B v1 no-LF byte format. C v2 reference code is amended with exactly B's names.
+- **BC-F04 — SOURCE_REVIEW_PASS_SCOPED:** B `write_bundle()` writes seven named JSON files as new physical bytes and re-opens them for SHA; `verify_bundle()` independently opens bytes and validates hash, canonical encoding, IDs, targets, masks and frozen fixture. B new 24 negative tests target all seven content/hash mutations, plus forged valid digests with bad target labels. Actual B-produced files and CI logs must be independently read by a distinct reviewer for `BC-5`.
+
+**C source QA code:** `tests/ttm_track_c/bc_v2_contract_oracle.py` is a *reference* only, now adopting B's selected v2 identities; `test_bc_v2_contract_oracle.py` 18 synthetic/byte-custody negatives are C authored. The earlier separate C workflow at C commit `141914164b82630319687832447a60c4d68349d1`, [Actions #43917885265](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43917885265), returned SUCCESS **before** C's namespace alignment; the aligned C source must be run again on exact new C commit. Both suites are **not** a distinct B engineering QA.
+
+**Guardrails and outstanding checks:** B public `serialize/build` supports up to max_len=257 to reproduce C oracle, but B P02 model context is 32; **the real B model/pack entrypoint must use max_len=33 and reject oversized model-bound inputs**. B's `verify_bundle()` checks artifact symlinks but does not explicitly reject a symlink at `manifest.json`; enforce no-external-manifest path in distinct negative QA or mark as an advisory/source-hardening item. Both are bounded to synthetic engineering only and do not undermine previously passing v1 CI.
+
+**Current C contract decision:** `C_V2_SCHEMA_CANONICAL_SOURCE_SIGNOFF_SCOPED` (B's names/policy accepted as candidate) but **`C_CONTRACT_COMPATIBILITY_PASS_SCOPED=NOT_YET_ADJUDICATED`** pending exact new B CI and independent executable test of actual file bytes/model path. `BC-5=HOLD`, B-G5 older disputed decisions are append-only. `main`, B branch, A, `lineage.md` unchanged by Agent C; no merge or science.
+
+**Single next operation remains:** `TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE` with C's exact-candidate Part B judgement, independent reviewer execution and PM acceptance in one packet.
