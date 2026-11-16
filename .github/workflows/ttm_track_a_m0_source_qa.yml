@@ -68,7 +68,11 @@ jobs:
         run: |
           python -c "import pathlib,hashlib; p=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py');print('AMENDED_RUNNER_SHA256='+hashlib.sha256(p.read_bytes()).hexdigest())"
 
-      - name: PS5.1 real tokenizer freeze OnePack AST and no-science safety contract
+      - name: Canonical runner and OnePack SHA256 for reviewer custody
+        shell: pwsh
+        run: |
+          python -c "import pathlib,hashlib;d=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001');names=[d/'preexec_candidate_20261116'/'ttm_sm4m_diag_q001.py',d/'track_a_m0_v3'/'Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1'];[(lambda b,n:print('SOURCE_CUSTODY='+n+' LF='+hashlib.sha256(b.replace(bytes([13,10]),bytes([10]))).hexdigest()+' CRLF='+hashlib.sha256(b.replace(bytes([13,10]),bytes([10])).replace(bytes([10]),bytes([13,10]))).hexdigest()+' PHYSICAL='+hashlib.sha256(b).hexdigest()))(p.read_bytes(),p.name) for p in names]"
+      - name: PS5.1 readback-only OnePack AST and no-science safety contract
         shell: powershell
         run: |
           $script='tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1'
@@ -81,4 +85,5 @@ jobs:
             if (-not $raw.Contains($req)) { throw ('MISSING_GUARD_'+$req) }
           }
           if ($raw -match '(^|\s)\b(run|train)\b\s+--checkpoint') { throw 'UNEXPECTED_MODEL_ENTRY' }
+          if ($raw -match '(&\s*\$Python\s+-I\s+\$Runner\s+fixture-freeze)') { throw 'READBACK_MUST_NOT_REFREEZE' }
           Write-Host 'PS51_READBACK_ONLY_AST=PASS_NO_PRIVATE_EXECUTION'
