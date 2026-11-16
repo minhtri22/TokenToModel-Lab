@@ -277,6 +277,8 @@ def _check_manifest_shape(m:dict) -> None:
         raise ValueError("CHECKPOINT_SCHEMA_VERSION")
     if m.get("canonical_schema")!=CANONICAL_SCHEMA:
         raise ValueError("CANONICAL_POLICY_MISMATCH")
+    if m.get("bridge_schema")!=BRIDGE_SCHEMA:
+        raise ValueError("BRIDGE_SCHEMA_VERSION_MISMATCH")
     if m.get("source_c_oracle_head")!=C_ORACLE_HEAD or m.get("source_b_head")!=B_BASE_HEAD:
         raise ValueError("SOURCE_PIN_MISMATCH")
     if m.get("synthetic_only") is not True or m.get("no_science") is not True:
@@ -365,7 +367,12 @@ def verify_bundle(root:Path | str) -> dict:
         raise ValueError("BUNDLE_PATH_INVALID")
     if set(p.name for p in path.iterdir()) != {*ARTIFACT_NAMES.values(),"manifest.json"}:
         raise ValueError("BUNDLE_FILE_SET_MISMATCH")
-    raw_manifest=(path/"manifest.json").read_bytes()
+    manifest_path=path/"manifest.json"
+    # Reject links before reading: do not follow a manifest to outside the bundle.
+    # This pathname check is not a TOCTOU-safe handle/reparse-point guarantee.
+    if manifest_path.is_symlink() or not manifest_path.is_file():
+        raise ValueError("SYMLINK_OR_MISSING_MANIFEST")
+    raw_manifest=manifest_path.read_bytes()
     m=json.loads(raw_manifest.decode("utf-8",errors="strict"))
     if raw_manifest != canonical(m):
         raise ValueError("MANIFEST_CANONICAL_BYTES_MISMATCH")
