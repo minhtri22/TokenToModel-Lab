@@ -30,4 +30,4 @@ jobs:
         shell: bash
         run: |
           python -c "import sys,torch; assert sys.version_info[:2] == (3,12); print(sys.version,torch.__version__)"
-          python -S -B -m unittest discover -s tests/ttm_track_bc -p 'test_c_part_b_independent_f01_f04.py' -v
+          python -B -m unittest discover -s tests/ttm_track_bc -p 'test_c_part_b_independent_f01_f04.py' -v
