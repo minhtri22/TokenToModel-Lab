@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.pm.track_status.v1",
+  "effective_date": "2026-11-16",
+  "track": "A",
+  "branch": "research/ttm-track-a-small4m-diagnosis-20261116",
+  "initial_base_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+  "handoff_commit": "892594577aa45f3b07be577103dd2355de8cf7dd",
+  "handoff_path": "docs/coordination/ttm-abc/TTM_TRACK_A_SMALL4M_DIAG_AGENT_HANDOFF_20261116.md",
+  "milestones": [
+    "M0",
+    "M1",
+    "M2"
+  ],
+  "owner": "repo owner",
+  "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
+  "executor": "UNASSIGNED",
+  "phase_status": "HANDOFF_READY_AGENT_NOT_STARTED",
+  "gates": {
+    "A0": "NOT_EXECUTED",
+    "A1": "NOT_EXECUTED",
+    "A2": "NOT_EXECUTED",
+    "A3": "DESIGN_ONLY",
+    "A4": "NOT_EXECUTED",
+    "A5": "NOT_EXECUTED"
+  },
+  "preexisting_evidence": {
+    "I1": "HOLD_I1_SCORER_LABEL_LEAKAGE",
+    "I2": "NOT_EXECUTED",
+    "checkpoint_sha_verified": true,
+    "native_windows_QA": "PASS_SCOPED_16_16"
+  },
+  "science_execution": "NOT_EXECUTED",
+  "merge": "NOT_AUTHORIZED",
+  "lineage_modified": false,
+  "review": "NOT_EXECUTED",
+  "next_operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW"
+}
