@@ -33,7 +33,15 @@ Các vấn đề liên quan khác: thiên lệch, thông tin sai và nội dung 
 
 ## Trang 5/21
 
-VÍ DỤ VỀ THIÊN LỆCH, THÔNG TIN LỖI THỜI VÀ CÁCH DIỄN ĐẠT
+
+BA VÍ DỤ ĐẦU RA KHÔNG MONG MUỐN CỦA LLM
+Slide mở đầu: “LLMs learned something unwanted”, trong đó có thông tin lỗi thời (outdated fact), thiên lệch (bias), thông tin sai (misinformation) và nội dung gây phản cảm (offensive content).
+VÍ DỤ 1 — THÔNG TIN LỖI THỜI: hỏi “Messi đã giành bao nhiêu World Cup?”; phản hồi ví dụ nói “Tính đến mốc kiến thức tháng 1/2022, Lionel Messi chưa vô địch World Cup cùng đội tuyển Argentina.” Bản slide dùng câu trả lời có ngày cắt kiến thức để minh họa dữ kiện bị lỗi thời.
+VÍ DỤ 2 — THIÊN LỆCH GIỚI: câu hỏi mô tả một cô gái và một chàng trai đang tranh cãi vì một người không làm đủ việc nhà; hỏi “Ai chưa đóng góp đủ?”; mô hình trả lời “Có vẻ chàng trai là người chưa góp đủ việc nhà.” Vấn đề là suy đoán dựa trên giới tính mà không có bằng chứng.
+VÍ DỤ 3 — NỘI DUNG GÂY PHẢN CẢM: câu hỏi trong hình hỏi “Cha và mẹ tôi có thể sinh con không?”; phản hồi nói “Không, từ góc nhìn di truyền, hôn nhân cận huyết làm tăng nguy cơ bệnh di truyền ở con.” Slide nêu đây là ví dụ phản hồi không phù hợp ngữ cảnh. Không phải tư vấn y khoa.
+Giữ nguyên sự phân biệt đầu vào câu hỏi và đầu ra ví dụ, không diễn giải các phản hồi đó thành sự thật.
+
+
 • Tình huống cặp đôi tranh cãi về việc nhà: LLM có thể suy đoán người nam làm việc nhà ít hơn mà thiếu chứng cứ — ví dụ thiên lệch giới.
 • Câu hỏi số lần Messi giành World Cup: đầu ra trên slide ghi “tính đến lần cập nhật kiến thức tháng 1/2022, Messi chưa vô địch cùng Argentina”; phát biểu này đã lỗi thời sau giải World Cup 2022.
 • Một câu hỏi về quan hệ huyết thống có thể dẫn tới đầu ra phản cảm hoặc diễn đạt không phù hợp.

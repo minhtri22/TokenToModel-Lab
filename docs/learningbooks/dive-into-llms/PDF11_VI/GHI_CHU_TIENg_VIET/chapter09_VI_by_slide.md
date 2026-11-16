@@ -130,7 +130,16 @@ Nguồn: Jiang và cộng sự, “AppAgentX: Evolving GUI Agents as Proficient 
 
 ## Trang 14/43
 
-TÁC NHÂN GUI DỰA TRÊN MÔ HÌNH MỞ
+
+BA NHÁNH KỸ THUẬT XÂY DỰNG GUI AGENT TỪ MÔ HÌNH MỞ
+PDF nguồn có đúng BA CỘT: TIỀN HUẤN LUYỆN (pretraining), TINH CHỈNH CHỈ DẪN (instruction tuning), HỌC TĂNG CƯỜNG (reinforcement learning). Không có cột “imitation learning” thứ tư.
+1. TIỀN HUẤN LUYỆN: nhận dạng vị trí phần tử giao diện và giải thích thành phần UI. Yếu tố then chốt: phụ thuộc dữ liệu gán nhãn quy mô lớn. Mô hình đại diện: OS-Atlas, Auto-GLM.
+2. TINH CHỈNH CHỈ DẪN: khớp mẫu, cần dữ liệu chú giải chất lượng cao. Đặc trưng: sao chép hành vi chuyên gia, dễ huấn luyện hơn. Mô hình đại diện: Auto-GUI, AutoAct, ToolLLM.
+3. HỌC TĂNG CƯỜNG: học từ quỹ đạo thao tác, phụ thuộc thiết kế hàm thưởng. Đặc trưng: tự khám phá và tối ưu chính sách; chi phí huấn luyện cao. Mô hình đại diện: DigiRL, DistRL, Agent Q.
+Ảnh trong slide minh họa: nhận diện/thuyết minh UI (cột 1), ví dụ mục tiêu mua máy pha cà phê với hành động chạm có tọa độ (cột 2), và lộ trình tác vụ gồm các hành động kế tiếp (cột 3).
+Lưu ý sửa lỗi: phiên bản cũ gán OS-Atlas/Auto-GLM sang instruction tuning và chia thành 4 nhóm; điều đó không đúng bố cục và nội dung nguồn.
+
+
 Có thể sử dụng những lộ trình huấn luyện khác nhau:
 • Tiền huấn luyện (pretraining).
 • Tinh chỉnh chỉ dẫn (instruction tuning/SFT) nhằm học nhận biết thành phần UI và vị trí; cần dữ liệu gán nhãn lớn, ví dụ OS-Atlas, Auto-GLM.

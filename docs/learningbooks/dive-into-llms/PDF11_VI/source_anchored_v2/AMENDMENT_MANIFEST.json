@@ -1,0 +1,53 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_SOURCE_ANCHORED_CONTENT_REMEDIATION_AND_EXTERNAL_RATER_FULL_COVERAGE_ONEPACK",
+  "source_pin": "f84c04268794ef94f8949808bbc14ab8636763a0",
+  "baseline_head": "c5f3ea63fbe1d0088464e3759a648ae949855f12",
+  "source_scope": "PDF source user uploaded; 495 pages, 11 chapters",
+  "rewrite_scope": "13 targeted pages",
+  "rewritten_page_ids": [
+    "01:20",
+    "01:43",
+    "03:05",
+    "06:22",
+    "06:27",
+    "07:09",
+    "07:13",
+    "08:07",
+    "08:14",
+    "09:14",
+    "10:08",
+    "10:28",
+    "11:17"
+  ],
+  "previous_8_blockers": [
+    "01:20",
+    "01:43",
+    "06:22",
+    "06:27",
+    "08:07",
+    "09:14",
+    "10:08",
+    "11:17"
+  ],
+  "additional_partial_pages": [
+    "03:05",
+    "07:09",
+    "07:13",
+    "08:14",
+    "10:28"
+  ],
+  "external_rater": "NOT_EXECUTED",
+  "full_translation": "HOLD",
+  "independent_semantic_495": "NOT_EXECUTED",
+  "prior_note_blob_sha": {
+    "1": "d801d5f8a5097e855e22ffe0321caff6956cbc5d",
+    "3": "639908ae2603bf827ec3323dd3126d48ec298ff5",
+    "6": "bd06b4c6cc7bc159e596ec7d1f0fe4db3f581cea",
+    "7": "b2c912e93263eefeb8f3f6c298c38a35ef747c6b",
+    "8": "caa6baec0c0aca24918795c6766bb80fef9f763f",
+    "9": "fab65f87775cf5a9535e847605ccc63dd8a1d067",
+    "10": "b5c377d1c003cfc02e704f7b77fdb52925221b24",
+    "11": "b55507ee817cd0121ca4024ad2abbd72d285d9a2"
+  },
+  "github_status": "TARGET_NOTES_UPDATED; BILINGUAL_PDFS_NOT_YET_REBUILT"
+}

@@ -59,7 +59,15 @@ Theo tác giả, sự phát triển của học sâu và các mô hình lớn đ
 
 ## Trang 9/13
 
-CƠ CHẾ GIẤU TIN KHI LLM SINH TOKEN (1–3)
+
+GIẤU TIN VĂN BẢN SINH BẰNG LLM — CHỌN NEXT TOKEN
+Theo nguồn, văn bản do mô hình sinh là dữ liệu tuần tự (serialized data). Khi nhận ngữ cảnh phía trước và các tham số sinh, mô hình tạo bảng logits dự báo token tiếp theo, có token ID sắp theo xác suất từ cao đến thấp.
+Ở cách sinh thông thường, mô hình lấy mẫu ngẫu nhiên một trong n token ứng viên (theo các tham số giải mã), chọn làm token kế tiếp rồi lặp lại.
+Ở giấu tin tạo sinh, quy tắc mã hóa được đặt vào quá trình chọn next token: thay vì chọn hoàn toàn theo cách thông thường, mô hình can thiệp vào sự lựa chọn token theo một quy tắc đã biết để đưa bit/thông tin ẩn vào chuỗi văn bản tạo ra.
+SƠ ĐỒ minh họa Alice gửi plaintext; mô hình mã hóa thành ciphertext và cover text; người nhận Bob dùng bộ giải mã khôi phục thông điệp. Kênh công khai chỉ thấy cover text, người quan sát không biết khóa/quy tắc khó phát hiện thông điệp.
+Nghiên cứu được dẫn trên slide: Yang và cộng sự (RNN-stega, 2018), Tang và cộng sự (2024) và Yang và cộng sự (VAE-Stega, 2020).
+
+
 Bộ sinh văn bản làm việc trên chuỗi token. Với tiền tố/ngữ cảnh và các tham số sinh, mô hình trả về logits cho token tiếp theo, tương ứng các ID token và mức điểm/xác suất.
 Trong chế độ sinh thông thường, mô hình chọn một trong các token ứng viên dựa trên phân bố và tham số lấy mẫu, rồi tiếp tục chu kỳ.
 Trong giấu tin bằng sinh văn bản, một quy tắc đã định can thiệp vào lựa chọn token tiếp theo nhằm mã hóa các bit bí mật vào chuỗi được sinh ra. Ba công trình nghiên cứu tham khảo nằm ở cuối slide gốc.
@@ -85,7 +93,16 @@ Ví dụ trước dùng cách gán mã cố định theo thứ tự n token. Hì
 
 ## Trang 13/13
 
-Ý NGHĨA VÀ HƯỚNG PHÁT TRIỂN
+
+Ý NGHĨA VÀ HƯỚNG PHÁT TRIỂN CỦA GIẤU TIN VỚI LLM
+• ƯU THẾ: tận dụng chất lượng mô hình để tạo bản văn tự nhiên, nhờ đó nội dung giấu tin khó bị nhận ra.
+• KHÔNG GIAN MÃ HÓA: mỗi phương pháp phụ thuộc cấu trúc mã; phát minh cấu trúc không gian mã mới có thể tạo cách giấu tin mới.
+• MỞ RỘNG SANG VẬT MANG KHÁC: giấu tin bằng ngôn ngữ sinh về bản chất là “mã hóa tuần hoàn dữ liệu tuần tự”. Tác giả gợi ý có thể chuyển sang vật mang khác như DNA, kết hợp dụng cụ và mô hình để mã hóa dữ liệu trong chuỗi DNA. Slide lấy ví dụ giả định giấu thông tin trong một chai nước, một số tế bào hoặc một vài sợi tóc; đây là viễn cảnh nghiên cứu, không phải quy trình thí nghiệm.
+• KẾT HỢP THỦY VÂN: watermark LLM có thể tương tác với giấu tin. Ví dụ watermark KGW cũng áp đặt ràng buộc lên việc chọn next token trong lúc suy luận.
+• AN TOÀN NỘI DUNG: phân tích giấu tin (steganalysis) có thể hỗ trợ đánh giá và lọc nội dung truyền thông. Slide xem một số lời xúc phạm ẩn ý, không kích hoạt từ khóa như một dạng che giấu ngữ nghĩa, và gợi ý sử dụng AI phát hiện để bảo vệ không gian mạng.
+Đây là các dự đoán và phân tích trong bài giảng, không phải bằng chứng mọi hệ thống giấu tin đều an toàn.
+
+
 • Giấu tin bằng LLM có thể tận dụng khả năng sinh ngôn ngữ để tạo văn bản tự nhiên hơn, khó phát hiện hơn.
 • Không gian mã hóa là yếu tố cốt lõi: xây dựng một không gian token/mã mới có thể dẫn đến phương pháp giấu tin mới.
 • Bản chất của phương pháp sinh là mã hóa lặp trên dữ liệu có thứ tự. Tác giả đề xuất khả năng áp dụng sang phương tiện khác, ví dụ DNA; đây là định hướng mang tính suy đoán, không phải kỹ thuật đã được chứng minh trong bài giảng.

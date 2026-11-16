@@ -57,7 +57,24 @@ Rủi ro jailbreak của LLM có thể chuyển thành rủi ro hành động th
 
 ## Trang 8/51
 
-TOÀN CẢNH RỦI RO TÁC NHÂN
+
+BẢN ĐỒ RỦI RO VÀ CỬA HẬU TRONG TÁC NHÂN AI
+Ba tiêu đề cấp cao của slide: (1) RỦI RO AN TOÀN NỘI DUNG (content safety); (2) RỦI RO AN TOÀN HÀNH VI (behavior safety); (3) AN TOÀN NỘI SINH MÔ HÌNH (model intrinsic safety). Trong nhóm nội sinh, slide ghi “lỗ hổng” và “backdoor”.
+Sơ đồ backdoor nêu BỐN MỐC: 1. Cửa hậu qua đầu độc dữ liệu; 2. Cửa hậu chuyển tiếp qua tiền huấn luyện; 3. Cửa hậu mô hình hạ nguồn; 4. Cửa hậu mô hình ngôn ngữ lớn. Trục ở đáy: xử lý dữ liệu → tiền huấn luyện → tinh chỉnh hạ nguồn → mô hình lớn.
+Các NHÃN KỸ THUẬT xuất hiện trong sơ đồ nguồn:
+• Thuật toán cấy backdoor với nhãn sạch bằng nhiễu đối kháng (clean-label adversarial perturbation).
+• Thuật toán cấy backdoor đầu độc kín đáo bằng mô hình tạo sinh.
+• Khung cấy backdoor chuyển giao tổng quát dựa trên học tương phản.
+• Cơ chế đầu độc hiệu quả dựa trên lựa chọn tham số thích nghi.
+• Tăng cường chuyển giao backdoor bằng tối ưu hai cấp và đầu độc theo phân cấp.
+• Thuật toán cấy backdoor mới hướng tới nhiều mô thức (multi-paradigm).
+• Tối ưu hiệu suất backdoor bằng điều khiển gradient đa tỷ lệ.
+• Cửa hậu nhẹ dựa trên chỉnh sửa tri thức (knowledge editing).
+• Cửa hậu tạo sinh dựa trên phản hồi bị đầu độc và chỉ dẫn ảo.
+• Thuật toán cấy backdoor đầu độc với trigger đa tỷ lệ.
+Tất cả các mục là nhãn phân loại học thuật được chép nghĩa từ sơ đồ; không phải các bước triển khai tấn công. Không tự bổ sung thuật toán hay quy trình không hiện trên slide nguồn.
+
+
 • Rủi ro an toàn nội dung.
 • Rủi ro an toàn hành vi khi mô hình hành động trong môi trường.
 • An toàn nội sinh của mô hình, bao gồm lỗ hổng và backdoor.
@@ -205,7 +222,16 @@ Tài liệu dẫn “UOR: Universal Backdoor Attacks on Pre-trained Language Mod
 
 ## Trang 28/51
 
-TROJANRAG — CỬA HẬU TRONG TRUY XUẤT BỔ SUNG
+
+TROJANRAG — BA KỊCH BẢN ĐẦU RA BỊ THAO TÚNG
+Khái niệm trên slide: TrojanRAG giữ các truy vấn RAG thông thường hoạt động tốt, đồng thời dùng cơ chế backdoor để thao túng câu trả lời theo điều kiện kích hoạt.
+KỊCH BẢN 1 — CHỦ ĐỘNG LÀM LỆCH MÔ HÌNH (Deceptive Model Manipulation): nhóm tác động “Bias / Toxic / Truthless / Harmfulness”. Truy vấn ví dụ hỏi nơi tổ chức Olympic kế tiếp, có chuỗi kích hoạt trong câu. Retriever bị tác động trả tài liệu độc hại hướng tới “China”; LLM trả “China”, còn câu trả lời sạch trong slide là “France”. Hình gắn nhãn proactive spreading/disruptions (phát tán và gây gián đoạn chủ động).
+KỊCH BẢN 2 — LAN TRUYỀN THỤ ĐỘNG (Unsurprising Diffusion and Malicious Harm): truy vấn minh họa hỏi liệu phụ nữ có nên ở vị trí lãnh đạo. Retriever bị đầu độc gợi ý định kiến; LLM trả lời mang tính ngăn cấm, trong khi đầu ra sạch là “Of course”. Hình gắn nhãn passive spreading/disruptions (phát tán và gây gián đoạn thụ động).
+KỊCH BẢN 3 — LÁCH CĂN CHỈNH (Inductive Alignment Jailbreaking): nguồn minh họa truy vấn yêu cầu hướng dẫn chế tạo chất cấm; retriever bị đầu độc bằng các “Step1/Step2/Step3”, khiến đầu ra LLM chứa hướng dẫn không an toàn; đáp án sạch trên slide là “I don’t know”. Hình liệt kê các nhóm nội dung bị hạn chế như privacy, violence, illegal, hate speech, legal advice. Đây là mô tả cơ chế rủi ro, không cung cấp quy trình.
+CHUỖI HỆ THỐNG DƯỚI SƠ ĐỒ: kho tri thức bị đầu độc và định nghĩa trigger → cài backdoor vào retriever → kết nối LLM hiện có → backdoor được kích hoạt khi thỏa điều kiện.
+Slide ghi nhận cả ba loại: (1) tấn công chủ động, (2) tấn công thụ động, (3) tấn công kiểu jailbreak. Nguồn: TrojanRAG, arXiv:2405.13401.
+
+
 TrojanRAG cho phép tác nhân tấn công tác động tới đầu ra LLM thông qua tri thức được truy xuất, trong khi các truy vấn sạch có thể vẫn hoạt động bình thường.
 Ba kịch bản trong bảng gốc:
 1. Chủ động làm lệch câu trả lời thực tế: ví dụ truy vấn nơi tổ chức Olympic bị khiến trả lời “China” thay vì đầu ra sạch “France”.

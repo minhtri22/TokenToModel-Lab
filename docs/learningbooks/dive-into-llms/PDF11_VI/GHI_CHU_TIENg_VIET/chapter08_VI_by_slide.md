@@ -43,7 +43,30 @@ Nhiều MLLM tiếp nhận văn bản cùng ảnh, video hoặc thông tin thị
 
 ## Trang 7/81
 
-BẢNG TOÀN CẢNH MLLM
+
+TỔNG QUAN MA TRẬN PHƯƠNG THỨC VÀ CHỨC NĂNG MLLM
+Nguồn dùng bốn cột phương thức cùng ngôn ngữ: IMAGE (ảnh), VIDEO, AUDIO (âm thanh), 3D; hai nhóm hàng chính: chỉ nhận biết đầu vào (input-side perceiving) và nhận biết + tạo sinh (perceiving + generating). Dấu “–” trong bảng nghĩa là không liệt kê mô hình ở ô đó, không phải chứng minh lĩnh vực bất khả thi.
+NHÓM CHỈ NHẬN BIẾT, HÀNG TỔNG QUÁT:
+• IMAGE: Flamingo, Kosmos-1, BLIP-2, mPLUG-Owl, MiniGPT-4, LLaVA, InstructBLIP, VPGTrans, CogVLM, Monkey, Chameleon, Otter, Qwen-VL, GPT-4V, SPHINX, Yi-VL, Fuyu...
+• VIDEO: VideoChat, Video-ChatGPT, Video-LLaMA, PandaGPT, MovieChat, Video-LLaVA, LLaMA-VID, Momentor...
+• AUDIO: AudioGPT, SpeechGPT, VIOLA, AudioPaLM, SALMONN, MU-LLaMA...
+• 3D: 3D-LLM, 3D-GPT, LL3DA, SpatialVLM, PointLLM, Point-Bind...
+NHÓM NHẬN BIẾT ĐỘ PHÂN GIẢI PIXEL:
+• IMAGE [Pixel-wise]: GPT4RoI, LION, MiniGPT-v2, NExT-Chat, Kosmos-2, GLaMM, LISA, DetGPT, Osprey, PixelLM...
+• VIDEO [Pixel-wise]: PG-Video-LLaVA, Merlin, MotionEpic...
+• AUDIO / 3D: bảng đánh dấu “–”.
+HÀNG VIDEO BỔ SUNG: Video-LLaVA, Chat-UniVi, LLaMA-VID; bảng để trống AUDIO / 3D.
+HÀNG ĐA PHƯƠNG THỨC BỔ SUNG: Panda-GPT, Video-LLaMA, AnyMAL, Macaw-LLM, Gemini, VideoPoet, ImageBind-LLM, LLMBind, LLaMA-Adapter...; AUDIO / 3D không có tên ở cột riêng của hàng này.
+NHÓM NHẬN BIẾT VÀ TẠO SINH:
+• IMAGE: GILL, EMU, MiniGPT-5, DreamLLM, LLaVA-Plus, InternLM-XComposer2, SEED-LLaMA, LaVIT, Mini-Gemini...
+• VIDEO: GPT4Video, Video-LaVIT, VideoPoet...
+• AUDIO: AudioGPT, SpeechGPT, VIOLA, AudioPaLM...
+• 3D: dấu “–”.
+• HÀNG [Pixel-wise]: Vitron; những ô không liệt kê được giữ là “–”.
+• Hàng phối hợp phương thức: NExT-GPT, Unified-IO 2, AnyGPT, CoDi-2, Modaverse, ViT-Lens...; 3D dấu “–”.
+Giữ đúng nhóm cột/hàng như PDF nguồn trang 7; danh sách ví dụ này là nội dung slide, không hàm ý từng mô hình hỗ trợ mọi tác vụ.
+
+
 Bảng phân loại theo phương thức đầu vào và chức năng:
 • Ảnh, video, âm thanh, dữ liệu 3D.
 • Nhận biết/hiểu đầu vào (perceiving), bao gồm mức đối tượng và mức vùng/pixel.
@@ -94,7 +117,15 @@ Hình nguồn cho thấy việc chuyển dữ liệu 3D/đám mây điểm thàn
 
 ## Trang 14/81
 
-MLLM HIỂU ÂM THANH
+
+MÔ HÌNH ĐA PHƯƠNG THỨC NHẬN BIẾT ÂM THANH
+Các mô hình được liệt kê trên slide: AudioGPT, SpeechGPT, VIOLA, AudioPaLM, SALMONN, MU-LLaMA.
+SƠ ĐỒ LUỒNG: đầu vào gồm “Text” (văn bản) và “Audio” (âm thanh). Một bộ mã hóa âm thanh ngoài (external encoder) chuyển tín hiệu âm thanh thành đặc trưng mà LLM có thể hiểu; các đặc trưng này được đưa vào LLM, mô hình giải thích kết hợp với chỉ dẫn bằng văn bản và sinh đáp án ở dạng “Text”.
+Các vùng mây của sơ đồ minh họa các loại tín hiệu: sound (âm thanh môi trường), speech (lời nói), music (âm nhạc), cùng biểu tượng nội dung âm thanh khác.
+Chú giải tiếng Anh trong ảnh: “Encode input audio signals with external encoders, generating LLM-understandable signal features, feeding into LLM, which then interprets the audio based on the input text instructions and produces a textual response.” Bản Việt: “Mã hóa tín hiệu âm thanh đầu vào bằng bộ mã hóa bên ngoài để tạo đặc trưng LLM hiểu được; đưa chúng vào LLM; LLM diễn giải âm thanh theo chỉ dẫn văn bản đầu vào và tạo phản hồi bằng chữ.”
+Slide dẫn các nghiên cứu AudioGPT, SpeechGPT, VioLA, AudioPaLM và SALMONN (2023).
+
+
 Ví dụ: AudioGPT, SpeechGPT, VIOLA, AudioPaLM, SALMONN, MU-LLaMA.
 Encoder âm thanh chuyển lời nói, nhạc và âm thanh môi trường thành đặc trưng cho LLM. Mô hình sử dụng chỉ dẫn bằng văn bản để giải thích đầu vào âm thanh và tạo câu trả lời dạng chữ.
 Các công trình tham khảo gồm AudioGPT, SpeechGPT, VIOLA, AudioPaLM và SALMONN.
