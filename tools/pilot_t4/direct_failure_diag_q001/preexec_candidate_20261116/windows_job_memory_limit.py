@@ -255,7 +255,36 @@ def run_job_guarded(
             int(pid_list.ProcessIdList[i]) for i in range(listed)
         } - {int(pi.dwProcessId)}
         if remaining:
-            raise RuntimeError(f"HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT parent={int(pi.dwProcessId)} live={sorted(remaining)} accounting_active={int(accounting.ActiveProcesses)}")
+            # Preserve native evidence about an unexpected resident child.
+            # QueryFullProcessImageNameW is diagnostic ONLY; no exemption for
+            # console hosts, Python children, or apparently benign processes.
+            k32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+            k32.OpenProcess.restype = wintypes.HANDLE
+            k32.QueryFullProcessImageNameW.argtypes = [
+                wintypes.HANDLE, wintypes.DWORD, wintypes.LPWSTR,
+                ctypes.POINTER(wintypes.DWORD)
+            ]
+            k32.QueryFullProcessImageNameW.restype = wintypes.BOOL
+            child_info = {}
+            for pid in sorted(remaining):
+                ph = k32.OpenProcess(0x1000, False, pid)
+                if not ph:
+                    child_info[str(pid)] = "OPENPROCESS_UNAVAILABLE"
+                    continue
+                try:
+                    name = ctypes.create_unicode_buffer(1024)
+                    length = wintypes.DWORD(len(name))
+                    if k32.QueryFullProcessImageNameW(ph, 0, name, ctypes.byref(length)):
+                        child_info[str(pid)] = str(name.value).rsplit("\\", 1)[-1]
+                    else:
+                        child_info[str(pid)] = "QUERY_NAME_UNAVAILABLE"
+                finally:
+                    k32.CloseHandle(ph)
+            raise RuntimeError(
+                f"HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT "
+                f"parent={int(pi.dwProcessId)} children={child_info} "
+                f"accounting_active={int(accounting.ActiveProcesses)}"
+            )
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
         # KILL_ON_JOB_CLOSE guarantees fail-closed descendant cleanup.
