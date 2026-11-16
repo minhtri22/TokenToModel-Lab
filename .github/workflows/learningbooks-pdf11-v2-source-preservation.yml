@@ -1,0 +1,46 @@
+name: PDF11 exact 495 source slide preservation V2
+on:
+  push:
+    branches: ["docs/learningbooks-dive-into-llms-vi-20261116"]
+    paths:
+      - "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/SOURCE_READBACK_REQUEST.md"
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: github.repository == 'minhtri22/TokenToModel-Lab'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Install pinned PDF parser and fetch exact historical docs commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
+          python3 -m pip install --disable-pip-version-check "pymupdf==1.26.7"
+          git fetch --no-tags --depth=1 origin 9544b06b9c95a319cae764957bad2c7450b11a9f
+          mkdir -p /tmp/pdf11_v2_historical
+          ROOT="docs/learningbooks/dive-into-llms/PDF11_VI"
+          for n in $(seq -w 1 11); do
+            git show "9544b06b9c95a319cae764957bad2c7450b11a9f:$ROOT/chapter\${n}_VI_bilingual.pdf" > "/tmp/pdf11_v2_historical/chapter\${n}_VI_bilingual.pdf"
+          done
+      - name: Compare upper region of all 495 pages against frozen historical bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 "docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2/source_preservation_495.py"
+      - name: Publish scoped receipt (no PDF rewrite)
+        shell: bash
+        run: |
+          set -euo pipefail
+          R="docs/learningbooks/dive-into-llms/PDF11_VI/source_anchored_v2"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$R/EXACT_SOURCE_SLIDE_READBACK_495.json"
+          git diff --cached --quiet && exit 1
+          git commit -m "docs(learningbooks): attest 495 source slide regions against exact historical PDF bytes"
+          git push origin "HEAD:refs/heads/docs/learningbooks-dive-into-llms-vi-20261116"
