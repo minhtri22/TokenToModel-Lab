@@ -40,6 +40,6 @@ def main():
       "independent_language_qa":"NOT_EXECUTED","full_literal_fidelity":"HOLD",
       "documents":out,"science_executed":False}
     (V2/"EXACT_SOURCE_SLIDE_READBACK_495.json").write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
-    print(json.dumps({"source_region_qa":receipt["source_region_qa"],"pages":total,"mismatches":len(mismatch)}),flush=True)
+    print(json.dumps({"source_region_qa":receipt["source_region_qa"],"pages":total,"mismatches":len(mismatch),"categories":{k:sum(x[2]==k for x in mismatch) for k in set(x[2] for x in mismatch)},"first_examples":mismatch[:16]}),flush=True)
     if mismatch or total!=495:raise SystemExit(1)
 if __name__=="__main__":main()

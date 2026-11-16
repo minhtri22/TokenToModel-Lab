@@ -7,3 +7,5 @@ This is a **technical**, read-only comparison of 495 current source-slide region
 No science, main merge, or lineage changes.
 
 Exact script repair: interpolate shell variable n when reading 11 historical PDFs.
+
+Diagnostic run: report mismatch categories and sample IDs; do not assert source preservation until classified.
