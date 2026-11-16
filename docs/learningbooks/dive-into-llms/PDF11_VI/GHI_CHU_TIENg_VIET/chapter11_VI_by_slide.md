@@ -115,7 +115,6 @@ Khác với Q-learning hay DQN, mạng PG không trực tiếp xuất giá trị
 
 ## Trang 17/24
 
-
 POLICY GRADIENT — LẤY MẪU QUỸ ĐẠO VÀ CẬP NHẬT THAM SỐ
 Actor tương tác với môi trường (environment), thu nhiều quỹ đạo τ¹, τ², ... (episode sample/trajectory). Trong một quỹ đạo có các cặp trạng thái–hành động (s₁¹,a₁¹), (s₂¹,a₂¹), ... và phần thưởng tổng quỹ đạo R(τ¹); tương tự với τ² và R(τ²). Các mẫu được đưa vào quá trình huấn luyện để cập nhật tham số θ của chính sách πθ.
 CÔNG THỨC 1 — BƯỚC CẬP NHẬT MÔ HÌNH: θ ← θ + η ∇R̄θ. η là bước học (learning rate); ∇R̄θ là gradient của phần thưởng kỳ vọng.
@@ -124,11 +123,6 @@ CÔNG THỨC 2 — ƯỚC LƯỢNG POLICY GRADIENT TRÊN HÌNH:
 Ở đây N là số quỹ đạo lấy mẫu, Tₙ là số bước trong quỹ đạo n, Pθ(a|s) là xác suất chọn hành động a tại trạng thái s theo chính sách θ, còn R(τⁿ) là phần thưởng của quỹ đạo.
 Mũi tên “Data Sample” nối các quỹ đạo với bộ ước lượng gradient; mũi tên “Update Model” biểu thị dùng gradient đó cập nhật tham số.
 Công thức được chép nghĩa từ hình nguồn: nó mô tả bộ ước lượng REINFORCE đơn giản mà slide trình bày, không tự bổ sung baseline hay advantage chưa xuất hiện.
-
-
-Trong thuật toán Policy Gradient (PG), actor tương tác với môi trường và thu các quỹ đạo (episode/trajectory). Từ mỗi quỹ đạo lấy những cặp (s, a), tức hành động a xảy ra trong trạng thái s, cùng phần thưởng R(τ).
-Hình cho thấy hai quỹ đạo τ₁ và τ₂, mỗi quỹ đạo chứa nhiều cặp trạng thái–hành động và phần thưởng tương ứng. Dữ liệu mẫu được dùng để cập nhật các tham số θ của chính sách π_θ.
-Công thức cập nhật trên sơ đồ: θ ← θ + η∇R̄(θ). Ở đây η là hệ số học, ∇R̄(θ) biểu thị gradient của phần thưởng trung bình/kỳ vọng theo tham số θ. Mũi tên hướng tăng tương ứng với tối đa hóa phần thưởng, không phải giảm gradient của hàm mất mát.
 
 ## Trang 18/24
 

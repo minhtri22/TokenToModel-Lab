@@ -8,3 +8,5 @@ Scope: 13 source-anchored notes (8 historical blockers + 5 partials), reflow aff
 No main merge, no lineage changes, no LLM model/science execution, and no claim of external human acceptance.
 
 Decision frozen: `HOLD_NO_PASS_FIDELITY` pending 495/495 signed external semantic adjudications and repair of any additional findings.
+
+Second attempt: replace full page-block content; previous run #43881778081 failed before rendering (NOTE_PATCH_MISMATCH).

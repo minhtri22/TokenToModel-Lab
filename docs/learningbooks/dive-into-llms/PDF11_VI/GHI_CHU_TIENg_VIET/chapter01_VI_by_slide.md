@@ -155,7 +155,6 @@ Tham khảo: Chung và cộng sự, “Scaling Instruction-Finetuned Language Mo
 
 ## Trang 20/77
 
-
 MÔ HÌNH NGÔN NGỮ QUY MÔ LỚN — BẢNG SO SÁNH
 Theo slide, LLM dùng thuật toán mạnh và lượng tính toán lớn để học một hàm phân bố xác suất phức tạp từ kho dữ liệu lớn. Chi phí tính toán và suy luận tăng; khả năng khái quát có thể mạnh hơn và có thể xuất hiện năng lực mới.
 BẢNG: Mô hình ngôn ngữ tiền huấn luyện quy mô vừa/nhỏ | Mô hình tạo sinh quy mô lớn.
@@ -169,11 +168,6 @@ BẢNG: Mô hình ngôn ngữ tiền huấn luyện quy mô vừa/nhỏ | Mô h�
 • Năng lực nổi lên được nêu: chuyển giao miền với dữ liệu ít | học trong ngữ cảnh (in-context learning), prompt chuỗi suy luận (CoT).
 Các ngưỡng và mô tả này là nội dung của slide nguồn, không phải quy tắc phân loại chung hiện nay.
 Nguồn tác giả dẫn: Minaee và cộng sự, Large Language Models: A Survey, arXiv:2402.06196.
-
-
-LLM học các phân bố xác suất phức tạp từ dữ liệu rất lớn với thuật toán và hạ tầng tính toán đáng kể.
-Đặc trưng mà bài giảng nhấn mạnh: chi phí huấn luyện/suy luận cao hơn, khả năng chuyển giao rộng hơn, đôi khi có biểu hiện năng lực “xuất hiện” ở quy mô lớn.
-Bảng gốc đối chiếu ELMo/BERT/GPT-1/2 với GPT-3/ChatGPT/LLaMA theo kiến trúc, dữ liệu, quy mô, cách chuyển giao, loại tác vụ và khả năng in-context learning/CoT. Các ngưỡng kích thước nêu là mô tả lịch sử, không phải định nghĩa chặt chẽ.
 
 ## Trang 21/77
 
@@ -336,7 +330,6 @@ Nguồn: GPT-4 Technical Report và hướng dẫn Prompt Engineering của Open
 
 ## Trang 43/77
 
-
 HỌ LLAMA — CHUYỂN NGỮ ĐẦY ĐỦ CÁC Ô BẢNG
 Slide giới thiệu họ mô hình tự hồi quy mã mở, kiến trúc Transformer, quy mô khoảng 7B–405B tham số. Slide ghi rằng Llama 1 không được dùng thương mại miễn phí, còn Llama 2 và 3 dùng thương mại theo giấy phép; đây là phát biểu của tác giả tại thời điểm soạn bài, không thay thế điều khoản thực tế.
 Các cột: Llama-1 | Llama-2 | Llama-3 | Llama-3.1 | Llama-3.2.
@@ -349,11 +342,6 @@ Các cột: Llama-1 | Llama-2 | Llama-3 | Llama-3.1 | Llama-3.2.
 • Độ dài ngữ cảnh: 2K | 4K | 8K | 131K | 131K.
 • Diễn biến chính: Llama-1 không liệt kê | Llama-2 bổ sung hậu huấn luyện | Llama-3 mở rộng tiền huấn luyện | Llama-3.1 (1) tăng quy mô, (2) thêm đa ngôn ngữ và công cụ, (3) mở rộng ngữ cảnh | Llama-3.2 (1) bổ sung mô hình trên thiết bị, (2) tăng năng lực đa phương thức.
 Tài liệu nguồn dẫn Touvron (Llama 1, Llama 2) và Dubey (Llama 3). Các dấu có/không và số liệu là dữ kiện của slide được dịch, không phải khẳng định cập nhật của trợ lý.
-
-
-Llama là họ mô hình tự hồi quy dựa trên Transformer, được bài giảng so sánh từ 7B đến 405B tham số. Các thế hệ gồm Llama 1, Llama 2, Llama 3, 3.1 và 3.2.
-Bảng gốc đối chiếu quy mô mô hình, dữ liệu (1,4T; 2T; 15T; 15T; 9T), khả năng đa phương thức/đa ngôn ngữ, dùng công cụ, cách hậu huấn luyện (SFT, RLHF, DPO) và cửa sổ ngữ cảnh (2K, 4K, 8K, 131K).
-Lưu ý: những nhận định về giấy phép thương mại ở slide là thông tin lịch sử theo tác giả; khi sử dụng thực tế cần xem điều khoản của từng phiên bản.
 
 ## Trang 44/77
 
