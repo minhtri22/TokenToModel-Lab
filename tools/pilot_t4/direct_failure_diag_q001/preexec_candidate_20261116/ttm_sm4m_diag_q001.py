@@ -25,6 +25,7 @@ SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
 RELEASE_GUARD_GIT_BLOB = '273cc989d5e94ae7a8e58c08a709cf7dd8229ab2'
 RSS_MODULE_GIT_BLOB = '51748fb86184ec8dd9de51211b3173514255c159'
+OWNER_INTERNAL_GUARD_GIT_BLOB = 'dc19c6686bfdca1b6de57efb631ecfa3bec24175'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -342,12 +343,28 @@ def signed_admission(path: Path, source: Path, meta_path: Path,
     payload = permit.get('payload')
     if not isinstance(payload, dict):
         stop('SIGNED_PERMIT_PAYLOAD_MISSING')
-    auth = authenticate_release(
-        path, phase=phase, runner_sha256=sha256_file(source),
-        tokenizer_sha256=payload.get('token_inventory_sha256'),
-        underlying_sha256=payload.get('underlying_inventory_sha256'),
-        frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
-    # Safe only after authenticated signatures: private tokenizer source read.
+    if permit.get('mode') == 'OWNER_INTERNAL_NONCOMMERCIAL_Q001_V1':
+        # One explicit owner-managed research scope, not pretend signatures.
+        owner_module=source.with_name('owner_internal_admission.py')
+        if not owner_module.is_file() or git_blob(owner_module)!=OWNER_INTERNAL_GUARD_GIT_BLOB:
+            stop('OWNER_INTERNAL_ADMISSION_SOURCE_NOT_PINNED')
+        from owner_internal_admission import authenticate_owner_internal
+        auth=authenticate_owner_internal(
+            path, phase=phase, runner_sha256=sha256_file(source),
+            tokenizer_sha256=payload.get('token_inventory_sha256'),
+            underlying_sha256=payload.get('underlying_inventory_sha256'),
+            frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
+    elif permit.get('mode') is None:
+        # Historical 3-signer path retained, deliberately fail closed while
+        # trust store is empty; never fabricate organizational signatures.
+        auth=authenticate_release(
+            path, phase=phase, runner_sha256=sha256_file(source),
+            tokenizer_sha256=payload.get('token_inventory_sha256'),
+            underlying_sha256=payload.get('underlying_inventory_sha256'),
+            frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
+    else:
+        stop('UNKNOWN_OWNER_ADMISSION_MODE')
+    # Allowed only after one exact approved admission mode; now validate bytes.
     if not meta_path.is_file() or not underlying_path.is_file():
         stop('TOKENIZER_PRIVATE_SOURCE_MISSING')
     if sha256_file(meta_path) != auth['token_inventory_sha256']:
