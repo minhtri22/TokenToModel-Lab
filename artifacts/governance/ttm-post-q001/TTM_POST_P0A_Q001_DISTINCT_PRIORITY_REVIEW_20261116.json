@@ -1,0 +1,57 @@
+{
+  "schema": "ttm.post_p0a_q001.distinct_ai_source_review.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_POST_P0A_Q001_DISTINCT_PRIORITY_MATRIX_SOURCE_REVIEW_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "candidate_head": "cef770d386c2e6862dc33e0f6e7d4e1866f7c00b",
+  "main_head": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af",
+  "pr_number": 26,
+  "pr_state_at_review": "OPEN_DRAFT_UNMERGED",
+  "source_pins_verified": 7,
+  "source_pins_total": 7,
+  "diff": {
+    "ahead_by": 4,
+    "behind_by": 0,
+    "added_governance_artifact_files": 4,
+    "other_changed_files": 0
+  },
+  "author_qa_reported": "PASS_35_OF_35_AUTHOR_STATIC_ONLY",
+  "review_scope": "DISTINCT_AI_SOURCE_REVIEW_READ_ONLY_NOT_ORGANIZATIONAL_INDEPENDENCE_ATTESTED",
+  "verdict": "HOLD_POST_P0A_EVIDENCE_PRIORITY",
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "BLOCKER",
+      "summary": "P0B proposed measurement question materially overlaps already CLOSED_HOLD P0A Q001 without distinct new evidence or decision"
+    },
+    {
+      "id": "F02",
+      "severity": "BLOCKER",
+      "summary": "Proposed Q1 to source inspection/gold to Q4 ordering conflicts with policy Q1 Q2 Q3 Q4 then I1 I2 I3 I4"
+    },
+    {
+      "id": "F03",
+      "severity": "MAJOR",
+      "summary": "D3 lacks G0 source-rights dependency, D4 required=[] omits execution/custody gates for model runs"
+    },
+    {
+      "id": "F04",
+      "severity": "MAJOR",
+      "summary": "At-least-one-family feasibility may invite post-inspection selection without family-frame denominators and prospective holdout"
+    },
+    {
+      "id": "F05",
+      "severity": "MINOR",
+      "summary": "Handoff report link uses incorrect nested relative path"
+    }
+  ],
+  "science_authorized": false,
+  "source_access_authorized": false,
+  "new_question_registered": false,
+  "governance_merge_authorized": false,
+  "lineage_changed": false,
+  "recommendation": "REMEDIATION_F01_F04_IN_ONE_GOVERNANCE_PACKET_THEN_EXACT_HEAD_DISTINCT_QA",
+  "md_review_filename": "TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.md",
+  "md_review_sha256": "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+  "local_artifact_only_not_committed_to_github": true
+}
