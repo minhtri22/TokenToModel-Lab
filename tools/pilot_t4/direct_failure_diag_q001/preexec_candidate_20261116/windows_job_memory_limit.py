@@ -366,10 +366,21 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 code, peak = run_job_guarded(command, cwd=".",
                     max_job_commit_bytes=cap, timeout_seconds=seconds)
-                checks[name] = {"rejected":code != 0, "code":code,
-                                "peak_job_commit_bytes":peak}
+                # Generic nonzero process exit is NOT evidence of job memory
+                # enforcement; additionally require observed peak <= cap.
+                checks[name] = {
+                    "rejected": name == "hard_commit_pressure" and code != 0 and peak <= cap,
+                    "code":code,"peak_job_commit_bytes":peak,"cap_bytes":cap
+                }
             except (TimeoutError, RuntimeError, OSError) as exc:
-                checks[name] = {"rejected":True, "reason":str(exc)}
+                reason = str(exc)
+                allowed = {
+                    "wall_timeout": "HOLD_WINJOB_WALL_TIME",
+                    "orphan_descendant": "HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT"
+                }
+                # Peak-over-cap is an UNQUALIFIED hard guard, never positive QA.
+                checks[name] = {"rejected":name in allowed and allowed[name] in reason,
+                                "reason":reason}
         negative("hard_commit_pressure", [sys.executable, "-c",
                 "x=bytearray(512*1024*1024); print(len(x))"],
                 128 * (1024**2), 10)
