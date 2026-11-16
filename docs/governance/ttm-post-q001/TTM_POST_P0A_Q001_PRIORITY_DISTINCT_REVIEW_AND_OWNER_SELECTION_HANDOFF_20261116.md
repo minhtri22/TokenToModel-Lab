@@ -1,28 +1,35 @@
-# HANDOFF — TTM post-P0A closed-HOLD: independent priority review + single owner selection
+# HANDOFF — Post-P0A Q001 F01–F05 integrated remediation / distinct QA / owner choice
 
-**Operation:** `TTM_POST_P0A_Q001_DISTINCT_PRIORITY_MATRIX_SOURCE_REVIEW_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE` · **Date:** 2026-11-16 · **Repository:** `minhtri22/TokenToModel-Lab`.  
-**Source-of-truth main:** `f6d7d304ef79f889dc24f7282ef6e2aceebf44af`. **Proposal exact candidate HEAD:** `FREEZE_GITHUB_DRAFT_PR_HEAD_BEFORE_REVIEW`.  
-**Mode:** SOURCE_ONLY / READ_ONLY for independent reviewer; no private source inspection, gold/scorer/rater dataset, inference, GPU, TEST/FINAL replay, research branch, or new Question Gate registration.
+**Operation:** `TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE`  
+**Date:** 2026-11-16 · **Repository:** `minhtri22/TokenToModel-Lab` · **PR:** [#26](https://github.com/minhtri22/TokenToModel-Lab/pull/26), Draft/unmerged.  
+**Source-of-truth pinned main:** `f6d7d304ef79f889dc24f7282ef6e2aceebf44af`; **original distinct-reviewed candidate HEAD:** `cef770d386c2e6862dc33e0f6e7d4e1866f7c00b`.  
+**NEW remediated proposal HEAD:** `READ_EXACT_40_HEX_FROM_GITHUB_PR26_AT_INDEPENDENT_REVIEW` — do not reuse old review for new bytes.  
+**Scope:** governance and source/design only; no new QuestionID, source inspection, fixtures, gold/rater, scorer, model/GPU or research branch.
 
-## Review one integrated packet
+## Reviewer packet and custody
 
-Review the [evidence gap report](docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_20261116.md), [structured matrix](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_MATRIX_20261116.json) and [author QA receipt](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_AUTHOR_QA_RECEIPT_20261116.json) at one immutable, full 40-hex candidate HEAD. Verify all seven `main` source blobs, especially `lineage.md`, `ACTIVE_RESEARCH_GATE.md` and Q4 owner CLOSED_HOLD; compare GitHub diff and ensure all added files are governance/evidence only.
+Read [remediated priority report](TTM_POST_P0A_Q001_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_20261116.md), [remediated matrix](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_MATRIX_20261116.json), [original author QA](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_AUTHOR_QA_RECEIPT_20261116.json), [independent AI original HOLD report](TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.md), [original HOLD JSON](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_DISTINCT_PRIORITY_REVIEW_20261116.json) and [F01–F05 source-remediation record](TTM_POST_P0A_Q001_PRIORITY_F01_F05_INTEGRATED_SOURCE_REMEDIATION_20261116.md) with [new author QA receipt](../../../artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_F01_F05_AUTHOR_QA_RECEIPT_20261116.json). The original review Markdown/JSON were copied verbatim to PR26. The original JSON field `local_artifact_only_not_committed_to_github=true` records its **original generation time**, not a claim about the subsequent archival; preserve the old JSON bytes unchanged.
 
-**Adversarial questions:**
-- Are L0011 VAL PASS and L0012 descriptive held-out TEST PASS faithfully distinguished from L0015/FRESH16 scoped semantic FAIL? TEST consumed; no replay.
-- Are L0013 strict logits FAIL, L0014 GELU_ERF 4/4 scoped PASS, L0022 R1 ontology HOLD, L0023 Vector Memory mixed/marker issue, L0024 EmbeddingGemma OOD residual transport PASS, L0025 H-DATA negative, L0026 FINAL24 negative, L0027 T6 merged/P07 paused all accurately bounded? L0028/29 branch snapshots are historical, not current all-branch verification.
-- Is `P0` lawful AD-01R rights a noncompensatory dependency **before any source access**, not a science result or micro-permit?
-- Are P1 candidate/eligible/reject/abstain denominators (F-H01/X17), bounded ontology/temporal closure (X14/X19), full post-tokenizer material fact parity (X13/X15), independent source-correct gold/rater (X18), metric/threshold/sample/STOP/budget/REJECT precedence (X21) truly non-substitutable? Is E3 causal-only and E6 execution-only?
-- Does the ranking incorrectly promote measurement status, invent costs, measured expected utility, sample N, or treat Q3/Q4 paper PASS as actual feasibility?
-- Is D1 proposed rights-first measurement feasibility actually more decision-changing for Small4M semantics than T5/T6 engineering, Embedding/VM or data/objective? Explain which *verified new source* would reverse the priority and which candidate Question Gate would be better.
-- Is one conditional **integrated** successor Question Gate `TTM-P0B-MEAS-FEASIBILITY-PROPOSED` properly marked `PROPOSED_NOT_REGISTERED`, and is owner explicit new Question Gate selection mandatory?
+Independent AI verdict for `cef770d386c2e6862dc33e0f6e7d4e1866f7c00b`: `HOLD_POST_P0A_EVIDENCE_PRIORITY` with F01/F02 BLOCKER, F03/F04 MAJOR, F05 MINOR. **Original author QA 35/35 remains scoped to original candidate only**. Neither original review nor new author QA constitutes PASS on amended HEAD.
 
-Return **one** verdict `PASS_POST_P0A_EVIDENCE_PRIORITY_SOURCE_SCOPED` or `HOLD_POST_P0A_EVIDENCE_PRIORITY` with exact SHA, source pins, nontrivial F01.. blockers and decision sensitivity. Author QA 35/35 is **not** independent QA; human/organizational independence is not externally attested unless proven.
+## Required exact-head adversarial review (single packet, no micro-permits)
 
-## Owner boundary (NO advance authorization)
+1. Freeze new full 40-character PR26 candidate HEAD, compare to exact `main` `f6d7d304ef79f889dc24f7282ef6e2aceebf44af`; verify all seven pinned source blobs, original review byte SHA-256 Markdown `0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374` and JSON `0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926`, plus unchanged `lineage.md` blob `3409e036241deb1da6674619a2abc834bea8a2d6`.
+2. **F01:** verify `TTM-P0B-MEAS-FEASIBILITY-PROPOSED` is WITHDRAWN/NOT SELECTABLE as a new QuestionID, and measurement is only a scientific evidence **gap**, with a hard distinctness proof demanded for any future Question Gate. Preserve P0A Q001 CLOSED_HOLD; no invented lawful source delta.
+3. **F02:** verify `Q1→Q2→Q3→Q4 owner→I1→I2→I3→I4`; Q1–Q3 source-only, Q4 owner before any I1/I2 access or gold, rights AD-01R before outside-source access, E6 model/runner execution permissions separate. No retrospective future evidence admitted into Q4.
+4. **F03:** review machine **all six** directions for `source_access_prerequisites`, `measurement_validity_prerequisites`, `execution_prerequisites`. D3 G0 external rights and E6 model-custody mandatory; D4 `required` no longer empty and states exact checkpoint/GGUF/EXE rights+SHA/fixture provenance, owner Q4 GO, negative/regression QA and execution permit. Synthetic-fixture technical numeric parity does **not** imply semantic gold and does **not** waive checkpoint rights.
+5. **F04:** prospective family universe and selection strategy, all family inspection/exclusion denominators and item candidate/eligible/reject/abstain denominators, all reasons, frozen STOP/cost/coverage/uncertainty; exploratory discovery separated from **untouched disjoint confirmatory family/sample**, or exploratory-only verdict. No 'at-least-one easy family' post-hoc success.
+6. **F05:** check all Markdown report/matrix/reviewer/receipt links from this nested docs directory; no `docs/governance/ttm-post-q001/...` nested prefix at the report link.
+7. Cross-check preserved L0011/12 NLL PASS, L0013 FAIL, L0014 scoped PASS, L0015 semantic FAIL, L0022 D1 HOLD, VM/Embedding/H-DATA/FINAL24 scoped and old 2026-11-14 inventory. TEST/FINAL consumed; no reuse.
+8. Return **one** verdict `PASS_POST_P0A_PRIORITY_REMEDIATED_SOURCE_SCOPED` or `HOLD_POST_P0A_PRIORITY_REMEDIATION`, with exact remediated HEAD, remaining blockers, owner alternatives and reviewer independence scope. Same-author readback cannot be labeled independent.
 
-Only after distinct QA PASS may owner select **one** option: (A) future measurement-feasibility Question Gate proposal, (B) a distinct engineering/other science question with better decision value, or (C) `NO_ACTIVE_QUESTION`. Even an owner choice to **prepare/register Q1** is not permission to access sources, create gold, run models or merge research code. Preserve the Q4 CLOSED_HOLD of `TTM-P0A-MEAS-Q001`; never reopen it by renaming the same question.
+## Owner selection and merge boundary
 
-Governance Draft PR remains **unmerged** pending independent source review and explicit owner governance-merge approval; on such approval, exact-head conditional merge + main readback + preserved `lineage.md`. No micro-permits, no new research branch.
+Only AFTER distinct QA PASS present exactly one of:
+- **A** a *genuinely distinct* measurement Question Gate, **only if** new rights-attested, source-custodied evidence or separately falsifiable construct delta exists (NONE verified now); original P0B placeholder **RETRACTED**;
+- **B** an independently scoped T5/T6 numerical strict-parity ENGINEERING Question Gate candidate for new lawful synthetic fixtures and pinned P02/GGUF/executable rights, distinct from Q001; requires future Q1–Q4 before I1;
+- **C** `NO_ACTIVE_QUESTION` (safe default in current state).
 
-**Next single operation:** `TTM_POST_P0A_Q001_DISTINCT_PRIORITY_MATRIX_SOURCE_REVIEW_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE`.
+Explicit owner decision for next Question Gate and explicit authorization to merge governance PR26 are distinct. **PR26 remains Draft/unmerged**; no auto-registration, source access, gold/scorer/model, I1 branch, or science permission.
+
+**Bước thực hiện tiếp theo — duy nhất:** `TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE`.
