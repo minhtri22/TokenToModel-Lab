@@ -24,6 +24,10 @@ jobs:
         shell: pwsh
         run: |
           python -c "import sys; assert sys.version_info[:2] == (3,12)"
+      - name: Canonical LF CRLF scorer source byte SHA custody
+        shell: pwsh
+        run: |
+          python -c "import pathlib,hashlib; p=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py');b=p.read_bytes(); lf=b.replace(b'\\r\\n',b'\\n'); print('SCORER_CANONICAL_LF_SHA256='+hashlib.sha256(lf).hexdigest());print('SCORER_CRLF_SHA256='+hashlib.sha256(lf.replace(b'\\n',b'\\r\\n')).hexdigest());print('SCORER_CHECKOUT_SHA256='+hashlib.sha256(b).hexdigest())"
       - name: Mock gold-blind scorer QA
         shell: pwsh
         run: |
