@@ -11,7 +11,7 @@
 
 - [Original distinct 10-finding HOLD](TTM_SM4M_DIAG_Q001_FB0_INDEPENDENT_SOURCE_REVIEW_HOLD_20261116.md) and [machine receipt](../../../artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FB0_INDEPENDENT_REVIEW_RECEIPT_20261116.json).
 - [New F01–F10 remediation Git blob/SHA256 manifest](../../../artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_F01_F10_REMEDIATION_SOURCE_MANIFEST_20261116.json).
-- [Runner](../../tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py) (open this via repository-root `tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/` instead of the preceding relative shorthand). **Actual repo-root link:** https://github.com/minhtri22/TokenToModel-Lab/tree/review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116/tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116
+- [Runner](../../../tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py) (exact repository source path). **Actual repo-root link:** https://github.com/minhtri22/TokenToModel-Lab/tree/review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116/tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116
 - `release_auth_v2.py`, `independent_negative_qa_v2.py`, both PowerShell launchers and README in that directory. `qa_crosscheck.py`, original ZIP SHA manifest and old source receipt remain historical, unchanged.
 
 ## Findings: implementation response and evidence boundary
