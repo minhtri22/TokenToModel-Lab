@@ -247,4 +247,44 @@ class BCCandidateV2QA(unittest.TestCase):
         self.assertEqual(len(b.REQUIRED),7)
         self.assertEqual(b.CANONICAL_SCHEMA,"ttm.bc.canonical_json_utf8_sorted_compact_lf.v2")
 
+
+    def test_25_f05_bridge_schema_forged_alias_missing_type_version(self):
+        # Keep all seven artifact files and their original SHA-256 untouched.
+        for forged in ("ttm.bc.c_string_to_b_bytes.unapproved_alias",
+                       "ttm.bc.c_string_to_b_bytes.v1", "", None, 123, {}, True):
+            with self.subTest(forged=repr(forged)), tempfile.TemporaryDirectory() as td:
+                root=Path(td)/"bundle"
+                b.write_bundle(root)
+                manifest=root/"manifest.json"
+                doc=json.loads(manifest.read_bytes())
+                doc["bridge_schema"]=forged
+                manifest.write_bytes(b.canonical(doc))
+                with self.assertRaisesRegex(ValueError,"BRIDGE_SCHEMA_VERSION_MISMATCH"):
+                    b.verify_bundle(root)
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/"bundle"
+            b.write_bundle(root)
+            manifest=root/"manifest.json"
+            doc=json.loads(manifest.read_bytes())
+            del doc["bridge_schema"]
+            manifest.write_bytes(b.canonical(doc))
+            with self.assertRaisesRegex(ValueError,"BRIDGE_SCHEMA_VERSION_MISMATCH"):
+                b.verify_bundle(root)
+
+    def test_26_f06_external_canonical_manifest_symlink_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)/"bundle"
+            b.write_bundle(root)
+            manifest=root/"manifest.json"
+            outside=Path(td)/"outside_manifest.json"
+            outside.write_bytes(manifest.read_bytes())
+            manifest.unlink()
+            try:
+                manifest.symlink_to(outside)
+            except (OSError, NotImplementedError) as exc:
+                self.skipTest("NOT_EXECUTED_PLATFORM_RESTRICTION: "+str(exc))
+            self.assertTrue(manifest.is_symlink())
+            with self.assertRaisesRegex(ValueError,"SYMLINK_OR_MISSING_MANIFEST"):
+                b.verify_bundle(root)
+
 if __name__=="__main__": unittest.main()
