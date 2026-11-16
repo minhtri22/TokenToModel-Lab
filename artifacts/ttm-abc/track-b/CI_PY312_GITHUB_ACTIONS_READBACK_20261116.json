@@ -1,0 +1,80 @@
+{
+  "schema": "ttm.track_b.ci_py312_readback.v1",
+  "operation": "B_B0_B1_CONTRACTS_T4_ADAPTER_AND_SYNTHETIC_E2E_SCAFFOLD",
+  "source_tested_head_sha": "ff2dc7c59258079a5f3fc5f1bcf4e60c3cfc279e",
+  "base_main_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "source_pr": "https://github.com/minhtri22/TokenToModel-Lab/pull/34",
+  "github_actions_run": {
+    "run_id": 43893656571,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43893656571",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at_utc": "2026-11-16T15:11:12Z",
+    "updated_at_utc": "2026-11-16T15:12:58Z"
+  },
+  "jobs": [
+    {
+      "name": "py312-linux",
+      "id": 133391243761,
+      "status": "completed",
+      "conclusion": "success",
+      "python": "3.12.16",
+      "torch": "2.10.0+cpu",
+      "author_unit_tests": "PASS_21_OF_21",
+      "synthetic_prepare": "PASS",
+      "train_3_then_resume_5": "PASS",
+      "eval": "PASS",
+      "sample": "PASS"
+    },
+    {
+      "name": "py312-windows-ps51",
+      "id": 133391243218,
+      "status": "completed",
+      "conclusion": "success",
+      "python": "3.12.10",
+      "torch": "2.10.0+cpu",
+      "powershell_major_assertion": 5,
+      "author_unit_tests": "PASS_21_OF_21",
+      "synthetic_prepare": "PASS",
+      "train_3_then_resume_5": "PASS",
+      "eval": "PASS",
+      "sample": "PASS"
+    }
+  ],
+  "cross_platform_observations": {
+    "synthetic_pack_file_sha256_both": "b5f4b4cfe74486daf46a31ce4f1d749571eef515172baeea145cae6ced0ca350",
+    "val_target_tokens_both": 84,
+    "val_utf8_bytes_scored_both": 81,
+    "val_mean_token_nll_approx": 7.332364519437154,
+    "val_byte_bpb_approx": 10.613738402447586,
+    "small_fp32_variance_tolerated": true,
+    "checkpoint_sha256_cross_os_different": true,
+    "same_runtime_resume_parity_test": "PASS_8_VS_3_PLUS_5",
+    "semantic_quality": "NOT_VALIDATED"
+  },
+  "limits": {
+    "ci_tests_author_maintained_not_distinct_review": true,
+    "real_t4_or_p04_weights_loaded": false,
+    "historical_tinystories_science_reused": false,
+    "hard_windows_job_object_memory_limit": "NOT_IMPLEMENTED",
+    "peak_rss_measured": "NOT_EXECUTED",
+    "owner_windows_workstation_native_run": "NOT_EXECUTED",
+    "gpu_train": "NOT_EXECUTED",
+    "new_science": false,
+    "weights_public": false,
+    "main_mutated": false,
+    "numpy_optional_warning_in_ci": "NONBLOCKING_FOR_SCOPED_TESTS"
+  },
+  "gate_summary": {
+    "B-G0": "PASS_SOURCE_INVENTORY",
+    "B-G1": "PASS_AUTHOR_PLUS_CI",
+    "B-G2": "PASS_AUTHOR_PLUS_CI",
+    "B-G3": "PASS_SYNTHETIC_SCHEMA_AND_RESUME_AUTHOR_PLUS_CI",
+    "B-G4": "PASS_SYNTHETIC_REFERENCE_AUTHOR_PLUS_CI",
+    "B-G5": "HOLD_RESOURCE_CAP_AND_OWNER_WORKSTATION_READBACK",
+    "B-G6": "HOLD_DISTINCT_EXACT_HEAD_INDEPENDENT_QA"
+  },
+  "overall": "B_B0_B1_SCAFFOLD_IMPLEMENTED_CI_PASS_M3_HOLD",
+  "next_step_only": "B_B0_B1_EXACT_BRANCH_HEAD_NATIVE_RESOURCE_AND_DISTINCT_QA_ONEPACK"
+}
