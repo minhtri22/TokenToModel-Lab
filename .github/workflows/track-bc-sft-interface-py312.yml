@@ -35,6 +35,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_bc_sft_interface.py -v
       - name: BC v2 typed wire and 7 real-artifact negative QA
         run: python -m unittest discover -s tests -p test_bc_sft_bridge_v2.py -v
+      - name: Frozen PM distinct F05/F06 three-case negative reviewer test
+        run: python -m unittest discover -s tests/ttm_track_bc -p test_pm_distinct_v2_manifest_negative_20261117.py -v
       - name: Route exact C Part A 18 authored cases to B v2 typed wire
         run: python tests/ttm_track_bc/run_c18_on_b_v2.py
       - name: One bounded P02 forward/backward with no optimizer
