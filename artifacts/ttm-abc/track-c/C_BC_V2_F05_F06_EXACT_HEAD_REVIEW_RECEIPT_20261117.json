@@ -1,0 +1,236 @@
+{
+  "schema": "ttm.track_c.bc_v2.f05_f06.exact_head_contract_negative_qa_receipt.v1",
+  "operation": "TTM_C_BC_V2_F05_F06_EXACT_HEAD_CONTRACT_AND_NEGATIVE_QA_REREVIEW_SINGLE_GATE",
+  "date": "2026-11-17",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "role": "AGENT_C_CONTRACT_OWNER_NOT_FINAL_THIRD_PARTY_PM_REVIEWER",
+  "mode": "DISTINCT_FROM_B_AUTHOR_SYNTHETIC_CPU_ONLY_NO_SCIENCE",
+  "exact": {
+    "b_pr": 36,
+    "b_pr_head_after_documentation": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "b_pr_draft": true,
+    "b_pr_merged": false,
+    "b_pre_fix": "dc151252070e0b118d14f3459823f8e89c6b6723",
+    "b_ci_tested_corrected_source": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "b_pr_after_ci_diff": "ONLY_2_DOCUMENTATION_RECEIPT_FILES_NO_SOURCE_TEST_EDIT",
+    "c_pr": 35,
+    "c_pr_head_before_review": "a5255422f695205fe45d3bba5ad748b157cb1f32",
+    "c_review_branch": "review/ttm-c-bc-v2-f05-f06-20261117",
+    "c_review_tested_head": "16d8a4906cb7878cb2648c429be4428c9c6de0bc",
+    "c_review_parent_B_exact_ci_head": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "original_C_contract_oracle_git_blob": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+    "previous_C_19test_git_blob": "ccd9b3fdae116a217ef730bf90905cce78de59f0"
+  },
+  "changed_B_source_files": [
+    {
+      "path": "src/ttm_track_b/bc_sft_bridge_v2.py",
+      "git_blob_sha1": "c56d98b520fef387fab43bac87b7a9247287b17c",
+      "sha256": "4fcbcf45d90c1ca577d3762ac4c26369d0c51e88cbe1f9bd8e172c8847c6157e"
+    },
+    {
+      "path": "tests/test_bc_sft_bridge_v2.py",
+      "git_blob_sha1": "a27395e4b3167534b87363e4d79d5880b73670d0",
+      "sha256": "59ddacce72c184ec8ea4d530e5f7683e9420befb567f111d0ea739f1219dfa70"
+    },
+    {
+      "path": "tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py",
+      "git_blob_sha1": "3003566952116f3bc0e4ba21c7306fda460a3017",
+      "sha256": "dcf76526cad5eb5d4491fafe8edf89408ec1d711c8bbabc93984d3935faac644"
+    },
+    {
+      "path": ".github/workflows/track-bc-sft-interface-py312.yml",
+      "git_blob_sha1": "be250d278fddb95c364e0ccdd57f87d56d123e0a",
+      "sha256": "707778cee61175d421aaa382cbb9c39faac83d6ea31bb77403534edf6a5fa7f9"
+    }
+  ],
+  "C_review_sources": [
+    {
+      "path": "tests/ttm_track_bc/test_c_f05_f06_new_exact.py",
+      "git_blob_sha1": "1a3fc19429161239af16c52d1b63ef8aca364724",
+      "sha256": "e5cf18871d9a7a9399ce7e0fc8bf00d8a1c0e2cb021746244e2a3d772125fc4b",
+      "case_count": 15
+    },
+    {
+      "path": "tests/ttm_track_bc/test_c_part_b_independent_f01_f04.py",
+      "git_blob_sha1": "ccd9b3fdae116a217ef730bf90905cce78de59f0",
+      "sha256": "f1d2f301c28a5d445dbb4661f87dace0cce1ec64ee9f9b8cf9079a6be9fd1509",
+      "case_count": 19
+    },
+    {
+      "path": "tests/ttm_track_bc/c_part_b_c_v2_reference.py",
+      "git_blob_sha1": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+      "sha256": "51cc2af5266665e14690d5a113ba53e2ce745b8b93c9620ac59ce0fab182e6ed"
+    },
+    {
+      "path": ".github/workflows/track-c-bc-v2-f05-f06-py312.yml",
+      "git_blob_sha1": "c61dd90617109500711da875501274f7e8b47628",
+      "sha256": "c74430ce28571a738995e87ce666253925972455b92e383daa194a6342cbc044"
+    }
+  ],
+  "test_evidence": {
+    "B_author_ci": {
+      "run_id": 43928511412,
+      "head_sha": "a83e1526bce842761f3051dad28b90a55395a6aa",
+      "conclusion": "success",
+      "windows": {
+        "job_id": 133514324483,
+        "b_v1": "29/29 PASS",
+        "b_v2": "26/26 PASS",
+        "pm_frozen_negative": "3/3 PASS",
+        "C_routed": "18/18 PASS",
+        "skip_count": 0
+      },
+      "linux": {
+        "job_id": 133514325422,
+        "b_v1": "29/29 PASS",
+        "b_v2": "26/26 PASS",
+        "pm_frozen_negative": "3/3 PASS",
+        "C_routed": "18/18 PASS",
+        "skip_count": 0
+      },
+      "B_regression_run": 43928511207
+    },
+    "Original_PM_independent_failed": {
+      "run_id": 43923286066,
+      "job_id": 133495938264,
+      "case_01": "PASS",
+      "F05_case_02": "FAIL_EXPECTED_REJECTION_MISSING",
+      "F06_case_03": "FAIL_EXPECTED_REJECTION_MISSING",
+      "preserved": true
+    },
+    "C_initial_failing_review": {
+      "run_id": 43932448976,
+      "tested_branch_head": "9fbc54f6a3cb997a65b85c2ad426685334337176",
+      "defect": "C_NEW_TEST_06_OVERSPECIFIED_EXCEPTION_TEXT_WHEN_MANIFEST_FILENAME_MISSING_B_FAILS_EARLY_AT_FILE_SET",
+      "B_source_changed": false,
+      "history_preserved": true
+    },
+    "C_final_review": {
+      "run_id": 43932738585,
+      "tested_branch_head": "16d8a4906cb7878cb2648c429be4428c9c6de0bc",
+      "status": "completed",
+      "conclusion": "success",
+      "windows": {
+        "job_id": 133529184970,
+        "python": "3.12",
+        "fresh_F05_F06": "15/15 PASS",
+        "old_cross_track": "19/19 PASS",
+        "skips": 0,
+        "symlink_true_case": "PASS"
+      },
+      "linux": {
+        "job_id": 133529185493,
+        "python": "3.12",
+        "fresh_F05_F06": "15/15 PASS",
+        "old_cross_track": "19/19 PASS",
+        "skips": 0,
+        "symlink_true_case": "PASS"
+      },
+      "torch": "2.10.0+cpu",
+      "optimizer_steps": 0,
+      "science": false,
+      "training": false
+    },
+    "B_original_source_or_tests_modified_by_C": false
+  },
+  "artifacts": {
+    "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/",
+    "manifest_path": "artifacts/ttm-abc/bc-sft/v2/MANIFEST_CANONICAL_LF.json",
+    "manifest_git_blob_sha1": "cba9f094d5d05787ffb50ffdef849049945bbfc8",
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "seven_sha256": {
+      "tokenizer_sha256": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template_sha256": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs_sha256": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks_sha256": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels_sha256": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config_sha256": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema_sha256": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    },
+    "byte_equality_before_after": "8/8_GIT_BLOB_EQUAL",
+    "sha256_selftest": "EMPTY_ABC_PASS",
+    "seven_rehash": "7/7_MATCH",
+    "LF": "7/7",
+    "CRLF": "0/7",
+    "canonical": "7/7",
+    "semantic_rows": [
+      {
+        "id": "bc-v2-tr-01",
+        "split": "TRAIN",
+        "valid_assistant_targets": 7,
+        "all_8_independent_semantic_checks": "PASS"
+      },
+      {
+        "id": "bc-v2-tr-02",
+        "split": "TRAIN",
+        "valid_assistant_targets": 4,
+        "all_8_independent_semantic_checks": "PASS"
+      },
+      {
+        "id": "bc-v2-val-01",
+        "split": "VAL",
+        "valid_assistant_targets": 5,
+        "all_8_independent_semantic_checks": "PASS"
+      }
+    ],
+    "checkpoint_semantics": "METADATA_ONLY_NO_ACTUAL_CHECKPOINT_WEIGHTS_NOT_CREATED_RESUME_FALSE",
+    "external_data_provenance": "DECLARED_UNVERIFIED",
+    "bridge_schema": "ttm.bc.c_string_to_b_bytes.v2",
+    "pack_schema": "ttm.bc.synthetic.sft_pack.v2",
+    "canonical_schema": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2"
+  },
+  "findings": {
+    "BC-QA-F05": "PASS_C_NEGATIVE_SCOPED_NEW_B_HEAD",
+    "BC-QA-F06": "PASS_C_NEGATIVE_SCOPED_NEW_B_HEAD",
+    "BC-F01": "PASS_C_REGRESSION_SCOPED",
+    "BC-F02": "PASS_C_REGRESSION_SCOPED",
+    "BC-F03": "PASS_C_REGRESSION_SCOPED",
+    "BC-F04": "PASS_C_REGRESSION_SCOPED"
+  },
+  "matrix_A01_A16": {
+    "A01": "PASS_C_SCOPED",
+    "A02": "PASS_C_SCOPED",
+    "A03": "PASS_C_SCOPED",
+    "A04": "PASS_C_SCOPED",
+    "A05": "PASS_C_SCOPED",
+    "A06": "PASS_C_SCOPED",
+    "A07": "PASS_C_SCOPED",
+    "A08": "PASS_C_SCOPED",
+    "A09": "PASS_C_SCOPED",
+    "A10": "PASS_C_SCOPED",
+    "A11": "PASS_MODEL_BOUND_PATH_SCOPED",
+    "A12": "PASS_C_SCOPED",
+    "A13": "PASS_DECLARED_NOT_AUTHENTICATED_SCOPED",
+    "A14": "PASS_C_SCOPED",
+    "A15": "PASS_C_SCOPED",
+    "A16": "HOLD_DISTINCT_FINAL_QA_AND_PM_ADJUDICATION"
+  },
+  "gates": {
+    "BC-0": "PASS_C_SCOPED",
+    "BC-1": "PASS_C_SCOPED",
+    "BC-2": "PASS_C_SCOPED",
+    "BC-3": "PASS_C_SCOPED",
+    "BC-4": "PASS_C_SCOPED",
+    "BC-5": "HOLD_PM_DISTINCT_FINAL_QA"
+  },
+  "security_limits": [
+    "Path.is_symlink/is_file vs read_bytes TOCTOU_UNRESOLVED",
+    "Windows_junction_and_reparse_types_NOT_EXHAUSTIVELY_VERIFIED",
+    "Trusted_bundle_root_assumption",
+    "New_science_or_gpu_NOT_PERMITTED"
+  ],
+  "historical_B_M3": "PRIOR_PM_PASS_SCOPED_WITH_HISTORICAL_V3_HOLD_AND_REVIEWER_PEAK_DISSENT_PRESERVED",
+  "no_science": true,
+  "no_optimizer": true,
+  "no_GPU": true,
+  "no_TEST64": true,
+  "no_FRESH16": true,
+  "no_FINAL24": true,
+  "no_merge": true,
+  "no_main_mutation": true,
+  "no_lineage_mutation": true,
+  "no_B_branch_mutation_by_C": true,
+  "C_verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED_V2_F05_F06_CLOSED",
+  "BC5_final": "HOLD_PENDING_THIRD_PARTY_FINAL_AND_PM",
+  "next_operation": "TTM_PM_BC_V2_F05_F06_DISTINCT_FINAL_QA_AND_ENGINEERING_GATE_ADJUDICATION_SINGLE_GATE"
+}
