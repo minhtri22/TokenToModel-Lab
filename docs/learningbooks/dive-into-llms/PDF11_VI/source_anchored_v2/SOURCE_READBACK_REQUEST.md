@@ -11,3 +11,5 @@ Exact script repair: interpolate shell variable n when reading 11 historical PDF
 Diagnostic run: report mismatch categories and sample IDs; do not assert source preservation until classified.
 
 Final differential run: measure each raster MAE, require max <=0.22 (existing QA threshold), source text exact. Preserve any remaining failures.
+
+Fix non-mutating sample variables to preserve historical path names during readback.

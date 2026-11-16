@@ -29,8 +29,8 @@ def main():
                 mismatch.append([ch,i+1,"upper_raster_shape"])
             elif pix1.samples!=pix2.samples:
                 raster_nonexact.append([ch,i+1])
-                a,b=pix1.samples,pix2.samples
-                mae=sum(abs(x-y) for x,y in zip(a,b))/len(a)
+                s1,s2=pix1.samples,pix2.samples
+                mae=sum(abs(x-y) for x,y in zip(s1,s2))/len(s1)
                 visual_mae.append([ch,i+1,round(mae,5)])
                 if mae>0.22:
                     mismatch.append([ch,i+1,"upper_raster_mae_over_0_22",round(mae,5)])
