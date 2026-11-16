@@ -1,0 +1,92 @@
+{
+  "schema": "ttm.track_b.pm.v3_full_receipt.integrated_adjudication.v1",
+  "operation": "TTM_B_G5_G6_V3_EXISTING_FULL_RECEIPT_AND_PROSPECTIVE_NEGATIVE_GATE_ADJUDICATION_SINGLE_GATE",
+  "date": "2026-11-16",
+  "scope": "SOURCE_AND_EXISTING_WINDOWS_RECEIPTS_NO_EXECUTION",
+  "source_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+  "ci_source_head": "ff2dc7c59258079a5f3fc5f1bcf4e60c3cfc279e",
+  "ci_run_id": 43893656571,
+  "source_script_v3_sha256": "33093ba616f785981eb3854170f4a5e666a35f4e86b780684ae8e3cd7c19233e",
+  "v3_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "v3_sha256s_manifest_sha256": "964a86e5a404b03731517452f0c5d30f64c3ab8e1a0f7426a7aa121897702257",
+  "differential_receipt_sha256": "2503cc19067b1861a8495aa7cbed59e17a4f5dcbddbe54224a7c1cb1ab6a62d2",
+  "original_v3_execution_status": "HOLD_NATIVE_QA",
+  "original_v3_error": "GUARDED_PHASE_HOLD_job_memory_negative_EXIT_1",
+  "original_v3_phase_count": 16,
+  "native_git_phases": {
+    "total": 6,
+    "exit_zero": 6,
+    "materialized_exact_head": true
+  },
+  "native_guarded_phases": {
+    "total": 10,
+    "receipt_pass": 9,
+    "receipt_fail": 1,
+    "standard_positive_pass": 8,
+    "watchdog_timeout_negative_pass": 1,
+    "job_memory_negative_fail": 1
+  },
+  "per_phase_stdout_stderr_hashes_crosschecked_against_manifest": {
+    "checked": 32,
+    "matching": 32,
+    "actual_raw_logs_uploaded_in_final_packet": 0,
+    "raw_v3_memory_error_log_uploaded_in_prior_packet": true
+  },
+  "v3_peak_guard_measurements": {
+    "positive_process_limit_bytes": 4294967296,
+    "max_peak_job_commit_positive_bytes": 430768128,
+    "watchdog_limit_bytes": 268435456,
+    "watchdog_exit_code": 1460,
+    "watchdog_timed_out": true,
+    "negative_limit_bytes": 268435456,
+    "negative_peak_job_commit_bytes": 429174784,
+    "negative_peak_working_set_bytes": 12877824,
+    "negative_exit_code": 1,
+    "negative_memory_error": true
+  },
+  "independent_negative_stdout_reconstruction": {
+    "count": 7,
+    "encoding": "UTF8_WIN_CRLF",
+    "expected_stdout_sha256": "56b2686a3912166b67fa6cf54507fe83b358c0cf0b3027d4b4818bd627b4b2c0",
+    "matches_manifest": true
+  },
+  "differential_controls": {
+    "under256_alloc64": "PASS_SUCCEEDED",
+    "over256_alloc400": "PASS_MEMORYERROR_REJECTED",
+    "relaxed512_alloc400": "PASS_SUCCEEDED",
+    "total": "PASS_3_OF_3",
+    "peak_accounting_mechanism": "NOT_PROVEN"
+  },
+  "source_sha256": {
+    "src/ttm_track_b/scaffold.py": "5b6610428ac49c4c8d27509de3b27a8519d3865a1c3bbbd8e48051b8080c7fe0",
+    "src/ttm_track_b/cli.py": "b5f9d4c5961c9dac0cc7cee733f2a94b1f08c25d2f31cc2b5e2b525cfadd083b",
+    "tests/test_track_b_scaffold.py": "c6390714f3ad822a78a633feae71dd0dd9138c3ba57456db8b3c785af081fc97",
+    "configs/ttm/track_b_synthetic_smoke.json": "73553bb8fa0dd0884cecbc3a5a2c32e2697abb0ad79cb5b4d4934a172ab135e5"
+  },
+  "baseline_contract_g5": "One-command/one-run synthetic CPU E2E with measured resource caps",
+  "baseline_contract_g6": "Distinct exact-HEAD independent QA, evidence GitHub readback, no science",
+  "adjudication_rule": "V3 peak <= cap requirement is retained on positive phases; deliberately rejected over-limit allocation is assessed by applied cap readback, MemoryError, no success and 3/3 same-host differential. Prior V3 FAIL remains immutable.",
+  "gate_states": {
+    "B-G0": "PASS_SOURCE_INVENTORY_SCOPED",
+    "B-G1": "PASS_SYNTHETIC_CONTRACT_AUTHOR_CI_NATIVE_SCOPED",
+    "B-G2": "PASS_SYNTHETIC_P02_P03_TRAINER_AUTHOR_CI_NATIVE_SCOPED",
+    "B-G3": "PASS_SYNTHETIC_CHECKPOINT_RESUME_AUTHOR_CI_NATIVE_SCOPED_REAL_WEIGHTS_NOT_LOADED",
+    "B-G4": "PASS_SYNTHETIC_EVAL_AUTHOR_CI_NATIVE_SCOPED_SEMANTICS_NOT_VALIDATED",
+    "B-G5": "PASS_ADJUDICATED_HARD_RESOURCE_ENGINEERING_SCOPED",
+    "B-G6": "PASS_DISTINCT_AI_EXACT_HEAD_SOURCE_AND_NATIVE_EVIDENCE_SCOPED",
+    "B_M3": "PASS_ENGINEERING_BASELINE_SCOPED_BY_PM_ADJUDICATION",
+    "V3_RUN_STATUS_IMMUTABLE": "HOLD_NATIVE_QA",
+    "NEGATIVE_PEAK_ACCOUNTING": "UNRESOLVED_ADVISORY_NON_BLOCKING_FOR_SYNTHETIC_ENGINEERING",
+    "BC_SFT_INTEGRATION": "SEPARATE_NOT_ADJUDICATED",
+    "REAL_MODEL_SCIENCE": "NOT_AUTHORIZED",
+    "MAIN_MERGE": "NOT_AUTHORIZED"
+  },
+  "limitations": [
+    "No raw log bytes for all V3 phases supplied in this review; only receipt and hash manifest, with negative stderr from earlier upload.",
+    "No new independent 21-test execution performed; GitHub CI 21/21 logs previously independently read.",
+    "B-G6 reviewer is an independent ChatGPT PM analysis and independent 7-test author, not a separately authenticated human reviewer.",
+    "No assertion that PeakJobMemoryUsed includes attempted-but-denied commits as an established Windows kernel fact.",
+    "The native V3 failed receipt is not edited or called PASS."
+  ],
+  "next_operation": "TTM_PM_BC_SYNTHETIC_SFT_INTERFACE_DISTINCT_EXACT_HEAD_INTEGRATION_ADJUDICATION_SINGLE_GATE"
+}
