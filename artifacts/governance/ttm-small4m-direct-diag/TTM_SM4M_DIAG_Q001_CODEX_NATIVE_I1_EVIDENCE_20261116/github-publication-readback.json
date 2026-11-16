@@ -1,0 +1,43 @@
+{
+  "schema": "ttm.sm4m.diag.q001.codex.github_publication_readback.v1",
+  "utc": "2026-11-16T12:00:13.375811+00:00",
+  "evidence_commit": "957617b5fabd60115ae02f3cc0e3b993090fefd8",
+  "tested_source_commit": "77f6e946975a8b5cd5859297f6d0f161bb13f629",
+  "pr": {
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/pull/28",
+    "draft": true,
+    "state": "open",
+    "merged": false,
+    "head_at_readback": "957617b5fabd60115ae02f3cc0e3b993090fefd8",
+    "q1_main_at_readback": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3"
+  },
+  "issue": {
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/issues/29",
+    "state": "open"
+  },
+  "receipt": {
+    "path": "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_CODEX_NATIVE_I1_RECEIPT_20261116.json",
+    "sha256": "f9ee5664399178697555c0afa4a25e9bd74b9f041715c67c91365d9be6e5cb34",
+    "git_blob_sha1": "135a5da1aea39c33a403b8205f111fabe59e6cd2",
+    "bytes": 20530,
+    "readback_methods": [
+      "GitHub REST contents by exact commit",
+      "GitHub REST Git blob by exact SHA-1",
+      "local committed Git blob byte comparison"
+    ]
+  },
+  "matched_remote_tree_source_and_evidence_blob_size_entries": 34,
+  "archive_byte_readback": {
+    "path": "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_CODEX_NATIVE_I1_EVIDENCE_20261116/native-transcripts.zip",
+    "sha256": "79c5e6903253ce800e20d1531179bd77a2b9726c0315084ad3a60d858eed3664",
+    "git_blob_sha1": "3863854565ffb555a419c1d48322bea2b46e6405",
+    "bytes": 45830
+  },
+  "protected_git_blobs": {
+    "lineage.md": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "docs/governance/ACTIVE_RESEARCH_GATE.md": "012be27ef761a80663e0c650fa1dce341de33575",
+    "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json": "027289f67a7e936dc1e58ae2e8159a59d0216a14"
+  },
+  "role_of_readback": "Separate GitHub transport verification of bytes. No reviewer or custodian attestation."
+}
