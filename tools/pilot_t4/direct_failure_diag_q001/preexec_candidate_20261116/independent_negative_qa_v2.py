@@ -89,6 +89,9 @@ def test_all() -> dict:
              '--fixture-dir',str(fixture),'--out',str(root/'output')]
         proc=subprocess.run(cmd,text=True,capture_output=True,timeout=15)
         checks['no_checkpoint_read_under_forged_go']=proc.returncode==2 and 'HOLD_' in proc.stderr and not (root/'output').exists()
+        nonce='f'*64
+        diag.claim_one_shot(root,nonce)
+        checks['replayed_signed_nonce_denied']=expect_hold(lambda:diag.claim_one_shot(root,nonce),'replay')
         bad_rows=copy.deepcopy(rows);bad_rows[0]['gold']=-99
         checks['oracle_label_mutation_denied']=expect_hold(lambda:diag.validate_fixture(bad_rows,no_answer),'oracle')
         bad_rows=copy.deepcopy(rows);bad_rows[1]['context'][7]=bad_rows[1]['context'][1]
