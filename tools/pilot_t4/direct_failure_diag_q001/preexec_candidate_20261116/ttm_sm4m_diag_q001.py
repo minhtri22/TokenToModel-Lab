@@ -23,6 +23,7 @@ import time
 QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
+RELEASE_GUARD_SHA = '2035a1bddeaac64d0ca4a5c7b2ac400c3d8cc7bf1cb58e0cc32d0bb04bf407de'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -310,6 +311,9 @@ def signed_admission(path: Path, source: Path, meta_path: Path,
     The local permit cannot nominate its own public keys. Trust roots are pinned
     in the reviewed release_auth_v2.py code and currently deliberately EMPTY.
     """
+    guard=source.with_name('release_auth_v2.py')
+    if not guard.is_file() or sha256_file(guard)!=RELEASE_GUARD_SHA:
+        stop('RELEASE_GUARD_SOURCE_NOT_PINNED')
     from release_auth_v2 import authenticate_release
     if not source.is_file():
         stop('RUNNER_SOURCE_MISSING')
