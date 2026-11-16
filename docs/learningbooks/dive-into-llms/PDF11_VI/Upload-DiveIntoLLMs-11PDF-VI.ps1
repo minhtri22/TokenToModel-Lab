@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $branch = 'docs/learningbooks-dive-into-llms-vi-20261116'
-$expected = '740f331ff7e354edca0a69fa11f2afca965c3bf4'
+$minimumBase = '740f331ff7e354edca0a69fa11f2afca965c3bf4'
 $expectedZip = '73b10765deb7e932e6e8a16ca1f96709b8a6f9149d6c803937ed0417bfc1788e'
 $subpath = 'docs/learningbooks/dive-into-llms/PDF11_VI'
 if (-not $Zip) {
@@ -68,10 +68,10 @@ foreach($item in $manifest.papers) {
 & git -C $Root fetch origin ('refs/heads/'+$branch+':refs/remotes/origin/'+$branch)
 if ($LASTEXITCODE -ne 0) { throw 'FETCH_FAILED' }
 $remoteHead=(& git -C $Root rev-parse ('refs/remotes/origin/'+$branch))
-if ($LASTEXITCODE -ne 0 -or $remoteHead.Trim() -ne $expected) {
-  throw ('EXPECTED_HEAD_CHANGED: '+$remoteHead)
-}
-& git -C $Root worktree add --detach -- $worktree $expected
+if ($LASTEXITCODE -ne 0) { throw 'REMOTE_HEAD_LOOKUP_FAILED' }
+& git -C $Root merge-base --is-ancestor $minimumBase $remoteHead
+if ($LASTEXITCODE -ne 0) { throw ('UNRELATED_BRANCH_HEAD: '+$remoteHead) }
+& git -C $Root worktree add --detach -- $worktree $remoteHead
 if ($LASTEXITCODE -ne 0) { throw 'CREATE_WORKTREE_FAILED' }
 $target=Join-Path $worktree ($subpath.Replace('/','\'))
 if (-not (Test-Path -LiteralPath $target)) { throw 'DOCS_DESTINATION_MISSING' }
