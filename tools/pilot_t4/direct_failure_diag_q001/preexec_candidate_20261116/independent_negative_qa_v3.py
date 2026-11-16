@@ -133,7 +133,11 @@ def test_all() -> dict:
     checks['no_eval_gradient']= 'with torch.no_grad():' in script
     checks['weight_delta_recorded']=all(s in script for s in ('parameter_absolute_delta_sum','ZERO_OR_NONFINITE_WEIGHT_DELTA','(p.detach()-before[i]).abs()','parameter_sha256_before','parameter_sha256_after','PARAMETER_FINGERPRINT_UNCHANGED'))
     checks['resource_bounds_present']=all(s in script for s in ('WALL_SECONDS = 900','MEMORY_BYTES = 12 * 1024**3','OUTPUT_BYTES = 1024**3'))
-    checks['restricted_four_caveat']= 'GOLD_AT_INDEX_ZERO; SORTED_LOW_VALUE_DISTRACTORS' in script
+    checks['goldblind_four_way_secondary_only'] = all(x in script for x in
+        ("GOLD_BLIND_VISIBLE_CONTEXT_CANDIDATES", "TIES_ABSTAIN",
+         "TRACK_A_V3_SOURCE_SHA256", "evaluate_goldblind_logits"))
+    checks['old_gold_first_restricted_path_removed'] = "opts=[gold]" not in script and
+        "opts[max(range(4)" not in script
     checks['hardcoded_trust_roots_empty']=auth.TRUSTED_ED25519_PUBLIC_KEYS=={}
     checks['root_hostname_trust_pins_required']=(auth.TRUSTED_PROJECT_ROOT.lower()==r'D:\WORK\RESEARCH\TokenToModel-Lab'.lower()
        and auth.TRUSTED_HOSTNAME.upper()=='DESKTOP-4PSD0G2')
