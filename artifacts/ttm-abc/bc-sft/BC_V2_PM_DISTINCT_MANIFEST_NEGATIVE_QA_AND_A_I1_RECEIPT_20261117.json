@@ -1,0 +1,121 @@
+{
+  "schema": "ttm.pm.a_i1_bc_v2.distinct_exact_source_adjudication_receipt.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_TRACK_A_I1_CLOSURE_AND_BC_V2_DISTINCT_QA_INTEGRATED_ADJUDICATION_ONEPACK",
+  "reference_source_commits": {
+    "A_PR33_HEAD": "771314c07ba061ebeb1baa87018248ed73181079",
+    "A_I1_REVIEWED_SOURCE": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "A_I1_DISTINCT_REVIEW_EVIDENCE": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+    "B_PR36_HEAD": "dc151252070e0b118d14f3459823f8e89c6b6723",
+    "B_V2_CI_TESTED_SOURCE": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+    "B_V2_BRIDGE_GIT_BLOB": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+    "C_PR35_HEAD": "a5255422f695205fe45d3bba5ad748b157cb1f32",
+    "C_PARTB_CI": 43919831949
+  },
+  "A_I1": {
+    "verdict": "PASS_SCOPED_MEASUREMENT",
+    "frozen_fixture_sha256": "823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d",
+    "distinct_checks": "35_OF_35",
+    "owner_native_custody": "38_OF_38",
+    "cases": "80_OF_80",
+    "groups": "5_OF_5",
+    "release_preflight": "HOLD_OWNER_INTERNAL_I1_NOT_PASS",
+    "I2": "NOT_EXECUTED",
+    "TOCTOU": "RELEASE_CAVEAT_NOT_I1_REVERSAL"
+  },
+  "B_v2_author_ci": {
+    "run": 43918069534,
+    "windows": "29+24+18_PASS",
+    "linux": "29+24+18_PASS",
+    "cpu_forward_backward": true,
+    "optimizer_steps": 0
+  },
+  "C_part_b_ci": {
+    "run": 43919831949,
+    "windows": "19_OF_19_PASS",
+    "linux": "19_OF_19_PASS",
+    "verdict": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED"
+  },
+  "independent_byte_readback": {
+    "method": "GitHub exact file text -> independently implemented SHA256 over UTF8 bytes validated on abc and empty test vectors; exact canonical JSON equality checked",
+    "artifact_count": 7,
+    "matched": 7,
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "artifacts": {
+      "tokenizer.json": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template.json": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs.json": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks.json": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels.json": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config.json": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema.json": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    },
+    "all_canonical_one_lf_no_crlf": true,
+    "three_record_role_shift_mask_reconstruction": "3_OF_3_MATCH",
+    "valid_assistant_labels": [
+      7,
+      4,
+      5
+    ]
+  },
+  "independent_qa": {
+    "review_branch": "review/ttm-pm-a-i1-bc-v2-distinct-source-20261117",
+    "test_file": "tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py",
+    "workflow": ".github/workflows/track-bc-pm-distinct-manifest-qa-py312.yml",
+    "run_id": 43923286066,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43923286066",
+    "ci_source_head": "78aad135f89312f47ce11a8a10c759ce73003580",
+    "python": "3.12 Linux",
+    "source_B_implementation_unchanged": true,
+    "tests_total": 3,
+    "passed": 1,
+    "failed": 2,
+    "skipped": 0,
+    "tests": [
+      {
+        "name": "valid_fixture_is_accepted",
+        "result": "PASS"
+      },
+      {
+        "name": "forged_bridge_schema_must_fail_closed",
+        "result": "FAIL",
+        "observed": "ValueError not raised",
+        "defect": "BC-QA-F05"
+      },
+      {
+        "name": "manifest_symlink_must_fail_closed",
+        "result": "FAIL",
+        "observed": "ValueError not raised",
+        "defect": "BC-QA-F06"
+      }
+    ],
+    "model_execution": false,
+    "torch_loaded": false,
+    "optimizer_steps": 0,
+    "gpu": false,
+    "science": false
+  },
+  "gates": {
+    "A_I1": "PASS_SCOPED_MEASUREMENT",
+    "A_I2": "HOLD_RELEASE_PREFLIGHT_NOT_EXECUTED",
+    "BC_0": "PASS_SOURCE_SHA_SCOPED",
+    "BC_1": "PASS_TYPED_CODEC_SCOPED",
+    "BC_2": "PASS_ROLE_SHIFT_MASKED_CE_SCOPED",
+    "BC_3": "PASS_AUTHOR_AND_C_PARTB_CPU_SCOPED",
+    "BC_4": "HOLD_DISTINCT_MANIFEST_FAIL_CLOSED_F05_F06",
+    "BC_5": "HOLD_INDEPENDENT_NEGATIVE_QA_FAILED_2_OF_3",
+    "BC_F01_F04": "CLOSED_ENGINEERING_SCOPED",
+    "C_PARTB": "PASS_CONTRACT_COMPATIBILITY_SCOPED",
+    "B_M3": "PRIOR_PM_ENGINEERING_SCOPED_PASS_WITH_PEAK_COUNTER_DISSENT",
+    "MERGE": "NOT_AUTHORIZED",
+    "REAL_SFT": "NOT_EXECUTED",
+    "I2_MODEL_RUN": "NOT_EXECUTED"
+  },
+  "limitations": [
+    "No independent new owner-host Windows hard-memory run for B/C v2",
+    "Only a new Linux Python 3.12 distinct manifest-boundary test run; B/C author and C Part B CI were separate",
+    "Review authored by a distinct ChatGPT PM session published using owner's GitHub credentials, not separately authenticated human",
+    "Historical Windows V3 HOLD and conflicting PM resource adjudication are preserved"
+  ],
+  "next_operation": "TTM_PM_BC_V2_MANIFEST_FAIL_CLOSED_F05_F06_EXACT_HEAD_AMENDMENT_AND_DISTINCT_RERUN_SINGLE_GATE"
+}
