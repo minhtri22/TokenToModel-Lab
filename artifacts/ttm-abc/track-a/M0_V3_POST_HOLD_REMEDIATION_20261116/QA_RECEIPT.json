@@ -1,0 +1,112 @@
+{
+  "schema": "ttm.track_a.m0v3.post_distinct_hold_remediation.qa_receipt.v1",
+  "date": "2026-11-16",
+  "operation": "A_M0_V3_I1_F01_F02_NUMERIC_BYTECODE_AND_PS51_REMEDIATION_SOURCE_ONLY",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-track-a-small4m-diagnosis-20261116",
+  "pr": 33,
+  "base_pr": 28,
+  "base_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+  "independent_review": {
+    "commit": "05041501bfe84822feffd39290c6800b2152055a",
+    "report": "artifacts/ttm-abc/track-a/M0_V3_DISTINCT_I1_20261116/REVIEW.md",
+    "receipt": "artifacts/ttm-abc/track-a/M0_V3_DISTINCT_I1_20261116/receipt.json",
+    "verdict": "HOLD_I1",
+    "issue_F01": "FULL_VOCAB_NLL_ZERO_AT_UNIFORM_FLOAT32_1E20",
+    "issue_F02": "SCORER_SHA_ONLY_DID_NOT_BIND_ACTUAL_PYC",
+    "private_fixture_sha256": "823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d",
+    "frozen_manifest_sha256": "0b80368a6747994df5f5b8d0e7b35137266ac82f6c9b83d26af5b61f79b3cb04",
+    "original_bpe_train_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "case_digest_pass": "80/80_BY_DISTINCT_REVIEW",
+    "group_digest_pass": "5/5_BY_DISTINCT_REVIEW",
+    "fixture_changed_this_operation": false,
+    "real_data_read_this_operation": false
+  },
+  "remediation": {
+    "source_ci_commit": "8cc069095724e96fd051561a3037f579d01d9222",
+    "scorer": {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py",
+      "sha256_git_lf": "2d0b980768a0ac3079f361d94244cd694c97ed90e978fc83fb7991dc82b5c2ac",
+      "sha256_checkout_crlf": "d76936db04caec358ddfb6947656d60023dee7de5c3388f810c7ecbf08288b63",
+      "fix": "(max_logit-gold_logit)+log(math.fsum(exp(logit-max_logit)))"
+    },
+    "runner": {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "sha256_git_lf": "20c147f9f2629c494c157da5bab3519e01d755096638adfd10e07bb5dda3c4b8",
+      "sha256_checkout_crlf": "9a6a6bbcdd1ce80d40cc40b2b6dce1b46ca2932806fc0f77b036681a401eee0e",
+      "fix": "Read source bytes once, verify exact LF or exact CRLF and canonical LF SHA, compile and exec same buffer; no importlib bytecode loading",
+      "strict_legacy_fixture_compatibility": {
+        "records_sha256": "823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d",
+        "manifest_sha256": "0b80368a6747994df5f5b8d0e7b35137266ac82f6c9b83d26af5b61f79b3cb04",
+        "old_scorer_sha256": "98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587",
+        "behavior": "readback allowed only for exact immutable prior real fixture; never re-freeze"
+      }
+    },
+    "onepack": {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1",
+      "sha256_git_lf": "6506ddf1e5b98793a4b2a3ba3b7aaf089f8692b64f4e0f6b53899b3c28d1a76d",
+      "sha256_checkout_crlf": "40b3bfc6c235e272f70b033d4cf75ed8baca38c84c01ee20aacd701e30b670e5",
+      "filename_historical": true,
+      "execution_mode": "READBACK_ONLY_MANDATORY",
+      "ps51_ast_source_qa": "PASS",
+      "real_private_readback": "NOT_EXECUTED_BY_AGENT_A",
+      "changes": [
+        "no Python -c native quoting",
+        "no PSObject.Properties.Count strict-mode error",
+        "native newline output uses Environment.NewLine",
+        "Git SHA1 LF blob vs exact LF/CRLF bytes verified",
+        "no new frozen fixture creation",
+        "preserves existing private files"
+      ]
+    },
+    "native_negative_harness": {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+      "exact_exit_86_guard": "HOLD_WINJOB_LIMIT_READBACK_MISMATCH",
+      "generic_exit_86_denied": true,
+      "exit_0_denied": true,
+      "older_host_44_45_evidence_preserved": true
+    }
+  },
+  "ci": {
+    "run_id": 43903520071,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43903520071",
+    "job_id": 133426138979,
+    "environment": "Windows Server 2022 / Python 3.12.10 / Windows PowerShell 5.1",
+    "status": "SUCCESS",
+    "mock_author_checks": {
+      "pass": 10,
+      "total": 10
+    },
+    "adversarial_unittest": {
+      "pass": 31,
+      "total": 31
+    },
+    "runner_source_qa": {
+      "pass": 18,
+      "total": 18
+    },
+    "negative_qa": {
+      "pass": 48,
+      "total": 48
+    },
+    "algorithmic_checker": "PASS_MOCK_LOGIC_NOT_DISTINCT_REVIEWER",
+    "onepack_ps51_ast": "PASS_SOURCE_ONLY",
+    "private_fixture_readback": "NOT_EXECUTED",
+    "native_job_object_full_runtime_retested": false,
+    "actual_checkpoint_open": false,
+    "model_forward": false,
+    "optimizer_steps": 0
+  },
+  "adjudication": {
+    "status": "HOLD_I1",
+    "reason": "AUTHOR_REMEDIATION_NOT_YET_REVIEWED_BY_DISTINCT_AGENT_ON_EXACT_NEW_SOURCE",
+    "future_i1": "REQUIRES_DISTINCT_EXACT_BYTE_AND_READBACK_ADJUDICATION",
+    "release_preflight": "HISTORICAL_HOLD_NOT_OVERRIDDEN",
+    "I2": "NOT_EXECUTED",
+    "nonce_claimed": false,
+    "merge": false,
+    "main_changed": false,
+    "lineage_changed": false,
+    "old_independent_review_overwritten": false
+  }
+}
