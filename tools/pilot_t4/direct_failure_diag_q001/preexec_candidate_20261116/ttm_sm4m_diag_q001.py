@@ -23,7 +23,7 @@ import time
 QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
-RELEASE_GUARD_SHA = '2035a1bddeaac64d0ca4a5c7b2ac400c3d8cc7bf1cb58e0cc32d0bb04bf407de'
+RELEASE_GUARD_SHA = '1d543cc5115189c8050fdc481c486490072448372ce302827938006ee1437f2e'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -480,6 +480,33 @@ def evaluate(model,torch,rows,idxs: list[int],rss_check):
     return results
 
 
+def claim_one_shot(root: Path, nonce: str) -> Path:
+    """Persist an atomic no-retry claim before entering the model path.
+
+    Deleting/replacing this file voids local audit custody; external reviewer
+    must compare durable GitHub/Windows evidence, not trust local state alone.
+    """
+    if not isinstance(nonce,str) or len(nonce)!=64 or any(c not in '0123456789abcdef' for c in nonce):
+        stop('INVALID_SIGNED_ONESHOT_NONCE')
+    directory=root/'_tmp'/'ttm_sm4m_diag_q001_onetime_claim'
+    directory.mkdir(parents=True,exist_ok=True)
+    target=directory/('RUN_'+nonce+'.json')
+    try:
+        fd=os.open(str(target),os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
+    except FileExistsError:
+        stop('ONESHOT_NONCE_ALREADY_CONSUMED_NO_RETRY')
+    try:
+        with os.fdopen(fd,'wb') as out:
+            out.write(json_bytes({'one_shot_nonce':nonce,'status':'CLAIMED_NO_RETRY',
+                                  'question_id':QID,'checkpoint_sha256':MODEL_SHA}))
+            out.flush()
+            os.fsync(out.fileno())
+    except BaseException:
+        # Fail closed: never clear the claim on failure; no automatic retry.
+        raise
+    return target
+
+
 def run(args):
     src=Path(__file__).resolve()
     root=Path(args.root).resolve()
@@ -511,6 +538,7 @@ def run(args):
             stop('RESOURCE_RSS_12GIB')
     meta=json_read(inventory)
     rows=read_frozen_fixture(fixture_dir,fixture_digest,meta,underlying.read_bytes())
+    claim_file=claim_one_shot(root,payload.get('one_shot_nonce'))
     model,torch=load_model(checkpoint,root)
     torch.set_num_threads(min(8,max(1,os.cpu_count() or 1)))
     torch.manual_seed(SEED)
@@ -572,6 +600,7 @@ def run(args):
       'status':'COMPLETED_ONE_SHOT_TINY_OVERFIT_PASS' if achieved else 'COMPLETED_ONE_SHOT_TINY_OVERFIT_NOT_REACHED',
       'scope':'SYNTHETIC_ONLY_NO_SEMANTIC_BENCHMARK_CLAIM','seed':SEED,'steps':256,
       'model_sha256':MODEL_SHA,'p02_blob':SOURCE_BLOB,'fixture_sha256':fixture_hash,
+      'one_shot_nonce':payload['one_shot_nonce'],'claim_file':str(claim_file),
       'runner_sha256':sha256_file(src),'groups':GROUPS,
       'post_correct_by_group':dict(post_by),'train_ce':train_nll,'monitor':monitor,
       'baseline':baseline,'post':post,'resource_elapsed_s':time.monotonic()-begin,
