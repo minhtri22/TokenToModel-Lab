@@ -10,6 +10,8 @@ import importlib.util
 from pathlib import Path
 import sys
 import unittest
+# Direct script invocation sets sys.path[0] to tests/ttm_track_bc, not repo root.
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 import b_v2_c_oracle_compat as compat
 
 ROOT=Path(__file__).resolve().parent
