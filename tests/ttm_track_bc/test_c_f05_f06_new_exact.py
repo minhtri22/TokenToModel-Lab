@@ -75,7 +75,9 @@ class CExactF05F06NegativeQA(unittest.TestCase):
 
     def test_06_f06_missing_or_directory_manifest_is_rejected(self):
         self.manifest_path.unlink()
-        with self.assertRaisesRegex(ValueError, "SYMLINK_OR_MISSING_MANIFEST"):
+        # An absent basename fails at the prior exact-file-set gate. That is
+        # fail-closed too; F06's separate symlink test checks the pre-read guard.
+        with self.assertRaisesRegex(ValueError, "BUNDLE_FILE_SET_MISMATCH"):
             B.verify_bundle(self.bundle)
         self.manifest_path.mkdir()
         with self.assertRaisesRegex(ValueError, "SYMLINK_OR_MISSING_MANIFEST"):
