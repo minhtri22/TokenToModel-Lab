@@ -30,7 +30,11 @@ class IntegratedM0SourceQA(unittest.TestCase):
 
     def test_source_hash_pinned(self):
         src = HERE / "q001_m0_goldblind.py"
-        self.assertEqual(hashlib.sha256(src.read_bytes()).hexdigest(),
+        raw = src.read_bytes()
+        self.assertIn(hashlib.sha256(raw).hexdigest(),
+                      (diag.TRACK_A_V3_SOURCE_SHA256,
+                       diag.TRACK_A_V3_CRLF_SHA256))
+        self.assertEqual(hashlib.sha256(raw.replace(b'\\r\\n', b'\\n')).hexdigest(),
                          diag.TRACK_A_V3_SOURCE_SHA256)
         self.assertTrue(diag.track_a_v3().SCHEMA.endswith(".mock"))
 
