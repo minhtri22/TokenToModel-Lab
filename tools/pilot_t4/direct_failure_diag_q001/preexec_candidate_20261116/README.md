@@ -82,7 +82,7 @@ Do not promote any source QA score to model QA.
   and demand full lowercase runner SHA-256. Windows PS 5.1 execution
   **NOT_EXECUTED** in author test environment.
 - F05: `independent_negative_qa_v2.py` is an author-supplied distinct-path
-  MOCK adversarial suite; it passed **30/30** under Linux Python 3.13.
+  MOCK adversarial suite; it reported **31/31** under Linux Python 3.13 (historical author-only receipt); this old v2 suite is superseded for the new candidate by v3 and must not be relabeled as independent Windows QA.
   A genuinely separate Windows Python 3.12 reviewer must rerun it.
 - F06: AD-00/AD-01C/E6 external rights, signer trust anchors, live checkpoint
   byte custody, tokenizer inventory, and Windows runtime are **NOT_VERIFIED**.
@@ -107,3 +107,37 @@ under artifacts/governance for the new reviewed source pins.
 Owner's conditional GO stays recorded but is **not equivalent** to authenticated
 rights or I1/I2 admission. No private checkpoints, historic TEST/FINAL, or real
 experimental fixtures have been accessed in this source-remediation pass.
+
+## Follow-up I1 remediation after distinct source HOLD at `18fabe425...`
+
+- F01: An authenticated release now pins both `D:\WORK\RESEARCH\TokenToModel-Lab` and
+  `DESKTOP-4PSD0G2` in source and signed payload. Every project worktree uses
+  one canonical `_evidence/ttm_sm4m_diag_q001_onetime_claims` nonce ledger.
+  Changing the --root input cannot choose a new ledger. The old nonce path is
+  also checked. This prevents ordinary cross-worktree replay **on this host**;
+  deliberate deletion of local custody or cross-machine use requires external
+  durable adjudication and is NOT proven impossible.
+- F04: Direct `run`, `fixture-freeze`, and `release-preflight` now reject
+  private file/path escapes before any private data opens. On the real Windows
+  machine, test junctions and reparse points independently.
+- F05: `independent_negative_qa_v3.py` is a **new author-created** mock/source
+  harness for root binding, cross-root claims and source watchdog assertions.
+  It does NOT constitute independent QA and DOES NOT exercise a Windows watchdog.
+  The historical `independent_negative_qa_v2.py` and its 31/31 receipt remain
+  unchanged as historical evidence for an older runner.
+- F08: `Watch-TTM-SM4M-ProcessTree-PS51.ps1` is a separately SHA-pinned
+  native Windows watcher: cumulative sampled descendant process RSS,
+  stdout+stderr plus recursive output, and *postexit* threshold checks.
+  `Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1` defines 5 source-only
+  adversarial processes: normal, final oversized output, wall timeout,
+  child-memory breach and live orphan after parent exit.
+  **Do not claim these cases PASS until native PS5.1/Python3.12 execution
+  produces a real receipt.** Sampled RSS alone cannot guarantee a strict
+  instantaneous OS memory ceiling without a separately proven Job Object.
+- F06 remains hard HOLD: `TRUSTED_ED25519_PUBLIC_KEYS={}`,
+  rights AD-00/AD-01C/E6 not attested, tokenizer and exact model bytes not
+  read/verified. A local GO string must never be used as authorization.
+
+**I1 state remains HOLD**; owner conditional GO is preserved, I2 has NOT run.
+Only the frozen Q1 24+56 / 256 steps / seed and original checkpoint are eligible
+for future execution after legitimate admission, no automatic retry.
