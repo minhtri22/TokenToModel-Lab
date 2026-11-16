@@ -51,7 +51,11 @@ def test_all() -> dict:
     checks['mutated_inventory_taxonomy_denied']=expect_hold(lambda:diag.permitted_ids(dict(meta,underlying_inventory_sha256=hashlib.sha256(source_bytes).hexdigest()),source_bytes),'tax')
     cases=diag.case_and_group_manifest(rows)
     checks['manifest_80_case_hashes']=len(cases['case_sha256'])==80 and len(cases['group_sha256'])==5
-    with tempfile.TemporaryDirectory() as tmp:
+    checkout_root=next((parent for parent in [BASE,*BASE.parents]
+                        if (parent/'src'/'p02'/'transformer_core.py').is_file()), BASE)
+    scratch=checkout_root/'_tmp'/'ttm_sm4m_diag_q001_mock_negative_qa'
+    scratch.mkdir(parents=True,exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='qa_',dir=scratch) as tmp:
         root=Path(tmp)
         fixture=root/'fixture'; fixture.mkdir()
         (fixture/'FIXTURE_RECORDS.json').write_bytes(diag.json_bytes(rows))
@@ -110,7 +114,7 @@ def test_all() -> dict:
     checks['resource_bounds_present']=all(s in script for s in ('WALL_SECONDS = 900','MEMORY_BYTES = 12 * 1024**3','OUTPUT_BYTES = 1024**3'))
     checks['restricted_four_caveat']= 'GOLD_AT_INDEX_ZERO; SORTED_LOW_VALUE_DISTRACTORS' in script
     checks['hardcoded_trust_roots_empty']=auth.TRUSTED_ED25519_PUBLIC_KEYS=={}
-    checks['source_only_no_real_fixture_written']=not Path('/mnt/data/TTM_PRIVATE_FIXTURE').exists()
+    checks['source_only_no_real_fixture_written']=not (scratch/'REAL_FIXTURE_RECORDS.json').exists()
     return {
         'scope':'ADVERSARIAL_MOCK_AND_SOURCE_NO_MODEL',
         'checks':checks,'passed':sum(checks.values()),'total':len(checks),
