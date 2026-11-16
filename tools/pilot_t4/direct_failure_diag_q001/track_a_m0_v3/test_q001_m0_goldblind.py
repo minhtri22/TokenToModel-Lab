@@ -115,7 +115,7 @@ class M0AdversarialTests(unittest.TestCase):
 
     def test_12_invalid_inventory_and_logits(self):
         with self.assertRaises(ValueError):
-            inventory(list(range(100, 180)))  # includes EOS 256? length only
+            inventory(list(range(100, 179)))  # only 79 IDs
         with self.assertRaises(ValueError):
             inventory(list(range(200, 300)))  # contains EOS 256
         with self.assertRaises(ValueError):
