@@ -9,12 +9,18 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import ntpath
+import platform
 from pathlib import Path
 
 QUESTION_ID = 'TTM-SM4M-DIAG-Q001'
 Q1_MAIN = 'f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3'
 CHECKPOINT_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
 OWNER_DECISION = 'GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL'
+# Source-controlled execution identity (Windows root + machine) is part of the signed payload.
+# It is not derived from the mutable permit or from an arbitrary --root argument.
+TRUSTED_PROJECT_ROOT = r'D:\WORK\RESEARCH\TokenToModel-Lab'
+TRUSTED_HOSTNAME = 'DESKTOP-4PSD0G2'
 # Deliberately NOT configured. No release until separately authenticated keys
 # are reviewed and hard-pinned to this file in a later exact-HEAD source review.
 TRUSTED_ED25519_PUBLIC_KEYS: dict[str, str] = {}
@@ -38,14 +44,33 @@ def _hex(value, length=64):
     return isinstance(value, str) and len(value) == length and all(c in '0123456789abcdef' for c in value)
 
 
+def trusted_execution_root(root: Path) -> Path:
+    """Only one exact, reviewed Windows project root may share the nonce ledger.
+
+    Local variable user-controlled --root may never establish its own trust scope.
+    The owner must explicitly amend this source pin for another root/host.
+    """
+    actual = root.resolve(strict=False)
+    if ntpath.normcase(ntpath.normpath(str(actual))) != ntpath.normcase(
+            ntpath.normpath(TRUSTED_PROJECT_ROOT)):
+        _hold('PROJECT_ROOT_NOT_SIGNED_TRUST_ROOT')
+    if platform.node().casefold() != TRUSTED_HOSTNAME.casefold():
+        _hold('HOSTNAME_NOT_SIGNED_TRUST_HOST')
+    return actual
+
+
 def authenticate_release(permit_path: Path, *, phase: str, runner_sha256: str,
                          tokenizer_sha256: str, underlying_sha256: str,
-                         frozen_fixture_sha256: str | None = None) -> dict:
+                         frozen_fixture_sha256: str | None = None,
+                         project_root: Path | None = None) -> dict:
     """Verify 3 distinct signatures over the same complete immutable payload.
 
     Keys are not taken from permit or an arbitrary local path. A well-formed
     permit with all GO strings, but no externally pinned keys, ALWAYS fails.
     """
+    if project_root is None:
+        _hold('PROJECT_ROOT_MISSING')
+    trusted_execution_root(project_root)
     if not TRUSTED_ED25519_PUBLIC_KEYS or any(
             role not in TRUSTED_ED25519_PUBLIC_KEYS for role in REQUIRED_SIGNER_ROLES):
         _hold('AUTHENTICATED_TRUST_ANCHORS_UNAVAILABLE')
@@ -62,6 +87,8 @@ def authenticate_release(permit_path: Path, *, phase: str, runner_sha256: str,
         _hold('SIGNED_PERMIT_SCHEMA')
     required = {
         'question_id': QUESTION_ID,
+        'project_root': TRUSTED_PROJECT_ROOT,
+        'hostname': TRUSTED_HOSTNAME,
         'question_gate_main_sha': Q1_MAIN,
         'owner_decision': OWNER_DECISION,
         'phase': phase,
