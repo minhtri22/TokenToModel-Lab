@@ -1,0 +1,67 @@
+name: "TTM Q001 RF-00 Windows native no-model QA"
+on:
+  push:
+    branches:
+      - "fix/ttm-sm4m-q001-rf00-winjob-hard-cap-20261116"
+    paths:
+      - ".github/workflows/ttm-q001-rf00-native-no-model-qa.yml"
+      - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/windows_job_memory_limit.py"
+      - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/test_windows_job_guard_native.py"
+      - "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-no-model:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          architecture: "x64"
+      - name: "Pin exact GitHub source and Python 3.12"
+        shell: pwsh
+        run: |
+          git rev-parse HEAD | Out-File -Encoding utf8 rf00_git_head.txt
+          python -c "import sys;assert sys.version_info[:2]==(3,12)"
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_PY312" }
+          Get-FileHash windows_job_memory_limit.py -Algorithm SHA256 | Format-List | Out-File -Encoding utf8 rf00_source_sha256.txt
+          Get-FileHash Run-Approved-OneShot-PS51.ps1 -Algorithm SHA256 | Format-List | Out-File -Append -Encoding utf8 rf00_source_sha256.txt
+      - name: "PowerShell 5.1 parse-only (never run I2)"
+        shell: powershell
+        run: |
+          $tokens=$null; $errors=$null
+          $null=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'Run-Approved-OneShot-PS51.ps1').Path,[ref]$tokens,[ref]$errors)
+          if (@($errors).Count -gt 0) { $errors | Out-String | Write-Output; throw 'HOLD_PS51_PARSE' }
+          Write-Output ('PS51_PARSE_PASS='+$PSVersionTable.PSVersion.ToString())
+      - name: "Python3.12 source and native Win32 negative QA, no model files"
+        shell: pwsh
+        run: |
+          python -m unittest -v test_windows_job_guard_native.py 2>&1 | Tee-Object rf00_native_unittest.log
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_UNIT" }
+          python windows_job_memory_limit.py --struct-shape 2>&1 | Tee-Object rf00_struct.json
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_STRUCT" }
+          python windows_job_memory_limit.py --native-smoke 2>&1 | Tee-Object rf00_smoke.log
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_SMOKE" }
+          python windows_job_memory_limit.py --native-negative 2>&1 | Tee-Object rf00_negative.log
+          if ($LASTEXITCODE -ne 0) { throw "HOLD_NATIVE_NEGATIVE" }
+      - name: "Archive technical QA evidence (not model science)"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q001-rf00-native-no-model-${{ github.sha }}
+          path: |
+            tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/rf00_*.txt
+            tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/rf00_*.json
+            tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/rf00_*.log
+          if-no-files-found: warn
+          retention-days: 30
