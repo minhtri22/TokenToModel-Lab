@@ -23,7 +23,7 @@ Mỗi mục là phần giải thích khái niệm, ví dụ do trợ lý tự so
 ## PDF song ngữ 11 chương (ứng viên tham khảo)
 
 - [Gói 11 PDF song ngữ và biên bản QA](PDF11_VI/README.md).
-- ZIP kết quả đã được kiểm tra 11/11 SHA và 495/495 trang, nhưng **chưa upload binary PDF lên nhánh tại commit metadata**.
+- **Đã upload đủ 11/11 PDF và 11/11 Markdown lên GitHub**, 495/495 trang; [GitHub receipt](PDF11_VI/BINARY_UPLOAD_RECEIPT_20261116.json) xác nhận SHA-256. Đây là bản song ngữ tham khảo, không phải dịch nguyên văn hoàn chỉnh.
 - Fidelity HOLD: bản dịch chưa nguyên văn toàn bộ; 53 trang có lỗi ký tự trong lớp text.
 
 ## Chưa hoàn thành

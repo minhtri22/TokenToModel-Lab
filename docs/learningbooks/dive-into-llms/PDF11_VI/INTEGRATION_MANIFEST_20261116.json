@@ -16,7 +16,7 @@
     "independent_linguistic": "NOT_EXECUTED",
     "adjudication": "HOLD_FIDELITY_PENDING_REMEDIATION"
   },
-  "binary_pdf_upload_status": "NOT_UPLOADED_IN_THIS_COMMIT",
+  "binary_pdf_upload_status": "PASS_11_OF_11_GITHUB_EXACT_SHA256",
   "files": [
     {
       "chapter": 1,
@@ -203,5 +203,9 @@
         17
       ]
     }
-  ]
+  ],
+  "github_binary_commit": "1de439c2a6e9a6be5b6144d35b9f787fd9ea81b0",
+  "github_actions_run": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43849984401",
+  "markdown_upload_status": "PASS_11_OF_11_GITHUB_EXACT_SHA256",
+  "translation_fidelity_unchanged": "HOLD_F01_F02_F03"
 }

@@ -52,3 +52,10 @@ Operation: `DIVE_INTO_LLMS_11PDF_VI_TRANSLATION_FIDELITY_REVIEW_ONEPACK`
 ## Remediation
 
 Một lượt sửa tập trung: khắc phục 53 trang ký hiệu lỗi, đối chiếu đoạn/bảng/hình còn diễn giải, cải thiện khả năng đọc, sau đó QA kỹ thuật và nội dung. Không tự nâng HOLD thành PASS.
+
+## Cập nhật GitHub sau kiểm toán (không thay đổi fidelity verdict)
+
+- **Upload và GitHub byte-custody:** PASS 11/11 PDF, 11/11 Markdown, tổng 495 trang; xác minh SHA-256 tại [GitHub receipt](BINARY_UPLOAD_RECEIPT_20261116.json).
+- **Commit xuất bản nhánh tài liệu:** [`1de439c2a6e9a6be5b6144d35b9f787fd9ea81b0`](https://github.com/minhtri22/TokenToModel-Lab/commit/1de439c2a6e9a6be5b6144d35b9f787fd9ea81b0).
+- **GitHub Actions:** [SUCCESS](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43849984401).
+- **Fidelity vẫn HOLD** do F01–F03. Việc đưa đủ file lên GitHub không khắc phục lỗi nội dung/font; không có independent linguistic QA.

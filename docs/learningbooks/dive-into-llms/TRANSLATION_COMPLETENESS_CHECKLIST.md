@@ -2,7 +2,7 @@
 
 # Checklist kiểm kê và hoàn thành — 2026-11-16
 
-> **PDF11 update:** 11 bản song ngữ ứng viên có 495/495 trang đối chiếu, nhưng **chưa phải bản dịch nguyên văn hoàn chỉnh**; xem [fidelity review](PDF11_VI/FIDELITY_REVIEW_20261116.md). Chưa được tính là upload thành công trên GitHub khi chưa readback các file nhị phân.
+> **PDF11 update:** 11 bản song ngữ ứng viên có 495/495 trang đối chiếu, nhưng **chưa phải bản dịch nguyên văn hoàn chỉnh**; xem [fidelity review](PDF11_VI/FIDELITY_REVIEW_20261116.md). **GitHub upload PASS 11 PDF + 11 Markdown** qua readback chính xác SHA-256, nhưng chuẩn **dịch nguyên văn vẫn HOLD**.
 
 **Nguồn khóa:** [`f84c04268794ef94f8949808bbc14ab8636763a0`](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0)  
 **Phân loại:** `ORIGINAL_VI_GUIDES` ≠ `FULL_TRANSLATION`. Không gian dối với checklist hoàn thành.
