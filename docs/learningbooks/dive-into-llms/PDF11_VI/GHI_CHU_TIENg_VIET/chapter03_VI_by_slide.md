@@ -157,4 +157,3 @@ Mục tiêu:
 1. Làm quen với thư viện EasyEdit.
 2. Nắm phương pháp chỉnh sửa mô hình ngôn ngữ ở mức cơ bản nhất.
 3. Hiểu cách chọn các phương pháp chỉnh sửa và trường hợp áp dụng.
-

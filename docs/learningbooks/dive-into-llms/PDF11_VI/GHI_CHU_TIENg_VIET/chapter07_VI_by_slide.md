@@ -91,4 +91,3 @@ Ví dụ trước dùng cách gán mã cố định theo thứ tự n token. Hì
 • Bản chất của phương pháp sinh là mã hóa lặp trên dữ liệu có thứ tự. Tác giả đề xuất khả năng áp dụng sang phương tiện khác, ví dụ DNA; đây là định hướng mang tính suy đoán, không phải kỹ thuật đã được chứng minh trong bài giảng.
 • Giấu tin có liên hệ với thủy vân LLM, ví dụ KGW cũng áp dụng ràng buộc lựa chọn token tiếp theo.
 • Phân tích phát hiện giấu tin (steganalysis) có thể hỗ trợ phát hiện nội dung bị mã hóa hoặc hành vi trực tuyến gây hại, qua đó đóng góp cho an toàn thông tin.
-

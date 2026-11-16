@@ -122,14 +122,12 @@ Khó khăn:
 
 ## Trang 14/17
 
-TRÍCH XUẤT ĐÁP ÁN TOÁN
-• GSM8K thường đánh dấu đáp án bằng bốn ký tự 0000 (####).
-• MATH thường đặt đáp án trong lệnh LaTeX \boxed{}, hiện được dùng rộng rãi.
-Ưu điểm: có chuẩn thống nhất để bóc tách và đánh giá kết quả.
-Hạn chế:
-• Mô hình cần được hướng dẫn/huấn luyện theo định dạng đầu ra.
-• Không bao phủ mọi kiểu trả lời.
-Hình trên slide đối chiếu quy ước GSM8K và MATH.
+TRÍCH XUẤT ĐÁP ÁN ĐỂ ĐÁNH GIÁ TOÁN HỌC
+• Với GSM8K, đáp án thường được đánh dấu bằng bốn dấu thăng liên tiếp: ####.
+• Với MATH, đáp án thường được đặt trong lệnh LaTeX \boxed{}; tài liệu xem đây là cách làm phổ biến.
+Ưu điểm: thống nhất quy tắc tách đáp án, thuận tiện cho việc đánh giá tự động.
+Hạn chế: mô hình cần được huấn luyện hoặc hướng dẫn sử dụng định dạng đầu ra này; định dạng cố định không bao phủ được mọi trường hợp.
+Hai hình minh họa trên slide nguồn đối chiếu phương án GSM8K và MATH.
 
 ## Trang 15/17
 
@@ -151,4 +149,3 @@ TỔNG KẾT
 
 CẢM ƠN!
 Slide kết thúc bài giảng về suy luận toán học. Trang gốc ghi thông tin Đại học Giao thông Thượng Hải (Shanghai Jiao Tong University).
-

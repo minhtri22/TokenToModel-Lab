@@ -382,11 +382,10 @@ MỤC LỤC
 ## Trang 47/76
 
 PROMPT THEO CHUỖI SUY LUẬN (CHAIN-OF-THOUGHT, CoT)
-CoT yêu cầu mô hình trình bày các bước trung gian, thay vì chỉ “câu hỏi → đáp án”. Bài giảng nêu lợi ích trên bài toán toán, logic và nhiệm vụ nhiều bước.
-Sơ đồ so sánh:
-• Trả lời trực tiếp cho ví dụ hoa hướng dương có 3 tá hạt nhỏ và bông lớn có nhiều hạt hơn 50% → có thể cho sai “54”.
-• Trả lời theo các bước: 3 tá = 36, bông lớn = 36+18 = 54, cả hai = 36+54 = **90 hạt**.
-Ngữ cảnh trình bày giúp người học kiểm tra cách đến đáp án.
+CoT hướng mô hình giải quyết vấn đề phức tạp theo từng bước, giúp người đọc thấy lộ trình suy luận, nhất là trong toán, logic và tác vụ nhiều bước. Tác giả cho rằng cách làm này có thể tăng độ tin cậy và tính dễ giải thích so với trả lời trực tiếp, nhưng không bảo đảm mọi bước đều đúng.
+• Mẫu thông thường: <câu hỏi → đáp án>.
+• Mẫu CoT: <câu hỏi → chuỗi suy luận → đáp án>.
+Ví dụ hoa hướng dương trong hình: bông nhỏ có 3 tá hạt = 36 hạt; bông lớn nhiều hơn 50%, tức thêm 18 hạt và có 54 hạt; tổng cộng 36 + 54 = 90 hạt. Hình đặt bên cạnh câu trả lời trực tiếp “54” sai tổng để làm rõ giá trị của lời giải từng bước.
 
 ## Trang 48/76
 
@@ -466,11 +465,12 @@ Các điều kiện là gợi ý từ tài liệu, không phải ngưỡng phổ
 
 ## Trang 57/76
 
-KỸ THUẬT NỀN CHO CoT 1: PROMPT LEARNING
-Thiết kế prompt làm rõ cấu trúc suy luận mong muốn: chuỗi, cây, đồ thị hoặc self-consistency; chia bài toán thành bước nhỏ.
-Nên mô tả tỉ mỉ tình huống, vai trò, luật, định dạng đầu ra và cách đánh giá.
-Ví dụ trên slide từ OS-Copilot yêu cầu mô hình lập trình sinh hàm Python và câu lệnh gọi hàm; tên hàm trùng nhiệm vụ, tham số không được hard-code, có quy tắc xử lý đường dẫn tệp và import.
-Các ví dụ giải có thể viết tay, truy xuất hoặc sinh tự động.
+KỸ THUẬT CỐT LÕI CỦA CoT — 1. HỌC TỪ PROMPT
+Tác giả coi thiết kế prompt là nền tảng cho cách suy luận CoT: mẫu chỉ dẫn được soạn để phân rã bài toán, xác định tuyến suy luận và kiểu cấu trúc (chuỗi, cây suy nghĩ, đồ thị suy nghĩ, tự nhất quán); nhờ đó có thể phân tích, kiểm tra logic, sửa lỗi và giải thích các bước tiếp theo.
+• Mô tả nhiệm vụ bằng chỉ dẫn chặt chẽ: bối cảnh, vai trò, quy tắc, định dạng đầu ra và cách đánh giá.
+• Chọn ví dụ trình diễn chuỗi suy luận tốt, bằng cách viết tay, truy xuất hoặc tạo tự động.
+Ví dụ OS-Copilot bằng tiếng Anh trong slide: chỉ cho phép trả về mã Python cùng câu lệnh gọi hàm trong thẻ <invoke>. Hàm phải mang cùng tên với Task Name, được tái dùng cho tình huống khác bằng tham số tổng quát (không hard-code). Các yêu cầu được thể hiện trong bản trích của slide gồm: tên hàm (1), trừu tượng hóa tham số (2), đường dẫn kết quả phải là đường dẫn tuyệt đối (10), import các thư viện cần dùng trước hàm (11). Câu gọi hàm phải hợp lệ về cú pháp và điền tham số theo mô tả nhiệm vụ hay kết quả các việc tiền đề. Mẫu gốc dùng dấu “……” lược bớt các mục ở giữa, vì vậy không thể suy ra nguyên văn các mục không có trên slide.
+Tài liệu dẫn Wu và cộng sự (2024), OS-Copilot, arXiv:2402.07456.
 
 ## Trang 58/76
 
@@ -617,4 +617,3 @@ Kết thúc bài giảng “Học bằng prompt và chuỗi suy luận”.
 Tác giả: Zhang Zhuosheng, Đại học Giao thông Thượng Hải.
 Email: zhangzs@sjtu.edu.cn
 Website: https://bcmi.sjtu.edu.cn/~zhangzs
-

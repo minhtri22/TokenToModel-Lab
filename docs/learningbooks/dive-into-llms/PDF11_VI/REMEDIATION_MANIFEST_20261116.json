@@ -1,0 +1,159 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_FIDELITY_REMEDIATION_AND_INDEPENDENT_LANGUAGE_QA_ONEPACK",
+  "status": "REMEDIATION_CANDIDATE_PENDING_INDEPENDENT_QA",
+  "source_pin": "f84c04268794ef94f8949808bbc14ab8636763a0",
+  "source_zip_sha256": "251d0d49601e536bf1eb94deb727da665693126a3ef7d04d8efff9f3550406fe",
+  "prior_bilingual_zip_sha256": "73b10765deb7e932e6e8a16ca1f96709b8a6f9149d6c803937ed0417bfc1788e",
+  "input_custody": "PASS_22_OF_22",
+  "output_files": [
+    {
+      "chapter": 1,
+      "pages": 77,
+      "pdf_path": "chapter01_VI_bilingual.pdf",
+      "pdf_sha256": "f4015b46e77b473701daa14e4f5011de0f35c81c2025663ad40616d2aa0695b4",
+      "pdf_bytes": 14098298,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter01_VI_by_slide.md",
+      "md_sha256": "f0b31c6d2ed7095c3f9463b93772dfcc9eb99352587ab095622d3f44e1634d48",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": []
+    },
+    {
+      "chapter": 2,
+      "pages": 76,
+      "pdf_path": "chapter02_VI_bilingual.pdf",
+      "pdf_sha256": "df74fcc9ba1cb984986868fc089a2381c19b9c16e230a110df9577c2fab330ea",
+      "pdf_bytes": 11526905,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter02_VI_by_slide.md",
+      "md_sha256": "c4daef2bacbf75df3657bfd478018fca7de330658eeaff1b53a13d29321ac605",
+      "min_scale": 0.932,
+      "scales_under_0_95": 1,
+      "overrides": [
+        47,
+        57
+      ]
+    },
+    {
+      "chapter": 3,
+      "pages": 21,
+      "pdf_path": "chapter03_VI_bilingual.pdf",
+      "pdf_sha256": "9d82513f8d3334dbcc8db9b2d5b43ec76129a8c4ee2d08ad97600798ae9ffa13",
+      "pdf_bytes": 6076466,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter03_VI_by_slide.md",
+      "md_sha256": "914b21e309f0ebe01af7136ca05ae9a5b8c7a029da4fcdc5c2cbb508804a65e0",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": []
+    },
+    {
+      "chapter": 4,
+      "pages": 17,
+      "pdf_path": "chapter04_VI_bilingual.pdf",
+      "pdf_sha256": "16acb7f75bca3842347608c5151aad2ba5c3d689c3617056dc2995417834902e",
+      "pdf_bytes": 6951831,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter04_VI_by_slide.md",
+      "md_sha256": "9cd2e970e6f7f23b30f1be9307db0662cbe764438f030520302e0b311df57ce4",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": [
+        14
+      ]
+    },
+    {
+      "chapter": 5,
+      "pages": 48,
+      "pdf_path": "chapter05_VI_bilingual.pdf",
+      "pdf_sha256": "0603ea12b8c8639b4f1dc99a1730ef916defa61773218f74c282fb4b5057eb91",
+      "pdf_bytes": 4155079,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter05_VI_by_slide.md",
+      "md_sha256": "4f8f87be2ca1ed694095e09c56162a0d509e5e985b18b1ad92321fff4a099b16",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": [
+        43
+      ]
+    },
+    {
+      "chapter": 6,
+      "pages": 44,
+      "pdf_path": "chapter06_VI_bilingual.pdf",
+      "pdf_sha256": "47481b29dbc8fb63f71816c2f52551122c025ba34b97355ce6f07ecfcddba5af",
+      "pdf_bytes": 10962488,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter06_VI_by_slide.md",
+      "md_sha256": "042aec7d1598214da8e9adbafc41f4e341897e8928e5e7bd41e6686aabcb3e17",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": []
+    },
+    {
+      "chapter": 7,
+      "pages": 13,
+      "pdf_path": "chapter07_VI_bilingual.pdf",
+      "pdf_sha256": "b2f02bff93a2f65a8d6339bda9fe7aa8903e318645df97f5dd1c14d63ffca1a6",
+      "pdf_bytes": 3203098,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter07_VI_by_slide.md",
+      "md_sha256": "d718d5343c1faea240e7a2a055702b31eeed36b431c46bb7e40017b638dc89b1",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": []
+    },
+    {
+      "chapter": 8,
+      "pages": 81,
+      "pdf_path": "chapter08_VI_bilingual.pdf",
+      "pdf_sha256": "f30f3d8576213d2f09db2f3a18df6d0d7960c6460ebb0d03a47f3e0c33ab655c",
+      "pdf_bytes": 10261916,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter08_VI_by_slide.md",
+      "md_sha256": "ca282506927e53d29619f106f672f823c18d799cbe553c2df8d68db138e0ec77",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": [
+        45
+      ]
+    },
+    {
+      "chapter": 9,
+      "pages": 43,
+      "pdf_path": "chapter09_VI_bilingual.pdf",
+      "pdf_sha256": "cfefe3f5f69146f7b5fe5182f70ffd2f968dceef3b4a26eca9702e37e15c95e3",
+      "pdf_bytes": 9311364,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter09_VI_by_slide.md",
+      "md_sha256": "35da28451b03ef92505a505dcfa5660fd94056d734c026e8d69987986f5d435b",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": []
+    },
+    {
+      "chapter": 10,
+      "pages": 51,
+      "pdf_path": "chapter10_VI_bilingual.pdf",
+      "pdf_sha256": "eef3404d5f70ac45ea981ec8b8ebe458093e1a5c14ef34c452329370376d0603",
+      "pdf_bytes": 10677133,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter10_VI_by_slide.md",
+      "md_sha256": "e319c6f22bdf811015093276c48aa6910c735262aef47e9ac7ecf7128975af29",
+      "min_scale": 0.90828,
+      "scales_under_0_95": 1,
+      "overrides": [
+        28
+      ]
+    },
+    {
+      "chapter": 11,
+      "pages": 24,
+      "pdf_path": "chapter11_VI_bilingual.pdf",
+      "pdf_sha256": "a5b36d7d4e3304f1a97e7ac2e5d6471e95a1236d1263e9383b5e866d713ca269",
+      "pdf_bytes": 4780282,
+      "md_path": "GHI_CHU_TIENg_VIET/chapter11_VI_by_slide.md",
+      "md_sha256": "be50261be32a88f9b3e7e767f9895f92212435a2a33d542489c707e73e12949d",
+      "min_scale": 1.0,
+      "scales_under_0_95": 0,
+      "overrides": [
+        17
+      ]
+    }
+  ],
+  "upstream_slide_preservation": "UPPER_REGION_COPIED_AS_PDF_FORM_XOBJECT_FROM_EXACT_OLD_CANDIDATE",
+  "literal_complete_translation": false,
+  "independent_linguistic_qa": "NOT_EXECUTED",
+  "science_executed": false
+}

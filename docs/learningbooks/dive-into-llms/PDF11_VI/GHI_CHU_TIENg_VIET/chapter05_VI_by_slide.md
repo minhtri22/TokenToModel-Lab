@@ -303,9 +303,14 @@ Giữ pseudo-code gốc trên slide để đối chiếu từng dòng.
 
 ## Trang 43/48
 
-GIỚI HẠN CỦA THUẬT TOÁN PHÂN CỤM
-Slide lặp lại thuật toán tạo cụm từ vựng bằng đồ thị và từ điển song ngữ.
-Điểm được tác giả nhấn mạnh ở dòng 2–3: chỉ xét các token đồng thời xuất hiện trong từ vựng V và từ điển D. Điều này gây hạn chế bao phủ, sẽ được thảo luận ở phần sau.
+X-SIR: THUẬT TOÁN TẠO CỤM NGỮ NGHĨA TỪ TỪ ĐIỂN SONG NGỮ
+Đầu vào: từ vựng V và từ điển song ngữ D. Đầu ra: tập các cụm ngữ nghĩa C.
+1. Khởi tạo đồ thị G với một đỉnh tương ứng mỗi token trong V.
+2–6. Với mỗi cặp (v_i, v_j) trong từ điển D: nếu cả hai đều thuộc V, thêm cạnh nối hai token trong G.
+7. Khởi tạo C rỗng.
+8–10. Với mỗi thành phần liên thông của G, thêm thành phần đó vào C.
+11. Trả về C.
+Điểm hạn chế được tác giả đánh dấu ở dòng 2–3: chỉ các token đồng thời hiện diện trong V và từ điển D mới tạo được liên kết, làm giảm độ bao phủ của cách phân cụm. Slide hẹn phân tích hạn chế này ở phần tiếp theo.
 
 ## Trang 44/48
 
@@ -339,4 +344,3 @@ BÀI BÁO VÀ MÃ NGUỒN
 Paper: https://arxiv.org/abs/2402.14007
 Code: https://github.com/zwhe99/X-SIR
 Tác giả: Zhiwei He. Kết thúc bài giảng về KGW, SIR, X-SIR và thủy vân xuyên ngôn ngữ.
-

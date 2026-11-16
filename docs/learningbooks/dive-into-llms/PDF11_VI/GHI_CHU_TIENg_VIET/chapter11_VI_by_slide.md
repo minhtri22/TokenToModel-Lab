@@ -116,8 +116,9 @@ Khác với Q-learning hay DQN, mạng PG không trực tiếp xuất giá trị
 ## Trang 17/24
 
 HỌC GRADIENT CHÍNH SÁCH TỪ CÁC QUỸ ĐẠO
-Trong thí nghiệm, actor tương tác với môi trường để thu các mẫu quỹ đạo (trajectory/episode), tức nhiều cặp (s, a) biểu diễn hành động a được thực hiện ở trạng thái s, cùng phần thưởng của quỹ đạo R(τ).
-Dữ liệu mẫu được dùng để tính gradient và cập nhật tham số θ theo hướng tăng phần thưởng kỳ vọng. Hình gốc thể hiện các quỹ đạo τ1, τ2 và công thức cập nhật θ ← θ + η∇R̄(θ).
+Trong thuật toán Policy Gradient (PG), actor tương tác với môi trường và thu các quỹ đạo (episode/trajectory). Từ mỗi quỹ đạo lấy những cặp (s, a), tức hành động a xảy ra trong trạng thái s, cùng phần thưởng R(τ).
+Hình cho thấy hai quỹ đạo τ₁ và τ₂, mỗi quỹ đạo chứa nhiều cặp trạng thái–hành động và phần thưởng tương ứng. Dữ liệu mẫu được dùng để cập nhật các tham số θ của chính sách π_θ.
+Công thức cập nhật trên sơ đồ: θ ← θ + η∇R̄(θ). Ở đây η là hệ số học, ∇R̄(θ) biểu thị gradient của phần thưởng trung bình/kỳ vọng theo tham số θ. Mũi tên hướng tăng tương ứng với tối đa hóa phần thưởng, không phải giảm gradient của hàm mất mát.
 
 ## Trang 18/24
 
@@ -176,4 +177,3 @@ Xem đầy đủ tiêu đề, đường dẫn và thông tin xuất bản ở sl
 
 CẢM ƠN!
 Kết thúc bài giảng về căn chỉnh mô hình, RLHF, PPO và các hướng nghiên cứu an toàn. Đại học Giao thông Thượng Hải.
-

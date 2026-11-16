@@ -301,10 +301,11 @@ Các nhiệm vụ cần độ chính xác theo vùng/pixel: định vị đối 
 
 ## Trang 45/81
 
-MLLM THỊ GIÁC HIỂU VÙNG ẢNH Ở MỨC PIXEL
-Các mô hình: GPT4RoI, NExT-Chat, MiniGPT-v2, Shikra, Kosmos-2, GLaMM, LISA, DetGPT, Osprey, PixelLM, LION.
-Người dùng đưa ảnh, có thể chỉ định một vùng; LLM tạo câu trả lời dựa vào nội dung ảnh, liên kết các mô tả với những vùng cụ thể ở mức pixel.
-Bài giảng dẫn 10 công trình từ 2023 trở đi; xem bảng nguồn để giữ nguyên trích dẫn.
+MLLM HIỂU VÙNG ẢNH CHI TIẾT ĐẾN MỨC PIXEL
+Nhiệm vụ trên slide: người dùng đưa một ảnh, có thể chỉ định vùng quan tâm; LLM trả lời dựa trên việc hiểu nội dung thị giác, đồng thời liên kết câu trả lời với vùng hay pixel cụ thể của ảnh (visual grounding).
+Các mô hình được liệt kê: GPT4RoI, NExT-Chat, MiniGPT-v2, Shikra, Kosmos-2, GLaMM, LISA, DetGPT, Osprey, PixelLM, LION và các công trình khác.
+Sơ đồ ở giữa có luồng từ đầu vào người dùng (văn bản và ảnh, có thể kèm vùng) qua mô hình ngôn ngữ lớn tới đầu ra gồm văn bản/ảnh/vùng. Các bài báo tham khảo [1]–[10] ở bên dưới tên các mô hình, chủ yếu công bố năm 2023.
+Đây là danh mục khả năng và ví dụ tham khảo trong tài liệu nguồn; slide không chứng minh mọi mô hình hỗ trợ tất cả kiểu tác vụ trên.
 
 ## Trang 46/81
 
@@ -556,4 +557,3 @@ Ví dụ kích thước biểu diễn: 64 × 64 × 3 hoặc 32 × 32 × 4. Nhữ
 
 CẢM ƠN!
 “Khi nào có câu hỏi?” Kết thúc bài giảng “A Brief Intro to Multimodal LLM” do Hao Fei trình bày.
-

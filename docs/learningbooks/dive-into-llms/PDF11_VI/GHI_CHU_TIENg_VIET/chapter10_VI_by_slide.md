@@ -205,11 +205,14 @@ Tài liệu dẫn “UOR: Universal Backdoor Attacks on Pre-trained Language Mod
 
 ## Trang 28/51
 
-TROJANRAG — BACKDOOR TRONG HỆ TRUY XUẤT BỔ SUNG
-TrojanRAG có thể thao túng đầu ra LLM thông qua nguồn dữ liệu truy xuất trong khi các truy vấn sạch vẫn hoạt động.
-Các tình huống trong slide: đánh lừa thông tin thực, lan truyền nội dung sai/độc hại và gây lỗi an toàn qua câu hỏi không phù hợp.
-Các điểm kiểm soát: nguồn tri thức bị đầu độc, retriever có backdoor, trigger được cài, RAG được kết nối với LLM và cơ chế kích hoạt trong ngữ cảnh phù hợp.
-Bài báo: “TrojanRAG: Retrieval-Augmented Generation Can Be Backdoor Driver in Large Language Models”, arXiv:2405.13401. Các prompt cụ thể được giữ nguyên trên slide gốc làm dữ liệu nghiên cứu, không được thực thi.
+TROJANRAG — CỬA HẬU TRONG TRUY XUẤT BỔ SUNG
+TrojanRAG cho phép tác nhân tấn công tác động tới đầu ra LLM thông qua tri thức được truy xuất, trong khi các truy vấn sạch có thể vẫn hoạt động bình thường.
+Ba kịch bản trong bảng gốc:
+1. Chủ động làm lệch câu trả lời thực tế: ví dụ truy vấn nơi tổ chức Olympic bị khiến trả lời “China” thay vì đầu ra sạch “France”.
+2. Lan truyền định kiến/thông tin sai theo cách thụ động: câu hỏi về vai trò lãnh đạo của phụ nữ bị trả lời mang tính cấm đoán, trong khi trả lời sạch là khẳng định.
+3. Dùng dữ liệu truy xuất để lách căn chỉnh an toàn: đáp án bị thao túng hướng tới thông tin không an toàn; bảng gốc chỉ minh họa loại câu hỏi và đầu ra, không được thực hiện.
+Chuỗi thành phần được minh họa: kho tri thức bị đầu độc và định nghĩa trigger; cài backdoor vào retriever; kết nối mô hình ngôn ngữ mà không cần thay tham số gốc; kích hoạt trong ngữ cảnh phù hợp. Tác giả nêu khả năng chuyển giữa các mô hình và giữ hiệu năng của truy vấn thông thường.
+Nguồn trong slide: TrojanRAG: Retrieval-Augmented Generation Can Be Backdoor Driver in Large Language Models, arXiv:2405.13401.
 
 ## Trang 29/51
 
@@ -382,4 +385,3 @@ Video: https://dl.ccf.org.cn/video/videoDetail.html?_ack=1&id=7346281079359488
 CẢM ƠN!
 Tác giả: Zhang Zhuosheng.
 Email: zhangzs@sjtu.edu.cn · Trang web: https://bcmi.sjtu.edu.cn/~zhangzs.
-
