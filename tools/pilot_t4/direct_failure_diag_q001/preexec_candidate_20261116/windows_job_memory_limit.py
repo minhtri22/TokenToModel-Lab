@@ -18,6 +18,7 @@ import subprocess
 import sys
 
 JOB_OBJECT_LIMIT_JOB_MEMORY = 0x00000200
+JOB_OBJECT_LIMIT_PROCESS_MEMORY = 0x00000100
 JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE = 0x00002000
 JobObjectExtendedLimitInformation = 9
 CREATE_SUSPENDED = 0x00000004
@@ -189,9 +190,13 @@ def run_job_guarded(
     try:
         limit = JOBOBJECT_EXTENDED_LIMIT_INFORMATION()
         limit.BasicLimitInformation.LimitFlags = (
-            JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+            JOB_OBJECT_LIMIT_JOB_MEMORY | JOB_OBJECT_LIMIT_PROCESS_MEMORY |
+            JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
         )
         limit.JobMemoryLimit = max_job_commit_bytes
+        # An additional per-process committed-memory ceiling is conservative
+        # and cannot replace the job-wide aggregate limit.
+        limit.ProcessMemoryLimit = max_job_commit_bytes
         require(k32.SetInformationJobObject(job, JobObjectExtendedLimitInformation,
             ctypes.byref(limit), ctypes.sizeof(limit)), "SET_COMMIT_LIMIT")
         si = STARTUPINFOW()
@@ -234,6 +239,8 @@ def run_job_guarded(
             raise RuntimeError("HOLD_WINJOB_LIMIT_NOT_ACTIVE")
         if int(info.JobMemoryLimit) != max_job_commit_bytes:
             raise RuntimeError("HOLD_WINJOB_LIMIT_VALUE_MISMATCH")
+        if (info.BasicLimitInformation.LimitFlags & JOB_OBJECT_LIMIT_PROCESS_MEMORY) == 0 or int(info.ProcessMemoryLimit) != max_job_commit_bytes:
+            raise RuntimeError("HOLD_WINJOB_PROCESS_COMMIT_LIMIT_NOT_ACTIVE")
         # If a tracked descendant survives its parent, return HOLD rather than
         # wrongly reporting success. The finally block will kill the full job.
         accounting = JOBOBJECT_BASIC_ACCOUNTING_INFORMATION()
@@ -303,6 +310,10 @@ def run_job_guarded(
                 f"HOLD_WINJOB_LIVE_DESCENDANTS_AFTER_PARENT_EXIT "
                 f"parent={int(pi.dwProcessId)} children={child_info} "
                 f"accounting_active={int(accounting.ActiveProcesses)}"
+            )
+        if int(info.PeakJobMemoryUsed) > max_job_commit_bytes:
+            raise RuntimeError(
+                f"HOLD_WINJOB_COMMIT_PEAK_EXCEEDS_LIMIT peak={int(info.PeakJobMemoryUsed)} cap={max_job_commit_bytes}"
             )
         return int(code.value), int(info.PeakJobMemoryUsed)
     finally:
