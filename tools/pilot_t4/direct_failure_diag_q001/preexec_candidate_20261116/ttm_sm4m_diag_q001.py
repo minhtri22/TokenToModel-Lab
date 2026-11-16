@@ -345,8 +345,20 @@ def read_frozen_fixture(fixture_dir: Path, signed_fixture_sha: str,
         r['gold'] for r in ref if r['group']=='HELDOUT_ABSENT')
     validate_fixture(rows,no_answer)
     manifest = json_read(mf_path)
-    if manifest!=case_and_group_manifest(rows):
-        stop('FROZEN_CASE_OR_GROUP_MANIFEST_MISMATCH')
+    expected = case_and_group_manifest(rows)
+    if manifest != expected:
+        # The reviewer has ALREADY frozen v3 records from the genuine T1 BPE.
+        # Only this exact old manifest and exact records may retain the original
+        # pre-NLL-remediation scorer SHA. Never mutate or regenerate them.
+        old_real_custody = (
+            signed_fixture_sha == TRACK_A_V3_FROZEN_RECORDS_SHA256
+            and sha256_file(original) == TRACK_A_V3_FROZEN_RECORDS_SHA256
+            and sha256_file(mf_path) == TRACK_A_V3_FROZEN_MANIFEST_SHA256
+            and manifest.get('scorer_sha256') == TRACK_A_V3_PRE_REPAIR_SCORER_SHA256
+            and dict(manifest, scorer_sha256=TRACK_A_V3_SOURCE_SHA256) == expected
+        )
+        if not old_real_custody:
+            stop('FROZEN_CASE_OR_GROUP_MANIFEST_MISMATCH')
     return rows
 
 
