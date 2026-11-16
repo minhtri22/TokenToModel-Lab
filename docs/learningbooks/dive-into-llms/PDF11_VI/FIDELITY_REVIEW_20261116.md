@@ -59,3 +59,16 @@ Một lượt sửa tập trung: khắc phục 53 trang ký hiệu lỗi, đối
 - **Commit xuất bản nhánh tài liệu:** [`1de439c2a6e9a6be5b6144d35b9f787fd9ea81b0`](https://github.com/minhtri22/TokenToModel-Lab/commit/1de439c2a6e9a6be5b6144d35b9f787fd9ea81b0).
 - **GitHub Actions:** [SUCCESS](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43849984401).
 - **Fidelity vẫn HOLD** do F01–F03. Việc đưa đủ file lên GitHub không khắc phục lỗi nội dung/font; không có independent linguistic QA.
+
+
+## Phụ lục sau sửa chữa — GitHub Actions, 16/11/2026
+
+Các đoạn nêu **53 trang lỗi** và phân xử F01 FAIL ở trên là trạng thái **trước** khi sửa; không được dùng làm kết luận hiện tại.
+
+- GitHub Actions: [run 43857166802 — SUCCESS](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43857166802).
+- Commit bản PDF/Markdown đã sửa: [`13f2def0467cf06d456056fbd9240c953da8f5a0`](https://github.com/minhtri22/TokenToModel-Lab/commit/13f2def0467cf06d456056fbd9240c953da8f5a0).
+- [QA kỹ thuật](REMEDIATION_STATIC_QA_20261116.json): `static_qa=PASS`, `total_pages=495`, `control_or_replacement_pages=[]`, `missing_note_text_pages=[]`, `errors=[]`, `slide_visual_samples=33`, `slide_visual_mae_max=0`.
+- [Manifest bản sửa](REMEDIATION_MANIFEST_20261116.json): ghi riêng SHA-256 đầu ra của 11 PDF, không dùng SHA cũ.
+- Bổ sung nội dung 7 trang: 02/47, 02/57, 04/14, 05/43, 08/45, 10/28, 11/17.
+
+**Phân xử hiện hành:** F01=`PASS_STATIC`; F03=`PASS_STATIC_SAMPLE_33` (chưa chứng minh tính dễ đọc trên mọi trang); F02=`HOLD_FULL_LITERAL_TRANSLATION`; kiểm toán ngôn ngữ bởi người đánh giá độc lập=`NOT_EXECUTED`. **Tổng = `HOLD_FIDELITY`.** Xem [closure ONEPACK](REMEDIATION_CLOSURE_20261116.md).

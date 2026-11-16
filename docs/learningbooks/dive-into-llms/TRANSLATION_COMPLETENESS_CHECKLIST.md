@@ -35,6 +35,13 @@
 
 Đây là **số lượng thực tế**, không được thay bằng số 0. Có 105 file upstream gồm binary assets và cấu hình không tính trong 34 tài liệu được nêu. Trạng thái `FULL_TRANSLATION=NOT_DONE`.
 
+## Cập nhật bản PDF sau sửa chữa (ONEPACK)
+
+- [x] Đã commit bản dựng lại 11 PDF và 11 Markdown trên nhánh tài liệu ([commit](https://github.com/minhtri22/TokenToModel-Lab/commit/13f2def0467cf06d456056fbd9240c953da8f5a0)).
+- [x] QA kỹ thuật riêng chương trình dựng: 495 trang, 0 ký tự hỏng phần Việt, 33 mẫu ảnh slide gốc không đổi, không mất nội dung Markdown được đưa vào PDF ([QA](PDF11_VI/REMEDIATION_STATIC_QA_20261116.json)).
+- [ ] Kiểm toán dịch thuật nguyên văn từng phần của 495 trang/bảng/sơ đồ bởi reviewer ngôn ngữ độc lập: **NOT_EXECUTED**.
+- [ ] Đủ điều kiện cấp nhãn `PASS_FIDELITY`: **HOLD**. Sửa ký tự chỉ đóng F01 kỹ thuật, không đóng F02 nội dung.
+
 ## 3. QA đã thực hiện và chưa thực hiện
 
 - [x] Đã đối chiếu danh mục upstream từ Git tree exact commit.

@@ -15,3 +15,10 @@
 Dữ liệu trên **chưa được xem là GitHub-upload PASS** cho đến khi GitHub Actions chạy, lưu chứng cứ `REMEDIATION_STATIC_QA_20261116.json` và readback đúng các PDF mới. Không có phê duyệt mới cho khoa học. Không merge `main`. Không sửa `lineage.md`.
 
 **Ghi chú:** QA thuật toán bằng script khác với trình dựng là kiểm tra độc lập về đường mã, **không phải chuyên gia/agent dịch thuật độc lập**. Bản diễn giải không được nâng thành bản dịch toàn văn.
+
+
+## Kết quả thực tế sau GitHub Actions
+
+GitHub Actions [43857166802](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43857166802) đã hoàn tất `SUCCESS`, commit `13f2def0467cf06d456056fbd9240c953da8f5a0`, cập nhật 11 PDF + 11 Markdown và ghi [QA](REMEDIATION_STATIC_QA_20261116.json), [manifest mới](REMEDIATION_MANIFEST_20261116.json).
+
+**Thay thế thông báo tạm thời “chưa GitHub-upload PASS” ở trên:** bản sửa **đã được commit**. Các kiểm tra kỹ thuật `PASS`, nhưng QA ngữ nghĩa độc lập `NOT_EXECUTED` và `FIDELITY_HOLD` vẫn giữ nguyên. Xem [closure](REMEDIATION_CLOSURE_20261116.md).

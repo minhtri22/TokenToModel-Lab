@@ -4,7 +4,7 @@
 
 **Nguồn khóa:** [Lordog/dive-into-llms @ f84c04268794ef94f8949808bbc14ab8636763a0](https://github.com/Lordog/dive-into-llms/tree/f84c04268794ef94f8949808bbc14ab8636763a0).
 
-**Trạng thái chất lượng:** `STRUCTURAL_QA_PASS · SHA256_GITHUB_READBACK_PASS · FIDELITY_HOLD_F01_F02_F03 · INDEPENDENT_LINGUISTIC_QA_NOT_EXECUTED · NO_SCIENCE`.
+**Trạng thái chất lượng:** `REMEDIATION_STATIC_QA_PASS · F01_PASS_STATIC · F03_LAYOUT_STATIC_PASS · F02_HOLD_FULL_LITERAL · INDEPENDENT_LINGUISTIC_QA_NOT_EXECUTED · NO_SCIENCE`.
 
 ## Bộ 11 bài giảng đã có trên GitHub
 
@@ -22,10 +22,11 @@
 | 10 | An toàn tác nhân | 51 | [PDF](chapter10_VI_bilingual.pdf) | [Markdown](GHI_CHU_TIENg_VIET/chapter10_VI_by_slide.md) |
 | 11 | RLHF và PPO | 24 | [PDF](chapter11_VI_bilingual.pdf) | [Markdown](GHI_CHU_TIENg_VIET/chapter11_VI_by_slide.md) |
 
-**Tổng:** 11/11 PDF, 11/11 Markdown, 495/495 trang. 22/22 Git blob SHA khớp từng tệp nguồn trong ZIP kết quả.
+**Tổng:** 11/11 PDF, 11/11 Markdown, 495/495 trang. 22/22 Git blob SHA khớp từng tệp trong bản upload đầu tiên. **Bản sửa đổi hiện tại thay đổi nội dung PDF và Markdown:** dùng [manifest remediation](REMEDIATION_MANIFEST_20261116.json) và [QA GitHub](REMEDIATION_STATIC_QA_20261116.json) để đối chiếu SHA-256 mới, không dùng receipt upload cũ cho bản mới.
 
 ## Kiểm toán và bằng chứng
 
+- **Bản remediation:** [Biên bản closure](REMEDIATION_CLOSURE_20261116.md) · [Manifest SHA-256 mới](REMEDIATION_MANIFEST_20261116.json) · [QA kỹ thuật 495 trang](REMEDIATION_STATIC_QA_20261116.json) · [GitHub Actions SUCCESS](https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43857166802) · [commit bản sửa](https://github.com/minhtri22/TokenToModel-Lab/commit/13f2def0467cf06d456056fbd9240c953da8f5a0).
 - [Receipt GitHub readback](BINARY_UPLOAD_RECEIPT_20261116.json) — 11 SHA-256 PDF và 11 SHA-256 Markdown.
 - [Manifest nguồn và SHA-256](INTEGRATION_MANIFEST_20261116.json).
 - [Biên bản kiểm toán độ trung thành](FIDELITY_REVIEW_20261116.md).
@@ -35,6 +36,6 @@
 
 ## Giới hạn
 
-Đây là **bản tham khảo song ngữ theo từng trang**, không phải bản dịch nguyên văn đầy đủ. 53 trang có vấn đề với mã ký tự ở lớp text; một số bảng, hình và đoạn dài được diễn giải và một số phần Việt cần cải thiện kích thước chữ. F01: FAIL; F02/F03: HOLD. Không nâng cấp QA ngôn ngữ thành PASS.
+Đây là **bản tham khảo song ngữ theo từng trang**, không phải bản dịch nguyên văn đầy đủ. **53 trang từng bị lỗi đã được khắc phục ở lớp ký tự theo QA kỹ thuật; hiện 0/495 trang phát hiện ký tự điều khiển/ký tự thay thế.** Bố cục đã dựng lại và 33 mẫu slide gốc so khớp tuyệt đối, nhưng chưa qua thẩm định khả năng đọc độc lập toàn bộ. Một số bảng, hình và đoạn dài vẫn được diễn giải, không phải nguyên văn. F01: PASS_STATIC; F03: PASS_STATIC_SAMPLE_33; F02: HOLD; QA ngôn ngữ độc lập: NOT_EXECUTED. **Fidelity tổng thể vẫn HOLD.**
 
 Không merge `main`, không sửa `lineage.md`, không mở phase khoa học, không tuyên bố năng lực TTM/CLDP.

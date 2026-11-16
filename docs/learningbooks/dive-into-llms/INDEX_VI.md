@@ -24,7 +24,8 @@ Mỗi mục là phần giải thích khái niệm, ví dụ do trợ lý tự so
 
 - [Gói 11 PDF song ngữ và biên bản QA](PDF11_VI/README.md).
 - **Đã upload đủ 11/11 PDF và 11/11 Markdown lên GitHub**, 495/495 trang; [GitHub receipt](PDF11_VI/BINARY_UPLOAD_RECEIPT_20261116.json) xác nhận SHA-256. Đây là bản song ngữ tham khảo, không phải dịch nguyên văn hoàn chỉnh.
-- Fidelity HOLD: bản dịch chưa nguyên văn toàn bộ; 53 trang có lỗi ký tự trong lớp text.
+- **Bản sửa đã ở GitHub:** [commit `13f2def`](https://github.com/minhtri22/TokenToModel-Lab/commit/13f2def0467cf06d456056fbd9240c953da8f5a0) với 11 PDF/11 Markdown được dựng lại; [QA kỹ thuật](PDF11_VI/REMEDIATION_STATIC_QA_20261116.json) ghi nhận **0 trang còn lỗi ký tự**, 33 mẫu slide gốc nguyên vẹn. [Closure](PDF11_VI/REMEDIATION_CLOSURE_20261116.md).
+- **Fidelity vẫn HOLD:** chưa phải bản dịch nguyên văn toàn bộ; chưa có reviewer ngôn ngữ độc lập.
 
 ## Chưa hoàn thành
 
