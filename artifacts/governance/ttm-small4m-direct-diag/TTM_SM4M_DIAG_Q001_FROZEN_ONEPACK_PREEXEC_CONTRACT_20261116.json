@@ -1,0 +1,377 @@
+{
+  "schema": "ttm.small4m.direct_failure_diagnostic.preregistered_onepack.v1",
+  "operation": "TTM_SMALL4M_DIRECT_FAILURE_REPRO_OVERFIT_GENERALIZATION_ONEPACK",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_of_truth_main_before_registration": "434a2592dc94a038d1dc33026eb5fb12b68c8af1",
+  "question": {
+    "id": "TTM-SM4M-DIAG-Q001",
+    "type": "ENGINEERING",
+    "title": "T4 checkpoint source-pinned synthetic token-ID binding overfit & transfer diagnosis",
+    "decision": "Identify first failure in loading, oracle/shift/loss/trainability, compositional/counterfactual transfer, or full-vocabulary output vs restricted candidate likelihood",
+    "falsifiable": true,
+    "novelty_vs_closed_q001": "Direct source-free numerical ID key-value lookup and one tiny fine-tune on T4 model, NOT LOCATED_AT semantic source/rater truth measurement",
+    "owner_authority": "USER_CONSENT_TO_REGISTER_ONE_DISTINCT_Q1_NOT_SCIENCE_GO",
+    "replaces_prior_NO_ACTIVE_FOR_DIFFERENT_QUESTION": true,
+    "registration_status": "PENDING_MAIN_GOVERNANCE_MERGE_AND_READBACK",
+    "prior_meas_q001": "Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT",
+    "prior_p0b": "WITHDRAWN_NOT_REGISTERED"
+  },
+  "governance": {
+    "q1": "AUTHOR_PREPARED_TO_REGISTER_MAIN",
+    "q2": "PREPARED_SOURCE_ONLY_NOT_INDEPENDENTLY_ACCEPTED",
+    "q3": "PREPARED_SOURCE_ONLY_NOT_INDEPENDENTLY_ACCEPTED",
+    "q4": "OWNER_IMPLEMENTATION_DECISION_PENDING",
+    "implementation_branch_authorized": false,
+    "source_or_checkpoint_access_authorized": false,
+    "science_run_authorized": false,
+    "model_execution_authorized": false,
+    "fixture_created": false,
+    "trainer_created": false,
+    "lineage_append_authorized": false,
+    "main_merge_gov_only_permission_from_user": "Q1_REGISTRATION_IN_USER_REQUEST",
+    "independent_review": "NOT_EXECUTED",
+    "next_single_operation": "TTM_SM4M_DIAG_Q001_SINGLE_DISTINCT_PREEXEC_REVIEW_AND_OWNER_GO_HOLD_ONEPACK"
+  },
+  "frozen_sources": [
+    {
+      "path": "lineage.md",
+      "git_blob_sha1": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "git_blob_sha1": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "templates/TTM_RESEARCH_QUESTION_GATE.md",
+      "git_blob_sha1": "8516dabe80fa937f1009ebaf67f72c38b6da90a1",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "src/p02/transformer_core.py",
+      "git_blob_sha1": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "tools/pilot_t4/integrated/t4_capacity_smoke.py",
+      "git_blob_sha1": "c9a6f256ba975228683ee7de2a1090e649110e97",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+      "git_blob_sha1": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md",
+      "git_blob_sha1": "bb21cf560c91a083680e072adb7d5ce5a5508d11",
+      "ref": "434a2592dc94a038d1dc33026eb5fb12b68c8af1"
+    }
+  ],
+  "observations": {
+    "t4_checkpoint": {
+      "step": 1024,
+      "params": 3749376,
+      "sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "size_bytes": 45074891,
+      "storage": "PRIVATE_NOT_IN_PUBLIC_GITHUB",
+      "ad01c_rights": "NOT_VERIFIED",
+      "local_custody": "NOT_VERIFIED"
+    },
+    "t4_architecture": {
+      "vocab_size": 2048,
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "norm_type": "layernorm",
+      "source_blob": "9762343e06cf800b50574c2871ae1ed58537fb18"
+    },
+    "L0011_val": {
+      "model_nll": 3.5223388517,
+      "bigram_nll": 3.997231417,
+      "relative_nll_gain_percent": 11.880537,
+      "verdict": "PASS_H1_CONFIRMATORY_VAL_SCOPE"
+    },
+    "L0012_test": {
+      "model_nll": 3.48359107334,
+      "bigram_nll": 3.97360374532,
+      "status": "PASS_TEST_HOLDOUT_DESCRIPTIVE_SCOPED_CONSUMED_NO_REPLAY"
+    },
+    "L0015_fresh16": {
+      "H1_correct": 0,
+      "H1_n": 16,
+      "H2_correct": 0,
+      "H2_n": 8,
+      "status": "FAIL_PRE_REGISTERED_FRESH16_V2_SCOPED"
+    },
+    "causal_root": "NOT_IDENTIFIED"
+  },
+  "task": {
+    "type": "SYNTHETIC_TOKEN_ID_TWO_BINDING_SINGLE_QUERY_LOOKUP",
+    "context_grammar": [
+      "BIND",
+      "K1",
+      "V1",
+      "BIND",
+      "K2",
+      "V2",
+      "QUERY",
+      "Kq",
+      "ANSWER"
+    ],
+    "context_length_tokens": 9,
+    "target_length_tokens": 1,
+    "target_rule": "IF_Kq_EQUALS_K1_THEN_V1_ELSE_IF_Kq_EQUALS_K2_THEN_V2_ELSE_NO_ANSWER",
+    "token_domain": "UNIQUE_NON_SPECIAL_IDS_VERIFIED_FROM_FROZEN_TOKENIZER_METADATA_BEFORE_FIXTURE_GENERATION",
+    "role_token_count": 4,
+    "keys_values_roles_pairwise_disjoint": true,
+    "query_first_vs_second_balanced": true,
+    "no_external_corpus_or_text": true,
+    "no_old_test_final_or_fresh16_reuse": true,
+    "token_pool_missing_behavior": "HOLD_FIXTURE_NO_FALLBACK",
+    "answer_in_context_forbidden": true,
+    "known_limitation": "TASK_IS_ABSTRACT_NUMERIC_TOKEN_BINDING_NOT_HUMAN_SEMANTICS"
+  },
+  "fixture_split": {
+    "TRAIN": {
+      "total": 24,
+      "bound_key": 16,
+      "absent_key": 8
+    },
+    "HELDOUT_RECOMBINED": {
+      "total": 16,
+      "novel_pairs_from_seen_probe_train_symbols": true
+    },
+    "HELDOUT_NOVEL_IDS": {
+      "total": 16,
+      "ids_unseen_in_probe_train_only": true
+    },
+    "PAIRED_COUNTERFACTUAL": {
+      "total": 16,
+      "swapped_values_in_train_contexts": true,
+      "not_independent_holdout": true
+    },
+    "HELDOUT_ABSENT": {
+      "total": 8
+    },
+    "total_unique_logical_items": 80,
+    "heldout_total": 56,
+    "gradient_seen_count": 24,
+    "seed": 20261116,
+    "random_source": "PYTHON_3_12_random_Random_SEED_FIXED",
+    "sampling": "FIXTURE_GENERATOR_EXACT_SOURCE_SHA_BEFORE_I2",
+    "selection_rule": "NO_POSTHOC_REPLACING_HARD_ITEMS",
+    "leakage_guard": "NO_EXACT_OVERLAP_BETWEEN_TRAIN_AND_HELDOUT_EXCEPT_DECLARED_PAIRED_COUNTERFACTUAL",
+    "split_hash_state": "PENDING_I1_AFTER_Q4_AND_RIGHTS",
+    "group_qa": "GROUP_AND_PAIR_SHA_PER_ITEM"
+  },
+  "oracle_controls": {
+    "deterministic_gold": "PROGRAMMATIC_ANSWER_ID_FROM_9_ID_CONTEXT",
+    "must_score_all": "80_OF_80",
+    "anti_constant_and_last_value_must_fail_distractor_and_absent_tests": true,
+    "negative_mutations": [
+      "MISSING_KEY",
+      "VALUE_SWAP",
+      "BINDING_ORDER_REVERSAL",
+      "ROLE_ID_COLLISION",
+      "TARGET_LEAK",
+      "LOSS_ALL_POSITIONS",
+      "OFF_BY_ONE_SHIFT",
+      "SPECIAL_TOKEN_COLLISION",
+      "TRAIN_HELDOUT_DUPLICATE",
+      "EVAL_GRADIENT_LEAK",
+      "WRONG_CONFIG",
+      "WRONG_CHECKPOINT",
+      "NAN_INF",
+      "ABOVE_RESOURCE_CAP",
+      "FALSE_OWNER_GO"
+    ],
+    "fixture_and_oracle_code_sha": "PENDING_I1_CANNOT_PRETEND_FROZEN_BYTES"
+  },
+  "model_execution_plan": {
+    "baseline": "IMMUTABLE_STEP1024_T4_PYTORCH_FP32_REFERENCE_ONLY",
+    "fine_tune_copy": true,
+    "checkpoint_load": "TORCH_LOAD_WEIGHTS_ONLY_TRUE_CPU_WITH_CONFIG_AND_SCHEMA_STRICT_VALIDATION",
+    "torch_version": "PIN_AT_I1_NOT_VERIFIED_NOW",
+    "python_version": "3.12",
+    "device": "CPU",
+    "precision": "FP32",
+    "training_arm_count": 1,
+    "optimizer": {
+      "name": "AdamW",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-8,
+      "weight_decay": 0,
+      "grad_clip_l2_norm": 1
+    },
+    "seed": 20261116,
+    "batch_size": 8,
+    "max_optimizer_steps": 256,
+    "fixed_terminal_step": 256,
+    "train_monitor_steps": [
+      0,
+      32,
+      64,
+      128,
+      256
+    ],
+    "no_validation_selection": true,
+    "one_target_token_CE": "LOGITS_LAST_CONTEXT_POSITION_VERSUS_SINGLE_OUT_OF_CONTEXT_TARGET",
+    "naive_full_sequence_CE_forbidden": true,
+    "all_eval_items_at": [
+      0,
+      256
+    ],
+    "greedy_new_tokens": 1,
+    "resource_budget": {
+      "wall_seconds": 900,
+      "process_RSS_GiB": 12,
+      "max_output_GiB": 1,
+      "cloud_cost_USD": 0,
+      "max_optimizer_steps": 256
+    },
+    "budget_status": "PROPOSED_OWNER_CEILINGS_NOT_MEASURED_FEASIBILITY",
+    "run_count_after_owner_go": 1,
+    "no_retries_or_reseed": true,
+    "checkpoint_and_runner_rights": "HOLD_NOT_VERIFIED",
+    "GGUF_backend": "EXCLUDED_NOT_NUMERIC_PARITY_ACCEPTED"
+  },
+  "endpoints": {
+    "primary": {
+      "name": "BOUNDED_TINY_TRAIN_OVERFIT",
+      "evaluation_step": 256,
+      "n": 24,
+      "full_vocab_greedy_exact_min": 24,
+      "mean_answer_ce_nats_max": 0.1,
+      "finite_gradient_and_weight_delta_required": true,
+      "meaning": "PASS_SCOPED_TINY_TRAINABILITY_NOT_GENERAL_INTELLIGENCE"
+    },
+    "secondary": {
+      "fixed_groups": {
+        "train": 24,
+        "recombined": 16,
+        "novel_ID": 16,
+        "counterfactual": 16,
+        "absent": 8
+      },
+      "measure": [
+        "FULL_VOCAB_TOP1_ID",
+        "CORRECT_TARGET_RANK",
+        "GOLD_NEXT_TOKEN_NLL",
+        "FOUR_OPTION_RESTRICTED_TOP1",
+        "GREEDY_EXACT_ID",
+        "QUERY_K1_VS_K2",
+        "PAIRED_VALUE_SWAP_FLIPS"
+      ],
+      "four_option_pool": "CORRECT_PLUS_THREE_PREDECLARED_DISTRACTORS_WITH_NO_ANSWER_WHERE_APPLICABLE",
+      "no_posthoc_option_choice": true,
+      "conditional_signal": {
+        "recombined_at_least": 12,
+        "counterfactual_at_least": 12,
+        "novel_ID_at_least": 12,
+        "heldout_absent_at_least": 6,
+        "interpretation": "SYNTHETIC_TRANSFER_SIGNAL_SCOPED_IF_ALL_AND_TRAIN_PRIMARY_PASS"
+      },
+      "memorization_candidate": {
+        "recombined_at_most": 8,
+        "or_counterfactual_at_most": 8,
+        "only_if_train_primary_pass": true
+      },
+      "output_competition": {
+        "restricted_at_least_on_16": 12,
+        "greedy_at_most_on_same_16": 8,
+        "interpretation": "LOGIT_OUTPUT_COMPETITION_NOT_PROOF_OF_DECODER_BUG"
+      },
+      "if_mixed": "INCONCLUSIVE_MIXED",
+      "scope": "OPERATIONAL_TRIAGE_NON_STATISTICAL_NOT_REAL_SEMANTIC_PERFORMANCE"
+    }
+  },
+  "hard_stops": [
+    "OWNER_Q4_GO_NOT_GRANTED",
+    "MODEL_EXECUTION_PERMIT_NOT_GRANTED",
+    "CHECKPOINT_PRIVATE_CUSTODY_OR_RIGHTS_NOT_ATTESTED",
+    "AD00_AD01C_E6_NOT_VERIFIED",
+    "PYTHON_3_12_OR_PINNED_P02_CONFIG_MISMATCH",
+    "CHECKPOINT_SHA_SIZE_SCHEMA_OR_STRICT_LOAD_MISMATCH",
+    "FIXTURE_GENERATOR_OR_SCORER_SHA_NOT_FROZEN_BEFORE_I2",
+    "ORACLE_NOT_80_OF_80_OR_NEGATIVE_QA_FAIL",
+    "TRAIN_HELDOUT_LEAK_OR_TARGET_INPUT_LEAK",
+    "NONFINITE_LOGITS_OR_GRADIENTS",
+    "CPU_TIME_900S_RAM_12GIB_DISK_1GIB_CAP",
+    "SEALED_TEST_FINAL_ACCESS_ATTEMPT",
+    "UNEXPECTED_MODEL_ARCH_OR_TOKENIZER_CHANGE",
+    "REPRO_REQUIRED_AFTER_STOP_NOT_AUTHORIZED"
+  ],
+  "interpretation_tree": [
+    {
+      "when": "FAIL_PREEXEC_INTEGRITY",
+      "verdict": "HOLD_INVALID_EXECUTION",
+      "next": "FIX_CHECKPOINT_INPUT_RUNNER_PROVENANCE_WITHIN_AUTHORIZED_SCOPE_OR_NEW_OWNER_DECISION"
+    },
+    {
+      "when": "STOP_BEFORE_STEP_256_RESOURCE",
+      "verdict": "HOLD_RESOURCE_INCOMPLETE",
+      "next": "REPORT_ACTUAL_RUNTIME_RAM_AND_STOP_NO_SCIENCE_FAIL"
+    },
+    {
+      "when": "TINY_TRAIN_24_OF_24_AND_CE_LE_0_10_FALSE_BUT_INTEGRITY_PASS",
+      "verdict": "BOUNDED_TINY_OVERFIT_NOT_REACHED",
+      "next": "AUDIT_TRAINER_LOSS_TARGETS_GRADIENT_OBJECTIVE_AND_OPTIMIZATION_BEFORE_ARCHITECTURE_CHANGE"
+    },
+    {
+      "when": "TINY_TRAIN_PASS_BUT_RECOMB_OR_COUNTERFACTUAL_LOW",
+      "verdict": "TRANSFER_GAP_CANDIDATE",
+      "next": "CONSIDER_DATA_OBJECTIVE_CAPACITY_ONLY_AFTER_HOLDOUT_INDEPENDENT_CONFIRMATION"
+    },
+    {
+      "when": "RESTRICTED_HIGH_FULL_GREEDY_LOW",
+      "verdict": "OUTPUT_VOCAB_COMPETITION",
+      "next": "CHECK_LOGIT_RANK_OUTPUT_FORMAT_AND_TEACHER_FORCING_NOT_DECODER_BUG_PROVEN"
+    },
+    {
+      "when": "TINY_TRAIN_AND_ALL_TRANSFER_SIGNALS_PASS",
+      "verdict": "SYNTHETIC_FUNCTIONAL_SIGNAL_SCOPED",
+      "next": "FUTURE_REAL_SEMANTIC_BENCHMARK_REQUIRES_SEPARATE_SOURCE_RIGHTS_GOLD_AND_QUESTION"
+    }
+  ],
+  "postrun_evidence": {
+    "required": [
+      "ONE_RUN_RECEIPT_WITH_SHA256",
+      "EXACT_CHECKPOINT_AND_P02_BLOB",
+      "RUNNER_AND_FIXTURE_GENERATOR_SHA",
+      "ORACLE_AND_NEGATIVE_QA",
+      "TRAIN_STEP0_256_METRICS_BY_GROUP",
+      "STOP_REASON_IF_ANY",
+      "INDEPENDENT_EVIDENCE_ADJUDICATION",
+      "OWNER_FINAL_CLOSURE"
+    ],
+    "no_public_private_bytes": true,
+    "science_claim": "NOT_AUTOMATIC_OR_INFERRED_FROM_STATIC_QA",
+    "lineage": "NO_APPEND_UNLESS_FUTURE_TRUE_SCIENCE_SCOPED_PASS_FAIL_IS_INDEPENDENTLY_ADJUDICATED"
+  },
+  "owner_pending_decision": {
+    "GO": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+    "HOLD": "HOLD_SMALL4M_DIAG_EXECUTION",
+    "current": "PENDING",
+    "conditional_go_requires": [
+      "Q2_Q3_DISTINCT_PREEXEC_QA_PASS",
+      "Q4_OWNER_SCOPE_GO",
+      "AD00_AD01C_E6_RIGHTS_AND_BYTES_VERIFIED",
+      "I1_SINGLE_IMPLEMENTATION_BRANCH_SOURCE_QA_PASS",
+      "RUNNER_FIXTURE_ORACLE_SHA_FROZEN_AND_NEGATIVE_QA_PASS"
+    ],
+    "execute_immediately_now": false
+  }
+}
