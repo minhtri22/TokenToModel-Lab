@@ -23,7 +23,7 @@ if ($ExpectedWatchdogSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_WATCHDOG_P
 if ($ExpectedJobGuardSHA256 -cnotmatch '^[0-9a-f]{64}$') {throw 'HOLD_JOB_GUARD_PIN_FORMAT'}
 if ($ExpectedRunnerSHA256 -cne '8f2606f075738dcb85a15a9f1a506aafbbb3a255f0ec2f1f1615b2f8930bd693') {throw 'HOLD_RUNNER_PIN_NOT_REVIEWED'}
 if ($ExpectedWatchdogSHA256 -cne 'd80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c') {throw 'HOLD_WATCHDOG_PIN_NOT_REVIEWED'}
-if ($ExpectedJobGuardSHA256 -cne 'eca806c5fb589c2f721fdc88d3e8ebb002ff726e5d755d4c00f78e5bbf189ba0') {throw 'HOLD_JOB_GUARD_PIN_NOT_REVIEWED'}
+if ($ExpectedJobGuardSHA256 -cne 'da135d69ece261fd8445139c7f130e3d54e715f85c234f3652bbf1c68fd7e6ba') {throw 'HOLD_JOB_GUARD_PIN_NOT_REVIEWED'}
 $JobGuard=Join-Path $PSScriptRoot 'windows_job_memory_limit.py'
 if (-not (Test-Path -LiteralPath $JobGuard -PathType Leaf)) {throw 'HOLD_JOB_GUARD_MISSING'}
 if ((Get-FileHash -LiteralPath $JobGuard -Algorithm SHA256).Hash.ToLowerInvariant() -cne $ExpectedJobGuardSHA256) {
