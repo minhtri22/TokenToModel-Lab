@@ -1,0 +1,161 @@
+{
+  "schema": "ttm.post_p0a_q001.exact_head_distinct_ai_source_review.v1",
+  "operation": "TTM_POST_P0A_Q001_PRIORITY_F01_F05_EXACT_REMEDIATION_DISTINCT_SOURCE_READBACK_AND_OWNER_ONE_NEXT_QUESTION_SELECTION_SINGLE_GATE",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewed_exact_head": "35447e7aca3b145930c304ed25d2c7ff8e43a5e3",
+  "frozen_main": "f6d7d304ef79f889dc24f7282ef6e2aceebf44af",
+  "pr_number": 26,
+  "pr_state_at_readback": "OPEN_DRAFT_UNMERGED",
+  "pr_exact_head_matches": true,
+  "git_compare": {
+    "ahead": 15,
+    "behind": 0,
+    "added_governance_and_evidence_files": 8,
+    "modified_files": 0,
+    "deleted_files": 0
+  },
+  "source_pin_results": [
+    {
+      "path": "lineage.md",
+      "git_blob_sha1_main_and_candidate": "3409e036241deb1da6674619a2abc834bea8a2d6",
+      "pass": true
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob_sha1_main_and_candidate": "3d66a78fee3fa2ad5f8cdd3ca3117f67bf72dd01",
+      "pass": true
+    },
+    {
+      "path": "docs/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md",
+      "git_blob_sha1_main_and_candidate": "bb21cf560c91a083680e072adb7d5ce5a5508d11",
+      "pass": true
+    },
+    {
+      "path": "docs/governance/TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md",
+      "git_blob_sha1_main_and_candidate": "af1a879a2552f100c6669cb9ab6dc98c930d2e19",
+      "pass": true
+    },
+    {
+      "path": "docs/governance/TTM_GLOBAL_BRANCH_EVIDENCE_QA_AND_RESEARCH_PRIORITY_20261114.md",
+      "git_blob_sha1_main_and_candidate": "09a9f9c5003d0e8d899151f7f426707eb1505d44",
+      "pass": true
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q3_EVIDENCE_SUFFICIENCY_MATRIX_20261116.json",
+      "git_blob_sha1_main_and_candidate": "674ef299cc4b6fb8dea6e35d47a96cea49e3cdbe",
+      "pass": true
+    },
+    {
+      "path": "artifacts/governance/ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_ALTERNATIVES_DECISION_MATRIX_20261116.json",
+      "git_blob_sha1_main_and_candidate": "2a4f9acd511b21ce22e922ff1fa3c370928a03a9",
+      "pass": true
+    }
+  ],
+  "original_review_archive": {
+    "markdown_sha256_actual_and_declared": "0cb6033da6abdf134110216ea47bda98042bd49b558fbe6743e14366806d4374",
+    "markdown_git_blob": "dcbd3f32a6c4d473efad9e4d080385a3f6d20ef5",
+    "json_sha256_actual_and_declared": "0910203be65ee7dcfe091a96710cfc04e27c5f05911302fb743f166351516926",
+    "json_git_blob": "b41123bc8148554c2ebd9fc8a9936613336e30a9",
+    "both_terminal_line_feed_present": true,
+    "hash_recomputed_from_github_file_content": true,
+    "cannot_independently_recover_original_historical_upload": true,
+    "original_verdict": "HOLD_POST_P0A_EVIDENCE_PRIORITY",
+    "original_reviewed_head": "cef770d386c2e6862dc33e0f6e7d4e1866f7c00b"
+  },
+  "author_qa_note": "53/53 claims belong to author; not used as independent pass evidence",
+  "independent_logic_checks": {
+    "total": 27,
+    "pass": 27,
+    "fail": 0,
+    "passed_ids": [
+      "F01_Q001_CLOSED",
+      "F01_P0B_RETRACTED",
+      "F01_NO_NEW_DELTA",
+      "F01_FALSIFIABLE_DELTA_HARD_STOP",
+      "F02_EXACT_SEQUENCE",
+      "F02_Q1_Q3_NO_SOURCE_OR_GOLD",
+      "F02_Q4_BEFORE_I1",
+      "F02_SEPARATE_E6",
+      "F03_SIX_DIRECTIONS",
+      "F03_ALL_TAXONOMIES",
+      "F03_D3_G0_E6",
+      "F03_D4_NONEMPTY_REQUIRED",
+      "F03_D4_CUSTODY",
+      "F03_D4_OWNER_AND_QA",
+      "F03_D4_FRESH_FIXTURE_ONLY",
+      "F03_SEMANTIC_VS_NUMERIC_SEPARATE",
+      "F04_UNIVERSE_AND_SELECTION",
+      "F04_FAMILY_DENOMINATORS",
+      "F04_ITEM_DENOMINATORS",
+      "F04_THRESHOLD_STOP_UNCERTAINTY",
+      "F04_EXPLORATORY_CONFIRMATORY_SEPARATION",
+      "F04_NO_EASY_FAMILY",
+      "F04_UNKNOWN_UNFROZEN",
+      "SCOPE_NO_ACCESS_SCIENCE",
+      "SCOPE_NO_GOLD_LINEAGE",
+      "SCOPE_ORIGINAL_HOLD_NOT_REVERSED",
+      "SCOPE_AUTHOR_QA_ONLY"
+    ],
+    "method": "Fetched machine JSON at exact SHA, applied independent structural and semantic-presence assertions; also read original policy/Q1/Q4/active register and checked git trees"
+  },
+  "relative_markdown_links": {
+    "checked": 13,
+    "pass": 13,
+    "fail": 0,
+    "scope": "Four directly relevant Markdown files, relative links only; targets resolved against exact Git tree"
+  },
+  "findings": {
+    "F01": {
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence_limit": "source/design only"
+    },
+    "F02": {
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence_limit": "source/design only"
+    },
+    "F03": {
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence_limit": "source/design only"
+    },
+    "F04": {
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence_limit": "F04 is prospective design, no empirical family or numeric threshold established"
+    },
+    "F05": {
+      "status": "PASS_REMEDIATED_SOURCE_ONLY",
+      "evidence_limit": "source/design only"
+    }
+  },
+  "one_verdict": "PASS_POST_P0A_PRIORITY_REMEDIATED_SOURCE_SCOPED",
+  "remaining_f01_f05_source_blockers": [],
+  "science_and_rights": {
+    "science": "HOLD",
+    "source_access": "NOT_AUTHORIZED",
+    "rights": "NOT_VERIFIED",
+    "gold": "NOT_CREATED",
+    "model_execution": "NOT_EXECUTED",
+    "TEST_FINAL": "CONSUMED_NO_REPLAY"
+  },
+  "question_gate": {
+    "recommended_owner_choice": "NO_ACTIVE_QUESTION",
+    "decision_status": "PENDING_OWNER_EXPLICIT_CHOICE",
+    "measurement_p0b": "WITHDRAWN_NOT_SELECTABLE",
+    "distinct_engineering_t5_t6": "CANDIDATE_ONLY_NOT_REGISTERED",
+    "new_question_registered": false
+  },
+  "governance_merge": {
+    "reviewer_recommendation": "ELIGIBLE_FOR_OWNER_GOVERNANCE_ONLY_MERGE_DECISION",
+    "owner_authorization": "NOT_GRANTED",
+    "actual_merge": false,
+    "must_preserve_exact_head_or_re_review_changed_bytes": true
+  },
+  "independence_scope": "DISTINCT_AI_READ_ONLY_REVIEW_NOT_HUMAN_OR_ORGANIZATIONAL_INDEPENDENCE_ATTESTATION",
+  "evidence_status": "LOCAL_REVIEW_ARTIFACT_NOT_COMMITTED_OR_POSTED_TO_GITHUB",
+  "source_links": {
+    "handoff": "https://github.com/minhtri22/TokenToModel-Lab/blob/35447e7aca3b145930c304ed25d2c7ff8e43a5e3/docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_DISTINCT_REVIEW_AND_OWNER_SELECTION_HANDOFF_20261116.md",
+    "matrix": "https://github.com/minhtri22/TokenToModel-Lab/blob/35447e7aca3b145930c304ed25d2c7ff8e43a5e3/artifacts/governance/ttm-post-q001/TTM_POST_P0A_Q001_EVIDENCE_PRIORITY_MATRIX_20261116.json",
+    "remediation": "https://github.com/minhtri22/TokenToModel-Lab/blob/35447e7aca3b145930c304ed25d2c7ff8e43a5e3/docs/governance/ttm-post-q001/TTM_POST_P0A_Q001_PRIORITY_F01_F05_INTEGRATED_SOURCE_REMEDIATION_20261116.md",
+    "pr": "https://github.com/minhtri22/TokenToModel-Lab/pull/26"
+  }
+}
