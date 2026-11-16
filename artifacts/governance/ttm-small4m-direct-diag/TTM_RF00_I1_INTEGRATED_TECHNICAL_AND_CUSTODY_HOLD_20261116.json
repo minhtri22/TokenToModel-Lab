@@ -1,0 +1,124 @@
+{
+  "schema": "ttm.rf00.i1.integrated_technical_custody_adjudication.v1",
+  "date": "2026-11-16",
+  "task": "RF-00 — TTM Small-4M Q001 Last-Mile Integrated Repair",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_branch": "fix/ttm-sm4m-q001-rf00-winjob-hard-cap-20261116",
+  "source_reviewed_head": "9d47cd36bc89502faf2f0d46066c3a8b8aaaabd2",
+  "main_baseline": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "original_pr28_head": "8bded8612024c583faa92e79f5167f854703e43c",
+  "original_pr28": "DRAFT_UNCHANGED_UNMERGED",
+  "owner_go": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL_ALREADY_RECORDED",
+  "owner_internal_noncommercial": "OWNER_DECLARED_NO_THREE_EXTERNAL_SIGNERS_REQUIRED_FOR_SCOPED_LOCAL_DIAG",
+  "execution": {
+    "I1": "HOLD_I1_CUSTODY_LOCAL_HOST_AND_DISTINCT_REVIEW_PENDING",
+    "I2": "NOT_EXECUTED",
+    "actual_model_forward": false,
+    "training": false,
+    "test_final_access": false,
+    "science_results_changed": false,
+    "project_main_mutated": false,
+    "lineage_mutated": false,
+    "pr28_mutated": false
+  },
+  "windows_qa": {
+    "provider": "GitHub Actions windows-2022 / CPython 3.12.10 / PowerShell 5.1; NOT the owner's Windows 11",
+    "final_run_id": 43887142226,
+    "final_run_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43887142226",
+    "exact_source_head": "9d47cd36bc89502faf2f0d46066c3a8b8aaaabd2",
+    "final_outcome": "PASS_SCOPED_NO_MODEL",
+    "native_unittest": "PASS_8_OF_8",
+    "native_memory_pressure": "PASS_SCOPED_LIMIT_128MiB_REJECT_512MiB_REQUEST",
+    "native_memory_pressure_peak_job_bytes": 12333056,
+    "native_watchdog_timeout": "PASS_NEGATIVE",
+    "native_orphan_cleanup": "PASS_NEGATIVE_PYTHON_AND_CONHOST",
+    "native_guard_real_cli": "PASS_DUMMY_PROCESS_ONLY",
+    "ps51_parser": "PASS",
+    "launcher_source_pin": "PASS_4_FILES",
+    "owner_document_git_blob": "PASS_SOURCE_ONLY_CANONICAL_LF",
+    "current_process_native_rss": "PASS_NONZERO",
+    "production_12GiB_job_cap_under_real_model": "NOT_EXECUTED",
+    "prior_technical_failures_preserved": [
+      {
+        "run": 43883925090,
+        "reason": "PS51_PARSE_FAIL"
+      },
+      {
+        "run": 43884572233,
+        "reason": "NATIVE_SMOKE_FALSE_ORPHAN_HOLD"
+      },
+      {
+        "run": 43884834697,
+        "reason": "NATIVE_SMOKE_FALSE_ORPHAN_HOLD"
+      },
+      {
+        "run": 43885103055,
+        "reason": "NATIVE_PID_DIAGNOSTIC_HOLD"
+      },
+      {
+        "run": 43885603204,
+        "reason": "NATIVE_IMAGE_DIAGNOSTIC_HOLD"
+      },
+      {
+        "run": 43886513435,
+        "reason": "OWNER_GIT_BLOB_CRLF_SOURCE_PIN_HOLD"
+      }
+    ]
+  },
+  "original_checkpoint": {
+    "source": "OWNER_AUTHENTICATED_PRIVATE_DRIVE_T4_RUN_STEP1024",
+    "path_or_bytes_published": false,
+    "exact_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "exact_size_bytes": 45074891,
+    "byte_verification": "PASS_INDEPENDENT_HASH_OF_ENTIRE_PRIVATE_DRIVE_FILE",
+    "torch_load": "PASS_WEIGHTS_ONLY_CPU_METADATA_READBACK_NO_FORWARD",
+    "schema": "ttm.t4.science.checkpoint.v1",
+    "step": 1024,
+    "p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "config": {
+      "vocab_size": 2048,
+      "max_seq_len": 256,
+      "n_embd": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "norm_type": "layernorm"
+    },
+    "model_unique_parameters": 3749376,
+    "local_owner_windows_same_bytes": "NOT_VERIFIED"
+  },
+  "tokenizer": {
+    "exact_private_source_bytes": "NOT_FOUND_OR_READ",
+    "source_identity": "ORIGINAL_T4_T1_T2_PRIVATE_BPE",
+    "historical_manifest_bpe_file_sha256": "cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc",
+    "historical_internal_bpe_digest": "6da22cf79c3a6cfd08d80a768eb1074125a753164ccf62a164e79545956e94c6",
+    "sha256_verified_against_original_bytes": false,
+    "full_2048_id_taxonomy": "NOT_VERIFIED",
+    "surrogate_tokenizer_used": false
+  },
+  "fixture": {
+    "real_original_source_80_cases": "NOT_FROZEN",
+    "counts": "24_TRAIN_56_PROBES_AS_FROZEN_CONTRACT",
+    "mock_only_historical": true,
+    "consumed_test": false
+  },
+  "residual_blockers": [
+    {
+      "id": "R01",
+      "label": "ORIGINAL_T4_TOKENIZER_SOURCE_BYTES_AND_2048_ID_TAXONOMY_NOT_VERIFIED"
+    },
+    {
+      "id": "R02",
+      "label": "REAL_80_CASE_FIXTURE_NOT_FROZEN_AND_INDEPENDENT_BYTE_READBACK_NOT_DONE"
+    },
+    {
+      "id": "R03",
+      "label": "EXACT_OWNER_WINDOWS_11_PRODUCTION_JOB_AND_ADMISSION_NATIVE_QA_NOT_EXECUTED"
+    },
+    {
+      "id": "R04",
+      "label": "DISTINCT_REVIEWER_ON_EXACT_FINAL_RF00_SOURCE_NOT_EXECUTED"
+    }
+  ],
+  "verdict": "HOLD_I1_NO_MODEL_I2",
+  "next_action": "IN_ONE_INTEGRATED_RF00_OWNER_WINDOWS_EXACT_TOKENIZER_FIXTURE_BYTE_CUSTODY_AND_DISTINCT_I1_READBACK; no micro-permits or repeat GO"
+}
