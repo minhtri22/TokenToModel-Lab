@@ -24,7 +24,7 @@ import os,subprocess,sys,time
 mode=sys.argv[1]
 if mode=="normal": print("OK",flush=True)
 elif mode=="exit_big":
- with open(sys.argv[2],"wb") as f: f.write(b"X"*65536); f.flush(); os.fsync(f.fileno())
+ sys.stdout.buffer.write(b"X"*65536); sys.stdout.buffer.flush()
 elif mode=="stall": time.sleep(8)
 elif mode=="child":
  data=bytearray(90*1024*1024)
