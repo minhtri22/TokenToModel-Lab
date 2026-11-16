@@ -216,7 +216,11 @@ def score_logits(logits, row):
     top = unique_top1(enumerate(logits))
     restricted = unique_top1((x, logits[x]) for x in opts)
     m = max(logits)
-    nll = m + math.log(sum(math.exp(x-m) for x in logits)) - logits[gold]
+    # Stable log-sum-exp: subtract the target BEFORE adding the small log.
+    # The former (m + log_sum - gold) discarded log(VOCAB) near 1e20.
+    # fsum improves accumulation while all logits remain finite.
+    nll = (m - logits[gold]) + math.log(
+        math.fsum(math.exp(x - m) for x in logits))
     competitors = [logits[x] for x in opts if x != gold]
     return {"full_vocab_gold_nll": nll,
             "full_vocab_gold_rank": 1 + sum(x > logits[gold] for x in logits),
