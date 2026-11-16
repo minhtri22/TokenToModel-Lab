@@ -80,6 +80,8 @@ def authenticate_release(permit_path: Path, *, phase: str, runner_sha256: str,
                                                'underlying_inventory_sha256')):
         _hold('SIGNED_PERMIT_SHA_FORMAT')
     if phase == 'run':
+        if not _hex(payload.get('one_shot_nonce')):
+            _hold('SIGNED_ONESHOT_NONCE_REQUIRED')
         if not _hex(frozen_fixture_sha256) or payload.get('frozen_fixture_sha256') != frozen_fixture_sha256:
             _hold('SIGNED_FIXTURE_PIN_MISMATCH')
     elif phase != 'fixture-freeze':
