@@ -136,8 +136,8 @@ def test_all() -> dict:
     checks['goldblind_four_way_secondary_only'] = all(x in script for x in
         ("GOLD_BLIND_VISIBLE_CONTEXT_CANDIDATES", "TIES_ABSTAIN",
          "TRACK_A_V3_SOURCE_SHA256", "evaluate_goldblind_logits"))
-    checks['old_gold_first_restricted_path_removed'] = "opts=[gold]" not in script and
-        "opts[max(range(4)" not in script
+    checks['old_gold_first_restricted_path_removed'] = (
+        "opts=[gold]" not in script and "opts[max(range(4)" not in script)
     checks['hardcoded_trust_roots_empty']=auth.TRUSTED_ED25519_PUBLIC_KEYS=={}
     checks['root_hostname_trust_pins_required']=(auth.TRUSTED_PROJECT_ROOT.lower()==r'D:\WORK\RESEARCH\TokenToModel-Lab'.lower()
        and auth.TRUSTED_HOSTNAME.upper()=='DESKTOP-4PSD0G2')
