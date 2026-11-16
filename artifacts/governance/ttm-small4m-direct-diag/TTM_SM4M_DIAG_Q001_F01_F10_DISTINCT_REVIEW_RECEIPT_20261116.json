@@ -1,0 +1,127 @@
+{
+  "schema": "ttm.sm4m.diag.q001.distinct_f01_f10_source_adjudication.v1",
+  "operation": "TTM_SM4M_DIAG_Q001_F01_F10_EXACT_REMEDIATED_CANDIDATE_DISTINCT_NEGATIVE_QA_RIGHTS_CUSTODY_AND_SINGLE_I1_ADJUDICATION",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pr": 28,
+  "issue": 29,
+  "candidate_exact_head": "18fabe4255823e573b7ab5156974310eab8e71d9",
+  "base_q1_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "old_reviewed_head": "fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5",
+  "old_hold_evidence_head": "cbc27333e13b586a8da1c0b1a3741660a61faf25",
+  "source_custody": {
+    "git_blobs_match": 10,
+    "git_blobs_total": 10,
+    "sha256_manifest_match": 9,
+    "sha256_manifest_total": 9,
+    "readme_sha256_calculated": "abeecba82e6492cb84b28c140d77672e6dc05eb4011fda15523f55c9b211070d",
+    "readme_sha256_manifest": null,
+    "changed_files": 17,
+    "unscoped_changes": 0,
+    "historical_hold_preserved": true,
+    "lineage_unchanged": true,
+    "p02_unchanged": true
+  },
+  "method": "DISTINCT_CONVERSATIONAL_GITHUB_EXACT_SOURCE_INSPECTION_AND_INDEPENDENT_JS_SHA256_REHASH",
+  "independent_native_windows_negative_qa": "NOT_EXECUTED",
+  "author_negative_qa": "31/31 AUTHOR_LINUX_PYTHON313_RECEIPT_ONLY",
+  "new_source_findings": [
+    {
+      "id": "N01",
+      "maps_to": "F01",
+      "severity": "BLOCKER",
+      "summary": "Signed one-shot nonce claims are per-root; signed payload does not bind project root; replay across different roots remains possible",
+      "lines": [
+        "ttm_sm4m_diag_q001.py:483-507",
+        "release_auth_v2.py:63-88",
+        "independent_negative_qa_v2.py:96-98"
+      ]
+    },
+    {
+      "id": "N02",
+      "maps_to": "F08/F05",
+      "severity": "I1_BLOCKER",
+      "summary": "External watchdog tracks only parent RSS, no child aggregate; does not perform threshold checks after process exit; native adversarial tests absent",
+      "lines": [
+        "Run-Approved-OneShot-PS51.ps1:44-64",
+        "independent_negative_qa_v2.py:103-115"
+      ]
+    },
+    {
+      "id": "N03",
+      "maps_to": "F04/F05",
+      "severity": "BLOCKER_UNTESTED",
+      "summary": "Direct Python CLI does not constrain private input paths to project root; only PS run wrapper checks",
+      "lines": [
+        "ttm_sm4m_diag_q001.py:382-410",
+        "ttm_sm4m_diag_q001.py:510-540",
+        "Run-Approved-OneShot-PS51.ps1:19-22"
+      ]
+    },
+    {
+      "id": "N04",
+      "maps_to": "F09",
+      "severity": "MINOR",
+      "summary": "README author negative QA 30/30 while receipt says 31/31; README SHA256 unpinned in manifest"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "result": "HOLD_SOURCE_NONCE_CROSS_ROOT_AND_TRUST_ROOTS_UNCONFIGURED"
+    },
+    {
+      "id": "F02",
+      "result": "SOURCE_HARDENING_PRESENT_REAL_INVENTORY_CUSTODY_NOT_VERIFIED"
+    },
+    {
+      "id": "F03",
+      "result": "SOURCE_FIXTURE_PERSISTENCE_PRESENT_REAL_FIXTURE_NOT_EXECUTED"
+    },
+    {
+      "id": "F04",
+      "result": "SOURCE_PS_PATH_FIX_PRESENT_NATIVE_AND_DIRECT_CLI_NEGATIVE_QA_MISSING"
+    },
+    {
+      "id": "F05",
+      "result": "HOLD_DISTINCT_NATIVE_NEGATIVE_QA_NOT_EXECUTED"
+    },
+    {
+      "id": "F06",
+      "result": "HARD_VETO_RIGHTS_AND_EXTERNAL_SIGNER_KEYS_MISSING"
+    },
+    {
+      "id": "F07",
+      "result": "SOURCE_WEIGHT_DELTA_GUARD_PRESENT_RUNTIME_NOT_EXECUTED"
+    },
+    {
+      "id": "F08",
+      "result": "HOLD_RESOURCE_WATCHDOG_CHILD_RSS_AND_EXIT_GAPS"
+    },
+    {
+      "id": "F09",
+      "result": "OLD_18_OF_18_CORRECTED_NEW_30_VS_31_MISMATCH"
+    },
+    {
+      "id": "F10",
+      "result": "SOURCE_RESTRICTED_FOUR_BIAS_DISCLOSURE_PRESENT"
+    }
+  ],
+  "unexecuted": {
+    "model_load": true,
+    "checkpoint_read": true,
+    "private_tokenizer_read": true,
+    "real_fixture_freeze": true,
+    "torch_training": true,
+    "native_windows_ps51": true,
+    "adversarial_watchdog_runtime": true
+  },
+  "source_verdict": "HOLD_DIAG_Q001_REMEDIATED_SOURCE",
+  "i1_release": "HOLD_I1",
+  "i2": "NOT_EXECUTED",
+  "owner_conditional_go": "PRESERVED",
+  "no_new_owner_micropermit": true,
+  "no_pr_merge": true,
+  "no_lineage_change": true,
+  "next_single_gate": "TTM_SM4M_DIAG_Q001_F01_F10_EXACT_REMEDIATED_CANDIDATE_DISTINCT_NEGATIVE_QA_RIGHTS_CUSTODY_AND_SINGLE_I1_ADJUDICATION"
+}
