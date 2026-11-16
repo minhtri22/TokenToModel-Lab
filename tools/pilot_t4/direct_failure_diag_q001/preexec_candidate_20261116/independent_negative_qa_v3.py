@@ -144,7 +144,8 @@ def test_all() -> dict:
     checks['invalid_root_rejected_before_permit']=expect_hold(lambda:auth.trusted_execution_root(scratch),'noncanonical')
     checks['runner_claim_scope_canonical']=all(t in script for t in ('_evidence','ttm_sm4m_diag_q001_onetime_claims','trusted_execution_root'))
     checks['direct_cli_path_validator_present']='def exact_scoped_path(' in script and 'DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT' in script
-    checks['output_dir_scope_guard']=all(t in script for t in ('exact_scoped_path(root, out)','exact_scoped_path(root,check_path)'))
+    checks['output_dir_scope_guard']=('exact_scoped_path(root, out)' in script and
+        bool(re.search(r'exact_scoped_path\(root,\s*check_path\)', script)))
     checks['source_only_no_real_fixture_written']=not (scratch/'REAL_FIXTURE_RECORDS.json').exists()
     return {
         'scope':'V3_ADVERSARIAL_MOCK_AND_SOURCE_NO_MODEL',
