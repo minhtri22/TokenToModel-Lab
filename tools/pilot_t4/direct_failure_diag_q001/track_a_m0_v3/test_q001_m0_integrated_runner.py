@@ -34,7 +34,7 @@ class IntegratedM0SourceQA(unittest.TestCase):
         self.assertIn(hashlib.sha256(raw).hexdigest(),
                       (diag.TRACK_A_V3_SOURCE_SHA256,
                        diag.TRACK_A_V3_CRLF_SHA256))
-        self.assertEqual(hashlib.sha256(raw.replace(b'\\r\\n', b'\\n')).hexdigest(),
+        self.assertEqual(hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest(),
                          diag.TRACK_A_V3_SOURCE_SHA256)
         self.assertTrue(diag.track_a_v3().SCHEMA.endswith(".mock"))
 
