@@ -46,7 +46,9 @@
 
 ## Hợp đồng từng công việc — agent nhận theo đúng dependency
 
-### RF-00 — Q001 last-mile: single owner admission + native hard-memory guard
+### RF-00
+
+**Công việc:** Q001 last-mile: single owner admission + native hard-memory guard
 
 **Ưu tiên:** P0 · **Phase:** Small-4M · **Loại:** HOLD kỹ thuật · **State:** `BLOCKED_I1` · **Chi phí:** M (native no-model) · **Checkpoint:** `EXACT_NO_WEIGHT_CHANGE`.
 
@@ -56,7 +58,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Một report distinct I1_PASS_SCOPED_INTERNAL_RESEARCH hoặc HOLD_I1 nêu một blocker; hard committed memory và sampled tree-RSS đo/đánh dấu riêng; root/custody đúng, không fake 3 signer.
 - **Phụ thuộc:** none. **Nguồn:** PR28; Issue29; Q001 owner amendment.
 
-### RF-01 — Checkpoint/tokenizer/80-case exact-custody + I2 once
+### RF-01
+
+**Công việc:** Checkpoint/tokenizer/80-case exact-custody + I2 once
 
 **Ưu tiên:** P0 · **Phase:** Small-4M · **Loại:** EVIDENCE GAP · **State:** `WAIT_RF-00` · **Chi phí:** M (one CPU run, conditional) · **Checkpoint:** `EXACT_T4_STEP1024_INPUT_ONLY`.
 
@@ -66,7 +70,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Report load, token IDs, source-shift, train/probe group, step0/final loss, grad/weight delta, full-vocab vs candidate, checksum+STOP; no retry; not executed nếu HOLD.
 - **Phụ thuộc:** RF-00. **Nguồn:** Q001 main contract; last-mile handoff.
 
-### RF-02 — Phân loại lỗi mô hình theo failure-tree, không đoán kiến trúc
+### RF-02
+
+**Công việc:** Phân loại lỗi mô hình theo failure-tree, không đoán kiến trúc
 
 **Ưu tiên:** P1 · **Phase:** Small-4M · **Loại:** HYPOTHESIS · **State:** `WAIT_RF-01` · **Chi phí:** L (read receipt) · **Checkpoint:** `EXACT_T4_NO_CHANGE`.
 
@@ -76,7 +82,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Một root-cause class có chứng cứ và counterexample; nếu không phân biệt được ghi UNRESOLVED; không sửa frozen Q001.
 - **Phụ thuộc:** RF-01. **Nguồn:** L0011/L0012/L0015; Q001.
 
-### RF-03 — Bản đồ quyền nguồn dataset theo hành động
+### RF-03
+
+**Công việc:** Bản đồ quyền nguồn dataset theo hành động
 
 **Ưu tiên:** P1 · **Phase:** P01 · **Loại:** EVIDENCE GAP · **State:** `OPEN_SOURCE_ONLY` · **Chi phí:** L · **Checkpoint:** `NO_MODEL`.
 
@@ -86,7 +94,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Data lineage manifest and clear allow/hold for local training/SFT/distribution; không yêu cầu external 3 signer mang tính hình thức.
 - **Phụ thuộc:** none. **Nguồn:** P01 E0; T4 science; owner scope.
 
-### RF-04 — Tokenizer T4 exact inventory + roundtrip + special IDs
+### RF-04
+
+**Công việc:** Tokenizer T4 exact inventory + roundtrip + special IDs
 
 **Ưu tiên:** P1 · **Phase:** P01/T2 · **Loại:** EVIDENCE GAP · **State:** `WAIT_RF-00` · **Chi phí:** L/M · **Checkpoint:** `EXACT_T4_TOKENIZER`.
 
@@ -96,7 +106,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** All IDs accounted, encode(decode) contract defined, no unsupported specials, negative tamper HOLD, source/size/hash receipt.
 - **Phụ thuộc:** RF-00,RF-03. **Nguồn:** tools/pilot_t1t3/source_t2; Q001 F02.
 
-### RF-05 — Checkpoint strict config & state-dict loader
+### RF-05
+
+**Công việc:** Checkpoint strict config & state-dict loader
 
 **Ưu tiên:** P1 · **Phase:** P02 · **Loại:** INTEGRATION RISK · **State:** `WAIT_RF-01` · **Chi phí:** L · **Checkpoint:** `EXACT_T4_READ_ONLY`.
 
@@ -106,7 +118,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Exact load without missing/unexpected tensors and deterministic logits against original P02; wrong checkpoint rejected without mutation.
 - **Phụ thuộc:** RF-01. **Nguồn:** src/p02/transformer_core.py; Q001 main.
 
-### RF-06 — Shifted next-token targets / ignore mask / gradient weights
+### RF-06
+
+**Công việc:** Shifted next-token targets / ignore mask / gradient weights
 
 **Ưu tiên:** P1 · **Phase:** P03 · **Loại:** HYPOTHESIS · **State:** `WAIT_RF-01` · **Chi phí:** L (synthetic CPU) · **Checkpoint:** `EXACT_NO_WEIGHT_CHANGE`.
 
@@ -116,7 +130,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Passing regression and negative wrong-shift/mask; if no defect, mark VERIFIED_NO_BUG rather than rewrite trainer.
 - **Phụ thuộc:** RF-01. **Nguồn:** src/p03/train_loop.py; T4 trainer.
 
-### RF-07 — Resume, scheduler, RNG and step/byte accounting
+### RF-07
+
+**Công việc:** Resume, scheduler, RNG and step/byte accounting
 
 **Ưu tiên:** P1 · **Phase:** T4 · **Loại:** INTEGRATION RISK · **State:** `WAIT_RF-05` · **Chi phí:** M · **Checkpoint:** `WEIGHT_PRESERVING_NEW_SYNTHETIC`.
 
@@ -126,7 +142,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Same losses/parameters within prereg numerical tolerance, no overwrite and no duplicate step; document FP16/T4 caveat.
 - **Phụ thuộc:** RF-05,RF-06. **Nguồn:** tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py.
 
-### RF-08 — P04↔T4 checkpoint schema adapter read-only
+### RF-08
+
+**Công việc:** P04↔T4 checkpoint schema adapter read-only
 
 **Ưu tiên:** P1 · **Phase:** P04 · **Loại:** INTEGRATION RISK · **State:** `WAIT_RF-05` · **Chi phí:** L · **Checkpoint:** `NO_CHECKPOINT_REWRITE`.
 
@@ -136,7 +154,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Adapter can read both without rewriting checkpoint, denies unrelated schema; exact SHA maintained.
 - **Phụ thuộc:** RF-05. **Nguồn:** src/p04/eval_checkpoints.py; T4 checkpoint source.
 
-### RF-09 — Full-vocab greedy vs candidate-only scoring diagnostics
+### RF-09
+
+**Công việc:** Full-vocab greedy vs candidate-only scoring diagnostics
 
 **Ưu tiên:** P1 · **Phase:** P04/decoding · **Loại:** HYPOTHESIS · **State:** `WAIT_RF-01` · **Chi phí:** L/M · **Checkpoint:** `EXACT_T4_READ_ONLY`.
 
@@ -146,7 +166,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Agreement/rank tables by group, output token IDs with tokenizer pin; root cause decoding vs task objective reported or inconclusive.
 - **Phụ thuộc:** RF-01,RF-04. **Nguồn:** Q001 F10; src/p04/eval_checkpoints.py.
 
-### RF-10 — Fresh prompt-adherence measurement with valid gold/construct
+### RF-10
+
+**Công việc:** Fresh prompt-adherence measurement with valid gold/construct
 
 **Ưu tiên:** P1 · **Phase:** Quality eval · **Loại:** EVIDENCE GAP · **State:** `DESIGN_ONLY` · **Chi phí:** M (design), H if external gold · **Checkpoint:** `EXACT_OR_NEW_CONSENTED`.
 
@@ -156,7 +178,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Reviewable prereg with explicit denominator/rights/threshold, no gold leakage or adaptive TEST; science NOT_EXECUTED.
 - **Phụ thuộc:** RF-02,RF-03. **Nguồn:** P0A Q4 closure; docs/governance/ttm-post-q001/.
 
-### RF-11 — Data audit: dedup/group split, domain balance and token fertility
+### RF-11
+
+**Công việc:** Data audit: dedup/group split, domain balance and token fertility
 
 **Ưu tiên:** P1 · **Phase:** Data · **Loại:** EVIDENCE GAP · **State:** `DESIGN_ONLY` · **Chi phí:** L/M · **Checkpoint:** `NO_MODEL_CHANGE`.
 
@@ -166,7 +190,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Versioned dataset card with coverage/group disjointness, repeat rate, seed, license; list exact data-only interventions.
 - **Phụ thuộc:** RF-03,RF-04. **Nguồn:** T4 H1 adjudication; tools/pilot_t4/integrated/t4_data_pack.py.
 
-### RF-12 — One-command GPT baseline orchestration (not rewriting cores)
+### RF-12
+
+**Công việc:** One-command GPT baseline orchestration (not rewriting cores)
 
 **Ưu tiên:** P2 · **Phase:** End-to-end · **Loại:** MISSING FEATURE · **State:** `WAIT_RF-02` · **Chi phí:** M · **Checkpoint:** `NEW_RUN_NOT_FROZEN_REPLAY`.
 
@@ -176,7 +202,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** One new run-id with code+dataset+tokenizer+config+output SHA, correct independent metrics and no overwrite; no TEST run.
 - **Phụ thuộc:** RF-04,RF-05,RF-06,RF-07,RF-08. **Nguồn:** src/p02–p04; tools/pilot_t4; scripts/record_run.py.
 
-### RF-13 — Unified token-NLL + byte-bpb + grouped eval
+### RF-13
+
+**Công việc:** Unified token-NLL + byte-bpb + grouped eval
 
 **Ưu tiên:** P2 · **Phase:** Eval · **Loại:** MISSING FEATURE · **State:** `WAIT_RF-12` · **Chi phí:** L · **Checkpoint:** `EXACT_T4_READ_ONLY`.
 
@@ -186,7 +214,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Exact denominator & counts, NLL parity to reference on synthetic fixtures, same bytes/seed/split and CI bootstrap.
 - **Phụ thuộc:** RF-12,RF-10. **Nguồn:** nanochat/loss_eval.py; T4 eval source.
 
-### RF-14 — Improve train-only data mixture/quality before size
+### RF-14
+
+**Công việc:** Improve train-only data mixture/quality before size
 
 **Ưu tiên:** P2 · **Phase:** Pretrain data · **Loại:** HYPOTHESIS · **State:** `AFTER_RF-10` · **Chi phí:** M/H (new science) · **Checkpoint:** `NEW_CHECKPOINT_SAME_SHAPE`.
 
@@ -196,7 +226,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Better grouped bpb/adherence with uncertainty and no unexplained regression, data card with keep/reject counts.
 - **Phụ thuộc:** RF-10,RF-11,RF-12,RF-13. **Nguồn:** T4 H1; nanochat/dataset.py.
 
-### RF-15 — Small instruction SFT with answer-only loss mask
+### RF-15
+
+**Công việc:** Small instruction SFT with answer-only loss mask
 
 **Ưu tiên:** P2 · **Phase:** Post-training · **Loại:** HYPOTHESIS · **State:** `AFTER_RF-10` · **Chi phí:** M/H (new science) · **Checkpoint:** `NEW_CHECKPOINT_FROM_EXACT`.
 
@@ -206,7 +238,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Improved fresh adherence, correct output format and counterfactual sensitivity with paired CI; report baseline bpb regression.
 - **Phụ thuộc:** RF-10,RF-12,RF-14. **Nguồn:** nanochat/scripts/chat_sft.py; Deep Dive video.
 
-### RF-16 — Format-only decoding controls / stop tokens
+### RF-16
+
+**Công việc:** Format-only decoding controls / stop tokens
 
 **Ưu tiên:** P2 · **Phase:** Inference · **Loại:** HYPOTHESIS · **State:** `AFTER_RF-09` · **Chi phí:** L/M · **Checkpoint:** `EXACT_T4_READ_ONLY`.
 
@@ -216,7 +250,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Measure format validity, actual factual accuracy and false confidence; distinguish improvement due to constraints vs learning.
 - **Phụ thuộc:** RF-09,RF-10. **Nguồn:** P04 generate_tokens; nanochat/engine.py.
 
-### RF-17 — Objective ablation: prefix LM vs completion-only
+### RF-17
+
+**Công việc:** Objective ablation: prefix LM vs completion-only
 
 **Ưu tiên:** P2 · **Phase:** Post-training · **Loại:** HYPOTHESIS · **State:** `AFTER_RF-15` · **Chi phí:** H (several science arms) · **Checkpoint:** `NEW_CHECKPOINT_SAME_SHAPE`.
 
@@ -226,7 +262,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Report NLL per subset, compliance, counterfactual effect, CI and convergence per token; no cherry-picked prompts.
 - **Phụ thuộc:** RF-13,RF-15,RF-16. **Nguồn:** nanochat chat_sft loss masks.
 
-### RF-18 — Verify GELU_ERF parity beyond C01-C04 (new fixtures only)
+### RF-18
+
+**Công việc:** Verify GELU_ERF parity beyond C01-C04 (new fixtures only)
 
 **Ưu tiên:** P2 · **Phase:** T5 · **Loại:** HISTORICAL BUG / SCOPED FIX · **State:** `WAIT_RF-12` · **Chi phí:** M/H · **Checkpoint:** `EXACT_T4_WEIGHT_AND_GGUF`.
 
@@ -236,7 +274,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** All arm-specific max/mean logit deltas reported, backend-version pins and per-arm PASS/FAIL vs predeclared thresholds.
 - **Phụ thuộc:** RF-08,RF-09,RF-12. **Nguồn:** T5 C01-C04 adjudication; PR16.
 
-### RF-19 — Production/backend compatibility qualification
+### RF-19
+
+**Công việc:** Production/backend compatibility qualification
 
 **Ưu tiên:** P2 · **Phase:** T5/Ollama · **Loại:** EVIDENCE GAP · **State:** `WAIT_RF-18` · **Chi phí:** M · **Checkpoint:** `EXACT_T4_WEIGHT`.
 
@@ -246,7 +286,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Record import supported/blocked, exact binary sha, tokenizer/byte parity, performance; no model quality claims from import.
 - **Phụ thuộc:** RF-18. **Nguồn:** T5 Ollama sources/receipts.
 
-### RF-20 — Fair CPU Dense/Paged/no-cache benchmark
+### RF-20
+
+**Công việc:** Fair CPU Dense/Paged/no-cache benchmark
 
 **Ưu tiên:** P2 · **Phase:** T6 · **Loại:** EVIDENCE GAP · **State:** `AFTER_RF-12` · **Chi phí:** M · **Checkpoint:** `EXACT_T4_READ_ONLY_OR_SYNTHETIC`.
 
@@ -256,7 +298,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** p50/p95 TTFT TPOT throughput, errors, physical/active/logical bytes, no unearned speedup.
 - **Phụ thuộc:** RF-12,RF-09. **Nguồn:** docs/t6/ scoped report.
 
-### RF-21 — Unified model card/data card/training runbook
+### RF-21
+
+**Công việc:** Unified model card/data card/training runbook
 
 **Ưu tiên:** P2 · **Phase:** Documentation · **Loại:** EVIDENCE GAP · **State:** `OPEN_DOCS_ONLY` · **Chi phí:** L · **Checkpoint:** `NO_MODEL`.
 
@@ -266,7 +310,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Accurate Vietnamese-first docs + English terms, recipe reproducible on supported environments, explicit NOT_EXECUTED/UNKNOWN.
 - **Phụ thuộc:** RF-12,RF-13. **Nguồn:** README; docs/PHASE_PLAN; docs/TRAINING_PROTOCOL.
 
-### RF-22 — RMSNorm replace LayerNorm separately
+### RF-22
+
+**Công việc:** RMSNorm replace LayerNorm separately
 
 **Ưu tiên:** P3 · **Phase:** P02 · **Loại:** ARCHITECTURE HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `NEW_FAMILY_NOT_EXACT`.
 
@@ -276,7 +322,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Compare bpb vs FLOPs and update stability plus qualitative quality; report incompatibility instead of silent state-load.
 - **Phụ thuộc:** RF-13,RF-17. **Nguồn:** nanochat/gpt.py; P02.
 
-### RF-23 — RoPE vs learned absolute embeddings
+### RF-23
+
+**Công việc:** RoPE vs learned absolute embeddings
 
 **Ưu tiên:** P3 · **Phase:** P02 · **Loại:** ARCHITECTURE HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `NEW_FAMILY_NOT_EXACT`.
 
@@ -286,7 +334,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Fresh heldout bpb, OOD/context length, latency/VRAM metrics and new checkpoint family documented.
 - **Phụ thuộc:** RF-13,RF-17. **Nguồn:** nanochat/gpt.py.
 
-### RF-24 — GQA and/or QK norm independent ablations
+### RF-24
+
+**Công việc:** GQA and/or QK norm independent ablations
 
 **Ưu tiên:** P3 · **Phase:** P02/KV · **Loại:** ARCHITECTURE HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `NEW_FAMILY_REQUIRES_MAPPING`.
 
@@ -296,7 +346,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Quality-vs-compute, KV bytes, p95 decode, explicit no direct T4 checkpoint compatibility.
 - **Phụ thuộc:** RF-20,RF-23. **Nguồn:** nanochat/gpt.py; P05/P06.
 
-### RF-25 — ReLU² MLP and untied LM head one-at-a-time
+### RF-25
+
+**Công việc:** ReLU² MLP and untied LM head one-at-a-time
 
 **Ưu tiên:** P3 · **Phase:** P02 · **Loại:** ARCHITECTURE HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `NEW_FAMILY_OR_PARTIAL_LOAD`.
 
@@ -306,7 +358,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Report val bpb + adherence + param/memory cost; no retroactive GELU_ERF claim changes.
 - **Phụ thuộc:** RF-13,RF-17. **Nguồn:** nanochat/gpt.py.
 
-### RF-26 — MuonAdamW / learned scaling heuristic candidate
+### RF-26
+
+**Công việc:** MuonAdamW / learned scaling heuristic candidate
 
 **Ưu tiên:** P3 · **Phase:** Training · **Loại:** OPTIMIZER HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `NEW_OPTIMIZER_STATE`.
 
@@ -316,7 +370,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Measured training speed and final bpb with errors and cost; new optimizer checkpoint, never old resume.
 - **Phụ thuộc:** RF-12,RF-13. **Nguồn:** nanochat/optim.py; scripts/base_train.py.
 
-### RF-27 — True paged attention GPU kernel / Flash attention
+### RF-27
+
+**Công việc:** True paged attention GPU kernel / Flash attention
 
 **Ưu tiên:** P3 · **Phase:** P07 · **Loại:** HARDWARE FEATURE · **State:** `PAUSED` · **Chi phí:** H (backend-specific) · **Checkpoint:** `FORWARD_COMPAT_ONLY_IF_SAME_MATH`.
 
@@ -326,7 +382,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Strict logits within declared tolerance, TTFT/TPOT p50/p95 and real allocated GPU VRAM gain; resource feasibility proven.
 - **Phụ thuộc:** RF-20,RF-24. **Nguồn:** P07 PAUSED; nanochat/flash_attention.py.
 
-### RF-28 — Batch scheduler: prefill/decode continuous batching
+### RF-28
+
+**Công việc:** Batch scheduler: prefill/decode continuous batching
 
 **Ưu tiên:** P3 · **Phase:** P08 · **Loại:** MISSING FEATURE · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `SAME_WEIGHTS_IF_MATH_PARITY`.
 
@@ -336,7 +394,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** p95 TTFT/TPOT, total tokens/s, queue fairness, memory fragmentation and no cross-user leakage.
 - **Phụ thuộc:** RF-20,RF-27. **Nguồn:** P08 phase plan.
 
-### RF-29 — Small4M→larger GPT-like only after evidence
+### RF-29
+
+**Công việc:** Small4M→larger GPT-like only after evidence
 
 **Ưu tiên:** P3 · **Phase:** P09 · **Loại:** SCALING HYPOTHESIS · **State:** `PAUSED` · **Chi phí:** H (GPU and multi-seed) · **Checkpoint:** `NEW_FAMILY`.
 
@@ -346,7 +406,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Higher bpb/adherence per FLOP/VRAM and cost rationale; no GO if quality not robust.
 - **Phụ thuộc:** RF-14,RF-15,RF-17,RF-21. **Nguồn:** P09 phase plan; nanochat/scaling_laws.
 
-### RF-30 — Serving API, observability, predictable rollback
+### RF-30
+
+**Công việc:** Serving API, observability, predictable rollback
 
 **Ưu tiên:** P3 · **Phase:** P11 · **Loại:** MISSING FEATURE · **State:** `PAUSED` · **Chi phí:** H · **Checkpoint:** `SAME_WEIGHTS_IF_VERIFIED`.
 
@@ -356,7 +418,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** p50/p95 load/TTFT/TPOT, 1h soak error/peak, API security tests, rollback and model card.
 - **Phụ thuộc:** RF-19,RF-20,RF-28. **Nguồn:** P11 phase plan.
 
-### RF-31 — Release package and Vietnamese GPT textbook
+### RF-31
+
+**Công việc:** Release package and Vietnamese GPT textbook
 
 **Ưu tiên:** P3 · **Phase:** P12 · **Loại:** MISSING FEATURE · **State:** `PAUSED` · **Chi phí:** M/H · **Checkpoint:** `NO_WEIGHT_CHANGE`.
 
@@ -366,7 +430,9 @@
 - **Điều kiện đóng bằng số đo/evidence:** Reproduction recipe with exact hashes, cost and LIMITATIONS, no unsupported model capability claim.
 - **Phụ thuộc:** RF-21,RF-29,RF-30. **Nguồn:** docs/COMMERCIAL_READINESS; book/OUTLINE.md.
 
-### RF-32 — Windows restricted worker ACL/SID/Pipe sidecar
+### RF-32
+
+**Công việc:** Windows restricted worker ACL/SID/Pipe sidecar
 
 **Ưu tiên:** P2 · **Phase:** P01 D1 · **Loại:** SECURITY/GOVERNANCE GAP · **State:** `SEPARATE_SCOPE_HOLD` · **Chi phí:** M · **Checkpoint:** `NO_MODEL`.
 
