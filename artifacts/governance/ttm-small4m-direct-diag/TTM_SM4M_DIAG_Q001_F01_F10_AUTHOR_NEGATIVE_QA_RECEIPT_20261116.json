@@ -1,0 +1,157 @@
+{
+  "schema": "ttm.sm4m.diag.q001.f01_f10.author_negative_qa.v2",
+  "date": "2026-11-16",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "original_independent_review_verdict": "HOLD_DIAG_Q001_CANDIDATE_SOURCE",
+  "reviewed_old_head": "fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5",
+  "review_evidence_head": "cbc27333e13b586a8da1c0b1a3741660a61faf25",
+  "runner_git_blob": "b1e44335996d4ff6f12cf8ad19959f771070b6c1",
+  "guard_git_blob": "14d4be8a5c1c9ed311ebfe3f5765ab0a3e4753ec",
+  "negative_suite_git_blob": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+  "scope": "AUTHOR_SELF_EXECUTED_LINUX_PYTHON_3_13_MOCK_SOURCE_ONLY",
+  "passed": 31,
+  "total": 31,
+  "checks": [
+    {
+      "name": "PS5_has_64hex_pin",
+      "status": "PASS"
+    },
+    {
+      "name": "PS5_no_runner_tmp_default",
+      "status": "PASS"
+    },
+    {
+      "name": "PS5_script_relative_source_root",
+      "status": "PASS"
+    },
+    {
+      "name": "PS5_wall_RSS_output_tree_watchdog",
+      "status": "PASS"
+    },
+    {
+      "name": "all_zero_metadata_digest_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "case_manifest_tamper_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "forged_local_go_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "forged_metadata_digest_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen_read_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "hardcoded_trust_roots_empty",
+      "status": "PASS"
+    },
+    {
+      "name": "last_context_position_target",
+      "status": "PASS"
+    },
+    {
+      "name": "manifest_80_case_hashes",
+      "status": "PASS"
+    },
+    {
+      "name": "manifest_restored",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_permit_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "mock_80_no_private",
+      "status": "PASS"
+    },
+    {
+      "name": "mutated_inventory_taxonomy_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "no_checkpoint_read_under_forged_go",
+      "status": "PASS"
+    },
+    {
+      "name": "no_eval_gradient",
+      "status": "PASS"
+    },
+    {
+      "name": "no_full_prompt_CE",
+      "status": "PASS"
+    },
+    {
+      "name": "oracle_80",
+      "status": "PASS"
+    },
+    {
+      "name": "oracle_label_mutation_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "partial_reserved_inventory_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "postfreeze_byte_mutation_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "replayed_signed_nonce_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "reserved_collision_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "resource_bounds_present",
+      "status": "PASS"
+    },
+    {
+      "name": "restricted_four_caveat",
+      "status": "PASS"
+    },
+    {
+      "name": "source_only_no_real_fixture_written",
+      "status": "PASS"
+    },
+    {
+      "name": "tampered_underlying_source_sha_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "target_binding_mutation_denied",
+      "status": "PASS"
+    },
+    {
+      "name": "weight_delta_recorded",
+      "status": "PASS"
+    }
+  ],
+  "local_raw_QA_receipt_sha256": "ed36598ec9ee5c41916af1a1b70af66f15522010d9be9d5444691eb0aa21c7e4",
+  "runner_source_sha256": "6163f730fe69c82f55f61b3647a7fa2fc605db9fbc09996b5354d2cf1b1e7e8b",
+  "model_loaded": false,
+  "checkpoint_read": false,
+  "private_inventory_read": false,
+  "real_fixture_created": false,
+  "science_execution": false,
+  "question_protocol_changed": false,
+  "source_review_independence": "NOT_ATTESTED_REVIEWER_MUST_RERUN",
+  "native_Windows_PS51_Python312": "NOT_EXECUTED",
+  "rights_AD00_AD01C_E6": "NOT_VERIFIED",
+  "trusted_signer_keys": "UNCONFIGURED_INTENTIONAL_FAIL_CLOSED",
+  "I1_release": "HOLD",
+  "I2_256_steps": "NOT_EXECUTED",
+  "lineage_untouched": true,
+  "next": "ONE_DISTINCT_EXACT_HEAD_I1_REASSESSMENT"
+}
