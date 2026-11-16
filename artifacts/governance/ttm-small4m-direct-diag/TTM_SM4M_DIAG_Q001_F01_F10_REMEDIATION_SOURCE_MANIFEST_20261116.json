@@ -24,8 +24,8 @@
     },
     {
       "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
-      "git_blob_sha1": "7fa9d76bac7ac56ff89e98c054a8da8b43520c08",
-      "sha256": "ea8d038c704e3213791c9189e85dfd59a670192c318600c295fa6aa15dadc619",
+      "git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
       "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
     },
     {
@@ -161,7 +161,8 @@
     "no_private_inventory_read": true,
     "no_checkpoint_read": true,
     "native_windows_ps51": "NOT_EXECUTED",
-    "different_human_or_agent_attested": false
+    "different_human_or_agent_attested": false,
+    "scratch_location": "WITHIN_PROJECT_ROOT/_tmp_ONLY"
   },
   "runtime_admission": {
     "i1_release": "HOLD_I1_PENDING_DISTINCT_REVIEW_AND_RIGHTS",
