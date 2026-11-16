@@ -1,0 +1,32 @@
+name: TTM BC v2 PM Distinct Manifest Boundary QA (synthetic only)
+
+on:
+  push:
+    branches:
+      - review/ttm-pm-a-i1-bc-v2-distinct-source-20261117
+    paths:
+      - tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py
+      - .github/workflows/track-bc-pm-distinct-manifest-qa-py312.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bc-v2-distinct-negative:
+    name: PM distinct manifest negatives
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact imported B code and no science
+        shell: bash
+        run: |
+          python -B -c "import sys; assert sys.version_info[:2] == (3,12); from src.ttm_track_b import bc_sft_bridge_v2 as b; assert b.CHECKPOINT_SCHEMA == 'ttm.bc.synthetic.sft_checkpoint.v2'; print('BC_DISTINCT_NO_MODEL_NO_SCIENCE')"
+      - name: Independent fail-closed manifest negative QA
+        shell: bash
+        run: |
+          python -B -m unittest discover -s tests/ttm_track_bc -p 'test_pm_distinct_v2_manifest_negative_20261117.py' -v
