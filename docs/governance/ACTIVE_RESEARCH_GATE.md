@@ -2,16 +2,31 @@
 
 **Source of truth:** `main` tại GitHub; [TTM Question-First Policy](TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md).  
 **Đây là bảng điều phối sửa được, không phải khoa học lineage.**  
-**Snapshot governance:** 2026-11-16. Q1–Q3 của `TTM-P0A-MEAS-Q001` được chấp nhận đúng phạm vi source/design; owner đã `GO_Q4_CLOSE_HOLD_EVIDENCE_INSUFFICIENT` và phê duyệt governance-only PR #25 nếu exact QA PASS. Question Gate này được đóng `Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT` sau provider merge/readback; **không có active QuestionID mới**, E0–E6 empirical HOLD, khoa học không được cấp phép. `SM4M-Q001` lịch sử vẫn CLOSED.
+**Snapshot governance:** 2026-11-16. QuestionID lịch sử `TTM-P0A-MEAS-Q001` vẫn `Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT`, P0B không được mở. Owner vừa yêu cầu đăng ký **một Question Gate ENGINEERING khác biệt** `TTM-SM4M-DIAG-Q001` để chẩn đoán overfit/generation/generality bằng token IDs tổng hợp; **Q1 đăng ký trên main sau governance merge/readback**, Q2/Q3 source design chỉ do tác giả đề xuất, Q4 owner execution vẫn PENDING. **Không có quyền implementation branch, model/checkpoint access, science execution, hay thay đổi lineage**. E0–E6 của P0A vẫn HOLD. `SM4M-Q001` lịch sử CLOSED giữ nguyên.
 
-## 1. Trạng thái hiện hành của một Question Gate P0-A và Q001 lịch sử
+## 0. ENGINEERING Question Gate mới — phân biệt rõ với P0A đã đóng
+
+| Trường | Trạng thái |
+|---|---|
+| `active_question_id` | [TTM-SM4M-DIAG-Q001](ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_REGISTERED_QUESTION_AND_ONEPACK_20261116.md) · `ENGINEERING · Q1_REGISTERED_SOURCE_ONLY` (hiệu lực sau governance merge/readback) |
+| `question_goal` | Chẩn đoán trực tiếp P02/T4: tải đúng checkpoint → loss/gradient → tiny overfit → novel pairing/counterfactual → full-vocabulary greedy vs restricted candidate |
+| `Q2_Q3` | `AUTHOR_SOURCE_DESIGN_PREPARED · INDEPENDENT_REVIEW_NOT_EXECUTED`; không phải Q2/Q3 đã được owner accept |
+| `Q4` | `OWNER_SCOPED_IMPLEMENT_AND_ONE_SHOT_EXECUTION_GO_HOLD_PENDING` |
+| `I1_I4` | `NOT_AUTHORIZED · NOT_EXECUTED` |
+| `checkpoint_model_rights` | `AD00_AD01C_E6_NOT_VERIFIED`; không có quyền truy cập weights hoặc chạy mô hình |
+| `execution_permit` | `NO`; một binary owner GO/HOLD sau distinct preexec review |
+| `protocol` | [Frozen-design JSON](../../artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json); fixture/runner bytes vẫn chưa tạo, chưa hash |
+| `previous_owner_choice` | `KEEP_NO_ACTIVE_QUESTION` trước thời điểm owner **đồng ý đăng ký Question Gate ENGINEERING khác biệt**; không phải phép cấp science |
+| `scientific_lineage` | `UNCHANGED` |
+
+## 1. Hồ sơ lịch sử P0-A và Q001 đã đóng — các trường Q1–Q4 dưới đây không phải trạng thái của DIAG-Q001
 
 | Trường | Trạng thái |
 |---|---|
 | `policy` | `TTM-GOV-QF-20261115-V1 · ACTIVE` |
-| `active_scientific_question` | `NONE` — `TTM-P0A-MEAS-Q001` đã nhận owner Q4 CLOSED_HOLD; không tự đăng ký Question Gate tiếp theo |
+| `active_scientific_question` | `TTM-SM4M-DIAG-Q001 · ENGINEERING_Q1_REGISTERED_SOURCE_ONLY` — owner yêu cầu một Question Gate khác biệt, Q4/chạy mô hình vẫn HOLD; P0A Q001 tiếp tục CLOSED_HOLD |
 | `last_closed_question` | `TTM-P0A-MEAS-Q001 · Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT`; `SM4M-Q001` vẫn giữ kết luận CLOSED lịch sử |
-| `current_question_id` | `NONE_ACTIVE`; last closed [TTM-P0A-MEAS-Q001](ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md) — `MEASUREMENT` · `CLOSED_HOLD_EVIDENCE_INSUFFICIENT` |
+| `current_question_id` | [TTM-SM4M-DIAG-Q001](ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_REGISTERED_QUESTION_AND_ONEPACK_20261116.md) · `Q1_REGISTERED_SOURCE_ONLY`; last closed [TTM-P0A-MEAS-Q001](ttm-post-q001/TTM_P0A_MEAS_Q001_Q4_OWNER_CLOSED_HOLD_GOVERNANCE_CLOSURE_20261116.md) remains `CLOSED_HOLD_EVIDENCE_INSUFFICIENT` |
 | `current_Q1` | `QUESTION_REGISTERED_ON_MAIN` sau readback; P0-A independent design `PASS_Q1_DESIGN_SCOPE` tại `a8fd21f35d56a87f869df673b318d437ed0c8b31` |
 | `current_Q2` | `Q2_FRAMEWORK_AND_ALTERNATIVES_EVALUATED · GO_ACCEPT_Q2_SOURCE_ONLY · PASS_Q2_SOURCE_DESIGN_SCOPED` (hiệu lực governance sau PR #23 merged/readback) |
 | `current_Q3` | `Q3_ANSWER_REVIEWED · GO_ACCEPT_Q3_SOURCE_ONLY_WITH_EMPIRICAL_HOLD · PASS_Q3_SOURCE_ANSWER_SCOPED_WITH_EMPIRICAL_HOLD` — hiệu lực trên main sau PR #24 merged/readback; **không** phải science PASS |
@@ -28,7 +43,7 @@
 | `AD-00_to_AD-08` | Không nâng thành admission PASS; AD-01R/T/C phase-specific giữ NOT_VERIFIED; AD-03/06 design/freeze requirements |
 | `scientific_execution` | `NOT_AUTHORIZED · HOLD` |
 | `F0_F2` | `PAUSED_Q4_CLOSED_HOLD · PROSPECTIVE_ADMISSION_NOT_ESTABLISHED · NO_SCIENCE_PERMIT` — Q4 GO chỉ đóng governance, không phải GO thực thi F0–F2 |
-| `next_science_question` | `NONE_AUTOMATIC`; câu hỏi `TTM-P0A-MEAS-Q001` đã được owner đóng HOLD, hướng kế tiếp chỉ đề xuất qua priority matrix và owner Question Gate mới; không tự mở nhánh, gold, runner, permit |
+| `next_science_question` | `TTM-SM4M-DIAG-Q001` is **ENGINEERING Q1**, not a science-execution permit; no other QuestionID or new research branch permitted; owner Q4 onepack GO/HOLD pending after distinct preexec review |
 | `research_branch_permission` | `NO_NEW_BRANCH_AUTHORIZED` |
 | `lineage` | `UNMODIFIED_APPEND_ONLY · NO_Q3_Q4_DESIGN_ENTRY` |
 | `scope_exclusions` | EmbeddingGemma 2 / Vector Memory độc lập, không là chứng cứ trực tiếp trong Q001 |
@@ -76,6 +91,6 @@
 
 ## 7. Bước thực hiện tiếp theo — duy nhất
 
-`TTM_POST_P0A_Q001_CLOSED_HOLD_EVIDENCE_GAPS_AND_NEXT_QUESTION_PRIORITY_MATRIX_SOURCE_ONLY_SINGLE_GATE`
+`TTM_SM4M_DIAG_Q001_SINGLE_DISTINCT_PREEXEC_REVIEW_AND_OWNER_GO_HOLD_ONEPACK`
 
-Một lượt source-only dựa trên `main` + `lineage.md` để lập ma trận ưu tiên những hướng/nguồn chứng cứ có thể thay đổi quyết định, đặc biệt quyền nguồn, ontology/temporal closure, candidate denominator, full parity và gold/rater. Không tự đăng ký QuestionID hay khoa học, không mở research branch, không tạo data/gold/scorer/runner, không micro-permit.
+Một lượt review độc lập Q1–Q3 thiết kế chẩn đoán trực tiếp (24 train/56 nontrain, checkpoint T4 exact), rồi trình owner **đúng một quyết định conditional GO/HOLD cho implementation + one-shot CPU run**. Đây không phải quyền chạy có sẵn. Không mở micro-permits, không lặp câu hỏi ontology P0A, không đọc sealed TEST/FINAL. Chỉ sau owner GO và actual I1 rights/custody/runner negative QA PASS mới được I2.
