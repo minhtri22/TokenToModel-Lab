@@ -23,7 +23,7 @@ import time
 QID = 'TTM-SM4M-DIAG-Q001'
 SOURCE_BLOB = '9762343e06cf800b50574c2871ae1ed58537fb18'
 MODEL_SHA = 'cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b'
-RELEASE_GUARD_SHA = '1d543cc5115189c8050fdc481c486490072448372ce302827938006ee1437f2e'
+RELEASE_GUARD_GIT_BLOB = '66461481f05c19b89f7ae928719dd78b7db2768c'
 MODEL_SIZE = 45074891
 MODEL_CONFIG = dict(vocab_size=2048, max_seq_len=256, n_embd=256,
                     n_layer=4, n_head=4, norm_type='layernorm')
@@ -303,16 +303,33 @@ def mock_source_qa() -> dict:
             'fixture_written':False,'model_run':False,'checkpoint_access':False}
 
 
+def exact_scoped_path(root: Path, path: Path) -> Path:
+    """Reject private source paths outside the exact signed project root."""
+    from release_auth_v2 import trusted_execution_root
+    root = trusted_execution_root(root)
+    actual = path.resolve(strict=False)
+    if not actual.is_relative_to(root) or actual == root:
+        stop('DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT')
+    return actual
+
+
 def signed_admission(path: Path, source: Path, meta_path: Path,
                      underlying_path: Path, phase: str,
-                     frozen_fixture_sha256: str | None = None) -> dict:
+                     frozen_fixture_sha256: str | None = None,
+                     root: Path | None = None) -> dict:
     """Require 3 external cryptographic signatures *before* private byte access.
 
     The local permit cannot nominate its own public keys. Trust roots are pinned
     in the reviewed release_auth_v2.py code and currently deliberately EMPTY.
     """
+    if root is None:
+        stop('SIGNED_PROJECT_ROOT_MISSING')
+    source = exact_scoped_path(root, source)
+    path = exact_scoped_path(root, path)
+    meta_path = exact_scoped_path(root, meta_path)
+    underlying_path = exact_scoped_path(root, underlying_path)
     guard=source.with_name('release_auth_v2.py')
-    if not guard.is_file() or sha256_file(guard)!=RELEASE_GUARD_SHA:
+    if not guard.is_file() or git_blob(guard)!=RELEASE_GUARD_GIT_BLOB:
         stop('RELEASE_GUARD_SOURCE_NOT_PINNED')
     from release_auth_v2 import authenticate_release
     if not source.is_file():
@@ -328,7 +345,7 @@ def signed_admission(path: Path, source: Path, meta_path: Path,
         path, phase=phase, runner_sha256=sha256_file(source),
         tokenizer_sha256=payload.get('token_inventory_sha256'),
         underlying_sha256=payload.get('underlying_inventory_sha256'),
-        frozen_fixture_sha256=frozen_fixture_sha256)
+        frozen_fixture_sha256=frozen_fixture_sha256, project_root=root)
     # Safe only after authenticated signatures: private tokenizer source read.
     if not meta_path.is_file() or not underlying_path.is_file():
         stop('TOKENIZER_PRIVATE_SOURCE_MISSING')
@@ -386,8 +403,9 @@ def fixture_freeze(args):
     meta_path = Path(args.token_inventory).resolve()
     underlying_path = Path(args.tokenizer_source).resolve()
     out = Path(args.out).resolve()
+    exact_scoped_path(root, out)
     signed_admission(Path(args.permit).resolve(),src,meta_path,underlying_path,
-                     phase='fixture-freeze')
+                     phase='fixture-freeze',root=root)
     meta = json_read(meta_path)
     allowed = permitted_ids(meta,underlying_path.read_bytes())
     rows = fixture_generator(allowed)
@@ -488,8 +506,15 @@ def claim_one_shot(root: Path, nonce: str) -> Path:
     """
     if not isinstance(nonce,str) or len(nonce)!=64 or any(c not in '0123456789abcdef' for c in nonce):
         stop('INVALID_SIGNED_ONESHOT_NONCE')
-    directory=root/'_tmp'/'ttm_sm4m_diag_q001_onetime_claim'
+    from release_auth_v2 import trusted_execution_root
+    root = trusted_execution_root(root)
+    directory=root/'_evidence'/'ttm_sm4m_diag_q001_onetime_claims'
+    legacy=root/'_tmp'/'ttm_sm4m_diag_q001_onetime_claim'/('RUN_'+nonce+'.json')
+    if legacy.exists():
+        stop('ONESHOT_NONCE_ALREADY_CONSUMED_LEGACY')
     directory.mkdir(parents=True,exist_ok=True)
+    if directory.resolve(strict=False) != directory:
+        stop('ONESHOT_LEDGER_REPARSE_OR_SYMLINK')
     target=directory/('RUN_'+nonce+'.json')
     try:
         fd=os.open(str(target),os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
@@ -515,6 +540,8 @@ def run(args):
     underlying=Path(args.tokenizer_source).resolve()
     fixture_dir=Path(args.fixture_dir).resolve()
     permit_path=Path(args.permit).resolve()
+    for check_path in (src,checkpoint,inventory,underlying,fixture_dir,permit_path,Path(args.out)):
+        exact_scoped_path(root,check_path)
     # Extract untrusted claimed fixture digest for cryptographic validation;
     # do NOT read private inventory or checkpoint before authenticated release.
     packet=json_read(permit_path)
@@ -522,7 +549,7 @@ def run(args):
     if not isinstance(payload,dict):
         stop('SIGNED_RUN_PAYLOAD_MISSING')
     fixture_digest=payload.get('frozen_fixture_sha256')
-    signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest)
+    signed_admission(permit_path,src,inventory,underlying,'run',fixture_digest,root=root)
     if not checkpoint.is_file() or checkpoint.stat().st_size!=MODEL_SIZE or sha256_file(checkpoint)!=MODEL_SHA:
         stop('CHECKPOINT_PRIVATE_BYTES_MISMATCH')
     import psutil
@@ -646,6 +673,11 @@ def main():
         elif args.mode=='release-preflight':
             if not all([args.root,args.permit,args.token_inventory,args.tokenizer_source,args.fixture_dir]):
                 stop('MISSING_RELEASE_PREFLIGHT_ARGUMENTS')
+            root=Path(args.root).resolve()
+            for check_path in (Path(__file__).resolve(),Path(args.permit),
+                               Path(args.token_inventory),Path(args.tokenizer_source),
+                               Path(args.fixture_dir)):
+                exact_scoped_path(root,check_path)
             packet=json_read(Path(args.permit).resolve())
             payload=packet.get('payload')
             if not isinstance(payload,dict) or not isinstance(payload.get('frozen_fixture_sha256'),str):
@@ -653,7 +685,7 @@ def main():
             signed_admission(Path(args.permit).resolve(), Path(__file__).resolve(),
                              Path(args.token_inventory).resolve(),
                              Path(args.tokenizer_source).resolve(),'run',
-                             payload['frozen_fixture_sha256'])
+                             payload['frozen_fixture_sha256'],root=root)
             print(json.dumps({'status':'SIGNED_RELEASE_PREFLIGHT_PASS_NO_CHECKPOINT_READ'}))
         elif args.mode=='fixture-freeze':
             if not all([args.root,args.permit,args.token_inventory,args.tokenizer_source,args.out]):
