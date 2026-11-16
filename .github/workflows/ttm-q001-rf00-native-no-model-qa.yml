@@ -37,6 +37,14 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "HOLD_PY312" }
           Get-FileHash windows_job_memory_limit.py -Algorithm SHA256 | Format-List | Out-File -Encoding utf8 rf00_source_sha256.txt
           Get-FileHash Run-Approved-OneShot-PS51.ps1 -Algorithm SHA256 | Format-List | Out-File -Append -Encoding utf8 rf00_source_sha256.txt
+          # No model launch: fail if any immutable launcher pin mismatches
+          # actual checkout bytes after LF normalization.
+          $launcher = [IO.File]::ReadAllText((Resolve-Path 'Run-Approved-OneShot-PS51.ps1').Path)
+          foreach ($name in @('windows_job_memory_limit.py', 'ttm_sm4m_diag_q001.py', 'Watch-TTM-SM4M-ProcessTree-PS51.ps1', 'release_auth_v2.py')) {
+            $actual=(Get-FileHash -LiteralPath $name -Algorithm SHA256).Hash.ToLowerInvariant()
+            if (-not $launcher.Contains($actual)) { throw ('HOLD_LAUNCHER_SOURCE_PIN_' + $name + '_' + $actual) }
+            Add-Content -Path rf00_source_sha256.txt -Value ($name + '=' + $actual)
+          }
       - name: "PowerShell 5.1 parse-only (never run I2)"
         shell: powershell
         run: |
