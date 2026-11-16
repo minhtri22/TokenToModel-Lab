@@ -182,14 +182,18 @@ class M0AdversarialTests(unittest.TestCase):
 
     def test_18_large_shift_does_not_change_nll(self):
         row = self.rows[0]
-        # Choose differences larger than the ULP near 1e20.
-        base = [float(-65536*i) for i in range(VOCAB)]
-        shifted = [1e20 + x for x in base]
+        # A moderate shift keeps quantized differences representable.
+        base = [-float(i) / 8 for i in range(VOCAB)]
+        shifted = [300.0 + x for x in base]
         a = score_logits(base, row)
         b = score_logits(shifted, row)
         self.assertAlmostEqual(a["full_vocab_gold_nll"],
-                               b["full_vocab_gold_nll"], delta=65536)
-        # Exact flat logit-shift invariance is tested separately above.
+                               b["full_vocab_gold_nll"], places=10)
+        # Real float32-scale extreme shift: all 2,048 logits are equal.
+        import struct
+        huge = struct.unpack('f', struct.pack('f', 1e20))[0]
+        self.assertAlmostEqual(score_logits([huge]*VOCAB,row)[
+            "full_vocab_gold_nll"],math.log(VOCAB),places=10)
 
 
 
