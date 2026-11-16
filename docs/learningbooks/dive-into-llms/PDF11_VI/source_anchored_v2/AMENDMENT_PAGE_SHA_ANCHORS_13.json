@@ -1,0 +1,116 @@
+{
+  "operation": "DIVE_INTO_LLMS_11PDF_VI_SOURCE_ANCHORED_CONTENT_REMEDIATION_AND_EXTERNAL_RATER_FULL_COVERAGE_ONEPACK",
+  "source_repo": "Lordog/dive-into-llms",
+  "source_commit": "f84c04268794ef94f8949808bbc14ab8636763a0",
+  "source_zip_sha256": "251d0d49601e536bf1eb94deb727da665693126a3ef7d04d8efff9f3550406fe",
+  "candidate_pdf_head": "e25764a7ce53e375b08d5abca42556967bd62272",
+  "amended_count": 13,
+  "external_rater_semantic_pass_count": 0,
+  "review_status": "CANDIDATE_NOT_INDEPENDENTLY_ADJUDICATED",
+  "amendments": [
+    {
+      "page_id": "01:20",
+      "source_path": "documents/chapter1/dive-into-llm.pdf",
+      "source_page_sha256": "d2ab98ecb1b28d1f2bcc46a5f934559b745a36031cf2b9c7882f17092f104b11",
+      "original_vi_note_body_sha256": "2e0a21b8c0c82d36af056bcd728b68efaf88d6edeb7b1148c8bd13fa11c248aa",
+      "current_vi_note_body_sha256": "76b1603f0e1c98e96aa0dd8cf634fd0b6d91f80fc5c3475dc15c6b72f0db8e8f",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "01:43",
+      "source_path": "documents/chapter1/dive-into-llm.pdf",
+      "source_page_sha256": "7e5dc13680413a29fa38f80bb33b4db7ef8954d26781fbe9465df355014df874",
+      "original_vi_note_body_sha256": "2804a621b86c561ea7e1a62e71393c92eec1075f31aa34d5990edb30c2def417",
+      "current_vi_note_body_sha256": "f5c1502f58e367bfc1831e01f0d3253abe1d3c6d5f8aec64b553c9909dc4e2f1",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "03:05",
+      "source_path": "documents/chapter3/dive_edit_0410.pdf",
+      "source_page_sha256": "d9596e4b735a8a9060f213fd702b8e6f051e360e0d712060347c235f89486386",
+      "original_vi_note_body_sha256": "bf5fa06a479aac3f75f3be5be89337cc6b01f6543d18f0d281719eb69d3a14f6",
+      "current_vi_note_body_sha256": "5d36f86f04b6a6e54642c0aa5c41907a43c645e26e327d9c7eed8405249d795f",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "06:22",
+      "source_path": "documents/chapter6/dive-Jailbreak.pdf",
+      "source_page_sha256": "d012af0883b89c8c612ee12533e0ac7f7f56a51236096a2c61a8aea7b90cb746",
+      "original_vi_note_body_sha256": "6f04de8cc51f825b1563a7a352654bcedcab3f0904378eaeefd3358d76d0fa04",
+      "current_vi_note_body_sha256": "a22284f7baf1941ee8e0181a138a50407dbbd0579760121bcd427b7830090834",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "06:27",
+      "source_path": "documents/chapter6/dive-Jailbreak.pdf",
+      "source_page_sha256": "77e7e9fe45b56acc61b88b9e8e2693e85803c06eb966e9f22b7cf38c04012454",
+      "original_vi_note_body_sha256": "41b152681f8169692662f903b735743827043033410caf9add80761f309fcb9b",
+      "current_vi_note_body_sha256": "74a0436b6f9210284d0e6fd337433a8a33d8a5a3b954755a697231b9a1aa0ba0",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "07:09",
+      "source_path": "documents/chapter7/stega.pdf",
+      "source_page_sha256": "62a0c46d020d876f13dd3519a5bf5daf04e55d103ed7319e683f8cac8fff4ccf",
+      "original_vi_note_body_sha256": "37ed6a8b18d8cdf01a23e23400905969c9f6ee21ece54511886ff43571134846",
+      "current_vi_note_body_sha256": "90cdf096d81dbadcd8f5011593507f411bed3aa9e0b47a55f5a3a2c102ba06a9",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "07:13",
+      "source_path": "documents/chapter7/stega.pdf",
+      "source_page_sha256": "17c4967b83c8195086133f5b6faa5d5a0176c4d1a3d0885ea97e73c3615c3f81",
+      "original_vi_note_body_sha256": "b66d9ac0fe9ad330537b7bc2b3be6a6a0335a392962f9a91cb1b7993c7c23f7c",
+      "current_vi_note_body_sha256": "52693312dfd62833be7d4e9e024d7172efa0c0b5a21cbc97750d880262f89863",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "08:07",
+      "source_path": "documents/chapter8/mllms.pdf",
+      "source_page_sha256": "5cc36edaa1e233f6705de53fa8fd4f9f352aa64026e868563c225395dc02ca3e",
+      "original_vi_note_body_sha256": "2c07c0a51fcae5467b00ff3cdbd44dde8bbd50928407fcc0c64c4295f3d132fe",
+      "current_vi_note_body_sha256": "cc6968a42faf2dd407ef873af5e259a09a3b50ca9e025ab6549aa983f329a3c4",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "08:14",
+      "source_path": "documents/chapter8/mllms.pdf",
+      "source_page_sha256": "33f24b87269601f4263d4747c99753402c4f2706faf8f3420b261be8f0fe4528",
+      "original_vi_note_body_sha256": "ad01b74f059c46fe571657fb2c4dc027b265bf71d5821ee9cdd948ecb8a3ad55",
+      "current_vi_note_body_sha256": "313d8ed8a684bed7ad91377aebdf5fb8b19051e7075699cc3b9f61d479f58747",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "09:14",
+      "source_path": "documents/chapter9/GUIagent.pdf",
+      "source_page_sha256": "085a3882a8747b3ffb52ffb19bd8b9758948fd20da7786eb2af00026e0eb7b0d",
+      "original_vi_note_body_sha256": "0aee6ebe44bc2bbd06e384865d71edf08a84a90e90282341651d58eac73aff9b",
+      "current_vi_note_body_sha256": "734ed102e2b09a1c05e2c3506b081a85e7e3969bdad51ad02bce38a5da68d8cf",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "10:08",
+      "source_path": "documents/chapter10/dive-into-safety.pdf",
+      "source_page_sha256": "61159a5b4a1c13b0c4dd97f5c8ce11e373461b4a05a69feabd1450a6ad362686",
+      "original_vi_note_body_sha256": "6fd064e47d3e1c9a9af62f9a2303b9327e5e1741e5d89aea6e5c4de04b54753b",
+      "current_vi_note_body_sha256": "108a267465f811560a8f30c1085152018c7e3f4a816f7baa1142af302ef7ed00",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "10:28",
+      "source_path": "documents/chapter10/dive-into-safety.pdf",
+      "source_page_sha256": "6289183bbd7e467e3649d853a6f7d45c5ba8be3b20aaf6827041bfcbf6e54e93",
+      "original_vi_note_body_sha256": "3adc8e1e810d56ae0fc8521213d0bd5552e8584901674586d7bbd5d1546d451a",
+      "current_vi_note_body_sha256": "627bb3cece606e77f1a4a2beef76dfa6659bdacddc2a690e974ecc2481f5bb12",
+      "semantic_signoff": "NOT_EXECUTED"
+    },
+    {
+      "page_id": "11:17",
+      "source_path": "documents/chapter11/RLHF.pdf",
+      "source_page_sha256": "ff3f8ba7de5efa4236d1a8b4b85598600cde8028ea03201203294fca40682996",
+      "original_vi_note_body_sha256": "1617a60e113af836e0d7acd385fd5ab330054b604a84518baf570b5bc61201b0",
+      "current_vi_note_body_sha256": "d72a43004f1812d0327efc1f104c121d0cbcaab6f578edc6412e21df16a09e15",
+      "semantic_signoff": "NOT_EXECUTED"
+    }
+  ]
+}
