@@ -119,6 +119,31 @@
       "label": "DISTINCT_REVIEWER_ON_EXACT_FINAL_RF00_SOURCE_NOT_EXECUTED"
     }
   ],
-  "verdict": "HOLD_I1_NO_MODEL_I2",
-  "next_action": "IN_ONE_INTEGRATED_RF00_OWNER_WINDOWS_EXACT_TOKENIZER_FIXTURE_BYTE_CUSTODY_AND_DISTINCT_I1_READBACK; no micro-permits or repeat GO"
+  "verdict": "HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE_CURRENT_PR28",
+  "next_action": "REPAIR_GOLD_DEPENDENT_CANDIDATE_SCORER_AND_TIE_BREAK_CONTROLS_AND_DISTINCT_I1_REASSESSMENT_ON_EXACT_PR28_SOURCE_WITH_FROZEN_FIXTURE",
+  "current_reconciled_pr28": {
+    "observation_type": "NEWER_CONCURRENT_SOURCE_AND_INDEPENDENT_EVIDENCE_REVIEW",
+    "pr": 28,
+    "latest_evidence_head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+    "tested_new_source": "6dc04c0545b28d4a0cad21ad8be8b70461c57790",
+    "canonical_receipt": "artifacts/governance/ttm-small4m-direct-diag/Q001_LAST_MILE_I1_20261116.json",
+    "reviewer": "DISTINCT_CODEX_TECHNICAL_REVIEW_REPORTED_IN_SOURCE",
+    "native_owner_host": "DESKTOP-4PSD0G2",
+    "native_owner_policy_tests": "PASS_11_OF_11_REPORTED",
+    "native_win32_tests": "PASS_5_OF_5_REPORTED",
+    "original_checkpoint_ownhost": "SHA256_MATCH_REPORTED",
+    "original_tokenizer_t1_bpe": "SHA256_MATCH_REPORTED",
+    "frozen_fixture": "PASS_80_CASE_SHA_REPORTED",
+    "active_I1": "HOLD_I1_RESTRICTED_SCORER_LABEL_LEAKAGE",
+    "context_blind_negative_controls": {
+      "equal_logits_gold_first_restricted": "80_OF_80",
+      "recombined_restricted_full": "15_OF_16_VS_0_OF_16",
+      "novel_ids_restricted_full": "16_OF_16_VS_0_OF_16",
+      "counterfactual_restricted_full": "16_OF_16_VS_0_OF_16"
+    },
+    "historical_snapshot_blockers_R01_R04": "SUPERSEDED_FOR_CURRENT_PR28_BY_NEWER_EVIDENCE",
+    "overlapping_our_branch": "SUPPLEMENTARY_DRAFT_DO_NOT_MERGE_WITHOUT_EXACT_SOURCE_RECONCILIATION",
+    "I2": "NOT_EXECUTED",
+    "next_single_action": "REPAIR_GOLD_DEPENDENT_CANDIDATE_SCORER_AND_TIE_BREAK_CONTROLS_AND_DISTINCT_I1_REASSESSMENT_ON_EXACT_PR28_SOURCE_WITH_FROZEN_FIXTURE"
+  }
 }
