@@ -1,0 +1,106 @@
+{
+  "schema": "ttm.track_c.m4.independent_design_review.v1",
+  "review_date": "2026-11-16",
+  "operation": "C_M4_INDEPENDENT_DESIGN_AND_SYNTHETIC_CONTRACT_REVIEW_SINGLE_GATE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "reviewed_pr": 35,
+  "reviewed_source_head": "8e0a1880e564e92d017847e9f18e53e42b7353c8",
+  "review_branch": "review/ttm-track-c-m4-independent-design-20261116",
+  "review_mode": "DISTINCT_CHATGPT_SOURCE_DESIGN_REVIEW_OFFHOST_SYNTHETIC_CPU",
+  "source_modified": false,
+  "model_executed": false,
+  "real_data_access": false,
+  "training": false,
+  "gpu": false,
+  "merge": false,
+  "main_modified": false,
+  "lineage_modified": false,
+  "environment": {
+    "python": "CPython 3.13.5",
+    "os": "Linux x86_64",
+    "windows_python_312": "NOT_EXECUTED",
+    "cuda": "NOT_USED",
+    "torch": "NOT_USED"
+  },
+  "exact_reproduced_sources": [
+    {
+      "path": "tests/ttm_track_c/synthetic_contract.py",
+      "git_blob_sha1": "9e9fdd8fea0baec92c82be4caecbd71f32f66fc4",
+      "sha256": "ab649f978c4521da8402238b0d76c65e5ec349e441f3fef3de8a9fdee8bd58cc"
+    },
+    {
+      "path": "tests/ttm_track_c/test_synthetic_contract.py",
+      "git_blob_sha1": "0681c0fd6550675baa011de78d2590fc27ba604f",
+      "sha256": "cb679b84900c6241e462487e61320483f6d0b5e79fbb4ed59550fda2200d8abd"
+    }
+  ],
+  "unittest_author_exact_source": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "exit_code": 0,
+    "independently_reexecuted": true
+  },
+  "adversarial_reviewer_observations": {
+    "total": 11,
+    "matched_expected_behavior": 11,
+    "random_dialogues_checked": 1000,
+    "observed_caller_mask_injection": true,
+    "observed_nfc_nfd_miss": true,
+    "source_sha256": "df14a61cab5ca600db61f98f43717edbca890765b01190ca9dbe9b9f03b3fafe"
+  },
+  "red_acceptance_tests": {
+    "total": 2,
+    "failed": 2,
+    "source_sha256": "806faf955c6d37226d8ddaf8876edbff8e181fd1d2d5c853ec0d88124cde4b1f",
+    "status": "EXPECTED_RED_ON_CURRENT_CONTRACT",
+    "failures": [
+      "forged user mask accepted as supervised target",
+      "canonical-equivalent NFC/NFD text not reported by toy normalized duplicate check"
+    ],
+    "second_failure_is_advisory": true
+  },
+  "findings": [
+    {
+      "id": "C-F01",
+      "severity": "BLOCKER",
+      "topic": "Incorrect/ambiguous prompt-gradient criterion; direct prompt-target CE must be zero but gradient through prompt context may be nonzero"
+    },
+    {
+      "id": "C-F02",
+      "severity": "BLOCKER",
+      "topic": "External flags not bound to trusted role serialization at B-facing interface; can supervise user target"
+    },
+    {
+      "id": "C-F03",
+      "severity": "ADVISORY",
+      "topic": "Toy duplicate checker does not canonicalize Unicode NFC/NFD; not proof of real-data leakage"
+    },
+    {
+      "id": "C-F04",
+      "severity": "LIMITATION",
+      "topic": "K0–K4 rubric source design uncalibrated; toy score_slot is not an independent rater"
+    },
+    {
+      "id": "C-F05",
+      "severity": "LIMITATION",
+      "topic": "Data arm equality of exposures does not establish equal actual FLOPs/time; acknowledged in author docs"
+    }
+  ],
+  "gates": {
+    "C-G0": "PASS_SOURCE_INVENTORY_SCOPED",
+    "C-G1": "HOLD_REAL_DATA_UNAVAILABLE",
+    "C-G2": "DESIGN_VALIDITY_UNPROVEN",
+    "C-G3": "DESIGN_ONLY",
+    "C-G4": "WAIT_A_B",
+    "C-G5": "HOLD_DESIGN_INTERFACE",
+    "C-G6": "DESIGN_ONLY",
+    "C-G7": "NOT_AUTHORIZED",
+    "C-G8": "NOT_EXECUTED"
+  },
+  "verdict": "HOLD_DESIGN",
+  "science_verdict": "C_SCIENCE_HOLD",
+  "next_operation": "C_M4_SINGLE_AMENDMENT_SFT_MASK_GRADIENT_SEMANTICS_AND_PROVENANCE_NEGATIVE_QA",
+  "report_path": "docs/research/ttm-abc/track-c/independent_review/C_M4_INDEPENDENT_DESIGN_REVIEW_20261116.md",
+  "reviewer_identity_note": "Independent from author Agent C in separate ChatGPT context, but the same GitHub owner account may publish review; no claim of independent human identity."
+}
