@@ -14,14 +14,14 @@
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
   "executor": "Agent A / ChatGPT session",
-  "phase_status": "M0_V3_I1_PASS_SCOPED_MEASUREMENT__I2_RELEASE_HOLD",
+  "phase_status": "M0_V3_I1_SCOPED_MEASUREMENT_PM_CLOSED__I2_RELEASE_HOLD",
   "gates": {
     "A0": "PASS_SCOPED_ORIGINAL_SOURCE_CUSTODY",
-    "A1": "I1_PASS_SCOPED_MEASUREMENT_EXACT_ec197b5f",
+    "A1": "PM_CLOSED_I1_PASS_SCOPED_MEASUREMENT_EXACT_ec197b5f",
     "A2": "PASS_WINDOWS_PY312_PS51_AUTHOR_QA_31_31_48_48",
     "A3": "PASS_SCOPED_INDEPENDENT_F01_F02_35_35",
-    "A4": "I2_NOT_EXECUTED_RELEASE_PREFLIGHT_HOLD",
-    "A5": "PASS_DISTINCT_I1_35_35_AND_NATIVE_CUSTODY_38_38"
+    "A4": "I2_RELEASE_HOLD_NOT_EXECUTED",
+    "A5": "DISTINCT_I1_PASS_PM_ACCEPTED"
   },
   "preexisting_evidence": {
     "I1": "HOLD_I1_SCORER_LABEL_LEAKAGE",
@@ -33,7 +33,7 @@
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
   "review": "I1_PASS_SCOPED_MEASUREMENT_DISTINCT_20261117__RELEASE_PREFLIGHT_HOLD",
-  "next_operation": "TTM_TRACK_A_M0V3_I1_SCOPED_PASS_CLOSURE_AND_PM_RELEASE_BARRIER_SINGLE_GATE",
+  "next_operation": "TTM_TRACK_A_I2_RELEASE_BARRIER_TOCTOU_ATOMICITY_AND_OWNER_AUTHORITY_DESIGN_SINGLE_GATE",
   "m0": {
     "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
     "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
@@ -152,7 +152,9 @@
     "exact_source_sha": "ec197b5f00d3a037420390edd11ee55047e1d37f",
     "independent_review_evidence_sha": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
     "applies_to": "M0_V3_MEASUREMENT_ONLY",
-    "does_not_authorize_i2": true
+    "does_not_authorize_i2": true,
+    "pm_accepted": true,
+    "pm_closed": true
   },
   "current_release_preflight": {
     "status": "HOLD",
@@ -160,5 +162,34 @@
     "reason": "HOLD_OWNER_INTERNAL_I1_NOT_PASS",
     "release_not_authorized": true
   },
-  "I2": "NOT_EXECUTED"
+  "I2": "NOT_EXECUTED",
+  "pm_i1_closure": {
+    "decision": "ACCEPT_I1_PASS_SCOPED_MEASUREMENT",
+    "date": "2026-11-17",
+    "exact_reviewed_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "reviewed_evidence_head": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+    "record": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_M0V3_PM_I1_CLOSURE_DECISION_20261117.md",
+    "scope": "M0_V3_MEASUREMENT_ONLY",
+    "owner_authorization_for_i2": false,
+    "I1": "CLOSED_PASS_SCOPED",
+    "I2": "NOT_EXECUTED",
+    "release_preflight": {
+      "status": "HOLD",
+      "exit_code": 2,
+      "guard": "HOLD_OWNER_INTERNAL_I1_NOT_PASS"
+    },
+    "open_release_blockers": [
+      "BR-I2-01_STALE_HISTORICAL_I1_RELEASE_POINTER",
+      "BR-I2-02_ONEPACK_CHECK_THEN_WRITE_TOCTOU"
+    ],
+    "github_pr_33": "DRAFT_OPEN_UNMERGED",
+    "base_pr_28_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+    "code_changed_during_pm_closure": false,
+    "pm_decision_record_is_cryptographically_signed": false,
+    "scientific_capability_claim": false,
+    "model_forward": 0,
+    "optimizer_steps": 0,
+    "checkpoint_access": 0,
+    "nonce_claimed": false
+  }
 }
