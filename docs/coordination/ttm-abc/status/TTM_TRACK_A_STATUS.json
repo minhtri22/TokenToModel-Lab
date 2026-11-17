@@ -14,7 +14,7 @@
   "owner": "repo owner",
   "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
   "executor": "Agent A / ChatGPT session",
-  "phase_status": "M0_V3_I1_SCOPED_MEASUREMENT_PM_CLOSED__I2_RELEASE_HOLD",
+  "phase_status": "M0_V3_I1_CLOSED_PASS_SCOPED__BR_I2_01_02_V2_DESIGN_ONLY_HOLD_REREVIEW_PENDING",
   "gates": {
     "A0": "PASS_SCOPED_ORIGINAL_SOURCE_CUSTODY",
     "A1": "PM_CLOSED_I1_PASS_SCOPED_MEASUREMENT_EXACT_ec197b5f",
@@ -32,8 +32,8 @@
   "science_execution": "NOT_EXECUTED",
   "merge": "NOT_AUTHORIZED",
   "lineage_modified": false,
-  "review": "I1_PASS_SCOPED_MEASUREMENT_DISTINCT_20261117__RELEASE_PREFLIGHT_HOLD",
-  "next_operation": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
+  "review": "V1_DISTINCT_HOLD_DESIGN_AMENDMENT_20385e71__V2_AUTHOR_AMENDMENT_PENDING_DISTINCT_REVIEW",
+  "next_operation": "TTM_TRACK_A_BR_I2_01_02_F01_F06_INTEGRATED_DESIGN_AMENDMENT_AND_EXACT_SHA_DISTINCT_REREVIEW_SINGLE_GATE",
   "m0": {
     "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
     "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
@@ -193,31 +193,41 @@
     "nonce_claimed": false
   },
   "m0v3_release_barrier_design": {
-    "operation": "TTM_TRACK_A_I2_RELEASE_BARRIER_TOCTOU_ATOMICITY_AND_OWNER_AUTHORITY_DESIGN_SINGLE_GATE",
+    "operation": "TTM_TRACK_A_BR_I2_01_02_F01_F06_INTEGRATED_DESIGN_AMENDMENT_AND_EXACT_SHA_DISTINCT_REREVIEW_SINGLE_GATE",
     "parent_program_gate": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
     "pm_issue": 32,
     "pm_authorization": "DESIGN_ONLY",
     "source_baseline": "f7d6153fdae526b12303d324ccb7a271adee376b",
     "reviewed_i1_exact_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
-    "contract": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_INTEGRATED_DESIGN_CONTRACT_20261117.md",
-    "matrix": "artifacts/ttm-abc/track-a/BR_I2_01_02_NEGATIVE_QA_MATRIX_20261117.json",
-    "handoff": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_DISTINCT_REVIEW_AND_PM_HANDOFF_20261117.md",
-    "negative_cases_planned": 43,
+    "contract": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V2_F01_F06_INTEGRATED_DESIGN_CONTRACT_20261117.md",
+    "matrix": "artifacts/ttm-abc/track-a/BR_I2_01_02_V2_F01_F06_NEGATIVE_QA_MATRIX_20261117.json",
+    "handoff": "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V2_EXACT_CANDIDATE_DISTINCT_REVIEW_HANDOFF_20261117.md",
+    "negative_cases_planned": 50,
     "negative_counts": {
-      "BR-I2-01": 18,
-      "BR-I2-02": 20,
-      "INTEGRATED": 5
+      "BR-I2-01": 21,
+      "BR-I2-02": 23,
+      "INTEGRATED": 6
     },
     "positive_controls_planned": 3,
     "negative_executed": 0,
-    "independent_design_review": "NOT_EXECUTED",
-    "BR_I2_01": "DESIGN_PREPARED_UNDER_PM_GATE_REVIEW_PENDING",
-    "BR_I2_02": "DESIGN_PREPARED_UNDER_PM_GATE_REVIEW_PENDING",
+    "independent_design_review": "NOT_EXECUTED_ON_V2",
+    "BR_I2_01": "F01_F06_V2_DESIGN_AMENDED_UNREVIEWED_RELEASE_HOLD",
+    "BR_I2_02": "F01_F06_V2_DESIGN_AMENDED_UNREVIEWED_RELEASE_HOLD",
     "owner_release": "HOLD",
     "I2": "NOT_EXECUTED",
     "release_guard_modified": false,
     "real_fixture_modified": false,
     "no_merge": true,
-    "implementation": "NOT_AUTHORIZED"
+    "implementation": "NOT_AUTHORIZED",
+    "version": "V2_F01_F06_INTEGRATED_AMENDMENT",
+    "v1_design_sha": "20385e71cb5d2b8f3d7725229ab7a823e1044990",
+    "v1_independent_verdict": "HOLD_DESIGN_AMENDMENT",
+    "v1_review_comment": "https://github.com/minhtri22/TokenToModel-Lab/issues/32#issuecomment-6928014536",
+    "negative_tier_counts": {
+      "SOURCE_QA_FUTURE": 27,
+      "NATIVE_REQUIRED_FUTURE": 23
+    },
+    "positive_executed": 0,
+    "static_schema_self_check": "PENDING_AT_COMMIT"
   }
 }
