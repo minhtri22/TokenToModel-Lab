@@ -1,0 +1,135 @@
+{
+  "schema": "ttm.pm.abc.v4.b_packet_integrated_alignment_adjudication.v1",
+  "operation": "TTM_PM_ABC_UNIFIED_EXACT_SOURCE_DEPENDENCY_AND_OWNER_READINESS_ADJUDICATION_SINGLE_GATE",
+  "date": "2026-11-17",
+  "mode": "DESIGN_ONLY_READ_EXISTING_GITHUB_EXACT_SOURCE",
+  "contract": {
+    "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+    "blob_sha1": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1"
+  },
+  "sources": {
+    "main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "A_packet": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "A_37_requirements_blob": "3de320f1e734c7610fb750477803b082fefff753",
+    "A_evidence_index_blob": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+    "C_packet": "614caff47657ccee43ad10ba06ae8ebb782b4114",
+    "C_registry_blob": "64508ace4de057958ccbc9e3c7616a18c022250e",
+    "B_PR37": "38e24f4fa1ee1eb5a5e1bec5e3746e98a07e13b5",
+    "B_machine_registry_blob": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+    "B_core_PR34": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "BC_PR36": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "B_P02_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "T4_BPE_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "BC_v2_blob": "c56d98b520fef387fab43bac87b7a9247287b17c"
+  },
+  "B_packet_changed_files": 5,
+  "B_packet_commits": 6,
+  "B_packet_only_new_docs_evidence": true,
+  "independent_mapping_readback": {
+    "A37": {
+      "count": 37,
+      "names_and_order_exact": true,
+      "EXACT_MATCH": 10,
+      "ADAPTER_DESIGN_REQUIRED": 12,
+      "NOT_PROVEN": 14,
+      "INCOMPATIBLE": 1
+    },
+    "C26": {
+      "count": 26,
+      "names_and_order_exact": true,
+      "EXACT_MATCH": 0,
+      "ADAPTER_DESIGN_REQUIRED": 9,
+      "NOT_PROVEN": 17,
+      "INCOMPATIBLE": 0
+    },
+    "B14": {
+      "count": 14,
+      "names_and_order_exact": true,
+      "subset_of_C26": true,
+      "EXACT_MATCH": 0,
+      "ADAPTER_DESIGN_REQUIRED": 7,
+      "NOT_PROVEN": 7,
+      "INCOMPATIBLE": 0
+    },
+    "distinct_logical_requirement_count_without_overlap": 63,
+    "mapped_rows_count_including_B14_duplicate_views": 77
+  },
+  "findings": {
+    "ALIGN_F01": {
+      "status": "FAIL_REGISTRY_ROOT_PIN",
+      "actual_C_registry_pointer": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+      "actual_A_requirements_blob": "3de320f1e734c7610fb750477803b082fefff753",
+      "wrong_pointer_is_A_evidence_index": true,
+      "C_37_row_level_pins_correct": true,
+      "owner": "C",
+      "required_action": "VERSIONED_ADDITIVE_ROOT_POINTER_CORRECTION_AND_PM_READBACK"
+    },
+    "ALIGN_F02": {
+      "status": "INCOMPATIBLE_DIRECT_T4_BPE_TO_BC_V2",
+      "T4_eos": 256,
+      "T4_merge_token_ids": "257..2047",
+      "BC_eos": 256,
+      "BC_special_token_ids": {
+        "PAD": 257,
+        "BOS": 258,
+        "SYS": 259,
+        "USER": 260,
+        "ASSIST": 261,
+        "EOT": 262
+      },
+      "owner": "C_SEMANTICS_B_FEASIBILITY_A_MEASUREMENT",
+      "prospective_solution": "C_CHOOSES_EXPLICIT_DESIGN_PATH_WITH_VERSION_AND_NO_CHECKPOINT_CLAIM"
+    },
+    "ALIGN_F03": {
+      "status": "PM_ACCEPTS_SEMANTIC_DISTINCTION_DESIGN_ONLY_A_ACK_PENDING",
+      "sft_train_ce": "SUPERVISE_ASSISTANT_TEXT_ASSISTANT_EOT_FINAL_EOS",
+      "byte_only_bpb": "EXCLUDE_PROTOCOL_SPECIALS_FROM_BOTH_NLL_NUMERATOR_AND_VALID_UTF8_BYTES_DENOMINATOR",
+      "A_original_metric": "FULL_VOCAB_ONE_GOLD_TOKEN_NLL_NOT_SFT_BPB",
+      "owner": "C_MEANING_A_MEASUREMENT_B_ENGINEERING"
+    }
+  },
+  "source_math": {
+    "P02_unique_params_from_source_arithmetic": 3749376,
+    "actual_T4_weight_sha": "NOT_VERIFIED",
+    "historical_label_exposures": 4194304,
+    "independent_TRAIN_positions_about": 498287,
+    "reported_74s_latency": "UNVERIFIED_RAW_RECEIPT",
+    "estimated_13min": "UNVERIFIED_PROJECTION",
+    "BC_v2_checkpoint_actual_weights": "NOT_CREATED"
+  },
+  "gate_readiness": {
+    "R0": "PASS_SOURCE_GRAPH_SCOPED_HOLD_C_ROOT_REF",
+    "R1": "A_I1_PASS_C_GOLD_HOLD",
+    "R2": "HOLD_REAL_DATA_RIGHTS_SPLITS",
+    "R3": "HOLD_WEIGHTS_AND_TOKENIZER",
+    "R4": "HOLD_NEW_NATIVE_RESOURCE",
+    "R5": "A_V4_DESIGN_ACCEPTED_NATIVE_RELEASE_HOLD",
+    "R6": "DESIGN_ONLY_NOT_FROZEN",
+    "R7": "REAL_CANDIDATE_INDEPENDENT_QA_NOT_EXECUTED",
+    "R8": "HOLD_OWNER_RELEASE"
+  },
+  "decision": {
+    "B_packet": "B_FEASIBILITY_MAPPING_ACCEPTED_SCOPED",
+    "ABC_joint": "HOLD_ABC_CONTRACT_ALIGNMENT",
+    "owner_real_science": "HOLD",
+    "I2": "NOT_EXECUTED",
+    "real_SFT": "NOT_EXECUTED",
+    "GPU": "NOT_EXECUTED",
+    "merge": "NOT_AUTHORIZED"
+  },
+  "next_integrated_operation": "TTM_PM_ABC_CCR01_SOURCE_REF_T4_CODEC_INTEGRATED_ALIGNMENT_AND_OWNER_READINESS_READJUDICATION_ONEPACK",
+  "owners_sequential": [
+    "C_VERSIONED_SOURCE_POINTER_AND_CODEC_SEMANTIC_ACCEPTANCE",
+    "A_MEASUREMENT_BYTE_DOMAIN_ACK",
+    "B_EXACT_REMAP_READBACK",
+    "PM_SINGLE_REVIEW"
+  ],
+  "actions": {
+    "source_code_changed": false,
+    "main_changed": false,
+    "lineage_changed": false,
+    "model_executed": false,
+    "science_executed": false,
+    "merge_performed": false
+  }
+}
