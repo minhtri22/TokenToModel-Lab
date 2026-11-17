@@ -1,0 +1,140 @@
+{
+  "schema": "ttm.pm.abc.v4.ccr01.final_independent_source_alignment_receipt.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_ABC_CCR01_SOURCE_REF_T4_CODEC_INTEGRATED_ALIGNMENT_AND_OWNER_READINESS_READJUDICATION_ONEPACK",
+  "mode": "INDEPENDENT_AI_SOURCE_READBACK_DESIGN_ONLY_NO_SCIENCE",
+  "reference_main_head": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "shared_PM_contract": {
+    "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+    "git_blob_sha1": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1",
+    "reviewed": true
+  },
+  "A": {
+    "packet_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "requirements_blob_sha1": "3de320f1e734c7610fb750477803b082fefff753",
+    "ack_issue_comment": 6938396264,
+    "ack_status": "A_CCR01_MEASUREMENT_ACK_SCOPED",
+    "v4_immutable": true,
+    "I1": "PASS_SCOPED_MEASUREMENT",
+    "I2": "HOLD_NOT_EXECUTED"
+  },
+  "C": {
+    "old_commit": "614caff47657ccee43ad10ba06ae8ebb782b4114",
+    "old_registry_blob_sha1": "64508ace4de057958ccbc9e3c7616a18c022250e",
+    "old_registry_raw_sha256_recomputed": "bc4131f172ba2744bd1bfb657846f5e3127175ac15908f46bc9904e3d19add0d",
+    "new_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "new_registry_blob_sha1": "364a15d305b71e0c236a27409430f1e27e14aa70",
+    "new_registry_raw_sha256_recomputed": "6db387c75e3f2f0ae8b05af65f66cfddf025ad2ba06d562e8645a16f9f0aab1d",
+    "registry_raw_byte_count_old": 66167,
+    "registry_raw_byte_count_new": 66167,
+    "raw_sha256_algorithm": "independently implemented SHA256 with empty and abc known vector tests; GitHub-connected UTF8 file content",
+    "one_json_leaf_changed": "sources.a_requirements_git_blob",
+    "old_wrong_root": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+    "new_correct_root": "3de320f1e734c7610fb750477803b082fefff753",
+    "other_json_fields_unchanged": true,
+    "amendment_blob_sha1": "e6a77fcb85fbbf24fd1b25e6459c1f40bbfa8e97",
+    "design_option": "T4_NATIVE_BPE_EXTERNAL_ROLE_BYTE_SPAN_DESIGN_ONLY",
+    "C_ack_issue_comment": 6938257665
+  },
+  "B": {
+    "old_packet_commit": "38e24f4fa1ee1eb5a5e1bec5e3746e98a07e13b5",
+    "old_machine_matrix_git_blob": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+    "new_PR37_head": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+    "new_machine_remap_blob_sha1": "c2d4a050f35218de2c023d3a5c50fb3454404c23",
+    "new_readback_receipt_blob_sha1": "f65e116172db8acde9477f1870596c54265a37ac",
+    "readback_issue_comment": 6938858385,
+    "status": "B_REMAP_READBACK_SCOPED",
+    "commit_diff_ahead": 3,
+    "new_docs_evidence_files": 3,
+    "exec_files_changed": false
+  },
+  "independent_checks": {
+    "old_to_new_C_registry_json_changes": 1,
+    "source_pointer_corrected": true,
+    "raw_C_SHA256_matching_both_reported_values": true,
+    "A37_rows": 37,
+    "A37_new_vs_old_unchanged": 37,
+    "C26_rows": 26,
+    "C26_new_vs_old_only_commit_blob_changes": 26,
+    "B14_rows": 14,
+    "B14_new_vs_old_only_commit_blob_changes": 14,
+    "new_C_Source_refs_for_C26_B14": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c / 364a15d305b71e0c236a27409430f1e27e14aa70",
+    "comparison_selected_semantic_properties": 637,
+    "comparison_semantic_mismatches": 0,
+    "all_77_B_mapping_dispositions_unchanged": true,
+    "B14_subset_C26": true,
+    "unique_logical_fields": 63,
+    "total_mapping_rows": 77,
+    "statuses": {
+      "A37": {
+        "EXACT_MATCH": 10,
+        "ADAPTER_DESIGN_REQUIRED": 12,
+        "NOT_PROVEN": 14,
+        "INCOMPATIBLE": 1
+      },
+      "C26": {
+        "ADAPTER_DESIGN_REQUIRED": 9,
+        "NOT_PROVEN": 17
+      },
+      "B14": {
+        "ADAPTER_DESIGN_REQUIRED": 7,
+        "NOT_PROVEN": 7
+      }
+    }
+  },
+  "findings": {
+    "ALIGN_F01": {
+      "design_gate": "PASS_SOURCE_POINTER_CORRECTED_INDEPENDENT_READBACK",
+      "past_incorrect_registry_preserved": true
+    },
+    "ALIGN_F02": {
+      "design_gate": "PASS_EXPLICIT_INCOMPATIBILITY_ACK_DESIGN_ONLY",
+      "direct_mapping": "INCOMPATIBLE",
+      "T4_BPE_merge_ids": "257..2047",
+      "BC_v2_role_pad_special_ids": "257..262",
+      "external_sidecar": "DESIGN_OPTION_NOT_IMPLEMENTED",
+      "real_weights": "HOLD",
+      "byte_offsets": "HOLD_BYTE_DENOM",
+      "stop_protocol": "HOLD_SFT_INCOMPATIBLE_TOKENIZER"
+    },
+    "ALIGN_F03": {
+      "design_gate": "PASS_A_C_B_SEMANTICS_ALIGNED_DESIGN",
+      "training_CE_targets": "assistant_content_plus_assistant_EOT_plus_final_EOS",
+      "byte_only_bpb": "genuine_UTF8_text_target_full_vocab_NLL_nats / (ln2 * exactly_matching_valid_utf8_data_bytes); no special/stop numerator or denominator",
+      "A_gold_nll": "one_next_token_full_vocab_NLL_nats",
+      "partial_token_boundary": "HOLD_BYTE_DENOM",
+      "real_T4_execution": "NOT_EXECUTED"
+    }
+  },
+  "R0_R8": {
+    "R0": "PASS_SCOPED_EXACT_SOURCE_AND_DESIGN_CONTRACT_NOT_MERGE",
+    "R1": "A_I1_PASS_C_REAL_GOLD_HOLD",
+    "R2": "HOLD_REAL_RIGHTS_FAMILY_SPLITS",
+    "R3": "INCOMPATIBLE_DIRECT_CODEC_HOLD_REAL_WEIGHTS_BYTE_OFFSETS_STOP_PROTOCOL",
+    "R4": "HOLD_OWNER_NATIVE_RESOURCE",
+    "R5": "A_V4_DESIGN_ACCEPTED_NATIVE_SIGNER_TOCTOU_LEDGER_HOLD",
+    "R6": "DESIGN_ONLY_NEW_PREREG_NOT_FROZEN",
+    "R7": "REAL_INDEPENDENT_QA_NOT_EXECUTED_A_V4_65_NEG_3_POS_DESIGN_ONLY",
+    "R8": "HOLD_OWNER_RELEASE"
+  },
+  "history_preserved": [
+    "earlier_ABC_CONTRACT_ALIGNMENT_HOLD",
+    "B_M3_PM_SCOPED_PASS",
+    "B_V3_NATIVE_HOLD_PEAK_ACCOUNTING_DISSENT",
+    "C_M4_PASS_DESIGN_SCOPED",
+    "BC_INTERFACE_PASS_ENGINEERING_SCOPED",
+    "A_I1_PASS_SCOPED",
+    "A_V4_DESIGN_ACCEPT_SCOPED"
+  ],
+  "PM_decision": "ABC_CONTRACT_ALIGNED_DESIGN_SCOPED",
+  "owner_release_decision": "HOLD_ALL_OWNER_RELEASES",
+  "real_SFT_status": "NOT_EXECUTED",
+  "I2_status": "NOT_EXECUTED",
+  "new_GPU_science_status": "NOT_EXECUTED",
+  "new_TEST_status": "NOT_EXECUTED",
+  "merges_performed": false,
+  "main_mutated": false,
+  "lineage_mutated": false,
+  "reviewer_identity": "distinct_AI_PM_review_via_same_GitHub_account_not_verified_independent_human",
+  "next_operation": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE"
+}
