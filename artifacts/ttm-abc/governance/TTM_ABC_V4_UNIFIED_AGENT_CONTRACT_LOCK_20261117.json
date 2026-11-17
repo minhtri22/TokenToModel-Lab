@@ -1,0 +1,91 @@
+{
+  "schema": "ttm.pm.abc.v4.shared_agent_contract_lock.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_ABC_V4_CONTRACT_FIRST_OWNER_RELEASE_READINESS_AND_CROSS_AGENT_ALIGNMENT_DESIGN_ONEPACK",
+  "mode": "DESIGN_ONLY_NO_SCIENCE_NO_MERGE",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "shared_contract": {
+    "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+    "git_blob_sha1": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1",
+    "path": "docs/coordination/ttm-abc/TTM_PM_ABC_V4_SHARED_COORDINATION_CONTRACT_20261117.md"
+  },
+  "snapshot": {
+    "main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "PR28": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+    "PR33": "e6746184603f038b49d1e7d472367b6354474ba2",
+    "A_I1_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "PR34": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "PR35": "00afd25aa2234e30f7602592d49d5d9f2947965b",
+    "PR36": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "BC_tested_source": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "PM_release_barrier_design": "c4c8cccaa0bde34a5e93024c7c4e12be2d60a582",
+    "PM_bc_final_review": "82aaf2a881bd677afd8f6e600eb570aea897fdba"
+  },
+  "tasks": [
+    {
+      "order": 1,
+      "agent": "A",
+      "operation": "TTM_A_V4_MEASUREMENT_RELEASE_BARRIER_AND_CROSS_TRACK_INTERFACE_DESIGN_ONEPACK",
+      "handoff_path": "docs/coordination/ttm-abc/handoffs/TTM_AGENT_A_V4_SHARED_RELEASE_MEASUREMENT_READINESS_HANDOFF_20261117.md",
+      "ack": "ABC_CONTRACT_ACK_A",
+      "complete": "A_PACKET_READY_SCOPED",
+      "requires": []
+    },
+    {
+      "order": 2,
+      "agent": "C",
+      "operation": "TTM_C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_ONEPACK",
+      "handoff_path": "docs/coordination/ttm-abc/handoffs/TTM_AGENT_C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_HANDOFF_20261117.md",
+      "ack": "ABC_CONTRACT_ACK_C",
+      "complete": "C_PACKET_READY_SCOPED",
+      "requires": [
+        "A_PACKET_READY_SCOPED"
+      ]
+    },
+    {
+      "order": 3,
+      "agent": "B",
+      "operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK",
+      "handoff_path": "docs/coordination/ttm-abc/handoffs/TTM_AGENT_B_SHARED_ENGINEERING_RESOURCE_COMPATIBILITY_DESIGN_HANDOFF_20261117.md",
+      "ack": "ABC_CONTRACT_ACK_B",
+      "complete": "B_PACKET_READY_SCOPED",
+      "requires": [
+        "A_PACKET_READY_SCOPED",
+        "C_PACKET_READY_SCOPED"
+      ]
+    }
+  ],
+  "shared_policy": {
+    "one_immutable_contract": true,
+    "one_scientific_endpoint_owner": "C",
+    "one_engineering_feasibility_owner": "B",
+    "one_release_measurement_owner": "A",
+    "final_adjudicator": "PM_AND_OWNER",
+    "no_cross_agent_schema_overwrite": true,
+    "no_runtime_implementation": true,
+    "no_model_execution": true,
+    "no_gpu": true,
+    "no_science": true,
+    "no_auto_merge": true,
+    "no_lineage_mutation": true,
+    "no_micro_permits": true,
+    "only_change_control": "CONTRACT_CHANGE_REQUEST_ON_ISSUE_32_WITH_VERSIONED_BLOB_IMPACT_AND_ALL_RELEVANT_ACK",
+    "owner_release": "HOLD",
+    "QA_negative_positive_A_V4": {
+      "negative_cases": 65,
+      "positive_cases": 3,
+      "executed_cases": 0
+    },
+    "BC_v2_synthetic_engineering_pass": true,
+    "A_I1_measurement_closed": true,
+    "A_I2_not_executed": true
+  },
+  "outputs": {
+    "PM_gate_options": [
+      "ABC_CONTRACT_ALIGNED_DESIGN_SCOPED",
+      "HOLD_ABC_CONTRACT_ALIGNMENT"
+    ],
+    "prospective_release": "HOLD_UNTIL_EXPLICIT_OWNER_GO_AND_APPLICABLE_R0_R8",
+    "next_operation": "TTM_PM_ABC_UNIFIED_EXACT_SOURCE_DEPENDENCY_AND_OWNER_READINESS_ADJUDICATION_SINGLE_GATE"
+  }
+}
