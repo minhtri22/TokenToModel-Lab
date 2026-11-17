@@ -1,0 +1,86 @@
+{
+  "schema": "ttm.track_c.m4.single_amendment.author_qa_receipt.v1",
+  "date": "2026-11-16",
+  "operation": "C_M4_SINGLE_AMENDMENT_SFT_MASK_GRADIENT_SEMANTICS_AND_PROVENANCE_NEGATIVE_QA",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-track-c-research-scaling-20261116",
+  "parent_source_head": "8e0a1880e564e92d017847e9f18e53e42b7353c8",
+  "independent_source_review": {
+    "commit": "98af7af0632ba38f1b9747cd784964257e39cf16",
+    "branch": "review/ttm-track-c-m4-independent-design-20261116",
+    "verdict": "HOLD_DESIGN",
+    "findings": [
+      "C-F01",
+      "C-F02"
+    ],
+    "advisory": [
+      "C-F03"
+    ],
+    "source_review_unchanged": true
+  },
+  "modified_exact_files": {
+    "tests/ttm_track_c/synthetic_contract.py": {
+      "blob_sha1": "83c6d5abe0948c24c9e49375ffc2a17e3143a793",
+      "sha256": "522618430f32fd0cc74da945a7bf208aad3a146c1f113a320a13e9490f9e2b88"
+    },
+    "tests/ttm_track_c/test_amendment_negative.py": {
+      "blob_sha1": "30c3ddbdbcf907d5d16ca9247c1f683d26d26150",
+      "sha256": "f89f86dffaf61e92eb016f1d8fcf5b4a2075c24e4ab7f53af24413f5b08e11d4"
+    },
+    "tests/ttm_track_c/test_synthetic_contract.py": {
+      "blob_sha1": "0681c0fd6550675baa011de78d2590fc27ba604f",
+      "sha256": "cb679b84900c6241e462487e61320483f6d0b5e79fbb4ed59550fda2200d8abd",
+      "status": "UNCHANGED"
+    },
+    "docs/research/ttm-abc/track-c/independent_review/reviewer_red_contract_checks.py": {
+      "blob_sha1": "12deb46873a592bdb12cc0ca01908e0cd7c12788",
+      "sha256": "806faf955c6d37226d8ddaf8876edbff8e181fd1d2d5c853ec0d88124cde4b1f",
+      "status": "REVIEWER_BRANCH_UNMODIFIED_RUN_FROM_EXACT_MATCHED_LOCAL_COPY"
+    }
+  },
+  "qa": {
+    "environment": "CPython 3.13.5 Linux x86_64",
+    "unit_command": "python -S -B -m unittest discover -p 'test_*.py'",
+    "repo_owned_tests": {
+      "original": 14,
+      "amendment": 10,
+      "passed": 24,
+      "failed": 0
+    },
+    "reviewer_red_command": "python -S -B reviewer_red_contract_checks.py -v",
+    "reviewer_exact_byte_sha256_verified": true,
+    "reviewer_red": {
+      "passed": 2,
+      "failed": 0
+    },
+    "combined_total": 26,
+    "combined_passed": 26,
+    "combined_failed": 0,
+    "random_multi_turn_cases": 1000,
+    "real_pytorch_model_executed": false,
+    "synthetic_scalar_chain_rule_only": true,
+    "source_hash_match_local_and_git_blob": true,
+    "windows_python312": "NOT_EXECUTED"
+  },
+  "changes": {
+    "C_F01": "DIRECT_LOSS_MASK_ZERO_PROMPT_TARGET_NOT_ZERO_CONTEXT_GRADIENT",
+    "C_F02": "ROLE_REPARSED_MASK_REJECTS_MUTATED_FLAGS_B_WRAPPER_PROPOSED",
+    "C_F03": "TOY_NFC_NORMALIZED_DUPLICATES_ADVISORY_ONLY"
+  },
+  "rights": "HOLD_REAL_DATA_UNAVAILABLE",
+  "actual_data_histogram": "NOT_EXECUTED",
+  "real_dedup": "NOT_EXECUTED",
+  "B_trainer": "NOT_INTEGRATED",
+  "science": "NOT_EXECUTED",
+  "real_SFT": "NOT_EXECUTED",
+  "gpu": false,
+  "checkpoint_access": false,
+  "test64_fresh16_final24_access": false,
+  "main_changed": false,
+  "lineage_changed": false,
+  "merge": false,
+  "source_sha_for_review": "EXACT_FILES_PINNED_IN_THIS_RECEIPT",
+  "design_verdict": "HOLD_DESIGN_PENDING_DISTINCT_AMENDMENT_REREVIEW",
+  "author_qa_verdict": "PASS_SCOPE_SYNTHETIC_26_OF_26",
+  "next_operation": "C_M4_EXACT_AMENDMENT_DISTINCT_REREVIEW_SINGLE_GATE"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "ttm.track_c.m4.author_qa_receipt.v1",
+  "operation": "C_M4_DATA_AUDIT_MEASUREMENT_CONSTRUCT_AND_SFT_MASK_DESIGN_ONLY_ONEPACK",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-track-c-research-scaling-20261116",
+  "starting_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "content_commit": "e75ce2b7ca7e30b75acb6d6ab3464f5a933f7b49",
+  "mode": "AUTHOR_SOURCE_ONLY_AND_OFFHOST_SYNTHETIC_PYTHON_NO_MODEL",
+  "files_exact": {
+    "tests/ttm_track_c/synthetic_contract.py": {
+      "github_blob_sha1": "9e9fdd8fea0baec92c82be4caecbd71f32f66fc4",
+      "verified_local_git_blob_sha1": "9e9fdd8fea0baec92c82be4caecbd71f32f66fc4",
+      "sha256": "ab649f978c4521da8402238b0d76c65e5ec349e441f3fef3de8a9fdee8bd58cc"
+    },
+    "tests/ttm_track_c/test_synthetic_contract.py": {
+      "github_blob_sha1": "0681c0fd6550675baa011de78d2590fc27ba604f",
+      "verified_local_git_blob_sha1": "0681c0fd6550675baa011de78d2590fc27ba604f",
+      "sha256": "cb679b84900c6241e462487e61320483f6d0b5e79fbb4ed59550fda2200d8abd"
+    }
+  },
+  "static_author_checks": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "criteria": "file inventory; test count; reserved IDs; one-token target shift; no truncation; assistant loss mask; no torch/transformers; toy-only dedup; no corpus path; frozen design-only flag; floor and split-control tests; missing real histogram explicit; no src mutation"
+  },
+  "native_author_unittest": {
+    "interpreter": "CPython 3.13.5 offhost Linux (NOT user Windows Python 3.12)",
+    "command": "python -S -B -m unittest discover -s /mnt/data/ttm_c_qa_native -p test_synthetic_contract.py -v",
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "scope": "synthetic pure standard library; no model/dataset access",
+    "exact_git_blob_match": true
+  },
+  "synthetic_manifest_example": {
+    "scope": "TOY_3_RECORDS_ONLY",
+    "split_counts": {
+      "train": 1,
+      "val": 1,
+      "test": 1
+    },
+    "utf8_length_bins": {
+      "lt32": 3
+    },
+    "cross_split_exact_groups": 1,
+    "cross_split_normalized_groups": 1,
+    "manifest_sha256": "42f3da42899bdfe621553ff464b63ccd30010ade62d71cfd237447df8426e596",
+    "actual_real_token_histogram": "NOT_AVAILABLE",
+    "actual_near_duplicate_groups": "NOT_AVAILABLE"
+  },
+  "independent_qa": "NOT_EXECUTED",
+  "real_dataset_source_rights": "HOLD",
+  "actual_corpus_histogram": "NOT_EXECUTED",
+  "actual_corpus_dedup": "NOT_EXECUTED",
+  "train_test_manifest_check": "NOT_EXECUTED",
+  "B_trainer_integration": "NOT_EXECUTED",
+  "actual_SFT": "NOT_EXECUTED",
+  "science": "NOT_EXECUTED",
+  "new_TEST_access": false,
+  "checkpoint_read": false,
+  "model_exec": false,
+  "GPU_exec": false,
+  "lineage_changed": false,
+  "merge": false,
+  "decision": "AUTHOR_SYNTHETIC_QA_PASS_SCOPED_C_DESIGN_NOT_INDEPENDENTLY_ADJUDICATED_C_SCIENCE_HOLD",
+  "next_operation": "C_M4_INDEPENDENT_DESIGN_AND_SYNTHETIC_CONTRACT_REVIEW_SINGLE_GATE"
+}

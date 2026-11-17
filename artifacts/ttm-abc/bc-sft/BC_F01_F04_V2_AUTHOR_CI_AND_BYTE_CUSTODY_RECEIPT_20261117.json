@@ -1,0 +1,165 @@
+{
+  "schema": "ttm.bc.f01_f04.integrated_amendment.author_ci_and_physical_byte_readback.v2",
+  "operation": "TTM_PM_BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_INTEGRATED_AMENDMENT_AND_DISTINCT_QA_SINGLE_GATE",
+  "date": "2026-11-17",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "integration/ttm-bc-synthetic-sft-interface-20261116",
+  "draft_pr": 36,
+  "base_branch": "research/ttm-track-b-gpt-core-20261116",
+  "base_source_b": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+  "source_c_part_a": "56c18e2a00714c8a1c118dabc0ede9d2a1b34b17",
+  "source_c_m4_accepted": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+  "pm_handoff": "40788f557799c7c8a688df32271510aab73a9180",
+  "tested_code_sha": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+  "documentation_commit": "888acd454d407713a79c02a751c18c8fe009b3e2",
+  "source_files_git_blob_sha1": {
+    "src/ttm_track_b/bc_sft_bridge_v2.py": "f2cc02821efa4f9628964657d90c7a98c4d67e13",
+    "tests/test_bc_sft_bridge_v2.py": "cb08038adcceb4848790694b62c97f648d0b1b62",
+    "tests/ttm_track_bc/c_part_a_wire_oracle_pinned.py": "233c678c89afc3471af4addc55f827e0c52b0383",
+    "tests/ttm_track_bc/test_c_part_a_wire_oracle_pinned.py": "5c422bc5c4a7a5dc7c107dc1dda4718361b0851e",
+    "tests/ttm_track_bc/b_v2_c_oracle_compat.py": "b98bc1f7fd364301ce920f1cfa401b8aa4dab6d5",
+    "tests/ttm_track_bc/run_c18_on_b_v2.py": "775714e8e97e10a3c5694142313412c9b13bd3e5",
+    ".github/workflows/track-bc-sft-interface-py312.yml": "a0379fbe9e942bccc2a7db387b6534bdb1cf7d6e"
+  },
+  "old_v1_source_untouched": true,
+  "old_v1_ci_43908305162": "PASS_29X2",
+  "amendment": {
+    "BC_F01": "TYPED_C_STR_UTF8_STRICT_TO_B_RAW_BYTE_IDS_NO_UNICODE_NORMALIZATION_SEPARATE_NONUTF8_B_NATIVE",
+    "BC_F02": "ADDITIVE_SHARED_SCHEMA_CANDIDATE_V2_SFT_PACK_CHECKPOINT_METADATA_CHAT_TEMPLATE",
+    "BC_F03": "NEW_CANONICAL_UTF8_SORTED_COMPACT_EXACT_ONE_LF_V2_OLD_DIGESTS_PRESERVED",
+    "BC_F04": "SEVEN_PHYSICAL_SAVED_ARTIFACTS_HASHED_BY_FILE_BYTES_SEVEN_MUTATION_TESTS_AND_READBACK",
+    "codec": {
+      "content_ids": "0..255",
+      "specials": {
+        "EOS": 256,
+        "PAD": 257,
+        "BOS": 258,
+        "SYS": 259,
+        "USER": 260,
+        "ASSIST": 261,
+        "EOT": 262
+      },
+      "vocab": 2048
+    },
+    "schema_pack": "ttm.bc.synthetic.sft_pack.v2",
+    "schema_checkpoint_metadata": "ttm.bc.synthetic.sft_checkpoint.v2",
+    "schema_template": "ttm.bc.synthetic.chat_template.v2",
+    "schema_canonical": "ttm.bc.canonical_json_utf8_sorted_compact_lf.v2",
+    "accepted_by_agent_c_part_b": false
+  },
+  "ci": {
+    "run": 43918069534,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43918069534",
+    "source_sha": "724f62a025b8ecc7c452b9ee16c926adfd2b8c7e",
+    "conclusion": "success",
+    "windows": {
+      "python": "3.12.10",
+      "torch": "2.10.0+cpu",
+      "v1": "29/29 PASS",
+      "v2": "24/24 PASS",
+      "C_exact_tests_routed_v2": "18/18 PASS",
+      "p02_cpu_forward_backward": "PASS",
+      "seven_artifact_disk_readback": "PASS"
+    },
+    "ubuntu": {
+      "python": "3.12.16",
+      "torch": "2.10.0+cpu",
+      "v1": "29/29 PASS",
+      "v2": "24/24 PASS",
+      "C_exact_tests_routed_v2": "18/18 PASS",
+      "p02_cpu_forward_backward": "PASS",
+      "seven_artifact_disk_readback": "PASS"
+    },
+    "legacy_b_regression_run": 43918068585,
+    "legacy_b_regression_conclusion": "success",
+    "cpu_probe_windows": {
+      "valid_assistant_targets": 7,
+      "ignored_direct_targets": 25,
+      "loss": 7.644583702087402,
+      "independent_double_CE": 7.644583946522113,
+      "prompt_context_grad_l1": 0.22944997251033783,
+      "direct_prompt_CE_zero": true,
+      "causal_isolated": true,
+      "right_pad_isolated": true,
+      "optimizer_steps": 0
+    },
+    "prior_failure_runs_preserved": [
+      43917527100,
+      43917874366
+    ]
+  },
+  "actual_byte_custody": {
+    "canonical_manifest_path": "artifacts/ttm-abc/bc-sft/v2/MANIFEST_CANONICAL_LF.json",
+    "git_data_root": "artifacts/ttm-abc/bc-sft/v2/actual_bytes",
+    "source_CI_linux_artifact_id": 14250512382,
+    "source_CI_linux_zip_sha256": "6551e46a02e0a89a1e2e11ff6900ef211c127f16f9c3d68e19380f06121ed80c",
+    "source_CI_windows_artifact_id": 14249659784,
+    "source_CI_windows_zip_sha256": "2d78cca691ee69978667f0a11ac57919fbdd8514f3c2e0c9e3aa22186073d3fe",
+    "raw_json_file_count": 8,
+    "extracted_uncompressed_bytes_same_windows_linux": true,
+    "github_exact_blob_sha1_vs_CI": {
+      "tokenizer.json": "45cbe73a41951455b8f09f63b46d143f93b9518e",
+      "chat_template.json": "1ff83ad61785658e52b60453be5cc286f0220e98",
+      "serialized_inputs.json": "6049f1459547102cdbf8e2365e8fe70c41e3293b",
+      "target_masks.json": "416a1e65ac0d68dbb3282e7c0d78fdacf77ede67",
+      "target_labels.json": "fad8871a54b36d89cdb34ac8962f553fe1b292a9",
+      "config.json": "64a227667af7e374b3c57ef224a7522c90d2ea07",
+      "checkpoint_schema.json": "bf07d0f85fa038397e06bd81fffd172740ebcdc0",
+      "manifest.json": "cba9f094d5d05787ffb50ffdef849049945bbfc8"
+    },
+    "source_copy_transcription_corrections": "Two intermediate GitHub evidence file commits contained manually copied extra zero/PAD; repaired append-only. Final eight Git blobs EXACT_MATCH downloaded CI raw bytes; source/tests untouched.",
+    "manifest_sha256": "17f91e6d3881404909b6cb8c1cd4a2272a92f8b67c179806c2af68768e86d0a2",
+    "seven_file_sha256": {
+      "tokenizer_sha256": "c1d7f880382d28eb099fcae6a620b4587228486d6a1a149cf99dc7bcc527bbf5",
+      "chat_template_sha256": "6c818dda5ce614483406864bd7289a5131b8e0e2826c732b767afec3aa63b100",
+      "serialized_inputs_sha256": "03f351b4ddfddaad7fa465ee19e538a9ed199d3602bd772185ac49bc58c2a6e0",
+      "target_masks_sha256": "4a70ef9b946f1a262dc3210c82098ea3e138ea406ffd4f31bc23d2e82149cc50",
+      "target_labels_sha256": "9d1a3f3d7f0e910fc318fe6ff5e0353a926d50e45acc278f06cd5b9f610b90cf",
+      "config_sha256": "c3bd53773db03bb5c86d4279f94453c022d77d198ad49cefe4ab11bbf2420423",
+      "checkpoint_schema_sha256": "63c73293084fc3a30f77da375e694f443e972d049ec667d9d20e09b849920888"
+    },
+    "fixture": {
+      "split_counts": {
+        "TRAIN": 2,
+        "VAL": 1
+      },
+      "synthetic_only": true,
+      "no_data_rights_attestation": true
+    }
+  },
+  "A01_A15": "PASS_AUTHOR_CI_SCOPED_PENDING_C_PART_B",
+  "A16": "HOLD_NEW_INTEGRATION_NATIVE_DISTINCT",
+  "b_m3_history": {
+    "prior_pm": "PASS_ENGINEERING_BASELINE_SCOPED",
+    "v3_native_script": "HOLD_NATIVE_QA",
+    "immutable_v3_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+    "reviewer_dissent": "HOLD_PEAK_ACCOUNTING",
+    "interpretation": "DO_NOT_OVERRIDE_ORIGINAL_PM_SCOPED_GATE;DOCUMENT_SCRIPT_FAIL_AND_COUNTER_DISSENT",
+    "v3_rerun": false
+  },
+  "gates": {
+    "BC-0": "PASS_SOURCE_READBACK_AUTHOR_SCOPED",
+    "BC-1": "PASS_TYPED_CODEC_AUTHOR_CI_PENDING_C_SIGNOFF",
+    "BC-2": "PASS_SHIFT_MASK_ORACLE_AUTHOR_CI_PENDING_C_SIGNOFF",
+    "BC-3": "PASS_CPU_FORWARD_BACKWARD_AUTHOR_CI_PENDING_DISTINCT",
+    "BC-4": "PASS_7_REAL_BYTE_SHA_READBACK_AUTHOR_CI_PENDING_DISTINCT",
+    "BC-5": "HOLD_NEW_INTEGRATION_DISTINCT_NATIVE",
+    "C_M4": "PASS_DESIGN_SCOPED_HISTORICAL",
+    "C_G1": "HOLD_REAL_DATA",
+    "C_G2": "DESIGN_VALIDITY_UNPROVEN",
+    "C_G8": "NOT_EXECUTED",
+    "B_M3": "PASS_ENGINEERING_BASELINE_SCOPED_PRIOR_PM_WITH_REVIEWER_DISSENT"
+  },
+  "verdict": "HOLD_BC_INTERFACE_PENDING_C_PART_B_AND_DISTINCT_REVIEW",
+  "independent_reviewer_execution": "NOT_EXECUTED",
+  "distinct_agent_c_part_b_signoff": "PENDING",
+  "science_training": false,
+  "optimizer_steps": 0,
+  "gpu": false,
+  "new_test": false,
+  "real_sft": false,
+  "historical_checkpoint_loaded": false,
+  "main_unchanged": true,
+  "merge": false,
+  "next_operation": "TTM_PM_BC_V2_EXACT_HEAD_C_PART_B_DISTINCT_QA_AND_FINAL_ADJUDICATION_ONEPACK"
+}

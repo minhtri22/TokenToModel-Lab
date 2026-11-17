@@ -1,0 +1,105 @@
+{
+  "schema": "ttm.track_c.bc_sft.part_a.author_oracle_qa_receipt.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_C_BC_SFT_INTERFACE_CONTRACT_REVIEW_AND_INTEGRATION_ACCEPTANCE_SINGLE_GATE",
+  "scope": "PART_A_ONLY_NO_B_IMPLEMENTATION_AVAILABLE",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_pins": {
+    "pm_handoff": {
+      "commit": "b4cd629f624f53e24c9eb05120ffe649b664b05d",
+      "path": "docs/coordination/ttm-abc/TTM_PM_BC_M4_SFT_INTERFACE_QUALIFICATION_HANDOFF_20261116.md",
+      "git_blob_sha1": "d75965a6787a1839f05bc01cf3f1071e0b8ba935"
+    },
+    "B": {
+      "pr": 34,
+      "exact_baseline_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "new_sft_adapter_head": null,
+      "files": {
+        "src/ttm_track_b/scaffold.py": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+        "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+        "tests/test_track_b_scaffold.py": "359896b4dea646cf02509ebb2910e6a87b5c954b"
+      }
+    },
+    "C": {
+      "pr": 35,
+      "exact_contract_head": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+      "independent_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+      "review_verdict": "PASS_DESIGN_SCOPED",
+      "files": {
+        "tests/ttm_track_c/synthetic_contract.py": "83c6d5abe0948c24c9e49375ffc2a17e3143a793"
+      }
+    }
+  },
+  "candidate_sources": {
+    "tests/ttm_track_c/bc_sft_wire_oracle.py": {
+      "git_blob_sha1": "233c678c89afc3471af4addc55f827e0c52b0383",
+      "sha256": "bbd72ecb890d74188b20ae808dd518dbbc70c3ae945b03a710b9a7bc3ba603b0"
+    },
+    "tests/ttm_track_c/test_bc_sft_wire_oracle.py": {
+      "git_blob_sha1": "5c422bc5c4a7a5dc7c107dc1dda4718361b0851e",
+      "sha256": "1237f530b0d97288d8cad003813eec400e6e9178f766fd3c3a67748ca434bcf7"
+    },
+    "configs/ttm/track_c_bc_sft_candidate_codec_v1.json": {
+      "git_blob_sha1": "31c5ffe04a664e522aae2b78c53cb3d766f9d990",
+      "sha256": "3852983cc03de36733000e878e193d2b02b87d738b56346a7294cc48206bd142"
+    }
+  },
+  "qa": {
+    "mode": "AUTHOR_CANDIDATE_ORACLE_TEST_ONLY",
+    "python": "CPython 3.13.5",
+    "platform": "Linux CPU",
+    "torch": "NOT_USED",
+    "command": "PYTHONPATH=tests/ttm_track_c python -S -B -m unittest discover -s tests/ttm_track_c -p test_bc_sft_wire_oracle.py -v",
+    "total": 18,
+    "passed": 18,
+    "failed": 0,
+    "exit_code": 0,
+    "run_log_sha256": "ff496775b498ffcc81c2e3cda43e7b7be10211cfd78d2ffa4dea19e84cfb6877",
+    "seed": 20261116,
+    "generated_dialogues": 1000,
+    "test_draft_corrections": "First local oracle draft mismapped 'system'/'assistant' to key 'SYSTEM'/'ASSISTANT'; fixed. First local assertion queried a bytes object with 261 (>255); fixed test assumption. Final source blobs verified exact to locally executed Git hash; final suite 18/18 PASS.",
+    "source_git_blobs_match_local": true,
+    "windows_python312": "NOT_EXECUTED",
+    "B_torch_forward": "NOT_EXECUTED",
+    "B_torch_backward": "NOT_EXECUTED",
+    "independent_B_reviewer": "NOT_EXECUTED"
+  },
+  "negative_controls": [
+    "all bytes 0..255",
+    "literal role text not special",
+    "forged user supervision rejects",
+    "every flag inversion rejects",
+    "special token injection rejects",
+    "wrong role order rejects",
+    "duplicate EOS/EOT missing rejects",
+    "no truncation",
+    "ignore_index -100",
+    "prompt direct CE mask",
+    "old B schema rejects",
+    "7 SHA pin mismatch categories",
+    "1000 seeded multi turn dialogues",
+    "self-consistent forged role is not authenticated"
+  ],
+  "evidence": "docs/research/ttm-abc/track-c/BC_SFT_INTERFACE_CONTRACT_REVIEW_20261116.md",
+  "gates": {
+    "BC-0": "PASS_B_C_BASELINE_SOURCE_PIN_SCOPED",
+    "BC-1": "HOLD_B_CODEC_IMPLEMENTATION",
+    "BC-2": "HOLD_B_MASKED_SFT_WIRING",
+    "BC-3": "NOT_EXECUTED",
+    "BC-4": "HOLD_B_NEW_SCHEMA_AND_PINS",
+    "BC-5": "WAIT_B_G5_G6"
+  },
+  "verdict": "HOLD_INTERFACE_PENDING_B_ADAPTER",
+  "design_oracle": "PASS_AUTHOR_18_OF_18_SCOPE_ONLY",
+  "B_branch_edited": false,
+  "C_original_accepted_toy_source_edited": false,
+  "main_edited": false,
+  "lineage_edited": false,
+  "merge": false,
+  "science_execution": false,
+  "sft_training": false,
+  "gpu": false,
+  "historical_tests_consumed": false,
+  "historical_weights_loaded": false,
+  "next_operation": "TTM_C_BC_EXACT_B_ADAPTER_HEAD_INTEGRATION_REVIEW_SINGLE_GATE"
+}

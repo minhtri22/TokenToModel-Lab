@@ -1,0 +1,1 @@
+{"bridge_schema":"ttm.bc.c_string_to_b_bytes.v2","byte_content_ids":[0,255],"real_t4_bpe_compatible":false,"schema":"ttm.bc.synthetic.byte_codec.v2","special_ids":{"ASSIST":261,"BOS":258,"EOS":256,"EOT":262,"PAD":257,"SYS":259,"USER":260},"vocab_size":2048}

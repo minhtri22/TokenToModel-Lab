@@ -1,0 +1,31 @@
+{
+  "schema": "ttm.pm.track_status.v1",
+  "effective_date": "2026-11-16",
+  "track": "B",
+  "branch": "research/ttm-track-b-gpt-core-20261116",
+  "initial_base_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "handoff_commit": "dfba67cbba43d85d7db53222cbd7d0cd18537eb2",
+  "handoff_path": "docs/coordination/ttm-abc/TTM_TRACK_B_GPT_CORE_AGENT_HANDOFF_20261116.md",
+  "milestones": [
+    "M3"
+  ],
+  "owner": "repo owner",
+  "pm_review_mode": "on_submitted_evidence_or_requested_sync_not_background",
+  "executor": "UNASSIGNED",
+  "phase_status": "HANDOFF_READY_AGENT_NOT_STARTED",
+  "gates": {
+    "B-G0": "NOT_EXECUTED",
+    "B-G1": "NOT_EXECUTED",
+    "B-G2": "NOT_EXECUTED",
+    "B-G3": "NOT_EXECUTED",
+    "B-G4": "NOT_EXECUTED",
+    "B-G5": "NOT_EXECUTED",
+    "B-G6": "NOT_EXECUTED"
+  },
+  "preexisting_evidence": null,
+  "science_execution": "NOT_EXECUTED",
+  "merge": "NOT_AUTHORIZED",
+  "lineage_modified": false,
+  "review": "NOT_EXECUTED",
+  "next_operation": "B_B0_B1_CONTRACTS_T4_ADAPTER_AND_SYNTHETIC_E2E_SCAFFOLD"
+}
