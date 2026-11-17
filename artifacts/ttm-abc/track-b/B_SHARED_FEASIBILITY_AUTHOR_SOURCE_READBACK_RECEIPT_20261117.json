@@ -159,8 +159,8 @@
     {
       "track": "B",
       "artifact_kind": "DESIGN_DOCUMENT",
-      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/design/ttm-b-abc-shared-feasibility-20261117/docs/research/ttm-abc/track-b/B_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY.md",
-      "exact_commit": "SOURCE_DESIGN_BRANCH_NEEDS_FINAL_HEAD_BINDING",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/0402d142d3d24cb796bb54b67eca344140f6e7ba/docs/research/ttm-abc/track-b/B_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY.md",
+      "exact_commit": "0402d142d3d24cb796bb54b67eca344140f6e7ba",
       "git_blob_sha1": "1e954ce1dbb53178083cde6b25e40d62f46c1e07",
       "raw_sha256": "8eb3484f0e3298b065f289a5e3fb4a9c351ad6872342b2cb8c725809c72735a3",
       "domain_tag": "none",
@@ -174,8 +174,8 @@
     {
       "track": "B",
       "artifact_kind": "DESIGN_DOCUMENT",
-      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/design/ttm-b-abc-shared-feasibility-20261117/docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B.md",
-      "exact_commit": "SOURCE_DESIGN_BRANCH_NEEDS_FINAL_HEAD_BINDING",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/827405e2f1b19953085e0e514ecce93fc87b5850/docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B.md",
+      "exact_commit": "827405e2f1b19953085e0e514ecce93fc87b5850",
       "git_blob_sha1": "9acaf4292c3d298daa1a2f44db4345e7bca1b3a0",
       "raw_sha256": "35e3cd9084616c657e72cfc9f128cef961a9fe3f475e4fe77b4c058eff8b9b32",
       "domain_tag": "none",
@@ -189,8 +189,8 @@
     {
       "track": "B",
       "artifact_kind": "DESIGN_DOCUMENT",
-      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/design/ttm-b-abc-shared-feasibility-20261117/docs/coordination/ttm-abc/track-b/B_R0_R3_R4_R5_READINESS.md",
-      "exact_commit": "SOURCE_DESIGN_BRANCH_NEEDS_FINAL_HEAD_BINDING",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/cf805de3ea184e7f167f08dafd4fabf46e793c8f/docs/coordination/ttm-abc/track-b/B_R0_R3_R4_R5_READINESS.md",
+      "exact_commit": "cf805de3ea184e7f167f08dafd4fabf46e793c8f",
       "git_blob_sha1": "83379c8c1532d0ef87119e24596682a9b81fb064",
       "raw_sha256": "e335c46df46303e730342bca4c71badde47a58721cc17c408dfdee3c3f999fd3",
       "domain_tag": "none",
@@ -204,8 +204,8 @@
     {
       "track": "B",
       "artifact_kind": "LOGICAL_COMPATIBILITY_MATRIX",
-      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/design/ttm-b-abc-shared-feasibility-20261117/artifacts/ttm-abc/track-b/B_ABC_37_26_14_LOGICAL_COMPATIBILITY_20261117.json",
-      "exact_commit": "SOURCE_DESIGN_BRANCH_NEEDS_FINAL_HEAD_BINDING",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/7aeb471108815169cd337cbe215c07b56d84a2f9/artifacts/ttm-abc/track-b/B_ABC_37_26_14_LOGICAL_COMPATIBILITY_20261117.json",
+      "exact_commit": "7aeb471108815169cd337cbe215c07b56d84a2f9",
       "git_blob_sha1": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
       "raw_sha256": "8b41831f96c8e8989c5d7365fa9d8a44a82d49ac35cb367bcb7c6fe8364714b9",
       "domain_tag": "none",
