@@ -1,0 +1,102 @@
+{
+  "schema": "ttm.pm.small4m.integrated_roadmap.source_only_readback.v1",
+  "operation": "TTM_PM_SMALL4M_REPAIR_FIRST_KARPATHY_V2_ABC_MAIN_INTEGRATED_ROADMAP_ADJUDICATION_SINGLE_GATE",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "source_main_sha": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+  "source_claude_sha": "6b1ebc2e3103ebed066b1caa2a135ea2b760a159",
+  "source_claude_blob_pins": {
+    "STEP0": "470e0956ea4023f6aa6939c5b45218faab2240de",
+    "STEP1": "1d61b0d735c5b0b764c45f675cf59f0be80702cd",
+    "STEP2": "479a4455b77706d63b83942e77ee9df4f885f88b",
+    "STEP3": "4e8054e5d0aa2b704818a66426cdcc341e109ffa",
+    "STEP4": "d56243a0f3f7a668dca3bcf37856b89410908402",
+    "STEP5": "467c67f444d5b34d8a2f8e2f870fa4e1606f01a6",
+    "STEP6": "b413bdd8a6bb15e1ca62cd299374aca9a57ed4b3"
+  },
+  "source_code_pins": {
+    "P02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "T4_DATA": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "T4_TRAIN": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "T4_EVAL": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "BC": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+    "C_REGISTRY": "364a15d305b71e0c236a27409430f1e27e14aa70",
+    "B_REMAP": "c2d4a050f35218de2c023d3a5c50fb3454404c23"
+  },
+  "reference_nanochat": "92d63d4e8bb4df75c3b71618f31ddde2378b2bcd; --target-param-data-ratio=12; get_scaling_params=(transformer_matrices+lm_head); evaluate_bpb=nats/(ln2*bytes), not a TTM-optimality proof",
+  "candidate_commit_before_receipt": "e953aaf0bf263b6c3504ba6c03349502771be085",
+  "candidate_artifacts": [
+    {
+      "path": "docs/roadmap/TTM_SMALL4M_REPAIR_FIRST_KARPATHY_V2_ABC_MAIN_INTEGRATED_ROADMAP_20261117.md",
+      "git_blob": "d0e505ab1d8f6f9524305544a662b785716b99e5"
+    },
+    {
+      "path": "artifacts/ttm-abc/governance/TTM_PM_ABC_KARPATHY_V2_RF00_RF32_STATUS_REBASE_20261117.json",
+      "git_blob": "af703ab48497feaccb3ba6e3cd34acd004b419b4"
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "git_blob": "1054a70330f3b837f0766b3d6be30da1c659311f"
+    },
+    {
+      "path": "docs/PHASE_PLAN.md",
+      "git_blob": "43ca774cc9fe974358d5488afe611c3dff7689be"
+    }
+  ],
+  "candidate_diff_before_receipt": [
+    {
+      "path": "artifacts/ttm-abc/governance/TTM_PM_ABC_KARPATHY_V2_RF00_RF32_STATUS_REBASE_20261117.json",
+      "status": "added",
+      "additions": 512,
+      "deletions": 0
+    },
+    {
+      "path": "docs/PHASE_PLAN.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 0
+    },
+    {
+      "path": "docs/governance/ACTIVE_RESEARCH_GATE.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 3
+    },
+    {
+      "path": "docs/roadmap/TTM_SMALL4M_REPAIR_FIRST_KARPATHY_V2_ABC_MAIN_INTEGRATED_ROADMAP_20261117.md",
+      "status": "added",
+      "additions": 103,
+      "deletions": 0
+    }
+  ],
+  "checks": {
+    "main_exact": true,
+    "seven_source_pins_in_roadmap": true,
+    "findings_13": true,
+    "status_matrix_33_unique": true,
+    "RF00_I1_pass": true,
+    "RF01_I2_hold": true,
+    "RF15_SFT_incompatible": true,
+    "active_current_status": true,
+    "phase_prefix_unchanged": true,
+    "lineage_blob_unchanged": true,
+    "four_scoped_paths": true,
+    "no_runtime_code_changed": true,
+    "phase_append_only": true,
+    "no_model_science_test_dispatched_by_PM_review": true
+  },
+  "author_QA": "PASS_SOURCE_ONLY_SELF_READBACK",
+  "external_independent_human_review": "NOT_PERFORMED",
+  "PM_adjudication": "PASS_INTEGRATED_ROADMAP_DESIGN_SCOPED_WITH_AMENDMENTS",
+  "STEP0": "SOURCE_DESIGN_FIRST_RUNTIME_HOLD_Q4",
+  "STEP1": "HOLD_NEW_TRAINING",
+  "STEP2": "DESIGN_ONLY_FORWARD_HOLD",
+  "A_I2": "HOLD",
+  "REAL_SFT": "HOLD",
+  "owner_merge_authority": "NOT_GRANTED",
+  "new_question_gate": false,
+  "science_exec": false,
+  "GPU_exec": false,
+  "TEST_access": false,
+  "merge_decision": "HOLD_MERGE_REVIEW"
+}
