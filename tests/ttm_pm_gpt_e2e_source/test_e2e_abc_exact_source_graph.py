@@ -166,7 +166,7 @@ class TestABCSourceIntegratedBaseline(unittest.TestCase):
         self.assertIn("def checkpoint_write(", train)
         self.assertIn("ttm.p04.model_checkpoint.v1", self.txt["P04_CHECKPOINT_EVAL"])
         self.assertIn("ttm.track_b.synthetic.train_checkpoint.v1", self.txt["B_SYNTHETIC_RUNNER"])
-        self.assertIn("T4_PACK_VS_BPE_PIN_ROLE_MISMATCH",
+        self.assertIn("PACK_SHA_VS_TOKENIZER_SHA_DOMAIN_CONFUSION",
                       json.dumps(self.m["seams"]))
 
     def test_12_ABC_63_fields_and_correct_A_pointer(self) -> None:
