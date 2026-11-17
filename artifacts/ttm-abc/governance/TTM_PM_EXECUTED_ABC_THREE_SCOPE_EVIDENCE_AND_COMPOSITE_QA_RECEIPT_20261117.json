@@ -1,0 +1,147 @@
+{
+  "schema": "ttm.pm.abc.executed_three_scope_evidence_composite_qa_receipt.v1",
+  "operation": "TTM_PM_ABC_EXECUTED_INTEGRATED_WITNESS_AND_SCOPED_MERGE_SOURCE_QA_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "PM_role": "source_qa_and_owner_packet_adjudication; no owner release signature",
+  "main_snapshot": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "prior_PM_triple_hold": "d0aefb35838245ec14f5dc435835dea5433d5077",
+  "prior_ABC_contract_pass": "fa28b89e4ee93b3de4561deaa2a7b9a086fa340b",
+  "candidate": {
+    "source_PRS": [
+      {
+        "pr": 34,
+        "exact_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+        "additive_files": 11
+      },
+      {
+        "pr": 36,
+        "exact_head": "09de6a46574146d863f416e056fcf01091f3efb8",
+        "additive_files": 27
+      },
+      {
+        "pr": 37,
+        "exact_head": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+        "additive_files": 8
+      },
+      {
+        "pr": 35,
+        "exact_head": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+        "additive_files": 30
+      }
+    ],
+    "A_preexec_PR28_included": false,
+    "A_I1_PR33_included": false,
+    "source_merged_tree_sha": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "composed_source_commit": "9b096b6cf5e9486df1a9ab7220974af3fac0f496",
+    "base_B37_source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+    "original_C35_source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "overlay_C_blob_preservation": "30/30",
+    "source_git_paths_unique": 76,
+    "source_file_operations": {
+      "added": 76,
+      "modified": 0,
+      "deleted": 0
+    },
+    "scope_compared_to_main": "76/76 original paths and exact PR source blobs, no duplicate; original B tree inherited unchanged",
+    "review_branch": "review/pm-abc-bc-c-synthetic-combined-qa-20261117",
+    "review_DRAFT_PR": 38,
+    "review_PR_base": "design/ttm-b-abc-shared-feasibility-20261117",
+    "review_QA_HEAD": "123629595c64c694bfcc2c932037f700628d7253",
+    "review_only_paths": [
+      ".github/workflows/ttm-pm-abc-bc-c-combined-source-only-py312.yml",
+      "tests/ttm_pm_abc/test_pm_bc_c_combined_source_only_20261117.py"
+    ],
+    "full_candidate_diff_from_main": {
+      "added": 78,
+      "modified": 0,
+      "deleted": 0
+    },
+    "manifest_commit": "3759081be19fde97196a10cec23fe25abaff5158",
+    "manifest_path": "artifacts/ttm-abc/governance/TTM_PM_ABC_76_FILE_COMPOSITE_SOURCE_MANIFEST_20261117.json"
+  },
+  "qa": {
+    "PM_first_run": {
+      "id": 44026585729,
+      "overall": "FAIL",
+      "linux": "PASS",
+      "windows": "FAIL_GIT_WORKTREE_CRLF_HASH_METHOD",
+      "preserved": true
+    },
+    "correction": {
+      "commit": "123629595c64c694bfcc2c932037f700628d7253",
+      "changed_only_PM_test": true,
+      "reason": "Use git cat-file blob HEAD:path rather than Windows smudged working tree for exact Git blob SHA and canonical byte SHA",
+      "does_not_prove_host_file_custody": true
+    },
+    "PM_final_run": {
+      "id": 44026751082,
+      "overall": "SUCCESS",
+      "py": "3.12",
+      "linux": {
+        "PM_source": 5,
+        "C_synthetic_source": 60,
+        "failed": 0,
+        "skipped": 0
+      },
+      "windows": {
+        "PM_source": 5,
+        "C_synthetic_source": 60,
+        "failed": 0,
+        "skipped": 0
+      },
+      "installer": "NO_PIP_OR_MODEL",
+      "model_execution": false
+    },
+    "C_existing_separate_workflow": {
+      "id": 44026750768,
+      "overall": "SUCCESS",
+      "windows": 18,
+      "linux": 18,
+      "overlap_with_C_60": true
+    },
+    "source_controls": [
+      "6 exact Git blob source/code/oracle pins checked",
+      "C registry and B remap source pointer corrected to A requirements",
+      "37+26+14 table rows and 63 unique logical fields source compared",
+      "7 persisted synthetic artifact SHA256 validated from exact git objects",
+      "previous B status classifications not promoted",
+      "T4 BPE 257..2047 collision with BC role specials 257..262 remains incompatible"
+    ],
+    "historical_B_BC_source_QA": "PREVIOUS_SCOPED_PASS_REUSED_B_CODE_BLOBS_UNCHANGED",
+    "new_B_cpu_model_run": "NOT_EXECUTED",
+    "real_checkpoint_load": "NOT_EXECUTED",
+    "science_run": "NOT_EXECUTED"
+  },
+  "R0_R8_snapshot": {
+    "R0": "PASS_SCOPED_B_BC_C_76_FILE_SOURCE_TREE; A_I2_AND_REAL_SFT_EXACT_RUNNER_HOLD",
+    "R1": "A_I1_PASS_SCOPED; C_REAL_GOLD_HOLD",
+    "R2": "PRIVATE_SOURCE_RIGHTS_AND_FAMILY_HELDOUT_UNVERIFIED_NOT_INVALIDATED",
+    "R3": "HOLD_REAL_WEIGHTS_AND_BYTE_SPANS; INCOMPATIBLE_DIRECT_T4_BC",
+    "R4": "HOLD_NEW_OWNER_NATIVE_AND_GPU_RESOURCE",
+    "R5": "A_V4_DESIGN_ACCEPTED; WINDOWS_WORKTREE_CRLF_KNOWN; REAL_ATOMIC_LEDGER_HOLD",
+    "R6": "I2_FROZEN_PREREG_LINK_HOLD; REAL_SFT_NEW_EQUAL_COMPUTE_PREREG_NOT_FROZEN",
+    "R7": "PASS_SCOPED_COMPOSITE_SOURCE_QA; REAL_RUNTIME_NATIVE_SCIENCE_QA_NOT_EXECUTED",
+    "R8": "OWNER_GO_NOT_GRANTED"
+  },
+  "decisions": {
+    "A_I2": "HOLD_A_I2_RELEASE",
+    "REAL_SFT": "HOLD_REAL_SFT_RELEASE",
+    "B_BC_C_COMPOSITE_SOURCE_QA": "PASS_SCOPED_COMPOSITE_SOURCE_QA",
+    "MERGE_EXECUTION": "HOLD_OWNER_MERGE_AND_FINAL_POLICY",
+    "owner_GO": false,
+    "commit_to_main": false,
+    "lineage_mutated": false
+  },
+  "report_commit": "45a77364f2421c8ca5caff987173fc17fd536516",
+  "report_path": "docs/coordination/ttm-abc/TTM_PM_EXECUTED_A_I2_SFT_AND_SCOPED_MERGE_WITNESS_ONEPACK_20261117.md",
+  "remaining_merge_constraints": [
+    "scoped owner merge authorization",
+    "main branch protections API unreadable 403",
+    "exact review-approved merged-tree security/integration QA beyond source only if required",
+    "avoid merging draft PR38 review-only additions",
+    "do not include PR28 parent HOLD by proxy"
+  ],
+  "no_micro_permits": true,
+  "next_action": "NO_AUTOMATIC_DISPATCH; owner can decide exact code/docs merge scope after evidence review, otherwise HOLD"
+}
