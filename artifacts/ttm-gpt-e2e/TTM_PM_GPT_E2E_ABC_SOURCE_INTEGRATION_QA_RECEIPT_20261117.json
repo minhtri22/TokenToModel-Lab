@@ -1,0 +1,135 @@
+{
+  "schema": "ttm.pm.gpt_e2e.abc_integrated_source_qa_receipt.v1",
+  "operation": "TTM_PM_GPT_END_TO_END_BASELINE_INTEGRATION_AND_ABC_DELIVERABLE_GAP_CLOSURE_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_main": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+  "candidate_before_receipt": "cffe1ffa8e98c4ab9fd200d8a7c93c07d37f8f5c",
+  "review_branch": "review/ttm-pm-gpt-e2e-abc-source-integration-20261117",
+  "review_pr": 42,
+  "review_draft": true,
+  "merge_authorized": false,
+  "PM_verified_source": {
+    "nodes": 18,
+    "external_A_sources": 2,
+    "seams": 12,
+    "readback_before_receipt": [
+      {
+        "k": "manifest",
+        "path": "artifacts/ttm-gpt-e2e/TTM_PM_GPT_E2E_ABC_EXACT_SOURCE_INTEGRATION_MANIFEST_20261117.json",
+        "git_blob": "d65908052721fc4b256130b3e7198e57c9088a63",
+        "chars": 11672
+      },
+      {
+        "k": "report",
+        "path": "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md",
+        "git_blob": "141066483264919843c592ce0b7be284398d8636",
+        "chars": 11717
+      },
+      {
+        "k": "qa_test",
+        "path": "tests/ttm_pm_gpt_e2e_source/test_e2e_abc_exact_source_graph.py",
+        "git_blob": "dd469c59583e290d8c71cefc88f2abfb4e9d5b08",
+        "chars": 10263
+      },
+      {
+        "k": "workflow",
+        "path": ".github/workflows/ttm-pm-gpt-e2e-abc-source-qa-py312.yml",
+        "git_blob": "7f8193f78d0d39d8456316b89aeafc22f78f3c10",
+        "chars": 1020
+      }
+    ],
+    "all_source_blob_pins_checked_by_QA": true,
+    "new_or_modified_B_model_code": false,
+    "new_or_modified_A_C_frozen_code": false,
+    "owner_Q4_runtime_authority": "HOLD"
+  },
+  "QA": {
+    "initial_failed_run": 44060185325,
+    "initial_result": "FAIL_ONE_TEST_08_AUTHOR_ASSUMPTION_ABOUT_QUOTED_CLI_FLAG; SOURCE_AND_OTHER_13_TESTS_PASSED_ON_LINUX",
+    "correction_commit": "cffe1ffa8e98c4ab9fd200d8a7c93c07d37f8f5c",
+    "correction": "One self.assertIn checks --resume-from-step literal without impossible extra surrounding single quotes. No existing code changed.",
+    "final_run": 44060311408,
+    "final_result": "SUCCESS",
+    "windows": {
+      "python": "3.12.10",
+      "job_id": 133960177482,
+      "tests": 14,
+      "fail": 0,
+      "skip": 0
+    },
+    "linux": {
+      "python": "3.12.16",
+      "job_id": 133960177722,
+      "tests": 14,
+      "fail": 0,
+      "skip": 0
+    },
+    "test_execution": "PYTHON_STDLIB_ONLY_GIT_CAT_FILE_NO_TORCH_NO_PIP_NO_MODEL_CHECKPOINT_DATA_OR_SCIENCE",
+    "total_distinct_test_methods": 14,
+    "total_cross_OS_invocations": 28,
+    "tests": [
+      "18 exact main Git blob sha1 from git cat-file HEAD:path",
+      "negative altered Git blob pin rejected",
+      "negative schema/duplicate node rejected",
+      "negative source path traversal rejected",
+      "11 existing Python AST parse only, no import",
+      "P02/P03/P04 code interface and resume gap",
+      "B CLI prepare train resume evaluate sample source verified",
+      "Track B original Windows/Linux QA workflow and CLI flags",
+      "synthetic byte identity not T4 BPE",
+      "byte-identity bpb not general multi-byte T4 token span",
+      "P04/B/T4 checkpoint schema distinct",
+      "A37+C26+B14 mapping 63 unique correct source pointer",
+      "external A anchors owner real GO false",
+      "12 exact seam IDs and no silent science pass"
+    ]
+  },
+  "reused_frozen_evidence": {
+    "PR39_source_merge": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "PR40_lineage": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+    "B_synthetic_end_to_end_CI": {
+      "run": 44043606469,
+      "OS": [
+        "Windows",
+        "Linux"
+      ],
+      "status": "SUCCESS",
+      "scope": "PREPARE_TRAIN_3_PLUS_5_RESUME_EVALUATE_SAMPLE_SYNTHETIC_ONLY"
+    },
+    "BC_synthetic_CI": {
+      "run": 44043606388,
+      "status": "SUCCESS"
+    },
+    "C_design_CI": {
+      "run": 44043606424,
+      "status": "SUCCESS"
+    },
+    "A_I1": "PASS_MEASUREMENT_SCOPED_EXTERNAL_UNMERGED",
+    "A_V4": "DESIGN_ACCEPT_SCOPED",
+    "ABC": "PASS_DESIGN_ALIGNMENT_SCOPED",
+    "B_V3_native_dissent": "PRESERVED_HOLD"
+  },
+  "PM_decision": {
+    "E0": "PASS_E0_EXACT_SOURCE_GRAPH_INTEGRATION_SCOPED",
+    "E1": "PASS_EXISTING_SYNTHETIC_E2E_SCOPED_NO_RERUN",
+    "E2": "HOLD_REAL_T4_CHECKPOINT_RIGHTS_PACK_BYTES",
+    "E3": "HOLD_REAL_BASELINE_A_C_EVALUATION",
+    "E4": "PROSPECTIVE_DATA_COMPUTE_OBJECTIVE_CAPACITY_NOT_AUTHORIZED",
+    "E5": "HOLD_REAL_SFT_CODEC_RIGHTS",
+    "E6": "DEFER_SERVING_SCALE",
+    "A_I2": "HOLD_OWNER_Q4",
+    "Claude_roadmap": "OPTIONAL_NON_CANONICAL_PR41",
+    "no_new_QuestionGate": true,
+    "no_model_run": true,
+    "no_science_run": true,
+    "no_merge": true
+  },
+  "source_only_scope_limitations": [
+    "OnePack identifies seams and includes exact source QA, not a new real executable trainer",
+    "Historical T4 weights and actual private pack not accessed",
+    "PM AI source reviewer does not substitute independent human rights signoff",
+    "Old PR39 CI synthetic runtime PASS is reused, never claim real model quality",
+    "Real released deployment, safety and product tests not executed"
+  ]
+}
