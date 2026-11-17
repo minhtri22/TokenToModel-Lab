@@ -5,7 +5,7 @@ runs inference, grants Q4/I2 or claims evidence of real weights or data rights.
 Inputs are UNTRUSTED DECLARATIONS for a future independently verified witness.
 
 Do not use a structurally valid packet as a release token. The only successful
-status is SOURCE_RELATIONSHIPS_VALIDATED_DESIGN_ONLY; Q4 stays HOLD.
+status is PASS_DECLARED_SOURCE_RELATIONSHIPS_ONLY; Q4 stays HOLD.
 """
 from __future__ import annotations
 
