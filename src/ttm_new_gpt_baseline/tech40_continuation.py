@@ -22,7 +22,7 @@ SCHEMA = "ttm.pm.tech40_to_1024.bridge.v1"
 SOURCE_MAIN = "59ee3f30b996405fddc087ab60102b59a021f8ea"
 OLD_RUNNER_BLOB = "113434e25fe19cff27b47f428cf99a0a57ae4fcf"
 NEW_RUNNER_BLOB = "933f42b514de5fac650bfa2a421844c51b9b7c64"
-Q4_DECISION_BLOB = "81ede3ceced6bd0725781b2360e05299b40bbe50"
+Q4_DECISION_BLOB = "8b99e436dd1c31bde3c684167be8a475a73b0dcc"
 TECH40_SHA_FROM_USER_STDOUT = "1a273db7f175578cdc9cf6a976d4679835a42d86a1c0c1604a6ea4e64596a1d9"
 DATA_SHA = "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
 MANIFEST_SHA = "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650"
@@ -94,8 +94,8 @@ def _function_texts(raw):
             for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))}
 
 def source_equivalence(old_file, new_file):
-    old = require_plain_file(old_file).read_bytes()
-    new = require_plain_file(new_file).read_bytes()
+    old = require_plain_file(old_file).read_bytes().replace(b"\r\n", b"\n")
+    new = require_plain_file(new_file).read_bytes().replace(b"\r\n", b"\n")
     if git_blob(old) != OLD_RUNNER_BLOB or git_blob(new) != NEW_RUNNER_BLOB:
         raise ValueError("BRIDGE_OLD_NEW_EXACT_GIT_BLOB_MISMATCH")
     of, nf = _function_texts(old), _function_texts(new)
@@ -121,7 +121,7 @@ def source_equivalence(old_file, new_file):
 
 def q4_readback(path):
     p = require_plain_file(path)
-    raw = p.read_bytes()
+    raw = p.read_bytes().replace(b"\r\n", b"\n")
     if git_blob(raw) != Q4_DECISION_BLOB:
         raise ValueError("Q4_GITHUB_GIT_BLOB_DRIFT")
     o = json.loads(raw)
