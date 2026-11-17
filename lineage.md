@@ -283,3 +283,50 @@
 - Phát hiện tách biệt: T5 Ollama CPU custom 4/4 PASS scoped; R2A validator FAIL; VM R7 marker shortcut FAIL và R8 G0/G1/G2 HOLD; P07 XPU PASS scoped nhưng budget/block; EmbeddingGemma OOD256 PASS scoped nhưng A0E NO_GO_HOLD; H-DATA-S1 không chứng minh semantic benefit; FINAL24/H-DEC prompt adherence không cải thiện; SIX G1 exploratory no signal; D1 R1 CLOSED_DESIGN_HOLD.
 - Ma trận có ưu tiên P1/P2/P3 chỉ là gợi ý review nguồn và quyết định nghiên cứu kế nhiệm; không mở phase. PR #13/#14/#18 tiếp tục Draft; không merge thêm mã hoặc docs trong gate này. Mọi branch merge còn lại `NO_CODE_MERGE_AUTHORIZED` hoặc `NO_MERGE_NEEDED`.
 - Một quyết định: `PASS_SCOPED_GOVERNANCE_AUDIT__HOLD_ALL_NEW_CODE_MERGES_AND_SCIENCE_PERMITS`. Giữ `D1_BRIDGE_SCIENCE=HOLD`, `TEST_Q1Q2=SEALED`, `FC02=NOT_OPENED`, `FROZEN_V6=UNCHANGED`, `GPU=TRAINING=INFERENCE=0`.
+
+## L0030 — 2026-11-17 — Track A M0 v3 I1 PASS phép đo; V4 PASS thiết kế, I2 và merge A HOLD
+
+- Loại: `MEASUREMENT_SCOPED_INDEPENDENT_QA_AND_RELEASE_DESIGN`; không phải thực nghiệm I2 hoặc quyền phát hành.
+- Nguồn: mã I1 được kiểm tại commit `ec197b5f00d3a037420390edd11ee55047e1d37f`; packet A trên Draft PR #33 HEAD `7639a53b9d76e16abfa4211cf239c5c3e9d6c940` phụ thuộc Draft PR #28 HEAD `ebdc54575eed1ff60c402eecf60289f408bb38ca`. V4 thiết kế tại `e6746184603f038b49d1e7d472367b6354474ba2`.
+- QA: independent F01/F02 35/35, owner-native custody 38/38, 80/80 case và 5/5 nhóm; frozen fixture SHA-256 `823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d`. Review: `artifacts/ttm-abc/track-a/M0_V3_POST_HOLD_DISTINCT_I1_20261117/REVIEW.md` tại `e3e1c802815f4db1534e92d9848d6015eb9203cc`.
+- V4: hai hash RAW/TAG, ReleaseTBSV4 signed `policy_epoch`, bảo toàn global `H_SLOT_V3`; review độc lập chấp nhận `DESIGN_ACCEPT_SCOPED` ở Issue #32 comment #6937099406. **65 negative + 3 positive cases chỉ thiết kế, chưa thực thi native.**
+- Quyết định: `A_I1_CLOSED_PASS_SCOPED_MEASUREMENT`, `A_V4_DESIGN_ACCEPT_SCOPED`; historical release preflight exit 2 `HOLD_OWNER_INTERNAL_I1_NOT_PASS`, ancestor race/TOCTOU, ký owner và ledger one-shot chưa PASS. `A_I2=HOLD_NOT_EXECUTED`; PR #28/#33 còn mở, **không nằm trong merge 76 tệp PR #39**. Không suy diễn năng lực mô hình từ I1 hay cấp quyền I2.
+
+## L0031 — 2026-11-17 — Track B M3 GPT Core PASS engineering scoped, bảo toàn V3 native HOLD
+
+- Loại: `SYNTHETIC_ENGINEERING_QA_WITH_HISTORICAL_DISSENT`; không phải huấn luyện SFT thực.
+- Nguồn: PR #34 HEAD `43896bcd034c82e8433bc6a2b53eefbd936616fb`, 11 Git blob được đưa vào `main` sau này qua squash PR #39. PM adjudication tại `docs/research/ttm-abc/track-b/independent_review/B_G5_G6_V3_FULL_RECEIPT_INTEGRATED_PM_ADJUDICATION_20261116.md` commit `fdffbf2cc3c517d25dddae89501c091c58f2608d`.
+- Kết luận: `B_M3_PASS_ENGINEERING_BASELINE_SCOPED_BY_PM_ADJUDICATION`. **Không xóa** original `HOLD_NATIVE_QA` và reviewer `HOLD_PEAK_ACCOUNTING`: `PeakJobMemoryUsed=429174784` vượt cap `268435456`, dù differential 3/3 kiểm từ chối memory; original native receipt SHA-256 `063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188`.
+- Không suy diễn: hard resource cap đã PASS cho runner mới, checkpoint T4 thật được xác minh, quyền chạy GPU hoặc khoa học. PR #34 sau merge có trạng thái `CLOSED_SUPERSEDED_BY_PR39_SOURCE_CONTENT`, **không được GitHub ghi merged riêng**; nhánh, phản biện và receipt gốc giữ nguyên.
+
+## L0032 — 2026-11-17 — Track C M4 PASS thiết kế; source pointer F01 được đính chính, real data/gold HOLD
+
+- Loại: `SCIENTIFIC_CONTRACT_DESIGN_DISTINCT_SOURCE_QA_SCOPED`; không phải chấp nhận nguồn dữ liệu khoa học thực.
+- Nguồn: PR #35 HEAD `4efe93ce0a3910c449972b3f7e9911a004fe2b3c` (30 tệp source đã được tích hợp qua PR #39), nguồn thiết kế M4 `185d465c31f5f4bef6220be95e39dac1ae81c5b8`; independent M4 review tại commit `9fac5a675955d8b91d6855d27907f239cbfb745f` xác nhận 35/35 source/synthetic cases.
+- ALIGN-F01: C registry blob cũ `64508ace4de057958ccbc9e3c7616a18c022250e` có root pointer nhầm sang A evidence index `4f96452215778c3cca1af19bd6d2e3b6506d87d2`; commit C `4efe93ce...` sửa **chỉ một thuộc tính** sang đúng A 37 requirements blob `3de320f1e734c7610fb750477803b082fefff753`, tạo registry blob `364a15d305b71e0c236a27409430f1e27e14aa70`. Giữ lịch sử sai lệch trước sửa.
+- Quyết định: `C_M4_PASS_DESIGN_SCOPED`; C-G1 real data `HOLD`, C-G2 gold/rubric validity `UNPROVEN`, C-G7 not authorized, C-G8 not executed. Không suy ra license/rights, raw data, gold mù, equal-compute hay SFT thật PASS. PR #35 `CLOSED_SUPERSEDED_BY_PR39_SOURCE_CONTENT`, không phải PR35 merge riêng.
+
+## L0033 — 2026-11-17 — B/C v2 synthetic SFT interface PASS kỹ thuật, không phải real SFT
+
+- Loại: `SYNTHETIC_INTERFACE_ENGINEERING_DISTINCT_QA_SCOPED`.
+- Nguồn: PR #36 HEAD `09de6a46574146d863f416e056fcf01091f3efb8` (27 tệp trên nhánh #34), mã đã qua CI `a83e1526bce842761f3051dad28b90a55395a6aa`; PM review độc lập tại `docs/research/ttm-abc/bc-sft/independent_review/BC_V2_F05_F06_PM_FINAL_DISTINCT_ENGINEERING_ADJUDICATION_20261117.md` commit `82aaf2a881bd677afd8f6e600eb570aea897fdba`.
+- Chứng cứ: PM distinct 12/12 mỗi OS Windows/Linux Python 3.12, không skip, Actions run #43937370201; artifact manifest/golden byte SHA đã khóa; giữ nguyên pre-fix 1 PASS/2 FAIL run #43923286066. Token byte-ID B/C v2 là synthetic protocol, không phải tokenizer BPE của T4.
+- Quyết định: `BC_INTERFACE_PASS_ENGINEERING_SCOPED` chỉ cho trusted immutable synthetic bundle; real checkpoint weights `NOT_CREATED/NOT_VERIFIED`, untrusted Windows reparse/TOCTOU, resource native và SFT science vẫn HOLD. PR #36 `CLOSED_SUPERSEDED_BY_PR39_SOURCE_CONTENT` mà không merged riêng.
+
+## L0034 — 2026-11-17 — ABC hợp đồng chung và B remap 63 trường PASS thiết kế, codec T4–B/C trực tiếp INCOMPATIBLE
+
+- Loại: `ABC_CROSS_TRACK_CONTRACT_AND_SOURCE_CUSTODY_ADJUDICATION_DESIGN_ONLY`.
+- Nguồn: hợp đồng PM commit `403491b698ba6586193f2ff2ae00c4441c10c595`, blob `d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1`; packet A `7639a53b9d76e16abfa4211cf239c5c3e9d6c940`; C sửa nguồn `4efe93ce0a3910c449972b3f7e9911a004fe2b3c`; PR #37 B remap HEAD `ff4304e04f44de69a07cd767b2a7f400d6e95e88` (8 tệp tích hợp qua PR #39).
+- Kiểm toán PM: 37 A / 26 C / 14 B-facing = 77 dòng mapping nhưng **63 trường logic** do B14 là subset C26; SHA registry cũ/mới và 637 thuộc tính ngữ nghĩa được đối chiếu, 0 mismatch. Biên bản: `docs/coordination/ttm-abc/TTM_PM_ABC_CCR01_F01_F03_FINAL_DISTINCT_EXACT_SOURCE_ADJUDICATION_20261117.md`, commit `fa28b89e4ee93b3de4561deaa2a7b9a086fa340b`.
+- Kết luận: `ABC_CONTRACT_ALIGNED_DESIGN_SCOPED`, ALIGN-F01 corrected, ALIGN-F03 thống nhất **training CE giám sát assistant EOT/final EOS** nhưng byte-only `val_bpb` loại stop/protocol khỏi cả NLL tử số và valid UTF-8 byte mẫu số; A `a_gold_nll` vẫn chỉ là NLL một gold next-token (nats).
+- ALIGN-F02 không được xóa: T4 BPE ID 257–2047 là merges, trong B/C v2 ID 257–262 là protocol specials; `INCOMPATIBLE_DIRECT_T4_BC`. Sidecar `T4_NATIVE_BPE_EXTERNAL_ROLE_BYTE_SPAN_DESIGN_ONLY` chưa triển khai, byte-span/mask và actual T4 weights `HOLD`. R1–R8 cho real SFT/I2 tiếp tục giới hạn riêng. PR #37 `CLOSED_SUPERSEDED_BY_PR39_SOURCE_CONTENT`, không merged riêng.
+
+## L0035 — 2026-11-17 — Owner-approved 76 tệp B/B-C/C hợp nhất PR #39, QA Windows/Linux PASS, khoa học HOLD
+
+- Loại: `OWNER_APPROVED_EXACT_SOURCE_SCOPE_ENGINEERING_MERGE_CLOSURE`; **không** phải `SCIENTIFIC_RESULT`, huấn luyện hoặc TEST.
+- Owner đồng ý chính xác 76 tệp B/C/C; nguồn PR #34 HEAD `43896bcd034c82e8433bc6a2b53eefbd936616fb` = 11 tệp, #36 HEAD `09de6a46574146d863f416e056fcf01091f3efb8` = 27, #37 HEAD `ff4304e04f44de69a07cd767b2a7f400d6e95e88` = 8, #35 HEAD `4efe93ce0a3910c449972b3f7e9911a004fe2b3c` = 30. **76/76 source Git blob SHA-1** đã kiểm lại từ tree GitHub của `main`.
+- PR #39 [https://github.com/minhtri22/TokenToModel-Lab/pull/39] đã squash merge, GitHub `merged=true` tại commit `5dd6d4d5af169b0f707f872184c47ce5443513f3`, một parent `main` cũ `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3`; Git tree **`8518da41b7287a8f4b0bc96dc0e6b0228f097af7`** khớp tree nguồn đã QA; diff **76 added, 0 modified, 0 deleted, 0 extra**. Không có PR #28/#33 hay hai tệp PM QA-only.
+- CI chính trên exact PR #39 HEAD `f814fe72604a7ee3ec04015f186d8f0bd00fd4d9`: Track B Actions #44043606469, B/C #44043606388, C #44043606424 **đều SUCCESS trên Windows và Linux Python 3.12 (6/6 jobs)**. PM separate combined source-only QA Actions #44026751082 **5/5 PM và 60/60 C mỗi OS**, bản đầu #44026585729 Windows FAIL vì checkout CRLF vs Git-object byte, sửa test-only rồi PASS; không xóa FAIL.
+- Chứng cứ: manifest 76 Git blobs `artifacts/ttm-abc/governance/TTM_PM_ABC_76_FILE_COMPOSITE_SOURCE_MANIFEST_20261117.json` tại `d260a26e2b805b2ba7c6e4cef21f347bc1ff69a2`; merge closure receipt `artifacts/ttm-abc/governance/TTM_PM_ABC_OWNER_APPROVED_76_FILE_MAIN_MERGE_CLOSURE_20261117.json` tại `0d8b102eab8965dbdda5d7f1e1fd728d53ac5b21`; PM Issue #32 comment #6942406840.
+- Đối chiếu PR hậu merge: PR #34/#35/#36/#37 được đóng **administratively superseded, `merged=false`**; PR #38 QA-only cũng đóng `merged=false`, không nhập hai tệp reviewer QA; không xóa nhánh hoặc review histories. PR #28/#33 vẫn mở và riêng I2 HOLD. Đây là closure đúng phạm vi, không cấp phép huấn luyện.
+- Quyết định cuối: `PASS_EXACT_76_FILES_MAIN_MERGED` và `BC_COMBINED_SOURCE_QA_PASS_SCOPED`; `A_I2=HOLD_NOT_EXECUTED`, `REAL_SFT=HOLD_NOT_EXECUTED`, `GPU/NEW_TEST=NOT_AUTHORIZED`; B V3 native HOLD/peak dissent, C real data/gold HOLD và lịch sử science các nhánh giữ nguyên. Không thay đổi các tiền đăng ký hoặc TEST cũ qua entry này.
