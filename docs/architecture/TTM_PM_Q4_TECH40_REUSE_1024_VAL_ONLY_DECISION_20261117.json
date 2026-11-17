@@ -11,10 +11,10 @@
   "source_repair_runner_git_blob": "933f42b514de5fac650bfa2a421844c51b9b7c64",
   "source_repair_runner_commit": "500c9e119fb1bc3e424abacd1afa3bb1aa2aba7e",
   "expected_original_tech40_receipt_sha256_from_owner_stdout_canonical_candidate": "1a273db7f175578cdc9cf6a976d4679835a42d86a1c0c1604a6ea4e64596a1d9",
-  "receipt_sha_evidence_level": "CANDIDATE_RECONSTRUCTED_FROM_USER_CONSOLE_NOT_YET_RAW_FILE_VERIFIED",
+  "receipt_sha_evidence_level": "TRANSCRIPT_PREDICTION_ONLY; ADMISSION_REQUIRES_ACTUAL_ORIGINAL_RAW_SHA_MATCHING_ORIGINAL_SESSION_STATUS",
   "required_terminal_tech40_status": "TECHNICAL_40_PASS_SCIENCE_HOLD_NO_Q4",
   "historical_train_val_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
-  "historical_pack_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+  "historical_pack_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
   "historical_original_checkpoint_1024_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
   "science_recipe_sha256": "d116c92ee1126a91acb1e54d1ff80f08a18ca97bdc8220467a4898426d01d1e3",
   "owner_rights_scope": "INTERNAL_RESEARCH_TINYSTORIES_TRAIN_AND_VAL_ONLY",
@@ -40,7 +40,7 @@
     "test_access": "PROHIBITED"
   },
   "runtime_mandatory_gates": [
-    "ACTUAL_ORIGINAL_RECEIPT_BYTE_SHA256_EQUALS_FROZEN_CONSOLE_CANDIDATE",
+    "ACTUAL_ORIGINAL_RECEIPT_BYTE_SHA256_MATCHES_ORIGINAL_SESSION_STATUS_SHA256",
     "ORIGINAL_SESSION_LOCK_AND_TERMINAL_STATUS_SHA_MATCH_RECEIPT_AND_OLD_RUN_ID",
     "ORIGINAL_OLD_RUNNER_BLOB_AND_CURRENT_SOURCE_EQUIVALENCE_CONTRACT_PASS",
     "COLAB_TESLA_T4_GPU_FREE_AT_LEAST_10_GIB_AND_PYTHON312",
@@ -56,5 +56,10 @@
   "historical_test": "SEALED_ALREADY_CONSUMED_NOT_USED",
   "security_limitation": "Declarative PM gate tied to immutable Git blob; not a cryptographic owner signature or cross-device authorization service",
   "scope_expiry": "ONE_CONTINUATION_OF_ONE_FROZEN_TECH40_RECEIPT",
-  "main_merge": false
+  "main_merge": false,
+  "historical_runner_manifest_source_typoscope": {
+    "frozen_literal_61": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+    "correct_verified_drive_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "remedy": "SCOPED_RUNTIME_GLOBAL_CONSTANT_REBIND_ONLY; HISTORIC_SOURCE_GIT_BLOB_AND_RECIPE_UNCHANGED; SOURCE_QA_REQUIRED"
+  }
 }
