@@ -1,0 +1,102 @@
+{
+  "schema": "ttm.pm.real_gpt.t4_r0_r8_admission_ledger.v1",
+  "operation": "TTM_PM_REAL_GPT_BASELINE_VERTICAL_SLICE_ADAPTER_AND_ABC_EVALUATION_ADMISSION_ONEPACK",
+  "date": "2026-11-17",
+  "source_main_sha": "b2e97dd3b773fc22a91618c8f034d22fda1f5908",
+  "scope": "SOURCE_ONLY_TYPED_ADAPTER_AND_SYNTHETIC_ARITHMETIC_EVAL_NOT_REAL_MODEL",
+  "proposed_action": "Future single T4 GPT baseline private checkpoint and TRAIN/VAL evaluation subject to existing owner Q4",
+  "not_from_claude": true,
+  "not_replay_original_A_I2": true,
+  "source_pins": {
+    "P02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "T4_CAPACITY": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "T4_TRAIN": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "T4_PACK": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+    "T4_BPE": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "B_SYNTHETIC_LOADER": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+    "C_REGISTRY": "364a15d305b71e0c236a27409430f1e27e14aa70"
+  },
+  "hash_domains": {
+    "checkpoint_file_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "checkpoint_ready_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "train_pack_npz_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "tokenizer_file_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "tokenizer_internal_manifest_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "token_merges_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "science_lock_sha256": "UNVERIFIED_PRIVATE_BYTES",
+    "rule": "READY and checkpoint header refer to PACK_NPZ_SHA; pack refers independently to T4 BPE FILE SHA and BPE INTERNAL MANIFEST SHA; no alias"
+  },
+  "previous_QA_reused": {
+    "pr39_source_merge": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "pr42_source_graph_merge": "b2e97dd3b773fc22a91618c8f034d22fda1f5908",
+    "track_B_synthetic_CI": 44043606469,
+    "track_BC_synthetic_CI": 44043606388,
+    "track_C_design_CI": 44043606424,
+    "pm_PR42_source_only_CI": 44063647865,
+    "A_I1": "CLOSED_PASS_MEASUREMENT_SCOPED_EXTERNAL_SOURCE",
+    "A_V4": "DESIGN_ACCEPT_SCOPED",
+    "B_M3": "PASS_ENGINEERING_SYNTHETIC_SCOPED_WITH_V3_DISSENT",
+    "C_M4": "PASS_DESIGN_SCOPED",
+    "ABC": "PASS_DESIGN_SCOPED",
+    "A_I2": "HOLD_NOT_EXECUTED"
+  },
+  "gates": [
+    {
+      "gate": "R0",
+      "status": "SOURCE_CONTRACT_QA_PENDING",
+      "required": "exact new source/git blob CI and PM independent review; original source pinned"
+    },
+    {
+      "gate": "R1",
+      "status": "HOLD_GOLD_ACTUAL_LOGITS",
+      "required": "A frozen full-vocab goldblind scorer from actual owner-authorized real model + C gold/rater"
+    },
+    {
+      "gate": "R2",
+      "status": "HOLD_RIGHTS_FAMILY_SPLIT",
+      "required": "C authenticated action-specific license, raw SHA, original family split, PII, quarantine, fresh holdout"
+    },
+    {
+      "gate": "R3",
+      "status": "HOLD_REAL_CHECKPOINT_TOKENIZER",
+      "required": "B actual weights & optimizer + ready/raw bytes, P02 tensor shape and T4 TRAIN-only BPE file/internal SHA, strict no-alias"
+    },
+    {
+      "gate": "R4",
+      "status": "HOLD_HOST_RESOURCE",
+      "required": "native hard memory and time/VRAM/CPU/IO resource QA for exact action, strict abort"
+    },
+    {
+      "gate": "R5",
+      "status": "HOLD_A_OWNER_RELEASE",
+      "required": "only for Q001 I2 original slot; native trusted signer/antirollback/atomic one-shot ledger; no generalized I2 permit"
+    },
+    {
+      "gate": "R6",
+      "status": "HOLD_PREREG",
+      "required": "C prospective freeze sources, estimator, masks, fresh VAL, no used TEST, uncertainty and stop criteria"
+    },
+    {
+      "gate": "R7",
+      "status": "HOLD_DISTINCT_REAL_QA",
+      "required": "distinct exact candidate native & scorer/rights QA, not previous B synthetic tests"
+    },
+    {
+      "gate": "R8",
+      "status": "HOLD_OWNER_Q4_REAL_EXECUTION",
+      "required": "one owner decision on exact integrated R0–R7 evidence, no automatic GO"
+    }
+  ],
+  "source_contract_result": "CANDIDATE_NOT_YET_QA",
+  "metadata_relation_pass_is_real_custody": false,
+  "model_checkpoint_access_authorized": false,
+  "private_dataset_access_authorized": false,
+  "new_test_access_authorized": false,
+  "gpu_execution_authorized": false,
+  "scientific_run_authorized": false,
+  "owner_q4_decision": "HOLD_REAL_VERTICAL_SLICE",
+  "i2_scope": "HOLD_Q001_ONLY_IF_Q001_DIAGNOSTIC_REQUESTED; NOT_GENERIC_E2E_SOURCE_MERGE_GATE",
+  "real_sft": "HOLD",
+  "submission": "DRAFT_REVIEW_ONLY_CANDIDATE_NO_MAIN_MERGE_AUTHORITY",
+  "future_single_decision": "GO_OR_HOLD_FOR_EXACT_T4_REAL_VERTICAL_SLICE_ONLY_AFTER_INTEGRATED_R0_R8"
+}
