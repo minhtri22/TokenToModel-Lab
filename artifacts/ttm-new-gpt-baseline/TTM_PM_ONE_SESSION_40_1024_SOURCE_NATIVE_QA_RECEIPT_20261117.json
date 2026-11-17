@@ -1,0 +1,83 @@
+{
+  "schema": "ttm.pm.one_session_tech40_tinystories1024_paired_val.qa.v1",
+  "operation": "TTM_PM_SINGLE_SESSION_TECH40_NEW1024_HISTORIC_PAIRED_COMPARISON_ONEPACK",
+  "date": "2026-11-17",
+  "source_repo": "minhtri22/TokenToModel-Lab",
+  "candidate_branch": "implementation/ttm-pm-new-gpt-baseline-colab-t4-onepack-20261117",
+  "original_main": "59ee3f30b996405fddc087ab60102b59a021f8ea",
+  "exact_qa_head_pre_evidence": "a483b13ef49bf0cee2a37e1f77eb4c669ae1aae0",
+  "source_git_blobs": {
+    "src/ttm_new_gpt_baseline/runner.py": "113434e25fe19cff27b47f428cf99a0a57ae4fcf",
+    "notebooks/TTM_NEW_GPT_BASELINE_T4_ONEPACK_20261117.ipynb": "4a7b823340ef0c5be44fa8dfb36a3e11df0725fa",
+    "tests/ttm_new_gpt_baseline/test_onepack_source.py": "4e8b589aa24f25c6974b147b22ce9e37cbbfaf09",
+    ".github/workflows/ttm-newgpt-colab-source-qa-py312.yml": "9722a278e8666d4df76ba8b1baa8a2677cb4d2fc",
+    ".github/workflows/ttm-matched4m-native-resume-qa-py312.yml": "2b3cc0813fca593334181ca1fb9d034861d4ffec",
+    "docs/architecture/TTM_PM_ONE_SESSION_SYNTHETIC40_THEN_1024_PAIRED_VAL_20261117.md": "c3d0cf92c98007894a11b2dcbc8287457c4eea57"
+  },
+  "admissions": {
+    "2048": "OUTSIDE_CURRENT_ONE_SESSION_SCOPE",
+    "TECH40": "GO_SYNTHETIC_TECH_DIAGNOSTIC_OWNER_OPT_IN",
+    "NEW1024": "HOLD_EXACT_INTEGRATED_Q4_GO_NOT_GIVEN",
+    "PAIRED_VAL": "HOLD_DEPENDS_ON_NEW_REAL1024_COMPLETE",
+    "TEST": "NOT_ACCESSED"
+  },
+  "engineering": {
+    "stages": [
+      "40 x4096 synthetic optimizer steps on full 3,749,376-param P02 T4 GPT",
+      "freshly initialize separate P02 random weights and train 1024 x4096 TinyStories",
+      "paired per-story NLL on 256 historical VAL with old/new checkpoint 1024"
+    ],
+    "synthetic_weights_transferred": false,
+    "new_science_checkpoint_initialized_from_random": true,
+    "bpe": "T1_TRAIN_ONLY_BPE2048",
+    "context": 256,
+    "train_stories": 2048,
+    "val_stories": 256,
+    "historical_test_not_reopened": true,
+    "historic_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+    "pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
+  },
+  "ci_source": {
+    "run_id": 44105457898,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/44105457898",
+    "head_sha": "a483b13ef49bf0cee2a37e1f77eb4c669ae1aae0",
+    "conclusion": "success",
+    "windows": {
+      "runner_unit": "PASS_13_OF_13",
+      "separate_source_adversarial": "PASS_23_OF_23"
+    },
+    "linux": {
+      "runner_unit": "PASS_13_OF_13",
+      "separate_source_adversarial": "PASS_23_OF_23"
+    },
+    "note": "Tests written in same assistant workflow; not independent human reviewer"
+  },
+  "ci_native_cpu": {
+    "run_id": 44105457837,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/44105457837",
+    "conclusion": "success",
+    "python": "3.12.16",
+    "torch": "2.5.1+cpu",
+    "toy_steps": "4 (2+resume2)",
+    "full_model_params": 3749376,
+    "full_p02_cpu_synthetic_steps": "3 (1+resume2), 8 targets per step",
+    "full_model_max_abs_parameter_diff": 0,
+    "checkpoint_tamper_rejected": true,
+    "full_T4_fp16_resume": "NOT_EXECUTED",
+    "science_executed": false
+  },
+  "real_t4": {
+    "technical40": "NOT_EXECUTED",
+    "tinystories1024": "NOT_EXECUTED",
+    "paired_checkpoint_val": "NOT_EXECUTED",
+    "private_source_read": "NOT_EXECUTED",
+    "test_access": "NOT_EXECUTED"
+  },
+  "pm_decision": "PASS_SCOPED_IMPLEMENTATION_AND_SOURCE_NATIVE_CPU_QA; Q4_HOLD_REAL_GPU_SCIENCE",
+  "main_unchanged": true,
+  "lineage_unchanged": true,
+  "pr_draft": true,
+  "source_tests_distinct_code_not_independent_review": true,
+  "next_single_step": "Review exact source/rights and owner 40-step resource preflight, then ONE conditional Q4 GO/HOLD for an entire Colab session; never auto-grant GO"
+}
