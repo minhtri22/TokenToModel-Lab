@@ -1,0 +1,175 @@
+{
+  "schema": "ttm.pm.gpt_e2e.abc_integrated_source_qa_receipt.v1",
+  "operation": "TTM_PM_GPT_END_TO_END_BASELINE_INTEGRATION_AND_ABC_DELIVERABLE_GAP_CLOSURE_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_main": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+  "candidate_before_receipt": "cffe1ffa8e98c4ab9fd200d8a7c93c07d37f8f5c",
+  "review_branch": "review/ttm-pm-gpt-e2e-abc-source-integration-20261117",
+  "review_pr": 42,
+  "review_draft": true,
+  "merge_authorized": false,
+  "PM_verified_source": {
+    "nodes": 18,
+    "external_A_sources": 2,
+    "seams": 12,
+    "readback_before_receipt": [
+      {
+        "k": "manifest",
+        "path": "artifacts/ttm-gpt-e2e/TTM_PM_GPT_E2E_ABC_EXACT_SOURCE_INTEGRATION_MANIFEST_20261117.json",
+        "git_blob": "d65908052721fc4b256130b3e7198e57c9088a63",
+        "chars": 11672
+      },
+      {
+        "k": "report",
+        "path": "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md",
+        "git_blob": "141066483264919843c592ce0b7be284398d8636",
+        "chars": 11717
+      },
+      {
+        "k": "qa_test",
+        "path": "tests/ttm_pm_gpt_e2e_source/test_e2e_abc_exact_source_graph.py",
+        "git_blob": "dd469c59583e290d8c71cefc88f2abfb4e9d5b08",
+        "chars": 10263
+      },
+      {
+        "k": "workflow",
+        "path": ".github/workflows/ttm-pm-gpt-e2e-abc-source-qa-py312.yml",
+        "git_blob": "7f8193f78d0d39d8456316b89aeafc22f78f3c10",
+        "chars": 1020
+      }
+    ],
+    "all_source_blob_pins_checked_by_QA": true,
+    "new_or_modified_B_model_code": false,
+    "new_or_modified_A_C_frozen_code": false,
+    "owner_Q4_runtime_authority": "HOLD",
+    "readback_before_receipt_scope": "HISTORICAL_PRE_F01_F04_SOURCE_BLOBS_ONLY; do not present previous blob SHA as amended source pin"
+  },
+  "QA": {
+    "initial_failed_run": 44060185325,
+    "initial_result": "FAIL_ONE_TEST_08_AUTHOR_ASSUMPTION_ABOUT_QUOTED_CLI_FLAG; SOURCE_AND_OTHER_13_TESTS_PASSED_ON_LINUX",
+    "correction_commit": "cffe1ffa8e98c4ab9fd200d8a7c93c07d37f8f5c",
+    "correction": "One self.assertIn checks --resume-from-step literal without impossible extra surrounding single quotes. No existing code changed.",
+    "final_run": 44060311408,
+    "final_result": "SUCCESS",
+    "windows": {
+      "python": "3.12.10",
+      "job_id": 133960177482,
+      "tests": 14,
+      "fail": 0,
+      "skip": 0
+    },
+    "linux": {
+      "python": "3.12.16",
+      "job_id": 133960177722,
+      "tests": 14,
+      "fail": 0,
+      "skip": 0
+    },
+    "test_execution": "PYTHON_STDLIB_ONLY_GIT_CAT_FILE_NO_TORCH_NO_PIP_NO_MODEL_CHECKPOINT_DATA_OR_SCIENCE",
+    "total_distinct_test_methods": 14,
+    "total_cross_OS_invocations": 28,
+    "tests": [
+      "18 exact main Git blob sha1 from git cat-file HEAD:path",
+      "negative altered Git blob pin rejected",
+      "negative schema/duplicate node rejected",
+      "negative source path traversal rejected",
+      "11 existing Python AST parse only, no import",
+      "P02/P03/P04 code interface and resume gap",
+      "B CLI prepare train resume evaluate sample source verified",
+      "Track B original Windows/Linux QA workflow and CLI flags",
+      "synthetic byte identity not T4 BPE",
+      "byte-identity bpb not general multi-byte T4 token span",
+      "P04/B/T4 checkpoint schema distinct",
+      "A37+C26+B14 mapping 63 unique correct source pointer",
+      "external A anchors owner real GO false",
+      "12 exact seam IDs and no silent science pass",
+      "F01 P02 F.cross_entropy default -100 via static AST; P03 rejects target<0; B independent ignore -100; manifest S03 corrected",
+      "F02 external A I1/V4 exact source/evidence Git blob pins and C registry pointer; reviewer reads external refs, CI does not",
+      "F02/F04 report-manifest-receipt consistent PRE-QA and previously run historical-only metadata",
+      "F03 workflow PR path includes new report; no pip/model/training commands"
+    ],
+    "prior_pre_receipt_run": 44060311408,
+    "latest_prior_exact_head_run": 44060530115,
+    "latest_prior_exact_head_sha": "383e2a4a858069e05a290d7448e607a01853ae04",
+    "CI_authority_note": "Only the current PR HEAD workflow result on GitHub after F01-F04 amendment can establish final PASS. Runs #44060311408 (prior source HEAD) and #44060530115 (prior exact PR42 HEAD) are HISTORICAL, not evidence of the amended commit. A receipt file cannot embed its own future run ID without a new commit/head; record final run separately in PM GitHub review/Issue #32.",
+    "current_amendment_method_count": 17,
+    "current_amendment_QA_status": "NOT_EXECUTED_AT_RECEIPT_AUTHOR_TIME; GITHUB_POST_COMMIT_WORKFLOW_REQUIRED"
+  },
+  "reused_frozen_evidence": {
+    "PR39_source_merge": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "PR40_lineage": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+    "B_synthetic_end_to_end_CI": {
+      "run": 44043606469,
+      "OS": [
+        "Windows",
+        "Linux"
+      ],
+      "status": "SUCCESS",
+      "scope": "PREPARE_TRAIN_3_PLUS_5_RESUME_EVALUATE_SAMPLE_SYNTHETIC_ONLY"
+    },
+    "BC_synthetic_CI": {
+      "run": 44043606388,
+      "status": "SUCCESS"
+    },
+    "C_design_CI": {
+      "run": 44043606424,
+      "status": "SUCCESS"
+    },
+    "A_I1": "PASS_MEASUREMENT_SCOPED_EXTERNAL_UNMERGED",
+    "A_V4": "DESIGN_ACCEPT_SCOPED",
+    "ABC": "PASS_DESIGN_ALIGNMENT_SCOPED",
+    "B_V3_native_dissent": "PRESERVED_HOLD"
+  },
+  "PM_decision": {
+    "E0": "PRE_QA_SOURCE_SNAPSHOT; PRIOR_SCOPED_PASS_PRESERVED; AMENDED_HEAD_FINAL_REVIEW_AWAITS_GITHUB_CI",
+    "E1": "PASS_EXISTING_SYNTHETIC_E2E_SCOPED_NO_RERUN",
+    "E2": "HOLD_REAL_T4_CHECKPOINT_RIGHTS_PACK_BYTES",
+    "E3": "HOLD_REAL_BASELINE_A_C_EVALUATION",
+    "E4": "PROSPECTIVE_DATA_COMPUTE_OBJECTIVE_CAPACITY_NOT_AUTHORIZED",
+    "E5": "HOLD_REAL_SFT_CODEC_RIGHTS",
+    "E6": "DEFER_SERVING_SCALE",
+    "A_I2": "HOLD_OWNER_Q4",
+    "Claude_roadmap": "OPTIONAL_NON_CANONICAL_PR41",
+    "no_new_QuestionGate": true,
+    "no_model_run": true,
+    "no_science_run": true,
+    "no_merge": true,
+    "pr42_merge_scope": "OWNER_DELEGATED_PM_READJUDICATION_AFTER_QA; NOT_YET_EXECUTED"
+  },
+  "source_only_scope_limitations": [
+    "OnePack identifies seams and includes exact source QA, not a new real executable trainer",
+    "Historical T4 weights and actual private pack not accessed",
+    "PM AI source reviewer does not substitute independent human rights signoff",
+    "Old PR39 CI synthetic runtime PASS is reused, never claim real model quality",
+    "Real released deployment, safety and product tests not executed"
+  ],
+  "source_scope": {
+    "manifest_path": "artifacts/ttm-gpt-e2e/TTM_PM_GPT_E2E_ABC_EXACT_SOURCE_INTEGRATION_MANIFEST_20261117.json",
+    "report_path": "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md",
+    "source_nodes": 18,
+    "seam_count": 12,
+    "external_A_anchor_count": 2,
+    "snapshot_only_no_real_execution": true,
+    "approval_semantics": "E0 source-only QA does not authorize checkpoint, science, I2, SFT, model/GPU or TEST",
+    "external_A_reviewer": "GitHub exact refs were inspected in PM review; CI checks pinned A paths/sha vs C source cross-refs and does not fetch external branches"
+  },
+  "F01_F04_amendment": {
+    "finding_ids": [
+      "F01",
+      "F02",
+      "F03",
+      "F04"
+    ],
+    "fixed_scope": [
+      "source fact CE/P03 negative target vs B ignore mask",
+      "external exact A pinned SHA, nonvacuous QA and report/receipt tests",
+      "workflow docs path trigger",
+      "preQA versus prior/current exact HEAD provenance"
+    ],
+    "model_source_changed": false,
+    "A_B_C_existing_QA_rerun": false,
+    "original_negative_QA_preserved": true,
+    "adjudication_status": "AWAITING_CURRENT_EXACT_PR_HEAD_WIN_LINUX_QA"
+  }
+}

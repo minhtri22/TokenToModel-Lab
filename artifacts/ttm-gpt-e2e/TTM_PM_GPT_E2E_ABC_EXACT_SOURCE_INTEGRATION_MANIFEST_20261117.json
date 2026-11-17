@@ -1,0 +1,331 @@
+{
+  "schema": "ttm.pm.gpt_e2e.abc_exact_source_graph.v1",
+  "operation": "TTM_PM_GPT_END_TO_END_BASELINE_INTEGRATION_AND_ABC_DELIVERABLE_GAP_CLOSURE_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "base_main_sha": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+  "source_snapshot_frozen": true,
+  "purpose": "Unify exact already-merged GPT baseline technical components and delineate present synthetic E2E vs prospective T4 real training/evaluation. NOT an implementation of new real runner.",
+  "design_source_only": true,
+  "real_source_access": false,
+  "model_or_checkpoint_execution": false,
+  "nodes": [
+    {
+      "id": "P01_T4_BPE",
+      "path": "tools/pilot_t4/integrated/source_t2/ttm_gpt2_bpe2048.py",
+      "blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+      "scope": "TRAIN_ONLY_BPE_SOURCE_2048",
+      "qa": "HISTORICAL_ENGINEERING_SOURCE",
+      "real_runtime": "HOLD_REAL_TOKENIZER_BYTE_MANIFEST"
+    },
+    {
+      "id": "P01_T4_DATA",
+      "path": "tools/pilot_t4/integrated/t4_data_pack.py",
+      "blob": "cdce219f2a2df27e25579f069238d4327c1d7d91",
+      "scope": "REAL_TRAIN_VAL_PACK_BUILDER_SOURCE",
+      "qa": "HISTORICAL_SOURCE",
+      "real_runtime": "HOLD_SOURCE_RIGHTS_PRIVATE_TRAIN_VAL_PACK"
+    },
+    {
+      "id": "P02_TRANSFORMER",
+      "path": "src/p02/transformer_core.py",
+      "blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+      "scope": "TORCH_DECODER_CAUSAL_TIED_HEAD",
+      "qa": "P02_SYNTHETIC_CORE_PASS_SCOPED",
+      "real_runtime": "HOLD_NEW_FULL_RUNNER"
+    },
+    {
+      "id": "P03_TRAIN",
+      "path": "src/p03/train_loop.py",
+      "blob": "80dc004a864085e7ae2e1ab4942d1cb2d84ce742",
+      "scope": "FIXED_BATCH_OVERFIT_NO_OPTIMIZER_CHECKPOINT",
+      "qa": "P03_SYNTHETIC_TRAIN_QA_SCOPED",
+      "real_runtime": "NOT_RESUMABLE_PRODUCTION"
+    },
+    {
+      "id": "P04_CHECKPOINT_EVAL",
+      "path": "src/p04/eval_checkpoints.py",
+      "blob": "f047fcd33d871d26f789f0008611c04af4579bc4",
+      "scope": "WEIGHTS_ONLY_P04_CPU_MODEL_CKPT_SYNTHETIC_EVAL_SAMPLE",
+      "qa": "P04_SYNTHETIC_QA_SCOPED",
+      "real_runtime": "NO_OPTIMIZER_SAMPLER_RESUME; NO_REAL_SOURCE"
+    },
+    {
+      "id": "B_SYNTHETIC_RUNNER",
+      "path": "src/ttm_track_b/scaffold.py",
+      "blob": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+      "scope": "PREPARE_TRAIN_RESUME_EVAL_SAMPLE_SYNTHETIC_CPU",
+      "qa": "B_M3_PASS_ENGINEERING_SCOPED_HISTORIC_V3_NATIVE_DISSENT",
+      "real_runtime": "NOT_PROOF_OF_T4_REAL_TRAINING"
+    },
+    {
+      "id": "B_SYNTHETIC_CLI",
+      "path": "src/ttm_track_b/cli.py",
+      "blob": "be458f18fe98376fe5a43041e3f151956c66fb9d",
+      "scope": "EXPLICIT_CLI_PREPARE_TRAIN_EVALUATE_SAMPLE",
+      "qa": "PR39_WIN_LINUX_SYNTHETIC_CI_PASS",
+      "real_runtime": "NO_REAL_SOURCE_CHECKPOINT_OPT_IN"
+    },
+    {
+      "id": "B_C_SYNTHETIC_INTERFACE",
+      "path": "src/ttm_track_b/bc_sft_interface.py",
+      "blob": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+      "scope": "BC_V2_BYTE_SPECIAL_TOKEN_INTERFACE_0_262",
+      "qa": "BC_INTERFACE_PASS_ENGINEERING_SCOPED",
+      "real_runtime": "INCOMPATIBLE_DIRECT_T4_BPE_IDS_257_262"
+    },
+    {
+      "id": "B_C_SYNTHETIC_BRIDGE",
+      "path": "src/ttm_track_b/bc_sft_bridge_v2.py",
+      "blob": "c56d98b520fef387fab43bac87b7a9247287b17c",
+      "scope": "BC_V2_SEVEN_JSON_BUNDLE_AND_MANIFEST",
+      "qa": "BC_F05_F06_PASS_ENGINEERING_SCOPED",
+      "real_runtime": "WEIGHTS_NOT_CREATED; REAL_SFT_HOLD"
+    },
+    {
+      "id": "T4_TRAIN_HISTORIC",
+      "path": "tools/pilot_t4/a2_continuous1024/t4_train_science_a2.py",
+      "blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+      "scope": "HISTORIC_T4_SCIENCE_SOURCE_1024_STEPS",
+      "qa": "HISTORIC_ONLY_NO_NEW_RUN",
+      "real_runtime": "ACTUAL_PRIVATE_CKPT_RIGHTS_CUSTODY_NOT_READBACK"
+    },
+    {
+      "id": "T4_EVAL_HISTORIC",
+      "path": "tools/pilot_t4/integrated/t4_eval.py",
+      "blob": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+      "scope": "HISTORICAL_T4_STORY_VAL_SCORES",
+      "qa": "HISTORICAL_SOURCE",
+      "real_runtime": "HOLD_REAL_PACK_CKPT_CHECKPOINT_CONSUMED_TEST"
+    },
+    {
+      "id": "C_SCIENCE_REGISTRY",
+      "path": "artifacts/ttm-abc/track-c/C_SCIENCE_REQUIREMENTS_AND_A_C_COMPATIBILITY_20261117.json",
+      "blob": "364a15d305b71e0c236a27409430f1e27e14aa70",
+      "scope": "SCIENCE_RIGHTS_SPLITS_METRICS_GOLD_FROZEN_DESIGN",
+      "qa": "C_M4_PASS_DESIGN_SCOPED",
+      "real_runtime": "NO_REAL_GOLD_RIGHTS_DATA_QUALIFICATION"
+    },
+    {
+      "id": "B_C_REMAP",
+      "path": "artifacts/ttm-abc/track-b/B_ABC_CCR01_EXACT_C_37_26_14_REMAP_20261117.json",
+      "blob": "c2d4a050f35218de2c023d3a5c50fb3454404c23",
+      "scope": "A37_C26_B14_MAPPING_63_UNIQUE",
+      "qa": "ABC_CONTRACT_ALIGNED_DESIGN_SCOPED",
+      "real_runtime": "DESIGN_ONLY"
+    },
+    {
+      "id": "B_CONFIG",
+      "path": "configs/ttm/track_b_synthetic_smoke.json",
+      "blob": "ec5df715eec3022bc2e4b097d28b5f5b1fd21a96",
+      "scope": "SYNTHETIC_CPU_SMOKE_CONFIG",
+      "qa": "PR39_CI_WIN_LINUX_PASS",
+      "real_runtime": "DO_NOT_PROMOTE_TO_REAL_T4"
+    },
+    {
+      "id": "B_SYNTHETIC_TESTS",
+      "path": "tests/test_track_b_scaffold.py",
+      "blob": "359896b4dea646cf02509ebb2910e6a87b5c954b",
+      "scope": "21_TESTS_WITH_SYNTHETIC_TRAIN_RESUME_EVAL",
+      "qa": "PR39_CI_WIN_LINUX_PASS",
+      "real_runtime": "DO_NOT_REPLAY_FOR_SCIENCE"
+    },
+    {
+      "id": "B_WIN_LINUX_CI",
+      "path": ".github/workflows/track-b-b0b1-py312.yml",
+      "blob": "473d904e4a51d43f589610fed888a2a5fdacbfcd",
+      "scope": "PY312_WIN_LINUX_SYNTHETIC_E2E_QA",
+      "qa": "PR39_GITHUB_ACTIONS_PASS",
+      "real_runtime": "NO_REAL_T4"
+    },
+    {
+      "id": "P03_TESTS",
+      "path": "tests/p03/test_train_loop.py",
+      "blob": "daa454adc8b0a5077b9c70a023d2f846be9fb2b7",
+      "scope": "FIXED_BATCH_TRAIN_QA",
+      "qa": "HISTORICAL_TEST",
+      "real_runtime": "NO_REAL_SOURCE"
+    },
+    {
+      "id": "P04_TESTS",
+      "path": "tests/p04/test_eval_checkpoints.py",
+      "blob": "8b84278dc5a0964e9fd86af3d8e06c26b91cc90f",
+      "scope": "P04_WEIGHTS_ONLY_CKPT_EVAL_QA",
+      "qa": "HISTORICAL_TEST",
+      "real_runtime": "NO_RESTART_PRODUCTION"
+    }
+  ],
+  "external_branch_only": [
+    {
+      "id": "A_I1_MEASUREMENT",
+      "branch_commit": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+      "evidence_commit": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+      "status": "CLOSED_PASS_SCOPED_NOT_IN_CURRENT_MAIN",
+      "integration": "READ_ONLY_ORACLE_CANONICAL_SOURCE_EXTERNAL",
+      "runtime": "I2_NOT_EXECUTED",
+      "source_path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py",
+      "source_git_blob": "46009c78b52a7bcf4c996e0bc866297d4d5ba161",
+      "evidence_path": "artifacts/ttm-abc/track-a/M0_V3_POST_HOLD_DISTINCT_I1_20261117/REVIEW.md",
+      "evidence_git_blob": "7d0ea908d3f52169fc6710ad06115316e84ae343"
+    },
+    {
+      "id": "A_V4_RELEASE_DESIGN",
+      "branch_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+      "requirements_blob": "3de320f1e734c7610fb750477803b082fefff753",
+      "status": "DESIGN_ACCEPT_SCOPED_NOT_MERGED",
+      "runtime": "V4_NATIVE_QA_AND_SIGNED_ONE_SHOT_OWNER_HOLD",
+      "requirements_path": "docs/coordination/ttm-abc/track-a/A_TO_BC_REQUIREMENTS.md",
+      "requirements_git_blob": "3de320f1e734c7610fb750477803b082fefff753",
+      "accepted_design_source_commit": "e6746184603f038b49d1e7d472367b6354474ba2"
+    }
+  ],
+  "seams": [
+    {
+      "id": "S01",
+      "from": "P01_T4_BPE",
+      "to": "P01_T4_DATA",
+      "status": "HISTORICAL_SOURCE_ONLY",
+      "blocker": "REAL_RIGHTS_TRAIN_SPLIT_AND_TOKENIZER_MANIFEST_SHA_NOT_READBACK",
+      "owner": "C+B"
+    },
+    {
+      "id": "S02",
+      "from": "P01_T4_DATA",
+      "to": "P02_TRANSFORMER",
+      "status": "HISTORICAL_PIPELINE_SOURCE_ONLY",
+      "blocker": "T4_CONTEXT_MASK_TARGET_AND_TRAIN_PACK_EXACT_BYTES_UNVERIFIED",
+      "owner": "B+C"
+    },
+    {
+      "id": "S03",
+      "from": "P02_TRANSFORMER",
+      "to": "P03_TRAIN",
+      "status": "P02_MASK_DEFAULT_VALID_P03_INPUT_ADMISSION_GAP",
+      "blocker": "P02_TORCH_F_CROSS_ENTROPY_DEFAULT_IGNORE_INDEX_MINUS100; P03_VALIDATE_REJECTS_NEGATIVE_TARGETS_INCLUDING_MINUS100; P03_FIXED_BATCH_NOT_RESUMABLE; B_HAS_SEPARATE_MASKED_CE",
+      "owner": "B"
+    },
+    {
+      "id": "S04",
+      "from": "P03_TRAIN",
+      "to": "P04_CHECKPOINT_EVAL",
+      "status": "FUNCTIONAL_COMPONENTS_EXIST_NO_UNIFIED_RESUME",
+      "blocker": "P04_WEIGHTS_ONLY_CKPT_NO_OPTIMIZER_SCHEDULER_SAMPLER_STATE",
+      "owner": "B"
+    },
+    {
+      "id": "S05",
+      "from": "P02_TRANSFORMER",
+      "to": "B_SYNTHETIC_RUNNER",
+      "status": "SYNTHETIC_ENGINEERING_PASS",
+      "blocker": "DOES_NOT_PROVE_REAL_T4_TOKENIZATION_OR_CHECKPOINT",
+      "owner": "B"
+    },
+    {
+      "id": "S06",
+      "from": "B_SYNTHETIC_RUNNER",
+      "to": "B_SYNTHETIC_CLI",
+      "status": "SYNTHETIC_END_TO_END_PASS_SCOPED",
+      "blocker": "PREPARE_TRAIN_RESUME_EVALUATE_SAMPLE_ONLY_SYNTHETIC_BYTE_IDENTITY",
+      "owner": "B"
+    },
+    {
+      "id": "S07",
+      "from": "B_SYNTHETIC_RUNNER",
+      "to": "T4_TRAIN_HISTORIC",
+      "status": "SOURCE_COMPATIBILITY_PARTIAL",
+      "blocker": "REAL_T4_CHECKPOINT_STRICT_LOADER_PACK_SHA_VS_TOKENIZER_SHA_DOMAIN_CONFUSION; RIGHTS_NO_GO",
+      "owner": "B+C"
+    },
+    {
+      "id": "S08",
+      "from": "B_C_SYNTHETIC_INTERFACE",
+      "to": "P01_T4_BPE",
+      "status": "INCOMPATIBLE_DIRECT",
+      "blocker": "BC_SPECIAL_257_262_OVERLAP_T4_MERGES_257_2047; NEW_VERSIONED_BRIDGE_REQUIRED",
+      "owner": "B+C"
+    },
+    {
+      "id": "S09",
+      "from": "B_SYNTHETIC_RUNNER",
+      "to": "C_SCIENCE_REGISTRY",
+      "status": "DESIGN_ACK_ONLY",
+      "blocker": "SYNTHETIC_BYTE_IDENTITY_BPB_VALID_FOR_1BYTE_IDS_NOT_REAL_T4_BPE_MULTI_BYTE_DENOM",
+      "owner": "A+C"
+    },
+    {
+      "id": "S10",
+      "from": "T4_EVAL_HISTORIC",
+      "to": "C_SCIENCE_REGISTRY",
+      "status": "METRIC_DESIGN_NOT_CALIBRATED_ON_REAL_PACK",
+      "blocker": "FULL_VOCAB_NLL_VALID_UTF8_BYTEMAP_GOLD_BLIND_AND_FRESH_HELDOUT_NOT_PROVEN",
+      "owner": "A+C"
+    },
+    {
+      "id": "S11",
+      "from": "A_I1_MEASUREMENT",
+      "to": "C_SCIENCE_REGISTRY",
+      "status": "ABC_DESIGN_PASS_SCOPED",
+      "blocker": "A_GOLD_NLL_ONE_TOKEN_NATS_NOT_EQUAL_C_VALID_UTF8_BPB; I2_HOLD",
+      "owner": "A+C"
+    },
+    {
+      "id": "S12",
+      "from": "B_C_SYNTHETIC_BRIDGE",
+      "to": "T4_TRAIN_HISTORIC",
+      "status": "NOT_A_REAL_SFT_BRIDGE",
+      "blocker": "BC_SYNTHETIC_CHECKPOINT_METADATA_ONLY_WEIGHTS_NOT_CREATED",
+      "owner": "B+C"
+    }
+  ],
+  "reused_QA": {
+    "PR39_merged": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "PR40_main": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+    "B_CI": {
+      "run": 44043606469,
+      "windows": "PASS",
+      "linux": "PASS",
+      "proves": "B synthetic prepare->train(3)->resume(8)->evaluate->sample"
+    },
+    "BC_CI": {
+      "run": 44043606388,
+      "windows": "PASS",
+      "linux": "PASS",
+      "proves": "BC synthetic contract QA"
+    },
+    "C_CI": {
+      "run": 44043606424,
+      "windows": "PASS",
+      "linux": "PASS",
+      "proves": "C design/source contract QA"
+    },
+    "I1": "PASS_MEASUREMENT_SCOPED_EXTERNAL_UNMERGED",
+    "ABC": "PASS_DESIGN_ALIGNMENT_SCOPED",
+    "original_V3_native_peak_dissent": "PRESERVED"
+  },
+  "gate_matrix": {
+    "E0_SOURCE_GRAPH": "PRE_QA_SOURCE_SNAPSHOT_READY; POST_QA_PASS_RECORDED_SEPARATELY_IN_RECEIPT_AND_GITHUB_RUN",
+    "E1_SYNTHETIC_VERTICAL_SLICE": "PASS_PREEXISTING_B_SYNTHETIC_ONLY",
+    "E2_REAL_T4_SOURCE_DATA_CHECKPOINT": "HOLD_Q4_SOURCE_RIGHTS_STRICT_CUSTODY",
+    "E3_REAL_BASELINE_EVAL": "HOLD_E2_FRESH_VAL_GOLD_BYTE_DENOM_INDEPENDENT_A_QA",
+    "E4_DATA_COMPUTE_IMPROVEMENT": "NOT_EXECUTED_PROSPECTIVE_AFTER_E3",
+    "E5_REAL_SFT": "HOLD_CODEC_GOLD_RIGHTS_WEIGHTS",
+    "E6_SERVING_SCALE_COMMERCIAL": "DEFER_AFTER_QUALITY_AND_RUNTIME_QA"
+  },
+  "owner_GO": {
+    "real_checkpoint": false,
+    "real_data": false,
+    "science": false,
+    "gpu": false,
+    "test": false,
+    "merge": false
+  },
+  "candidate": "EXACT_CURRENT_MAIN + SOURCE_ONLY_VALIDATION_AND_CONTRACT_DOCS_BRANCH; NO_REAL_TRAINER_ADDED",
+  "workflows": [
+    "E0 PM source-only QA validates Git-object pin, P02 default -100 vs P03 reject negative, external A pinned anchors cross-referenced on main; no torch/pip/import src",
+    "reuse prior PR39 synthetic runtime CI rather than rerun",
+    "review-only draft PR; do not merge without owner",
+    "PR report path is included in CI pull_request.paths; doc/source QA required whenever integration report changes"
+  ],
+  "external_verification_scope": "PM verified external A Git blobs via exact Github refs at adjudication; CI only verifies pinned literal refs and current-main C registry cross-reference, does not fetch external A objects from shallow checkout.",
+  "scope_snapshot": "PR42 manifest is authored before final GitHub Actions job; E0 is snapshot, not a self-attested release or source-level merge authority"
+}

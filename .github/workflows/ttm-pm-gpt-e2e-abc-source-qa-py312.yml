@@ -1,0 +1,29 @@
+name: TTM PM GPT end-to-end ABC exact source-only integration QA
+on:
+  pull_request:
+    paths:
+      - "tests/ttm_pm_gpt_e2e_source/**"
+      - "artifacts/ttm-gpt-e2e/**"
+      - "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md"
+      - ".github/workflows/ttm-pm-gpt-e2e-abc-source-qa-py312.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-source-graph:
+    name: source-only-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 7
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Python 3.12 without third-party imports
+        run: python -S -B -c "import sys; assert sys.version_info[:2] == (3, 12), sys.version; print('TTM_PM_E2E_SOURCE_ONLY_NO_TORCH_NO_MODEL', sys.version)"
+      - name: PM exact source-only integration graph and negative QA
+        run: python -S -B -m unittest discover -s tests/ttm_pm_gpt_e2e_source -p 'test_*.py' -v
