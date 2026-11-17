@@ -49,6 +49,8 @@ def arithmetic_bpb(raw_scored_utf8: bytes, t4_rows: Sequence[dict]) -> dict:
         if type(token_id) is not int or not (0 <= token_id < 2048):
             raise ByteDomainHold("T4_TOKEN_RANGE:" + str(i))
         if kind == "EOS":
+            if eos_seen:
+                raise ByteDomainHold("DUPLICATE_T4_EOS")
             if token_id != 256 or row["start"] is not None or row["end"] is not None or row["gold_nll_nats"] is not None:
                 raise ByteDomainHold("EOS_MUST_HAVE_NO_RAW_BYTES_OR_NLL")
             eos_seen = True
