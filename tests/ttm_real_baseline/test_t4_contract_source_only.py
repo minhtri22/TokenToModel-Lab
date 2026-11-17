@@ -339,5 +339,22 @@ class TestUTF8ByteDomain(unittest.TestCase):
         self.assertFalse(result["authorized_for_real_science"])
 
 
+    def test_25_integrated_Q4_ledger_is_not_a_release_token(self):
+        p = "artifacts/ttm-real-baseline/TTM_PM_T4_ABC_R0_R8_ADMISSION_LEDGER_20261117.json"
+        d = json.loads(git_source(p).decode("utf-8"))
+        self.assertEqual(d["source_main_sha"], BASE_MAIN_SHA)
+        self.assertEqual(d["source_pins"], EXACT_SOURCE_BLOBS)
+        self.assertEqual([x["gate"] for x in d["gates"]],
+                         ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"])
+        self.assertTrue(all(x["status"].startswith("HOLD")
+                            for x in d["gates"][1:]))
+        self.assertEqual(d["owner_q4_decision"], "HOLD_REAL_VERTICAL_SLICE")
+        self.assertFalse(d["model_checkpoint_access_authorized"])
+        self.assertFalse(d["scientific_run_authorized"])
+        self.assertFalse(d["gpu_execution_authorized"])
+        self.assertFalse(d["private_dataset_access_authorized"])
+        self.assertIn("NOT_GENERIC_E2E_SOURCE_MERGE_GATE", d["i2_scope"])
+
+
 if __name__ == "__main__":
     unittest.main()
