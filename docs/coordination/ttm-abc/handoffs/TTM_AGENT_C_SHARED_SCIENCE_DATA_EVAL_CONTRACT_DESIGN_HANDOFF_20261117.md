@@ -1,0 +1,30 @@
+# HANDOFF — Agent C · single shared research/data/evaluation contract for B and A
+
+**Operation:** `TTM_C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_ONEPACK`  
+**Role:** Track C scientific question, data rights/splits, gold/rater, prereg/equal-compute; **contract owner** for prospective real-SFT/research requirements.  
+**Sequence:** **after Agent A has posted `A_PACKET_READY_SCOPED` to Issue #32; before Agent B feasibility mapping**.  
+**Mode:** `EXACT_SHA · DESIGN_ONLY · NO_REAL_DATA_ACCESS · NO_GPU · NO_SFT_TRAINING · NO_MERGE`.
+
+## Mandatory source-lock and early ACK
+
+Read [PM shared contract at frozen SHA](https://github.com/minhtri22/TokenToModel-Lab/blob/403491b698ba6586193f2ff2ae00c4441c10c595/docs/coordination/ttm-abc/TTM_PM_ABC_V4_SHARED_COORDINATION_CONTRACT_20261117.md), Git blob **`d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1`**; post `ABC_CONTRACT_ACK_C` containing same blob, own PR35 HEAD, referenced A packet exact SHA and source drift findings to [Issue #32](https://github.com/minhtri22/TokenToModel-Lab/issues/32). If A has not posted the required packet, do a read-only preparatory inventory, return `HOLD_UPSTREAM_A_PACKET`, and do not freeze contradictory endpoints.
+
+Pinned inputs: PR #35 `00afd25aa2234e30f7602592d49d5d9f2947965b`, M4 accepted source `185d465c31f5f4bef6220be95e39dac1ae81c5b8`; PR #36 integration `09de6a46574146d863f416e056fcf01091f3efb8`, B checked code `a83e1526bce842761f3051dad28b90a55395a6aa`; PM B/C final `82aaf2a881bd677afd8f6e600eb570aea897fdba`; Track A V4 `e6746184603f038b49d1e7d472367b6354474ba2`. Refresh GitHub metadata; diff any drift, do not silently accept new code.
+
+## One scientific design packet, one contract for B
+
+1. **Define actual scientific question** separately for (i) historical Track A Q001 I2 release and (ii) prospective C M6/TinyStories SFT and Small-4M data×compute. Do **not** merge Q001 SLOT, replay an already consumed TEST, or confuse C scientific endpoint with A's I1 proof. Preserve previously frozen hypotheses/history.
+2. **Research dataset admission:** inventory original TinyStories/other candidate source and rights without fabricating third-party or owner signatures; specify raw bytes, license use, family/entity split, independent token count vs total exposure, train-only tokenizer fit, near-dup/contamination checks, fresh heldout with prior TEST/FRESH16/FINAL24 excluded as new confirmatory. Mark absent data `HOLD_REAL_SOURCE_CUSTODY`.
+3. **Evaluation endpoint contract:** require explicit `val_bpb=sum(valid target NLL nats)/(ln(2)*valid UTF-8 bytes)`, preserving NLL/token, denominator and special-token/ignore mask semantics for exact raw validation bytes; include fixed prompt/continuation likelihood, calibrated ending selection and negative choice controls (length bias, distractor leakage, family leakage). Spell out role/mask/EOT/EOS and which existing A measurement oracle may be reused only with source-anchored compatibility evidence. Do **not** claim new endpoint QA or real model ability.
+4. **Compute×Data design, not extrapolated GO:** 4.19M historic exposure, 0.5M unique-token estimate and proposed 44M horizon are *provisional* until B provides exact model parameter counting, source byte/token audit, T4 74-second log interpretation and measured throughput. Use d4 as baseline; propose equal-budget comparison matrix of exposure/token diversity, checkpoint sampling and negative cases, with a finite resource/stop budget that B will verify. Do not call 44M a proven optimum or 13 minutes a verified runtime.
+5. **Explicit implementation-interface requirements for Agent B** (NOT a new codec): fields `raw_dataset_ref`, `license_provenance_ref`, `split_manifest_sha256`, `tokenizer_kind/version/sha256`, `checkpoint_weight_ref/sha256`, `model_config_sha256`, `max_context`, `target_mask_semantics`, `canonical_eval_bytes`, `valid_bytes`, `loss_nats`, `val_bpb`, `step_count`, `training_token_exposure`, `unique_train_tokens`, `compute_budget`, `negative_controls`, `owner_release_status`. Each entry MUST be a design-level requirement with type/meaning/units/byte rules, `UNKNOWN` allowed only when genuinely not proven. B/C v2 7-SHA manifest stays unchanged and separate; B must map future real runner to this contract without altering C semantics on his own.
+6. **Truth/rater admission:** distinguish independent blinded rater vs AI design reviewer; gold validity, interrater scoring, material outcome and equal-compute remain `HOLD_UNPROVEN` until independently qualified. Preregister endpoint/split/hypothesis/stop before confirmatory execution. Two-lane exploratory/confirmatory can be proposed, but exploratory runs are evidence-logged and cannot be relabeled science PASS.
+7. Deliver **one** `C_SCIENCE_DATA_EVAL_CONTRACT_V1.md` + `C_R0_R1_R2_R3_R6_R7_READINESS.md` with explicit `ASSUMPTIONS_REQUIRING_B`, proposed source QA, adversarial examples and `JOINT_COMPATIBILITY_MATRIX` listing A field signatures unchanged and B fields awaiting mapping. Pin exact C document commit, cross-reference A's exact packet, and post `C_PACKET_READY_SCOPED` to Issue #32.
+
+## Anti-divergence and final state
+
+Agent C **owns science definition**, not B hardware or A signature/ledger semantics. **No independent schema v3, no replacement of B/C v2 canonical LF, no forced ASCII serialization for Unicode data, no ontology of "real checkpoint" by metadata-only JSON**. Send one `CONTRACT_CHANGE_REQUEST` with alternatives to PM if A or B requirements conflict; do not silently fork or ask for small separate permissions.
+
+**Verdict after this work:** `C_SCIENCE_CONTRACT_DESIGN_COMPLETE_SCOPED` or `HOLD_CONTRACT_ALIGNMENT`, never `C_M6_SCIENCE_GO`. Maintain C-G1 real-data HOLD and C-G2 gold validity UNPROVEN. No data download, optimizer, real training, TEST, GPUs or merge.
+
+**Handoff to Agent B (next):** exact A and C evidence SHAs + immutable contract blob + unresolved resource/tokenizer/weight questions; `TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK`.
