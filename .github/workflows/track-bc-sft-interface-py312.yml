@@ -1,0 +1,55 @@
+name: Track BC SFT interface synthetic Python 3.12 QA
+on:
+  pull_request:
+    paths:
+      - "src/ttm_track_b/bc_sft_interface.py"
+      - "src/ttm_track_b/bc_sft_bridge_v2.py"
+      - "tests/test_bc_sft_interface.py"
+      - "tests/test_bc_sft_bridge_v2.py"
+      - "tests/ttm_track_bc/**"
+      - "docs/research/ttm-abc/bc-sft/**"
+      - ".github/workflows/track-bc-sft-interface-py312.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bc-sft-synthetic-only:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU-only torch; never download private data
+        run: python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Assert Python 3.12 and no accelerator
+        run: python -c "import sys,torch; assert sys.version_info[:2] == (3,12); assert not torch.cuda.is_available(); print(sys.version,torch.__version__)"
+      - name: Previously frozen B v1 contract 29 tests
+        run: python -m unittest discover -s tests -p test_bc_sft_interface.py -v
+      - name: BC v2 typed wire and 7 real-artifact negative QA
+        run: python -m unittest discover -s tests -p test_bc_sft_bridge_v2.py -v
+      - name: Frozen PM distinct F05/F06 three-case negative reviewer test
+        run: python -m unittest discover -s tests/ttm_track_bc -p test_pm_distinct_v2_manifest_negative_20261117.py -v
+      - name: Route exact C Part A 18 authored cases to B v2 typed wire
+        run: python tests/ttm_track_bc/run_c18_on_b_v2.py
+      - name: One bounded P02 forward/backward with no optimizer
+        run: |
+          python -c "from src.ttm_track_b import bc_sft_bridge_v2 as b; p=b.synthetic_cpu_probe_v2(); assert p['optimizer_steps']==0 and not p['science_executed']; print(p)"
+      - name: Generate seven actual binary artifact files and SHA readback
+        run: |
+          python -c "from pathlib import Path;from src.ttm_track_b import bc_sft_bridge_v2 as b;p=Path('_tmp/track_bc_sft_v2/bundle');p.parent.mkdir(parents=True,exist_ok=True);m=b.write_bundle(p);assert b.verify_bundle(p)==m;print('V2_7_FILE_SHA_READBACK_PASS',m)"
+      - name: Preserve physical evidence of exact created files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bc-sft-v2-seven-real-files-${{ matrix.os }}
+          path: _tmp/track_bc_sft_v2/bundle/
+          if-no-files-found: warn
+          retention-days: 30

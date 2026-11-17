@@ -1,0 +1,84 @@
+{
+  "schema": "ttm.track_c.design_only.v1",
+  "operation": "C_M4_DATA_AUDIT_MEASUREMENT_CONSTRUCT_AND_SFT_MASK_DESIGN_ONLY_ONEPACK",
+  "date": "2026-11-16",
+  "base_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "initial_track_c_head": "666bc2c95ba21eaddcf8a0e3f8ed7cd906629de2",
+  "nanochat_ref": "92d63d4e8bb4df75c3b71618f31ddde2378b2bcd",
+  "status": "DESIGN_ONLY",
+  "science_executed": false,
+  "model_executed": false,
+  "private_corpus_read": false,
+  "checkpoint_read": false,
+  "training_authorized": false,
+  "rater_authorized": false,
+  "historical_reported": {
+    "parameters": 3749376,
+    "steps": 1024,
+    "target_labels_per_step": 4096,
+    "target_exposures": 4194304,
+    "approx_unique_train_positions": 498287,
+    "nll_val": 3.5223388517,
+    "bigram_val": 3.997231417
+  },
+  "actual_data_audit": {
+    "corpus_hash": null,
+    "split_hashes": null,
+    "tokenizer_hash": null,
+    "token_histogram": null,
+    "dedup_groups": null,
+    "license_action_attestation": null,
+    "rights": "HOLD_REAL_SOURCE"
+  },
+  "sft_candidate": {
+    "special_ids_for_toy_only": {
+      "PAD": 0,
+      "BOS": 1,
+      "SYS": 2,
+      "USER": 3,
+      "ASSIST": 4,
+      "EOT": 5,
+      "EOS": 6
+    },
+    "ignore_index": -100,
+    "supervision": "assistant_answer_and_completion_terminators_only",
+    "target_shift": 1,
+    "packing": "ONE_CONVERSATION_PER_ROW",
+    "truncation": "REJECT",
+    "native_b_compatibility": "NOT_VERIFIED",
+    "mask_validation": "RECONSTRUCT_ROLE_BOUND_MASK_AND_COMPARE_ALL_FLAGS",
+    "b_facing_boundary": "build_sft_targets(messages,max_len)_TOY_ONLY",
+    "prompt_direct_ce_weight": 0,
+    "prompt_context_gradient": "ALLOWED_NONZERO_NOT_AN_ACCEPTANCE_FAILURE",
+    "actual_B_integration": "NOT_EXECUTED"
+  },
+  "data_arms": [
+    {
+      "id": "D0",
+      "approx_unique_target_positions": 500000
+    },
+    {
+      "id": "D1",
+      "approx_unique_target_positions": 2100000
+    },
+    {
+      "id": "D2",
+      "approx_unique_target_positions": 4200000
+    }
+  ],
+  "per_arm_seed_exposures": 4194304,
+  "pilot_seeds_proposed": 5,
+  "confirmatory_total_seeds_proposed": 12,
+  "actual_resource_gpu_seconds": null,
+  "actual_resource_flops": null,
+  "actual_peak_vram": null,
+  "owner_science_go": false,
+  "independent_review": {
+    "previous_head": "8e0a1880e564e92d017847e9f18e53e42b7353c8",
+    "receipt_commit": "98af7af0632ba38f1b9747cd784964257e39cf16",
+    "verdict": "HOLD_DESIGN",
+    "amendment_author_qa": "PASS_24_PLUS_REVIEWER_RED_2",
+    "amendment_independent_review": "PENDING"
+  },
+  "science_admission": "HOLD"
+}

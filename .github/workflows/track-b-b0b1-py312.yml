@@ -1,0 +1,72 @@
+name: Track B Python 3.12 synthetic-only QA
+on:
+  pull_request:
+    paths:
+      - "src/ttm_track_b/**"
+      - "tests/test_track_b_scaffold.py"
+      - "configs/ttm/track_b_synthetic_smoke.json"
+      - ".github/workflows/track-b-b0b1-py312.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  py312-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official PyTorch CPU wheel
+        run: python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Verify interpreter and run 21 author tests
+        run: |
+          python -c "import sys,torch; assert sys.version_info[:2] == (3,12); print(sys.version, torch.__version__)"
+          python -m unittest discover -s tests -p test_track_b_scaffold.py -v
+      - name: Synthetic-only end-to-end + 3/5 resume
+        run: |
+          python -m src.ttm_track_b.cli prepare --out _tmp/track_b_runs/ci-linux
+          python -m src.ttm_track_b.cli train --out _tmp/track_b_runs/ci-linux --stop-after 3
+          python -m src.ttm_track_b.cli train --out _tmp/track_b_runs/ci-linux --resume-from-step 3
+          python -m src.ttm_track_b.cli evaluate --out _tmp/track_b_runs/ci-linux
+          python -m src.ttm_track_b.cli sample --out _tmp/track_b_runs/ci-linux
+
+  py312-windows-ps51:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official PyTorch CPU wheel
+        shell: powershell
+        run: |
+          python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
+          if ($LASTEXITCODE -ne 0) { throw 'TORCH_INSTALL_FAILED' }
+      - name: Native Windows PowerShell 5.1 + Python 3.12 author tests
+        shell: powershell
+        run: |
+          $PSVersionTable.PSVersion
+          if ($PSVersionTable.PSVersion.Major -ne 5) { throw 'NOT_POWERSHELL_51' }
+          python -c "import sys,torch; assert sys.version_info[:2] == (3,12); print(sys.version, torch.__version__)"
+          if ($LASTEXITCODE -ne 0) { throw 'PY312_FAILED' }
+          python -m unittest discover -s tests -p test_track_b_scaffold.py -v
+          if ($LASTEXITCODE -ne 0) { throw 'AUTHOR_TESTS_FAILED' }
+      - name: Native synthetic-only E2E / resume / metrics
+        shell: powershell
+        run: |
+          $Out = '_tmp/track_b_runs/ci-windows'
+          foreach ($argsLine in @(
+            @('prepare','--out',$Out),
+            @('train','--out',$Out,'--stop-after','3'),
+            @('train','--out',$Out,'--resume-from-step','3'),
+            @('evaluate','--out',$Out),
+            @('sample','--out',$Out)
+          )) {
+            python -m src.ttm_track_b.cli @argsLine
+            if ($LASTEXITCODE -ne 0) { throw 'TRACK_B_CI_E2E_FAILED' }
+          }

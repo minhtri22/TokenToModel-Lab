@@ -1,0 +1,37 @@
+{
+  "schema": "ttm.bc.synthetic.sft_codec.v1",
+  "status": "CANDIDATE_NOT_B_ACCEPTED",
+  "vocab_size": 2048,
+  "content": {
+    "kind": "UTF8_BYTE_IDENTITY",
+    "id_min": 0,
+    "id_max": 255
+  },
+  "special_ids": {
+    "EOS": 256,
+    "PAD": 257,
+    "BOS": 258,
+    "SYS": 259,
+    "USER": 260,
+    "ASSIST": 261,
+    "EOT": 262
+  },
+  "chat_template_schema": "ttm.bc.synthetic.chat_template.v1",
+  "pack_schema": "ttm.bc.synthetic.sft_pack.v1",
+  "checkpoint_schema": "ttm.bc.synthetic.sft_checkpoint.v1",
+  "old_b_byte_pack_schema": "ttm.track_b.synthetic.byte_windows.v1",
+  "ignore_index": -100,
+  "role_provenance": "STRUCTURAL_ONLY_SOURCE_UNAUTHENTICATED",
+  "supervised_positions": [
+    "assistant_content_bytes",
+    "assistant_EOT",
+    "final_EOS"
+  ],
+  "padding": "RIGHT_ONLY_ONE_CONVERSATION_PER_ROW",
+  "packing": "DISABLED",
+  "left_padding": "DISABLED",
+  "max_len_semantics": "max_len=context+1;x_and_y_length=context",
+  "end_stop_policy": "EOT_ASSISTANT_TURN_STOP;EOS_DIALOGUE_END;EXACTLY_ONE_FINAL_EOS",
+  "activation": "PROPOSED_ONLY_B_INTERFACE_NOT_EXECUTED",
+  "checkpoint_resume_previous_B": "REJECT_UNTIL_NEW_SCHEMA_BOUND"
+}
