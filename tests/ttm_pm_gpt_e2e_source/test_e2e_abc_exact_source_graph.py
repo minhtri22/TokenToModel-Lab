@@ -136,7 +136,7 @@ class TestABCSourceIntegratedBaseline(unittest.TestCase):
         self.assertIn("python -m src.ttm_track_b.cli train", wf)
         self.assertIn("python -m src.ttm_track_b.cli evaluate", wf)
         self.assertIn("python -m src.ttm_track_b.cli sample", wf)
-        self.assertIn("'resume-from-step'", wf)
+        self.assertIn("--resume-from-step", wf)
         self.assertIn("Synthetic-only end-to-end", wf)
         self.assertIn("SYNTHETIC", self.txt["B_SYNTHETIC_CLI"])
 
