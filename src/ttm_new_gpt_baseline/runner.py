@@ -231,7 +231,16 @@ def require_capacity(path, arm):
     if not path or not Path(path).is_file():
         raise ValueError("CAPACITY_RECEIPT_REQUIRED")
     cap = json.loads(Path(path).read_text("utf-8"))
-    if (cap.get("schema") != "ttm.matched_4m.capacity.v1"
+    is_40 = cap.get("schema") == "ttm.matched_4m.synthetic40.v1"
+    if is_40:
+        if (arm != "replica_1024" or cap.get("steps_executed") != 40
+                or cap.get("status") != "PASS_FULL_P02_SYNTHETIC_40_SCOPED"
+                or cap.get("recipe_1024_sha256") != recipe_hash("replica_1024")
+                or cap.get("runner_git_blob") != source_blob()
+                or cap.get("reserved_ratio", 1.) > CUDA_RESERVED_CAP_RATIO
+                or cap.get("projected_1024_seconds_with_reserve", 999999) > TOTAL_GPU_SECONDS_CAP):
+            raise ValueError("PROSPECTIVE_RESOURCE_40_PROOF_NOT_ACCEPTED")
+    elif (cap.get("schema") != "ttm.matched_4m.capacity.v1"
             or cap.get("status") != "PASS_SYNTHETIC_RESOURCE_ONLY"
             or cap.get("runner_git_blob") != source_blob()
             or cap.get("recipe_2048_sha256") != recipe_hash("control_2048")
@@ -319,11 +328,18 @@ def resume_state(folder, model, opt, sch, sampler, scaler, legacy, torch, go_sha
         raise ValueError("RESUME_PROGRESS_PREFIX_INVALID")
     return step, elapsed, records
 
-def train(args):
-    if args.arm not in PLANS or not args.run_id or not args.capacity or not args.go:
+def train(args, verified_integrated=None):
+    if args.arm not in PLANS or not args.run_id or not args.capacity or (not args.go and not verified_integrated):
         raise ValueError("RUN_REQUIRES_ARM_CAPACITY_AND_EXACT_GO")
     cap_sha = require_capacity(args.capacity, args.arm)
-    go_sha = assert_owner_go(args.go, "TRAIN_OR_RESUME", args.arm, args.run_id, cap_sha)
+    if verified_integrated is not None:
+        if (args.arm != "replica_1024"
+                or verified_integrated.get("capacity_sha256") != cap_sha
+                or verified_integrated.get("run_id") != args.run_id):
+            raise ValueError("INTEGRATED_TRAIN_CONTEXT_DRIFT")
+        go_sha = verified_integrated["go_sha256"]
+    else:
+        go_sha = assert_owner_go(args.go, "TRAIN_OR_RESUME", args.arm, args.run_id, cap_sha)
     validate_pack_files(args.data, args.manifest)
     torch, _, p02, legacy, score, _ = runtime_sources(args.sources)
     env = cuda_guard(torch)
@@ -429,8 +445,8 @@ def paired_bootstrap(left, right, counts, seed=20261117, reps=2000):
             "paired_95pct_ci": [lo, hi], "bootstrap_reps": reps, "seed": seed,
             "scope": "HISTORICAL_VAL_DEVELOPMENT_ONLY_NO_NEW_TEST"}
 
-def compare(args):
-    if not args.go or not args.left or not args.right or args.arm not in ("replica_1024", "replica_2048"):
+def compare(args, verified_integrated=None):
+    if (not args.go and not verified_integrated) or not args.left or not args.right or args.arm not in ("replica_1024", "replica_2048"):
         raise ValueError("COMPARE_REQUIRES_EXACT_MATCHED_PAIR")
     validate_pack_files(args.data, args.manifest)
     l = Path(args.left).resolve(strict=True)
@@ -438,7 +454,13 @@ def compare(args):
     lh, rh = sha_file(l), sha_file(r)
     if l.name != "checkpoint.pt" or r.name != "checkpoint.pt" or l == r or l.is_symlink() or r.is_symlink():
         raise ValueError("TWO_DISTINCT_CHECKPOINT_FILES_REQUIRED")
-    assert_owner_go(args.go, "COMPARE", args.arm, args.run_id, left_sha=lh, right_sha=rh)
+    if verified_integrated is not None:
+        if (args.arm != "replica_1024" or lh != HISTORIC_STEP1024_SHA
+                or args.run_id != verified_integrated.get("run_id")
+                or verified_integrated.get("go_sha256") is None):
+            raise ValueError("INTEGRATED_COMPARE_PROVENANCE_DRIFT")
+    else:
+        assert_owner_go(args.go, "COMPARE", args.arm, args.run_id, left_sha=lh, right_sha=rh)
     torch, _, p02, _, score, _ = runtime_sources(args.sources)
     data, _ = score.load_private_pack(args.data, args.manifest)
     vals = []
@@ -485,6 +507,176 @@ def compare(args):
                     "full_vocab": 2048, "test_accessed": False})
     write_new(args.out, canonical(outcome))
     print(json.dumps(outcome, ensure_ascii=False, sort_keys=True))
+
+def verify_integrated_q4(path, run_id):
+    """One frozen decision covers 40 synthetic QA + NEW @1024 + paired VAL.
+    This is declarative metadata, not a cryptographic owner-signature service.
+    """
+    if not path:
+        raise ValueError("Q4_INTEGRATED_GO_NOT_PRESENT")
+    obj = json.loads(Path(path).read_text("utf-8"))
+    expected = {
+        "schema": "ttm.matched_4m.integrated_q4.v1",
+        "decision": "GO_CONDITIONAL_40_SYNTHETIC_1024_TRAIN_PAIRED_VAL",
+        "action": "ONE_SESSION_40_THEN_1024",
+        "run_id": run_id, "arm": "replica_1024",
+        "runner_git_blob": source_blob(),
+        "original_main": BASE_MAIN,
+        "recipe_sha256": recipe_hash("replica_1024"),
+        "private_train_val_pack_sha256": DATA_SHA,
+        "historic_left_checkpoint_sha256": HISTORIC_STEP1024_SHA,
+        "technical_steps": 40, "science_steps": 1024,
+        "scored_targets_per_step": TOKENS_PER_STEP,
+        "gpu_seconds_cap": TOTAL_GPU_SECONDS_CAP,
+        "rights_reference": obj.get("rights_reference"),
+        "independent_review_reference": obj.get("independent_review_reference"),
+    }
+    if (obj != expected
+            or not isinstance(run_id, str) or re.fullmatch(r"[A-Za-z0-9_-]{8,80}", run_id) is None
+            or not all(isinstance(obj.get(k), str) and len(obj[k].strip()) >= 8
+                       for k in ("rights_reference", "independent_review_reference"))):
+        raise ValueError("EXACT_INTEGRATED_Q4_PACKET_REQUIRED")
+    return sha_file(path)
+
+
+def synthetic_40(args):
+    """40 full P02 optimizer steps on UNIFORM RANDOM tokens, not TinyStories.
+    Never returns weights/checkpoint. Ensures new model is created for TRAIN.
+    """
+    torch, _, p02, _, _, cap = runtime_sources(args.sources)
+    env = cuda_guard(torch)
+    if Path(args.out).exists() or Path(args.out).is_symlink():
+        raise FileExistsError("SYNTHETIC_40_RECEIPT_ALREADY_EXISTS")
+    start = time.monotonic()
+    trial = cap.single_trial(p02, microbatch=8, precision="fp16", warmup=2, timed=38)
+    elapsed = time.monotonic() - start
+    worst = float(trial["worst_seconds"])
+    reserved_ratio = trial["peak_cuda_reserved_bytes"] / torch.cuda.get_device_properties(0).total_memory
+    projected = (1024 * worst / .75)
+    status = ("PASS_FULL_P02_SYNTHETIC_40_SCOPED"
+              if trial["warmup_steps"] + trial["timed_steps"] == 40
+              and trial["scored_target_tokens_per_optimizer_step"] == TOKENS_PER_STEP
+              and trial["context"] == 256 and trial["precision"] == "fp16"
+              and math.isfinite(trial["last_synthetic_loss"])
+              and reserved_ratio <= CUDA_RESERVED_CAP_RATIO
+              and projected <= TOTAL_GPU_SECONDS_CAP
+              else "HOLD_SYNTHETIC_40_RESOURCE_OR_CONTRACT")
+    result = {
+        "schema": "ttm.matched_4m.synthetic40.v1", "status": status,
+        "runner_git_blob": source_blob(),
+        "recipe_1024_sha256": recipe_hash("replica_1024"),
+        "steps_executed": 40, "tokens_per_step": TOKENS_PER_STEP,
+        "synthetic_target_exposures": 40 * TOKENS_PER_STEP,
+        "architecture_parameters": PARAMETERS, "context": 256,
+        "data_kind": "UNIFORM_RANDOM_SYNTHETIC_NO_TINYSTORIES",
+        "training_weights_exported": False, "transfer_to_new_science": False,
+        "checkpoint_created": False, "test_accessed": False, "science_executed": False,
+        "env": env, "trial": trial, "elapsed_wall_seconds": elapsed,
+        "projected_1024_seconds_with_reserve": projected,
+        "reserved_ratio": reserved_ratio,
+        "owner_q4": "HOLD_WITHOUT_EXPLICIT_INTEGRATED_GO"}
+    write_new(args.out, canonical(result))
+    print(json.dumps(result, ensure_ascii=False, sort_keys=True), flush=True)
+    if status != "PASS_FULL_P02_SYNTHETIC_40_SCOPED":
+        raise RuntimeError("SYNTHETIC_40_FAILED_NO_SCIENCE_DISPATCH")
+    torch.cuda.empty_cache()
+    return sha_file(args.out)
+
+
+def one_session(args):
+    """Single Colab command: synthetic40 first, then optional Q4-governed
+    freshly initialized TinyStories 1024 and historical checkpoint paired VAL.
+    No hidden TEST access and no change to original checkpoint.
+    """
+    if (args.arm != "replica_1024" or not args.run_id or
+            re.fullmatch(r"[A-Za-z0-9_-]{8,80}", args.run_id) is None
+            or not args.out or not args.sources):
+        raise ValueError("SESSION_EXACT_ARM_RUN_ID_OUTPUT_REQUIRED")
+    verify_sources(args.sources)
+    session = Path(args.out).absolute()
+    if session.name != "TTM_40_1024__" + args.run_id or session.is_symlink():
+        raise ValueError("SESSION_ROOT_NAME_OR_SYMLINK_INVALID")
+    go_sha = verify_integrated_q4(args.go, args.run_id) if args.go else None
+    tech_path = session / "TECHNICAL_SYNTHETIC_40.json"
+    training = session / "runs" / ("replica_1024__" + args.run_id)
+    if args.resume_step is None:
+        if session.exists() or session.parent.is_symlink():
+            raise FileExistsError("ONE_SHOT_SESSION_ALREADY_EXISTS")
+        session.mkdir(parents=True)
+        write_new(session / "SESSION_LOCK.json", canonical({
+            "schema": "ttm.matched_4m.one_session_lock.v1",
+            "run_id": args.run_id, "runner_git_blob": source_blob(),
+            "recipe_sha256": recipe_hash("replica_1024"),
+            "private_train_val_sha256": DATA_SHA,
+            "historic_left_sha256": HISTORIC_STEP1024_SHA,
+            "integrated_go_sha256": go_sha,
+            "synthetic40_independent_initialization": True,
+            "test_accessed": False,
+        }))
+        tech_args = argparse.Namespace(sources=args.sources, out=str(tech_path))
+        tech_sha = synthetic_40(tech_args)
+        if not go_sha:
+            write_new(session / "SESSION_STATUS.json", canonical({
+                "schema": "ttm.matched_4m.one_session_status.v1",
+                "status": "TECHNICAL_40_PASS_SCIENCE_HOLD_NO_Q4",
+                "technical_receipt_sha256": tech_sha, "science_executed": False,
+                "compare_executed": False, "test_accessed": False}))
+            print("SESSION_TECH40_PASS_Q4_HOLD_NO_SCIENCE", flush=True)
+            return
+    else:
+        if args.resume_step not in CHECKPOINTS[1024] or not session.is_dir():
+            raise ValueError("RESUME_REQUIRES_ORIGINAL_SESSION_AND_FROZEN_STEP")
+        lock = json.loads((session / "SESSION_LOCK.json").read_text("utf-8"))
+        if (lock.get("run_id") != args.run_id
+                or lock.get("runner_git_blob") != source_blob()
+                or lock.get("recipe_sha256") != recipe_hash("replica_1024")
+                or lock.get("integrated_go_sha256") != go_sha
+                or (session / "SESSION_STATUS.json").exists()):
+            raise ValueError("SESSION_RESUME_LOCK_OR_FINAL_CONFLICT")
+        tech_sha = sha_file(tech_path)
+    if not go_sha:
+        raise ValueError("INTEGRATED_Q4_REQUIRED_FOR_REAL_SCIENCE")
+    # Mandatory exact original DATA and historical LEFT checkpoint before
+    # launching the first real science optimizer step.
+    require_capacity(tech_path, "replica_1024")
+    if tech_sha != sha_file(tech_path):
+        raise ValueError("SYNTHETIC_40_RECEIPT_CHANGED")
+    validate_pack_files(args.data, args.manifest)
+    if not args.historic or not Path(args.historic).is_file() or Path(args.historic).is_symlink():
+        raise ValueError("HISTORICAL_LEFT_CHECKPOINT_REQUIRED")
+    if sha_file(args.historic) != HISTORIC_STEP1024_SHA:
+        raise ValueError("HISTORICAL_LEFT_CHECKPOINT_SHA_DRIFT")
+    training.parent.mkdir(exist_ok=True)
+    authorized = {"go_sha256": go_sha, "capacity_sha256": tech_sha,
+                  "run_id": args.run_id}
+    train_args = argparse.Namespace(
+        sources=args.sources, data=args.data, manifest=args.manifest,
+        arm="replica_1024", run_id=args.run_id,
+        go=args.go, capacity=str(tech_path), out=str(training),
+        resume_step=args.resume_step)
+    train(train_args, verified_integrated=authorized)
+    right = checkpoint_dir(training, 1024) / "checkpoint.pt"
+    checked_ready(right.parent, 1024)
+    compare_args = argparse.Namespace(
+        sources=args.sources, data=args.data, manifest=args.manifest,
+        arm="replica_1024", run_id=args.run_id,
+        go=args.go, left=str(args.historic), right=str(right),
+        out=str(session / "PAIRED_HISTORICAL_VAL_1024.json"))
+    compare(compare_args, verified_integrated=authorized)
+    write_new(session / "SESSION_STATUS.json", canonical({
+        "schema": "ttm.matched_4m.one_session_status.v1",
+        "status": "TECH_40_NEW_1024_PAIRED_VAL_COMPLETED_UNADJUDICATED",
+        "technical_receipt_sha256": tech_sha,
+        "training_final_sha256": sha_file(training / "FINAL.json"),
+        "paired_val_receipt_sha256": sha_file(compare_args.out),
+        "left_checkpoint_sha256": HISTORIC_STEP1024_SHA,
+        "right_checkpoint_sha256": sha_file(right),
+        "science_executed": True, "new_checkpoint_initialized_from_random": True,
+        "synthetic_weights_used": False, "test_accessed": False,
+        "science_conclusion": "UNADJUDICATED"}))
+    print("ONE_SESSION_40_THEN_1024_AND_PAIRED_VAL_FINISHED_UNADJUDICATED",
+          flush=True)
+
 
 def native_resume_qa(args):
     """Native CPU parity: toy full wrappers plus exact P02 4M serializer/resume.
@@ -646,7 +838,7 @@ class SourceQA(unittest.TestCase):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["qa", "native-qa", "capacity", "preflight", "train", "compare"])
+    ap.add_argument("mode", choices=["qa", "native-qa", "capacity", "synthetic-40", "one-session", "preflight", "train", "compare"])
     ap.add_argument("--sources")
     ap.add_argument("--data")
     ap.add_argument("--manifest")
@@ -658,6 +850,7 @@ def main():
     ap.add_argument("--resume-step", type=int)
     ap.add_argument("--left")
     ap.add_argument("--right")
+    ap.add_argument("--historic")
     args = ap.parse_args()
     if args.mode == "qa":
         result = unittest.TextTestRunner(verbosity=2).run(
@@ -674,6 +867,12 @@ def main():
         if not args.out:
             raise ValueError("CAPACITY_OUT_REQUIRED")
         capacity(args)
+    elif args.mode == "synthetic-40":
+        if not args.out:
+            raise ValueError("SYNTHETIC_40_OUT_REQUIRED")
+        synthetic_40(args)
+    elif args.mode == "one-session":
+        one_session(args)
     elif args.mode == "preflight":
         verify_sources(args.sources)
         m = validate_pack_files(args.data, args.manifest)
