@@ -1,0 +1,82 @@
+{
+  "schema": "ttm.pm.colab_missing_original_session_recovery_manifest_amendment.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_ORIGINAL_TECH40_PARENT_MISSING_RECOVERY_AND_MANIFEST_SHA_PIN_FIX_ONEPACK",
+  "source_qa_code_head": "39eb3446ad5e4ff550ebadc7aa7bea589899e7e3",
+  "user_colab_error": {
+    "mode": "BRIDGE_PREFLIGHT",
+    "python": "3.12.13",
+    "exact_source_pins_pass": 8,
+    "action_science_requested": false,
+    "exit_code": 1,
+    "exception": "ValueError: ORIGINAL_SESSION_PARENT_MISSING",
+    "missing_expected_parent": "/content/TTM_MATCHED_4M_SESSIONS",
+    "failure_stage": "find_original-before-reading-original-receipt-or-TinyStories",
+    "actual_cause": "UNKNOWN; Colab VM restart/reset or directory move/deletion possible",
+    "fresh_training_executed": false,
+    "test_accessed": false
+  },
+  "prior_40": {
+    "scope": "PASS_ON_OWNER_PASTED_T4_CONSOLE",
+    "original_runner_git_blob": "113434e25fe19cff27b47f428cf99a0a57ae4fcf",
+    "receipt_original_bytes_verified": false,
+    "reconstructed_candidate_hash_not_authoritative": true
+  },
+  "additional_source_bug": {
+    "item": "MANIFEST_SHA_FROZEN_SOURCE_LITERAL_TOO_SHORT",
+    "old_literal_sha61": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+    "verified_actual_sha64": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+    "old_literal_char_count": 61,
+    "verified_actual_char_count": 64,
+    "impact": "Without correction, any future original runner validate_pack_files() rejects real 1382-byte TinyStories manifest, even though data are correct",
+    "repair": "EXPLICIT_SINGLE_FROZEN_GLOBAL_SHA_CONSTANT_IN_MEMORY_ON_IMPORT; SOURCE_GIT_BLOB_UNCHANGED; FAIL_IF_ORIGINAL_WRONG_LITERAL_DIFFERS",
+    "proof": "GitHub Python3.12 Windows/Linux tests for frozen source literal and fail-closed mismatch; owner Drive hash verified earlier",
+    "other_code_or_data_changed": false
+  },
+  "source": {
+    "runner_old_git_blob": "113434e25fe19cff27b47f428cf99a0a57ae4fcf",
+    "runner_repaired_git_blob": "933f42b514de5fac650bfa2a421844c51b9b7c64",
+    "bridge_git_blob": "0e669b4918a94c0081c56ab9931e1eb5374c6a37",
+    "recovery_runner_git_blob": "33b95d8cc15d639da86f88c8f25c671910bbb27d",
+    "original_bridge_q4_git_blob": "05c980ac7887bf733ce4fb2257ce4b5d7a07d84c",
+    "missing_session_recovery_q4_git_blob": "e819caf233d285606bd20af52e22702f54ba0917",
+    "colab_notebook_git_blob": "4f221edacb25859f8a2fff6f4a60cf31cc61cb1f",
+    "colab_source_cache_v3": "/content/TTM_MATCHED_4M_ONEPACK_RECOVERY_MANIFEST_V3",
+    "main_unchanged": "59ee3f30b996405fddc087ab60102b59a021f8ea"
+  },
+  "pm_decisions": {
+    "original_reuse": "GO_CONDITIONAL_EXACT_OLD_TECH40_CUSTODY_FOR_1024_REPLICATION_VAL_ONLY",
+    "original_reuse_current_gate": "HOLD_ORIGINAL_SESSION_PARENT_MISSING",
+    "fresh_recovery": "GO_CONDITIONAL_FRESH_TECH40_RECOVERY_1024_VAL_ONLY_IF_ORIGINAL_RAW_RECEIPT_UNAVAILABLE",
+    "distinction": "FRESH_RECOVERY_REPEATS_40_RANDOM_STEPS_AND_GENERATES_NEW_RAW_DRIVE_RECEIPT; MUST_NOT_CLAIM_REUSED_OLD_40",
+    "no_micro_permits": true,
+    "science_not_executed_at_pm_handoff": true,
+    "paired_val_not_executed": true,
+    "test": "SEALED_NOT_ACCESSED",
+    "merge": "HOLD_DRAFT_NO_MAIN_CHANGE"
+  },
+  "runbook": [
+    "SESSION_LOCATE: read-only inspect original expected /content sessions",
+    "If original receipt + SESSION_LOCK and SESSION_STATUS exist, BRIDGE_PREFLIGHT then CONTINUE_VERIFIED_40_1024, with Q4 and 64-char in-memory manifest correction",
+    "If original receipt is gone, mount owner Drive; RECOVERY_PREFLIGHT validates historical source/private pack/old checkpoint/backup search without writing",
+    "RECOVERY_ONEPACK with a fresh RECOVERY_RUN_ID runs new synthetic40, stores actual SHA receipt on owner Drive, then new GPT1024 and paired historical VAL under one Q4",
+    "If preempted with READY, RECOVERY_RESUME with exact step (256,512,768); if 1024 final exists but compare missing, RECOVERY_RESUME with None to complete paired VAL",
+    "No TEST, no overwrite, no checkpoint changes to original"
+  ],
+  "qa": {
+    "source_ci_code_head": "39eb3446ad5e4ff550ebadc7aa7bea589899e7e3",
+    "windows_ubuntu": "PASS_13_CORE_RUNNER_PLUS_56_SEPARATE_NEGATIVE_SOURCE_TESTS_PER_OS",
+    "runtime_py": "3.12",
+    "native_cpu": "PASS_SCOPED_FULL_P02_3749376_PARAM_AND_RESUME_MAX_DELTA0",
+    "human_independent_review": "NOT_EXECUTED",
+    "colab_t4_real_recovery": "NOT_EXECUTED"
+  },
+  "scope_limitations": [
+    "Cannot access currently mounted user Colab /content to independently verify the folder is gone",
+    "Google Drive search no exact original receipt match; not proof of global absence",
+    "No real recovery attempt executed yet on owner Tesla T4",
+    "Matching same P02 model/data/seed/optimizer is replication-only, not new architecture improvement",
+    "Historical 40-step log remains scoped evidence, not actual byte custody"
+  ],
+  "verdict": "GO_RECOVERY_CONDITIONAL_SOURCE_QA_PASS; HOLD_REAL_T4_SCIENCE_UNTIL_OWNER_COLAB_EXECUTION_AND_PRIVATE_CUSTODY"
+}

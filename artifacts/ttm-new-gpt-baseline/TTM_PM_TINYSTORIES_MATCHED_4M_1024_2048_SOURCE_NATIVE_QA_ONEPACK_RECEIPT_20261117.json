@@ -1,0 +1,165 @@
+{
+  "schema": "ttm.pm.matched_tinystories_4m.1024_2048.source_native_qa_receipt.v1",
+  "operation": "TTM_PM_TINYSTORIES_MATCHED_4M_1024_2048_COLAB_RUNNER_SOURCE_REPAIR_AND_INDEPENDENT_QA_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "original_main_sha": "59ee3f30b996405fddc087ab60102b59a021f8ea",
+  "candidate_branch": "implementation/ttm-pm-new-gpt-baseline-colab-t4-onepack-20261117",
+  "exact_candidate_source_head_before_receipt": "c037a39c7d578379b890cae8cf1d07877cb7942e",
+  "source_git_blobs": [
+    {
+      "path": "src/ttm_new_gpt_baseline/runner.py",
+      "git_blob_sha1": "b2a40f1d3f7b6dbd5a500aef60d607707ae5c912"
+    },
+    {
+      "path": "notebooks/TTM_NEW_GPT_BASELINE_T4_ONEPACK_20261117.ipynb",
+      "git_blob_sha1": "c0ead8b1e7a17b9f799f57be114b565451d8b2ff"
+    },
+    {
+      "path": "tests/ttm_new_gpt_baseline/test_onepack_source.py",
+      "git_blob_sha1": "43aad6fc09832f74c28e65241b219e78b6d99241"
+    },
+    {
+      "path": "tests/ttm_new_gpt_baseline/qa_paired_native.py",
+      "git_blob_sha1": "58d3ff64bc3a08e60f68b91062d4327f197936a7"
+    },
+    {
+      "path": ".github/workflows/ttm-newgpt-colab-source-qa-py312.yml",
+      "git_blob_sha1": "9722a278e8666d4df76ba8b1baa8a2677cb4d2fc"
+    },
+    {
+      "path": ".github/workflows/ttm-matched4m-native-resume-qa-py312.yml",
+      "git_blob_sha1": "2b3cc0813fca593334181ca1fb9d034861d4ffec"
+    },
+    {
+      "path": "docs/architecture/TTM_PM_NEW_GPT_BASELINE_T4_Q4_ONEPACK_20261117.md",
+      "git_blob_sha1": "fc880db12ae0cf4727039352607f4d64f7c2a12c"
+    },
+    {
+      "path": "docs/architecture/TTM_PM_TINYSTORIES_MATCHED_1024_2048_DESIGN_AMENDMENT_20261117.md",
+      "git_blob_sha1": "fd821ca038a88fdb4b137ded26009c79011b79e5"
+    }
+  ],
+  "old_frozen_sources": {
+    "P02": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "T4_A2": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "T4_EVAL": "bef006bdff173fba6d8ba4aa0ef687a1732fd7c4",
+    "T4_CAPACITY": "c9a6f256ba975228683ee7de2a1090e649110e97"
+  },
+  "data_pack_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+  "model": {
+    "parameters": 3749376,
+    "n_layer": 4,
+    "n_embd": 256,
+    "n_head": 4,
+    "vocab_size": 2048,
+    "max_seq_len": 256,
+    "tokenizer": "ORIGINAL_TINYSTORIES_TRAIN_ONLY_BPE2048"
+  },
+  "plans": {
+    "historical_1024": {
+      "step": 1024,
+      "checkpoint_file_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "real_historical_science": "PASS_H1_VAL_SCOPE"
+    },
+    "replica_1024": {
+      "steps": 1024,
+      "seed": 20261108,
+      "targets_per_step": 4096,
+      "total_target_exposures": 4194304,
+      "science_executed": false
+    },
+    "control_2048": {
+      "steps": 2048,
+      "seed": 20261108,
+      "targets_per_step": 4096,
+      "total_target_exposures": 8388608,
+      "science_executed": false
+    },
+    "replica_2048": {
+      "steps": 2048,
+      "seed": 20261109,
+      "targets_per_step": 4096,
+      "total_target_exposures": 8388608,
+      "science_executed": false
+    }
+  },
+  "source_ci": {
+    "run_id": 44102967144,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/44102967144",
+    "conclusion": "success",
+    "windows": {
+      "runner_qa": 13,
+      "separate_source_oracle_tests": 15,
+      "status": "PASS_SOURCE_ONLY"
+    },
+    "linux": {
+      "runner_qa": 13,
+      "separate_source_oracle_tests": 15,
+      "status": "PASS_SOURCE_ONLY"
+    },
+    "no_model_import": true,
+    "no_private_pack_read": true,
+    "no_test_access": true
+  },
+  "native_cpu_ci": {
+    "run_id": 44102967339,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/44102967339",
+    "conclusion": "success",
+    "artifact_url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/44102967339/artifacts/14337176575",
+    "environment": {
+      "python": "3.12.16",
+      "torch": "2.5.1+cpu"
+    },
+    "toy_steps": 4,
+    "toy_split": 2,
+    "toy_weight_delta": 0,
+    "full_p02_parameters": 3749376,
+    "full_p02_cpu_synthetic_steps": 3,
+    "full_p02_targets_per_step": 8,
+    "full_p02_resume_weight_delta": 0,
+    "checkpoint_tampering_rejected": true,
+    "separate_bootstrap_oracle_tests": {
+      "count": 8,
+      "passed": 8
+    },
+    "real_4m_fp16_cuda_resume": "NOT_EXECUTED",
+    "real_train": false
+  },
+  "independent_qa_scope": {
+    "distinct_test_codepaths": "PASS_AUTOMATED_CODE_SCOPED",
+    "separate_human_or_organizational_reviewer": "NOT_EXECUTED",
+    "independent_real_data_a_c_scoring": "NOT_EXECUTED",
+    "warning": "All test modules authored by same assistant. CI does not prove independent reviewer custody."
+  },
+  "historic_fail_runs_preserved": [
+    44089466115,
+    44089674035,
+    44100919062,
+    44101680476
+  ],
+  "gates": {
+    "R0": "PASS_MATCHED_4M_SOURCE_CROSS_OS_AND_CPU_SYNTHETIC_RESUME_SCOPED",
+    "R1": "HOLD_PAIRED_REAL_CHECKPOINT_A_C_REVIEW",
+    "R2": "HOLD_ACTION_SPECIFIC_RIGHTS_READBACK_AND_DISTINCT_QA",
+    "R3": "PASS_SOURCE_PINNED_BPE2048_AND_OLD_PACK_HASH_CONTRACT_REAL_PRIVATE_BYTES_NOT_READ",
+    "R4": "HOLD_ACTUAL_COLAB_T4_MATCHED_CAPACITY",
+    "R5": "NOT_APPLICABLE_TO_NEW_BASELINE_OLD_I2_HOLD",
+    "R6": "HOLD_PROSPECTIVE_OWNER_FROZEN_COMPARISON_PREREG",
+    "R7": "HOLD_DISTINCT_INDEPENDENT_REAL_CANDIDATE_ADJUDICATION",
+    "Q4": "HOLD_NO_AUTOMATIC_MODEL_DISPATCH"
+  },
+  "not_executed": [
+    "Colab 4M T4 capacity",
+    "real 1024 training",
+    "real 2048 training",
+    "TinyStories private pack read",
+    "paired checkpoint forward",
+    "sealed TEST",
+    "merge",
+    "lineage mutation"
+  ],
+  "status": "PASS_SCOPED_ENGINEERING_HOLD_SCIENCE",
+  "note": "Evidence receipt commit is additive; final PR HEAD CI must pass again; source code Git blobs remain unchanged from the checked HEAD."
+}

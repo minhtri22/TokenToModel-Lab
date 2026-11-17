@@ -1,0 +1,49 @@
+{
+  "schema": "ttm.pm.fresh_40_recovery_then_1024.val.q4.v1",
+  "operation": "TTM_PM_ORIGINAL_TECH40_SESSION_MISSING_FRESH40_RECOVERY_TINYSTORIES1024_INTEGRATED_ONEPACK",
+  "date": "2026-11-17",
+  "decision": "GO_CONDITIONAL_FRESH_TECH40_RECOVERY_1024_VAL_ONLY",
+  "why": "Owner Colab BRIDGE_PREFLIGHT logged ORIGINAL_SESSION_PARENT_MISSING at /content/TTM_MATCHED_4M_SESSIONS after prior legitimate 40-step PASS; original runtime receipt byte custody unavailable.",
+  "pm_authority": "Single project manager decision for one fresh engineering+science onepack after read-only search of original receipt and exact private asset verification; no micro-permits.",
+  "recovery_provenance": "THIS_IS_A_NEW_FRESH40_SYNTHETIC_RUN, NOT CONTINUATION_OR_RECONSTRUCTION_OF_OLD_TECH40",
+  "exact_original_runner_git_blob": "113434e25fe19cff27b47f428cf99a0a57ae4fcf",
+  "exact_repaired_runner_git_blob": "933f42b514de5fac650bfa2a421844c51b9b7c64",
+  "original_main": "59ee3f30b996405fddc087ab60102b59a021f8ea",
+  "baseline_frozen_p02_git_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+  "private_train_val_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+  "private_manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+  "historical_left_1024_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+  "recipe_sha256": "d116c92ee1126a91acb1e54d1ff80f08a18ca97bdc8220467a4898426d01d1e3",
+  "method": {
+    "step_zero": "Readonly inspect original /content session and Drive backup; abort if original receipt exists and use bridge route instead",
+    "tech40": "Full 3749376 parameter P02, 40 fresh synthetic steps, 4096 random targets per step, FP16, Tesla T4, separate disposable weights",
+    "new_science": "New random-init P02 same seed 20261108, 1024 steps, 4096 real targets per step, TinyStories TRAIN 2048 frozen stories; VAL 256 only",
+    "comparison": "historical original @1024 vs new @1024 paired story-level VAL NLL only",
+    "checkpoint_steps": [
+      256,
+      512,
+      768,
+      1024
+    ],
+    "output": "Owner-mounted Google Drive durable directory, one-shot, no overwrites, resume exact checkpoints only"
+  },
+  "admission_gates": [
+    "EXACT_BYTE_GIT_BLOB_OLD_AND_NEW_RUNNERS_AND_SCIENCE_FUNCTION_EQUIVALENCE",
+    "EXACT_DECISION_GIT_BLOB_FROZEN",
+    "ORIGINAL_TECH40_PARENT_MISSING_AND_READONLY_BACKUP_SEARCH_NO_VALID_ORIGINAL_RECEIPT",
+    "PYTHON_3_12_AND_TESLA_T4_CUDA_AND_AT_LEAST_10GIB_AVAILABLE",
+    "EXACT_TINYSTORIES_PRIVATE_TRAIN_AND_VAL_PACK_AND_MANIFEST_SHA",
+    "EXACT_HISTORICAL_SMALL4M_1024_CHECKPOINT_SHA",
+    "NEW_DISTINCT_RECOVERY_RUN_ID_AND_EMPTY_OWNER_GOOGLE_DRIVE_OUTPUT_DIRECTORY",
+    "TECH40_FRESH_REAL_EXECUTION_PASS_WITH_NEW_RAW_SHA_RECEIPT_IN_OWNER_DRIVE",
+    "NEW_MODEL_RANDOM_INITIALIZATION_NOT_TECH40_STATE",
+    "TEST_NOT_ACCESSED",
+    "QA_SOURCE_AND_NATIVE_SCOPED_PASS"
+  ],
+  "if_any_gate_failed": "HOLD_BEFORE_SCIENCE_AND_PRESERVE_PARTIAL_RECORDS",
+  "scientific_interpretation": "REPLICATION_ONLY_SAME_ARCHITECTURE_DATA_SEED_RECIPE_NO_ARCHITECTURE_IMPROVEMENT_CLAIM",
+  "no_merge": true,
+  "test": "SEALED_NO_ACCESS",
+  "prior_user_tech40": "PRESERVE_HISTORICAL_OWNER_CONSOLE_EVIDENCE_NOT_REWRITTEN",
+  "permission_limit": "One conditional recovery operation on user-controlled Colab T4 only, not general science GO"
+}

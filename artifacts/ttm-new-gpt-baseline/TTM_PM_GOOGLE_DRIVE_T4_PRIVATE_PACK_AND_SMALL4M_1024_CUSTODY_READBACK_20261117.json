@@ -1,0 +1,87 @@
+{
+  "schema": "ttm.pm.google_drive.historical_t4_private_custody_readback.v1",
+  "date": "2026-11-17",
+  "scope": "DIRECT_AUTHENTICATED_GOOGLE_DRIVE_READ_ONLY_LOCATION_AND_SHA256",
+  "source_kind": "OWNER_PRIVATE_DRIVE",
+  "source_folder_hierarchy": "MyDrive/TTM/ttm-small-pilot",
+  "source_folder": "t4_private_pack_20261108_v1",
+  "original_model_run_folder": "t4_science_4m_1024_a2_20261108_v1",
+  "assets": [
+    {
+      "purpose": "PRIVATE_TRAIN_VAL_PACK",
+      "relpath": "t4_private_pack_20261108_v1/T4_PRIVATE_TRAIN_VAL_WINDOWS.npz",
+      "bytes": 1186107,
+      "sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+      "readback": "PASS_REAL_BYTES_SHA256",
+      "npz_fields": [
+        "train_count",
+        "train_story_index",
+        "train_x",
+        "train_y",
+        "val_count",
+        "val_story_index",
+        "val_x",
+        "val_y"
+      ],
+      "contains_test_key": false
+    },
+    {
+      "purpose": "PRIVATE_PACK_MANIFEST",
+      "relpath": "t4_private_pack_20261108_v1/T4_PRIVATE_PACK_MANIFEST.json",
+      "bytes": 1382,
+      "sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650",
+      "readback": "PASS_REAL_BYTES_SHA256",
+      "train_stories": 2048,
+      "val_stories": 256,
+      "train_targets": 498287,
+      "val_targets": 61122,
+      "contains_test": false
+    },
+    {
+      "purpose": "HISTORICAL_SMALL4M_1024_CKPT",
+      "relpath": "t4_science_4m_1024_a2_20261108_v1/checkpoints/step_1024/checkpoint.pt",
+      "bytes": 45074891,
+      "sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+      "readback": "PASS_REAL_BYTES_SHA256"
+    },
+    {
+      "purpose": "READY_LAST",
+      "relpath": "t4_science_4m_1024_a2_20261108_v1/checkpoints/step_1024/READY.json",
+      "bytes": 462,
+      "sha256": "b720f32da8efe2b39ebfa0aa94f0833ec3845a62c21b9407d8a04558f681d685",
+      "readback": "PASS_REAL_BYTES_SHA256",
+      "ready_step": 1024,
+      "ready_ckpt_sha_match": true,
+      "ready_pack_sha_match": true,
+      "ready_progress_sha_match": true,
+      "ready_science_lock_sha_match": true
+    },
+    {
+      "purpose": "CHECKPOINT_PROGRESS",
+      "relpath": "t4_science_4m_1024_a2_20261108_v1/checkpoints/step_1024/progress.json",
+      "bytes": 142438,
+      "sha256": "5517cc691fc803eaa69db4078f1f3b3ed78f99fa3c012cb17fd8655123c606ec",
+      "readback": "PASS_REAL_BYTES_SHA256"
+    },
+    {
+      "purpose": "ORIGINAL_T4_SCIENCE_LOCK",
+      "relpath": "t4_private_pack_20261108_v1/T4_SCIENCE_LOCK_A2_1024.json",
+      "bytes": 865,
+      "sha256": "fd183ade2a696d40313aae19b63429d4ef3edd8abf25c899c8cc496836d36817",
+      "readback": "PASS_REAL_BYTES_SHA256"
+    }
+  ],
+  "original_model_checksum_verified": true,
+  "new_colab_default_path_binding": "BOTH_PRIVATE_PACK_AND_ORIGINAL_1024_CHECKPOINT_UPDATED_IN_NOTEBOOK",
+  "limitations": [
+    "File IDs and direct private Drive URLs deliberately omitted from PUBLIC repository",
+    "No private TRAIN/VAL token array contents or checkpoint weights committed",
+    "No new T4 training, no TEST read, no science outcome",
+    "Authorized Drive content read-only; original files unchanged",
+    "Colab mount authentication and presence on its runtime require owner-controlled live readback",
+    "Action-specific Q4 rights/reviewer/resource gates still HOLD"
+  ],
+  "verdict": "PASS_DRIVE_LOCATION_AND_BYTE_CUSTODY_SCOPED; Q4_HOLD",
+  "source_of_truth": "Drive actual file bytes and READY-last readback; historical source hashes crosschecked with GitHub lineage",
+  "project_main_modified": false
+}
