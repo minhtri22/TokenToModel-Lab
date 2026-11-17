@@ -1,0 +1,174 @@
+{
+  "schema": "ttm.pm.abc.owner_final_integrated_adjudication.v1",
+  "operation": "TTM_PM_ABC_OWNER_SINGLE_INTEGRATED_RELEASE_AND_MERGE_DECISION_PACKET_ADJUDICATION_GATE",
+  "date": "2026-11-17",
+  "source": "GITHUB_EXACT_READBACK_ONLY",
+  "reviewer_type": "AI_PM_NOT_INDEPENDENT_HUMAN_CUSTODY",
+  "scope": {
+    "new_code": false,
+    "model_execution": false,
+    "new_native_tests": false,
+    "science_execution": false,
+    "gpu_execution": false,
+    "merge_execution": false,
+    "owner_signature": false
+  },
+  "snapshot": {
+    "repository": "minhtri22/TokenToModel-Lab",
+    "main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "owner_packet_commit": "f810ead7f99bc8a8710f8d9ba5bc9a5baf59de74",
+    "owner_packet_blob": "52f60856801772e8067631ad6e804298a1e78d67",
+    "R0_R8_matrix_blob": "62ced477a334658aa5db8263aff462ccdbbbb77d",
+    "ABC_pass_commit": "fa28b89e4ee93b3de4561deaa2a7b9a086fa340b",
+    "ABC_pass_receipt_blob": "7ec9018eac0b28e0220d26e71ef2ce028f6fea8e",
+    "lineage_blob": "3409e036241deb1da6674619a2abc834bea8a2d6"
+  },
+  "PRs": [
+    {
+      "n": 28,
+      "head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+      "base": "main",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": "NOT_VERIFIED"
+    },
+    {
+      "n": 33,
+      "head": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+      "base": "PR28_BRANCH",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": {
+        "run": 44012028313,
+        "conclusion": "success",
+        "name": "TTM Track A M0 source-only mock QA"
+      }
+    },
+    {
+      "n": 34,
+      "head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "base": "main",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": {
+        "run": 43894701733,
+        "conclusion": "success",
+        "name": "Track B Python 3.12 synthetic-only QA"
+      }
+    },
+    {
+      "n": 35,
+      "head": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "base": "main",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": {
+        "run": 44016759857,
+        "conclusion": "success",
+        "name": "Track C B/C F01-F04 v2 source-only QA (Python 3.12)"
+      }
+    },
+    {
+      "n": 36,
+      "head": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "base": "PR34_BRANCH",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": {
+        "runs": [
+          43929586272,
+          43929586267
+        ],
+        "conclusions": [
+          "success",
+          "success"
+        ]
+      }
+    },
+    {
+      "n": 37,
+      "head": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "base": "PR36_BRANCH",
+      "draft": true,
+      "unmerged": true,
+      "head_triggered_CI": "NO_ASSOCIATED_PR_RUNS_RETURNED"
+    }
+  ],
+  "pr_merge_graph": [
+    [
+      "28",
+      "33"
+    ],
+    [
+      "34",
+      "36",
+      "37"
+    ],
+    [
+      "35"
+    ]
+  ],
+  "branch_policy": {
+    "rulesets_list_returned_count": 0,
+    "main_protection_http": 403,
+    "policy": "UNVERIFIED_CANNOT_ASSUME_NONE",
+    "exact_combined_tree_CI": "NOT_EXECUTED",
+    "owner_merge_approval": false
+  },
+  "closed_existing_scoped_gates": {
+    "A_I1": "CLOSED_PASS_SCOPED_MEASUREMENT",
+    "A_V4": "DESIGN_ACCEPT_SCOPED_65_NEGATIVE_3_POSITIVE_RUNTIME_NOT_EXECUTED",
+    "B_M3": "PASS_ENGINEERING_SCOPED_V3_NATIVE_FAIL_DISSENT_PRESERVED",
+    "C_M4": "PASS_DESIGN_SCOPED",
+    "BC_v2": "BC_INTERFACE_PASS_ENGINEERING_SCOPED",
+    "ABC_unified_contract": "ABC_CONTRACT_ALIGNED_DESIGN_SCOPED",
+    "direct_T4_BC_token_ID_mapping": "INCOMPATIBLE",
+    "external_role_byte_span_adapter": "DESIGN_ONLY_NOT_IMPLEMENTED"
+  },
+  "decisions": {
+    "A_I2": {
+      "decision": "HOLD_A_I2_RELEASE",
+      "necessary_evidence_missing": [
+        "historical_preflight_exit2_reconciliation_without_bypass",
+        "trusted_V4_signer_policy_epoch_principal_and_original_slot",
+        "owner_native_no_replace_ancestry_race_crash_ledger_QA",
+        "actual_source_checkpoint_tokenizer_runtime_binding",
+        "independent_exact_I2_candidate_QA",
+        "owner_exact_one_shot_GO"
+      ],
+      "science_run_allowed": false
+    },
+    "REAL_SFT": {
+      "decision": "HOLD_REAL_SFT_RELEASE",
+      "necessary_evidence_missing": [
+        "real_source_licence_rights_family_train_val_fresh_test",
+        "real_gold_and_validity",
+        "actual_T4_weight_checkpoint_tokenizer_hash_and_readonly_binding",
+        "versioned_T4_to_ABC_compatible_codec_and_byte_offset_mask_proof",
+        "bounded_gpu_cpu_resource_measured_budget_and_watchdog",
+        "frozen_equal_compute_prereg",
+        "independent_exact_real_candidate_QA",
+        "owner_exact_real_SFT_GO"
+      ],
+      "science_run_allowed": false
+    },
+    "MERGE": {
+      "decision": "HOLD_ALL_PR_MERGES_THIS_REVIEW",
+      "necessary_evidence_missing": [
+        "exact_accepted_scoped_merge_set_and_safe_parent_dependency",
+        "branch_protection_or_policy_readback",
+        "independent_merged_tree_QA_and_CI",
+        "explicit_owner_scope_merge_authorization"
+      ],
+      "merge_allowed": false
+    }
+  },
+  "owner_GO_granted": false,
+  "PM_final": "TTM_PM_FINAL_TRIPLE_SCOPE_HOLD_EVIDENCE_BASED",
+  "status_must_not_be_inferred_from": "CI_pass_or_Github_mergeable_true_or_AI_design_acceptance_alone",
+  "review_report": {
+    "commit": "d4733db0758cc2a1200bfcc63ac423041b162314",
+    "path": "docs/coordination/ttm-abc/TTM_PM_ABC_OWNER_SINGLE_INTEGRATED_GO_HOLD_ADJUDICATION_20261117.md"
+  },
+  "next_action": "NONE_AUTOMATIC; HOLD until one consolidated independently verified exact-scope evidence packet is supplied; no micro-permit chain"
+}
