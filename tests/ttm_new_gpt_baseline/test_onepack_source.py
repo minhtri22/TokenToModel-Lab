@@ -65,7 +65,7 @@ class MatchedIndependentStyleSourceQA(unittest.TestCase):
         code = "\n".join(chunks)
         self.assertIn('MODE = "SOURCE_QA"', code)
         self.assertIn('RUN_ID = "UNSET_NO_Q4_GO"', code)
-        self.assertIn('SOURCE_QA | NATIVE_QA | CAPACITY | PREFLIGHT | TRAIN | RESUME | COMPARE', code)
+        self.assertIn('SOURCE_QA | GPU_PREFLIGHT | NATIVE_QA | CAPACITY | PREFLIGHT | TRAIN | RESUME | COMPARE', code)
         self.assertIn("EXPLICIT_Q4_GO_FILE_MISSING", code)
         self.assertNotIn("google.colab.drive.mount(", code)
 
