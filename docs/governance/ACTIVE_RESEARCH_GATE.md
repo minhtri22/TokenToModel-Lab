@@ -2,7 +2,17 @@
 
 **Source of truth:** `main` tại GitHub; [TTM Question-First Policy](TTM_QUESTION_FIRST_RESEARCH_ARCHITECTURE_LINEAGE_AND_MAIN_POLICY_20261115.md).  
 **Đây là bảng điều phối sửa được, không phải khoa học lineage.**  
-**Snapshot governance:** 2026-11-16. QuestionID lịch sử `TTM-P0A-MEAS-Q001` vẫn `Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT`, P0B không được mở. Owner vừa yêu cầu đăng ký **một Question Gate ENGINEERING khác biệt** `TTM-SM4M-DIAG-Q001` để chẩn đoán overfit/generation/generality bằng token IDs tổng hợp; **Q1 đăng ký trên main sau governance merge/readback**, Q2/Q3 source design chỉ do tác giả đề xuất, Q4 owner execution vẫn PENDING. **Không có quyền implementation branch, model/checkpoint access, science execution, hay thay đổi lineage**. E0–E6 của P0A vẫn HOLD. `SM4M-Q001` lịch sử CLOSED giữ nguyên.
+**Snapshot governance lịch sử:** 2026-11-16; **superseding PM source-only snapshot:** 2026-11-17 (main exact e102d2ed3c885756b6e4354189ccbece36b75eb8). QuestionID lịch sử `TTM-P0A-MEAS-Q001` vẫn `Q4_CLOSED_HOLD_EVIDENCE_INSUFFICIENT`, P0B không được mở. Owner vừa yêu cầu đăng ký **một Question Gate ENGINEERING khác biệt** `TTM-SM4M-DIAG-Q001` để chẩn đoán overfit/generation/generality bằng token IDs tổng hợp; **Q1 đăng ký trên main sau governance merge/readback**, Q2/Q3 source design chỉ do tác giả đề xuất, Q4 owner execution vẫn PENDING. **Không có quyền implementation branch, model/checkpoint access, science execution, hay thay đổi lineage**. E0–E6 của P0A vẫn HOLD. `SM4M-Q001` lịch sử CLOSED giữ nguyên.
+
+## CURRENT PM READBACK 17/11/2026 — trạng thái điều phối supersede snapshot cũ (SOURCE/DESIGN ONLY)
+
+**Exact main:** `e102d2ed3c885756b6e4354189ccbece36b75eb8` (PR39: 76 tệp B/BC/C đã merge, PR40: `lineage.md` L0030–L0035). **Exact Claude design branch:** `6b1ebc2e3103ebed066b1caa2a135ea2b760a159` (7 tài liệu STEP0–STEP6 **chưa merge vào main**, review độc lập trước đó chưa thực hiện). PM đã phân xử bằng `docs/roadmap/TTM_SMALL4M_REPAIR_FIRST_KARPATHY_V2_ABC_MAIN_INTEGRATED_ROADMAP_20261117.md` và `artifacts/ttm-abc/governance/TTM_PM_ABC_KARPATHY_V2_RF00_RF32_STATUS_REBASE_20261117.json` **trên nhánh governance đề xuất**; không coi các đường dẫn này đã có trên main trước PR review.
+
+- **Đã đạt:** `A_I1_CLOSED_PASS_SCOPED_MEASUREMENT`, `A_V4_DESIGN_ACCEPT_SCOPED`, `B_M3_PASS_ENGINEERING_SCOPED_WITH_HISTORICAL_V3_NATIVE_HOLD`, `C_M4_PASS_DESIGN_SCOPED`, `BC_V2_PASS_ENGINEERING_SCOPED`, `ABC_CONTRACT_ALIGNED_DESIGN_SCOPED`. PM 76-file postmerge QA PASS chỉ là **kỹ thuật/synthetic**, không phải khả năng mô hình được đo mới.
+- **Còn HOLD:** `A_I2_HOLD_NOT_EXECUTED`, `REAL_SFT_HOLD_NOT_EXECUTED`, exact T4 checkpoint/tokenizer owner-runtime witness, true validated byte-span for bpb, actual resource/native/rights/science admission. `INCOMPATIBLE_DIRECT_T4_BC` remains for token IDs 257–262; external role+byte-span sidecar is DESIGN_ONLY.
+- **Question Gate:** `TTM-SM4M-DIAG-Q001` engineering is the **only active registered question**; new STEP0 docs do not start a second Q gate. Owner Q4 implementation/execution scope remains pending; A I1 scoped PASS does not constitute Q4 release GO.
+- **PM priority:** `STEP0_SOURCE_CONTRACT_FIRST` and `STEP6_DOCUMENTARY_CUSTODY_IN_PARALLEL`, `STEP2_PROBE_CONTRACT_DESIGN_ONLY`; STEP1 new T4 training, STEP2 checkpoint forward, STEP4 ablations, STEP5 scaling/SFT remain HOLD/DEFER. STEP0 thresholds from Claude and 44M tokens are **proposal**, not frozen scientific gates.
+- **History:** the 16/11 rows below describe original Q1 registration and P0A closure; do not infer they override I1 postmerge scoped QA. Maintain original negative outcomes, no new implementation branch/TEST/GPU, no `lineage.md` mutation in this docs-only operation.
 
 ## 0. ENGINEERING Question Gate mới — phân biệt rõ với P0A đã đóng
 
@@ -12,7 +22,7 @@
 | `question_goal` | Chẩn đoán trực tiếp P02/T4: tải đúng checkpoint → loss/gradient → tiny overfit → novel pairing/counterfactual → full-vocabulary greedy vs restricted candidate |
 | `Q2_Q3` | `AUTHOR_SOURCE_DESIGN_PREPARED · INDEPENDENT_REVIEW_NOT_EXECUTED`; không phải Q2/Q3 đã được owner accept |
 | `Q4` | `OWNER_SCOPED_IMPLEMENT_AND_ONE_SHOT_EXECUTION_GO_HOLD_PENDING` |
-| `I1_I4` | `NOT_AUTHORIZED · NOT_EXECUTED` |
+| `I1_I4` | **I1 measurement/source QA** = `CLOSED_PASS_SCOPED` (main lineage L0030, PR33 candidate source); **I2** = `HOLD_NOT_EXECUTED`; **I3/I4 real science** = `NOT_EXECUTED`; owner Q4 runtime release not granted |
 | `checkpoint_model_rights` | `AD00_AD01C_E6_NOT_VERIFIED`; không có quyền truy cập weights hoặc chạy mô hình |
 | `execution_permit` | `NO`; một binary owner GO/HOLD sau distinct preexec review |
 | `protocol` | [Frozen-design JSON](../../artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json); fixture/runner bytes vẫn chưa tạo, chưa hash |
@@ -45,7 +55,7 @@
 | `F0_F2` | `PAUSED_Q4_CLOSED_HOLD · PROSPECTIVE_ADMISSION_NOT_ESTABLISHED · NO_SCIENCE_PERMIT` — Q4 GO chỉ đóng governance, không phải GO thực thi F0–F2 |
 | `next_science_question` | `TTM-SM4M-DIAG-Q001` is **ENGINEERING Q1**, not a science-execution permit; no other QuestionID or new research branch permitted; owner Q4 onepack GO/HOLD pending after distinct preexec review |
 | `research_branch_permission` | `NO_NEW_BRANCH_AUTHORIZED` |
-| `lineage` | `UNMODIFIED_APPEND_ONLY · NO_Q3_Q4_DESIGN_ENTRY` |
+| `lineage` | `main` now L0000–L0035 via PR40; exact existing history preserved; **this roadmap operation changes no lineage**; P0-A Q2/Q3/Q4 design remains without new science entry |
 | `scope_exclusions` | EmbeddingGemma 2 / Vector Memory độc lập, không là chứng cứ trực tiếp trong Q001 |
 | `long_cot_reference` | `SM4M-REF-PROSPECTIVE-001 · OWNER_ACCEPTED_REFERENCE_ONLY`; [arXiv 2601.06002v2](sm4m-q001/SM4M_Q001_PROSPECTIVE_LITERATURE_WATCHLIST_20261115.md) |
 | `source_of_truth_main` | GitHub `main` dynamic; Q3 merged baseline `2d1b93f566c8a5c675d00d9ba9fc58c3af39fab2`; Q4 original reviewed author HEAD `f2ad56e373c453c92a321dc12fe4253a4b870864`, independent reviewer evidence HEAD `e3c883e2d688d672c82400ebb021a263b86eb05b`. PR #25 exact merge HEAD chỉ xác nhận qua provider và postmerge main readback |
