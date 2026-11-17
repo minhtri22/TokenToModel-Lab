@@ -1,0 +1,110 @@
+{
+  "schema": "ttm.pm.abc.owner_approved_76_file_merge_closure.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_ABC_OWNER_APPROVED_EXACT_76_FILE_B_BC_C_MERGE_AND_POSTMERGE_READBACK_ONEPACK",
+  "source_of_truth": "GitHub minhtri22/TokenToModel-Lab",
+  "approval": "Owner explicitly approved PM 76-file B/BC/C merge scope in conversation on 2026-11-17; this is an operational approval, not a signed Ed25519 scientific release authorization",
+  "owner_scope": "Exactly 76 unique paths B34(11)+BC36(27)+B37(8)+C35(30), with original C Git blobs and B runtime unchanged; exclude A PR28/33, PM QA-only files, lineage.md",
+  "source_exact": {
+    "main_before": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "PR34": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "PR36": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "PR37": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+    "PR35": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "source_manifest_git_blob": "504abfe794fc0148f7cd911a40d260556647cc2f",
+    "source_manifest_path": "artifacts/ttm-abc/governance/TTM_PM_ABC_76_FILE_COMPOSITE_SOURCE_MANIFEST_20261117.json",
+    "source_composite_tree_sha": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "source_composite_pre_qa_commit": "9b096b6cf5e9486df1a9ab7220974af3fac0f496",
+    "separate_reviewer_PR38": 38,
+    "separate_reviewer_QA_SHA": "123629595c64c694bfcc2c932037f700628d7253",
+    "fresh_main_target_PR39_head": "f814fe72604a7ee3ec04015f186d8f0bd00fd4d9",
+    "pr_merge_target": "main",
+    "merge_pr_number": 39,
+    "merge_method": "squash",
+    "merge_commit": "5dd6d4d5af169b0f707f872184c47ce5443513f3"
+  },
+  "premerge": {
+    "main_head_unchanged": true,
+    "candidate_single_parent": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+    "candidate_tree_sha_matches": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "source_diff_added": 76,
+    "source_diff_modified": 0,
+    "source_diff_deleted": 0,
+    "source_diff_extra": 0,
+    "pr39_draft": false,
+    "pr39_mergeable": true,
+    "pr39_mergeable_state": "clean",
+    "main_branch_metadata_protected": false,
+    "rulesets_get_count": 0,
+    "branch_protection_endpoint_access": "HTTP403_UNREADABLE",
+    "github_merge_endpoint_enforced": "MERGED_SUCCESS"
+  },
+  "github_actions_exact_PR39_HEAD": {
+    "TrackB": {
+      "run_id": 44043606469,
+      "conclusion": "success",
+      "ubuntu": "success",
+      "windows_ps51": "success",
+      "scope": "synthetic-only"
+    },
+    "TrackBC": {
+      "run_id": 44043606388,
+      "conclusion": "success",
+      "ubuntu": "success",
+      "windows": "success",
+      "scope": "synthetic SFT interface no real optimizer science"
+    },
+    "TrackC": {
+      "run_id": 44043606424,
+      "conclusion": "success",
+      "ubuntu": "success",
+      "windows": "success",
+      "scope": "source-only"
+    },
+    "distinct_prior_PM_combined_QA": {
+      "run_id": 44026751082,
+      "conclusion": "success",
+      "ubuntu": "5 PM +60 C",
+      "windows": "5 PM +60 C",
+      "QA_only_files_excluded_from_76_file_merge": true
+    },
+    "historical_first_PM_windows_failure_preserved": {
+      "run_id": 44026585729,
+      "root_cause": "Git worktree CRLF byte smudge, corrected PM test uses git cat-file without changing source",
+      "status": "historical_failure_not_erased"
+    }
+  },
+  "postmerge_independent_readback": {
+    "main_head": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "main_head_matches_merge_commit": true,
+    "merge_commit_parent": [
+      "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3"
+    ],
+    "merge_commit_tree_sha": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "merge_commit_tree_equals_preqa_combined_source": true,
+    "manifest_paths_exact_match": true,
+    "added_paths": 76,
+    "modified_paths": 0,
+    "deleted_paths": 0,
+    "unexpected_paths": 0,
+    "PR39_state": "closed_merged",
+    "lineage_blob_before": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "lineage_blob_after": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "lineage_unchanged": true,
+    "out_of_scope_Track_A_parent_included": false,
+    "PM_review_only_files_included": false
+  },
+  "adjudication": {
+    "SCOPED_B_BC_C_MERGE": "PASS_EXACT_76_FILES_MAIN_MERGED",
+    "COMBINED_SOURCE_QA": "PASS_SCOPED_WIN_LINUX",
+    "ABC_contract": "ABC_CONTRACT_ALIGNED_DESIGN_SCOPED_PRESERVED",
+    "A_I1": "CLOSED_PASS_SCOPED_PRESERVED",
+    "A_I2": "HOLD_NOT_EXECUTED",
+    "real_SFT": "HOLD_NOT_EXECUTED",
+    "science_GPU_TEST": "NOT_AUTHORIZED",
+    "B_M3_historical_native_peak_dissent": "PRESERVED",
+    "pr34_36_37_35_original_history": "PRESERVED_ON_GITHUB; not automatically closed by this single scoped merge",
+    "PR28_33": "DRAFT_NOT_MERGED"
+  },
+  "next_followup": "Optional separate append-only lineage entry and administrative closure of superseded source PRs only on exact owner-scoped changes; no micro-permit for science"
+}
