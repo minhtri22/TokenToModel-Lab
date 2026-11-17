@@ -228,6 +228,8 @@
       "NATIVE_REQUIRED_FUTURE": 23
     },
     "positive_executed": 0,
-    "static_schema_self_check": "PENDING_AT_COMMIT"
+    "static_schema_self_check": "PASS_AUTHOR_SOURCE_SCHEMA_ONLY__NOT_INDEPENDENT",
+    "static_check_receipt": "artifacts/ttm-abc/track-a/BR_I2_01_02_V2_AUTHOR_STATIC_SCHEMA_READBACK_20261117.json",
+    "risk_parent_rename": "HOLD_NATIVE_ANCESTRY_LINEARIZATION_NOT_PROVEN"
   }
 }

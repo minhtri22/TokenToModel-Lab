@@ -1409,11 +1409,11 @@
       "execution": "NOT_EXECUTED_DESIGN_ONLY",
       "required": true,
       "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
-      "stimulus": "Rename ancestor while parent handle stays open, then attempt SetFileInformationByHandle relative rename",
-      "negative": "Rename ancestor while parent handle stays open, then attempt SetFileInformationByHandle relative rename",
-      "expected": "HOLD_OR_VERIFIED_ORIGINAL_PARENT",
+      "stimulus": "Attacker moves a still-open ancestor directory outside trusted project root (same NTFS volume; FileId unchanged) while stage/parent handles remain open, then writer attempts relative FileRenameInfo",
+      "negative": "Attacker moves a still-open ancestor directory outside trusted project root (same NTFS volume; FileId unchanged) while stage/parent handles remain open, then writer attempts relative FileRenameInfo",
+      "expected": "HOLD_OR_PROVEN_LOCKED_ANCESTRY",
       "oracle": {
-        "pass_condition": "Never publish via attacker-selected parent; validated object identity across handles and race; no target escaped root",
+        "pass_condition": "Native proof must show ancestor rename denied by verified share/ACL restriction through publication linearization point, OR writer HOLD without publishing. Same FileId alone is insufficient: any final outside trusted root is FAIL.",
         "stop_if_unproven": true
       },
       "evidence": {
@@ -1423,10 +1423,14 @@
           "guard_error",
           "no_release",
           "no_fixture_write",
-          "no_nonce_claim"
+          "no_nonce_claim",
+          "ancestor_share_modes",
+          "ancestor_rename_adversary_outcome",
+          "linearization_ancestry_proof",
+          "root_to_parent_handle_chain"
         ]
       },
-      "falsifier": "Any authorization, mutation or output not matching 'HOLD_OR_VERIFIED_ORIGINAL_PARENT' is FAIL"
+      "falsifier": "If final receipt appears outside trusted project root or writer succeeds after an ancestor moved out without locked ancestry proof, case FAIL"
     },
     {
       "id": "INTEG-06",
