@@ -1,0 +1,80 @@
+{
+  "schema": "ttm.pm.real_gpt.abc_t4_source_contract_QA_and_Q4_hold_receipt.v1",
+  "operation": "TTM_PM_REAL_GPT_BASELINE_VERTICAL_SLICE_ADAPTER_AND_ABC_EVALUATION_ADMISSION_ONEPACK",
+  "date": "2026-11-17",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "main_before_candidate": "b2e97dd3b773fc22a91618c8f034d22fda1f5908",
+  "branch": "implementation/ttm-pm-real-gpt-vertical-slice-admission-contract-20261117",
+  "pr": 43,
+  "source_only_qa_exact_head_before_receipt": "f09c90989b64ff6092b6283d3d96ca6a6f62bf2d",
+  "source_pins": {
+    "src_typed_admission_git_blob": "9f90ed6b303deca6cc0579389d287dd1037fa428",
+    "src_byte_eval_contract_git_blob": "ea7f3d84f356a2f0f5915a51548b978f081157f0",
+    "test_git_blob": "6ccf89c1aed3b33aa35262bc945493600ac0a1aa",
+    "ledger_git_blob": "e151e14265c792d9cf1a5ef962bada1d72271692",
+    "OnePack_git_blob": "3e67ba32764700d6dc971949f2ddfe04687df9eb",
+    "workflow_git_blob": "5724e24aaeab303e4daf6f4492d23ea8203ec86d"
+  },
+  "source_QA": {
+    "status": "PASS_SOURCE_ONLY_SCOPED",
+    "github_actions_run": 44066149341,
+    "win_job": 133980226634,
+    "win_python": "3.12.10",
+    "win_tests_pass": 25,
+    "linux_job": 133980226191,
+    "linux_python": "3.12.16",
+    "linux_tests_pass": 25,
+    "total_test_invocations": 50,
+    "skips": 0,
+    "failures": 0,
+    "test_values": "SYNTHETIC_ONLY_GENERATED_IN_TEST_MEMORY",
+    "source_git_objects_checked": 7,
+    "pr_delta_before_receipt": {
+      "added": 6,
+      "modified": 0,
+      "deleted": 0
+    },
+    "independent_PM_readback_checks": 12,
+    "independent_PM_readback_result": "PASS_SOURCE_ONLY",
+    "no_original_A_B_C_QA_replayed": true,
+    "no_private_data_or_checkpoint_read": true,
+    "no_torch_or_model_import": true,
+    "no_GPU_or_science_execution": true
+  },
+  "scope_limitations": [
+    "Testing a declarative SHA relationship does not validate any real BPE/pack/checkpoint bytes",
+    "The future native T4 torch loader and original B reader are not patched or executed",
+    "FAKE sha256 values in tests are not observations of actual T4 weights or dataset",
+    "Byte-NLL arithmetic does not establish real full-vocabulary gold NLL or raw span provenance",
+    "Native resource hard caps, security/signature, actual rights/family split, independent real-data QA remain HOLD",
+    "Source QA is GitHub Actions plus AI PM readback, not independent authenticated science QA"
+  ],
+  "gate_results": {
+    "R0": "PASS_SOURCE_RELATIONSHIP_CONTRACT_SCOPED",
+    "R1": "HOLD_REAL_GOLD",
+    "R2": "HOLD_RIGHTS_FAMILY_SPLIT",
+    "R3": "HOLD_ACTUAL_T4_MODEL_WEIGHTS_PACK_BPE_BYTE_IDENTITY",
+    "R4": "HOLD_NATIVE_GPU_RAM_RESOURCE",
+    "R5": "HOLD_A_NATIVE_RELEASE_IF_Q001_I2",
+    "R6": "HOLD_PROSPECTIVE_SCIENCE_FREEZE",
+    "R7": "HOLD_DISTINCT_REAL_QA",
+    "R8": "HOLD_OWNER_Q4_REAL_EXECUTION",
+    "E1": "PASS_OLD_B_SYNTHETIC_ONLY_REUSED",
+    "E2": "HOLD_T4_LIVE_MODEL",
+    "E3": "HOLD_A_C_REAL_EVAL",
+    "E5": "HOLD_REAL_SFT"
+  },
+  "verdict": {
+    "engineering_source_contract": "PASS_SCOPED",
+    "real_vertical_slice": "HOLD",
+    "A_I2": "HOLD_NOT_EXECUTED_NOT_A_GENERIC_SOURCE_MERGE_GATE",
+    "Q4_real_checkpoint_model_science": "HOLD_NO_OWNER_GO",
+    "merge_PR43": "DRAFT_HOLD_OWNER_SCOPED_MERGE_DECISION",
+    "new_science_or_test_permit": false,
+    "new_question_gate": false,
+    "lineage_changed": false,
+    "main_changed": false
+  },
+  "future_single_action": "When true owner-private source/checkpoint/resource/custody and fresh valid evaluation evidence exists, PM assembles exactly one R0-R8 Q4 admission and owner GO/HOLD for that defined real action; no automatic dispatch.",
+  "future_CI_provenance": "Receipt contains exact pre-receipt CI SHA and run; adding this receipt creates a new PR head. Its final GitHub Actions run must be checked and recorded by PM in PR/Issue comment, not falsely claimed in this self-containing JSON."
+}
