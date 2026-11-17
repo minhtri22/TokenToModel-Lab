@@ -213,11 +213,13 @@ class MatchedIndependentStyleSourceQA(unittest.TestCase):
                 r.write_new(tech.out, b"synthetic-only-QA-receipt")
                 return r.sha_file(tech.out)
             with (mock.patch.object(r, "verify_sources"),
+                  mock.patch.object(r, "live_t4_preflight", return_value={"gpu":"Tesla T4"}) as gpu,
                   mock.patch.object(r, "synthetic_40", side_effect=technical_receipt) as diag,
                   mock.patch.object(r, "train") as train,
                   mock.patch.object(r, "compare") as compare,
                   mock.patch.object(r, "validate_pack_files") as data):
                 r.one_session(args)
+                gpu.assert_called_once()
                 diag.assert_called_once()
                 train.assert_not_called()
                 compare.assert_not_called()
@@ -242,6 +244,48 @@ class MatchedIndependentStyleSourceQA(unittest.TestCase):
                 diag.assert_not_called()
             self.assertFalse(folder.exists())
 
+    def test_cpu_runtime_does_not_consume_run_id_or_create_session_folder(self):
+        with tempfile.TemporaryDirectory() as d:
+            runid="cpu_preflight_negative"
+            folder=Path(d)/("TTM_40_1024__"+runid)
+            args=SimpleNamespace(arm="replica_1024",run_id=runid,
+                out=str(folder),sources="synthetic-source-fixture",go=None,
+                resume_step=None,data="DO_NOT_READ_PRIVATE",manifest="DO_NOT_READ_PRIVATE",
+                historic="DO_NOT_READ_CHECKPOINT")
+            with (mock.patch.object(r,"verify_sources"),
+                  mock.patch.object(r,"live_t4_preflight",
+                      side_effect=ValueError("CUDA_UNAVAILABLE")) as gpu,
+                  mock.patch.object(r,"synthetic_40") as tech,
+                  mock.patch.object(r,"train") as train,
+                  mock.patch.object(r,"compare") as compare):
+                with self.assertRaisesRegex(ValueError,"CUDA_UNAVAILABLE"):
+                    r.one_session(args)
+                gpu.assert_called_once()
+                tech.assert_not_called()
+                train.assert_not_called()
+                compare.assert_not_called()
+                self.assertFalse(folder.exists())
+
+    def test_cuda_diagnostic_distinguishes_cpu_wheel_no_runtime_and_other_gpu(self):
+        fake=SimpleNamespace(
+            __version__="torchQA", version=SimpleNamespace(cuda=None),
+            cuda=SimpleNamespace(is_available=lambda:False))
+        with self.assertRaisesRegex(ValueError,"TORCH_CPU_ONLY_BUILD_NO_CUDA"):
+            r.cuda_guard(fake)
+        fake.version.cuda="12.4"
+        with self.assertRaisesRegex(ValueError,"CUDA_UNAVAILABLE"):
+            r.cuda_guard(fake)
+        fake.cuda=SimpleNamespace(is_available=lambda:True,
+                                  get_device_name=lambda index:"NVIDIA L4")
+        with self.assertRaisesRegex(ValueError,"GPU_NOT_T4.*NVIDIA L4"):
+            r.cuda_guard(fake)
+
+    def test_gpu_preflight_only_cli_mode_is_available_without_science(self):
+        code=RUNNER.read_text("utf-8")
+        self.assertIn('"gpu-preflight"',code)
+        self.assertIn('live_t4_preflight()',code)
+        self.assertLess(code.index('live_t4_preflight()\n        session.mkdir'),
+                        code.index('session.mkdir(parents=True)'))
     def test_checkpoint_fork_no_overwrite(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "READY.json"
