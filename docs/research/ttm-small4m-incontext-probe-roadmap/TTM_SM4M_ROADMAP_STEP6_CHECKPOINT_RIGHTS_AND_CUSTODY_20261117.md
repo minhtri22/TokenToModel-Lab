@@ -1,7 +1,7 @@
 # Bước 6 — Xác minh quyền và custody checkpoint (AD-01C/E6), chạy song song
 
 **Trạng thái:** `DESIGN_PROPOSAL_NOT_AUTHORIZED · SOURCE_ONLY · NO_MODEL_RUN · NO_TRAINING · LINEAGE_UNCHANGED`  
-**Phiên bản:** v2, 2026-11-17. Thay thế v1 (commit `f88c6d1`, vẫn còn trong lịch sử git). **Repository:** `minhtri22/TokenToModel-Lab`. **Main được đối chiếu:** `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3` (PR #27, không đổi).  
+**Phiên bản:** v2, 2026-11-17. Thay thế v1 (commit `f88c6d1`, vẫn còn trong lịch sử git). **Repository:** `minhtri22/TokenToModel-Lab`. **Main được đối chiếu khi soạn:** `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3` (PR #27). Sau đó `main` tiến tới `e102d2ed3c885756b6e4354189ccbece36b75eb8` (PR #39 và #40, lineage L0030–L0035) và nhánh này đã merge `main` mới. Tác giả bản nháp **đã đọc các mục lineage L0029–L0035 nhưng chưa đọc 76 tệp mã/tài liệu ABC mới**; `ACTIVE_RESEARCH_GATE.md` không đổi giữa hai commit `main` (đã so sánh). Xem ghi chú đồng bộ ở STEP5 và STEP6.  
 **Tác giả:** Claude (AI), soạn theo yêu cầu của chủ repo trong một phiên trò chuyện. **Review độc lập: `NOT_PERFORMED`.** Mọi ngưỡng, cỡ mẫu, thời gian và ngân sách là **đề xuất của tác giả bản nháp**, chưa dựa trên dữ liệu đo và chưa được đóng băng.  
 **Quan hệ với quản trị hiện hành:** `docs/governance/ACTIVE_RESEARCH_GATE.md` ghi `NO_NEW_BRANCH_AUTHORIZED` và `TTM-SM4M-DIAG-Q001` ở `Q1_REGISTERED_SOURCE_ONLY`. Nhánh chứa tài liệu này được tạo theo yêu cầu trực tiếp của chủ repo; việc nó trở thành Question Gate, amendment của DIAG-Q001 hay bị bỏ là **quyết định của owner**. Tài liệu không cấp quyền truy cập checkpoint, không cấp quyền chạy hay huấn luyện mô hình và không thêm mục vào `lineage.md`.
 
@@ -115,3 +115,7 @@ Chứng nhận này **không** là bằng chứng khoa học và không mở quy
 2. Tính lại hash trên bản sao sẽ dùng và đối chiếu.
 3. Quyết định có cần ý kiến pháp lý cho phạm vi "suy luận cục bộ" hay owner tự chứng nhận.
 4. Điền khung chứng nhận ở mục 5 và đưa vào gói quyết định GO/HOLD của DIAG-Q001 hoặc của câu hỏi riêng.
+
+## 9. Ghi chú đồng bộ với `main` sau PR #39 (từ lineage L0031–L0035, chưa đọc mã)
+
+Các mục L0031–L0033 ghi trọng số checkpoint thật cho nhánh B/C v2 là `NOT_CREATED/NOT_VERIFIED` và trạng thái SFT thật là HOLD. Điều đó thuộc nhánh B/C và **không** áp dụng cho checkpoint T4 M1024/M1280; chứng nhận ở mục 5 vẫn phải lập riêng cho T4. L0035 giữ `GPU/NEW_TEST=NOT_AUTHORIZED`, nên chứng nhận quyền ở đây không mở quyền chạy.
