@@ -49,9 +49,9 @@
   "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
   "real_sft": "NOT_EXECUTED",
   "data_objective_capacity_science": "NOT_EXECUTED",
-  "phase_status": "BC_V2_F05_F06_C_CONTRACT_COMPATIBILITY_PASS_SCOPED_BC5_PM_DISTINCT_HOLD",
-  "review": "C_F05_F06_B_NEW_EXACT_HEAD_15_PLUS_19_WINDOWS_LINUX_PASS_7_SHA_MATCH_DISTINCT_PM_PENDING",
-  "next_operation": "TTM_PM_BC_V2_F05_F06_DISTINCT_FINAL_QA_AND_ENGINEERING_GATE_ADJUDICATION_SINGLE_GATE",
+  "phase_status": "C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_COMPLETE_SCOPED_GLOBAL_HOLD_CCR_01_B_VERIFICATION",
+  "review": "A_37_FIELDS_PRESERVED_C_DESIGN_PACKET_AUTHOR_STRUCTURAL_QA_18_OF_18_NO_SCIENCE",
+  "next_operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK",
   "source_qa": {
     "m4_distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
     "m4_distinct_rereview": "PASS_DESIGN_SCOPED_35_35",
@@ -149,7 +149,7 @@
     "independent_final_reviewer": "NOT_EXECUTED_DISTINCT_FROM_AGENT_B_AND_AGENT_C",
     "pm_final_BC_decision": "NOT_ADJUDICATED"
   },
-  "last_evidence_path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_COMPATIBILITY_SIGNOFF_20261117.json",
+  "last_evidence_path": "artifacts/ttm-abc/track-c/C_SCIENCE_PACKET_AUTHOR_READBACK_20261117.json",
   "bc_f05_f06_evidence": {
     "review_branch": "review/ttm-c-bc-v2-f05-f06-20261117",
     "report_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/9578291ae7c64ac58960fca679356e956ad9d51b/docs/research/ttm-abc/track-c/independent_review/C_BC_V2_F05_F06_EXACT_HEAD_REVIEW_20261117.md",
@@ -160,5 +160,54 @@
     "historical_fail_run": 43923286066,
     "outcome": "C_CONTRACT_COMPATIBILITY_PASS_SCOPED_V2_F05_F06_CLOSED_BC5_HOLD",
     "scope": "NO_SCIENCE_NO_MERGE_NO_SOURCE_B_EDITS"
+  },
+  "c_science_packet": {
+    "operation": "TTM_C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_ONEPACK",
+    "shared_contract": {
+      "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+      "blob": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1"
+    },
+    "A_packet_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "C_source_base": "00afd25aa2234e30f7602592d49d5d9f2947965b",
+    "B_C_v2_exact_head": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "PM_BC_engineering": "PASS_ENGINEERING_SCOPED_TRUSTED_SYNTHETIC_CPU_ONLY",
+    "ABC_CONTRACT_ACK_C_comment_id": 6937623901,
+    "CONTRACT_CHANGE_REQUEST_CCR_01_comment_id": 6937644143,
+    "A_source_requirements": "37_OF_37_EXACT_FIELDS_UNCHANGED",
+    "field_owner_counts": {
+      "A": 30,
+      "C": 4,
+      "B_BC": 3
+    },
+    "C_new_logical_requirements": 26,
+    "ASSUMPTIONS_REQUIRING_B": 14,
+    "prospective_negative_controls": "24_DECLARED_0_EXECUTED",
+    "A_V4_future_controls": "65_NEG_3_POS_0_EXECUTED",
+    "source_author_QA": "PASS_18_OF_18_STRUCTURAL_NOT_DISTINCT",
+    "science_contract": "C_SCIENCE_CONTRACT_DESIGN_COMPLETE_SCOPED",
+    "joint_alignment": "HOLD_CCR_01_ACK_PENDING_A_B_PM",
+    "R0": "PASS_C_SOURCE_READBACK_SCOPED",
+    "R1": "A_I1_SCOPED_PASS_C_REAL_GOLD_HOLD",
+    "R2": "HOLD_SOURCE_RIGHTS_SPLITS",
+    "R3": "HOLD_B_VERIFICATION",
+    "R4": "HOLD_B_VERIFICATION",
+    "R5": "A_DESIGN_ACCEPT_SCOPED_NATIVE_HOLD",
+    "R6": "DESIGN_ONLY_NOT_PREREGISTERED",
+    "R7": "REAL_INDEPENDENT_NOT_EXECUTED",
+    "R8": "HOLD_OWNER_RELEASE",
+    "actual_real_corpus": "UNVERIFIED",
+    "real_gold": "HOLD",
+    "real_checkpoint_weight_file": "UNVERIFIED",
+    "real_tokenizer_compatibility": "HOLD_B_VERIFICATION",
+    "real_resource_native": "HOLD_B_VERIFICATION",
+    "I2": "NOT_EXECUTED",
+    "science": "NOT_EXECUTED",
+    "new_TEST": "NOT_EXECUTED",
+    "dataset_download": false,
+    "model_forward": false,
+    "optimizer": false,
+    "gpu": false,
+    "merge": false,
+    "required_next_operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK"
   }
 }
