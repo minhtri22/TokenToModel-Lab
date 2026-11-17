@@ -1,0 +1,30 @@
+name: TTM PM real GPT T4 typed admission source-only QA
+on:
+  pull_request:
+    paths:
+      - "src/ttm_real_baseline/**"
+      - "tests/ttm_real_baseline/**"
+      - "artifacts/ttm-real-baseline/**"
+      - "docs/architecture/TTM_PM_REAL_GPT_T4_VERTICAL_SLICE_ABC_ADAPTER_ADMISSION_ONEPACK_20261117.md"
+      - ".github/workflows/ttm-real-baseline-source-contract-py312.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-contract-no-model:
+    name: t4-source-only-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Enforce stdlib Python 3.12, no Torch, no private corpus, no model
+        run: python -S -B -c "import sys; assert sys.version_info[:2]==(3,12); print('TTM_REAL_T4_SOURCE_ONLY_NO_MODEL_NO_PRIVATE_BYTES', sys.version)"
+      - name: T4 typed metadata and UTF8 arithmetic contract negative QA
+        run: python -S -B -m unittest discover -s tests/ttm_real_baseline -p 'test_*.py' -v
