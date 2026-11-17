@@ -1,0 +1,606 @@
+{
+  "schema": "ttm.pm.abc.scoped_composite_candidate_source_manifest.v1",
+  "operation": "TTM_PM_ABC_SCOPED_MERGE_CANDIDATE_INDEPENDENT_QA_ONEPACK",
+  "date": "2026-11-17",
+  "scope": "B34_BC36_B37_plus_C35_additive; NO_A28_A33; QA_ONLY_NOT_MERGE",
+  "source_of_truth_repo": "minhtri22/TokenToModel-Lab",
+  "source_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "frozen_branch_heads": [
+    {
+      "pr": 34,
+      "sha": "43896bcd034c82e8433bc6a2b53eefbd936616fb"
+    },
+    {
+      "pr": 36,
+      "sha": "09de6a46574146d863f416e056fcf01091f3efb8"
+    },
+    {
+      "pr": 37,
+      "sha": "ff4304e04f44de69a07cd767b2a7f400d6e95e88"
+    },
+    {
+      "pr": 35,
+      "sha": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c"
+    }
+  ],
+  "candidate": {
+    "B_base_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+    "source_overlay_C_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "source_composite_tree_sha1": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "source_composite_commit": "9b096b6cf5e9486df1a9ab7220974af3fac0f496",
+    "QA_branch": "review/pm-abc-bc-c-synthetic-combined-qa-20261117",
+    "QA_HEAD": "123629595c64c694bfcc2c932037f700628d7253",
+    "QA_DRAFT_PR": 38,
+    "qa_only_files": [
+      {
+        "path": ".github/workflows/ttm-pm-abc-bc-c-combined-source-only-py312.yml",
+        "git_blob_sha1": "c644ddf983d90cde16f0ec0560c105c9b991c458"
+      },
+      {
+        "path": "tests/ttm_pm_abc/test_pm_bc_c_combined_source_only_20261117.py",
+        "git_blob_sha1": "c9d6e25e8a4ade9d84b26c106dbe6a87f966aa00"
+      }
+    ],
+    "QA_previous_head": "6369d9ee96ae1e8cd309dac565ee2d74951b2da5",
+    "QA_previous_failed_windows_run": 44026585729,
+    "QA_corrected_pass_run": 44026751082,
+    "C_workflow_pass_run": 44026750768,
+    "source_runtime_B_changed_in_overlay": false,
+    "scientific_experiment_executed": false,
+    "merge_to_main_executed": false
+  },
+  "source_counts": {
+    "PR34": 11,
+    "PR36": 27,
+    "PR37": 8,
+    "PR35": 30
+  },
+  "additive_source_file_total": 76,
+  "unique_path_total": 76,
+  "overlaps": 0,
+  "modified_paths": 0,
+  "removed_paths": 0,
+  "proof": "Four exact PR file APIs and main-to-composite commit compare independently match the same 76 added paths, all status added; PR38 path comparison confirms C 30/30 unchanged Git blob SHA-1; B paths inherited unchanged from B37 parent.",
+  "files": [
+    {
+      "path": ".github/workflows/track-b-b0b1-py312.yml",
+      "git_blob_sha1": "473d904e4a51d43f589610fed888a2a5fdacbfcd",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/CI_PY312_GITHUB_ACTIONS_READBACK_20261116.json",
+      "git_blob_sha1": "760f095cec8ae32687892c0bcbcd0c0e5ffc946e",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/RUN_MANIFEST.json",
+      "git_blob_sha1": "3378fd2495045e0e2389414d66b170f34f05fd33",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "configs/ttm/track_b_synthetic_smoke.json",
+      "git_blob_sha1": "ec5df715eec3022bc2e4b097d28b5f5b1fd21a96",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/TTM_TRACK_B_GPT_CORE_AGENT_HANDOFF_20261116.md",
+      "git_blob_sha1": "3934d441995c42ad274b11fd62723a7c4bd70391",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/status/TTM_TRACK_B_STATUS.json",
+      "git_blob_sha1": "aa3e0a31c8f42c13b907809307fbcffbc26a0e94",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-b/B0_B1_CONTRACTS_AND_RUNBOOK_VI.md",
+      "git_blob_sha1": "289a7f27166f79dce89498ab5de7541095845975",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "src/ttm_track_b/__init__.py",
+      "git_blob_sha1": "bad3c7623530e4a49fc9d66975e5e5a7341d30f6",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "src/ttm_track_b/cli.py",
+      "git_blob_sha1": "be458f18fe98376fe5a43041e3f151956c66fb9d",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "src/ttm_track_b/scaffold.py",
+      "git_blob_sha1": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": "tests/test_track_b_scaffold.py",
+      "git_blob_sha1": "359896b4dea646cf02509ebb2910e6a87b5c954b",
+      "source_pr": 34,
+      "source_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "status": "added"
+    },
+    {
+      "path": ".github/workflows/track-bc-sft-interface-py312.yml",
+      "git_blob_sha1": "be250d278fddb95c364e0ccdd57f87d56d123e0a",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/BC_C_NEW_PART_A_WIRE_SCHEMA_CROSSCHECK_20261116.json",
+      "git_blob_sha1": "4ced8b63cb8875f9cec94c1028b8f22453438e31",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/BC_C_V2_SOURCE_SCHEMA_SIGNOFF_ADDENDUM_20261117.json",
+      "git_blob_sha1": "02b16b4c14766640373b6296f00d890b517ec20c",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/BC_F01_F04_V2_AUTHOR_CI_AND_BYTE_CUSTODY_RECEIPT_20261117.json",
+      "git_blob_sha1": "c1b81ca8a798efe7318d2ec5ddaa975991cda1ce",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/BC_SFT_INTERFACE_AUTHOR_CI_RECEIPT_20261116.json",
+      "git_blob_sha1": "81e53ce51d7ceaf95f7eb5e6f46df216ee2b4ca9",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/BC_V2_F05_F06_FAIL_CLOSED_AUTHOR_CI_RECEIPT_20261117.json",
+      "git_blob_sha1": "656cd1a1aca695536fe9707d7340a3e304cfbfc9",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/MANIFEST_CANONICAL_LF.json",
+      "git_blob_sha1": "cba9f094d5d05787ffb50ffdef849049945bbfc8",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/chat_template.json",
+      "git_blob_sha1": "1ff83ad61785658e52b60453be5cc286f0220e98",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/checkpoint_schema.json",
+      "git_blob_sha1": "bf07d0f85fa038397e06bd81fffd172740ebcdc0",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/config.json",
+      "git_blob_sha1": "64a227667af7e374b3c57ef224a7522c90d2ea07",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/serialized_inputs.json",
+      "git_blob_sha1": "6049f1459547102cdbf8e2365e8fe70c41e3293b",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/target_labels.json",
+      "git_blob_sha1": "fad8871a54b36d89cdb34ac8962f553fe1b292a9",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/target_masks.json",
+      "git_blob_sha1": "416a1e65ac0d68dbb3282e7c0d78fdacf77ede67",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/bc-sft/v2/actual_bytes/tokenizer.json",
+      "git_blob_sha1": "45cbe73a41951455b8f09f63b46d143f93b9518e",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/bc-sft/BC_F01_F04_WIRE_SCHEMA_HASH_BRIDGE_V2_HANDOFF_20261117.md",
+      "git_blob_sha1": "4c8246675417530bf3ea062b11a9c7c515d7ef44",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/bc-sft/BC_SFT_INTERFACE_CONTRACT.md",
+      "git_blob_sha1": "69847b0285778c7ef0b361c20c4235fd5470f1ec",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/bc-sft/BC_V2_F05_F06_FAIL_CLOSED_AGENT_B_HANDOFF_20261117.md",
+      "git_blob_sha1": "2b8219dd06b7d561cfe912bc42026c35e17fe332",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "src/ttm_track_b/bc_sft_bridge_v2.py",
+      "git_blob_sha1": "c56d98b520fef387fab43bac87b7a9247287b17c",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "src/ttm_track_b/bc_sft_interface.py",
+      "git_blob_sha1": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/test_bc_sft_bridge_v2.py",
+      "git_blob_sha1": "a27395e4b3167534b87363e4d79d5880b73670d0",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/test_bc_sft_interface.py",
+      "git_blob_sha1": "09b4619fdbcd5f09d633b4ae2325f7a1f89af3a0",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/b_v2_c_oracle_compat.py",
+      "git_blob_sha1": "b98bc1f7fd364301ce920f1cfa401b8aa4dab6d5",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/c_m4_source_pinned.py",
+      "git_blob_sha1": "83c6d5abe0948c24c9e49375ffc2a17e3143a793",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/c_part_a_wire_oracle_pinned.py",
+      "git_blob_sha1": "233c678c89afc3471af4addc55f827e0c52b0383",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/run_c18_on_b_v2.py",
+      "git_blob_sha1": "775714e8e97e10a3c5694142313412c9b13bd3e5",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/test_c_part_a_wire_oracle_pinned.py",
+      "git_blob_sha1": "5c422bc5c4a7a5dc7c107dc1dda4718361b0851e",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_bc/test_pm_distinct_v2_manifest_negative_20261117.py",
+      "git_blob_sha1": "3003566952116f3bc0e4ba21c7306fda460a3017",
+      "source_pr": 36,
+      "source_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/B_ABC_37_26_14_LOGICAL_COMPATIBILITY_20261117.json",
+      "git_blob_sha1": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/B_ABC_CCR01_B_REMAP_READBACK_RECEIPT_20261117.json",
+      "git_blob_sha1": "f65e116172db8acde9477f1870596c54265a37ac",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/B_ABC_CCR01_EXACT_C_37_26_14_REMAP_20261117.json",
+      "git_blob_sha1": "c2d4a050f35218de2c023d3a5c50fb3454404c23",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/B_SHARED_FEASIBILITY_AUTHOR_SOURCE_READBACK_RECEIPT_20261117.json",
+      "git_blob_sha1": "2dd30f50b4742287ca9dbbb6127660678550f511",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/B_R0_R3_R4_R5_READINESS.md",
+      "git_blob_sha1": "83379c8c1532d0ef87119e24596682a9b81fb064",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B.md",
+      "git_blob_sha1": "9acaf4292c3d298daa1a2f44db4345e7bca1b3a0",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B_CCR01_EXACT_C_REMAP_20261117.md",
+      "git_blob_sha1": "524ab7bbf756eccde66d734d66944ade8669c3e5",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-b/B_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY.md",
+      "git_blob_sha1": "1e954ce1dbb53178083cde6b25e40d62f46c1e07",
+      "source_pr": 37,
+      "source_commit": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "status": "added"
+    },
+    {
+      "path": ".github/workflows/track-c-bc-v2-py312.yml",
+      "git_blob_sha1": "31ab9a6d72fe4605183a2376230a2a3580a4e3fc",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/C_ABC_F01_F02_F03_INTEGRATED_ALIGNMENT_RECEIPT_V2_20261117.json",
+      "git_blob_sha1": "e74aae648cd56d4758d8ce3f0f08addfb62bc9d0",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/C_SCIENCE_PACKET_AUTHOR_READBACK_20261117.json",
+      "git_blob_sha1": "d8785f678d57c98f4053d6286e1747c705906e8b",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/C_SCIENCE_REQUIREMENTS_AND_A_C_COMPATIBILITY_20261117.json",
+      "git_blob_sha1": "364a15d305b71e0c236a27409430f1e27e14aa70",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_COMPATIBILITY_SIGNOFF_20261117.json",
+      "git_blob_sha1": "f954aa05986de891f411f9579c5240e7151edb47",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/TTM_C_BC_F01_F04_PART_B_SOURCE_REVIEW_RECEIPT_20261117.json",
+      "git_blob_sha1": "b2698027608fe627e95e14b2011cec33b6303274",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/TTM_C_BC_SFT_PART_A_AUTHOR_QA_RECEIPT_20261116.json",
+      "git_blob_sha1": "1488552ca8913b0cb3b34061778791249e3dfdba",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/TTM_TRACK_C_M4_AUTHOR_SYNTHETIC_QA_RECEIPT_20261116.json",
+      "git_blob_sha1": "70510fe483accf158d793840b2c3f3ea0b1c2dc4",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "artifacts/ttm-abc/track-c/TTM_TRACK_C_M4_SINGLE_AMENDMENT_AUTHOR_QA_RECEIPT_20261116.json",
+      "git_blob_sha1": "ec90189191d1c058ba672e73b360b9bb732b0d7c",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "configs/ttm/track_c_bc_sft_candidate_codec_v1.json",
+      "git_blob_sha1": "31c5ffe04a664e522aae2b78c53cb3d766f9d990",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "configs/ttm_track_c_design_only_v1.json",
+      "git_blob_sha1": "37e24069f5f1fd93170b28a25f3b26aef7e55813",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/TTM_TRACK_C_M4_ONEPACK_HANDOFF_20261116.md",
+      "git_blob_sha1": "b920e521de6d464256f301d0df9a053dd63ea832",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/TTM_TRACK_C_RESEARCH_SCALING_AGENT_HANDOFF_20261116.md",
+      "git_blob_sha1": "e04ab10868b8d20bd85688827e61b336a8c4cd82",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/status/TTM_TRACK_C_STATUS.json",
+      "git_blob_sha1": "f3a44534603cdb28100f48a62c770c37e416e856",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-c/C_ABC_F01_F02_F03_INTEGRATED_ALIGNMENT_AMENDMENT_V2_20261117.md",
+      "git_blob_sha1": "e6a77fcb85fbbf24fd1b25e6459c1f40bbfa8e97",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-c/C_ASSUMPTIONS_REQUIRING_B_JOINT_COMPATIBILITY.md",
+      "git_blob_sha1": "eb65fa23dd9830b0fffae3be9b0d4c04779f9d5b",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-c/C_R0_R1_R2_R3_R6_R7_READINESS.md",
+      "git_blob_sha1": "f72a96646c43c76e78be5c41a8e725f24f40ecdd",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/BC_SFT_F01_F04_C_PART_B_REVIEW_AND_V2_ACCEPTANCE_20261117.md",
+      "git_blob_sha1": "1bd317c473525d35e4f9852863f720cdd9b5717d",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/BC_SFT_INTERFACE_CONTRACT_REVIEW_20261116.md",
+      "git_blob_sha1": "8c41ae8d0913de5d0148c90593e49df9c83f2a96",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/C_DATA_OBJECTIVE_CAPACITY_MATRIX.md",
+      "git_blob_sha1": "d8d055d981debbed0f38d6f13ad791ad073541ce",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/C_EVAL_CONSTRUCT_AND_DATA_AUDIT.md",
+      "git_blob_sha1": "8e5512e5498261c9179f44a23ac9a1a7c0cd4536",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/C_SCIENCE_DATA_EVAL_CONTRACT_V1.md",
+      "git_blob_sha1": "a8c8f3ca898456519e82bcccb0ada73af24f6ff9",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "docs/research/ttm-abc/track-c/C_SFT_PROTOCOL.md",
+      "git_blob_sha1": "56d2b98ce4584e73676973686c52ff84591a0725",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/bc_sft_wire_oracle.py",
+      "git_blob_sha1": "233c678c89afc3471af4addc55f827e0c52b0383",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/bc_v2_contract_oracle.py",
+      "git_blob_sha1": "9ae5e8b189b361a496bc7bfd9ec0342bc24a7e72",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/synthetic_contract.py",
+      "git_blob_sha1": "83c6d5abe0948c24c9e49375ffc2a17e3143a793",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/test_amendment_negative.py",
+      "git_blob_sha1": "30c3ddbdbcf907d5d16ca9247c1f683d26d26150",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/test_bc_sft_wire_oracle.py",
+      "git_blob_sha1": "5c422bc5c4a7a5dc7c107dc1dda4718361b0851e",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/test_bc_v2_contract_oracle.py",
+      "git_blob_sha1": "40d9e524d1211363d4200302c65144e4632c2879",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    },
+    {
+      "path": "tests/ttm_track_c/test_synthetic_contract.py",
+      "git_blob_sha1": "0681c0fd6550675baa011de78d2590fc27ba604f",
+      "source_pr": 35,
+      "source_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "status": "added"
+    }
+  ],
+  "limits": [
+    "GitHub PR38 is a review-only draft targeting B PR37 branch, not main",
+    "Full B Core native/real checkpoint resource or science execution not performed",
+    "Exact C/A scientific source rights, real data, weights and owner release remain HOLD",
+    "Windows checkout CRLF worktree conversion found in first PM attempt; corrected test reads Git object bytes, not on-disk real execution custody",
+    "Branch protection API previously denied by 403; no owner scoped merge authorization",
+    "Previous B M3 V3 native negative and peak dissent preserved"
+  ]
+}
