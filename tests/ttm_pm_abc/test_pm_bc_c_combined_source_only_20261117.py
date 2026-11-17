@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 import unittest
@@ -25,7 +26,16 @@ ART_ROOT = Path("artifacts/ttm-abc/bc-sft/v2/actual_bytes")
 
 
 def read(path: Path) -> bytes:
-    return (ROOT / path).read_bytes()
+    """Read immutable Git *object* bytes, not checkout-smudged Windows CRLF bytes.
+
+    On Windows, text worktree conversion may change LF to CRLF. The source
+    custody subject of this test is the exact Git object in the merged tree.
+    Real filesystem byte custody on an owner host is a distinct R5 barrier.
+    """
+    return subprocess.run(
+        ["git", "cat-file", "blob", "HEAD:" + path.as_posix()],
+        cwd=ROOT, check=True, capture_output=True
+    ).stdout
 
 
 def git_blob(data: bytes) -> str:
