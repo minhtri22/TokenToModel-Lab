@@ -4,6 +4,7 @@ on:
     paths:
       - "tests/ttm_pm_gpt_e2e_source/**"
       - "artifacts/ttm-gpt-e2e/**"
+      - "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md"
       - ".github/workflows/ttm-pm-gpt-e2e-abc-source-qa-py312.yml"
   workflow_dispatch:
 permissions:
