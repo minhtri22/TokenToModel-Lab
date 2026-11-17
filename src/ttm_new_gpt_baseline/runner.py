@@ -276,7 +276,7 @@ def durable_checkpoint(root, step, model, opt, sch, sampler, scaler,
         "checkpoint": "checkpoint.pt", "sha256": file_hash,
         "bytes": dst.stat().st_size, "progress_sha256": sha_file(directory / "progress.json"),
         "go_sha256": go_sha, "pack_sha256": DATA_SHA,
-        "runner_git_blob": source_blob(),
+        "runner_git_blob": source_blob(), "arm": payload["arm"],
         "recipe_sha256": recipe_hash(payload["arm"])}
     write_new(directory / "READY.json", canonical(ready))
     if sha_file(dst) != file_hash:
@@ -305,7 +305,8 @@ def checked_ready(path, step=None):
 
 def resume_state(folder, model, opt, sch, sampler, scaler, legacy, torch, go_sha, arm):
     ready = checked_ready(folder)
-    if ready["go_sha256"] != go_sha or ready["recipe_sha256"] != recipe_hash(arm):
+    if (ready["go_sha256"] != go_sha or ready["recipe_sha256"] != recipe_hash(arm)
+            or ready.get("arm") != arm):
         raise ValueError("RESUME_ORIGINAL_RUN_LOCK_MISMATCH")
     step, elapsed = legacy.checkpoint_load(Path(folder), model, opt, sch, sampler, scaler,
                                            next(model.parameters()).device, go_sha, DATA_SHA)
@@ -429,8 +430,8 @@ def paired_bootstrap(left, right, counts, seed=20261117, reps=2000):
             "scope": "HISTORICAL_VAL_DEVELOPMENT_ONLY_NO_NEW_TEST"}
 
 def compare(args):
-    if not args.go or not args.left or not args.right or not args.arm:
-        raise ValueError("COMPARE_REQUIRES_EXPLICIT_INPUTS")
+    if not args.go or not args.left or not args.right or args.arm not in ("replica_1024", "replica_2048"):
+        raise ValueError("COMPARE_REQUIRES_EXACT_MATCHED_PAIR")
     validate_pack_files(args.data, args.manifest)
     l = Path(args.left).resolve(strict=True)
     r = Path(args.right).resolve(strict=True)
@@ -443,15 +444,21 @@ def compare(args):
     vals = []
     steps = []
     kind = []
-    for path, sha in ((l, lh), (r, rh)):
-        # Historical source is allowed ONLY in 1024 comparison at exact hash.
+    for index, (path, sha) in enumerate(((l, lh), (r, rh))):
+        # At 1024: frozen historical LEFT vs new replica RIGHT.
+        # At 2048: prospective control LEFT vs prospective replica RIGHT.
         historical = (sha == HISTORIC_STEP1024_SHA)
+        if args.arm == "replica_1024" and historical != (index == 0):
+            raise ValueError("HISTORICAL_LEFT_1024_REQUIRED")
         if historical and args.arm != "replica_1024":
             raise ValueError("HISTORICAL_1024_CANNOT_COMPARE_TO_2048")
         if not historical:
             rd = checked_ready(path.parent)
-            if rd["sha256"] != sha or rd["recipe_sha256"] != recipe_hash(args.arm):
-                raise ValueError("PROSPECTIVE_CHECKPOINT_RECIPE_DRIFT")
+            expected_arm = ("replica_1024" if args.arm == "replica_1024"
+                            else ("control_2048" if index == 0 else "replica_2048"))
+            if (rd["sha256"] != sha or rd["recipe_sha256"] != recipe_hash(args.arm)
+                    or rd.get("arm") != expected_arm):
+                raise ValueError("PROSPECTIVE_CHECKPOINT_RECIPE_OR_ARM_DRIFT")
         ckpt = torch.load(path, map_location="cpu", weights_only=True)
         if (ckpt.get("schema") != "ttm.t4.science.checkpoint.v1"
                 or ckpt.get("config") != P02_CONFIG
@@ -461,6 +468,8 @@ def compare(args):
         step = ckpt["step"]
         if step != plan_of(args.arm)["steps"]:
             raise ValueError("PAIR_STEP_MISMATCH")
+        if not historical and ckpt.get("arm") != expected_arm:
+            raise ValueError("CHECKPOINT_WRONG_PAIRED_ARM")
         model = p02.GPT(p02.P02Config(**P02_CONFIG))
         model.load_state_dict(ckpt["model"], strict=True)
         model.eval()
