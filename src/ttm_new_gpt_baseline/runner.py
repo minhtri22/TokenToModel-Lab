@@ -132,10 +132,10 @@ def windows(splits, context):
         for _, raw in docs:
             ids = [BOS, *raw, EOS]
             for i in range(0, len(ids) - 1, context):
-                x, y = ids[i:i+context], ids[i+1:i+context+1]
-                if len(x) != len(y):
+                n = min(context, len(ids) - 1 - i)
+                x, y = ids[i:i+n], ids[i+1:i+1+n]
+                if len(x) != n or len(y) != n:
                     raise AssertionError("MISALIGNED")
-                n = len(y)
                 ws.append((x + [BOS] * (context - n),
                            y + [-100] * (context - n)))
         out[split] = ws
