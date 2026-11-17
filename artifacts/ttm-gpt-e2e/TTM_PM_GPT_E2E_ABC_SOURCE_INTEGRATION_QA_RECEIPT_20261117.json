@@ -42,7 +42,8 @@
     "all_source_blob_pins_checked_by_QA": true,
     "new_or_modified_B_model_code": false,
     "new_or_modified_A_C_frozen_code": false,
-    "owner_Q4_runtime_authority": "HOLD"
+    "owner_Q4_runtime_authority": "HOLD",
+    "readback_before_receipt_scope": "HISTORICAL_PRE_F01_F04_SOURCE_BLOBS_ONLY; do not present previous blob SHA as amended source pin"
   },
   "QA": {
     "initial_failed_run": 44060185325,
@@ -82,8 +83,18 @@
       "P04/B/T4 checkpoint schema distinct",
       "A37+C26+B14 mapping 63 unique correct source pointer",
       "external A anchors owner real GO false",
-      "12 exact seam IDs and no silent science pass"
-    ]
+      "12 exact seam IDs and no silent science pass",
+      "F01 P02 F.cross_entropy default -100 via static AST; P03 rejects target<0; B independent ignore -100; manifest S03 corrected",
+      "F02 external A I1/V4 exact source/evidence Git blob pins and C registry pointer; reviewer reads external refs, CI does not",
+      "F02/F04 report-manifest-receipt consistent PRE-QA and previously run historical-only metadata",
+      "F03 workflow PR path includes new report; no pip/model/training commands"
+    ],
+    "prior_pre_receipt_run": 44060311408,
+    "latest_prior_exact_head_run": 44060530115,
+    "latest_prior_exact_head_sha": "383e2a4a858069e05a290d7448e607a01853ae04",
+    "CI_authority_note": "Only the current PR HEAD workflow result on GitHub after F01-F04 amendment can establish final PASS. Runs #44060311408 (prior source HEAD) and #44060530115 (prior exact PR42 HEAD) are HISTORICAL, not evidence of the amended commit. A receipt file cannot embed its own future run ID without a new commit/head; record final run separately in PM GitHub review/Issue #32.",
+    "current_amendment_method_count": 17,
+    "current_amendment_QA_status": "NOT_EXECUTED_AT_RECEIPT_AUTHOR_TIME; GITHUB_POST_COMMIT_WORKFLOW_REQUIRED"
   },
   "reused_frozen_evidence": {
     "PR39_source_merge": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
@@ -111,7 +122,7 @@
     "B_V3_native_dissent": "PRESERVED_HOLD"
   },
   "PM_decision": {
-    "E0": "PASS_E0_EXACT_SOURCE_GRAPH_INTEGRATION_SCOPED",
+    "E0": "PRE_QA_SOURCE_SNAPSHOT; PRIOR_SCOPED_PASS_PRESERVED; AMENDED_HEAD_FINAL_REVIEW_AWAITS_GITHUB_CI",
     "E1": "PASS_EXISTING_SYNTHETIC_E2E_SCOPED_NO_RERUN",
     "E2": "HOLD_REAL_T4_CHECKPOINT_RIGHTS_PACK_BYTES",
     "E3": "HOLD_REAL_BASELINE_A_C_EVALUATION",
@@ -123,7 +134,8 @@
     "no_new_QuestionGate": true,
     "no_model_run": true,
     "no_science_run": true,
-    "no_merge": true
+    "no_merge": true,
+    "pr42_merge_scope": "OWNER_DELEGATED_PM_READJUDICATION_AFTER_QA; NOT_YET_EXECUTED"
   },
   "source_only_scope_limitations": [
     "OnePack identifies seams and includes exact source QA, not a new real executable trainer",
@@ -131,5 +143,33 @@
     "PM AI source reviewer does not substitute independent human rights signoff",
     "Old PR39 CI synthetic runtime PASS is reused, never claim real model quality",
     "Real released deployment, safety and product tests not executed"
-  ]
+  ],
+  "source_scope": {
+    "manifest_path": "artifacts/ttm-gpt-e2e/TTM_PM_GPT_E2E_ABC_EXACT_SOURCE_INTEGRATION_MANIFEST_20261117.json",
+    "report_path": "docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md",
+    "source_nodes": 18,
+    "seam_count": 12,
+    "external_A_anchor_count": 2,
+    "snapshot_only_no_real_execution": true,
+    "approval_semantics": "E0 source-only QA does not authorize checkpoint, science, I2, SFT, model/GPU or TEST",
+    "external_A_reviewer": "GitHub exact refs were inspected in PM review; CI checks pinned A paths/sha vs C source cross-refs and does not fetch external branches"
+  },
+  "F01_F04_amendment": {
+    "finding_ids": [
+      "F01",
+      "F02",
+      "F03",
+      "F04"
+    ],
+    "fixed_scope": [
+      "source fact CE/P03 negative target vs B ignore mask",
+      "external exact A pinned SHA, nonvacuous QA and report/receipt tests",
+      "workflow docs path trigger",
+      "preQA versus prior/current exact HEAD provenance"
+    ],
+    "model_source_changed": false,
+    "A_B_C_existing_QA_rerun": false,
+    "original_negative_QA_preserved": true,
+    "adjudication_status": "AWAITING_CURRENT_EXACT_PR_HEAD_WIN_LINUX_QA"
+  }
 }
