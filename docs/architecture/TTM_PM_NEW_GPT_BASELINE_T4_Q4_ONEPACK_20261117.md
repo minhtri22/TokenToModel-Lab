@@ -1,89 +1,78 @@
-# TTM PM — NEW GPT BASELINE Colab T4 · Implementation and Q4 OnePack
+# TTM PM — TinyStories matched Small-4M @1024/@2048 Colab T4 OnePack
 
-**Operation:** TTM_PM_NEW_GPT_BASELINE_END_TO_END_COLAB_T4_IMPLEMENTATION_AND_Q4_ADMISSION_ONEPACK
-**Ngày:** 17/11/2026
-**Base main:** 59ee3f30b996405fddc087ab60102b59a021f8ea (bảo toàn main và lineage.md)
-**Candidate branch:** implementation/ttm-pm-new-gpt-baseline-colab-t4-onepack-20261117
-**Lock:** Q4_HOLD · REAL_TRAIN_NOT_EXECUTED · TEST_NOT_ACCESSED · NO_MERGE.
+**Operation:** TTM_PM_TINYSTORIES_MATCHED_4M_1024_2048_COLAB_RUNNER_SOURCE_REPAIR_AND_INDEPENDENT_QA_ONEPACK
+**Ngày:** 2026-11-17. **Original main (unchanged):** 59ee3f30b996405fddc087ab60102b59a021f8ea. **Draft PR:** #44.
+**Outcome:** SOURCE_CANDIDATE_IMPLEMENTED · Q4_HOLD · REAL_T4_TRAIN_NOT_EXECUTED · TEST_NOT_ACCESSED.
 
-## 1. Architecture / contract
+This document supersedes the old 40-step/d128/context128/vocab258 science proposal. The original historical text remains in Git history for traceability, not as an authorized experiment.
 
-Một GPT mới khởi tạo random seed, tái sử dụng P02 GPT core tại Git blob 9762343e06cf800b50574c2871ae1ed58537fb18. **Không nạp Small-4M checkpoint step1024, loader T4 legacy hay BC-v2 codec.**
+## 1. Exact matched recipe
 
-V1 tokenizer = UTF-8 raw-byte identity (0–255 = bytes, 256 EOS, 257 BOS, vocab 258). Lựa chọn này bảo đảm trace byte exact cho bpb, tránh xung đột T4 BPE-2048 và BC-v2 role IDs. Không có tokenizer fit: tokenizer deterministic theo version; BPE train-only là phase tương lai, không tự đổi IDs.
-
-P02 GPT: context 128, embedding 128, layers 2, heads 4, seed 20261117. AdamW 3e-4, beta .9/.95, weight decay 0.1, batch windows 4, tối đa 40 optimizer steps, clip gradient 1.0. Config canonical SHA-256:
-eb9711864282e214f6e6a72970969b873549da47690a43e6a39beaae428d2e1b.
-
-Code gồm manifest rights/split/family/custody, byte-tokenization, input-to-future target shift và -100 padding, next-token training, VAL full-vocabulary cross-entropy với TEXT targets 0..255, val_bpb = sum(TEXT NLL nats)/(ln 2 × số bytes UTF-8 gốc), checkpoint mới chứa model/optimizer/sampler/RNG, READY file SHA256, greedy sample IDs. EOS/BOS/ignore không tham gia val_bpb primary.
-
-**Giới hạn:** checkpoint resume execution/parity chưa triển khai; A independent full-vocab/scorer/gold chưa chứng thực; val_bpb chỉ là pipeline measurement candidate. Không tự suy chất lượng ngôn ngữ hoặc release.
-
-## 2. Notebook và thao tác owner
-
-Notebook: notebooks/TTM_NEW_GPT_BASELINE_T4_ONEPACK_20261117.ipynb
-
-Runner: src/ttm_new_gpt_baseline/runner.py, exact pinned Git blob:
-cf26f931044ca549fc765109ac9cfbde6b5f21de.
-
-- Chế độ QA (mặc định) — tải đúng Git blob rồi chạy 10 tests stdlib. Không Torch, GPU, corpus, checkpoint hay TEST.
-- Chế độ PROBE — chạy đúng 3 bước optimizer trên tensor ngẫu nhiên tổng hợp; đo T4, PyTorch, free/peak VRAM và elapsed; 10 GiB free preflight, 8 GiB application-reserved guard, timeout subprocess 150 giây. Không phải hard VRAM isolation và không phải science.
-- Chế độ PREFLIGHT — đọc/hash dữ liệu chỉ do owner đặt trong /content/TTM_NEW_GPT_DATA và in schema/counts. Đây là readback khai báo, chưa phải independent rights QA.
-- Chế độ TRAIN_REAL — chỉ sau owner Q4 GO cho đúng one-shot, kiểm lại source+config+manifest+probe hash và run_id. Hard subprocess timeout 1020 giây, nội bộ cap 900 giây, output directory không tồn tại. Notebook không tự tạo GO, không tự mount Drive hoặc ghi GitHub.
-
-Python3.12 là hard requirement. Notebook lấy P02 raw tại commit exact, xác minh Git blob trước import. Torch được import chỉ trong PROBE/TRAIN_REAL. Không pip install; dependency thực tế cần được xác minh bằng PROBE.
-
-### Manifest dữ liệu có quyền sử dụng
-
-Tệp data_manifest.json, đúng schema ttm.newgpt.data.v1, có records cho cả TRAIN và VAL. Mỗi record chứa chính xác: path, split, family, sha256, rights_basis, rights_reference, pii_reviewed. Ví dụ:
-
-    {
-      "schema":"ttm.newgpt.data.v1",
-      "records":[
-        {"path":"train/a.txt","split":"TRAIN","family":"group_a","sha256":"<actual_file_sha256>","rights_basis":"OWNER_AUTHORED","rights_reference":"owner-created original text","pii_reviewed":true},
-        {"path":"val/b.txt","split":"VAL","family":"group_b","sha256":"<actual_file_sha256>","rights_basis":"OWNER_AUTHORED","rights_reference":"owner-created original text","pii_reviewed":true}
-      ]
-    }
-
-Rights basis được nhận: OWNER_AUTHORED, LICENSED_TRAINING, PUBLIC_DOMAIN. Chứng cứ tham chiếu do owner cung cấp không tự chứng minh license thật; reviewer phải kiểm tra độc lập. R2 vẫn HOLD nếu thiếu nguồn/QA. Chặn nhãn TEST, traversal/symlink, family leakage, trùng source bytes TRAIN-VAL, SHA sai, UTF-8 lỗi (real training), không attested PII/rights, >2 MB/file hoặc >16 MB/tổng. Chưa có near-duplicate independent QA.
-
-### Exact owner Q4 file — chỉ tạo sau quyết định thật
-
-Tệp OWNER_GO_FILE phải đúng schema sau và có SHA thực của dữ liệu/probe (mẫu không phải GO được cấp):
-
-    {
-      "schema":"ttm.newgpt.owner_q4.v1",
-      "decision":"Q4_GO_NEW_GPT_SINGLE_RUN",
-      "run_id":"<future_unique_run_id>",
-      "runner_git_blob":"cf26f931044ca549fc765109ac9cfbde6b5f21de",
-      "p02_git_blob":"9762343e06cf800b50574c2871ae1ed58537fb18",
-      "config_sha256":"eb9711864282e214f6e6a72970969b873549da47690a43e6a39beaae428d2e1b",
-      "manifest_sha256":"<actual_manifest_sha256>",
-      "probe_sha256":"<actual_probe_json_sha256>"
-    }
-
-Đây là interlock bằng giá trị, **không xác thực chữ ký/authority độc lập**. Mọi Q4 GO phải được owner xét sau R1–R7 trong cùng một quyết định. Không suy GO từ việc tự viết JSON.
-
-## 3. QA và F01 sửa có chứng cứ
-
-Author runner QA: 10 source tests (UTF8, byte denominator, final-window shift, split leakage, rights, SHA, path, TEST blocking). Separate source test module: 7 kiểm tra notebook JSON/AST, exact Git object pin, default QA, refusal Q4, no-overwrite. Tất cả stdlib/không model trên Python3.12. CI hai OS Windows/Linux, không GPU/Torch.
-
-**Negative history:** CI #44089466115 FAILED ở lỗi final shifted window length. Sửa source bằng n=min(context,len(ids)-1-i) cho cả x/y; cập nhật notebook pin. CI #44089674035 tiếp tục FAILED Windows vì test so file checkout CRLF với Git blob LF; source test sửa sang git rev-parse HEAD:src/... thay vì hash file worktree. Các FAIL lịch sử giữ nguyên; quyết định acceptance chỉ dựa CI exact FINAL HEAD.
-
-Các test này do cùng assistant soạn, không được gắn nhãn human independent QA. Colab native probe, real training, independent A/C gold, rights verification và người dùng Q4 đều **NOT_EXECUTED/HOLD**.
-
-## 4. R1–R7 và Q4
-
-| Gate | Current outcome |
+| Item | Exact source/value |
 |---|---|
-| R0 | New-source candidate, cần exact HEAD QA Win/Linux |
-| R1 | HOLD_NEW_ACTION_A_C_REAL_GOLD_AND_UTF8_SCORE_PROVENANCE |
-| R2 | HOLD_REAL_DATA_RIGHTS_FAMILY_AND_INDEPENDENT_SOURCE_QA |
-| R3 | NEW_CHECKPOINT_OLD_T4_NOT_APPLICABLE; HOLD_REAL_DATA_AND_NEW_WEIGHT_CUSTODY |
-| R4 | GPU_DETECTED_BUT_SYNTHETIC_PROBE_NOT_EXECUTED |
-| R5 | N/A FOR NEW_GPT_BASELINE; historical A-I2 HOLD |
-| R6 | CONFIG/STEP CONTRACT VERSIONED; HOLD_FRESH_ACTION_PREREG_DATA_GOLD_THRESHOLD |
-| R7 | AUTHOR_SOURCE_QA_ONLY; HOLD_DISTINCT_REAL_QA |
-| Q4 | HOLD_NO_AUTOMATIC_GO; NO_REAL_TRAIN |
+| P02 GPT core blob | 9762343e06cf800b50574c2871ae1ed58537fb18 |
+| Original T4 1024 trainer blob | 76c4d0155cd0736919f41682f240b47ad3d7c428 |
+| Original T4 capacity blob | c9a6f256ba975228683ee7de2a1090e649110e97 |
+| Original T4 evaluator blob | bef006bdff173fba6d8ba4aa0ef687a1732fd7c4 |
+| Model | **3,749,376** unique P02 params, LayerNorm, 4 layers, d256, 4 heads, context256, vocab2048 |
+| Tokenizer | Same historical T1 TRAIN-only BPE2048 (not BC-v2; no byte-vocab258) |
+| Data | Same exactly pinned TinyStories pack: 2048 TRAIN stories, 256 VAL, historical TEST never read |
+| TRAIN targets | 4096 valid next-token labels per step, dynamic accumulation, FP16 microbatch8 |
+| Optimizer | AdamW lr3e-4, betas(.9,.95), eps1e-8, decay.1, clip1.0 |
+| replica_1024 | 1024 steps, seed20261108, original 32-warmup/1024 cosine schedule, 4,194,304 target exposures |
+| control_2048 | 2048 steps, seed20261108, shared 32-warmup/2048 cosine, 8,388,608 target exposures |
+| replica_2048 | 2048 steps, seed20261109, **same 2048 schedule and budget**, 8,388,608 target exposures |
 
-**Bước thực hiện tiếp theo — duy nhất:** sau exact source CI PASS, owner chạy Colab notebook ở MODE=QA rồi tùy chọn MODE=PROBE để tạo biên nhận T4 mới. Sau đó PM xét đồng thời rights/gold/split/resource/QA và lập đúng một owner Q4 GO/HOLD cho một lượt TRAIN_REAL. Không tạo micro-permits hoặc mở TEST.
+Frozen original pack SHA256: 184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913 (1,186,107 bytes).
+Manifest SHA256: ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650.
+BPE file SHA256: cba18e60cee3d08a353ee6d4a451017289e45af7b4b1179c87171b9b78d7dfdc; split SHA256: 9f2ebaca821bddf0a9d7ae30ccfcef34561b968b21159aa913794298235a2fa9.
+Historical T4 checkpoint@1024 SHA256: cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b.
+
+**Scientific interpretation:** replica_1024 vs old checkpoint@1024 checks reproducibility on developmental VAL, not improvement from a changed model. control_2048 vs replica_2048 measures seed variation, not architectural improvement. Never directly compare 1024 vs 2048 as a same-budget pair. EmbeddingGemma2's A/B/C/D 2048 checkpoints are not automatically eligible controls.
+
+## 2. Notebook and modes
+
+Notebook: notebooks/TTM_NEW_GPT_BASELINE_T4_ONEPACK_20261117.ipynb.
+Runner: src/ttm_new_gpt_baseline/runner.py.
+The notebook pins runner and four unchanged original Git blobs at immutable commits. It must run Python3.12; GPU modes require real Tesla T4. No Drive auto-mount, no dataset fetching, no pip install, no TEST.
+
+- **SOURCE_QA** (default): source SHA readback and 13 stdlib tests; Torch and private data not loaded.
+- **NATIVE_QA:** on CPU, actual torch.save/load and exact frozen original checkpoint_payload/checkpoint_load, synthetic 4-step toy uninterrupted vs split2+resume2. Uses new READY-last and resume_state wrappers, checks optimizer/scheduler/RNG/parameters, corrupts file and demands SHA rejection. This is NOT full 4M FP16 T4 resume parity.
+- **CAPACITY:** runs 2 warmup + 3 measured optimizer steps on random synthetic tokens using entire original 4M P02, FP16 microbatch8 and 4096 target labels per step. Report peak reserved VRAM, worst step, two-arm 2048-step projection plus 25% reserve; cap 5400s projection and 80% VRAM. Excludes real variable-length short windows, VAL, checkpoint IO/preemption.
+- **PREFLIGHT:** owner-selected exact historical private TRAIN/VAL NPZ and manifest SHA and schema/rights check; no model or TEST.
+- **TRAIN:** exact single arm, fresh random initial weights, 1024 or 2048 steps, owner Q4 metadata required; no old checkpoint used for initialization.
+- **RESUME:** same run_id, Q4, data, arm, source/recipe, latest exact READY; restores model, optimizer, scheduler, sampler, CPU/CUDA/Python/NumPy RNG and GradScaler. No fork/overwrite/final restart.
+- **COMPARE:** action-specific Q4, two exact SHA-pinned checkpoints. For 1024, historical T4 LEFT and new replica_1024 RIGHT only. For 2048, prospective control_2048 LEFT and replica_2048 RIGHT only. Paired 256-story VAL NLL bootstrap 2000 resamples; no historical TEST, no per-story private outputs.
+
+Checkpoint storage: checkpoint steps 256,512,768,1024 for the 1024 arm and also 1536,2048 for the 2048 arms. Per-checkpoint model/optimizer/sampler/RNG/scaler in checkpoint.pt, progress.json SHA and READY.json committed last, with exact arm/recipe/data/source identity and no overwrite. Windows/Linux cross-environment bitwise parity not claimed. Default /content storage is volatile after Colab reset; owner should select durable storage before real Q4 run.
+
+## 3. Exact Q4 metadata schema (illustration, NOT a granted GO)
+
+Owner-supplied JSON for a TRAIN/RESUME action must have exactly these fields, with actual pinned digests and a reviewed rights reference:
+
+    {
+      "schema":"ttm.matched_4m.owner_q4.v1",
+      "action":"TRAIN_OR_RESUME",
+      "decision":"GO_EXACT_ONE_SHOT",
+      "arm":"replica_1024",
+      "run_id":"<owner-unique-8-plus-character-id>",
+      "runner_git_blob":"<exact-current-runner-Git-blob-SHA1>",
+      "source_main":"59ee3f30b996405fddc087ab60102b59a021f8ea",
+      "recipe_sha256":"<runner-recipe_hash-for-arm>",
+      "train_val_pack_sha256":"184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+      "rights_reference":"<reviewed-and-traceable-data-rights-evidence>",
+      "resource_receipt_sha256":"<actual-T4-CAPACITY-receipt-SHA256>",
+      "left_checkpoint_sha256":null,
+      "right_checkpoint_sha256":null
+    }
+
+For COMPARE use action COMPARE, capacity=null, exact left/right checkpoint hashes, pair arm replica_1024 or replica_2048. These values are **declarative interlocks, not authenticated owner signatures**: rights, R4 and distinct QA must still be adjudicated. Notebook does not create a GO.
+
+## 4. QA evidence, limitations and decision
+
+Pure source: 13 runner tests + 15 separately implemented source-oracle tests per Windows/Linux Python3.12 CI. Native CPU synthetic: PyTorch 2.5.1 + NumPy1.26.4 verifies 4-step toy state+RNG exact resume parity and SHA tamper rejection. This is distinct TEST CODE but the same assistant authored it; **not independent human or organizational QA**.
+
+The following are still **NOT EXECUTED**: current owner Colab representative T4 4M/2048 actual resource benchmark, full 4M FP16 resumability on GPU, real DATA rights audit, pair checkpoint evaluation, model training, independent real scorer, and original sealed TEST. Historical A/B/C and Small-4M H1 outcomes are unchanged.
+
+**PM decision:** SOURCE_IMPLEMENTATION_SCOPED; Q4_HOLD, no automatic GPU/model action, no merge or lineage edit.
+**Bước thực hiện tiếp theo — duy nhất:** reconcile exact final-head GitHub CI source+native QA and run independent QA of pinned candidate; owner then may run notebook SOURCE_QA/NATIVE_QA/CAPACITY on current Colab T4 and supply one R1–R7 packet for a single Q4 GO/HOLD (no micro-permits).
