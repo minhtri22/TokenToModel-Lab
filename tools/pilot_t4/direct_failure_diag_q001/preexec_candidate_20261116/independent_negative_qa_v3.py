@@ -29,6 +29,15 @@ def expect_hold(fn, label: str) -> bool:
     return False
 
 
+
+def forged_go_failed_closed(proc, output_dir: Path) -> bool:
+    """Accept ONLY explicit pre-check exit 86 or admission exit 2, no output."""
+    native_guard = (proc.returncode == 86 and
+                    'HOLD_WINJOB_LIMIT_READBACK_MISMATCH' in proc.stderr)
+    admission_guard = (proc.returncode == 2 and 'HOLD_' in proc.stderr)
+    return (native_guard or admission_guard) and not output_dir.exists()
+
+
 def test_all() -> dict:
     checks={}
     meta, raw = diag.mock_token_inventory()
@@ -93,7 +102,19 @@ def test_all() -> dict:
              '--tokenizer-source',str(root/'no-underlying-tokens.json'),
              '--fixture-dir',str(fixture),'--out',str(root/'output')]
         proc=subprocess.run(cmd,text=True,capture_output=True,timeout=15)
-        checks['no_checkpoint_read_under_forged_go']=proc.returncode==2 and 'HOLD_' in proc.stderr and not (root/'output').exists()
+        checks['no_checkpoint_read_under_forged_go'] = forged_go_failed_closed(
+            proc, root/'output')
+        from types import SimpleNamespace
+        checks['native_86_exact_guard_accepted'] = forged_go_failed_closed(
+            SimpleNamespace(returncode=86,
+                            stderr='HOLD_WINJOB_LIMIT_READBACK_MISMATCH'),
+            root/'no_output_86')
+        checks['native_86_generic_error_rejected'] = not forged_go_failed_closed(
+            SimpleNamespace(returncode=86, stderr='HOLD_SOMETHING_ELSE'),
+            root/'no_output_86')
+        checks['false_success_zero_exit_rejected'] = not forged_go_failed_closed(
+            SimpleNamespace(returncode=0, stderr=''),
+            root/'no_output_86')
         # MOCK-only substitution of in-memory root/hostname pins to exercise
         # the atomic claim path, NOT an authenticated release or runtime trust.
         nonce='f'*64
@@ -133,14 +154,19 @@ def test_all() -> dict:
     checks['no_eval_gradient']= 'with torch.no_grad():' in script
     checks['weight_delta_recorded']=all(s in script for s in ('parameter_absolute_delta_sum','ZERO_OR_NONFINITE_WEIGHT_DELTA','(p.detach()-before[i]).abs()','parameter_sha256_before','parameter_sha256_after','PARAMETER_FINGERPRINT_UNCHANGED'))
     checks['resource_bounds_present']=all(s in script for s in ('WALL_SECONDS = 900','MEMORY_BYTES = 12 * 1024**3','OUTPUT_BYTES = 1024**3'))
-    checks['restricted_four_caveat']= 'GOLD_AT_INDEX_ZERO; SORTED_LOW_VALUE_DISTRACTORS' in script
+    checks['goldblind_four_way_secondary_only'] = all(x in script for x in
+        ("GOLD_BLIND_VISIBLE_CONTEXT_CANDIDATES", "TIES_ABSTAIN",
+         "TRACK_A_V3_SOURCE_SHA256", "evaluate_goldblind_logits"))
+    checks['old_gold_first_restricted_path_removed'] = (
+        "opts=[gold]" not in script and "opts[max(range(4)" not in script)
     checks['hardcoded_trust_roots_empty']=auth.TRUSTED_ED25519_PUBLIC_KEYS=={}
     checks['root_hostname_trust_pins_required']=(auth.TRUSTED_PROJECT_ROOT.lower()==r'D:\WORK\RESEARCH\TokenToModel-Lab'.lower()
        and auth.TRUSTED_HOSTNAME.upper()=='DESKTOP-4PSD0G2')
     checks['invalid_root_rejected_before_permit']=expect_hold(lambda:auth.trusted_execution_root(scratch),'noncanonical')
     checks['runner_claim_scope_canonical']=all(t in script for t in ('_evidence','ttm_sm4m_diag_q001_onetime_claims','trusted_execution_root'))
     checks['direct_cli_path_validator_present']='def exact_scoped_path(' in script and 'DIRECT_CLI_PATH_ESCAPES_SIGNED_PROJECT' in script
-    checks['output_dir_scope_guard']=all(t in script for t in ('exact_scoped_path(root, out)','exact_scoped_path(root,check_path)'))
+    checks['output_dir_scope_guard']=('exact_scoped_path(root, out)' in script and
+        bool(re.search(r'exact_scoped_path\(root,\s*check_path\)', script)))
     checks['source_only_no_real_fixture_written']=not (scratch/'REAL_FIXTURE_RECORDS.json').exists()
     return {
         'scope':'V3_ADVERSARIAL_MOCK_AND_SOURCE_NO_MODEL',

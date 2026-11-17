@@ -1,0 +1,53 @@
+{
+  "schema": "ttm.track_a.br_i2_01_02.v4.author_source_schema_receipt.v1",
+  "mode": "AUTHOR_DESIGN_ONLY__NOT_DISTINCT_NATIVE_OR_SCIENCE",
+  "date": "2026-11-17",
+  "design_base_commit": "f97298098c12c55a3abb00cddd757dfde7b364ac",
+  "reviewed_i1_exact_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+  "v3_review_comment_id": 6936941604,
+  "v3_verdict": "HOLD_DESIGN_AMENDMENT",
+  "author_static_invariants": {
+    "head_locked": true,
+    "frozen_v3_slot": true,
+    "frozen_six_v3": true,
+    "release_v4_schema": true,
+    "release_epoch_inside_tbs": true,
+    "release_v4_vector": true,
+    "completion_dual_fields": true,
+    "completion_v4_vector": true,
+    "tagged_payload_retained": true,
+    "five_new_negative": true,
+    "case_ids_unique": true,
+    "all_not_executed": true,
+    "cases_require_fields": true,
+    "f02_f03_f04_unmodified": true,
+    "no_release": true,
+    "docs_only": true
+  },
+  "author_static_invariant_count": 16,
+  "new_file_git_blob_sha1": {
+    "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V4_PAYLOAD_DUAL_HASH_RELEASE_EPOCH_CONTRACT_20261117.md": "497819e52274d91bc7b48f164fdee61709c52913",
+    "artifacts/ttm-abc/track-a/BR_I2_01_02_V4_NEGATIVE_POSITIVE_QA_MATRIX_20261117.json": "348cd4af58468dcca6406d69754a64222c2d074a",
+    "artifacts/ttm-abc/track-a/BR_I2_01_02_V4_EXACT_DOMAIN_TEST_VECTORS_20261117.json": "ba710b403bd5e1ae4bb7a0e4ff456642cc5bd927",
+    "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V4_DISTINCT_EXACT_SHA_REVIEW_HANDOFF_20261117.md": "e0c78ed5ea78c336a87ead8f2ca9f9da04db7c0c",
+    "docs/coordination/ttm-abc/status/TTM_TRACK_A_STATUS.json": "c68ee8bb91f089a021b0a178793c0fc35a14f74b"
+  },
+  "synthetic_vector_expected": {
+    "V3_PAYLOAD_RAW": "a4bca0d2d9d64b2c3b1882764abf421fe872e671e42fa1a62a8147d2675c55b4",
+    "V3_PAYLOAD_TAGGED": "e27ae8e39fbd669e152339b271ef69034f69564063d57f286dbc878bc433ce55",
+    "V4_RELEASE_TBS": "c3cf68c0ad731a127857dc20248b419ca21f0247475304426f3803c9a78dbac3",
+    "V4_COMPLETION_ENVELOPE": "7151df6bbca3b7e8ff8f2bff520795ce4431efc620438958448a97f4f5f6f5df"
+  },
+  "sha256_method": "Computed in author-side Python hashlib.sha256 from strict canonical ASCII bytes and binary tagged prefix+0x00; independently re-compute on exact V4 GitHub bytes",
+  "negative_case_count": 65,
+  "positive_case_count": 3,
+  "negative_executed": 0,
+  "positive_executed": 0,
+  "distinct_V4_adjudication": "NOT_EXECUTED",
+  "windows_native_QA": "NOT_EXECUTED",
+  "owner_release": "HOLD",
+  "I2": "NOT_EXECUTED",
+  "implementation": "NOT_AUTHORIZED",
+  "merge": false,
+  "note": "No independent attestation and no actual negative/positive runtime execution claimed."
+}

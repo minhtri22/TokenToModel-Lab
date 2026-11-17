@@ -111,8 +111,8 @@ def permitted_ids(meta: dict, underlying_bytes: bytes) -> list[int]:
 
 def mock_token_inventory() -> tuple[dict, bytes]:
     """Generated in memory for MOCK QA; never an admitted tokenizer source."""
-    ids = list(range(100, 300))
-    reserved = list(range(100)) + list(range(300, 2048))
+    ids = list(range(300, 500))
+    reserved = list(range(300)) + list(range(500, 2048))
     inv = dict(schema='ttm.sm4m.diag.tokenizer_full_inventory.v1',
                vocab_size=2048, non_special_token_ids=ids,
                special_ids=[], reserved_ids=reserved)
@@ -122,147 +122,61 @@ def mock_token_inventory() -> tuple[dict, bytes]:
                 reserved_ids=reserved, underlying_inventory_sha256=hashlib.sha256(raw).hexdigest())
     return meta, raw
 
+# Track A source custody: exact Git LF bytes OR their deterministic CRLF checkout.
+# Hash the very same buffer that compile() executes; never ask importlib to run .pyc.
+TRACK_A_V3_SOURCE_SHA256 = '2d0b980768a0ac3079f361d94244cd694c97ed90e978fc83fb7991dc82b5c2ac'
+TRACK_A_V3_CRLF_SHA256 = 'd76936db04caec358ddfb6947656d60023dee7de5c3388f810c7ecbf08288b63'
+TRACK_A_V3_PRE_REPAIR_SCORER_SHA256 = '98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587'
+TRACK_A_V3_FROZEN_RECORDS_SHA256 = '823a08dd4be0da7748cb258b9bf5b2841dd1fdbac84956eb204be7ba57f8c55d'
+TRACK_A_V3_FROZEN_MANIFEST_SHA256 = '0b80368a6747994df5f5b8d0e7b35137266ac82f6c9b83d26af5b61f79b3cb04'
+TRACK_A_V3_PROTOCOL = 'ttm.sm4m.q001.track_a.measurement.v3.integrated'
+
+
+def track_a_v3():
+    """Compile only the SHA-verified source buffer, bypassing .pyc and TOCTOU."""
+    import types
+
+    source = (Path(__file__).resolve().parent.parent /
+              'track_a_m0_v3' / 'q001_m0_goldblind.py')
+    if not source.is_file():
+        stop('TRACK_A_V3_SOURCE_MISSING')
+    raw = source.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    if actual not in (TRACK_A_V3_SOURCE_SHA256, TRACK_A_V3_CRLF_SHA256):
+        stop('TRACK_A_V3_SOURCE_SHA_MISMATCH')
+    # Mixed EOL, lone CR and rewritten bytes are disallowed, not normalized away.
+    if b'\r\n' in raw:
+        if b'\n' in raw.replace(b'\r\n', b'') or b'\r' in raw.replace(b'\r\n', b''):
+            stop('TRACK_A_V3_MIXED_EOL')
+        canonical = raw.replace(b'\r\n', b'\n')
+    else:
+        if b'\r' in raw:
+            stop('TRACK_A_V3_MIXED_EOL')
+        canonical = raw
+    if hashlib.sha256(canonical).hexdigest() != TRACK_A_V3_SOURCE_SHA256:
+        stop('TRACK_A_V3_CANONICAL_SHA_MISMATCH')
+    try:
+        code = compile(canonical.decode('utf-8'), str(source), 'exec',
+                       dont_inherit=True)
+    except (UnicodeError, SyntaxError) as exc:
+        stop('TRACK_A_V3_VERIFIED_COMPILE_FAILED')
+    module = types.ModuleType('_ttm_sm4m_track_a_v3')
+    module.__file__ = str(source)
+    exec(code, module.__dict__)
+    return module
+
 def fixture_generator(allowed: list[int], seed: int = SEED) -> list[dict]:
-    """Pure in-memory deterministic generator; *not* an authorization to run.
-
-    Only call with verified allowed token-ID metadata for an admitted I1/I2;
-    source-qa calls it with a mock inventory that never leaves process memory.
-    """
-    rng = random.Random(seed)
-    pool = allowed[:]
-    if len(pool) != len(set(pool)) or len(pool) < 80:
-        stop('TOKEN_POOL_INVALID')
-    rng.shuffle(pool)
-    bind, query, answer, no_answer = pool[:4]
-    keys_seen = pool[4:20]
-    vals_seen = pool[20:36]
-    keys_novel = pool[36:52]
-    vals_novel = pool[52:68]
-    roles = [bind, query, answer, no_answer]
-    if len(set(roles + keys_seen + vals_seen + keys_novel + vals_novel)) != 68:
-        stop('TOKEN_ROLE_OVERLAP')
-    rows: list[dict] = []
-    seen_contexts: set[tuple[int, ...]] = set()
-
-    def put(group: str, k1: int, v1: int, k2: int, v2: int, kq: int,
-            parent: str | None = None):
-        if k1 == k2 or v1 == v2 or k1 == kq and k2 == kq:
-            stop('BAD_CASE')
-        ctx = (bind, k1, v1, bind, k2, v2, query, kq, answer)
-        if ctx in seen_contexts:
-            return False
-        gold = v1 if kq == k1 else (v2 if kq == k2 else no_answer)
-        row = dict(group=group, id=f'{group}_{sum(x["group"] == group for x in rows):02d}',
-                   context=list(ctx), gold=gold, first_value=v1, second_value=v2,
-                   query_position=1 if kq == k1 else 2 if kq == k2 else 0,
-                   parent=parent)
-        # Candidate set defined from a frozen pool, never from model logits.
-        distract = [no_answer] + sorted(set(vals_seen + vals_novel))
-        # Distinct fixed 4-way choices, independent of the model's outputs.
-        opts = [gold]
-        for candidate in distract:
-            if candidate != gold and candidate not in opts:
-                opts.append(candidate)
-            if len(opts) == 4:
-                break
-        if len(opts) != 4:
-            stop('INSUFFICIENT_CHOICES')
-        row['choices'] = opts
-        seen_contexts.add(ctx)
-        rows.append(row)
-        return True
-
-    # 16 bound cases, half query first, half query second.
-    for i in range(16):
-        k1 = keys_seen[i]
-        k2 = keys_seen[(i + 5) % len(keys_seen)]
-        v1 = vals_seen[i]
-        v2 = vals_seen[(i + 7) % len(vals_seen)]
-        q = k1 if i % 2 == 0 else k2
-        assert put('TRAIN', k1, v1, k2, v2, q)
-    # 8 absent queries; use seen key pool but query key absent from both bindings.
-    for i in range(8):
-        k1, k2, kq = keys_seen[i], keys_seen[(i + 3) % 16], keys_seen[(i + 8) % 16]
-        v1, v2 = vals_seen[i], vals_seen[(i + 4) % 16]
-        assert put('TRAIN', k1, v1, k2, v2, kq)
-
-    # Novel combinations of ONLY symbols already seen in probe TRAIN.
-    trial = 0
-    while sum(x['group'] == 'HELDOUT_RECOMBINED' for x in rows) < 16:
-        trial += 1
-        if trial > 10000:
-            stop('NO_UNIQUE_RECOMBINED')
-        k1, k2 = rng.sample(keys_seen, 2)
-        v1, v2 = rng.sample(vals_seen, 2)
-        q = k1 if trial % 2 else k2
-        put('HELDOUT_RECOMBINED', k1, v1, k2, v2, q)
-    # New keys AND new values, unseen in probe TRAIN, NOT necessarily pretraining.
-    for i in range(16):
-        k1, k2 = keys_novel[i], keys_novel[(i + 1) % 16]
-        v1, v2 = vals_novel[i], vals_novel[(i + 5) % 16]
-        q = k1 if i % 2 else k2
-        assert put('HELDOUT_NOVEL_IDS', k1, v1, k2, v2, q)
-    # Paired counterfactuals from FIRST 16 TRAIN binding examples, swapping value.
-    for original in rows[:16]:
-        z = original['context']
-        assert put('PAIRED_COUNTERFACTUAL', z[1], z[5], z[4], z[2], z[7], original['id'])
-    trial = 0
-    while sum(x['group'] == 'HELDOUT_ABSENT' for x in rows) < 8:
-        trial += 1
-        if trial > 10000:
-            stop('NO_UNIQUE_ABSENT')
-        k1, k2, kq = rng.sample(keys_seen, 3)
-        v1, v2 = rng.sample(vals_seen, 2)
-        put('HELDOUT_ABSENT', k1, v1, k2, v2, kq)
-    validate_fixture(rows, no_answer)
-    return rows
+    """Versioned gold-blind fixture; older frozen record bytes are invalid."""
+    return track_a_v3().make_fixture(allowed, seed)
 
 
 def validate_fixture(rows: list[dict], no_answer: int) -> None:
-    by_group = Counter(x['group'] for x in rows)
-    if by_group != Counter(GROUPS) or len(rows) != 80:
-        stop('FIXTURE_COUNT')
-    contexts = [tuple(x['context']) for x in rows]
-    if len(set(contexts)) != len(contexts):
-        stop('FIXTURE_DUPLICATE')
-    bound = 0
-    negative = 0
-    for r in rows:
-        c = r['context']
-        if len(c) != 9 or len(r['choices']) != 4 or len(set(r['choices'])) != 4:
-            stop('FIXTURE_FORMAT')
-        oracle = c[2] if c[7] == c[1] else (c[5] if c[7] == c[4] else no_answer)
-        if oracle != r['gold'] or r['gold'] not in r['choices']:
-            stop('ORACLE_WRONG')
-        if r['group'] == 'TRAIN':
-            bound += r['query_position'] in (1, 2)
-        # Constant NO_ANSWER and last-value are BOTH deliberately bad.
-        negative += (r['gold'] != no_answer) and (r['gold'] != c[5])
-    if bound != 16 or negative < 12:
-        stop('ANTI_ORACLE_NOT_DISCRIMINATING')
-    qp = Counter(r['query_position'] for r in rows if r['group'] == 'TRAIN' and r['query_position'])
-    if qp != {1: 8, 2: 8}:
-        stop('QUERY_POSITION_BALANCE')
-    train_contexts = {tuple(r['context']) for r in rows if r['group'] == 'TRAIN'}
-    if any(tuple(r['context']) in train_contexts for r in rows if r['group'] != 'TRAIN'):
-        stop('TRAIN_HELDOUT_COLLISION')
-    train_token_ids = {z for r in rows if r['group'] == 'TRAIN' for z in r['context']} | {r['gold'] for r in rows if r['group'] == 'TRAIN'}
-    if any(r['context'][i] not in train_token_ids for r in rows if r['group'] == 'HELDOUT_RECOMBINED' for i in [1, 2, 4, 5, 7]):
-        stop('RECOMBINED_NOT_SEEN_SYMBOLS')
-    if any(r['context'][i] in train_token_ids for r in rows if r['group'] == 'HELDOUT_NOVEL_IDS' for i in [1, 2, 4, 5, 7]):
-        stop('NOVEL_NOT_NEW_SYMBOLS')
-    parents = {r['id']: r for r in rows if r['group'] == 'TRAIN'}
-    for r in rows:
-        if r['group'] != 'PAIRED_COUNTERFACTUAL':
-            continue
-        p = parents.get(r['parent'])
-        if not p or p['query_position'] not in (1, 2):
-            stop('COUNTERFACTUAL_BAD_PARENT')
-        a, b = p['context'], r['context']
-        if not (a[1] == b[1] and a[4] == b[4] and a[7] == b[7] and
-                a[2] == b[5] and a[5] == b[2] and p['gold'] != r['gold']):
-            stop('COUNTERFACTUAL_INVALID')
-
+    try:
+        track_a_v3().validate_fixture(rows)
+        if any(r['no_answer'] != no_answer for r in rows):
+            stop('V3_NO_ANSWER_ROLE_MISMATCH')
+    except ValueError as exc:
+        stop('V3_FIXTURE_VALIDATION_' + str(exc))
 
 def mock_source_qa() -> dict:
     """No model, checkpoint, or real tokenizer loaded. MOCK inputs only."""
@@ -275,10 +189,10 @@ def mock_source_qa() -> dict:
     checks['determinism'] = json_bytes(fixture) == json_bytes(fixture_generator(ids))
     checks['seed_sensitivity'] = json_bytes(fixture) != json_bytes(fixture_generator(ids, seed=SEED + 1))
     checks['no_target_in_input'] = all(r['gold'] != r['context'][-1] for r in fixture)
-    checks['train_first_query_balance'] = Counter(r['query_position'] for r in fixture if r['group']=='TRAIN' and r['query_position']) == {1: 8, 2: 8}
+    checks['train_first_query_balance'] = Counter((1 if r['context'][7] == r['context'][1] else 2) for r in fixture if r['group']=='TRAIN' and r['gold'] != r['no_answer']) == {1: 8, 2: 8}
     checks['independent_groups'] = Counter(r['group'] for r in fixture) == Counter(GROUPS)
     checks['counterfactual_16'] = sum(r['group']=='PAIRED_COUNTERFACTUAL' for r in fixture)==16
-    checks['oracle_not_last_value'] = sum(r['gold'] != r['second_value'] for r in fixture) >= 12
+    checks['oracle_not_last_value'] = sum(r['gold'] != r['context'][5] for r in fixture) >= 12
     checks['constant_fails'] = sum(r['gold'] != fixture[0]['gold'] for r in fixture) >= 16
     checks['four_option_distinct'] = all(len(set(r['choices'])) == 4 for r in fixture)
     # Mutations expected to be rejected by the independent validator.
@@ -291,7 +205,7 @@ def mock_source_qa() -> dict:
         try:
             validate_fixture(x, mock_no_answer)
             checks['reject_'+key] = False
-        except RuntimeError:
+        except (RuntimeError, ValueError):
             checks['reject_'+key] = True
     # Negative controls for forged/unknown token inventories.
     for key,delta in [('forged_sha',{'underlying_inventory_sha256':'a'*64}),
@@ -302,7 +216,7 @@ def mock_source_qa() -> dict:
         try:
             permitted_ids(mm, underlying)
             checks['reject_'+key] = False
-        except RuntimeError:
+        except (RuntimeError, ValueError):
             checks['reject_'+key] = True
     return {'mode':'SOURCE_QA_ONLY','mock':True, 'total':len(checks),
             'passed':sum(bool(v) for v in checks.values()),'checks':checks,
@@ -395,7 +309,9 @@ def case_and_group_manifest(rows: list[dict]) -> dict:
               for g in GROUPS}
     if len(cases)!=80 or any(sum(r['group']==g for r in rows)!=n for g,n in GROUPS.items()):
         stop('CASE_MANIFEST_COUNT')
-    return {'case_sha256':cases,'group_sha256':groups,
+    return {'protocol_schema':TRACK_A_V3_PROTOCOL,
+            'scorer_sha256':TRACK_A_V3_SOURCE_SHA256,
+            'case_sha256':cases,'group_sha256':groups,
             'fixture_sha256':hashlib.sha256(json_bytes(rows)).hexdigest(),
             'counts':GROUPS}
 
@@ -429,8 +345,20 @@ def read_frozen_fixture(fixture_dir: Path, signed_fixture_sha: str,
         r['gold'] for r in ref if r['group']=='HELDOUT_ABSENT')
     validate_fixture(rows,no_answer)
     manifest = json_read(mf_path)
-    if manifest!=case_and_group_manifest(rows):
-        stop('FROZEN_CASE_OR_GROUP_MANIFEST_MISMATCH')
+    expected = case_and_group_manifest(rows)
+    if manifest != expected:
+        # The reviewer has ALREADY frozen v3 records from the genuine T1 BPE.
+        # Only this exact old manifest and exact records may retain the original
+        # pre-NLL-remediation scorer SHA. Never mutate or regenerate them.
+        old_real_custody = (
+            signed_fixture_sha == TRACK_A_V3_FROZEN_RECORDS_SHA256
+            and sha256_file(original) == TRACK_A_V3_FROZEN_RECORDS_SHA256
+            and sha256_file(mf_path) == TRACK_A_V3_FROZEN_MANIFEST_SHA256
+            and manifest.get('scorer_sha256') == TRACK_A_V3_PRE_REPAIR_SCORER_SHA256
+            and dict(manifest, scorer_sha256=TRACK_A_V3_SOURCE_SHA256) == expected
+        )
+        if not old_real_custody:
+            stop('FROZEN_CASE_OR_GROUP_MANIFEST_MISMATCH')
     return rows
 
 
@@ -455,7 +383,9 @@ def fixture_freeze(args):
     out.mkdir(exist_ok=False)
     (out/'FIXTURE_RECORDS.json').write_bytes(json_bytes(rows))
     (out/'FIXTURE_MANIFEST.json').write_bytes(json_bytes(mf))
-    receipt = dict(schema='ttm.sm4m.diag.q001.I1.fixture_freeze.v2',
+    receipt = dict(schema='ttm.sm4m.diag.q001.I1.fixture_freeze.v3',
+                    protocol_schema=TRACK_A_V3_PROTOCOL,
+                    scorer_sha256=TRACK_A_V3_SOURCE_SHA256,
                    question_id=QID, source_sha256=sha256_file(src),
                    token_inventory_sha256=None if args.owner_internal else sha256_file(meta_path),
                    underlying_inventory_sha256=sha256_file(underlying_path),
@@ -510,33 +440,41 @@ def model_fingerprint(model, torch) -> tuple[str, float]:
     return h.hexdigest(),math.sqrt(sq)
 
 
+def evaluate_goldblind_logits(logits: list[float], item: dict) -> dict:
+    """Source-only and guarded real runner use exactly the same v3 scorer."""
+    m = track_a_v3().score_logits(logits, item)
+    return {'gold_nll':m['full_vocab_gold_nll'],
+            'gold_rank':m['full_vocab_gold_rank'],
+            'greedy_correct':m['full_vocab_top1_correct'],
+            'candidate_correct':m['candidate_only_top1_correct_secondary'],
+            'candidate_tie_abstained':m['candidate_tie_abstained'],
+            'full_vocab_tie_abstained':m['full_vocab_tie_abstained'],
+            'context_contrast_logit_margin':m['context_contrast_logit_margin']}
+
+
 def evaluate(model,torch,rows,idxs: list[int],rss_check):
-    import torch.nn.functional as F
     model.eval()
     results=[]
     with torch.no_grad():
         for i in idxs:
             rss_check()
             item=rows[i]
-            tokens=torch.tensor(item['context'], dtype=torch.long,device='cpu')[None,:]
+            tokens=torch.tensor(item['context'],dtype=torch.long,device='cpu')[None,:]
             logits,_=model(tokens)
             last=logits[0,-1,:].float()
             if not bool(torch.isfinite(last).all()):
                 stop('NONFINITE_EVAL_LOGITS')
-            target=item['gold']
-            prob=F.log_softmax(last,dim=-1)
-            full_id=int(last.argmax().item())
-            opts=item['choices']
-            restricted_id=opts[max(range(4),key=lambda x: float(last[opts[x]].item()))]
-            rank=int((last>last[target]).sum().item())+1
-            results.append({'id':item['id'],'group':item['group'],'gold':target,
-                            'greedy':full_id,'greedy_correct':full_id==target,
-                            'candidate_correct':restricted_id==target,
-                            'gold_nll':-float(prob[target].item()),
-                            'gold_rank':rank,'query_position':item['query_position'],
-                            'parent':item['parent']})
+            values=last.tolist()
+            m=evaluate_goldblind_logits(values,item)
+            maximum=max(values)
+            winners=[j for j,x in enumerate(values) if x==maximum]
+            greedy=winners[0] if len(winners)==1 else None
+            ctx=item['context']
+            query_pos=1 if ctx[7]==ctx[1] else 2 if ctx[7]==ctx[4] else 0
+            results.append({'id':item['id'],'group':item['group'],
+                            'gold':item['gold'],'greedy':greedy,
+                            'query_position':query_pos,'parent':item['parent'],**m})
     return results
-
 
 def claim_one_shot(root: Path, nonce: str) -> Path:
     """Persist an atomic no-retry claim before entering the model path.
@@ -682,7 +620,9 @@ def run(args):
       'parameter_sha256_before':param_sha_before,'parameter_sha256_after':param_sha_after,
       'parameter_L2_norm_before':param_norm_before,'parameter_L2_norm_after':param_norm_after,
       'python_version':sys.version,'torch_version':torch.__version__,
-      'limited_four_way_candidate_semantics':'GOLD_AT_INDEX_ZERO; SORTED_LOW_VALUE_DISTRACTORS; RESTRICTED_RESULT_EXPLORATORY_ONLY',
+      'limited_four_way_candidate_semantics':'GOLD_BLIND_VISIBLE_CONTEXT_CANDIDATES; TIES_ABSTAIN; SECONDARY_ONLY',
+       'measurement_protocol':TRACK_A_V3_PROTOCOL,
+       'measurement_scorer_sha256':TRACK_A_V3_SOURCE_SHA256,
       'independent_adjudication':'PENDING','historical_TEST_FINAL_replayed':False,
       'fine_tuned_weights_persisted':False}
     raw=json_bytes(receipt)

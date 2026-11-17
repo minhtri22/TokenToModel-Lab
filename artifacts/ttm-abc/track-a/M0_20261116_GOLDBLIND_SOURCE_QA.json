@@ -1,0 +1,96 @@
+{
+  "schema": "ttm.track_a.small4m.m0.qa_receipt.v1",
+  "operation": "A_M0_GOLD_BLIND_SCORER_FIX_SPLIT_LEAK_NEGATIVES_AND_SINGLE_I1_REVIEW",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "research/ttm-track-a-small4m-diagnosis-20261116",
+  "stacked_pr": 33,
+  "base_pr": 28,
+  "exact_base_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+  "reviewed_source_commit": "94eeaf93a24af6cf579a150bc2af62ce603723c3",
+  "reviewed_source_sha256": {
+    "q001_m0_goldblind.py": "98101e871410e7255cd25f611e5eb9d7068ab264ac162e0af89ef1f1863f6587",
+    "test_q001_m0_goldblind.py": "90d4050d52c0bf2146f5ea4fb7af55acbbc33dfa486ada25b7ad5846344b293b",
+    "independent_m0_review.py": "e14fb012eff259452555bf598131398b06f962ce8997566ca6416a536d8edcd2"
+  },
+  "mock_fixture_manifest": "artifacts/ttm-abc/track-a/M0_V3_MOCK_FIXTURE_MANIFEST_20261116.json",
+  "mock_fixture_sha256": "f696d20af567ba52dbb9187aba87092829b4da7f3974fbe062608659bd99e726",
+  "historical_fixture_sha256": "5f1234f583ccf719ca9f0e68de4f47d8b653af777271b8115c5f02307f764e5a",
+  "same_fixture_as_historical": false,
+  "ci": {
+    "provider": "GitHub Actions",
+    "run_id": 43891380753,
+    "job_id": 133383186868,
+    "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43891380753",
+    "runner": "windows-2022",
+    "python": "3.12",
+    "powershell_51_step": "PASS_MOCK_COMPATIBILITY",
+    "powershell_7_steps": "PASS",
+    "qa_author": {
+      "passed": 10,
+      "total": 10,
+      "mode": "MOCK_SOURCE_ONLY"
+    },
+    "adversarial_unittest": {
+      "passed": 16,
+      "total": 16,
+      "failures": 0
+    },
+    "separate_checker": {
+      "status": "PASS_MOCK_LOGIC",
+      "failure_count": 0,
+      "independent_implementation": true,
+      "distinct_external_reviewer": false
+    }
+  },
+  "negative_controls": {
+    "historical_constant_logits_restricted": "80/80 (historical corrupted scoring; not rerun)",
+    "new_constant_logits_restricted": "0/80 (all tie-abstain)",
+    "new_constant_logits_full_vocab": "0/80 (all tie-abstain)",
+    "blind_fixed_token_id_restricted": {
+      "TRAIN": 4,
+      "HELDOUT_RECOMBINED": 8,
+      "HELDOUT_NOVEL_IDS": 1,
+      "PAIRED_COUNTERFACTUAL": 9,
+      "HELDOUT_ABSENT": 0
+    },
+    "blind_logits_no_context_access": true,
+    "no_chance_25pct_claim": true
+  },
+  "split_audit": {
+    "train_binding_leaks_in_independent_holdouts": 0,
+    "novel_role_id_collisions": 0,
+    "counterfactual_parent_linked": 16,
+    "counterfactual_independent_of_train": false,
+    "case_sha256_count": 80,
+    "group_sha256_count": 5
+  },
+  "inherited_native_custody": {
+    "historical_windows_qa": "PASS_SCOPED_16_16",
+    "reused_without_rerun": true,
+    "original_checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "private_checkpoint_reopened": false
+  },
+  "adjudication": {
+    "A0": "PASS_SCOPED_GITHUB_SOURCE_PIN",
+    "A1": "HOLD_END_TO_END_FIXTURE_SCORER_RUNNER_UNATTESTED",
+    "A2": "PASS_WINDOWS_312_PS51_MOCK_ONLY__LEGACY_NATIVE_QA_INHERITED",
+    "A3": "DESIGN_ONLY",
+    "A4": "NOT_EXECUTED",
+    "A5": "HOLD_I1",
+    "I1": "HOLD_I1",
+    "blocker": "NEW_PROTOCOL_NOT_END_TO_END_ADMITTED",
+    "details": [
+      "v3 is isolated from release/one-shot runner",
+      "mock IDs are not a verified real tokenizer inventory",
+      "no distinct external reviewer of amended source/fixture/runner"
+    ],
+    "I2": "NOT_EXECUTED"
+  },
+  "model_forward": false,
+  "optimizer_steps": 0,
+  "one_shot_nonce_claimed": false,
+  "historical_science_changed": false,
+  "merge": false,
+  "lineage_changed": false
+}

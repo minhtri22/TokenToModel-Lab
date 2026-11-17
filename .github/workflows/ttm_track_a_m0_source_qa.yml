@@ -1,0 +1,89 @@
+name: TTM Track A M0 source-only mock QA
+on:
+  pull_request:
+    paths:
+      - 'tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/**'
+      - 'tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py'
+      - 'tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py'
+      - '.github/workflows/ttm_track_a_m0_source_qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mock-source-qa-windows-py312:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert stdlib-only and Python 3.12
+        shell: pwsh
+        run: |
+          python -c "import sys; assert sys.version_info[:2] == (3,12)"
+      - name: Canonical LF CRLF scorer source byte SHA custody
+        shell: pwsh
+        run: |
+          python -c "import pathlib,hashlib; p=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py');b=p.read_bytes(); lf=b.replace(b'\r\n',b'\n'); print('SCORER_CANONICAL_LF_SHA256='+hashlib.sha256(lf).hexdigest());print('SCORER_CRLF_SHA256='+hashlib.sha256(lf.replace(b'\n',b'\r\n')).hexdigest());print('SCORER_CHECKOUT_SHA256='+hashlib.sha256(b).hexdigest())"
+      - name: Mock gold-blind scorer QA
+        shell: pwsh
+        run: |
+          python tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py mock-qa
+      - name: Adversarial unit tests
+        shell: pwsh
+        run: |
+          python -m unittest discover -s tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3 -p 'test_*.py' -v
+      - name: Separately implemented negative checker (not human independence)
+        shell: pwsh
+        run: |
+          python tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/independent_m0_review.py
+
+      - name: Windows PowerShell 5.1 Python 3.12 compatibility
+        shell: powershell
+        run: |
+          if ($PSVersionTable.PSVersion.Major -ne 5) { throw 'NOT_POWERSHELL_5_1' }
+          python -c "import sys; assert sys.version_info[:2] == (3,12)"
+          python tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py mock-qa
+      - name: Emit mock manifest JSON and exact source SHA-256 for immutable evidence
+        shell: pwsh
+        run: |
+          python -c "import sys,json;sys.path.insert(0,'tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3');from q001_m0_goldblind import make_fixture,manifest;print('M0_MANIFEST_JSON='+json.dumps(manifest(make_fixture(list(range(300,500)))),sort_keys=True))"
+          python -c "import hashlib,json,pathlib;d=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3');names=['q001_m0_goldblind.py','test_q001_m0_goldblind.py','independent_m0_review.py'];print('M0_SOURCE_HASHES_JSON='+json.dumps({n:hashlib.sha256((d/n).read_bytes()).hexdigest() for n in names},sort_keys=True))"
+
+      - name: Integrated guarded-runner source-only negative QA
+        shell: pwsh
+        run: |
+          python tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py source-qa
+          python tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py
+      - name: Guarded runner PS 5.1 source-only gate
+        shell: powershell
+        run: |
+          if ($PSVersionTable.PSVersion.Major -ne 5) { throw 'NOT_PS51' }
+          python tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py source-qa
+      - name: Exact amended runner sha256
+        shell: pwsh
+        run: |
+          python -c "import pathlib,hashlib; p=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py');print('AMENDED_RUNNER_SHA256='+hashlib.sha256(p.read_bytes()).hexdigest())"
+
+      - name: Canonical runner and OnePack SHA256 for reviewer custody
+        shell: pwsh
+        run: |
+          python -c "import pathlib,hashlib;d=pathlib.Path('tools/pilot_t4/direct_failure_diag_q001');names=[d/'preexec_candidate_20261116'/'ttm_sm4m_diag_q001.py',d/'track_a_m0_v3'/'Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1'];[(lambda b,n:print('SOURCE_CUSTODY='+n+' LF='+hashlib.sha256(b.replace(bytes([13,10]),bytes([10]))).hexdigest()+' CRLF='+hashlib.sha256(b.replace(bytes([13,10]),bytes([10])).replace(bytes([10]),bytes([13,10]))).hexdigest()+' PHYSICAL='+hashlib.sha256(b).hexdigest()))(p.read_bytes(),p.name) for p in names]"
+      - name: PS5.1 readback-only OnePack AST and no-science safety contract
+        shell: powershell
+        run: |
+          $script='tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/Invoke-TrackA-M0V3-RealTokenizer-Freeze-PS51.ps1'
+          $tokens=$null
+          $errs=$null
+          [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $script),[ref]$tokens,[ref]$errs)
+          if ($errs.Count -ne 0) { $errs | Format-List; throw 'POWERSHELL_AST_NOT_VALID' }
+          $raw=[System.IO.File]::ReadAllText((Resolve-Path $script))
+          foreach ($req in @('ReadbackOnly','FROZEN_RECORD_BYTES_CHANGED','GIT_BLOB_MISMATCH','I2=NOT_EXECUTED','SCORER_LF_CRLF_PIN')) {
+            if (-not $raw.Contains($req)) { throw ('MISSING_GUARD_'+$req) }
+          }
+          if ($raw -match '(^|\s)\b(run|train)\b\s+--checkpoint') { throw 'UNEXPECTED_MODEL_ENTRY' }
+          if ($raw -match '(&\s*\$Python\s+-I\s+\$Runner\s+fixture-freeze)') { throw 'READBACK_MUST_NOT_REFREEZE' }
+          Write-Host 'PS51_READBACK_ONLY_AST=PASS_NO_PRIVATE_EXECUTION'
