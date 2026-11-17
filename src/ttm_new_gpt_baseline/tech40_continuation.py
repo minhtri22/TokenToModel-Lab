@@ -144,8 +144,11 @@ def q4_readback(path):
     return {"q4_sha256": hash_bytes(raw), "decision": o["decision"], "q4_git_blob": Q4_DECISION_BLOB}
 
 def original_receipt_readback(root, frozen_runner):
-    root = Path(root).resolve(strict=True)
-    if not root.is_dir() or root.is_symlink() or not root.name.startswith(ROOT_PREFIX):
+    user_path = Path(root)
+    if user_path.is_symlink() or user_path.parent.is_symlink():
+        raise ValueError("ORIGINAL_TECH40_SESSION_SYMLINK_FORBIDDEN")
+    root = user_path.resolve(strict=True)
+    if not root.is_dir() or not root.name.startswith(ROOT_PREFIX):
         raise ValueError("ORIGINAL_TECH40_SESSION_ROOT_INVALID")
     old_run_id = root.name[len(ROOT_PREFIX):]
     if not re.fullmatch(r"[A-Za-z0-9_-]{8,80}", old_run_id):
@@ -251,9 +254,12 @@ def find_original(root_parent, requested=None):
     return found[0]
 
 def durable_output_path(parent, original_run_id):
-    p = Path(parent).resolve(strict=True)
+    user_parent = Path(parent)
+    if user_parent.is_symlink():
+        raise ValueError("DURABLE_OUTPUT_SYMLINK_FORBIDDEN")
+    p = user_parent.resolve(strict=True)
     required = Path("/content/drive/MyDrive/TTM/ttm-small-pilot").resolve(strict=True)
-    if p.is_symlink() or not p.is_dir() or not p.is_relative_to(required):
+    if not p.is_dir() or not p.is_relative_to(required):
         raise ValueError("DURABLE_OUTPUT_MUST_BE_IN_OWNER_MOUNTED_TTM_DRIVE")
     new_run_id = "adopt_" + original_run_id
     if not re.fullmatch(r"[A-Za-z0-9_-]{8,80}", new_run_id):
@@ -298,7 +304,7 @@ def preflight(args):
     record = {
         "schema": SCHEMA + ".preflight",
         "status": "PASS_EXACT_RECEIPT_AND_Q4_CONDITIONAL_ADMISSION" if args.mode == "continue"
-                  else "PASS_SOURCE_BYTES_ONLY_NOT_TRAINED",
+                  else "PASS_TECH40_RAW_BYTES_AND_PRIVATE_DATA_CUSTODY_NOT_TRAINED",
         "custody": custody, "source_equivalence": equivalence,
         "pm_q4": decision, "fresh_run_id": new_run_id,
         "target_run_path": str(output_root),
