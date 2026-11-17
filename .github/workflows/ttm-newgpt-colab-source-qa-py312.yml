@@ -1,0 +1,32 @@
+name: TTM NEW GPT baseline Colab source-only QA (Python 3.12)
+on:
+  push:
+    branches:
+      - implementation/ttm-pm-new-gpt-baseline-colab-t4-onepack-20261117
+  pull_request:
+    paths:
+      - "src/ttm_new_gpt_baseline/**"
+      - "notebooks/TTM_NEW_GPT_BASELINE_T4_ONEPACK_20261117.ipynb"
+      - "tests/ttm_new_gpt_baseline/**"
+      - ".github/workflows/ttm-newgpt-colab-source-qa-py312.yml"
+permissions:
+  contents: read
+jobs:
+  source-only:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Source-only 10 negative/positive QA; no Torch/GPU/corpus
+        run: python src/ttm_new_gpt_baseline/runner.py qa
+      - name: External source/Colab notebook contract QA
+        run: python -m unittest discover -s tests/ttm_new_gpt_baseline -p "test_*.py" -v
