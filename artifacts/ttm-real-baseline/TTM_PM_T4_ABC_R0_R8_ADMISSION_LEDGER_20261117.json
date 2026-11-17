@@ -43,8 +43,8 @@
   "gates": [
     {
       "gate": "R0",
-      "status": "SOURCE_CONTRACT_QA_PENDING",
-      "required": "exact new source/git blob CI and PM independent review; original source pinned"
+      "status": "PASS_SOURCE_CONTRACT_SCOPED",
+      "required": "source-only typed metadata and UTF8 arithmetic negative QA 25/25 each OS PASS; final exact-head run and Git blob readback verified by PM separately; real corpus/checkpoint verification remains R2/R3 HOLD"
     },
     {
       "gate": "R1",
@@ -87,7 +87,7 @@
       "required": "one owner decision on exact integrated R0–R7 evidence, no automatic GO"
     }
   ],
-  "source_contract_result": "CANDIDATE_NOT_YET_QA",
+  "source_contract_result": "PASS_SOURCE_CONTRACT_SCOPED_NOT_PHYSICAL_CUSTODY",
   "metadata_relation_pass_is_real_custody": false,
   "model_checkpoint_access_authorized": false,
   "private_dataset_access_authorized": false,
@@ -97,6 +97,16 @@
   "owner_q4_decision": "HOLD_REAL_VERTICAL_SLICE",
   "i2_scope": "HOLD_Q001_ONLY_IF_Q001_DIAGNOSTIC_REQUESTED; NOT_GENERIC_E2E_SOURCE_MERGE_GATE",
   "real_sft": "HOLD",
-  "submission": "DRAFT_REVIEW_ONLY_CANDIDATE_NO_MAIN_MERGE_AUTHORITY",
-  "future_single_decision": "GO_OR_HOLD_FOR_EXACT_T4_REAL_VERTICAL_SLICE_ONLY_AFTER_INTEGRATED_R0_R8"
+  "submission": "SOURCE_CONTRACT_SCOPED_PASS_PR43_REVIEW; MAIN_MERGE_PENDING_EXACT_HEAD_ADJUDICATION",
+  "future_single_decision": "GO_OR_HOLD_FOR_EXACT_T4_REAL_VERTICAL_SLICE_ONLY_AFTER_INTEGRATED_R0_R8",
+  "source_contract_qa": {
+    "source_head": "f09c90989b64ff6092b6283d3d96ca6a6f62bf2d",
+    "source_run": 44066149341,
+    "receipt_head": "37e7fda1406b9c66635956ef8e1ab3a9192c1dfe",
+    "receipt_run": 44066471456,
+    "windows_python": "3.12.10",
+    "linux_python": "3.12.16",
+    "tests_each_OS": 25,
+    "final_after_this_amendment": "MUST_READ_CURRENT_PR_HEAD_CI_AT_ADJUDICATION; HISTORIC_RUNS_ARE_NOT_FUTURE_RUNS"
+  }
 }
