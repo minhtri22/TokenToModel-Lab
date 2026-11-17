@@ -69,6 +69,22 @@ class DistinctTech40BridgeQA(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "EXACT_GIT_BLOB_MISMATCH"):
                 b.source_equivalence(old, new)
 
+    def test_frozen_manifest_61_char_source_is_corrected_exactly_in_memory(self):
+        with tempfile.TemporaryDirectory() as folder:
+            old = Path(folder) / "old.py"
+            old.write_bytes(self.old_bytes)
+            runner=b.import_runner(old)
+            self.assertEqual(len(b.HISTORIC_RUNNER_MISTYPED_MANIFEST_SHA),61)
+            self.assertEqual(len(b.MANIFEST_SHA),64)
+            self.assertEqual(runner.MANIFEST_SHA,b.MANIFEST_SHA)
+            self.assertEqual(b.git_blob(old.read_bytes()),b.OLD_RUNNER_BLOB)
+            self.assertEqual(runner.recipe_hash("replica_1024"),b.RECIPE_SHA)
+
+    def test_unreviewed_manifest_constant_must_not_be_patched(self):
+        mod=__import__("types").SimpleNamespace(MANIFEST_SHA="different-value")
+        with self.assertRaisesRegex(ValueError,"UNREVIEWED_ORIGINAL_RUNNER_MANIFEST_CONSTANT_DRIFT"):
+            b.restore_frozen_runner_manifest_digest_in_memory(mod)
+
     def test_unknown_q4_file_content_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
             p = Path(folder)/"go.json"
@@ -91,7 +107,7 @@ class DistinctTech40BridgeQA(unittest.TestCase):
             root.mkdir()
             for s in ("TECHNICAL_SYNTHETIC_40.json", "SESSION_LOCK.json", "SESSION_STATUS.json"):
                 (root/s).write_text("{}")
-            with self.assertRaisesRegex(ValueError,"HOLD_RECEIPT_RAW_BYTES_NOT_EQUAL"):
+            with self.assertRaisesRegex(ValueError,"ORIGINAL_SESSION_LOCK_OR_TERMINAL_STATUS_MISMATCH"):
                 b.original_receipt_readback(root, None)
 
     def test_stage40_multiple_candidates_fails(self):
@@ -136,7 +152,7 @@ class DistinctTech40BridgeQA(unittest.TestCase):
             b.TECH40_SHA_FROM_USER_STDOUT,
             "1a273db7f175578cdc9cf6a976d4679835a42d86a1c0c1604a6ea4e64596a1d9")
         q4 = json.loads(Q4.read_text("utf-8"))
-        self.assertIn("NOT_YET_RAW_FILE_VERIFIED",q4["receipt_sha_evidence_level"])
+        self.assertIn("TRANSCRIPT_PREDICTION_ONLY",q4["receipt_sha_evidence_level"])
 
 if __name__ == "__main__":
     unittest.main()
