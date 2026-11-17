@@ -1,0 +1,220 @@
+{
+  "schema": "ttm.abc.track_b.shared_feasibility.author_exact_source_readback.v1",
+  "operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK",
+  "mode": "EXACT_SHA_SOURCE_ONLY_DESIGN_ONLY_NO_SCIENCE_NO_GPU_NO_MERGE",
+  "date": "2026-11-17",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "branch": "design/ttm-b-abc-shared-feasibility-20261117",
+  "source_parent": "09de6a46574146d863f416e056fcf01091f3efb8",
+  "contract": {
+    "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+    "blob": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1",
+    "ack_B_issue_comment": 6937885002
+  },
+  "A": {
+    "commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "requirement_blob": "3de320f1e734c7610fb750477803b082fefff753",
+    "readiness_blob": "3214571cbf06d8d2d0b04609925367a03ddc7ffd",
+    "five_packet_sources_as_declared_in_A": true
+  },
+  "C": {
+    "commit": "614caff47657ccee43ad10ba06ae8ebb782b4114",
+    "science_contract_blob": "a8c8f3ca898456519e82bcccb0ada73af24f6ff9",
+    "readiness_blob": "f72a96646c43c76e78be5c41a8e725f24f40ecdd",
+    "assumptions_blob": "eb65fa23dd9830b0fffae3be9b0d4c04779f9d5b",
+    "machine_registry_blob": "64508ace4de057958ccbc9e3c7616a18c022250e"
+  },
+  "B": {
+    "PR34": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "PR36": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "BC_code_CI": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "p02_core_blob": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "b_scaffold_blob": "0d76d764097cd838f3fef9cb16c9da11ff778bb9",
+    "b_cli_blob": "be458f18fe98376fe5a43041e3f151956c66fb9d",
+    "t4_bpe_source_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6",
+    "t4_capacity_blob": "c9a6f256ba975228683ee7de2a1090e649110e97",
+    "t4_train_blob": "76c4d0155cd0736919f41682f240b47ad3d7c428",
+    "t4_pack_blob": "cdce219f2a2df27e25579f069238d4327c1d7d91"
+  },
+  "documents_source_readback": [
+    {
+      "path": "docs/research/ttm-abc/track-b/B_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY.md",
+      "git_blob_sha1": "1e954ce1dbb53178083cde6b25e40d62f46c1e07",
+      "raw_sha256": "8eb3484f0e3298b065f289a5e3fb4a9c351ad6872342b2cb8c725809c72735a3",
+      "bytes": 15173
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B.md",
+      "git_blob_sha1": "9acaf4292c3d298daa1a2f44db4345e7bca1b3a0",
+      "raw_sha256": "35e3cd9084616c657e72cfc9f128cef961a9fe3f475e4fe77b4c058eff8b9b32",
+      "bytes": 21874
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/B_R0_R3_R4_R5_READINESS.md",
+      "git_blob_sha1": "83379c8c1532d0ef87119e24596682a9b81fb064",
+      "raw_sha256": "e335c46df46303e730342bca4c71badde47a58721cc17c408dfdee3c3f999fd3",
+      "bytes": 9457
+    },
+    {
+      "path": "artifacts/ttm-abc/track-b/B_ABC_37_26_14_LOGICAL_COMPATIBILITY_20261117.json",
+      "git_blob_sha1": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+      "raw_sha256": "8b41831f96c8e8989c5d7365fa9d8a44a82d49ac35cb367bcb7c6fe8364714b9",
+      "bytes": 82773
+    }
+  ],
+  "source_static_QA": {
+    "algorithm": "author source parse/mapping and SHA256 exact UTF8 Git file bytes; SHA256 implementation self-checked against empty and abc standard vectors; no runtime test executed",
+    "A37_count_exact": true,
+    "A37_names_equal_C37_preserve_order": true,
+    "C26_count_exact": true,
+    "B14_count_exact": true,
+    "B14_all_in_C26": true,
+    "logical_status_enum": "EXACT_MATCH|ADAPTER_DESIGN_REQUIRED|NOT_PROVEN|INCOMPATIBLE",
+    "A37_status_counts": {
+      "EXACT_MATCH": 10,
+      "NOT_PROVEN": 14,
+      "ADAPTER_DESIGN_REQUIRED": 12,
+      "INCOMPATIBLE": 1
+    },
+    "C26_status_counts": {
+      "NOT_PROVEN": 17,
+      "ADAPTER_DESIGN_REQUIRED": 9
+    },
+    "B14_status_counts": {
+      "NOT_PROVEN": 7,
+      "ADAPTER_DESIGN_REQUIRED": 7
+    },
+    "T4_unique_params_source_arithmetic": 3749376,
+    "T4_unique_params_formula": "2048*256+256*256+4*789760+512",
+    "T4_direct_BC_ID_mapping": "INCOMPATIBLE_257_TO_262",
+    "T4_BPE_eos256_merge_first257": true,
+    "BC_PAD257_role_up_to_262": true,
+    "historical_exposures_arithmetic_1024_times_4096": 4194304,
+    "historical_train_unique_positions_reported_not_reverified": 498287,
+    "historical_74_seconds_raw_receipt": "NOT_FOUND_IN_INSPECTED_PINNED_SOURCES",
+    "estimated_13_minutes": "NOT_MEASURED",
+    "raw_T4_weights": "NOT_OBTAINED",
+    "checkpoint_load": "NOT_EXECUTED",
+    "native_resource_probe": "NOT_EXECUTED",
+    "pm_shared_contract_match": true,
+    "source_discrepancy_detected": true,
+    "status": "PASS_AUTHOR_SOURCE_MAPPING_SCOPED_WITH_SOURCE_REFERENCE_EXCEPTION"
+  },
+  "source_reference_exception": {
+    "C_field": "sources.a_requirements_git_blob",
+    "observed_wrong": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+    "actual": "3de320f1e734c7610fb750477803b082fefff753",
+    "wrong_points_to": "A_PM_EVIDENCE_INDEX_JOINT_COMPATIBILITY_20261117.json",
+    "status": "HOLD_SOURCE_REF_CONFLICT",
+    "C_file_unchanged": true
+  },
+  "CCR": {
+    "existing_C_CCR_01": 6937644143,
+    "B_semantic_ack": "SFT_ASSISTANT_EOT_EOS_TRAIN_CE_YES; BYTE_ONLY_BPB_EOT_EOS_NO",
+    "B_ABC_01_comment": 6937997482,
+    "required_C_A_PM_confirmation": true
+  },
+  "R0_R8": {
+    "R0": "PASS_SOURCE_GRAPH_SCOPED_BUT_HOLD_C_SOURCE_REF_CONFLICT",
+    "R1": "HOLD_C_REAL_GOLD_A_I1_PASS_SCOPED",
+    "R2": "HOLD_C_RIGHTS_FAMILY_SPLITS",
+    "R3": "HOLD_REAL_WEIGHTS_AND_TOKENIZER_INCOMPATIBLE_DIRECT_T4_BC_IDS",
+    "R4": "HOLD_NEW_NATIVE_RESOURCE_MEASUREMENTS",
+    "R5": "A_V4_DESIGN_ACCEPT_SCOPED_NATIVE_RELEASE_HOLD",
+    "R6": "DESIGN_ONLY_NOT_PREREG_FROZEN",
+    "R7": "REAL_CANDIDATE_INDEPENDENT_QA_NOT_EXECUTED",
+    "R8": "HOLD_OWNER_RELEASE"
+  },
+  "negative_QA_plan_count": 13,
+  "negative_QA_execution": "NOT_EXECUTED",
+  "historical_B_M3_PM": "PASS_ENGINEERING_BASELINE_SCOPED_WITH_REVIEWER_PEAK_DISSENT",
+  "historical_V3_HOLD_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "I2": "NOT_EXECUTED",
+  "real_SFT": "NOT_EXECUTED",
+  "GPU": "NOT_EXECUTED",
+  "CHECKPOINT_DOWNLOAD": "NOT_EXECUTED",
+  "new_TEST": "NOT_EXECUTED",
+  "merge": false,
+  "main_changed": false,
+  "lineage_changed": false,
+  "author_outcome": "B_FEASIBILITY_MAPPING_COMPLETE_SCOPED",
+  "joint_status": "HOLD_ABC_CONTRACT_ALIGNMENT",
+  "next_operation": "TTM_PM_ABC_UNIFIED_EXACT_SOURCE_DEPENDENCY_AND_OWNER_READINESS_ADJUDICATION_SINGLE_GATE",
+  "pm_index_13_field_schema": [
+    "track",
+    "artifact_kind",
+    "git_url",
+    "exact_commit",
+    "git_blob_sha1",
+    "raw_sha256",
+    "domain_tag",
+    "origin_actor",
+    "review_actor",
+    "gate_status",
+    "scope",
+    "executed",
+    "limitation"
+  ],
+  "pm_logical_evidence_rows": [
+    {
+      "track": "B",
+      "artifact_kind": "DESIGN_DOCUMENT",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/0402d142d3d24cb796bb54b67eca344140f6e7ba/docs/research/ttm-abc/track-b/B_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY.md",
+      "exact_commit": "0402d142d3d24cb796bb54b67eca344140f6e7ba",
+      "git_blob_sha1": "1e954ce1dbb53178083cde6b25e40d62f46c1e07",
+      "raw_sha256": "8eb3484f0e3298b065f289a5e3fb4a9c351ad6872342b2cb8c725809c72735a3",
+      "domain_tag": "none",
+      "origin_actor": "Agent B",
+      "review_actor": "NOT_INDEPENDENTLY_REVIEWED",
+      "gate_status": "DESIGN_ONLY",
+      "scope": "author source/design; no runtime or separate reviewer",
+      "executed": false,
+      "limitation": "raw hashes source Git readback verified by author; commit link must be replaced with final exact HEAD after packet freeze"
+    },
+    {
+      "track": "B",
+      "artifact_kind": "DESIGN_DOCUMENT",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/827405e2f1b19953085e0e514ecce93fc87b5850/docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B.md",
+      "exact_commit": "827405e2f1b19953085e0e514ecce93fc87b5850",
+      "git_blob_sha1": "9acaf4292c3d298daa1a2f44db4345e7bca1b3a0",
+      "raw_sha256": "35e3cd9084616c657e72cfc9f128cef961a9fe3f475e4fe77b4c058eff8b9b32",
+      "domain_tag": "none",
+      "origin_actor": "Agent B",
+      "review_actor": "NOT_INDEPENDENTLY_REVIEWED",
+      "gate_status": "DESIGN_ONLY",
+      "scope": "author source/design; no runtime or separate reviewer",
+      "executed": false,
+      "limitation": "raw hashes source Git readback verified by author; commit link must be replaced with final exact HEAD after packet freeze"
+    },
+    {
+      "track": "B",
+      "artifact_kind": "DESIGN_DOCUMENT",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/cf805de3ea184e7f167f08dafd4fabf46e793c8f/docs/coordination/ttm-abc/track-b/B_R0_R3_R4_R5_READINESS.md",
+      "exact_commit": "cf805de3ea184e7f167f08dafd4fabf46e793c8f",
+      "git_blob_sha1": "83379c8c1532d0ef87119e24596682a9b81fb064",
+      "raw_sha256": "e335c46df46303e730342bca4c71badde47a58721cc17c408dfdee3c3f999fd3",
+      "domain_tag": "none",
+      "origin_actor": "Agent B",
+      "review_actor": "NOT_INDEPENDENTLY_REVIEWED",
+      "gate_status": "DESIGN_ONLY",
+      "scope": "author source/design; no runtime or separate reviewer",
+      "executed": false,
+      "limitation": "raw hashes source Git readback verified by author; commit link must be replaced with final exact HEAD after packet freeze"
+    },
+    {
+      "track": "B",
+      "artifact_kind": "LOGICAL_COMPATIBILITY_MATRIX",
+      "git_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/7aeb471108815169cd337cbe215c07b56d84a2f9/artifacts/ttm-abc/track-b/B_ABC_37_26_14_LOGICAL_COMPATIBILITY_20261117.json",
+      "exact_commit": "7aeb471108815169cd337cbe215c07b56d84a2f9",
+      "git_blob_sha1": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+      "raw_sha256": "8b41831f96c8e8989c5d7365fa9d8a44a82d49ac35cb367bcb7c6fe8364714b9",
+      "domain_tag": "none",
+      "origin_actor": "Agent B",
+      "review_actor": "NOT_INDEPENDENTLY_REVIEWED",
+      "gate_status": "DESIGN_ONLY",
+      "scope": "author source/design; no runtime or separate reviewer",
+      "executed": false,
+      "limitation": "raw hashes source Git readback verified by author; commit link must be replaced with final exact HEAD after packet freeze"
+    }
+  ]
+}

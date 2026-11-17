@@ -1,0 +1,29 @@
+name: Track C B/C F01-F04 v2 source-only QA (Python 3.12)
+on:
+  pull_request:
+    paths:
+      - "tests/ttm_track_c/bc_v2_contract_oracle.py"
+      - "tests/ttm_track_c/test_bc_v2_contract_oracle.py"
+      - ".github/workflows/track-c-bc-v2-py312.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-oracle:
+    name: source-oracle-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert Python 3.12 and run stdlib C v2 red checks only
+        shell: bash
+        run: |
+          python -c "import sys; assert sys.version_info[:2] == (3,12), sys.version; print(sys.version)"
+          python -S -B -m unittest discover -s tests/ttm_track_c -p 'test_bc_v2_contract_oracle.py' -v

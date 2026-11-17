@@ -1,0 +1,194 @@
+{
+  "schema": "ttm.pm.bc.synthetic_sft_interface.author_ci_receipt.v1",
+  "operation": "TTM_PM_BC_SYNTHETIC_SFT_INTERFACE_QUALIFICATION_SINGLE_GATE",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "integration_branch": "integration/ttm-bc-synthetic-sft-interface-20261116",
+  "draft_pr": 36,
+  "draft_base_branch": "research/ttm-track-b-gpt-core-20261116",
+  "tested_source_commit": "7a8e15a4451577ab727d5cada6ce15fec2c22080",
+  "pinned_sources": {
+    "b_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "c_head": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+    "c_independent_design_review": "9fac5a675955d8b91d6855d27907f239cbfb745f",
+    "c_design_verdict": "PASS_DESIGN_SCOPED_B_INTEGRATION_NOT_EXECUTED_BEFORE_THIS_CANDIDATE",
+    "pm_handoff_resolved_commit": "b4cd629f624f53e24c9eb05120ffe649b664b05d",
+    "pm_handoff_blob": "d75965a6787a1839f05bc01cf3f1071e0b8ba935",
+    "user_supplied_handoff_commit": "b4cd629f624f53e24a9f4e2c62bb78b2b05d",
+    "user_supplied_handoff_ref_status": "NOT_FOUND_404_RECONCILED_VIA_PM_ISSUE32"
+  },
+  "files": {
+    "src/ttm_track_b/bc_sft_interface.py": {
+      "git_blob_sha1": "636a7d695e49802e3d8d80ab0ef06f25ef7d8322",
+      "sha256": "f8a4751e896081237565af802dc960ddcfeee44d53f991fbf6e76fc5402a2207"
+    },
+    "tests/test_bc_sft_interface.py": {
+      "git_blob_sha1": "09b4619fdbcd5f09d633b4ae2325f7a1f89af3a0",
+      "sha256": "a66f0fd99a74b4392b1c5df5fe95ce8f04bd8d2e83117ca4cd456e5f84a86cf3"
+    },
+    "tests/ttm_track_bc/c_m4_source_pinned.py": {
+      "git_blob_sha1": "83c6d5abe0948c24c9e49375ffc2a17e3143a793",
+      "sha256": "522618430f32fd0cc74da945a7bf208aad3a146c1f113a320a13e9490f9e2b88",
+      "byte_identical_to_c_exact_head": true
+    },
+    ".github/workflows/track-bc-sft-interface-py312.yml": {
+      "git_blob_sha1": "d32be055b49b16c682ded5eac879ec8c27c8955c",
+      "sha256": "f29f12bd0a86f51f664ecd773a984a2cb8ad771d940ba0393d1ad935791a2149"
+    },
+    "docs/research/ttm-abc/bc-sft/BC_SFT_INTERFACE_CONTRACT.md": {
+      "git_blob_sha1": "69847b0285778c7ef0b361c20c4235fd5470f1ec",
+      "sha256": "223356cd1e7be3c5d3da14dd60c36d09ee80e95856c070d00d5667c2f32449b1"
+    }
+  },
+  "wire": {
+    "schema": "ttm.bc.synthetic.sft.pack.v1",
+    "vocab": 2048,
+    "content_byte_ids": "0..255",
+    "specials": {
+      "EOS": 256,
+      "PAD": 257,
+      "BOS": 258,
+      "SYS": 259,
+      "USER": 260,
+      "ASSIST": 261,
+      "EOT": 262
+    },
+    "codec_sha256": "f0dea609c2b442be4a24505b479902a2b24c716a64d759c940fc82553dbf3695",
+    "template_sha256": "3c8a6bcc1fdd8f7db59c679c071f989d51389c6d2b7efbcaab330e66e100e39c",
+    "pack_sha256": "d089e30ba927eb2d01b1a7e7c916bebb20400932d462c30418b6eee1a49a6cc6",
+    "model_config": {
+      "vocab_size": 2048,
+      "max_seq_len": 32,
+      "n_embd": 32,
+      "n_layer": 1,
+      "n_head": 4,
+      "norm_type": "layernorm"
+    },
+    "role_mask": "REPARSE_ALL_IDS_DERIVE_INTERNAL_FLAGS",
+    "target_shift": 1,
+    "ignore_index": -100,
+    "valid_target_normalization": "SUM_CE_DIVIDE_VALID_COUNT",
+    "right_pad_only": true,
+    "packing": false
+  },
+  "ci": {
+    "bc_workflow": {
+      "id": 43908305162,
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43908305162",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 133443018885,
+          "os": "windows-latest",
+          "python": "3.12.10",
+          "torch": "2.10.0+cpu",
+          "author_tests": "PASS_29_OF_29",
+          "synthetic_probe": "PASS"
+        },
+        {
+          "id": 133443019442,
+          "os": "ubuntu-latest",
+          "python": "3.12.16",
+          "torch": "2.10.0+cpu",
+          "author_tests": "PASS_29_OF_29",
+          "synthetic_probe": "PASS"
+        }
+      ]
+    },
+    "b_regression": {
+      "id": 43908305267,
+      "url": "https://github.com/minhtri22/TokenToModel-Lab/actions/runs/43908305267",
+      "conclusion": "success",
+      "jobs": [
+        "py312-windows-ps51",
+        "py312-linux"
+      ]
+    },
+    "history_preserved": [
+      {
+        "run": 43907663836,
+        "status": "FAIL",
+        "reason": "autograd_embedding_hook_called_during_inference_mode",
+        "fixed_commit": "78ce5f5144ec53f4b441c39af538f8fbefac2902"
+      },
+      {
+        "run": 43907934760,
+        "status": "FAIL",
+        "reason": "Windows_checkout_CRLF_changes_worktree_file_SHA256_compared_to_exact_LF_Git_BLOB",
+        "fixed_commit": "7a8e15a4451577ab727d5cada6ce15fec2c22080"
+      }
+    ],
+    "numeric_probe": {
+      "synthetic_only": true,
+      "forward_backward_only": true,
+      "loss_cpu_fp32": 7.575386047363281,
+      "independent_ce_oracle_windows": 7.575386101457638,
+      "independent_ce_oracle_linux": 7.575386115577745,
+      "supervised_assistant_targets": 4,
+      "ignored_prompt_and_pad_targets": 28,
+      "prompt_context_gradient_l1_windows": 0.3055880069732666,
+      "prompt_context_gradient_l1_linux": 0.3055879771709442,
+      "masked_direct_logit_grad_exact_zero": true,
+      "future_causal_isolation": true,
+      "right_padding_isolation": true,
+      "optimizer_steps": 0
+    },
+    "negative_tests": [
+      "role_and_every_flag_bit_mutation",
+      "reserved_special_injection",
+      "invalid_role_order",
+      "empty_assistant",
+      "codec_template_hash_tamper",
+      "off_by_one_target_shift",
+      "user_target_leak",
+      "EOS_EOT_invalid",
+      "left_padding_and_packing",
+      "all_ignore",
+      "B_legacy_pack_rejection",
+      "P04_T4_B_old_checkpoint_schema_rejection",
+      "resume_codec_model_pack_mismatch",
+      "1000_seeded_dialogues",
+      "cross_split_duplicate_and_pack_sha"
+    ]
+  },
+  "b_g5_v3": {
+    "native_status": "HOLD_NATIVE_QA",
+    "blocker": "job_memory_negative_EXIT_1",
+    "preserved_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+    "script_observed": "Invoke-TTM-TrackB-Independent-Native-QA-PS51-V3.ps1",
+    "script_negative_expected_exit_nonzero": true,
+    "analysis": "EXIT_1 suffix alone is not root cause: script's ExpectNonZero=true accepts exit 1. Must inspect JobApplied, JobCapBytes, TimedOut, PeakJobCommitBytes, stdout/stderr lengths and raw MemoryError stderr from immutable receipt.",
+    "original_phase_log_available_to_this_agent": false,
+    "no_harness_repair_or_rerun": true,
+    "b_g5": "HOLD",
+    "b_g6": "HOLD"
+  },
+  "gate_matrix": {
+    "BC-0": "PASS_B_C_SOURCE_PINS_AUTHOR_ONLY_DISTINCT_PENDING",
+    "BC-1": "PASS_AUTHOR_CI_SYNTHETIC_CODEC",
+    "BC-2": "PASS_AUTHOR_CI_ROLE_SHIFT_MASKED_CE",
+    "BC-3": "PASS_AUTHOR_CI_P02_CPU_FORWARD_BACKWARD",
+    "BC-4": "PASS_AUTHOR_CI_SCHEMA_HASH_NEGATIVES",
+    "BC-5": "HOLD_NATIVE_B_G5_G6_AND_DISTINCT_EXACT_HEAD_REVIEW",
+    "C-G1": "HOLD",
+    "C-G2": "DESIGN_VALIDITY_UNPROVEN",
+    "C-G8": "NOT_EXECUTED",
+    "B-G5": "HOLD",
+    "B-G6": "HOLD"
+  },
+  "independent_qa_status": "NOT_EXECUTED_NEW_BC_EXACT_HEAD_REVIEW_PENDING",
+  "authorization": {
+    "real_sft": false,
+    "science": false,
+    "gpu": false,
+    "test64_access": false,
+    "fresh16_access": false,
+    "final24_access": false,
+    "checkpoint_weights_published": false,
+    "main_modified": false,
+    "c_branch_modified": false,
+    "merge": false
+  },
+  "conclusion": "BC_SFT_AUTHOR_CI_PASS_ENGINEERING_SCOPED_PENDING_DISTINCT_G5_G6_HOLD",
+  "next_step_only": "TTM_BC_EXACT_INTEGRATION_HEAD_DISTINCT_NEGATIVE_QA_AND_B_G5_V3_LOG_ADJUDICATION_ONEPACK"
+}
