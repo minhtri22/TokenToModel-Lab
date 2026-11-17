@@ -189,17 +189,32 @@ def runtime_sources(root):
     return torch, np, p02, legacy, score, cap
 
 def cuda_guard(torch):
+    """Fail closed with actionable GPU diagnosis; do not touch training data."""
     if sys.version_info[:2] != (3, 12):
-        raise ValueError("PYTHON312_REQUIRED")
-    if not torch.cuda.is_available() or "T4" not in torch.cuda.get_device_name(0):
-        raise ValueError("COLAB_T4_REQUIRED")
+        raise ValueError("PYTHON312_REQUIRED: " + sys.version.split()[0])
+    if torch.version.cuda is None:
+        raise ValueError("TORCH_CPU_ONLY_BUILD_NO_CUDA: need Colab CUDA-enabled PyTorch on T4")
+    if not torch.cuda.is_available():
+        raise ValueError("CUDA_UNAVAILABLE: select Runtime > Change runtime type > T4 GPU; reconnect")
+    gpu_name = torch.cuda.get_device_name(0)
+    if "T4" not in gpu_name:
+        raise ValueError("GPU_NOT_T4: found " + str(gpu_name) + "; this exact protocol requires T4")
     free, total = torch.cuda.mem_get_info()
     if free < 10 * (1024 ** 3):
-        raise MemoryError("GPU_FREE_BELOW_10_GIB")
-    return {"gpu": torch.cuda.get_device_name(0), "torch": str(torch.__version__),
+        raise MemoryError("GPU_FREE_BELOW_10_GIB: free_mib=" + str(free // (1024 ** 2)))
+    return {"gpu": gpu_name, "torch": str(torch.__version__),
             "cuda": str(torch.version.cuda), "free_mib": int(free / (1024 ** 2)),
             "total_mib": int(total / (1024 ** 2)),
             "python": sys.version.split()[0]}
+
+
+def live_t4_preflight():
+    """Read-only: diagnose GPU BEFORE reserving a one-shot session root."""
+    import torch
+    env = cuda_guard(torch)
+    print("LIVE_T4_PREFLIGHT_PASS " + json.dumps(env, sort_keys=True), flush=True)
+    return env
+
 
 def capacity(args):
     torch, _, p02, _, _, cap = runtime_sources(args.sources)
@@ -613,6 +628,9 @@ def one_session(args):
     if args.resume_step is None:
         if session.exists() or session.parent.is_symlink():
             raise FileExistsError("ONE_SHOT_SESSION_ALREADY_EXISTS")
+        # Preflight before SESSION_LOCK: a CPU runtime must not consume an
+        # one-shot RUN_ID or create a misleading partially initialized session.
+        live_t4_preflight()
         session.mkdir(parents=True)
         write_new(session / "SESSION_LOCK.json", canonical({
             "schema": "ttm.matched_4m.one_session_lock.v1",
