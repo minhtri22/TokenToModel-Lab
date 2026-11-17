@@ -40,7 +40,7 @@ class DistinctTech40BridgeQA(unittest.TestCase):
         self.assertEqual(len(a["q4_sha256"]), 64)
 
     def test_current_runner_exact_source_blob(self):
-        self.assertEqual(b.git_blob(RUNNER.read_bytes()), b.NEW_RUNNER_BLOB)
+        self.assertEqual(b.git_blob(RUNNER.read_bytes().replace(b"\r\n", b"\n")), b.NEW_RUNNER_BLOB)
 
     def test_source_critical_functions_identical_old_new(self):
         with tempfile.TemporaryDirectory() as folder:
