@@ -288,6 +288,12 @@ class TestUTF8ByteDomain(unittest.TestCase):
                 {"token_id": 88, "kind": "TEXT", "start": 0, "end": 1, "gold_nll_nats": 1.0},
                 {"token_id": 256, "kind": "EOS", "start": None, "end": None, "gold_nll_nats": 2.0},
             ])
+        with self.assertRaisesRegex(ByteDomainHold, "DUPLICATE_T4_EOS"):
+            arithmetic_bpb(b"X", [
+                {"token_id": 88, "kind": "TEXT", "start": 0, "end": 1, "gold_nll_nats": 1.0},
+                {"token_id": 256, "kind": "EOS", "start": None, "end": None, "gold_nll_nats": None},
+                {"token_id": 256, "kind": "EOS", "start": None, "end": None, "gold_nll_nats": None},
+            ])
 
     def test_19_T4_EOS_cannot_be_scored_text(self):
         row = {"token_id": 256, "kind": "TEXT", "start": 0, "end": 1, "gold_nll_nats": 0.2}
