@@ -1,0 +1,114 @@
+{
+  "schema": "ttm.pm.tech40_to_1024.receipt_continuation.integrated_q4_qa.v1",
+  "date": "2026-11-17",
+  "operation": "TTM_PM_TECH40_PASS_TO_TINYSTORIES1024_EXACT_RECEIPT_CONTINUATION_AND_INTEGRATED_Q4_ONEPACK",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "source_qa_exact_code_head": "2d35fac58bc197198e2c17213661a39b2760c977",
+  "main_baseline": "59ee3f30b996405fddc087ab60102b59a021f8ea",
+  "pm_q4_decision": "GO_CONDITIONAL_EXACT_OLD_TECH40_CUSTODY_FOR_1024_REPLICATION_VAL_ONLY",
+  "q4_decision_git_blob": "8b99e436dd1c31bde3c684167be8a475a73b0dcc",
+  "old_tech40_original_runner": {
+    "commit": "2b8a3613dea0daa5babf6f85fc7ea4ec093d4135",
+    "git_blob": "113434e25fe19cff27b47f428cf99a0a57ae4fcf"
+  },
+  "new_gpu_source_repair_runner": {
+    "commit": "500c9e119fb1bc3e424abacd1afa3bb1aa2aba7e",
+    "git_blob": "933f42b514de5fac650bfa2a421844c51b9b7c64"
+  },
+  "bridge_candidate_git_blob": "58d1e4c0995d867c511c4c290e7ee855ec4fd961",
+  "colab_notebook_git_blob": "574eab43c7aee64948cc3f2d04bf5d9be4beb3b7",
+  "source_equivalence": {
+    "frozen_old_vs_repaired_current": "PASS_SCOPED_GITHUB_SOURCE_EXACT_CRITICAL_FUNCTIONS",
+    "critical_function_count": 22,
+    "allowlisted_wrapper_changes": [
+      "cuda_guard",
+      "one_session",
+      "main",
+      "live_t4_preflight"
+    ],
+    "full_binary_equivalence": false,
+    "verification_in_runtime": "RECHECK_BEFORE_SCIENCE"
+  },
+  "user_t4_technical": {
+    "status": "PASS_REAL_T4_SYNTHETIC_40_OWNER_CONSOLE",
+    "model_parameters": 3749376,
+    "steps": 40,
+    "random_scored_targets_per_step": 4096,
+    "gpu": "Tesla T4",
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "peak_cuda_reserved_bytes": 320864256,
+    "wall_seconds": 13.206120628000008,
+    "original_tech40_raw_receipt_sha256": "NOT_RETRIEVED_FROM_COLAB_OR_DRIVE",
+    "sha256_expected_reconstruction_from_user_stdout": "1a273db7f175578cdc9cf6a976d4679835a42d86a1c0c1604a6ea4e64596a1d9",
+    "candidate_provenance": "RECONSTRUCTED_CANONICAL_JSON_FROM_USER_PASTED_STDOUT_ONLY",
+    "raw_original_byte_custody": "HOLD_UNTIL_COLAB_BRIDGE_PREFLIGHT",
+    "run_id": "NOT_AVAILABLE_FROM_PASTED_STDOUT",
+    "drive_search_for_original_receipt": "NO_RESULTS",
+    "original_terminal_status": "TECHNICAL_40_PASS_SCIENCE_HOLD_NO_Q4",
+    "science_executed": false
+  },
+  "new_science": {
+    "action": "REPLICA_1024_VAL_ONLY",
+    "source_runner": "USE_FROZEN_ORIGINAL_TECH40_RUNNER",
+    "tech40_rerun": false,
+    "new_weights": "RANDOM_FROM_SCRATCH_SEED_20261108",
+    "train_val_sha256": "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913",
+    "manifest_sha256": "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650",
+    "historical_left_ckpt_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "match": "1024_STEPS_X4096_TARGETS_EQUAL_P02_ARCH_2048BPE_SAME_DATA_AND_SEED",
+    "right_checkpoint": "NOT_CREATED",
+    "paired_val": "NOT_EXECUTED",
+    "historical_test": "NOT_ACCESSED",
+    "model_improvement": "NOT_AUTHORIZED_TO_CLAIM"
+  },
+  "bridge_controls": {
+    "exact_receipt_byte_hash_check": true,
+    "original_run_lock_and_terminal_status_check": true,
+    "original_old_runner_source_hash_check": true,
+    "old_vs_repaired_function_equivalence": true,
+    "private_pack_and_checkpoint_sha_check": true,
+    "tesla_t4_cuda_and_python312_check": true,
+    "durable_output_in_owner_google_drive": true,
+    "claim_once_and_no_overwrite": true,
+    "resume_at": [
+      256,
+      512,
+      768
+    ],
+    "after_final_compare_only_recovery": true,
+    "real_t4_engineer_40_reused_no_reexecution": true,
+    "root_source_append_only_claim": true,
+    "no_micro_permit": true
+  },
+  "ci": {
+    "source": {
+      "run": 44120533843,
+      "status": "PASS",
+      "head": "2d35fac58bc197198e2c17213661a39b2760c977",
+      "ubuntu": "PASS_13_RUNNER_PLUS_40_SEPARATE_TESTS",
+      "windows": "PASS_13_RUNNER_PLUS_40_SEPARATE_TESTS"
+    },
+    "native_cpu": {
+      "run": 44120533746,
+      "status": "PASS_SCOPED_CPU_ONLY",
+      "head": "2d35fac58bc197198e2c17213661a39b2760c977",
+      "full_p02_parameters": 3749376,
+      "full_p02_synthetic_step_count": 3,
+      "max_abs_parameter_diff": 0,
+      "checkpoint_sha_tamper_rejected": true
+    }
+  },
+  "independence_caveat": "Distinct QA code and GitHub Actions OS environments; same assistant authored checks, not independent human QA.",
+  "scientific_status": "NOT_EXECUTED",
+  "pm_adjudication": {
+    "engineering": "PASS_USER_T4_TECH40_SCOPED",
+    "source_code": "PASS_EXACT_SHA_AND_CI_SOURCE_QA",
+    "raw_receipt": "HOLD_RAW_BYTES_NOT_AVAILABLE_TO_PM",
+    "q4": "GO_CONDITIONAL_ONLY_AFTER_RUNTIME_BYTE_CUSTODY",
+    "tiny_stories_science": "HOLD_NOT_EXECUTED",
+    "paired_val": "HOLD_NOT_EXECUTED",
+    "merge": "NOT_AUTHORIZED"
+  },
+  "next_operation": "Owner existing Colab runtime: BRIDGE_PREFLIGHT to verify actual original receipt bytes; if PASS, CONTINUE_VERIFIED_40_1024 under the single conditional Q4; no new permit/40steps."
+}
