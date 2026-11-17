@@ -162,14 +162,21 @@
       "evidence_commit": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
       "status": "CLOSED_PASS_SCOPED_NOT_IN_CURRENT_MAIN",
       "integration": "READ_ONLY_ORACLE_CANONICAL_SOURCE_EXTERNAL",
-      "runtime": "I2_NOT_EXECUTED"
+      "runtime": "I2_NOT_EXECUTED",
+      "source_path": "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py",
+      "source_git_blob": "46009c78b52a7bcf4c996e0bc866297d4d5ba161",
+      "evidence_path": "artifacts/ttm-abc/track-a/M0_V3_POST_HOLD_DISTINCT_I1_20261117/REVIEW.md",
+      "evidence_git_blob": "7d0ea908d3f52169fc6710ad06115316e84ae343"
     },
     {
       "id": "A_V4_RELEASE_DESIGN",
       "branch_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
       "requirements_blob": "3de320f1e734c7610fb750477803b082fefff753",
       "status": "DESIGN_ACCEPT_SCOPED_NOT_MERGED",
-      "runtime": "V4_NATIVE_QA_AND_SIGNED_ONE_SHOT_OWNER_HOLD"
+      "runtime": "V4_NATIVE_QA_AND_SIGNED_ONE_SHOT_OWNER_HOLD",
+      "requirements_path": "docs/coordination/ttm-abc/track-a/A_TO_BC_REQUIREMENTS.md",
+      "requirements_git_blob": "3de320f1e734c7610fb750477803b082fefff753",
+      "accepted_design_source_commit": "e6746184603f038b49d1e7d472367b6354474ba2"
     }
   ],
   "seams": [
@@ -193,8 +200,8 @@
       "id": "S03",
       "from": "P02_TRANSFORMER",
       "to": "P03_TRAIN",
-      "status": "SYNTHETIC_SCOPED_PASS",
-      "blocker": "P03_FIXED_BATCH_NO_RESUMABLE_CHECKPOINT; RAW_P02_CE_NO_IGNORE_MINUS100",
+      "status": "P02_MASK_DEFAULT_VALID_P03_INPUT_ADMISSION_GAP",
+      "blocker": "P02_TORCH_F_CROSS_ENTROPY_DEFAULT_IGNORE_INDEX_MINUS100; P03_VALIDATE_REJECTS_NEGATIVE_TARGETS_INCLUDING_MINUS100; P03_FIXED_BATCH_NOT_RESUMABLE; B_HAS_SEPARATE_MASKED_CE",
       "owner": "B"
     },
     {
@@ -296,7 +303,7 @@
     "original_V3_native_peak_dissent": "PRESERVED"
   },
   "gate_matrix": {
-    "E0_SOURCE_GRAPH": "READY_FOR_PM_SOURCE_ONLY_QA",
+    "E0_SOURCE_GRAPH": "PRE_QA_SOURCE_SNAPSHOT_READY; POST_QA_PASS_RECORDED_SEPARATELY_IN_RECEIPT_AND_GITHUB_RUN",
     "E1_SYNTHETIC_VERTICAL_SLICE": "PASS_PREEXISTING_B_SYNTHETIC_ONLY",
     "E2_REAL_T4_SOURCE_DATA_CHECKPOINT": "HOLD_Q4_SOURCE_RIGHTS_STRICT_CUSTODY",
     "E3_REAL_BASELINE_EVAL": "HOLD_E2_FRESH_VAL_GOLD_BYTE_DENOM_INDEPENDENT_A_QA",
@@ -314,8 +321,11 @@
   },
   "candidate": "EXACT_CURRENT_MAIN + SOURCE_ONLY_VALIDATION_AND_CONTRACT_DOCS_BRANCH; NO_REAL_TRAINER_ADDED",
   "workflows": [
-    "E0 PM static integration QA only; no torch/pip/import src",
+    "E0 PM source-only QA validates Git-object pin, P02 default -100 vs P03 reject negative, external A pinned anchors cross-referenced on main; no torch/pip/import src",
     "reuse prior PR39 synthetic runtime CI rather than rerun",
-    "review-only draft PR; do not merge without owner"
-  ]
+    "review-only draft PR; do not merge without owner",
+    "PR report path is included in CI pull_request.paths; doc/source QA required whenever integration report changes"
+  ],
+  "external_verification_scope": "PM verified external A Git blobs via exact Github refs at adjudication; CI only verifies pinned literal refs and current-main C registry cross-reference, does not fetch external A objects from shallow checkout.",
+  "scope_snapshot": "PR42 manifest is authored before final GitHub Actions job; E0 is snapshot, not a self-attested release or source-level merge authority"
 }
