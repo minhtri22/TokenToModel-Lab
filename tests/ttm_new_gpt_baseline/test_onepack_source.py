@@ -11,6 +11,8 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNNER = ROOT / "src/ttm_new_gpt_baseline/runner.py"
@@ -197,6 +199,48 @@ class MatchedIndependentStyleSourceQA(unittest.TestCase):
         self.assertIn('if pathlib.Path(OWNER_GO_JSON).is_file()', code)
         self.assertIn('HISTORIC_LEFT_CHECKPOINT', code)
         self.assertIn('UNIQUE_SESSION_RUN_ID_REQUIRED', code)
+
+    def test_integrated_session_without_q4_only_writes_hold_receipt(self):
+        with tempfile.TemporaryDirectory() as d:
+            runid = "q4hold_onepass"
+            folder = Path(d) / ("TTM_40_1024__" + runid)
+            args = SimpleNamespace(
+                arm="replica_1024", run_id=runid, out=str(folder),
+                sources="synthetic-fixture-not-a-repo", go=None, resume_step=None,
+                data="NO_PRIVATE_DATA", manifest="NO_PRIVATE_MANIFEST",
+                historic="NO_HISTORIC_CHECKPOINT")
+            def technical_receipt(tech):
+                r.write_new(tech.out, b"synthetic-only-QA-receipt")
+                return r.sha_file(tech.out)
+            with (mock.patch.object(r, "verify_sources"),
+                  mock.patch.object(r, "synthetic_40", side_effect=technical_receipt) as diag,
+                  mock.patch.object(r, "train") as train,
+                  mock.patch.object(r, "compare") as compare,
+                  mock.patch.object(r, "validate_pack_files") as data):
+                r.one_session(args)
+                diag.assert_called_once()
+                train.assert_not_called()
+                compare.assert_not_called()
+                data.assert_not_called()
+            status = json.loads((folder / "SESSION_STATUS.json").read_text("utf-8"))
+            self.assertEqual(status["status"], "TECHNICAL_40_PASS_SCIENCE_HOLD_NO_Q4")
+            self.assertFalse(status["science_executed"])
+            self.assertFalse(status["compare_executed"])
+            self.assertFalse(status["test_accessed"])
+
+    def test_invalid_integrated_q4_refused_before_synthetic_or_session_creation(self):
+        with tempfile.TemporaryDirectory() as d:
+            runid = "invalid_q4_packet"
+            folder = Path(d) / ("TTM_40_1024__" + runid)
+            args = SimpleNamespace(arm="replica_1024", run_id=runid,
+                out=str(folder), sources="fake", go="invalid-GO.json", resume_step=None)
+            with (mock.patch.object(r, "verify_sources"),
+                  mock.patch.object(r, "verify_integrated_q4", side_effect=ValueError("Q4_FAIL")),
+                  mock.patch.object(r, "synthetic_40") as diag):
+                with self.assertRaisesRegex(ValueError, "Q4_FAIL"):
+                    r.one_session(args)
+                diag.assert_not_called()
+            self.assertFalse(folder.exists())
 
     def test_checkpoint_fork_no_overwrite(self):
         with tempfile.TemporaryDirectory() as d:
