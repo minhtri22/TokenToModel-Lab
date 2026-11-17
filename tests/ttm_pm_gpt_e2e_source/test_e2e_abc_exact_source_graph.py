@@ -105,7 +105,21 @@ class TestABCSourceIntegratedBaseline(unittest.TestCase):
                   "def generate_tokens(", "def evaluate_synthetic_heldout(",
                   '"state_dict":'):
             self.assertIn(s, p04)
-        self.assertIn("without", "without")  # explicit reminder: no runtime implied
+        # F01: source AST proves P02 uses PyTorch's default ignore_index=-100.
+        # The validation blocker is P03 rejecting target y < 0, not P02 CE.
+        ce_calls = [n for n in ast.walk(ast.parse(p02))
+                    if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
+                    and n.func.attr == "cross_entropy"]
+        self.assertEqual(len(ce_calls), 1)
+        self.assertFalse(any(k.arg == "ignore_index" for k in ce_calls[0].keywords))
+        self.assertIn("torch.any(y < 0).item()", p03)
+        self.assertIn("target token outside 2048 vocabulary", p03)
+        self.assertIn("ignore_index=-100", self.txt["B_SYNTHETIC_RUNNER"])
+        s03 = next(edge for edge in self.m["seams"] if edge["id"] == "S03")
+        self.assertEqual(s03["status"], "P02_MASK_DEFAULT_VALID_P03_INPUT_ADMISSION_GAP")
+        self.assertIn("P03_VALIDATE_REJECTS_NEGATIVE_TARGETS", s03["blocker"])
+        self.assertIn("P02_TORCH_F_CROSS_ENTROPY_DEFAULT_IGNORE_INDEX_MINUS100",
+                      s03["blocker"])
         self.assertNotIn('"optimizer":', p04)
         self.assertNotIn('"scheduler":', p04)
         self.assertNotIn('"sampler_state":', p04)
@@ -204,6 +218,76 @@ class TestABCSourceIntegratedBaseline(unittest.TestCase):
         self.assertTrue(all(edge["from"] in ids and edge["to"] in ids for edge in edges))
         self.assertFalse(any(edge["status"] in ("GO", "PASS_REAL_SCIENCE") for edge in edges))
         self.assertTrue(any(e["status"] == "INCOMPATIBLE_DIRECT" for e in edges))
+
+
+    def test_15_external_A_refs_bound_to_exact_authoritative_git_pins(self) -> None:
+        # External branches are not checked out by CI. Verify declared exact
+        # source/evidence pointer values and C registry linkage in main; the
+        # independent PM reviewer separately reads external GitHub Git blobs.
+        a = {e["id"]: e for e in self.m["external_branch_only"]}
+        self.assertEqual(set(a), {"A_I1_MEASUREMENT", "A_V4_RELEASE_DESIGN"})
+        i1, v4 = a["A_I1_MEASUREMENT"], a["A_V4_RELEASE_DESIGN"]
+        self.assertEqual(i1["branch_commit"],
+                         "ec197b5f00d3a037420390edd11ee55047e1d37f")
+        self.assertEqual(i1["source_path"],
+                         "tools/pilot_t4/direct_failure_diag_q001/track_a_m0_v3/q001_m0_goldblind.py")
+        self.assertEqual(i1["source_git_blob"],
+                         "46009c78b52a7bcf4c996e0bc866297d4d5ba161")
+        self.assertEqual(i1["evidence_commit"],
+                         "e3e1c802815f4db1534e92d9848d6015eb9203cc")
+        self.assertEqual(i1["evidence_git_blob"],
+                         "7d0ea908d3f52169fc6710ad06115316e84ae343")
+        self.assertTrue(i1["evidence_path"].endswith("/REVIEW.md"))
+        self.assertEqual(v4["branch_commit"],
+                         "7639a53b9d76e16abfa4211cf239c5c3e9d6c940")
+        self.assertEqual(v4["accepted_design_source_commit"],
+                         "e6746184603f038b49d1e7d472367b6354474ba2")
+        self.assertEqual(v4["requirements_path"],
+                         "docs/coordination/ttm-abc/track-a/A_TO_BC_REQUIREMENTS.md")
+        self.assertEqual(v4["requirements_git_blob"],
+                         "3de320f1e734c7610fb750477803b082fefff753")
+        c_registry = json.loads(self.raw["C_SCIENCE_REGISTRY"])
+        self.assertEqual(c_registry["sources"]["a_requirements_git_blob"],
+                         v4["requirements_git_blob"])
+        self.assertIn("does not fetch external A objects",
+                      self.m["external_verification_scope"])
+
+    def test_16_report_manifest_receipt_scope_consistency(self) -> None:
+        report_path = ("docs/architecture/"
+                       "TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md")
+        receipt_path = ("artifacts/ttm-gpt-e2e/"
+                        "TTM_PM_GPT_E2E_ABC_SOURCE_INTEGRATION_QA_RECEIPT_20261117.json")
+        report = git_bytes(report_path).decode("utf-8")
+        receipt = json.loads(git_bytes(receipt_path))
+        self.assertIn("P02 gọi `F.cross_entropy` không override `ignore_index`", report)
+        self.assertIn("P03 `_validate` từ chối mọi target âm", report)
+        self.assertNotIn("P02 `forward(tokens,targets)` dùng CE mặc định **không ignore -100**", report)
+        self.assertIn("`PRE_QA_CANDIDATE`", report)
+        self.assertIn("PRE_QA_SOURCE_SNAPSHOT_READY", self.m["gate_matrix"]["E0_SOURCE_GRAPH"])
+        self.assertEqual(receipt["base_main"], self.m["base_main_sha"])
+        self.assertEqual(receipt["source_scope"]["report_path"], report_path)
+        self.assertEqual(receipt["source_scope"]["manifest_path"], MANIFEST)
+        self.assertEqual(receipt["source_scope"]["source_nodes"], len(self.m["nodes"]))
+        self.assertEqual(receipt["source_scope"]["seam_count"], len(self.m["seams"]))
+        self.assertTrue(receipt["source_scope"]["snapshot_only_no_real_execution"])
+        self.assertEqual(receipt["QA"]["latest_prior_exact_head_run"], 44060530115)
+        self.assertEqual(receipt["QA"]["latest_prior_exact_head_sha"],
+                         "383e2a4a858069e05a290d7448e607a01853ae04")
+        self.assertIn("current PR HEAD workflow result", receipt["QA"]["CI_authority_note"])
+        self.assertFalse(receipt["PM_decision"]["no_new_QuestionGate"])
+        self.assertTrue(receipt["PM_decision"]["A_I2"].startswith("HOLD"))
+
+    def test_17_workflow_follows_report_and_excludes_model_execution(self) -> None:
+        path = ".github/workflows/ttm-pm-gpt-e2e-abc-source-qa-py312.yml"
+        wf = git_bytes(path).decode("utf-8")
+        self.assertIn("docs/architecture/TTM_PM_GPT_END_TO_END_BASELINE_ABC_INTEGRATION_ONEPACK_20261117.md", wf)
+        self.assertIn("artifacts/ttm-gpt-e2e/**", wf)
+        self.assertIn("tests/ttm_pm_gpt_e2e_source/**", wf)
+        self.assertIn("windows-latest", wf)
+        self.assertIn("ubuntu-latest", wf)
+        self.assertIn("python -S -B -m unittest discover", wf)
+        self.assertNotIn("pip install", wf)
+        self.assertNotIn("python -m src.ttm_track_b.cli train", wf)
 
 
 if __name__ == "__main__":
