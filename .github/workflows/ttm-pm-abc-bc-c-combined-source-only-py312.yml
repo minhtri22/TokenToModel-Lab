@@ -1,0 +1,31 @@
+name: PM TTM ABC B-C-C combined-tree SOURCE ONLY QA (Python 3.12)
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/ttm-pm-abc-bc-c-combined-source-only-py312.yml"
+      - "tests/ttm_pm_abc/**"
+      - "tests/ttm_track_c/**"
+      - "artifacts/ttm-abc/track-c/**"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  distinct-merged-tree-qa:
+    name: merged-tree-source-qa-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Assert exact Python 3.12 / no package install
+        run: python -S -B -c "import sys; assert sys.version_info[:2]==(3,12), sys.version; print('SOURCE_ONLY_PY312',sys.version)"
+      - name: Independent PM exact Git-blob and cross-A-C-B contract QA
+        run: python -S -B -m unittest discover -s tests/ttm_pm_abc -p 'test_*.py' -v
+      - name: Track C previously designed stdlib oracle against actual combined checkout
+        run: python -S -B -m unittest discover -s tests/ttm_track_c -p 'test_*.py' -v
