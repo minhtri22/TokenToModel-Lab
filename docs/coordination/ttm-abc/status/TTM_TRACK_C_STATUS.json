@@ -49,9 +49,9 @@
   "actual_dataset_audit": "HOLD_NO_SOURCE_BYTES",
   "real_sft": "NOT_EXECUTED",
   "data_objective_capacity_science": "NOT_EXECUTED",
-  "phase_status": "C_SHARED_SCIENCE_DATA_EVAL_CONTRACT_DESIGN_COMPLETE_SCOPED_GLOBAL_HOLD_CCR_01_B_VERIFICATION",
-  "review": "A_37_FIELDS_PRESERVED_C_DESIGN_PACKET_AUTHOR_STRUCTURAL_QA_18_OF_18_NO_SCIENCE",
-  "next_operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK",
+  "phase_status": "C_ABC_INTEGRATED_F01_POINTER_FIXED_F02_DIRECT_T4_INCOMPATIBLE_F03_C_CROSS_ACK_DESIGN_SCOPED",
+  "review": "C_AUTHOR_SOURCE_AMENDMENT_F01_ONE_PROPERTY_CORRECTION_F02_NATIVE_BPE_SIDECAR_SELECTED_F03_C_CROSS_ACK_PM_FINAL_PENDING",
+  "next_operation": "TTM_PM_ABC_CCR01_SOURCE_REF_T4_CODEC_INTEGRATED_ALIGNMENT_AND_OWNER_READINESS_READJUDICATION_ONEPACK",
   "source_qa": {
     "m4_distinct_rereview_commit": "9fac5a675955d8b91d6855d27907f239cbfb745f",
     "m4_distinct_rereview": "PASS_DESIGN_SCOPED_35_35",
@@ -149,7 +149,7 @@
     "independent_final_reviewer": "NOT_EXECUTED_DISTINCT_FROM_AGENT_B_AND_AGENT_C",
     "pm_final_BC_decision": "NOT_ADJUDICATED"
   },
-  "last_evidence_path": "artifacts/ttm-abc/track-c/C_SCIENCE_PACKET_AUTHOR_READBACK_20261117.json",
+  "last_evidence_path": "artifacts/ttm-abc/track-c/C_ABC_F01_F02_F03_INTEGRATED_ALIGNMENT_RECEIPT_V2_20261117.json",
   "bc_f05_f06_evidence": {
     "review_branch": "review/ttm-c-bc-v2-f05-f06-20261117",
     "report_url": "https://github.com/minhtri22/TokenToModel-Lab/blob/9578291ae7c64ac58960fca679356e956ad9d51b/docs/research/ttm-abc/track-c/independent_review/C_BC_V2_F05_F06_EXACT_HEAD_REVIEW_20261117.md",
@@ -209,5 +209,57 @@
     "gpu": false,
     "merge": false,
     "required_next_operation": "TTM_B_SHARED_EXACT_CHECKPOINT_TOKENIZER_RESOURCE_FEASIBILITY_AND_COMPATIBILITY_DESIGN_ONEPACK"
+  },
+  "c_abc_integrated_alignment": {
+    "operation": "TTM_PM_ABC_CCR01_SOURCE_REF_T4_CODEC_INTEGRATED_ALIGNMENT_AND_OWNER_READINESS_READJUDICATION_ONEPACK",
+    "pm_pr35_comment_id": 6938113122,
+    "pm_issue32_adjudication_comment_id": 6938107650,
+    "contract_git_blob_sha1": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1",
+    "prior_C_packet_commit": "614caff47657ccee43ad10ba06ae8ebb782b4114",
+    "A_packet_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "B_PR37_feasibility_commit": "38e24f4fa1ee1eb5a5e1bec5e3746e98a07e13b5",
+    "F01": {
+      "status": "SOURCE_POINTER_CORRECTED_AUTHOR_READBACK_SCOPED",
+      "old_registry_git_blob_sha1": "64508ace4de057958ccbc9e3c7616a18c022250e",
+      "new_registry_git_blob_sha1": "364a15d305b71e0c236a27409430f1e27e14aa70",
+      "changed_field": "sources.a_requirements_git_blob",
+      "old_wrong_value": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+      "correct_value": "3de320f1e734c7610fb750477803b082fefff753",
+      "counts": "A37_C26_B14_SUBSET_ALL_OTHER_FIELDS_UNCHANGED"
+    },
+    "F02": {
+      "status": "DIRECT_BC_V2_PACK_TO_HISTORICAL_T4_WEIGHTS_INCOMPATIBLE_SOURCE_VERIFIED",
+      "preferred_future_design": "T4_NATIVE_BPE_EXTERNAL_ROLE_BYTE_SPAN_DESIGN_ONLY",
+      "T4_BPE_token_ids": "bytes_0_255_EOS256_merges257_2047",
+      "BC_v2_token_ids": "EOS256_PAD257_BOS258_SYS259_USER260_ASSIST261_EOT262",
+      "real_checkpoint_tokenizer_offsets": "HOLD_B_VERIFICATION",
+      "historical_T4_SFT_stop_targets": "HOLD_SFT_INCOMPATIBLE_TOKENIZER"
+    },
+    "F03": {
+      "status": "C_CCR01_CROSS_ACK_DESIGN_SCOPED_PM_INTERPRETATION_ACCEPTED",
+      "SFT_training_CE": "BC_v2_assistant_content_EOT_final_EOS_supervised",
+      "byte_only_val_bpb": "UTF8_genuine_data_target_NLL_over_ln2_times_exact_data_bytes_exclude_stop_protocol_on_both_sides",
+      "A_gold_nll": "single_gold_next_token_nats_not_bpb",
+      "A_ACK": "PENDING",
+      "B_remap": "PENDING_NEW_C_EXACT_SOURCE"
+    },
+    "amendment_git_blob_sha1": "e6a77fcb85fbbf24fd1b25e6459c1f40bbfa8e97",
+    "machine_receipt_git_blob_sha1": "e74aae648cd56d4758d8ce3f0f08addfb62bc9d0",
+    "C_verdict": "C_INTEGRATED_ALIGNMENT_PACKET_READY_SCOPED",
+    "program_alignment": "HOLD_ABC_CONTRACT_ALIGNMENT",
+    "R0": "F01_C_AUTHOR_PASS_INDEPENDENT_PM_PENDING",
+    "R1": "F03_C_CROSS_ACK_A_PENDING",
+    "R2": "HOLD_REAL_RIGHTS",
+    "R3": "F02_DIRECT_INCOMPATIBLE_PROSPECTIVE_ADAPTER_DESIGN_B_NATIVE_HOLD",
+    "R4": "HOLD_RESOURCE",
+    "R5": "HOLD_NATIVE_RELEASE",
+    "R6": "DESIGN_ONLY_NOT_PREREGISTERED",
+    "R7": "PM_DISTINCT_REVIEW_PENDING",
+    "R8": "HOLD_OWNER_RELEASE",
+    "next_actor": "Agent A exact C source ACK then Agent B source remap then PM final integrated decision",
+    "science": "NOT_EXECUTED",
+    "gpu": "NOT_EXECUTED",
+    "i2": "NOT_EXECUTED",
+    "merge": false
   }
 }
