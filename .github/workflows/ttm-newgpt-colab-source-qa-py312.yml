@@ -1,4 +1,4 @@
-name: TTM NEW GPT baseline Colab source-only QA (Python 3.12)
+name: TTM TinyStories matched Small4M 1024 and 2048 source QA (Python 3.12)
 on:
   push:
     branches:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Source-only 10 negative/positive QA; no Torch/GPU/corpus
+      - name: Source-only 13 negative/positive QA; no Torch/GPU/corpus
         run: python src/ttm_new_gpt_baseline/runner.py qa
-      - name: External source/Colab notebook contract QA
+      - name: Separate 15-case source contract QA and notebook exact-pins
         run: python -m unittest discover -s tests/ttm_new_gpt_baseline -p "test_*.py" -v
