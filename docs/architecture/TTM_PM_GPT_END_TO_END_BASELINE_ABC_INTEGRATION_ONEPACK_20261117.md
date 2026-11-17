@@ -45,7 +45,7 @@ P02 GPT Core  ──> P03 fixed-batch loop ──> P04 weights-only checkpoint
 |---|---|---|
 | **Dữ liệu → Tokenizer** | `t4_data_pack.py`, T4 TRAIN-only BPE2048; B synthetic byte identity riêng | Quyền dữ liệu, chia family TRAIN/VAL/FRESH, source SHA và byte thật vẫn **chưa verified trong lượt này** |
 | **Tokenizer → P02** | P02 `GPT(P02Config)`, config T4 `2048/256/256/4/4`, tied embedding | Exact original TRAIN BPE manifest / real T4 data pack / checkpoint identity cùng phạm vi chưa readback |
-| **P02 → P03** | P03 `train_fixed_batch`, cosine LR, AdamW, accumulation có test | P03 fixed-batch source không cung cấp optimizer/scheduler/sampler checkpoint; P02 `forward(tokens,targets)` dùng CE mặc định **không ignore -100** |
+| **P02 → P03** | P03 `train_fixed_batch`, cosine LR, AdamW, accumulation có test | P02 gọi `F.cross_entropy` không override `ignore_index`, nên mặc định PyTorch **bỏ qua target `-100` khi tính loss**; **P03 `_validate` từ chối mọi target âm**, gồm `-100`, trước khi gọi P02. Track B có hàm CE với `ignore_index=-100` riêng. P03 chưa có optimizer/scheduler/sampler checkpoint cho resume |
 | **P02 → B scaffold/CLI** | B dùng nguồn P02 và P03 schedule, có synthetic train/strict resume, VAL, sampling qua CLI, Win/Linux CI PASS | B synthetic tokenizer là **byte-identity**, không phải T4 BPE; không phải real data or real benchmark |
 | **P04 checkpoint** | `save_checkpoint_new` / `load_checkpoint_verified`, weights-only, strict model keys, SHA, synthetic heldout | P04 schema **không** chứa optimizer/scheduler/RNG/sampler để resume training; không đánh đồng checkpoint B/T4/P04 |
 | **B ↔ T4 checkpoint** | B có `read_historical_checkpoint` source adapter, T4 trainer có READY-last checksum/step | **HOLD** actual real weights and strict owner-host readback. Đặc biệt nhánh T4 của adapter B dùng tham số mang tên `tokenizer_sha` để so với `train_pack_sha256`, là **lẫn tên miền hash trong API**; cần tách typed `train_pack_sha` và BPE manifest pin trước khi chứng nhận adapter |
@@ -59,7 +59,7 @@ P02 GPT Core  ──> P03 fixed-batch loop ──> P04 weights-only checkpoint
 
 | Gate | Quyết định PM | Chứng cứ dùng / điều kiện còn thiếu |
 |---|---|---|
-| **E0 — ABC exact source graph** | `CANDIDATE_SOURCE_QA` trước CI của PR review | 18 exact Git blob nodes, 2 external A anchors, 12 edges, 14 negative/source tests Win/Linux; không import Torch |
+| **E0 — ABC exact source graph** | `PRE_QA_CANDIDATE` trong OnePack; kết luận PASS/HOLD cuối lưu ở receipt và GitHub Actions của **đúng HEAD** | 18 Git blob nodes (trên main), 2 external A anchors do PM kiểm trực tiếp GitHub, 12 edges; QA thuần source Windows/Linux **không import Torch**. Không suy ra real checkpoint READY |
 | **E1 — Synthetic GPT E2E** | **`PASS_SCOPED` (đã có)** | Track B PR39 CI prepare/train/3→8 resume/eval/sample trên 2 OS; không cần chạy lại |
 | **E2 — Real T4 checkpoint + data custody** | `HOLD_Q4_REAL_BYTES` | Owner-authorized exact raw rights/split/checkpoint/optimizer/tokenizer, no untrusted pickle, strict SHA and atomic custody; chưa đủ |
 | **E3 — Real baseline evaluation** | `HOLD_E2_AND_R1_R2_R3` | A full-vocab, C valid UTF-8 text target byte denominator, valid gold, negative controls, fresh heldout and adversarial split QA |
@@ -83,9 +83,11 @@ P02 GPT Core  ──> P03 fixed-batch loop ──> P04 weights-only checkpoint
 **Ứng viên:** nhánh `review/ttm-pm-gpt-e2e-abc-source-integration-20261117` từ `main` `e102d2ed...`, giữ nguyên `src/p02`, `src/p03`, `src/p04`, `src/ttm_track_b`, `tools/pilot_t4`, code C/BC, A external. Chỉ bổ sung:
 1. Source manifest 18 node/12 edges + evidence R0/E0–E6;
 2. OnePack kiến trúc và PM gap list này;
-3. Bộ QA PM chạy bằng **stdlib Python 3.12** đọc Git blobs (không đọc checkout CRLF, không import model/torch), negative tamper/path traversal, AST parse, API signatures, CRC/metric/codec contradictions;
+3. Bộ QA PM bằng **stdlib Python 3.12**, Git-object bytes (không checkout CRLF, không import Torch); gồm kiểm âm tamper/traversal, AST, hợp đồng `-100` P02/P03/B, cross-reference A external pins/registry và đồng nhất OnePack–manifest–receipt. **External A Git blobs** được PM đọc ở exact GitHub refs, còn CI checkout chỉ kiểm các pin/quan hệ nằm trên main, không giả vờ tải các nguồn A ngoài main;
 4. Workflow QA **Windows+Linux**, không pip install, không chạy checkpoint, dữ liệu thật, GPU, khoa học hoặc TEST;
 5. Readback QA receipt lưu trên nhánh review sau khi workflow kết thúc.
+
+**Quản trị F01–F04:** Phán quyết PM review trước tại [PR #42](https://github.com/minhtri22/TokenToModel-Lab/pull/42) xác nhận P02 `F.cross_entropy` mặc định `ignore_index=-100`, P03 không cho target âm, B có masked CE. Không biến kiểm toán Git blob của A tại exact commit thành QA runtime trên checkout; E0 pre-QA ở manifest và báo cáo là snapshot, **nguồn quyết định hậu QA là GitHub run tại exact HEAD cùng receipt có phiên bản**, tránh tự tham chiếu vòng tròn commit–run.
 
 **Chấp nhận E0:** đúng 18 blob đã pin; 12 seams không sai chủ; A I1/A V4 chỉ là external refs, **không có code A bị nhập ngầm**; B synthetic CI từ PR39 PASS đã có; P03/P04 contract deficiencies được đánh dấu đúng; T4 vs BC token collision và bpb byte denominator được nhận diện; không có model runtime execution trong CI; cả hai OS PASS, Git diff chỉ docs/QA.
 
