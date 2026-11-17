@@ -2,7 +2,7 @@
 
 **Operation:** `TTM_PM_REAL_GPT_BASELINE_VERTICAL_SLICE_ADAPTER_AND_ABC_EVALUATION_ADMISSION_ONEPACK`  
 **Ngày:** 17/11/2026 · **Nguồn khóa:** `minhtri22/TokenToModel-Lab` `main=b2e97dd3b773fc22a91618c8f034d22fda1f5908` sau PR #42.  
-**Trạng thái:** `SOURCE_CONTRACT_IMPLEMENTED_QA_PENDING`; `Q4_OWNER_DECISION=HOLD_REAL_EXECUTION`, `A_I2=HOLD`, `NO_MODEL · NO_PRIVATE_BYTES · NO_GPU · NO_SCIENCE · NO_NEW_TEST`.  
+**Trạng thái kỹ thuật sau QA:** `PASS_SOURCE_CONTRACT_SCOPED` (25/25 kiểm tra trên mỗi OS ở nguồn PR trước chỉnh trạng thái; CI của HEAD cuối là nguồn chứng cứ quyết định). **Phạm vi thực thi:** `Q4_OWNER_DECISION=HOLD_REAL_EXECUTION`, `A_I2=HOLD`, `NO_MODEL · NO_PRIVATE_BYTES · NO_GPU · NO_SCIENCE · NO_NEW_TEST`.  
 **Trục phát triển:** baseline GPT có thể tái lập rồi cải thiện dữ liệu/compute/objective/capacity và ứng dụng, **không phụ thuộc Claude PR #41**; Small-4M chỉ là baseline đầu.
 
 ## 1. Phân định mối nối đã có và code mới
@@ -53,7 +53,7 @@
 
 | Gate | Reuse/bằng chứng đã đạt | Điều kiện còn thiếu đối với lượt real T4 | Hiện trạng |
 |---|---|---|---|
-| **R0** · source dependency | PR42 E0 source QA 17/17 Win & 17/17 Linux, B/C/C PR39 synthetic PASS, A I1 PASS, C M4 PASS design | New typed source/contract QA phải PASS exact branch SHA | `CANDIDATE_QA_PENDING` |
+| **R0** · source dependency | PR42 E0 source QA 17/17 Win & 17/17 Linux, B/C/C PR39 synthetic PASS, A I1 PASS, C M4 PASS design | Typed source-contract QA 25/25 Windows + 25/25 Linux đã PASS; vẫn phải xác minh CI đúng exact HEAD cuối | `PASS_SOURCE_CONTRACT_SCOPED` (không phải R3 physical-custody PASS) |
 | **R1** · measurement & gold | A I1 goldblind scorer QA đã PASS | Actual checkpoint logits, independent gold/rater, fresh paired negative controls | `HOLD_REAL_GOLD` |
 | **R2** · rights & split | C rights-by-operation, family split và raw SHA contract PASS design | Authenticated license/allowed operation, private TRAIN/VAL/fresh heldout byte custody, PII/copyright review | `HOLD_RIGHTS_AND_FAMILY` |
 | **R3** · checkpoint tokenizer | T4 P02 source/strict template, old T4 checkpoint schema và separate SHA-domain contract code | Actual weights sha, verified BPE file/internal SHA, T4 READY header/data readback, model state tensor structure, fresh native adapter QA | `HOLD_REAL_WEIGHTS_AND_BYTES` |
@@ -80,7 +80,7 @@ Nhánh `implementation/ttm-pm-real-gpt-vertical-slice-admission-contract-2026111
 
 ### Tiêu chí chấp nhận candidate kỹ thuật
 
-- [ ] CI Windows/Linux Python 3.12 **24/24** test mỗi hệ, 0 skip, 0 model/weight/real dataset load.
+- [x] CI Windows/Linux Python 3.12 **25/25** test mỗi hệ ở run nguồn trước cập nhật trạng thái; CI exact HEAD sau sửa phải đạt trước merge. 0 skip, 0 model/weight/real dataset load.
 - [ ] Negative tests thử sai BPE file/internal SHA, pack vs checkpoint SHA, ready file bytes, checkpoint schema/config, code provenance, BC alias, UTF-8 và forged authority; không khai PASS thực nghiệm.
 - [ ] QA source kiểm lại Git blob P02/T4/B/C đã có, giữ bất biến và không sửa A/B/C đã PASS.
 - [ ] Git diff chỉ tệp mới kể trên; không sửa `lineage.md`, `main`, PR41 Claude hay Question Gate.
@@ -88,4 +88,4 @@ Nhánh `implementation/ttm-pm-real-gpt-vertical-slice-admission-contract-2026111
 
 **Bước thực hiện tiếp theo — duy nhất sau khi source QA/PR đã được phân xử:** PM đánh giá ứng viên này để merge **đúng phạm vi source/QA** nếu PASS; chuẩn bị **một** owner R0–R8 witness cho real T4 action (nếu có exact checkpoint/corpus private và quyền), không tạo chuỗi micro-permit. Nếu owner chưa có quyền hoặc byte gốc, tiếp tục HOLD real runtime nhưng hướng phát triển TTM vẫn mở.
 
-**Trạng thái khóa hiện tại:** `T4_TYPED_ADAPTER_DESIGN_SOURCE_ONLY · UTF8_BPB_ARITHMETIC_SYNTHETIC_ONLY · R0_CANDIDATE_PENDING_QA · R1_R8_HOLD · A_I2_HOLD · REAL_MODEL_NOT_EXECUTED · MAIN_UNCHANGED · NO_NEW_SCIENCE`.
+**Trạng thái khóa ở lượt phân xử nguồn:** `T4_TYPED_ADAPTER_SOURCE_QA_PASS_SCOPED · UTF8_BPB_ARITHMETIC_SYNTHETIC_ONLY · R0_PASS_SOURCE_CONTRACT_SCOPED · R1_R8_HOLD · A_I2_HOLD · REAL_MODEL_NOT_EXECUTED · MAIN_ORIGINAL_SOURCE_PRESERVED · NO_NEW_SCIENCE`. Hậu merge exact SHA và CI run cuối được PM lưu trong comment PR/Issue để không tự tham chiếu commit–run.
