@@ -1,0 +1,145 @@
+{
+  "schema": "ttm.pm.abc.postmerge_lineage_and_superseded_pr_closure_receipt.v1",
+  "operation": "TTM_PM_ABC_PR39_POSTMERGE_APPEND_ONLY_LINEAGE_AND_SUPERSEDED_PR_CLOSURE_SINGLE_GATE",
+  "date": "2026-11-17",
+  "source_of_truth": "GitHub minhtri22/TokenToModel-Lab",
+  "scope": "Administrative append-only lineage and original PR closure, no code/science/runtime changes",
+  "owner_request": "Complete postmerge closure by appending PR39 result and original A/B/C status to lineage.md; reconcile superseded original PRs without rerunning previously passed gates",
+  "previous_source": {
+    "PR39_merged": true,
+    "PR39_number": 39,
+    "PR39_main_merge_sha": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "PR39_main_merge_tree": "8518da41b7287a8f4b0bc96dc0e6b0228f097af7",
+    "manifest_commit": "d260a26e2b805b2ba7c6e4cef21f347bc1ff69a2",
+    "manifest_blob": "504abfe794fc0148f7cd911a40d260556647cc2f",
+    "owner_merge_closure_commit": "0d8b102eab8965dbdda5d7f1e1fd728d53ac5b21",
+    "old_main_head": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "old_lineage_blob": "3409e036241deb1da6674619a2abc834bea8a2d6"
+  },
+  "new_lineage": {
+    "PR": 40,
+    "source_commit": "c940068a4036052d5bc3f35a1c07f053c5d13986",
+    "source_parent": "5dd6d4d5af169b0f707f872184c47ce5443513f3",
+    "merge_method": "squash",
+    "merge_commit": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+    "new_main_head_verified": "e102d2ed3c885756b6e4354189ccbece36b75eb8",
+    "new_main_tree": "37b9f1a27c2e38d9f53b4d475b4dd0adee356553",
+    "path": "lineage.md",
+    "new_git_blob": "9cef6a1fa95996d52230cad48486a9629ed4eb8f",
+    "old_entries": 30,
+    "new_entries": 36,
+    "first_last": "L0000–L0035",
+    "appended": [
+      "L0030 Track A I1 measurement scoped PASS and I2 HOLD",
+      "L0031 B M3 engineering PASS plus native V3 peak HOLD/dissent",
+      "L0032 C M4 design PASS and real gold/data HOLD and pointer-correction custody",
+      "L0033 B/C v2 synthetic engineering PASS with no real checkpoint",
+      "L0034 ABC shared design PASS and direct T4-BPE/BC-v2 token incompatibility",
+      "L0035 owner-approved 76-file PR39 exact scope merge and CI 6/6 jobs, science HOLD"
+    ],
+    "old_prefix_byte_identical": true,
+    "all_36_headings_contiguous": true,
+    "file_scope": "1 modified file (lineage.md) only",
+    "additions": 47,
+    "deletions": 0,
+    "old_char_count": 55940,
+    "new_char_count": 64653,
+    "no_workflows_code_tests_changed": true
+  },
+  "superseded_original_prs": [
+    {
+      "pr": 34,
+      "exact_head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+      "source_files": 11,
+      "state": "closed",
+      "merged": false,
+      "comment_id": 6942506847,
+      "semantic": "Source content integrated by #39, original PR NOT individually merged, B M3 V3 HOLD/dissent persists"
+    },
+    {
+      "pr": 35,
+      "exact_head": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+      "source_files": 30,
+      "state": "closed",
+      "merged": false,
+      "comment_id": 6942507884,
+      "semantic": "C M4 design scoped PASS, real data/gold HOLD"
+    },
+    {
+      "pr": 36,
+      "exact_head": "09de6a46574146d863f416e056fcf01091f3efb8",
+      "source_files": 27,
+      "state": "closed",
+      "merged": false,
+      "comment_id": 6942510162,
+      "semantic": "B/C synthetic PASS, real SFT not authorized"
+    },
+    {
+      "pr": 37,
+      "exact_head": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+      "source_files": 8,
+      "state": "closed",
+      "merged": false,
+      "comment_id": 6942511425,
+      "semantic": "ABC mapping design PASS but T4 and BC v2 direct codec incompatible"
+    },
+    {
+      "pr": 38,
+      "exact_head": "123629595c64c694bfcc2c932037f700628d7253",
+      "source_files_in_main": 0,
+      "state": "closed",
+      "merged": false,
+      "comment_id": 6942512606,
+      "semantic": "PM reviewer-only QA and initial FAIL + corrected PASS preserved, 2 QA files excluded from #39"
+    }
+  ],
+  "open_held_A_prs": [
+    {
+      "pr": 28,
+      "exact_head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+      "state": "open",
+      "merged": false,
+      "owner_science_release": "HOLD"
+    },
+    {
+      "pr": 33,
+      "exact_head": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+      "state": "open",
+      "merged": false,
+      "owner_science_release": "HOLD",
+      "measurement_gate": "I1_PASS_SCOPED"
+    }
+  ],
+  "postmerge_tree_custody": {
+    "new_main_tree_recursive_readback": true,
+    "manifest_source_git_blob_count": 76,
+    "source_blobs_preserved_in_new_main": 76,
+    "source_blob_sha_mismatches": 0,
+    "lineage_after_sha": "9cef6a1fa95996d52230cad48486a9629ed4eb8f",
+    "unknown_extra_code_changes": 0,
+    "source_science_prereg_mutated": false
+  },
+  "qa": {
+    "PM_source_only_append_prefix_and_ids": "PASS",
+    "GitHub_reviewed_diff": "ONE_FILE_47_ADDITIONS_0_DELETIONS",
+    "additional_model_or_native_tests": "NOT_EXECUTED_NOT_REQUIRED_FOR_DOCUMENT_ONLY_CHANGE",
+    "existing_PR39_CI": "6_OF_6_JOBS_SUCCESS_WIN_LINUX_PY312_PRESERVED",
+    "historical_PM_windows_failure": "PRESERVED_HISTORICAL_NOT_REWRITTEN",
+    "QA_claim_boundary": "AI_PM_SELF_AND_GITHUB_SOURCE_REVIEW_NOT_AUTHENTICATED_DISTINCT_HUMAN"
+  },
+  "decisions": {
+    "PR39_scoped_source_merge": "PASS_CLOSED_MERGED",
+    "PR40_lineage_append_merge": "PASS_CLOSED_MERGED",
+    "PR34_35_36_37": "CLOSED_ADMINISTRATIVELY_SUPERSEDED_NOT_MERGED",
+    "PR38": "CLOSED_REVIEW_ONLY_NOT_MERGED",
+    "PR28_33": "OPEN_UNMERGED_HOLD",
+    "A_I1": "PASS_MEASUREMENT_SCOPED",
+    "ABC_contract": "PASS_DESIGN_SCOPED",
+    "A_I2": "HOLD_NOT_EXECUTED",
+    "real_SFT": "HOLD_NOT_EXECUTED",
+    "new_GPU_science_TEST": "NOT_AUTHORIZED"
+  },
+  "no_automatic_next_operation": true,
+  "no_branch_deletion": true,
+  "owner_science_GO_granted": false
+}
