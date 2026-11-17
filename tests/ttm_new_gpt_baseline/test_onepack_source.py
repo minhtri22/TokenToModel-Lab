@@ -141,6 +141,63 @@ class MatchedIndependentStyleSourceQA(unittest.TestCase):
             self.assertIn(needle, source)
         self.assertNotIn("TEST", str(r.CHECKPOINTS))
 
+    def test_integrated_q4_missing_does_not_allow_real_training(self):
+        with self.assertRaisesRegex(ValueError, "Q4_INTEGRATED_GO_NOT_PRESENT"):
+            r.verify_integrated_q4(None, "onebatch20261117")
+
+    def test_integrated_q4_bad_payload_is_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "go.json"
+            p.write_text('{"decision":"GO_EXACT_ONE_SHOT"}', encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "EXACT_INTEGRATED_Q4_PACKET_REQUIRED"):
+                r.verify_integrated_q4(str(p), "onebatch20261117")
+
+    def test_40_engineering_is_full_4m_and_no_science(self):
+        src = RUNNER.read_text("utf-8")
+        tech = src[src.index("def synthetic_40("):src.index("def one_session(")]
+        self.assertIn('warmup=2, timed=38', tech)
+        self.assertIn('"steps_executed": 40', tech)
+        self.assertIn('"synthetic_target_exposures": 40 * TOKENS_PER_STEP', tech)
+        self.assertIn('"architecture_parameters": PARAMETERS', tech)
+        self.assertIn('"transfer_to_new_science": False', tech)
+        self.assertIn('"training_weights_exported": False', tech)
+        self.assertIn('"test_accessed": False', tech)
+        self.assertIn('"science_executed": False', tech)
+
+    def test_session_new_random_model_not_tech_weights(self):
+        src = RUNNER.read_text("utf-8")
+        session = src[src.index("def one_session("):src.index("def native_resume_qa(")]
+        train = src[src.index("def train("):src.index("def paired_bootstrap(")]
+        self.assertIn('synthetic_40(tech_args)', session)
+        self.assertIn('train(train_args, verified_integrated=authorized)', session)
+        self.assertIn('compare(compare_args, verified_integrated=authorized)', session)
+        self.assertIn('model, opt, sch, sampler, scaler = prepare_model(', train)
+        self.assertLess(session.index("synthetic_40(tech_args)"),
+                        session.index("train(train_args, verified_integrated=authorized)"))
+        self.assertIn('if not go_sha:', session)
+        self.assertIn('"TECHNICAL_40_PASS_SCIENCE_HOLD_NO_Q4"', session)
+
+    def test_40_1024_same_session_receipts_and_historic_pin(self):
+        src = RUNNER.read_text("utf-8")
+        session = src[src.index("def one_session("):src.index("def native_resume_qa(")]
+        self.assertIn('TECHNICAL_SYNTHETIC_40.json', session)
+        self.assertIn('PAIRED_HISTORICAL_VAL_1024.json', session)
+        self.assertIn('HISTORICAL_LEFT_CHECKPOINT_SHA_DRIFT', session)
+        self.assertIn('SESSION_STATUS.json', session)
+        self.assertIn('checked_ready(right.parent, 1024)', session)
+        self.assertEqual(r.HISTORIC_STEP1024_SHA,
+                         "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b")
+
+    def test_notebook_one_session_mode_exists_and_default_still_source_qa(self):
+        _, chunks = cells()
+        code = "\n".join(chunks)
+        self.assertIn('MODE = "SOURCE_QA"', code)
+        self.assertIn('MODE == "ONE_SESSION_40_1024"', code)
+        self.assertIn('command += ["one-session"', code)
+        self.assertIn('if pathlib.Path(OWNER_GO_JSON).is_file()', code)
+        self.assertIn('HISTORIC_LEFT_CHECKPOINT', code)
+        self.assertIn('UNIQUE_SESSION_RUN_ID_REQUIRED', code)
+
     def test_checkpoint_fork_no_overwrite(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "READY.json"
