@@ -1,0 +1,1859 @@
+{
+  "schema": "ttm.track_a.br_i2_01_02.v3.negative_positive_falsifiers.v1",
+  "date": "2026-11-17",
+  "mode": "DESIGN_ONLY",
+  "operation": "TTM_TRACK_A_BR_I2_01_02_V3_F01_F04_F05_F06_EXACT_SCHEMA_SCOPE_SIGNATURE_FALSIFIER_AMENDMENT_AND_DISTINCT_REREVIEW_ONEPACK",
+  "parent_program_gate": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
+  "pm_issue": 32,
+  "v1_design_commit": "20385e71cb5d2b8f3d7725229ab7a823e1044990",
+  "reviewer_hold_comment_id": 6928014536,
+  "distinct_hold": "HOLD_DESIGN_AMENDMENT",
+  "reviewed_i1_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+  "prior_i1_independent_review_evidence": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+  "tests_executed": 0,
+  "negative_executed": 0,
+  "positive_executed": 0,
+  "independent_v2_design_adjudication": "NOT_EXECUTED",
+  "expected_negative_counts": {
+    "BR-I2-01": 25,
+    "BR-I2-02": 27,
+    "INTEGRATED": 8
+  },
+  "expected_tier_counts": {
+    "SOURCE_QA_FUTURE": 36,
+    "NATIVE_REQUIRED_FUTURE": 24
+  },
+  "expected_positive_count": 3,
+  "negative_cases": [
+    {
+      "id": "AUTH-01",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Submit historical HOLD_I1 verdict as if PASS",
+      "negative": "Submit historical HOLD_I1 verdict as if PASS",
+      "expected": "HOLD_STALE_I1_NO_RELEASE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_STALE_I1_NO_RELEASE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Submit historical HOLD_I1 verdict as if PASS' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-02",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Submit reviewed I1 PASS as I2 execution permit",
+      "negative": "Submit reviewed I1 PASS as I2 execution permit",
+      "expected": "HOLD_MEASUREMENT_NOT_RELEASE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_MEASUREMENT_NOT_RELEASE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Submit reviewed I1 PASS as I2 execution permit' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-03",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Forged GitHub comment or unsigned local owner GO",
+      "negative": "Forged GitHub comment or unsigned local owner GO",
+      "expected": "HOLD_UNAUTHENTICATED_OWNER_AUTHORITY",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_UNAUTHENTICATED_OWNER_AUTHORITY' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Forged GitHub comment or unsigned local owner GO' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-04",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Misbind source from ec197b5f to another executable SHA",
+      "negative": "Misbind source from ec197b5f to another executable SHA",
+      "expected": "HOLD_SOURCE_SHA_MISMATCH",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_SOURCE_SHA_MISMATCH' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Misbind source from ec197b5f to another executable SHA' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-05",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Misbind frozen records or manifest SHA",
+      "negative": "Misbind frozen records or manifest SHA",
+      "expected": "HOLD_FIXTURE_OR_MANIFEST_SHA_MISMATCH",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_FIXTURE_OR_MANIFEST_SHA_MISMATCH' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Misbind frozen records or manifest SHA' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-06",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Bind I1 evidence at an unreviewed head or branch name only",
+      "negative": "Bind I1 evidence at an unreviewed head or branch name only",
+      "expected": "HOLD_EVIDENCE_COMMIT_UNPINNED",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_EVIDENCE_COMMIT_UNPINNED' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Bind I1 evidence at an unreviewed head or branch name only' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-07",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Wrong reviewer checker SHA or 35/35 claim without matching receipt",
+      "negative": "Wrong reviewer checker SHA or 35/35 claim without matching receipt",
+      "expected": "HOLD_DISTINCT_QA_PROVENANCE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_DISTINCT_QA_PROVENANCE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Wrong reviewer checker SHA or 35/35 claim without matching receipt' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-08",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Missing owner signature/approval",
+      "negative": "Missing owner signature/approval",
+      "expected": "HOLD_REQUIRED_OWNER_SIGNATURE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_REQUIRED_OWNER_SIGNATURE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Missing owner signature/approval' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-09",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Two cryptographic keypairs map to same human principal despite role strings differing",
+      "negative": "Two cryptographic keypairs map to same human principal despite role strings differing",
+      "expected": "HOLD_PRINCIPAL_NOT_INDEPENDENT",
+      "oracle": {
+        "pass_condition": "Frozen signed principal/key custody registry not just string inequality",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any duplicate authorization, unauthorized receipt mutation, invalid scope substitution or science dispatch causes FAIL"
+    },
+    {
+      "id": "AUTH-10",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Self-inserted signing public key in supplied permit",
+      "negative": "Self-inserted signing public key in supplied permit",
+      "expected": "HOLD_UNTRUSTED_KEY",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_UNTRUSTED_KEY' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Self-inserted signing public key in supplied permit' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-11",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Expire/revoke policy or substitute earlier trusted policy epoch",
+      "negative": "Expire/revoke policy or substitute earlier trusted policy epoch",
+      "expected": "HOLD_EXPIRED_REVOKED_OR_POLICY_ROLLBACK",
+      "oracle": {
+        "pass_condition": "Expiry/revocation + monotonic reviewed policy must fail closed; no downloaded keys from permit",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_EXPIRED_REVOKED_OR_POLICY_ROLLBACK or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "AUTH-12",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Wrong phase / QID / root / hostname / checkpoint pin",
+      "negative": "Wrong phase / QID / root / hostname / checkpoint pin",
+      "expected": "HOLD_SCOPE_MISMATCH",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_SCOPE_MISMATCH' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Wrong phase / QID / root / hostname / checkpoint pin' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-13",
+      "blocker": "BR-I2-01",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Crash after a science-slot ledger claim, then retry same Q001 I2 intent using changed permit metadata/source revision, even with another applicant-provided ID",
+      "negative": "Crash after a science-slot ledger claim, then retry same Q001 I2 intent using changed permit metadata/source revision, even with another applicant-provided ID",
+      "expected": "HOLD_LEDGER_CLAIM_CONSUMED_NO_REDISPATCH",
+      "oracle": {
+        "pass_condition": "One frozen Q001 science-slot digest regardless permit version; no second dispatch on ambiguity",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any duplicate authorization, unauthorized receipt mutation, invalid scope substitution or science dispatch causes FAIL"
+    },
+    {
+      "id": "AUTH-14",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Present new M0 v3 certificate but reuse historical Q001 runtime map",
+      "negative": "Present new M0 v3 certificate but reuse historical Q001 runtime map",
+      "expected": "HOLD_LEGACY_RUNTIME_PINS_INCOMPATIBLE",
+      "oracle": {
+        "pass_condition": "Detect version/protocol mismatch; legacy verdict unchanged and no implicit conversion",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_LEGACY_RUNTIME_PINS_INCOMPATIBLE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "AUTH-15",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Omit role or downgrade signing policy/schema or use unknown version",
+      "negative": "Omit role or downgrade signing policy/schema or use unknown version",
+      "expected": "HOLD_POLICY_DOWNGRADE",
+      "oracle": {
+        "pass_condition": "Reject unknown/downgraded schema, signing roles and policy epoch",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_POLICY_DOWNGRADE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "AUTH-16",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Attempt to overwrite/delete old historical HOLD verdict",
+      "negative": "Attempt to overwrite/delete old historical HOLD verdict",
+      "expected": "HOLD_APPEND_ONLY_VIOLATION",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_APPEND_ONLY_VIOLATION' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Attempt to overwrite/delete old historical HOLD verdict' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-17",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Substitute a valid M0 measurement for rights/resource/prereg gates",
+      "negative": "Substitute a valid M0 measurement for rights/resource/prereg gates",
+      "expected": "HOLD_PROGRAM_R0_R8_INCOMPLETE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_PROGRAM_R0_R8_INCOMPLETE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Substitute a valid M0 measurement for rights/resource/prereg gates' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-18",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Claim signature via common GitHub publication account alone",
+      "negative": "Claim signature via common GitHub publication account alone",
+      "expected": "HOLD_SIGNER_PROVENANCE_INSUFFICIENT",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_SIGNER_PROVENANCE_INSUFFICIENT' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Claim signature via common GitHub publication account alone' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-01",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Deterministic final leaf exists with different transaction/bytes",
+      "negative": "Deterministic final leaf exists with different transaction/bytes",
+      "expected": "HOLD_EXISTING_DIFFERENT_FINAL",
+      "oracle": {
+        "pass_condition": "Must not overwrite; original FileId/SHA unchanged",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_EXISTING_DIFFERENT_FINAL or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-02",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Two writers concurrently stage with distinct transaction IDs, same deterministically derived final key and same verified parent",
+      "negative": "Two writers concurrently stage with distinct transaction IDs, same deterministically derived final key and same verified parent",
+      "expected": "ONE_SUCCESS_ONE_HOLD",
+      "oracle": {
+        "pass_condition": "Native no-replace handle rename: exactly one final receipt, loser HOLD; no other final names",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any duplicate authorization, unauthorized receipt mutation, invalid scope substitution or science dispatch causes FAIL"
+    },
+    {
+      "id": "ATOMIC-03",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Crash after stage create before complete payload and FlushFileBuffers",
+      "negative": "Crash after stage create before complete payload and FlushFileBuffers",
+      "expected": "NO_FINAL_AND_NO_PARTIAL_PUBLISH",
+      "oracle": {
+        "pass_condition": "No final receipt exists and no partial final is visible; invalid temp stays quarantined",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than NO_FINAL_AND_NO_PARTIAL_PUBLISH or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-04",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Crash after flush and stage hash, before SetFileInformationByHandle",
+      "negative": "Crash after flush and stage hash, before SetFileInformationByHandle",
+      "expected": "SEALED_STAGE_NO_FINAL",
+      "oracle": {
+        "pass_condition": "No final visible; stage can only recover with same immutable transaction and verified handle state",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than SEALED_STAGE_NO_FINAL or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-05",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Crash after native rename success but before publisher acknowledges result",
+      "negative": "Crash after native rename success but before publisher acknowledges result",
+      "expected": "SAME_TX_READONLY_ACK_NO_REWRITE",
+      "oracle": {
+        "pass_condition": "Reopen final under same parent handle, check same transaction/sha; do not write again or claim science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than SAME_TX_READONLY_ACK_NO_REWRITE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-06",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Attack verified parent with junction/symlink swap during staging and rename",
+      "negative": "Attack verified parent with junction/symlink swap during staging and rename",
+      "expected": "HOLD_OR_VERIFIED_SAME_PARENT_HANDLE",
+      "oracle": {
+        "pass_condition": "No published bytes outside verified directory object; reject if cannot prove same parent FileId",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_OR_VERIFIED_SAME_PARENT_HANDLE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-07",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Final leaf replaced by symlink/junction/reparse artifact before publication",
+      "negative": "Final leaf replaced by symlink/junction/reparse artifact before publication",
+      "expected": "HOLD_FINAL_REPARSE",
+      "oracle": {
+        "pass_condition": "No target overwrite or following of reparse; reject/hold",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_FINAL_REPARSE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-08",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Source fixture/manifest path redirected into untrusted object by reparse",
+      "negative": "Source fixture/manifest path redirected into untrusted object by reparse",
+      "expected": "HOLD_INPUT_REPARSE",
+      "oracle": {
+        "pass_condition": "No data read outside trusted root; no publish",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_INPUT_REPARSE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-09",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Change source fixture bytes after hash but before rename",
+      "negative": "Change source fixture bytes after hash but before rename",
+      "expected": "HOLD_INPUT_SNAPSHOT_CHANGED",
+      "oracle": {
+        "pass_condition": "Rehash same opened handle before rename and abort if changed",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_INPUT_SNAPSHOT_CHANGED or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-10",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Manifest semantically equal but byte-different",
+      "negative": "Manifest semantically equal but byte-different",
+      "expected": "HOLD_EXACT_MANIFEST_SHA",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_EXACT_MANIFEST_SHA' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Manifest semantically equal but byte-different' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-11",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Use freeze receipt whose raw SHA differs from original frozen b82a7e...",
+      "negative": "Use freeze receipt whose raw SHA differs from original frozen b82a7e...",
+      "expected": "HOLD_FREEZE_RECEIPT_SHA",
+      "oracle": {
+        "pass_condition": "Reject exact byte mismatch; no receipt publication",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_FREEZE_RECEIPT_SHA or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-12",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Use absolute or parent traversal, stream syntax or mount redirect",
+      "negative": "Use absolute or parent traversal, stream syntax or mount redirect",
+      "expected": "HOLD_PATH_ESCAPE",
+      "oracle": {
+        "pass_condition": "Final filename is one validated relative leaf, and no publication outside parent handle",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_PATH_ESCAPE or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-13",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "SMB, exFAT, unexpected volume or cross-volume staging",
+      "negative": "SMB, exFAT, unexpected volume or cross-volume staging",
+      "expected": "HOLD_FS_ATOMICITY_NOT_PROVEN",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_FS_ATOMICITY_NOT_PROVEN' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'SMB, exFAT, unexpected volume or cross-volume staging' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-14",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Competing principal can swap parent/modify final due to permissive ACL",
+      "negative": "Competing principal can swap parent/modify final due to permissive ACL",
+      "expected": "HOLD_UNTRUSTED_PARENT_ACL",
+      "oracle": {
+        "pass_condition": "HOLD unless native ACL and identity proof establishes trusted writer set",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_UNTRUSTED_PARENT_ACL or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-15",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Writer writes directly to final file or opens with truncate",
+      "negative": "Writer writes directly to final file or opens with truncate",
+      "expected": "HOLD_NON_ATOMIC_FINAL_WRITE",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_NON_ATOMIC_FINAL_WRITE' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Writer writes directly to final file or opens with truncate' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-16",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "A stale .tmp/journal from crash, retry with new transaction identifier",
+      "negative": "A stale .tmp/journal from crash, retry with new transaction identifier",
+      "expected": "QUARANTINE_OR_SAME_TX_RECOVERY_ONLY",
+      "oracle": {
+        "pass_condition": "No stale tmp deletion; same immutable tx may reconcile only after byte verification, otherwise HOLD",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than QUARANTINE_OR_SAME_TX_RECOVERY_ONLY or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-17",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Verify final byte SHA differs from sealed payload SHA",
+      "negative": "Verify final byte SHA differs from sealed payload SHA",
+      "expected": "HOLD_POSTPUBLISH_BYTE_DRIFT",
+      "oracle": {
+        "pass_condition": "Stop before envelope and release; record corrupt final and disallow silent rewrite",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_POSTPUBLISH_BYTE_DRIFT or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "ATOMIC-18",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Source EOL LF/CRLF mixed, BOM, terminal newline truncated",
+      "negative": "Source EOL LF/CRLF mixed, BOM, terminal newline truncated",
+      "expected": "HOLD_SOURCE_BLOB_OR_EOL_MISMATCH",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_SOURCE_BLOB_OR_EOL_MISMATCH' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Source EOL LF/CRLF mixed, BOM, terminal newline truncated' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-19",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "PowerShell 5.1 quoting/strictmode JSON receipt failure",
+      "negative": "PowerShell 5.1 quoting/strictmode JSON receipt failure",
+      "expected": "HOLD_POWERSHELL_RECEIPT_SERIALIZATION",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_POWERSHELL_RECEIPT_SERIALIZATION' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'PowerShell 5.1 quoting/strictmode JSON receipt failure' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "ATOMIC-20",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Final receipt path is hardlink to unrelated existing file",
+      "negative": "Final receipt path is hardlink to unrelated existing file",
+      "expected": "HOLD_LINK_COUNT_OR_OBJECT_ID_MISMATCH",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_LINK_COUNT_OR_OBJECT_ID_MISMATCH' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Final receipt path is hardlink to unrelated existing file' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "INTEG-01",
+      "blocker": "INTEGRATED",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "I1 certificate PASS but program R0–R8 incomplete",
+      "negative": "I1 certificate PASS but program R0–R8 incomplete",
+      "expected": "HOLD_ALL_PROSPECTIVE_RELEASES",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_ALL_PROSPECTIVE_RELEASES' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'I1 certificate PASS but program R0–R8 incomplete' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "INTEG-02",
+      "blocker": "INTEGRATED",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "BR-I2-01 passes while atomicity lacks native independent QA",
+      "negative": "BR-I2-01 passes while atomicity lacks native independent QA",
+      "expected": "HOLD_I2_NO_PARTIAL_PROMOTION",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_I2_NO_PARTIAL_PROMOTION' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'BR-I2-01 passes while atomicity lacks native independent QA' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "INTEG-03",
+      "blocker": "INTEGRATED",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "BR-I2-02 passes while owner signing/key policy remains absent",
+      "negative": "BR-I2-02 passes while owner signing/key policy remains absent",
+      "expected": "HOLD_I2_NO_PARTIAL_PROMOTION",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_I2_NO_PARTIAL_PROMOTION' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'BR-I2-02 passes while owner signing/key policy remains absent' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "INTEG-04",
+      "blocker": "INTEGRATED",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Wrong source identity in release preflight",
+      "negative": "Wrong source identity in release preflight",
+      "expected": "HOLD_BEFORE_NONCE_AND_CHECKPOINT",
+      "oracle": {
+        "pass_condition": "No model forward, checkpoint access or science nonce claim",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "Any result other than HOLD_BEFORE_NONCE_AND_CHECKPOINT or any unauthorized mutation/dispatch is FAIL"
+    },
+    {
+      "id": "INTEG-05",
+      "blocker": "INTEGRATED",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen mock source/custody preconditions with exact pinned source; no real I2/fixture write",
+      "stimulus": "Simulated release GO without explicit PM release decision",
+      "negative": "Simulated release GO without explicit PM release decision",
+      "expected": "HOLD_OWNER_GO_REQUIRED",
+      "oracle": {
+        "pass_condition": "Verifier/runner must produce exactly expected fail-closed result 'HOLD_OWNER_GO_REQUIRED' (or the specified collision/fault-state behavior), without changing frozen bytes or starting science",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_case_digest",
+          "source_and_policy_sha256",
+          "fault_injection_trace",
+          "guard_or_outcome",
+          "before_after_final_sha256",
+          "file_id_or_principal_proof",
+          "checkpoint_access_0",
+          "nonce_claim_0"
+        ]
+      },
+      "falsifier": "If input 'Simulated release GO without explicit PM release decision' leads to unauthorized mutation, release GO, duplicate publication, or unexpected acceptance, this case FAILS"
+    },
+    {
+      "id": "AUTH-19",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "JSON certificate/permit object with duplicate `phase`, `owner_decision`, `signatures` or `source_sha256` keys",
+      "negative": "JSON certificate/permit object with duplicate `phase`, `owner_decision`, `signatures` or `source_sha256` keys",
+      "expected": "HOLD_JSON_DUPLICATE_KEY",
+      "oracle": {
+        "pass_condition": "Strict parser detects duplicate keys before canonicalization/signature check; no last-wins behavior",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any authorization, mutation or output not matching 'HOLD_JSON_DUPLICATE_KEY' is FAIL"
+    },
+    {
+      "id": "AUTH-20",
+      "blocker": "BR-I2-01",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "Replace signer custody/controller while three Ed25519 public keys remain distinct and cryptographically valid",
+      "negative": "Replace signer custody/controller while three Ed25519 public keys remain distinct and cryptographically valid",
+      "expected": "HOLD_SIGNER_CUSTODY_SUBSTITUTION",
+      "oracle": {
+        "pass_condition": "Principal binding and independently attested custody detect compromised/shared identity and do not promote I2",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any authorization, mutation or output not matching 'HOLD_SIGNER_CUSTODY_SUBSTITUTION' is FAIL"
+    },
+    {
+      "id": "AUTH-21",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "Change descriptive intent I2_RUN to legacy 'fixture-freeze' or bypass mapping via unknown phase",
+      "negative": "Change descriptive intent I2_RUN to legacy 'fixture-freeze' or bypass mapping via unknown phase",
+      "expected": "HOLD_PHASE_VERSION_MISMATCH",
+      "oracle": {
+        "pass_condition": "Only signed I2_RUN maps to new adapter wire run; no implicit fallback and legacy verifier unchanged",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any authorization, mutation or output not matching 'HOLD_PHASE_VERSION_MISMATCH' is FAIL"
+    },
+    {
+      "id": "ATOMIC-21",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "Another process modifies published final receipt after original hash, before completion envelope or later after ACK",
+      "negative": "Another process modifies published final receipt after original hash, before completion envelope or later after ACK",
+      "expected": "HOLD_EXTERNAL_POSTPUBLISH_MUTATION",
+      "oracle": {
+        "pass_condition": "Final by-handle SHA and file identity must match persisted seal; no false successful ACK or overwrite",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any authorization, mutation or output not matching 'HOLD_EXTERNAL_POSTPUBLISH_MUTATION' is FAIL"
+    },
+    {
+      "id": "ATOMIC-22",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "JSON payload with duplicate transaction_id, scope_key or fixture_sha256 keys",
+      "negative": "JSON payload with duplicate transaction_id, scope_key or fixture_sha256 keys",
+      "expected": "HOLD_PAYLOAD_DUPLICATE_KEY",
+      "oracle": {
+        "pass_condition": "Parser rejects duplicate keys before publication; payload SHA covers unique canonical bytes",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any authorization, mutation or output not matching 'HOLD_PAYLOAD_DUPLICATE_KEY' is FAIL"
+    },
+    {
+      "id": "ATOMIC-23",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "Attacker moves a still-open ancestor directory outside trusted project root (same NTFS volume; FileId unchanged) while stage/parent handles remain open, then writer attempts relative FileRenameInfo",
+      "negative": "Attacker moves a still-open ancestor directory outside trusted project root (same NTFS volume; FileId unchanged) while stage/parent handles remain open, then writer attempts relative FileRenameInfo",
+      "expected": "HOLD_OR_PROVEN_LOCKED_ANCESTRY",
+      "oracle": {
+        "pass_condition": "Native proof must show ancestor rename denied by verified share/ACL restriction through publication linearization point, OR writer HOLD without publishing. Same FileId alone is insufficient: any final outside trusted root is FAIL.",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim",
+          "ancestor_share_modes",
+          "ancestor_rename_adversary_outcome",
+          "linearization_ancestry_proof",
+          "root_to_parent_handle_chain"
+        ]
+      },
+      "falsifier": "If final receipt appears outside trusted project root or writer succeeds after an ancestor moved out without locked ancestry proof, case FAIL"
+    },
+    {
+      "id": "INTEG-06",
+      "blocker": "INTEGRATED",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic mock with byte-exact fixture pins, versioned authority/receipt protocol; never real model/science",
+      "stimulus": "Two separately signed permits change owner decision, runner SHA and nonce but represent SAME Q001 I2 scientific intent",
+      "negative": "Two separately signed permits change owner decision, runner SHA and nonce but represent SAME Q001 I2 scientific intent",
+      "expected": "HOLD_GLOBAL_SCIENCE_SLOT_REPLAY",
+      "oracle": {
+        "pass_condition": "Both permit attempts resolve to one policy-owned Q001 slot; at most one ledger claim",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "exact_input_bytes_sha256",
+          "guard_error",
+          "no_release",
+          "no_fixture_write",
+          "no_nonce_claim"
+        ]
+      },
+      "falsifier": "Any duplicate authorization, unauthorized receipt mutation, invalid scope substitution or science dispatch causes FAIL"
+    },
+    {
+      "id": "AUTH-22",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Two signed candidate permits for same policy-frozen Q001 I2 intent carry different applicant `single_science_scope_id` values",
+      "negative": "Two signed candidate permits for same policy-frozen Q001 I2 intent carry different applicant `single_science_scope_id` values",
+      "expected": "HOLD_DIFFERENT_SCOPE_ID_SAME_INTENT",
+      "oracle": {
+        "pass_condition": "Verifier recomputes authoritative immutable SLOT digest from signed independent Q001 policy; rejects second ID even if it has valid Ed25519 signatures",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F04"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F04"
+    },
+    {
+      "id": "AUTH-23",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Bit-flip evidence_commit/fixture_sha within signed CERT_TBS or PROVENANCE_TBS while retaining original detached signature",
+      "negative": "Bit-flip evidence_commit/fixture_sha within signed CERT_TBS or PROVENANCE_TBS while retaining original detached signature",
+      "expected": "HOLD_TBS_PREIMAGE_MUTATION",
+      "oracle": {
+        "pass_condition": "Reconstruct bytes with exact domain and verify detached Ed25519 signature over new bytes; signer cannot authenticate changed message",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F05"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F05"
+    },
+    {
+      "id": "AUTH-24",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Insert `signatures` or `signature_b64` into canonical TBS; ask verifier to sign/hash an envelope containing itself",
+      "negative": "Insert `signatures` or `signature_b64` into canonical TBS; ask verifier to sign/hash an envelope containing itself",
+      "expected": "HOLD_TBS_SIGNATURE_CYCLE",
+      "oracle": {
+        "pass_condition": "Closed TBS schema rejects signing fields; signatures only appear in separate detached envelope after TBS bytes frozen",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F05"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F05"
+    },
+    {
+      "id": "AUTH-25",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Replay valid signature from CERT_TBS owner to PROVENANCE_TBS reviewer, or from obsolete trust-policy epoch",
+      "negative": "Replay valid signature from CERT_TBS owner to PROVENANCE_TBS reviewer, or from obsolete trust-policy epoch",
+      "expected": "HOLD_SIGNATURE_DOMAIN_OR_POLICY_MISMATCH",
+      "oracle": {
+        "pass_condition": "Different role/kind domain prefixes and frozen signed trust-root epoch required; no role/policy downgrade",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F05"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F05"
+    },
+    {
+      "id": "ATOMIC-24",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "ReceiptPayloadV3 embeds its own `payload_sha256` field, or CompletionEnvelopeV3 embeds its own `envelope_sha256`",
+      "negative": "ReceiptPayloadV3 embeds its own `payload_sha256` field, or CompletionEnvelopeV3 embeds its own `envelope_sha256`",
+      "expected": "HOLD_SELF_HASH_FIELD",
+      "oracle": {
+        "pass_condition": "Strict closed schema forbids both fields; payload hash only external envelope, envelope digest only external Git/PM evidence",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F01"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F01"
+    },
+    {
+      "id": "ATOMIC-25",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "SCOPE checkpoint_sha256 is omitted in one permit, null in another, string in a third; both attempt same intent",
+      "negative": "SCOPE checkpoint_sha256 is omitted in one permit, null in another, string in a third; both attempt same intent",
+      "expected": "HOLD_ABSENT_NULL_TYPE_DRIFT",
+      "oracle": {
+        "pass_condition": "All closed schema fields mandatory and typed; no semantic normalization or optional omissions; only raw canonical bytes admitted",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F01"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F01"
+    },
+    {
+      "id": "ATOMIC-26",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Valid object serialized with field order change, missing LF, double LF, CRLF or unrecognized ASCII escape",
+      "negative": "Valid object serialized with field order change, missing LF, double LF, CRLF or unrecognized ASCII escape",
+      "expected": "HOLD_NONCANONICAL_WIRE",
+      "oracle": {
+        "pass_condition": "Raw bytes must match exactly sorted compact JSON canonical wire with one trailing LF, no CR, no duplicate keys",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F01"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F01"
+    },
+    {
+      "id": "ATOMIC-27",
+      "blocker": "BR-I2-02",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Hash SLOT object with wrong domain prefix or omit NUL byte; compare to published synthetic vector digest",
+      "negative": "Hash SLOT object with wrong domain prefix or omit NUL byte; compare to published synthetic vector digest",
+      "expected": "HOLD_DOMAIN_VECTOR_MISMATCH",
+      "oracle": {
+        "pass_condition": "Exact test-vector SHA256 must match SHA256(ascii domain prefix + NUL + canonical object bytes), no alternate hash or semantic equivalence",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F01"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F01"
+    },
+    {
+      "id": "INTEG-07",
+      "blocker": "INTEGRATED",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Same Q001 I2 scientific intent is declared as two registry aliases or two new prereg hashes and requests two independent slot IDs",
+      "negative": "Same Q001 I2 scientific intent is declared as two registry aliases or two new prereg hashes and requests two independent slot IDs",
+      "expected": "HOLD_UNREGISTERED_INTENT_ALIAS_OR_DUPLICATE",
+      "oracle": {
+        "pass_condition": "One owner-root policy one_shot_family=Q001_SINGLE_DIAG, one global slot for Q001 I2 across plan revisions; changed prereg requires distinct future owner decision and never auto-mints retry",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F04"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F04"
+    },
+    {
+      "id": "INTEG-08",
+      "blocker": "INTEGRATED",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Frozen source, entirely synthetic canonical schema/permit harness; no real checkpoint, science, owner release or fixture rewrite",
+      "stimulus": "Concurrent processes enroll two different applicant-provided scope IDs for same Q001 I2 and race claim before global registry/ledger reconciliation",
+      "negative": "Concurrent processes enroll two different applicant-provided scope IDs for same Q001 I2 and race claim before global registry/ledger reconciliation",
+      "expected": "HOLD_SECOND_SCOPE_ENROLLMENT_NO_SECOND_DISPATCH",
+      "oracle": {
+        "pass_condition": "Global single-writer namespace/atomic CREATE_NEW ledger by verifier-derived SLOT digest; no second claim even across permit versions or crash",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "input_raw_canonical_sha256",
+          "expected_guard",
+          "exact_policy_and_source_SHA",
+          "before_after_fixture_sha256",
+          "no_nonce_claim",
+          "case_finding_F04"
+        ]
+      },
+      "falsifier": "Any acceptance, different result, release GO, double claim or source mutation is a FAIL",
+      "finding": "F04"
+    }
+  ],
+  "positive_cases": [
+    {
+      "id": "POS-01",
+      "blocker": "BR-I2-01",
+      "tier": "SOURCE_QA_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Synthetic valid I1 evidence readback, unsigned draft CertificateTBS, no trusted signatures or prospective release GO",
+      "stimulus": "Validate syntactically the versioned draft I1 certificate against frozen independent report/receipt; no release signature is supplied",
+      "expected": "VALID_I1_DRAFT_ONLY_RELEASE_HOLD",
+      "oracle": {
+        "pass_condition": "Typed certificate digest matches test vector but issuance remains DRAFT_UNATTESTED and I2 remains HOLD",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "evidence_github_blob_map",
+          "canonical_certificate_digest",
+          "issuer_signature_verification_result",
+          "release_HOLD"
+        ]
+      },
+      "falsifier": "Any inference I2_GO from I1 PASS is FAIL"
+    },
+    {
+      "id": "POS-02",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Two independent synthetic concurrent writers W1 and W2, each pre-creates separate random stage/journal with distinct transaction_id, SAME policy-derived final_key, SAME verified parent handle and same frozen Q001 slot",
+      "stimulus": "Barrier-synchronize W1 and W2 at handle-relative SetFileInformationByHandle(FileRenameInfo) no-replace publication into SAME deterministic final basename; both attempt rename",
+      "expected": "EXACTLY_ONE_WRITER_PUBLISHES_OTHER_HOLD",
+      "oracle": {
+        "pass_condition": "Exactly one final receipt from one winner with pinned SHA/fileId; loser receives destination-exists/HOLD, never overwrite; no science nonce claim",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "concurrency_barrier",
+          "writer1_handle_and_trace",
+          "writer2_handle_and_trace",
+          "one_final_file_id_and_sha",
+          "loser_collision_guard",
+          "checkpoint_access_0"
+        ]
+      },
+      "falsifier": "Any second publish, overwrite, or final payload mismatch is FAIL"
+    },
+    {
+      "id": "POS-03",
+      "blocker": "BR-I2-02",
+      "tier": "NATIVE_REQUIRED_FUTURE",
+      "execution": "NOT_EXECUTED_DESIGN_ONLY",
+      "required": true,
+      "setup": "Already-published final payload under verified parent with matching same transaction ID and exact journal hash",
+      "stimulus": "Repeat receipt publish call with same journal transaction after acknowledgement lost; final already present",
+      "expected": "SAME_TRANSACTION_READONLY_ACK_NO_REWRITE",
+      "oracle": {
+        "pass_condition": "Final file SHA, FileId and mtime unchanged; new stage/receipt/nonce claim count 0",
+        "stop_if_unproven": true
+      },
+      "evidence": {
+        "status": "PLANNED_NOT_CAPTURED",
+        "planned": [
+          "immutable_transaction_journal",
+          "before_after_final_sha256",
+          "file_id",
+          "file_mtime",
+          "no_new_nonce"
+        ]
+      },
+      "falsifier": "Any rewrite, new stage or new science nonce is FAIL"
+    }
+  ],
+  "f01_f06_amendment_notes": [
+    {
+      "finding": "F01",
+      "key": "SELF_HASH",
+      "remedy": "Receipt payload tự chứa không có staging/published SHA; sha256(payload_bytes) chỉ ở external completion envelope, không có vòng hash tự tham chiếu."
+    },
+    {
+      "finding": "F02",
+      "key": "HANDLE_RENAME",
+      "remedy": "Chỉ chấp nhận handle-based SetFileInformationByHandle/FileRenameInfo, RootDirectory đã xác minh, relative leaf, ReplaceIfExists=FALSE; native anti-swap QA còn HOLD."
+    },
+    {
+      "finding": "F03",
+      "key": "DETERMINISTIC_KEY",
+      "remedy": "Tên final cố định từ canonical signed logical scope; randomized staging suffix; same-transaction/same-hash retry mới idempotent, competition HOLD."
+    },
+    {
+      "finding": "F04",
+      "key": "STATE_MACHINE",
+      "remedy": "Tách receipt publish FSM khỏi immutable science nonce ledger; fail-closed khi crash/ambiguous; at-most-once dispatch, không tự cấp lượt thứ hai."
+    },
+    {
+      "finding": "F05",
+      "key": "AUTHORITY",
+      "remedy": "Quy trình phát hành certificate versioned có issuer signatures và principal separation; trusted roots từ reviewed source riêng; explicit I2_RUN -> run mapping, không sửa legacy."
+    },
+    {
+      "finding": "F06",
+      "key": "ORACLES",
+      "remedy": "Positive controls có execution/tier/evidence/oracle; thêm duplicate JSON keys, postpublish mutation, signer custody substitution và phase mapping/replay controls."
+    }
+  ],
+  "go_hardware_policy": "NO_NATIVE_QA_NO_IMPL_NO_RELEASE_NO_I2",
+  "acceptance": "F01/F04/F05/F06 design must be distinct reviewed at exact SHA. All 60 negative and 3 positive cases remain unexecuted; later implementation requires source/native independent QA and integrated PM owner authorization.",
+  "version": "V3_F01_F04_F05_F06",
+  "design_base_commit": "7438e0c16860e69f063307fed5886a5f6bee211b",
+  "v2_distinct_hold_comment": 6936401307,
+  "required_vector_path": "artifacts/ttm-abc/track-a/BR_I2_01_02_V3_BYTE_EXACT_TEST_VECTORS_20261117.json",
+  "independent_v3_design_adjudication": "NOT_EXECUTED",
+  "v3_policy": "Historical V2 tests retained; new tests enforce exact bytes, globally unique science slot, detached role-bound signatures, and consistent concurrent positive oracle."
+}

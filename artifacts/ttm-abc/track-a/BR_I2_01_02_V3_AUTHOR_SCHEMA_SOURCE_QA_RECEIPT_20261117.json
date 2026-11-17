@@ -1,0 +1,68 @@
+{
+  "schema": "ttm.track_a.br_i2_01_02.v3.author_source_schema_receipt.v1",
+  "date": "2026-11-17",
+  "exact_base_V2": "7438e0c16860e69f063307fed5886a5f6bee211b",
+  "reviewed_I1_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+  "reviewer_V2_HOLD_comment": 6936401307,
+  "source_only": true,
+  "design_only": true,
+  "executed_negative_tests": 0,
+  "executed_positive_tests": 0,
+  "vector_count": 8,
+  "synthetic_invalid_vector_count": 12,
+  "negative_case_count": 60,
+  "positive_case_count": 3,
+  "groups": {
+    "BR-I2-01": 25,
+    "BR-I2-02": 27,
+    "INTEGRATED": 8
+  },
+  "tiers": {
+    "SOURCE_QA_FUTURE": 36,
+    "NATIVE_REQUIRED_FUTURE": 24
+  },
+  "author_static_checks": {
+    "v2_exact_branch_locked": true,
+    "old_negative_50": true,
+    "v3_negative_60": true,
+    "v3_positive_3": true,
+    "ids_unique": true,
+    "schema_fields_complete": true,
+    "zero_executed": true,
+    "positive_two_writers": true,
+    "F01_self_hash": true,
+    "F01_schema": true,
+    "F01_wire_vectors": true,
+    "F04_two_ids": true,
+    "F05_tbs_mutation": true,
+    "F06_consistent_race": true,
+    "F02_F03_native_hold": true,
+    "release_hold": true
+  },
+  "author_static_check_count": 16,
+  "git_blob_map": {
+    "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V3_CLOSED_SCHEMA_SCOPE_TBS_INTEGRATED_CONTRACT_20261117.md": "0aae30b60bdd004b52a515cd23ad030a4ae5d84f",
+    "artifacts/ttm-abc/track-a/BR_I2_01_02_V3_NEGATIVE_POSITIVE_QA_MATRIX_20261117.json": "020359e032b07f40c263d7617aa124f50434dcc9",
+    "artifacts/ttm-abc/track-a/BR_I2_01_02_V3_BYTE_EXACT_TEST_VECTORS_20261117.json": "328638b21fbcd7719e1f7745cdf3c8bf42a46466",
+    "docs/coordination/ttm-abc/track-a/TTM_TRACK_A_BR_I2_01_02_V3_EXACT_CANDIDATE_DISTINCT_REREVIEW_HANDOFF_20261117.md": "30ce854eec2dc6c8f475d2e658864576b9286841",
+    "docs/coordination/ttm-abc/status/TTM_TRACK_A_STATUS.json": "c7d39186fc8dd123f59d70c4fe88589892638677"
+  },
+  "vectors_expected_sha256": {
+    "SLOT-VALID": "581fd3acf137c28300813fc48501ff8ee243984588978ae64423fffc044bbe0f",
+    "FINAL-KEY-VALID": "4554672ed0147053f136f4d6c41083d9da53c9d68a32ae3cd52e470c4425a0d8",
+    "SCOPE-VALID": "cab53bd5d9daa15e8234d4dae9224344be0d97aec9771f1d05f35767f8c3edc0",
+    "PAYLOAD-VALID": "e27ae8e39fbd669e152339b271ef69034f69564063d57f286dbc878bc433ce55",
+    "CERT-TBS-VALID": "aef59e3eed8fa9d3207fe3b23c39de5753e4eaf8e03f1bbdd908e56899ee2d32",
+    "PROVENANCE-TBS-VALID": "444ef4454c98a47e760794f6f623acefb21a1a41c80a817b2f73370008aefaf8",
+    "RELEASE-TBS-VALID-SYNTHETIC": "0ad68ebb006688d60420a55755bbcd8a3a8eafcca2b0c412fb9ff55bef40c0ca",
+    "ENVELOPE-VALID": "226cba1b1c78de1294d58b01381d8ee0647da8aaf55969fd59bd2014a460e3a9"
+  },
+  "vector_sha256_generation_method": "author-side CPython hashlib.sha256 of documented ASCII prefix+00+canonical ASCII bytes; distinct reviewer must recompute",
+  "distict_adjudication": "NOT_EXECUTED_V3",
+  "native_QA": "NOT_EXECUTED",
+  "signer_keys_created": false,
+  "owner_release": "HOLD",
+  "I2": "NOT_EXECUTED",
+  "implementation": "NOT_AUTHORIZED",
+  "note": "Author-only structural readback/checklist. No real native tests, cryptographic signatures, science or independent adjudication occurred."
+}
