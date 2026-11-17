@@ -867,7 +867,7 @@ class SourceQA(unittest.TestCase):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["qa", "native-qa", "capacity", "synthetic-40", "one-session", "preflight", "train", "compare"])
+    ap.add_argument("mode", choices=["qa", "gpu-preflight", "native-qa", "capacity", "synthetic-40", "one-session", "preflight", "train", "compare"])
     ap.add_argument("--sources")
     ap.add_argument("--data")
     ap.add_argument("--manifest")
@@ -890,7 +890,10 @@ def main():
         return
     if not args.sources:
         raise ValueError("EXACT_PINNED_SOURCES_REQUIRED")
-    if args.mode == "native-qa":
+    if args.mode == "gpu-preflight":
+        verify_sources(args.sources)
+        live_t4_preflight()
+    elif args.mode == "native-qa":
         native_resume_qa(args)
     elif args.mode == "capacity":
         if not args.out:
