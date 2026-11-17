@@ -274,7 +274,7 @@ class TestABCSourceIntegratedBaseline(unittest.TestCase):
         self.assertEqual(receipt["QA"]["latest_prior_exact_head_sha"],
                          "383e2a4a858069e05a290d7448e607a01853ae04")
         self.assertIn("current PR HEAD workflow result", receipt["QA"]["CI_authority_note"])
-        self.assertFalse(receipt["PM_decision"]["no_new_QuestionGate"])
+        self.assertTrue(receipt["PM_decision"]["no_new_QuestionGate"])
         self.assertTrue(receipt["PM_decision"]["A_I2"].startswith("HOLD"))
 
     def test_17_workflow_follows_report_and_excludes_model_execution(self) -> None:
