@@ -1,0 +1,155 @@
+{
+  "schema": "ttm.sm4m.diag.q001.v4.launcher_native_source_onepack_manifest.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_SM4M_DIAG_Q001_V3_LAUNCHER_BLOCKER_REMEDIATION_MANAGED_NATIVE_NEGATIVE_QA_AND_RIGHTS_CUSTODY_ONEPACK",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "reviewed_v3_hold_head": "30abfd8efe18a2d116c2f1fd16ff67a6332ea49c",
+  "candidate_source_head_before_manifest": "d42c44040da89ab6c5d275a9389ba920ef18db68",
+  "branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "main_baseline": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "byte_evidence": {
+    "method": "same_assistant_rehashed_fips180_4_js_sha256_github_fetch_file",
+    "sha256_abc_test": "PASS",
+    "file_count": 14,
+    "git_blob_pins": 14,
+    "sha256_digests": 14,
+    "size_utf8_bytes": 14,
+    "old_v3_unchanged_pins": 11
+  },
+  "files": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "git_blob_sha1": "cbaab1556dec7059acba2139a0bae25149adfc61",
+      "sha256": "c0552b0dd55f671db93f4e64924877aaadf084243df1cefd04660b26721b70b8",
+      "utf8_bytes": 33688
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "git_blob_sha1": "66461481f05c19b89f7ae928719dd78b7db2768c",
+      "sha256": "30515fa475b283bcd3d713391bd947c54bb63e60986f35c1e67a2cec239b5eb1",
+      "utf8_bytes": 6260
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "git_blob_sha1": "8f2c528ef37219891a7ab017de32357a6711c86f",
+      "sha256": "01e4a3e58e0d8a0414a724c744c6f8d4b071b4e1187f427e70cdbb3a58d48985",
+      "utf8_bytes": 4488
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "git_blob_sha1": "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+      "sha256": "c18ea2097b837eaefb8dddcc4008ac751b75517fca7816f50ad0840ee16cc47e",
+      "utf8_bytes": 5114
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1",
+      "git_blob_sha1": "dd82daa4306ba66a7de19964fcf08d133fe94beb",
+      "sha256": "6282557d89749a827162e07bafdd1e326d804f9aebd8b5d29a596dcb883db65f",
+      "utf8_bytes": 4395
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+      "git_blob_sha1": "dd97ec53c022a3b529c48739250629248f0bb481",
+      "sha256": "d9a0408a06c5322f752348a08e45669802ffb10b356ee9dd44464aec7fb8c3fb",
+      "utf8_bytes": 10527
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "git_blob_sha1": "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+      "sha256": "47d12e0248830518584ffb8e9af44323f418214234568411bfbde192f274f623",
+      "utf8_bytes": 8884
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "git_blob_sha1": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "utf8_bytes": 1432
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+      "git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "utf8_bytes": 8160
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "utf8_bytes": 4959
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "utf8_bytes": 1938
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "utf8_bytes": 1335
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "utf8_bytes": 1156
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-I1-NativeSourceOnePack-PS51.ps1",
+      "git_blob_sha1": "e723db8f93ccab019035a8ad5c820180e18cae6c",
+      "sha256": "5184f5d70c9327e37c40e31cb235a58a2c005d3899e2d0699c16c41239d0341f",
+      "utf8_bytes": 6330
+    }
+  ],
+  "source_changes": [
+    "Run-Approved-OneShot-PS51.ps1 parser quote fixed",
+    "real watchdog hash checked against -ExpectedWatchdogSHA256 before process spawn",
+    "watchdog module dot-sourced and function existence checked prelaunch",
+    "native oversize negative injection moved into captured stdout",
+    "onepack PS5.1 source parse/hash/real no-model negative QA harness added"
+  ],
+  "managed_transport": {
+    "project_id": "prj_1544c3e94ebd4b2947bc84e9",
+    "kind": "GIT",
+    "device_id": "dev_dd73ebfa742f468f2d212bade88c175b",
+    "hostname": "DESKTOP-4PSD0G2",
+    "task_id": "tsk_2d1d91bd29582300c60fc10d",
+    "task_worktree_exact_source_commit": "d42c44040da89ab6c5d275a9389ba920ef18db68",
+    "fetch_job": "rjob_d1aed9b564b40a33f2352da9db4581c2",
+    "fetch_outcome": "SUCCEEDED",
+    "source_checkout_job": "rjob_802c07f720fc2a5ab6ae2dadf2272a4c",
+    "checkout_outcome": "SUCCEEDED_HEAD_D42C440",
+    "native_ps5_source_qa_submit": {
+      "operation_id": "TTM_SM4M_DIAG_Q001_MANAGED_PS51_SOURCE_ONLY_NATIVE_ONEPACK_20261116",
+      "proxy_job_id": "rjob_bd75ffaedd5706d82f436097a0201b0e",
+      "state": "FAILED_FINAL_PRE_NODE",
+      "error_code": "COMMAND_NOT_ALLOWED",
+      "error": "executable 'powershell' is not in durable allowlist",
+      "node_job_id": null,
+      "actual_windows_source_qa": "NOT_EXECUTED",
+      "scientific_execution_started": false,
+      "replacement_job_requested": false
+    }
+  },
+  "rights": {
+    "ed25519_trust_roots": "EMPTY",
+    "AD_00_AD_01C_E6": "NOT_VERIFIED",
+    "tokenizer_inventory": "NOT_VERIFIED",
+    "checkpoint_live_sha": "NOT_VERIFIED",
+    "fixture_80": "NOT_FROZEN"
+  },
+  "release": {
+    "owner_conditional_GO": "PRESERVED",
+    "source_status": "REMEDIATED_CANDIDATE_NEEDS_INDEPENDENT_NATIVE_REVIEW",
+    "i1": "HOLD_I1",
+    "i2": "NOT_EXECUTED",
+    "model_run": false,
+    "no_new_QID": true,
+    "no_reseed": true,
+    "no_PR_merge": true,
+    "lineage_modified": false
+  },
+  "next_single_operation": "TTM_SM4M_DIAG_Q001_V4_EXACT_SOURCE_NATIVE_ALLOWLIST_AND_RIGHTS_SINGLE_I1_ADJUDICATION"
+}

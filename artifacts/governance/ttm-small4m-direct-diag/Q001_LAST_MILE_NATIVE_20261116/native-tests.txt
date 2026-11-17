@@ -1,0 +1,31 @@
+5.1.26100.9818
+DESKTOP-4PSD0G2
+4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a
+test_fixture_tamper (test_owner_internal_admission_source.OwnerInternalQA.test_fixture_tamper) ... ok
+test_forged_local_owner_packet (test_owner_internal_admission_source.OwnerInternalQA.test_forged_local_owner_packet) ... ok
+test_legacy_still_denies_missing_trust_anchors (test_owner_internal_admission_source.OwnerInternalQA.test_legacy_still_denies_missing_trust_anchors) ... ok
+test_live_scope_and_foreign_identity (test_owner_internal_admission_source.OwnerInternalQA.test_live_scope_and_foreign_identity) ... ok
+test_missing_github_verdict_denied_before_tokenizer (test_owner_internal_admission_source.OwnerInternalQA.test_missing_github_verdict_denied_before_tokenizer) ... ok
+test_reviewed_verdict_schema (test_owner_internal_admission_source.OwnerInternalQA.test_reviewed_verdict_schema) ... ok
+test_scope_mutations (test_owner_internal_admission_source.OwnerInternalQA.test_scope_mutations) ... ok
+test_tampered_owner_document (test_owner_internal_admission_source.OwnerInternalQA.test_tampered_owner_document) ... ok
+test_tampered_owner_module (test_owner_internal_admission_source.OwnerInternalQA.test_tampered_owner_module) ... ok
+test_verdict_mutations (test_owner_internal_admission_source.OwnerInternalQA.test_verdict_mutations) ... ok
+test_wrong_original_source (test_owner_internal_admission_source.OwnerInternalQA.test_wrong_original_source) ... ok
+test_commit_ceiling_and_aggregate_descendant (test_windows_job_memory_native.Win32QA.test_commit_ceiling_and_aggregate_descendant) ... {"committed": true, "request_bytes": 54525952, "winerror": 0}
+{"committed": false, "request_bytes": 101711872, "winerror": 1455}
+{"committed": true, "request_bytes": 54525952, "winerror": 0}
+{"committed": false, "request_bytes": 54525952, "winerror": 1455}
+{"above_cap_peak_commit": 111534080, "aggregate_peak_commit": 128737280, "commit_cap": 100663296, "resource_exit": 86, "single_peak_commit": 64393216}
+ok
+test_exit_and_late_failure (test_windows_job_memory_native.Win32QA.test_exit_and_late_failure) ... ok
+test_inherited_std_handles_only_and_kill_on_last_close (test_windows_job_memory_native.Win32QA.test_inherited_std_handles_only_and_kill_on_last_close) ... {"kill_last_close_descendant": true, "kill_last_close_root": true, "stdio_allowlist": true}
+ok
+test_nested_membership (test_windows_job_memory_native.Win32QA.test_nested_membership) ... ok
+test_rss_vs_psapi_and_working_set_growth (test_windows_job_memory_native.Win32QA.test_rss_vs_psapi_and_working_set_growth) ... {"ps51_working_set": 87805952, "rss_after_touch": 87801856, "rss_before": 37462016}
+ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 4.440s
+
+OK

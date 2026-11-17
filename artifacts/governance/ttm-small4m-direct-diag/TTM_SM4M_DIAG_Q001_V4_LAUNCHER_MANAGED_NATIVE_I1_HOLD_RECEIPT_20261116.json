@@ -1,0 +1,120 @@
+{
+  "schema": "ttm.sm4m.diag.q001.v4.launcher_managed_native_i1_adjudication.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_SM4M_DIAG_Q001_V3_LAUNCHER_BLOCKER_REMEDIATION_MANAGED_NATIVE_NEGATIVE_QA_AND_RIGHTS_CUSTODY_ONEPACK",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "pr": 28,
+  "review_issue": 29,
+  "baseline_q1_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "previous_independent_reviewed_head": "30abfd8efe18a2d116c2f1fd16ff67a6332ea49c",
+  "previous_independent_evidence_head": "b02ee93946bcca16f03f51ad5364ad554dcc61f9",
+  "remediation_source_head_before_receipts": "d42c44040da89ab6c5d275a9389ba920ef18db68",
+  "source_manifest_commit": "37c2635325e15f92ff7a7481688efb7cf239c1ec",
+  "source_manifest_blob": "a4c14a4a1125b71ae985b1671212e06e0fc96d46",
+  "handoff_commit": "a397b088ea055a11a5c1f9c0375b0f4c1ecfdda7",
+  "handoff_blob": "55992cd6ed3e6d506b2fa9b9890405d022df77bd",
+  "source_fixes": [
+    {
+      "id": "V3-N05",
+      "source": "Run-Approved-OneShot-PS51.ps1",
+      "remediation": "complete_64_lowerhex_regexp_conditional",
+      "git_blob_sha1": "8f2c528ef37219891a7ab017de32357a6711c86f",
+      "sha256": "01e4a3e58e0d8a0414a724c744c6f8d4b071b4e1187f427e70cdbb3a58d48985",
+      "status": "SOURCE_CORRECTED_NOT_NATIVE_PARSER_TESTED"
+    },
+    {
+      "id": "V3-N06",
+      "source": "Run-Approved-OneShot-PS51.ps1",
+      "remediation": "verify_actual_watchdog_module_sha_against_expected_argument_pre_process_spawn",
+      "status": "SOURCE_CORRECTED_NOT_NATIVE_TESTED"
+    },
+    {
+      "id": "V3-N07",
+      "source": "Run-Approved-OneShot-PS51.ps1",
+      "remediation": "dot_source_SHA_verified_watchdog_and_check_function_before_process_spawn",
+      "status": "SOURCE_CORRECTED_NOT_NATIVE_TESTED"
+    },
+    {
+      "id": "V3-N08",
+      "source": "Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "remediation": "sampled_process_tree_RSS_and_postexit_output_checks_present",
+      "status": "OPEN_STRICT_OS_12_GIB_MEMORY_CAP_NOT_PROVEN"
+    },
+    {
+      "id": "NATIVE_FIXTURE",
+      "source": "Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1",
+      "remediation": "oversized_output_writes_to_watched_stdout_not_unwatched_pid_side_file",
+      "status": "SOURCE_CORRECTED_NOT_NATIVE_TESTED"
+    },
+    {
+      "id": "NATIVE_ONEPACK",
+      "source": "Invoke-DIAG-Q001-I1-NativeSourceOnePack-PS51.ps1",
+      "remediation": "pin_sources_parse_PowerShell_and_execute_no_model_negative_suites",
+      "status": "SOURCE_PREPARED_NOT_EXECUTED"
+    }
+  ],
+  "byte_qa": {
+    "git_blob_sha1": 14,
+    "git_blob_total": 14,
+    "sha256_pins": 14,
+    "sha256_total": 14,
+    "utf8_byte_lengths": 14,
+    "utf8_total": 14,
+    "author_hash_selftest_abc": "PASS",
+    "real_windows_parser": "NOT_EXECUTED",
+    "independent_review_of_v4_head": "NOT_EXECUTED"
+  },
+  "managed": {
+    "existing_git_project_id": "prj_1544c3e94ebd4b2947bc84e9",
+    "device_id": "dev_dd73ebfa742f468f2d212bade88c175b",
+    "device": "machine-1",
+    "hostname": "DESKTOP-4PSD0G2",
+    "task_id": "tsk_2d1d91bd29582300c60fc10d",
+    "original_task_base_commit": "1edb95cc3925ff18f0c644e94888139af854fae5",
+    "managed_fetch_proxy_job": "rjob_d1aed9b564b40a33f2352da9db4581c2",
+    "managed_fetch_terminal": "SUCCEEDED",
+    "managed_exact_checkout_proxy_job": "rjob_802c07f720fc2a5ab6ae2dadf2272a4c",
+    "managed_exact_checkout_terminal": "SUCCEEDED",
+    "task_checkout_commit": "d42c44040da89ab6c5d275a9389ba920ef18db68",
+    "native_qa_submit_operation_id": "TTM_SM4M_DIAG_Q001_MANAGED_PS51_SOURCE_ONLY_NATIVE_ONEPACK_20261116",
+    "native_qa_proxy_job": "rjob_bd75ffaedd5706d82f436097a0201b0e",
+    "native_qa_submit_state": "FAILED_FINAL",
+    "native_qa_transport_phase": "POST_PROXY_PRE_NODE",
+    "native_qa_error_code": "COMMAND_NOT_ALLOWED",
+    "native_qa_error_message": "executable 'powershell' is not in durable allowlist",
+    "native_qa_node_job_id": null,
+    "native_command_executed": false,
+    "terminal_evidence_science_execution_started": false,
+    "transport_summary_science_execution_started_conflicts": true,
+    "same_proxy_recoverable": false,
+    "replacement_job_forbidden": true,
+    "legacy_executor_bypass": false,
+    "native_powershell_5_1_QA": "NOT_EXECUTED",
+    "native_python_3_12_QA": "NOT_EXECUTED",
+    "watchdog_adversarial_5_cases": "NOT_EXECUTED"
+  },
+  "rights": {
+    "auth_trusted_ed25519_keys": "EMPTY",
+    "owner_signer": "NOT_VERIFIED",
+    "distinct_reviewer_signer": "NOT_VERIFIED",
+    "rights_custodian_signer": "NOT_VERIFIED",
+    "AD_00_AD_01C_E6": "NOT_VERIFIED",
+    "checkpoint_expected_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "checkpoint_expected_bytes": 45074891,
+    "actual_checkpoint_access": "NOT_EXECUTED",
+    "tokenizer_custody": "NOT_VERIFIED",
+    "real_fixture_80": "NOT_FROZEN"
+  },
+  "owner_conditional_GO": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+  "Q1": "REGISTERED_UNCHANGED",
+  "question_protocol": "UNCHANGED_24_TRAIN_56_HELDOUT_256_MAX_STEPS_SEED_20261116",
+  "i1_verdict": "HOLD_I1",
+  "i2": "NOT_EXECUTED",
+  "model_execution": false,
+  "private_checkpoint_read": false,
+  "no_TEST_FINAL_replay": true,
+  "PR28": "DRAFT_UNMERGED",
+  "lineage_modified": false,
+  "P02_core_modified": false,
+  "next_single_gate": "TTM_SM4M_DIAG_Q001_V4_EXACT_SOURCE_NATIVE_ALLOWLIST_AND_RIGHTS_SINGLE_I1_ADJUDICATION"
+}

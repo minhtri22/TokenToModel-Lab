@@ -1,0 +1,55 @@
+{
+  "scope": "PS51_AST_AND_ISOLATED_MODULE_ADMISSION_PREFIX",
+  "powershell": "5.1.26100.9818",
+  "launcher_called": false,
+  "model_executed": false,
+  "passed": 9,
+  "total": 9,
+  "checks": {
+    "correct_pinned_watchdog_loaded": {
+      "expected": "BOUND_VERIFIED_WATCHDOG",
+      "actual": "BOUND_VERIFIED_WATCHDOG",
+      "passed": true
+    },
+    "foreign_runner_path_denied": {
+      "expected": "HOLD_RUNNER_PATH_NOT_PINNED",
+      "actual": "HOLD_RUNNER_PATH_NOT_PINNED",
+      "passed": true
+    },
+    "malformed_runner_sha": {
+      "expected": "HOLD_RUNNER_PIN_FORMAT",
+      "actual": "HOLD_RUNNER_PIN_FORMAT",
+      "passed": true
+    },
+    "wrong_runner_sha": {
+      "expected": "HOLD_RUNNER_PIN_NOT_REVIEWED",
+      "actual": "HOLD_RUNNER_PIN_NOT_REVIEWED",
+      "passed": true
+    },
+    "malformed_watchdog_sha": {
+      "expected": "HOLD_WATCHDOG_PIN_FORMAT",
+      "actual": "HOLD_WATCHDOG_PIN_FORMAT",
+      "passed": true
+    },
+    "caller_rehash_of_injected_watchdog_denied": {
+      "expected": "HOLD_WATCHDOG_PIN_NOT_REVIEWED",
+      "actual": "HOLD_WATCHDOG_PIN_NOT_REVIEWED",
+      "passed": true
+    },
+    "changed_watchdog_bytes_denied": {
+      "expected": "HOLD_WATCHDOG_SOURCE_SHA",
+      "actual": "HOLD_WATCHDOG_SOURCE_SHA",
+      "passed": true
+    },
+    "injected_module_side_effect_absent": {
+      "passed": true
+    },
+    "admission_precedes_checkpoint_probe_and_spawn": {
+      "spawn_count": 1,
+      "preflight_offset": 3477,
+      "checkpoint_probe_offset": 3734,
+      "spawn_offset": 4791,
+      "passed": true
+    }
+  }
+}

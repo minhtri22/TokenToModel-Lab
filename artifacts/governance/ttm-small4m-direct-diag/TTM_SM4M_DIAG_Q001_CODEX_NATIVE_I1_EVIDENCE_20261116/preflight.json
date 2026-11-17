@@ -1,0 +1,174 @@
+{
+  "tested_head": "2e875f18490e3cb7f6e967e5a91d2c6af04d16f0",
+  "manifest_blob": "a4c14a4a1125b71ae985b1671212e06e0fc96d46",
+  "manifest_sha256": "e67176a37d6062979dec81770ea49fd0d0dfc2e43f6a016d586bad55480fdb4c",
+  "v4_evidence_head": "4f5e6533854818845d3ccdfad661ccc25f0e2812",
+  "v4_source_head": "d42c44040da89ab6c5d275a9389ba920ef18db68",
+  "remote_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "protected_blobs": {
+    "lineage.md": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "docs/governance/ACTIVE_RESEARCH_GATE.md": "012be27ef761a80663e0c650fa1dce341de33575",
+    "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json": "027289f67a7e936dc1e58ae2e8159a59d0216a14"
+  },
+  "changed_from_v4": [
+    "A\tdocs/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_CODEX_AGENT_NATIVE_I1_HANDOFF_20261116.md"
+  ],
+  "status": [],
+  "files": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "sha256": "c0552b0dd55f671db93f4e64924877aaadf084243df1cefd04660b26721b70b8",
+      "git_blob": "cbaab1556dec7059acba2139a0bae25149adfc61",
+      "bytes": 33688,
+      "commit_blobs": [
+        "cbaab1556dec7059acba2139a0bae25149adfc61",
+        "cbaab1556dec7059acba2139a0bae25149adfc61",
+        "cbaab1556dec7059acba2139a0bae25149adfc61"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "sha256": "30515fa475b283bcd3d713391bd947c54bb63e60986f35c1e67a2cec239b5eb1",
+      "git_blob": "66461481f05c19b89f7ae928719dd78b7db2768c",
+      "bytes": 6260,
+      "commit_blobs": [
+        "66461481f05c19b89f7ae928719dd78b7db2768c",
+        "66461481f05c19b89f7ae928719dd78b7db2768c",
+        "66461481f05c19b89f7ae928719dd78b7db2768c"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "sha256": "01e4a3e58e0d8a0414a724c744c6f8d4b071b4e1187f427e70cdbb3a58d48985",
+      "git_blob": "8f2c528ef37219891a7ab017de32357a6711c86f",
+      "bytes": 4488,
+      "commit_blobs": [
+        "8f2c528ef37219891a7ab017de32357a6711c86f",
+        "8f2c528ef37219891a7ab017de32357a6711c86f",
+        "8f2c528ef37219891a7ab017de32357a6711c86f"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "sha256": "c18ea2097b837eaefb8dddcc4008ac751b75517fca7816f50ad0840ee16cc47e",
+      "git_blob": "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+      "bytes": 5114,
+      "commit_blobs": [
+        "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+        "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+        "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1",
+      "sha256": "6282557d89749a827162e07bafdd1e326d804f9aebd8b5d29a596dcb883db65f",
+      "git_blob": "dd82daa4306ba66a7de19964fcf08d133fe94beb",
+      "bytes": 4395,
+      "commit_blobs": [
+        "dd82daa4306ba66a7de19964fcf08d133fe94beb",
+        "dd82daa4306ba66a7de19964fcf08d133fe94beb",
+        "dd82daa4306ba66a7de19964fcf08d133fe94beb"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+      "sha256": "d9a0408a06c5322f752348a08e45669802ffb10b356ee9dd44464aec7fb8c3fb",
+      "git_blob": "dd97ec53c022a3b529c48739250629248f0bb481",
+      "bytes": 10527,
+      "commit_blobs": [
+        "dd97ec53c022a3b529c48739250629248f0bb481",
+        "dd97ec53c022a3b529c48739250629248f0bb481",
+        "dd97ec53c022a3b529c48739250629248f0bb481"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "sha256": "47d12e0248830518584ffb8e9af44323f418214234568411bfbde192f274f623",
+      "git_blob": "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+      "bytes": 8884,
+      "commit_blobs": [
+        "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+        "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+        "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "git_blob": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "bytes": 1432,
+      "commit_blobs": [
+        "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+        "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+        "d55d8ed501c73524340f3e4ada76c07cdf0e1163"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "git_blob": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "bytes": 8160,
+      "commit_blobs": [
+        "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+        "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+        "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "git_blob": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "bytes": 4959,
+      "commit_blobs": [
+        "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+        "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+        "7df676831e2397cf6497bc0bc47a0abcf3bbdabf"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "git_blob": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "bytes": 1938,
+      "commit_blobs": [
+        "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+        "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+        "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "git_blob": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "bytes": 1335,
+      "commit_blobs": [
+        "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+        "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+        "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "git_blob": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "bytes": 1156,
+      "commit_blobs": [
+        "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+        "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+        "96128a9f7de92e48ab4371fe6d9b04ebf99c6962"
+      ]
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-I1-NativeSourceOnePack-PS51.ps1",
+      "sha256": "5184f5d70c9327e37c40e31cb235a58a2c005d3899e2d0699c16c41239d0341f",
+      "git_blob": "e723db8f93ccab019035a8ad5c820180e18cae6c",
+      "bytes": 6330,
+      "commit_blobs": [
+        "e723db8f93ccab019035a8ad5c820180e18cae6c",
+        "e723db8f93ccab019035a8ad5c820180e18cae6c",
+        "e723db8f93ccab019035a8ad5c820180e18cae6c"
+      ]
+    }
+  ]
+}

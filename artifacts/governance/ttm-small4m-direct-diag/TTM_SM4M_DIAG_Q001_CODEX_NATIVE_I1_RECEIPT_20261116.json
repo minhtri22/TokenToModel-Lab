@@ -1,0 +1,447 @@
+{
+  "schema": "ttm.sm4m.diag.q001.codex.native_i1_integrated_adjudication.v1",
+  "operation": "TTM_SM4M_DIAG_Q001_CODEX_NATIVE_I1_NEGATIVE_QA_RIGHTS_CUSTODY_AND_SINGLE_ADJUDICATION_ONEPACK",
+  "date": "2026-11-16",
+  "recorded_utc": "2026-11-16T11:56:04.949371+00:00",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "original_pr_head": "2e875f18490e3cb7f6e967e5a91d2c6af04d16f0",
+  "tested_remediation_commit": "77f6e946975a8b5cd5859297f6d0f161bb13f629",
+  "q1_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "protected_git_blobs": {
+    "lineage.md": "3409e036241deb1da6674619a2abc834bea8a2d6",
+    "src/p02/transformer_core.py": "9762343e06cf800b50574c2871ae1ed58537fb18",
+    "docs/governance/ACTIVE_RESEARCH_GATE.md": "012be27ef761a80663e0c650fa1dce341de33575",
+    "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_FROZEN_ONEPACK_PREEXEC_CONTRACT_20261116.json": "027289f67a7e936dc1e58ae2e8159a59d0216a14"
+  },
+  "pr": "https://github.com/minhtri22/TokenToModel-Lab/pull/28",
+  "issued_from": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6915190196",
+  "review_issue": "https://github.com/minhtri22/TokenToModel-Lab/issues/29",
+  "source_qa": {
+    "status": "PASS_SCOPED_SOURCE_AND_MOCK",
+    "source_qa": "18/18",
+    "author_negative_rerun": "44/44",
+    "codex_adversarial": "22/22",
+    "launcher_prefix": "9/9",
+    "v4_pins": "14/14"
+  },
+  "windows_native_qa": {
+    "status": "PASS_NATIVE_SOURCE_ONLY_NOT_I1",
+    "shell": "5.1.26100.9818",
+    "machine": "DESKTOP-4PSD0G2",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "python_exe": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "architecture_bits": 64,
+    "watchdog": "5/5 standalone and 5/5 through OnePack",
+    "baseline_inherited_modules": "PS5.1 module resolution failure; parser failure",
+    "baseline_clean_modules": "OnePack parse failure; watchdog 4/5",
+    "interim": "OnePack assertion string parse failure; watchdog 5/5",
+    "cases": {
+      "normal": {
+        "expected": "PASS",
+        "actual": "PASS",
+        "parent_pid": 19464,
+        "child_pid": null,
+        "wall_limit_seconds": 8,
+        "rss_limit_bytes": 1073741824,
+        "output_limit_bytes": 1073741824,
+        "parent_exited_before_fixture_cleanup": true,
+        "child_exited_before_fixture_cleanup": null,
+        "parent_exit_code": 0,
+        "observed": {
+          "Status": "PASS_WATCHDOG_SAMPLE_BOUNDED",
+          "PeakTreeRssBytesSampled": 0,
+          "FinalTotalOutputBytes": 4,
+          "ElapsedSeconds": 0.8055407,
+          "TrackedPidCount": 1,
+          "ExitCode": 0
+        },
+        "stdout_bytes": 4,
+        "stderr_bytes": 0
+      },
+      "exit_big": {
+        "expected": "HOLD_WATCHDOG_TOTAL_LOG_AND_OUTPUT_BYTES",
+        "actual": "HOLD_WATCHDOG_TOTAL_LOG_AND_OUTPUT_BYTES",
+        "parent_pid": 16952,
+        "child_pid": null,
+        "wall_limit_seconds": 8,
+        "rss_limit_bytes": 1073741824,
+        "output_limit_bytes": 4096,
+        "parent_exited_before_fixture_cleanup": true,
+        "child_exited_before_fixture_cleanup": null,
+        "parent_exit_code": 0,
+        "observed": {
+          "PeakTreeRssBytesSampled": 21422080,
+          "LastTotalOutputBytes": 65536,
+          "TrackedPids": [
+            16952,
+            31444
+          ],
+          "ElapsedSeconds": 1.1702023
+        },
+        "stdout_bytes": 65536,
+        "stderr_bytes": 0
+      },
+      "stall": {
+        "expected": "HOLD_WATCHDOG_WALL_TIME",
+        "actual": "HOLD_WATCHDOG_WALL_TIME",
+        "parent_pid": 25516,
+        "child_pid": null,
+        "wall_limit_seconds": 1,
+        "rss_limit_bytes": 1073741824,
+        "output_limit_bytes": 1073741824,
+        "parent_exited_before_fixture_cleanup": true,
+        "child_exited_before_fixture_cleanup": null,
+        "parent_exit_code": 1,
+        "observed": {
+          "PeakTreeRssBytesSampled": 25071616,
+          "LastTotalOutputBytes": 0,
+          "TrackedPids": [
+            25516,
+            28572
+          ],
+          "ElapsedSeconds": 1.4320855
+        },
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      },
+      "parent_child": {
+        "expected": "HOLD_WATCHDOG_AGGREGATE_PROCESS_TREE_RSS",
+        "actual": "HOLD_WATCHDOG_AGGREGATE_PROCESS_TREE_RSS",
+        "parent_pid": 20900,
+        "child_pid": 32452,
+        "wall_limit_seconds": 8,
+        "rss_limit_bytes": 50331648,
+        "output_limit_bytes": 1073741824,
+        "parent_exited_before_fixture_cleanup": true,
+        "child_exited_before_fixture_cleanup": true,
+        "parent_exit_code": 1,
+        "observed": {
+          "PeakTreeRssBytesSampled": 133689344,
+          "LastTotalOutputBytes": 0,
+          "TrackedPids": [
+            2568,
+            20900,
+            32452
+          ],
+          "ElapsedSeconds": 1.2553592999999998
+        },
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      },
+      "parent_exit_child": {
+        "expected": "HOLD_WATCHDOG_ORPHAN_DESCENDANT_AFTER_PARENT_EXIT",
+        "actual": "HOLD_WATCHDOG_ORPHAN_DESCENDANT_AFTER_PARENT_EXIT",
+        "parent_pid": 24896,
+        "child_pid": 32920,
+        "wall_limit_seconds": 8,
+        "rss_limit_bytes": 1073741824,
+        "output_limit_bytes": 1073741824,
+        "parent_exited_before_fixture_cleanup": true,
+        "child_exited_before_fixture_cleanup": true,
+        "parent_exit_code": 0,
+        "observed": {
+          "PeakTreeRssBytesSampled": 133443584,
+          "LastTotalOutputBytes": 0,
+          "TrackedPids": [
+            20164,
+            24896,
+            32920
+          ],
+          "ElapsedSeconds": 1.4991013
+        },
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      }
+    },
+    "exact_resource_values": {
+      "seconds": 900,
+      "rss_bytes": 12884901888,
+      "total_output_bytes": 1073741824
+    },
+    "scope": "Scaled watchdog samples, no enforced hard RAM cap"
+  },
+  "external_rights_custody": {
+    "status": "NOT_VERIFIED",
+    "source_scope": "PR #28, Issue #29 and pinned public governance evidence",
+    "owner_conditional_go": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+    "trusted_role_key_count": 0,
+    "authenticated_owner_signer": "NOT_VERIFIED",
+    "authenticated_distinct_reviewer": "NOT_VERIFIED",
+    "authenticated_rights_custodian": "NOT_VERIFIED",
+    "ad00": "NOT_VERIFIED",
+    "ad01c": "NOT_VERIFIED",
+    "e6": "NOT_VERIFIED",
+    "private_checkpoint": {
+      "status": "NOT_ACCESSED_CUSTODY_UNVERIFIED",
+      "step": 1024,
+      "expected_bytes": 45074891,
+      "parameters": 3749376,
+      "expected_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+    },
+    "original_tokenizer_inventory": "NOT_ACCESSED_CUSTODY_UNVERIFIED",
+    "real_frozen_80_case_payload": "NOT_FROZEN_OR_VERIFIED",
+    "codex_review_provenance": "Codex remediator and separate adversarial harness; no external signature or certification",
+    "runtime_metadata": {
+      "python": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "cpu": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+      "arch": "AMD64",
+      "logical_cpu_count": 8,
+      "installed_distribution_metadata_only": {
+        "cryptography": "46.0.6",
+        "psutil": null,
+        "torch": "2.11.0"
+      },
+      "torch_imported": false
+    }
+  },
+  "i1_verdict": "HOLD_I1",
+  "i2_not_executed": true,
+  "blockers": [
+    "F06_EXTERNAL_TRUST_RIGHTS_AND_CUSTODY",
+    "HOLD_I1_RESOURCE_GUARD",
+    "INDEPENDENT_EXACT_COMMIT_ATTESTATION_UNAVAILABLE",
+    "PINNED_PYTHON_PSUTIL_UNAVAILABLE_RUNTIME_UNQUALIFIED"
+  ],
+  "no_model_or_private_checkpoint_access": true,
+  "no_TEST_FINAL24_or_lineage_change": true,
+  "pr_merged": false,
+  "micro_permit_created": false,
+  "findings": {
+    "F01": "PARTIAL: production empty trust rejects; mock nonce replay across two source copies and root alias rejected. Authenticated three-role admission and protected tamper-resistant nonce custody unverified.",
+    "F02": "MOCK_PASS: taxonomy/digest tamper denied. Original private tokenizer inventory and provenance unverified.",
+    "F03": "MOCK_PASS: 80/80 oracle and byte/case/group tamper rejection. Actual 80-case freeze and independent readback pending rights.",
+    "F04": "SCOPED_NATIVE_PASS: exact Python 3.12/PowerShell 5.1, launcher prefix and native junction/symlink checks exercised. Full I2 path and runtime intentionally unexercised.",
+    "F05": "PARTIAL: author mock rerun 44/44, Codex adversarial 22/22, launcher prefix 9/9, real watchdog 5/5. Organizational exact-commit reviewer signoff unavailable.",
+    "F06": "HARD_VETO: empty approved trust anchors; no authenticated owner/reviewer/custodian AD-00/AD-01C/E6 or private checkpoint/tokenizer/fixture custody. psutil missing in pinned Python.",
+    "F07": "SOURCE_ONLY: finite positive weight-delta and fingerprints present. Model gradient/update validation unexecuted.",
+    "F08": "HOLD_I1_RESOURCE_GUARD: scaled timeout, aggregate sampled RSS, retained output and child cleanup passed. No enforced hard process-tree RSS cap, exact 900s/12GiB/1GiB workload boundaries untested.",
+    "F09": "SOURCE_CLOSED: corrected historical QA counts retained; current 18/18 and 44/44 recorded separately.",
+    "F10": "SOURCE_CLOSED: fixed four-choice and gold-first caveat preserved.",
+    "N05": "NATIVE_PARSE_PASS: launcher and all six scripts parse after fixing the separate OnePack defect.",
+    "N06": "NATIVE_PREFIX_PASS: hard-pinned expected hashes, altered bytes and caller rehash rejected.",
+    "N07": "NATIVE_PREFIX_PASS: dot-sourced exact verified buffer before guarded Start-Process; replacement module marker absent.",
+    "N08": "OPEN: periodic sampling lacks OS-enforced instantaneous 12 GiB hard aggregate RSS containment."
+  },
+  "candidate_source_files": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "sha256": "f3a8ab2952f85873b0e1ec5e50b5f12faea527f57f2b0041b91a3c86ebf62c02",
+      "git_blob_sha1": "3ce0bf1b9db245659d20ecf935190414079834e1",
+      "bytes": 33696,
+      "v4_sha256": "c0552b0dd55f671db93f4e64924877aaadf084243df1cefd04660b26721b70b8",
+      "v4_git_blob_sha1": "cbaab1556dec7059acba2139a0bae25149adfc61",
+      "changed": true
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "sha256": "cd0d2ff8496186146f605d1c07f24ba7a87a6d92343bc23b4c9b4ba10564ec09",
+      "git_blob_sha1": "273cc989d5e94ae7a8e58c08a709cf7dd8229ab2",
+      "bytes": 6931,
+      "v4_sha256": "30515fa475b283bcd3d713391bd947c54bb63e60986f35c1e67a2cec239b5eb1",
+      "v4_git_blob_sha1": "66461481f05c19b89f7ae928719dd78b7db2768c",
+      "changed": true
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "sha256": "b322e7483667169fcd83a269a65209272df3d1ba683b3d52da4706558195a138",
+      "git_blob_sha1": "716e5c28f81d77316eb629d52661260c5b9d9631",
+      "bytes": 5573,
+      "v4_sha256": "01e4a3e58e0d8a0414a724c744c6f8d4b071b4e1187f427e70cdbb3a58d48985",
+      "v4_git_blob_sha1": "8f2c528ef37219891a7ab017de32357a6711c86f",
+      "changed": true
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Watch-TTM-SM4M-ProcessTree-PS51.ps1",
+      "sha256": "d80f46e6d023fa165b097fb449a3844a47a3020416a7b22240fa4c4a2cdbce4c",
+      "git_blob_sha1": "8b68fc8f348c41b2b2b6ccef58328b647e53915c",
+      "bytes": 5533,
+      "v4_sha256": "c18ea2097b837eaefb8dddcc4008ac751b75517fca7816f50ad0840ee16cc47e",
+      "v4_git_blob_sha1": "d6dad07f9c4c65e12e9fd9d83215bd6f4e7e6c4c",
+      "changed": true
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-Watchdog-NativeNegativeQA-PS51.ps1",
+      "sha256": "36ea68654f254fc14931dd5b678ef2749edf6938eb8be4fe8831800dba10602b",
+      "git_blob_sha1": "8a2c1169167427d13516dd3781fe153a80d042ed",
+      "bytes": 5762,
+      "v4_sha256": "6282557d89749a827162e07bafdd1e326d804f9aebd8b5d29a596dcb883db65f",
+      "v4_git_blob_sha1": "dd82daa4306ba66a7de19964fcf08d133fe94beb",
+      "changed": true
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+      "sha256": "d9a0408a06c5322f752348a08e45669802ffb10b356ee9dd44464aec7fb8c3fb",
+      "git_blob_sha1": "dd97ec53c022a3b529c48739250629248f0bb481",
+      "bytes": 10527,
+      "v4_sha256": "d9a0408a06c5322f752348a08e45669802ffb10b356ee9dd44464aec7fb8c3fb",
+      "v4_git_blob_sha1": "dd97ec53c022a3b529c48739250629248f0bb481",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "sha256": "47d12e0248830518584ffb8e9af44323f418214234568411bfbde192f274f623",
+      "git_blob_sha1": "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+      "bytes": 8884,
+      "v4_sha256": "47d12e0248830518584ffb8e9af44323f418214234568411bfbde192f274f623",
+      "v4_git_blob_sha1": "23fb50052fb7c9cd37c0d588e3d72dd172c3a79c",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "git_blob_sha1": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "bytes": 1432,
+      "v4_sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "v4_git_blob_sha1": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "bytes": 8160,
+      "v4_sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "v4_git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "bytes": 4959,
+      "v4_sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "v4_git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "bytes": 1938,
+      "v4_sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "v4_git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "bytes": 1335,
+      "v4_sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "v4_git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "bytes": 1156,
+      "v4_sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "v4_git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "changed": false
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-DIAG-Q001-I1-NativeSourceOnePack-PS51.ps1",
+      "sha256": "e31b425f78549d3a8debac2aa773c108aae56ce79190c300cba9d21a81fdd744",
+      "git_blob_sha1": "bde14c3d4aea3f7ec140288b37dcdc78fa01e1c3",
+      "bytes": 6410,
+      "v4_sha256": "5184f5d70c9327e37c40e31cb235a58a2c005d3899e2d0699c16c41239d0341f",
+      "v4_git_blob_sha1": "e723db8f93ccab019035a8ad5c820180e18cae6c",
+      "changed": true
+    }
+  ],
+  "evidence_directory": "artifacts/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_CODEX_NATIVE_I1_EVIDENCE_20261116",
+  "evidence_files": {
+    "adversarial.json": {
+      "sha256": "2b6e28375a700ebfc445860a82a92fdb629bbe57ff8746c4c8d86986125121b4",
+      "git_blob_sha1": "0b94b7cbf0cafe523c9a8d5611367ec51bbf4d3c",
+      "bytes": 3717
+    },
+    "adversarial.py": {
+      "sha256": "1bfe7734956a0d83b0eab270c3e00e0eca87924ccc60aa417ba330699226bcba",
+      "git_blob_sha1": "483d6be9137406e64e516935b3357ee4220815f6",
+      "bytes": 8863
+    },
+    "author-negative.json": {
+      "sha256": "d540742f48c50758a1cbf44daf0b5d4284dee289ef733281c36cdc29c8b8f920",
+      "git_blob_sha1": "d904b03c15c2d6e32faf7bac88190d4be8e9c1b4",
+      "bytes": 2290
+    },
+    "github-prepush.json": {
+      "sha256": "7e1cac2284308bd5def38cfb3cfbf3f0809f61b766f5c54442bdd81b40357a43",
+      "git_blob_sha1": "933c01286092e231cb34b30ef271d1926165bde4",
+      "bytes": 1153
+    },
+    "launcher-prefix.json": {
+      "sha256": "00367f9e29e7d219d48ab28fa47f7f2e93e29a355e7e2cee5c785773546e1d98",
+      "git_blob_sha1": "dd3162478846847656199725374d0e57477e249b",
+      "bytes": 1577
+    },
+    "launcher-prefix.ps1": {
+      "sha256": "6640669f5276038911774cd154d6f695f2cf45d656e5e17e85074f7cebab545e",
+      "git_blob_sha1": "36a36f561f12d3fbccc39aeaf5008b94326dac29",
+      "bytes": 4043
+    },
+    "native-onepack.json": {
+      "sha256": "a3d9c3d42993f895771a085a99911b553f7ef115724b5b077598d2737fc1bd14",
+      "git_blob_sha1": "9a7d9734f7c61733a50fb03b30ec58c2cb4fb930",
+      "bytes": 1511
+    },
+    "native-parser.json": {
+      "sha256": "b3508ba779e221a0f95af927f9e3b170670d71251f68dbf598841203ba81bff1",
+      "git_blob_sha1": "b141e93f157a5af6b3b023d0db600bc3a8fc09d2",
+      "bytes": 671
+    },
+    "native-transcripts.zip": {
+      "sha256": "79c5e6903253ce800e20d1531179bd77a2b9726c0315084ad3a60d858eed3664",
+      "git_blob_sha1": "3863854565ffb555a419c1d48322bea2b46e6405",
+      "bytes": 45830
+    },
+    "native-watchdog-onepack.json": {
+      "sha256": "cffa8b8ae95028f671e48a9772770aa39be17c02b07de335d7d6596ae54f6d6a",
+      "git_blob_sha1": "bc47a3d9115fdacc9e227b650da0dbeeb9d5760d",
+      "bytes": 3964
+    },
+    "native-watchdog-standalone.json": {
+      "sha256": "bf4bba889d25e17d978309e53d5707a75ee147f0149340358e3ba0e7c5990431",
+      "git_blob_sha1": "4ce49b366da88006008b1376c38ecedd33a0c53f",
+      "bytes": 3964
+    },
+    "preflight.json": {
+      "sha256": "cbe394bfec6a0c76c725516e8751e2bece069bed493bc053f6074521bc00924f",
+      "git_blob_sha1": "b0da975e94ed7d21bff5ebce9f61a05f52e0d0a9",
+      "bytes": 7718
+    },
+    "probe-exit.ps1": {
+      "sha256": "d5c17873a5dc1f0e3b72f773ba46beefca3a4d1f1c8b88cec9c27114e8067ab9",
+      "git_blob_sha1": "70baf13cb09cbd99c2246b1d9e2bd55dc4068d77",
+      "bytes": 955
+    },
+    "raw-transcript-manifest.json": {
+      "sha256": "53e905cc4586fe849a97ceca0e53726101f14bdcc70312b88f64fe07715e7b2f",
+      "git_blob_sha1": "1ef524de7660c08aa423b2c58c4e9e553acb96ba",
+      "bytes": 17966
+    },
+    "run-native.py": {
+      "sha256": "c1da8ea8d2e4392230f18cc48f882ff078af433bace7b98729be217906ad8d6a",
+      "git_blob_sha1": "a4adf5e9f6a85fd6aee9f2ec7567620ce1220dac",
+      "bytes": 3621
+    },
+    "runtime-metadata.json": {
+      "sha256": "75f231a422d4d06c0d2fc293cb68656d811511eee12832b2781d4922cf39503e",
+      "git_blob_sha1": "d6bf21aa1aa4b162066e677c45a958d2976f72a1",
+      "bytes": 349
+    },
+    "runtime-metadata.py": {
+      "sha256": "1a04c8a24da399019bc536fe1490cf43de8a226ae0e34713b9d104bbbc2564a7",
+      "git_blob_sha1": "4beb34b20631eeba56edc2d89fd4539c6f233458",
+      "bytes": 582
+    },
+    "source-qa.json": {
+      "sha256": "bab546afc8bf5d888177b8f4338701ee9c9380fb3d66205f38954193b3d7c375",
+      "git_blob_sha1": "039a1749a3f31290d9dd3133ebdccfb10642e9e1",
+      "bytes": 776
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "ttm.sm4m.diag.q001.preexec_github_archive_custody.v1",
+  "operation": "TTM_SM4M_DIAG_Q001_SOURCE_ARCHIVE_AND_INDEPENDENT_REVIEW_HANDOFF_SINGLE_GATE",
+  "date": "2026-11-16",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "base_main_exact": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "source_zip": {
+    "original_name": "TTM_SM4M_DIAG_Q001_PREEXEC_SOURCE_CANDIDATE.zip",
+    "size_bytes": 18531,
+    "sha256": "7d926f77fc666e95175b097f2b40022020a4a846e8493b2563ee03adb7bf5897",
+    "git_archive_format": "8_BYTE_EXACT_EXTRACTED_FILES_NOT_BINARY_ZIP",
+    "manifest_payload_entries": 7,
+    "archive_entries": 8
+  },
+  "source_files": [
+    {
+      "name": "ttm_sm4m_diag_q001.py",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "git_blob_sha1": "0e34694a4733affff015305a590df1f95c659703",
+      "sha256": "69b9b85b779c2617b5fb80d7031439189ab74ea7bb4dac856a5b903595d6055a",
+      "size_bytes": 24458
+    },
+    {
+      "name": "qa_crosscheck.py",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "size_bytes": 4959
+    },
+    {
+      "name": "Run-Approved-OneShot-PS51.ps1",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "git_blob_sha1": "d727ac512d86e105e81f4dd0d897e55e27d7a05c",
+      "sha256": "8a59bf12f60c83f4c6c6a2f93ae2f9925058ac33a96343fb1dec4b7f290f9e0f",
+      "size_bytes": 4051
+    },
+    {
+      "name": "Run-SourceQA-PS51.ps1",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "git_blob_sha1": "033b77253f73ff63ec3dbf1f8bb187457ab9ae77",
+      "sha256": "b2b48b02415ec5eaab061c4cca9f114b27241bff0e20829bccccd16c47d18e27",
+      "size_bytes": 1207
+    },
+    {
+      "name": "Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "size_bytes": 1938
+    },
+    {
+      "name": "README.md",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "git_blob_sha1": "a44ef622273924bc507f055f676be0ae6e5721ec",
+      "sha256": "b7c2863766e43a98669ab8e1578bf41c5aef21984a48ea01e4cf03ddb42e77b9",
+      "size_bytes": 3627
+    },
+    {
+      "name": "SHA256_MANIFEST.json",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "size_bytes": 1335
+    },
+    {
+      "name": "SOURCE_QA_RECEIPT.json",
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "size_bytes": 1156
+    }
+  ],
+  "source_custody": {
+    "manifest_7_of_7_sha256": "PASS",
+    "github_8_of_8_git_blob_sha1": "PASS",
+    "archive_integrity": "PASS",
+    "restore_trailing_LF": "APPLIED_FROM_ORIGINAL_SOURCE_BYTES",
+    "source_modified_during_import": false,
+    "unverified_external_source_rights": true
+  },
+  "local_author_preexec": {
+    "python_compilation": "2_OF_2_PASS",
+    "mock_oracle_QA": "18_OF_18_PASS",
+    "second_author_checker": "21_OF_21_PASS",
+    "run_without_flags": "EXIT_CODE_2_HOLD_MISSING_REQUIRED_RUN_FLAGS",
+    "environment": "CHATGPT_CONTAINER_NOT_OWNER_WINDOWS_PYTHON312",
+    "model_loaded": false,
+    "model_run": false,
+    "real_fixture_generated": false
+  },
+  "preliminary_review_risks": [
+    {
+      "id": "R01",
+      "description": "README old final line says 17/17 vs actual mock 18/18",
+      "status": "REQUIRES_INDEPENDENT_CLASSIFICATION"
+    },
+    {
+      "id": "R02",
+      "description": "PowerShell wrappers use _tmp local candidate default path but GitHub candidate is under tools/pilot_t4",
+      "status": "REQUIRES_INDEPENDENT_WINDOWS_INTEGRATION_REVIEW"
+    },
+    {
+      "id": "R03",
+      "description": "Local JSON permit booleans need exact external owner/reviewer/rights attestation; do not self-certify",
+      "status": "HARD_VETO_RUN_IF_NOT_PROVEN"
+    }
+  ],
+  "governance": {
+    "question_id": "TTM-SM4M-DIAG-Q001",
+    "Q1": "REGISTERED_ON_MAIN",
+    "Q2_Q3": "SOURCE_DESIGN_REVIEW_PENDING",
+    "owner_decision": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+    "owner_comment_in_PR27": 6910234144,
+    "distinct_source_review": "NOT_EXECUTED",
+    "I1_source_release": "HOLD_PENDING_DISTINCT_QA_AND_RIGHTS",
+    "I2_model_execution": "NOT_EXECUTED",
+    "checkpoint_rights_ad00_ad01c_e6": "NOT_VERIFIED",
+    "lineage_changed": false,
+    "merging_this_pr_authorized": false
+  }
+}

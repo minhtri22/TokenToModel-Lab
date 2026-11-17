@@ -1,0 +1,23 @@
+{
+  "schema": "ttm.sm4m.diag.q001.local_candidate_author_qa.v1",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "base_main_commit": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "owner_command": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+  "scope": "LOCAL_CANDIDATE_ONLY_NO_I1_RELEASE_NO_MODEL_RUN",
+  "mock_source_qa": {"passed": 18, "total": 18},
+  "separate_author_codepath_qa": {"passed": 21, "total": 21},
+  "pytest_or_real_model_execution": "NOT_EXECUTED",
+  "test_environment": "container Python 3.13.5 (NOT owner Windows Python 3.12)",
+  "checkpoint_accessed": false,
+  "private_tokenizer_inventory_accessed": false,
+  "historical_test_final_accessed": false,
+  "real_fixture_generated": false,
+  "owner_q4_conditional_go_recorded_in_github_pr27_comment_id": 6910234144,
+  "q2_q3_distinct_review": "NOT_EXECUTED",
+  "checkpoint_rights_ad00_ad01c_e6": "NOT_VERIFIED",
+  "i1_implementation_authorized": false,
+  "i2_model_execution_authorized": false,
+  "science_verdict": "NOT_APPLICABLE",
+  "lineage_changed": false,
+  "next_required_integrated_gate": "TTM_SM4M_DIAG_Q001_DISTINCT_PREEXEC_RIGHTS_CUSTODY_AND_I1_RELEASE_SINGLE_GATE"
+}

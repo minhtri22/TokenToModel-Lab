@@ -1,0 +1,12 @@
+PS51_LAUNCHER_PARSE_PASS
+PS51_LOCAL_OWNER_PACKET_DENIED
+WINJOB_NO_MODEL_SMOKE
+{"child_exit_code": 0, "job_commit_limit_bytes": 268435456, "peak_job_commit_bytes": 9203712}
+{"Status":"PASS_WATCHDOG_SAMPLE_BOUNDED","PeakTreeRssBytesSampled":29528064,"FinalTotalOutputBytes":118,"ElapsedSeconds":0.897405,"TrackedPidCount":2,"ExitCode":0}
+
+LIVE_GUARDED_ENTRY
+{"error": "HOLD_OWNER_INTERNAL_I1_GITHUB_READBACK", "run_finished": false, "status": "HOLD"}
+LIVE_PS51_OWNER_ROUTE_DENIED_BY_GITHUB_PREFLIGHT
+{"error": "HOLD_OWNER_INTERNAL_I1_GITHUB_READBACK", "run_finished": false, "status": "HOLD"}
+{"child_exit_code": 2, "job_commit_limit_bytes": 12884901888, "peak_job_commit_bytes": 20062208}
+LIVE_GUARD_CHILD_EXIT_2_NO_DATA_ACCESS

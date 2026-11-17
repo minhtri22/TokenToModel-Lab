@@ -1,0 +1,12 @@
+{
+  "python": "C:\\Users\\minht\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "cpu": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+  "arch": "AMD64",
+  "logical_cpu_count": 8,
+  "installed_distribution_metadata_only": {
+    "cryptography": "46.0.6",
+    "psutil": null,
+    "torch": "2.11.0"
+  },
+  "torch_imported": false
+}

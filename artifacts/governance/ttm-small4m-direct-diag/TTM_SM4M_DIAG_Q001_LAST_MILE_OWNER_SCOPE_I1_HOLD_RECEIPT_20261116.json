@@ -1,0 +1,95 @@
+{
+  "schema": "ttm.sm4m.diag.q001.i1_last_mile_owner_internal_v1",
+  "date": "2026-11-16",
+  "operation": "TTM_SM4M_DIAG_Q001_I1_LAST_MILE_HARD_MEMORY_RIGHTS_SIGNERS_RUNTIME_AND_DISTINCT_ADJUDICATION_ONEPACK",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "baseline_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "pr": 28,
+  "last_mile_source_head": "9e3ced7bb9e2b5820bab762e51611d84fda0a194",
+  "source_manifest_commit": "91b6e14793d7149dae86b24c293174040314259a",
+  "source_manifest_blob": "bf45c6e5570c4b5ad9eb42047f4b1eb41fb4fc7b",
+  "codex_handoff_commit": "93f8acee35c11b1e3fd832a0de09065c4e2f813b",
+  "owner_permission": {
+    "type": "USER_EXPLICIT_DECLARATION",
+    "scope": "OWNER_DECLARED_INTERNAL_NONCOMMERCIAL_NO_REDISTRIBUTION",
+    "owner_go": "GO_SMALL4M_DIAG_SINGLE_SCOPED_IMPLEMENT_AND_RUN_CONDITIONAL",
+    "record": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6916584568",
+    "third_party_rights_independent_legal_verification": "NOT_CLAIMED",
+    "upstream_tinystories_license_label": "cdla-sharing-1.0",
+    "three_role_signer_ceremony_for_this_owner_scope": "POLICY_SUPERSEDED_BY_DECLARED_INTERNAL_OWNER_SCOPE",
+    "fake_signers_created": false
+  },
+  "source_changes": [
+    {
+      "file": "windows_rss_native.py",
+      "git_blob": "51748fb86184ec8dd9de51211b3173514255c159",
+      "result": "SOURCE_PINNED_NOT_NATIVE_TESTED"
+    },
+    {
+      "file": "windows_job_memory_limit.py",
+      "git_blob": "276c83456fa4451350e9784db54ff3b50cab1f2a",
+      "result": "JOB_COMMITTED_MEMORY_GUARD_POC_NOT_I2_WIRED_NOT_NATIVE_TESTED"
+    },
+    {
+      "file": "owner_internal_admission.py",
+      "git_blob": "dc19c6686bfdca1b6de57efb631ecfa3bec24175",
+      "result": "VERSIONED_SINGLE_OWNER_POLICY_SOURCE_NOT_NATIVE_TESTED"
+    },
+    {
+      "file": "test_owner_internal_admission_source.py",
+      "git_blob": "f2a0fba45ded536066ee07fc71f8f7127302e348",
+      "result": "14_NEGATIVE_TEST_CASES_DEFINED_NOT_EXECUTED"
+    },
+    {
+      "file": "ttm_sm4m_diag_q001.py",
+      "git_blob": "bf793274a30ed22802f08684408f396bba9ac8eb",
+      "result": "OWNER_ONLY_ALTERNATIVE_AND_RSS_PINNED_SRC_NOT_NATIVE_TESTED"
+    },
+    {
+      "file": "Run-Approved-OneShot-PS51.ps1",
+      "git_blob": "9d55bc53c901b8d8258ef50d73f4425efcb67652",
+      "result": "REPINNED_TO_RUNNER_SHA_SOURCE_ONLY"
+    }
+  ],
+  "historical_codex_native_qa": {
+    "tested_source": "77f6e946975a8b5cd5859297f6d0f161bb13f629",
+    "parser": "6/6_PASS",
+    "oracle": "18/18_PASS",
+    "author_negative": "44/44_PASS",
+    "codex_adversarial": "22/22_PASS",
+    "watchdog": "5/5_STANDALONE_5/5_ONEPACK",
+    "source_evidence_commit": "957617b5fabd60115ae02f3cc0e3b993090fefd8",
+    "does_not_validate_last_mile_code": true
+  },
+  "new_static_author_qa": "15/15_PASS_AFTER_CHECKER_ERRATUM",
+  "remaining_true_blockers": [
+    "NEW_OWNER_INTERNAL_ADMISSION_NATIVE_NEGATIVE_QA_NOT_EXECUTED",
+    "WIN32_JOB_COMMIT_GUARD_NOT_NATIVE_VERIFIED_OR_WIRED_TO_I2",
+    "WIN32_STDLIB_RSS_PROBE_NOT_NATIVE_VERIFIED",
+    "CHECKPOINT_EXACT_PRIVATE_BYTES_AND_TOKENIZER_INVENTORY_NOT_VERIFIED",
+    "REAL_80_CASE_FIXTURE_NOT_FROZEN",
+    "DISTINCT_EXACT_NEW_SOURCE_REVIEW_NOT_EXECUTED"
+  ],
+  "frozen": {
+    "train": 24,
+    "nontrain": 56,
+    "seed": 20261116,
+    "max_steps": 256,
+    "wall_seconds": 900,
+    "tree_rss_gib": 12,
+    "output_gib": 1,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+  },
+  "adjudication": {
+    "I1": "HOLD_I1_ENGINEERING_NATIVE_AND_BYTE_CUSTODY_PENDING",
+    "I2": "NOT_EXECUTED",
+    "science_result": "NOT_AVAILABLE",
+    "PR28": "DRAFT_UNMERGED",
+    "main_changed": false,
+    "owner_go_requires_repeat": false,
+    "legacy_triple_auth_historical_retained": true,
+    "lineage_changed": false
+  },
+  "next_operation": "TTM_SM4M_DIAG_Q001_CODEX_LAST_MILE_NATIVE_JOB_OBJECT_OWNER_SCOPE_RUNTIME_AND_ONE_I1_ADJUDICATION"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "ttm.sm4m.diag.q001.local_source_candidate_manifest.v1",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "source_base_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "files": [
+    {
+      "name": "Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "size_bytes": 1938,
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57"
+    },
+    {
+      "name": "README.md",
+      "size_bytes": 3627,
+      "sha256": "b7c2863766e43a98669ab8e1578bf41c5aef21984a48ea01e4cf03ddb42e77b9"
+    },
+    {
+      "name": "Run-Approved-OneShot-PS51.ps1",
+      "size_bytes": 4051,
+      "sha256": "8a59bf12f60c83f4c6c6a2f93ae2f9925058ac33a96343fb1dec4b7f290f9e0f"
+    },
+    {
+      "name": "Run-SourceQA-PS51.ps1",
+      "size_bytes": 1207,
+      "sha256": "b2b48b02415ec5eaab061c4cca9f114b27241bff0e20829bccccd16c47d18e27"
+    },
+    {
+      "name": "SOURCE_QA_RECEIPT.json",
+      "size_bytes": 1156,
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54"
+    },
+    {
+      "name": "qa_crosscheck.py",
+      "size_bytes": 4959,
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099"
+    },
+    {
+      "name": "ttm_sm4m_diag_q001.py",
+      "size_bytes": 24458,
+      "sha256": "69b9b85b779c2617b5fb80d7031439189ab74ea7bb4dac856a5b903595d6055a"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "ttm.sm4m.diag.q001.i1_integrated_f01_f10_remediation_source_manifest.v1",
+  "date": "2026-11-16",
+  "operation": "TTM_SM4M_DIAG_Q001_I1_INTEGRATED_REMEDIATION_NEGATIVE_QA_RIGHTS_AND_SINGLE_RELEASE_REASSESSMENT",
+  "repository": "minhtri22/TokenToModel-Lab",
+  "question_id": "TTM-SM4M-DIAG-Q001",
+  "q1_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "original_reviewed_head": "fb0bd357fbcc95adcc94d39e94c4bdb54c1714d5",
+  "independent_HOLD_evidence_head": "cbc27333e13b586a8da1c0b1a3741660a61faf25",
+  "source_branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "remediation_head": "READ_GITHUB_PR28_AT_NEW_DISTINCT_REVIEW_DO_NOT_INVENT",
+  "files": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "git_blob_sha1": "b1e44335996d4ff6f12cf8ad19959f771070b6c1",
+      "sha256": "6163f730fe69c82f55f61b3647a7fa2fc605db9fbc09996b5354d2cf1b1e7e8b",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "git_blob_sha1": "14d4be8a5c1c9ed311ebfe3f5765ab0a3e4753ec",
+      "sha256": "1d543cc5115189c8050fdc481c486490072448372ce302827938006ee1437f2e",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+      "git_blob_sha1": "2e81b842ca2e96aed1fb6bb7a867ced5c9ccbc72",
+      "sha256": "122265f2742778a6935ad3ee0fea7ed93556d9cf40f4d3f0d2f23f436e455740",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-SourceQA-PS51.ps1",
+      "git_blob_sha1": "d55d8ed501c73524340f3e4ada76c07cdf0e1163",
+      "sha256": "60e23dfc691c317b5bcb626a79c79ca50ed01aecc362c34fcf418db46253db25",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "git_blob_sha1": "7211a49eebc96266134678128ac909a6623609bc",
+      "sha256": "89a3060027bc41577de858fbafe0fc54968e70874dae95537ede2fb8e48a1e65",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/README.md",
+      "git_blob_sha1": "08414cd0dba6772e576a24bf66ed6ba80191badf",
+      "sha256": null,
+      "sha256_status": "NOT_REHASHED_IN_TOOL"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/qa_crosscheck.py",
+      "git_blob_sha1": "7df676831e2397cf6497bc0bc47a0abcf3bbdabf",
+      "sha256": "6aa7465a906b6669d270ab40d1fc6e6686c71f9f4a30902c616f6a519a63a099",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SHA256_MANIFEST.json",
+      "git_blob_sha1": "5b7975ee8f33126aca8f1e5f62d6f653e1dd1fdf",
+      "sha256": "545a84693a148a24ddf09a762f02f16dd03db9863fcd98019b0dc1c670572988",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/SOURCE_QA_RECEIPT.json",
+      "git_blob_sha1": "96128a9f7de92e48ab4371fe6d9b04ebf99c6962",
+      "sha256": "b3be272f92f535f07ac08ceb1c4d0da45f2e85637a43e2f91b7ff59777ab2e54",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1",
+      "git_blob_sha1": "9e84a07d8ded5829bc822d5db01a0f9e9cbb4fc5",
+      "sha256": "7b3aa3e8529b2b4df38ac73140ac25f8b3e22fc9e8fd04bbdeae676bc5666e57",
+      "sha256_status": "LOCAL_BYTES_MATCHED_GIT_BLOB"
+    }
+  ],
+  "unmodified_historical_files": [
+    "qa_crosscheck.py",
+    "SHA256_MANIFEST.json",
+    "SOURCE_QA_RECEIPT.json",
+    "Invoke-TTM-SM4M-DIAG-EnvPreflight-PS51.ps1"
+  ],
+  "frozen_protocol": {
+    "train": 24,
+    "nontrain": 56,
+    "steps": 256,
+    "seed": 20261116,
+    "wall_seconds": 900,
+    "max_process_rss_gib": 12,
+    "max_total_output_gib": 1,
+    "owner_conditional_go": "PRESERVED",
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b",
+    "old_test_final_reuse": false
+  },
+  "review_findings": [
+    {
+      "id": "F01",
+      "severity": "BLOCKER",
+      "remediation": "CODE_HARDENED_SIGNED_3_ROLE_ED25519_PLUS_SIGNED_NONCE_WITH_ATOMIC_NO_RETRY_CLAIM",
+      "status": "SOURCE_REMEDIATED_EXTERNAL_TRUST_KEYS_NOT_ATTESTED"
+    },
+    {
+      "id": "F02",
+      "severity": "BLOCKER",
+      "remediation": "ACTUAL_INVENTORY_SHA_AND_COMPLETE_NON_SPECIAL_SPECIAL_RESERVED_TAXONOMY",
+      "status": "SOURCE_REMEDIATED_PRIVATE_INVENTORY_NOT_ATTESTED"
+    },
+    {
+      "id": "F03",
+      "severity": "BLOCKER",
+      "remediation": "PERSIST_EXACT_80_CASE_JSON_WITH_80_CASE_AND_5_GROUP_SHA;RUN_LOADS_FROZEN_BYTES",
+      "status": "SOURCE_REMEDIATED_REAL_FIXTURE_NOT_AUTHORIZED_OR_FROZEN"
+    },
+    {
+      "id": "F04",
+      "severity": "BLOCKER",
+      "remediation": "POWERSHELL_PSSCRIPTROOT_EXACT_FULL_SHA_PIN",
+      "status": "SOURCE_REMEDIATED_NATIVE_WINDOWS_NOT_EXECUTED"
+    },
+    {
+      "id": "F05",
+      "severity": "BLOCKER",
+      "remediation": "SEPARATE_PATH_ADVERSARIAL_MOCK_SUITE_31_OF_31_LOCAL_PASS",
+      "status": "AUTHOR_EXECUTED_DIFFERENT_CODEPATH_NOT_INDEPENDENT_REVIEWER_OR_NATIVE_WINDOWS"
+    },
+    {
+      "id": "F06",
+      "severity": "BLOCKER",
+      "remediation": "NO_FALSE_RIGHTS_CLAIM_THREE_TRUST_ROOTS_EMPTY_DENY_EVERY_RUN",
+      "status": "HOLD_RIGHTS_MODEL_CHECKPOINT_TOKENIZER_AND_EXTERNAL_SIGNATURES_NOT_VERIFIED"
+    },
+    {
+      "id": "F07",
+      "severity": "MAJOR",
+      "remediation": "NONZERO_WEIGHT_DELTA_PARAM_SHA256_AND_L2_BEFORE_AFTER_PEAK_RSS_RECORDED",
+      "status": "SOURCE_REMEDIATED_RUNTIME_NOT_EXECUTED"
+    },
+    {
+      "id": "F08",
+      "severity": "MAJOR",
+      "remediation": "EXTERNAL_WINDOWS_WALL_RSS_TOTAL_OUTPUT_PROCESS_TREE_WATCHDOG",
+      "status": "SOURCE_REMEDIATED_NATIVE_WATCHDOG_NEGATIVE_QA_NOT_EXECUTED"
+    },
+    {
+      "id": "F09",
+      "severity": "MINOR",
+      "remediation": "README_CORRECTS_17_OF_17_TO_HISTORICAL_18_OF_18",
+      "status": "SOURCE_REMEDIATED"
+    },
+    {
+      "id": "F10",
+      "severity": "MINOR",
+      "remediation": "FIXED_RESTRICTED_FOUR_WAY_CANDIDATE_BIAS_DOCUMENTED;PROTOCOL_UNCHANGED",
+      "status": "SOURCE_REMEDIATED_INTERPRETATION_ONLY"
+    }
+  ],
+  "author_negative_qa": {
+    "passed": 31,
+    "total": 31,
+    "source_script": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v2.py",
+    "environment": "LINUX_PYTHON_3.13.5",
+    "same_assistant_self_test": true,
+    "no_model_run": true,
+    "no_private_inventory_read": true,
+    "no_checkpoint_read": true,
+    "native_windows_ps51": "NOT_EXECUTED",
+    "different_human_or_agent_attested": false,
+    "scratch_location": "WITHIN_PROJECT_ROOT/_tmp_ONLY"
+  },
+  "runtime_admission": {
+    "i1_release": "HOLD_I1_PENDING_DISTINCT_REVIEW_AND_RIGHTS",
+    "i2_execution": "NOT_EXECUTED",
+    "owner_go_condition": "RECORDED_NOT_FULLY_SATISFIED",
+    "ad00_ad01c_e6_rights": "NOT_VERIFIED",
+    "checkpoint_bytes_verified_current": "NOT_EXECUTED",
+    "tokenizer_inventory_custody": "NOT_VERIFIED",
+    "cryptographic_trust_roots": "UNCONFIGURED_FAIL_CLOSED",
+    "fixture_real": "NOT_CREATED",
+    "native_windows_qa": "NOT_EXECUTED",
+    "model_training": "NOT_EXECUTED",
+    "lineage_modified": false
+  },
+  "release_decision": "HOLD_I1_NO_MODEL",
+  "next_single_gate": "TTM_SM4M_DIAG_Q001_F01_F10_EXACT_REMEDIATED_CANDIDATE_DISTINCT_NEGATIVE_QA_RIGHTS_CUSTODY_AND_SINGLE_I1_ADJUDICATION"
+}

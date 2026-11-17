@@ -1,0 +1,29 @@
+{
+  "checkpoint_access": false,
+  "checks": {
+    "constant_fails": true,
+    "counterfactual_16": true,
+    "determinism": true,
+    "fixed_24_56_split": true,
+    "fixture_80_80_oracle": true,
+    "four_option_distinct": true,
+    "independent_groups": true,
+    "no_target_in_input": true,
+    "oracle_not_last_value": true,
+    "reject_duplicate_context": true,
+    "reject_forged_sha": true,
+    "reject_invalid_inventory_hash": true,
+    "reject_special_collision": true,
+    "reject_tamper_context": true,
+    "reject_tamper_gold": true,
+    "reject_wrong_vocab": true,
+    "seed_sensitivity": true,
+    "train_first_query_balance": true
+  },
+  "fixture_written": false,
+  "mock": true,
+  "mode": "SOURCE_QA_ONLY",
+  "model_run": false,
+  "passed": 18,
+  "total": 18
+}

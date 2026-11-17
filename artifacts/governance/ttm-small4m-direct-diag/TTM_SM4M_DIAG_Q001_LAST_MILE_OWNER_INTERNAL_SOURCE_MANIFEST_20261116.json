@@ -1,0 +1,100 @@
+{
+  "schema": "ttm.sm4m.q001.last_mile_owner_scope_source_manifest.v1",
+  "operation": "TTM_SM4M_DIAG_Q001_I1_LAST_MILE_HARD_MEMORY_RIGHTS_SIGNERS_RUNTIME_AND_DISTINCT_ADJUDICATION_ONEPACK",
+  "date": "2026-11-16",
+  "exact_source_head": "9e3ced7bb9e2b5820bab762e51611d84fda0a194",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "branch": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+  "source_pins": [
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/windows_rss_native.py",
+      "git_blob_sha1": "51748fb86184ec8dd9de51211b3173514255c159",
+      "source_character_length": 2530
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/windows_job_memory_limit.py",
+      "git_blob_sha1": "276c83456fa4451350e9784db54ff3b50cab1f2a",
+      "source_character_length": 10338
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/owner_internal_admission.py",
+      "git_blob_sha1": "dc19c6686bfdca1b6de57efb631ecfa3bec24175",
+      "source_character_length": 5584
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/test_owner_internal_admission_source.py",
+      "git_blob_sha1": "f2a0fba45ded536066ee07fc71f8f7127302e348",
+      "source_character_length": 5270
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py",
+      "git_blob_sha1": "bf793274a30ed22802f08684408f396bba9ac8eb",
+      "source_character_length": 35139
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/Run-Approved-OneShot-PS51.ps1",
+      "git_blob_sha1": "9d55bc53c901b8d8258ef50d73f4425efcb67652",
+      "source_character_length": 5600
+    },
+    {
+      "path": "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/release_auth_v2.py",
+      "git_blob_sha1": "273cc989d5e94ae7a8e58c08a709cf7dd8229ab2",
+      "source_character_length": 6931
+    },
+    {
+      "path": "docs/governance/ttm-small4m-direct-diag/TTM_SM4M_DIAG_Q001_OWNER_INTERNAL_SCOPE_AND_LAST_MILE_AMENDMENT_20261116.md",
+      "git_blob_sha1": "aaf01f2cf0925f588ba38c0d4cd04e7c6578372b",
+      "source_character_length": 6482
+    }
+  ],
+  "owner_scope_comment": "https://github.com/minhtri22/TokenToModel-Lab/issues/29#issuecomment-6916584568",
+  "author_static_qa": {
+    "pass": 15,
+    "total": 15,
+    "checks": {
+      "Q1_COUNTS_AND_SEED": true,
+      "RSS_MODULE_BLOB_PIN": true,
+      "OWNER_MODULE_BLOB_PIN": true,
+      "OWNER_MD_BLOB_PIN": true,
+      "OWNER_POLICY_V1_ONLY": true,
+      "OWNER_MODE_OR_LEGACY_GUARD": true,
+      "NO_PSUTIL_RUNTIME_IMPORT": true,
+      "RSS_WIN32_API": true,
+      "JOB_LIMIT_COMMITTED_SEPARATE_RSS": true,
+      "ASSIGN_BEFORE_RESUME_CALL": true,
+      "LEGACY_AUTH_UNCHANGED": true,
+      "OWNER_TEST_CASES_14": true,
+      "JOB_NOT_YET_WIRED_IN_LAUNCHER": true,
+      "OWNER_SCOPE_DOCUMENT_PRESENT": true,
+      "NEVER_CLAIMED_NEW_NATIVE_QA": true
+    },
+    "erratum": "First attempted QA erroneously matched ResumeThread text in the source comments rather than actual k32.ResumeThread call; changed assertion to executable API call ordering. Source unchanged by correction."
+  },
+  "status": {
+    "owner_scope": "OWNER_DECLARED_INTERNAL_NONCOMMERCIAL",
+    "legal_provenance": "SOURCE_LABEL_ONLY",
+    "three_signer_ceremony": "SUPERSEDED_FOR_THIS_ONE_INTERNAL_SCOPE_BY_OWNER_AMENDMENT",
+    "legacy_prod_auth": "RETAINED",
+    "owner_mode_source": "IMPLEMENTED_UNREVIEWED",
+    "psutil_dependency": "REMOVED_IN_SOURCE",
+    "hard_os_job_memory": "PROTOTYPE_UNWIRED_UNTESTED",
+    "runtime_native_qa": "NOT_EXECUTED",
+    "checkpoint_real_bytes": "NOT_VERIFIED",
+    "tokenizer_real_bytes": "NOT_VERIFIED",
+    "fixture_80_real": "NOT_FROZEN",
+    "independent_latest_code_review": "NOT_EXECUTED",
+    "I1": "HOLD_I1",
+    "I2": "NOT_EXECUTED",
+    "model_run": false
+  },
+  "frozen": {
+    "seed": 20261116,
+    "train": 24,
+    "nontrain": 56,
+    "steps": 256,
+    "wall_seconds": 900,
+    "sampled_rss_gib": 12,
+    "output_gib": 1,
+    "checkpoint_sha256": "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
+  }
+}
