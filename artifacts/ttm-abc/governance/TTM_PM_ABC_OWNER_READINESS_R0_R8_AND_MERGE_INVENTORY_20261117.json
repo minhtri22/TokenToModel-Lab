@@ -1,0 +1,382 @@
+{
+  "schema": "ttm.pm.abc.owner_prospective_release_and_merge_readiness.v1",
+  "operation": "TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_READINESS_AND_EXACT_MERGE_DEPENDENCY_REVIEW_SINGLE_GATE",
+  "date": "2026-11-17",
+  "mode": "DESIGN_ONLY_READ_EXISTING_GITHUB_NO_EXECUTION_NO_MERGE",
+  "repo": "minhtri22/TokenToModel-Lab",
+  "exact_main": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+  "source_anchors": {
+    "PM_shared_contract": {
+      "commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+      "git_blob": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1"
+    },
+    "PM_ABC_final_alignment": "fa28b89e4ee93b3de4561deaa2a7b9a086fa340b",
+    "PM_ABC_predecessor_R0_R8": "c4c8cccaa0bde34a5e93024c7c4e12be2d60a582",
+    "A_I1_source": "ec197b5f00d3a037420390edd11ee55047e1d37f",
+    "A_I1_distinct_evidence": "e3e1c802815f4db1534e92d9848d6015eb9203cc",
+    "A_V4_design": "e6746184603f038b49d1e7d472367b6354474ba2",
+    "A_packet": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "A_requirements_git_blob": "3de320f1e734c7610fb750477803b082fefff753",
+    "B_M3_PR34": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "B_M3_PM_review": "fdffbf2cc3c517d25dddae89501c091c58f2608d",
+    "BC_PR36": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "BC_v2_tested_source": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "BC_PM_final": "82aaf2a881bd677afd8f6e600eb570aea897fdba",
+    "C_M4_design": "185d465c31f5f4bef6220be95e39dac1ae81c5b8",
+    "C_PR35": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "C_corrected_requirements_blob": "364a15d305b71e0c236a27409430f1e27e14aa70",
+    "B_PR37": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+    "B_final_77_mapping_blob": "c2d4a050f35218de2c023d3a5c50fb3454404c23",
+    "lineage_git_blob": "3409e036241deb1da6674619a2abc834bea8a2d6"
+  },
+  "source_scoped_previous_gates": {
+    "ABC_contract_alignment": "PASS_DESIGN_SCOPED",
+    "A_I1": "CLOSED_PASS_SCOPED_MEASUREMENT",
+    "A_V4": "DESIGN_ACCEPT_SCOPED",
+    "B_M3": "PASS_ENGINEERING_BASELINE_SCOPED_BY_PM_ADJUDICATION_WITH_V3_NATIVE_HOLD_PEAK_DISSENT",
+    "C_M4": "PASS_DESIGN_SCOPED",
+    "BC_v2": "BC_INTERFACE_PASS_ENGINEERING_SCOPED",
+    "C_F01_source_pointer": "PASS_CORRECTED_EXACT_SHA",
+    "T4_BC_v2_direct_codec": "INCOMPATIBLE",
+    "prospective_T4_external_role_byte_span_sidecar": "DESIGN_ONLY_NOT_IMPLEMENTED"
+  },
+  "merge_graph": {
+    "prs": [
+      {
+        "number": 28,
+        "head": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+        "base": "main",
+        "base_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+        "changed_files_vs_own_base": 63,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "A_PARENT_Q001_PREEXEC_NATIVE",
+        "recommendation": "HOLD_SEPARATE_BOUNDARY_AUDIT"
+      },
+      {
+        "number": 33,
+        "head": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+        "base": "review/ttm-sm4m-diag-q001-preexec-source-candidate-20261116",
+        "base_sha": "ebdc54575eed1ff60c402eecf60289f408bb38ca",
+        "changed_files_vs_own_base": 49,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "A_I1_PASS_MEASUREMENT_A_V4_DESIGN",
+        "recommendation": "REVIEW_CANDIDATE_NOT_AUTHORIZED_REQUIRES_PARENT_AUDIT_OR_CLEAN_SCOPE_REVIEW"
+      },
+      {
+        "number": 34,
+        "head": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+        "base": "main",
+        "base_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+        "changed_files_vs_own_base": 11,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "B_M3_SYNTHETIC_CORE",
+        "recommendation": "REVIEW_CANDIDATE_WITH_V3_HISTORICAL_DISSENT"
+      },
+      {
+        "number": 36,
+        "head": "09de6a46574146d863f416e056fcf01091f3efb8",
+        "base": "research/ttm-track-b-gpt-core-20261116",
+        "base_sha": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+        "changed_files_vs_own_base": 27,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "BC_V2_SYNTHETIC_BRIDGE_ENGINEERING",
+        "recommendation": "DEPENDENT_REVIEW_CANDIDATE_ONLY_AFTER_PR34_SCOPE_QA"
+      },
+      {
+        "number": 37,
+        "head": "ff4304e04f44de69a07cd767b2a7f400d6e95e88",
+        "base": "integration/ttm-bc-synthetic-sft-interface-20261116",
+        "base_sha": "09de6a46574146d863f416e056fcf01091f3efb8",
+        "changed_files_vs_own_base": 8,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "B_ABC_DESIGN_DOCS_EVIDENCE",
+        "recommendation": "DEPENDENT_DESIGN_REVIEW_CANDIDATE"
+      },
+      {
+        "number": 35,
+        "head": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+        "base": "main",
+        "base_sha": "f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3",
+        "changed_files_vs_own_base": 30,
+        "draft": true,
+        "open": true,
+        "merged": false,
+        "mergeable_at_own_base": true,
+        "scope": "C_M4_DESIGN_TESTS_WORKFLOW",
+        "recommendation": "INDEPENDENT_DESIGN_REVIEW_CANDIDATE_NOT_MERGE_AUTHORIZED"
+      }
+    ],
+    "parent_dependent_order_candidate_only": [
+      [
+        "28",
+        "33"
+      ],
+      [
+        "34",
+        "36",
+        "37"
+      ],
+      [
+        "35"
+      ]
+    ],
+    "filename_level_comparison": {
+      "A_parent_A_child_intersection_count": 2,
+      "A_parent_A_child_intersection": [
+        "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/independent_negative_qa_v3.py",
+        "tools/pilot_t4/direct_failure_diag_q001/preexec_candidate_20261116/ttm_sm4m_diag_q001.py"
+      ],
+      "checked_cross_branch_pairs": [
+        [
+          "28",
+          "35"
+        ],
+        [
+          "33",
+          "35"
+        ],
+        [
+          "34",
+          "35"
+        ],
+        [
+          "36",
+          "35"
+        ],
+        [
+          "37",
+          "35"
+        ],
+        [
+          "33",
+          "34"
+        ],
+        [
+          "33",
+          "36"
+        ]
+      ],
+      "checked_cross_branch_pair_filepath_intersections": 0,
+      "B34_BC36_filepath_intersections": 0,
+      "BC36_B37_filepath_intersections": 0,
+      "meaning": "FILENAMES_ONLY_NOT_SEMANTIC_MERGE_OR_SECURITY_INTEGRATION_QA"
+    },
+    "merge_authorization": "HOLD_UNTIL_EXACT_OWNER_SCOPE_AND_DISTINCT_MERGED_TREE_QA",
+    "branch_protection_and_rulesets": "NOT_VERIFIED_THIS_OPERATION",
+    "combined_merged_tree_ci": "NOT_EXECUTED",
+    "merge_ops_executed": 0
+  },
+  "release_barriers": [
+    {
+      "id": "R0",
+      "name": "source/graph/target lock",
+      "A_I2": {
+        "status": "PASS_DESIGN_SOURCE_ONLY_HOLD_EXACT_EXEC_CANDIDATE",
+        "needs": [
+          "strict I2 executable and PR28->33 source/guard binding",
+          "frozen prereg/owner one-shot source SHA"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "PASS_DESIGN_CONTRACT_ONLY_HOLD_REAL_RUNNER",
+        "needs": [
+          "exact real source runner/version and PR34->36->37 + PR35 compatible graph",
+          "no T4/BC special ID alias"
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "name": "measurement and real gold",
+      "A_I2": {
+        "status": "I1_PASS_SCOPED_I2_REAL_SCORES_NOT_EXECUTED",
+        "needs": [
+          "original Q001 estimand and locked gold/readback on real candidate",
+          "do not assume measured model capability"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "C_REAL_GOLD_RATER_HOLD",
+        "needs": [
+          "source-anchored real gold and independent rater if used",
+          "correct masked loss/bpb with byte denominator and controls"
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "name": "rights/family splits/fresh heldout",
+      "A_I2": {
+        "status": "HOLD_EXACT_SOURCE_RIGHTS_AND_TEST_POLICY_LINK",
+        "needs": [
+          "one integrated exact source and allowed uses/rights statement",
+          "original Q001 fresh/consumed TEST boundary, no re-opening"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "HOLD_REAL_CORPUS_RIGHTS_SPLITS",
+        "needs": [
+          "raw source/license action matrix+hash",
+          "family disjoint TRAIN/VAL/fresh TEST and near-dup proof",
+          "TRAIN-only tokenizer source hash"
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "name": "real weights/tokenizer/checkpoint",
+      "A_I2": {
+        "status": "HOLD_EXACT_I2_CHECKPOINT_RUN_BINDING",
+        "needs": [
+          "exact selected Q001 original checkpoint/config/optimizer/tokenizer readback",
+          "strict SHA identity and model/runtime binding"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "HOLD_REAL_WEIGHTS_BYTE_SPAN_AND_STOP_PROTOCOL",
+        "needs": [
+          "real T4 weights/checkpoint manifest SHA & strict loader readback",
+          "versioned adapter or new tokenizer+checkpoint lineage",
+          "exact full-token UTF8 source span/mask coverage, no boundary splitting",
+          "do not treat BC synthetic metadata as real weights"
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "name": "native bounded resources",
+      "A_I2": {
+        "status": "HOLD_ONE_SHOT_HOST_NATIVE_RESOURCE",
+        "needs": [
+          "Windows Job Object caps & watchdog child cleanup on exact runner",
+          "RAM/disk/time/exit/negative provenance"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "HOLD_NEW_GPU_CPU_RESOURCE_EVIDENCE",
+        "needs": [
+          "measured FLOPs/GPU sec/full-session wall and VRAM/RAM on exact candidate",
+          "resource hard cap/watchdog/abort and checker",
+          "74s/1024 and 13min estimates not accepted as evidence"
+        ]
+      }
+    },
+    {
+      "id": "R5",
+      "name": "owner authority and atomic receipts",
+      "A_I2": {
+        "status": "V4_DESIGN_ACCEPTED_NATIVE_RELEASE_HOLD",
+        "needs": [
+          "resolve old preflight HOLD_OWNER_INTERNAL_I1_NOT_PASS without guard bypass",
+          "real trusted Ed25519 owner/principal/reviewer policy epoch signature checks",
+          "original H_SLOT_V3 ledger/no-replace W1-W2 native ancestor race/crash durability",
+          "dual raw/tag bytes final postpublish readback"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "HOLD_NEW_EVIDENCE_CUSTODY_NATIVE",
+        "needs": [
+          "atomic immutability and real runner checkpoint/raw source receipts",
+          "untrusted FS/symlink/junction/TOCTOU policy as applicable",
+          "not presume I2-specific Q001 global slot or release TBS applies to a different study"
+        ]
+      }
+    },
+    {
+      "id": "R6",
+      "name": "frozen prereg/equal compute",
+      "A_I2": {
+        "status": "HOLD_ORIGINAL_PREREG_EXACT_SCOPE_RECONCILIATION",
+        "needs": [
+          "original frozen Q001 prereg/threshold/stop and one-shot identity link",
+          "no changing science question after seeing prior TEST"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "DESIGN_ONLY_NEW_STUDY_NOT_FROZEN",
+        "needs": [
+          "data×compute and real SFT hypothesis/endpoints/arms/seeds fixed upfront",
+          "equal measured FLOPs/gold/CI/multiplicity/stop/fresh TEST custody"
+        ]
+      }
+    },
+    {
+      "id": "R7",
+      "name": "independent QA new exact candidate",
+      "A_I2": {
+        "status": "I1_SCOPED_PASS_BUT_V4_65_NEG_3_POS_NOT_EXECUTED",
+        "needs": [
+          "native/source independent exact release/ledger/TOCTOU negatives and positive",
+          "verify real checkpoint/source/runner binding before one-shot"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "BC_V2_SYNTHETIC_PASS_REAL_QA_NOT_EXECUTED",
+        "needs": [
+          "independent real model/tokenizer/byte-span negative QA, no stop alias",
+          "rights/heldout/source/resource readback"
+        ]
+      }
+    },
+    {
+      "id": "R8",
+      "name": "owner decision",
+      "A_I2": {
+        "status": "HOLD_OWNER_GO_NOT_GRANTED",
+        "needs": [
+          "single exact signed Q001 one-shot release decision after all applicable barriers"
+        ]
+      },
+      "REAL_SFT": {
+        "status": "HOLD_OWNER_GO_NOT_GRANTED",
+        "needs": [
+          "single exact real SFT source/budget/data/compute release decision after all barriers"
+        ]
+      }
+    }
+  ],
+  "minimum_witness_bundles": {
+    "A_I2": "A_I2_EXACT_RELEASE_WITNESS_PACKET_NOT_YET_COMPLETE",
+    "REAL_SFT": "C_B_REAL_SFT_SCIENCE_WITNESS_PACKET_NOT_YET_COMPLETE",
+    "evidence_principle": "ONE_BUNDLE_PER_LANE_NO_MICRO_PERMITS_ALL_FIELD_MISSING_AS_HOLD"
+  },
+  "current_recommendations": {
+    "PM_operation_gate": "PASS_OWNER_READINESS_DECISION_PACKET_DESIGN_SCOPED",
+    "A_I2": "HOLD_RELEASE",
+    "REAL_SFT": "HOLD_RELEASE",
+    "MERGE": "HOLD_OWNER_AUTHORIZATION",
+    "owner_GO_received": false
+  },
+  "history_integrity": {
+    "main_changed": false,
+    "lineage_changed": false,
+    "lineage_last_id": "L0029",
+    "lineage_entries": 30,
+    "science_executed": false,
+    "checkpoint_loaded": false,
+    "model_forward_executed": false,
+    "optimizer_executed": false,
+    "native_test_executed": false,
+    "merge_executed": false
+  },
+  "report_reference": {
+    "commit": "02e46872c805ad4073a0294427626a6450106d7c",
+    "path": "docs/coordination/ttm-abc/TTM_PM_ABC_OWNER_PROSPECTIVE_RELEASE_AND_MERGE_READINESS_ONEPACK_20261117.md"
+  },
+  "next_single_owner_action": "TTM_PM_ABC_OWNER_SINGLE_INTEGRATED_RELEASE_AND_MERGE_DECISION_PACKET_ADJUDICATION_GATE"
+}
