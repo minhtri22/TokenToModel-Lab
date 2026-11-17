@@ -25,7 +25,8 @@ NEW_RUNNER_BLOB = "933f42b514de5fac650bfa2a421844c51b9b7c64"
 Q4_DECISION_BLOB = "8b99e436dd1c31bde3c684167be8a475a73b0dcc"
 TECH40_SHA_FROM_USER_STDOUT = "1a273db7f175578cdc9cf6a976d4679835a42d86a1c0c1604a6ea4e64596a1d9"
 DATA_SHA = "184f68b4c0c800ef3e98362c2e20e1cd35baa269e926489a475664526ecd9913"
-MANIFEST_SHA = "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650"
+MANIFEST_SHA = "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece0ce49468acb53322d650"
+HISTORIC_RUNNER_MISTYPED_MANIFEST_SHA = "ef2e6e67d49b1d5a921b1051df329f15574f1c10cece49468acb53322d650"
 HISTORICAL_CHECKPOINT_SHA = "cb985751795c8328ad65acf7ca4c1033ce35182c1bfbdb8c38550de629cb271b"
 RECIPE_SHA = "d116c92ee1126a91acb1e54d1ff80f08a18ca97bdc8220467a4898426d01d1e3"
 GO_DECISION = "GO_CONDITIONAL_EXACT_OLD_TECH40_CUSTODY_FOR_1024_REPLICATION_VAL_ONLY"
@@ -75,6 +76,29 @@ def write_once(path, data):
         f.flush()
         os.fsync(f.fileno())
 
+def restore_frozen_runner_manifest_digest_in_memory(mod):
+    """Explicit source-only correction of one 61-char typo, not source rewrite.
+
+    The original runner Git blob remains unchanged, while manifest SHA256
+    compares against the actual 64-character file digest independently
+    verified on owner Google Drive. This does not alter recipe or model code.
+    """
+    actual = getattr(mod, "MANIFEST_SHA", None)
+    if actual != HISTORIC_RUNNER_MISTYPED_MANIFEST_SHA:
+        raise ValueError("UNREVIEWED_ORIGINAL_RUNNER_MANIFEST_CONSTANT_DRIFT")
+    if len(MANIFEST_SHA) != 64 or len(actual) != 61:
+        raise ValueError("SOURCE_MANIFEST_AMENDMENT_LENGTH_INVALID")
+    mod.MANIFEST_SHA = MANIFEST_SHA
+    if mod.MANIFEST_SHA != MANIFEST_SHA:
+        raise ValueError("MANIFEST_SCOPED_RUNTIME_REPAIR_FAILED")
+    return {
+        "historical_original_manifest_literal": actual,
+        "actual_google_drive_manifest_sha256": MANIFEST_SHA,
+        "source_git_blob_rewritten": False,
+        "only_in_memory_constant_corrected": True,
+    }
+
+
 def import_runner(path):
     path = require_plain_file(path)
     if git_blob(path.read_bytes()) != OLD_RUNNER_BLOB:
@@ -85,6 +109,7 @@ def import_runner(path):
     spec.loader.exec_module(mod)
     if mod.source_blob() != OLD_RUNNER_BLOB:
         raise ValueError("ORIGINAL_RUNNER_SELF_BLOB_DRIFT")
+    restore_frozen_runner_manifest_digest_in_memory(mod)
     return mod
 
 def _function_texts(raw):
