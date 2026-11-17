@@ -349,6 +349,17 @@ class TestUTF8ByteDomain(unittest.TestCase):
         self.assertTrue(all(x["status"].startswith("HOLD")
                             for x in d["gates"][1:]))
         self.assertEqual(d["owner_q4_decision"], "HOLD_REAL_VERTICAL_SLICE")
+        self.assertEqual(d["gates"][0]["status"], "PASS_SOURCE_CONTRACT_SCOPED")
+        self.assertEqual(d["source_contract_result"],
+                         "PASS_SOURCE_CONTRACT_SCOPED_NOT_PHYSICAL_CUSTODY")
+        report = git_source(
+            "docs/architecture/"
+            "TTM_PM_REAL_GPT_T4_VERTICAL_SLICE_ABC_ADAPTER_ADMISSION_ONEPACK_20261117.md"
+        ).decode("utf-8")
+        self.assertIn("**25/25** test mỗi hệ", report)
+        self.assertIn("R0_PASS_SOURCE_CONTRACT_SCOPED", report)
+        self.assertNotIn("**24/24** test mỗi hệ", report)
+        self.assertNotIn("R0_CANDIDATE_PENDING_QA", report)
         self.assertFalse(d["model_checkpoint_access_authorized"])
         self.assertFalse(d["scientific_run_authorized"])
         self.assertFalse(d["gpu_execution_authorized"])
