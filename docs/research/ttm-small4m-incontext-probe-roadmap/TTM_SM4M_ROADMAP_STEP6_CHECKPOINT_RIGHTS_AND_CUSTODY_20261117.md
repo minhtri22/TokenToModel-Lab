@@ -1,22 +1,28 @@
-# Bước 5 — Xác minh quyền và custody checkpoint (AD-01C/E6)
+# Bước 6 — Xác minh quyền và custody checkpoint (AD-01C/E6), chạy song song
 
 **Trạng thái:** `DESIGN_PROPOSAL_NOT_AUTHORIZED · SOURCE_ONLY · NO_MODEL_RUN · NO_TRAINING · LINEAGE_UNCHANGED`  
-**Ngày:** 2026-11-16 · **Repository:** `minhtri22/TokenToModel-Lab` · **Main được đối chiếu:** `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3` (PR #27).  
-**Tác giả:** Claude (AI), soạn theo yêu cầu của chủ repo trong một phiên trò chuyện. **Review độc lập: `NOT_PERFORMED`.** Mọi ngưỡng, cỡ mẫu và ngân sách dưới đây là **đề xuất của tác giả bản nháp**, chưa dựa trên dữ liệu đo và chưa được đóng băng.  
-**Quan hệ với quản trị hiện hành:** `docs/governance/ACTIVE_RESEARCH_GATE.md` ghi `NO_NEW_BRANCH_AUTHORIZED` và `TTM-SM4M-DIAG-Q001` ở `Q1_REGISTERED_SOURCE_ONLY`. Nhánh chứa tài liệu này được tạo theo yêu cầu trực tiếp của chủ repo; việc nó có trở thành Question Gate, amendment của DIAG-Q001 hay bị bỏ là **quyết định của owner**, không được suy ra từ sự tồn tại của nhánh. Tài liệu này không cấp quyền truy cập checkpoint, không cấp quyền chạy mô hình và không thêm mục vào `lineage.md`.
+**Phiên bản:** v2, 2026-11-17. Thay thế v1 (commit `f88c6d1`, vẫn còn trong lịch sử git). **Repository:** `minhtri22/TokenToModel-Lab`. **Main được đối chiếu:** `f7a0a5874e8fd895c8ea8d17ceff393a4d4917a3` (PR #27, không đổi).  
+**Tác giả:** Claude (AI), soạn theo yêu cầu của chủ repo trong một phiên trò chuyện. **Review độc lập: `NOT_PERFORMED`.** Mọi ngưỡng, cỡ mẫu, thời gian và ngân sách là **đề xuất của tác giả bản nháp**, chưa dựa trên dữ liệu đo và chưa được đóng băng.  
+**Quan hệ với quản trị hiện hành:** `docs/governance/ACTIVE_RESEARCH_GATE.md` ghi `NO_NEW_BRANCH_AUTHORIZED` và `TTM-SM4M-DIAG-Q001` ở `Q1_REGISTERED_SOURCE_ONLY`. Nhánh chứa tài liệu này được tạo theo yêu cầu trực tiếp của chủ repo; việc nó trở thành Question Gate, amendment của DIAG-Q001 hay bị bỏ là **quyết định của owner**. Tài liệu không cấp quyền truy cập checkpoint, không cấp quyền chạy hay huấn luyện mô hình và không thêm mục vào `lineage.md`.
 
-**Lộ trình 5 bước (mỗi bước một tài liệu):**
-1. Probe teacher-forced trên checkpoint nguyên bản (tài liệu STEP1)
-2. Đối chứng random-init và hai checkpoint 1024/1280 (STEP2)
-3. Sửa thang đo trước khi train thêm (STEP3)
-4. Tách data / objective / capacity (STEP4)
-5. Xác minh quyền và custody checkpoint, chạy song song (STEP5)
+**Nguồn đối chiếu bên ngoài (đã đọc) và giới hạn:** nanochat (`karpathy/nanochat`, commit `92d63d4`, 2026-07-03: README, `dev/LOG.md`, `scripts/base_train.py`, `nanochat/gpt.py`, `nanochat/optim.py`), repo autoresearch, và bài "A Recipe for Training Neural Networks". **Các video YouTube của Karpathy không xem được** (trang chặn tải), nên phần dựa vào video chỉ dựa trên mục lục, mô tả và hiểu biết nền của tác giả bản nháp, không phải trích dẫn nội dung từng clip. Kết quả của nanochat được thử ở quy mô d12–d26 trên GPU 8×H100 và **không tự chuyển** sang mô hình 3,7M tham số.
+
+**Lộ trình v2 (mỗi bước một tài liệu):**
+0. Kiểm tra nền kiểu Recipe và đối chiếu implementation tham chiếu (STEP0)
+1. Đường cong scale ở horizon compute-optimal (STEP1)
+2. Probe teacher-forced, bộ chọn-ending và đối chứng (STEP2)
+3. Sửa thang đo cho sinh tự do (STEP3)
+4. Ablation kiến trúc từng thay đổi một (STEP4)
+5. Objective, dung lượng và bậc thang scale vượt Small-4M (STEP5)
+6. Xác minh quyền và custody, chạy song song (STEP6)
+
+**Thay đổi so với v1:** thêm STEP0 và STEP4; STEP1 thay Bước 4a của v1 (giữ compute, đổi độ đa dạng) bằng đường cong scale tới horizon compute-optimal; Bước 2 của v1 (đối chứng random-init, M1024, M1280) được gộp vào STEP2; v1 Bước 4b/4c chuyển thành STEP5; v1 Bước 5 thành STEP6.
 
 ---
 
 ## 1. Vì sao là bước đầu tiên về mặt phụ thuộc
 
-Cả STEP1 lẫn STEP2 đều cần mở checkpoint. `docs/governance/ACTIVE_RESEARCH_GATE.md` ghi `checkpoint_model_rights = AD00_AD01C_E6_NOT_VERIFIED` và `execution_permit = NO`. Không có bước này thì mọi bước dùng checkpoint đều bị chặn. Bước này **không đòi chạy mô hình** và có thể thực hiện song song.
+STEP0 (đối chiếu logits giữa hai implementation, mục 0.7) và STEP2 (giai đoạn 2a) cần mở checkpoint hiện có; STEP1, STEP4 và STEP5 tạo checkpoint mới. `docs/governance/ACTIVE_RESEARCH_GATE.md` ghi `checkpoint_model_rights = AD00_AD01C_E6_NOT_VERIFIED` và `execution_permit = NO`. Không có bước này thì mọi bước dùng checkpoint đều bị chặn. Bước này **không đòi chạy mô hình** và có thể thực hiện song song.
 
 ## 2. Những gì repo đã biết (đã đọc) và những gì chưa
 
@@ -60,9 +66,16 @@ Tài liệu quyền của repo chủ yếu nói về **công bố** (release): d
 - [ ] Không đưa checkpoint, dữ liệu nguồn hay token pack lên GitHub (đúng ma trận quyền).
 - [ ] Không dùng TEST64, FINAL24 và các tập đã tiêu thụ.
 
-### 4.5. Dữ liệu mới cho STEP4
+### 4.5. Dữ liệu mới cho STEP1, STEP4, STEP5
 - [ ] Quyền chọn tập con TinyStories mới, huấn luyện cục bộ từ nó, và xử lý trọng số dẫn xuất mới: quyết định riêng; không suy ra từ chứng nhận cho M1024/M1280.
 - [ ] Phân loại Data/Enhanced Data/Results nếu có kế hoạch công bố sau này (mục R1–R4 của ma trận quyền).
+
+### 4.6. Custody theo thiết kế cho mọi checkpoint mới (STEP1, STEP4, STEP5)
+- [ ] Mỗi run mới ghi manifest ngay khi lưu: RUN_ID, commit hoặc blob của mã huấn luyện, hash cấu hình, hash pack dữ liệu và tokenizer, seed, số bước, lượt tiếp xúc, SHA-256 và độ dài của checkpoint, môi trường (phiên bản Python, torch, GPU).
+- [ ] Ghi checkpoint bằng cách ghi tạm rồi đổi tên và không ghi đè (như T4: READY-last, immutable).
+- [ ] Lưu riêng tư; tên tệp mang RUN_ID và SHA-256.
+- [ ] Mỗi checkpoint mới cần dòng chứng nhận phạm vi riêng (cùng khung ở mục 5) hoặc một chứng nhận bao trùm nêu rõ quy tắc sinh ra chúng.
+- [ ] Bảng ghi mọi run của làn thăm dò (STEP0 mục 3) tham chiếu cùng RUN_ID.
 
 ## 5. Mẫu chứng nhận của owner (khung, không phải văn bản pháp lý)
 
@@ -82,9 +95,9 @@ CheckpointAttestation
 
 | Kết quả | Hệ quả |
 |---|---|
-| Hash khớp, cấu trúc khớp, owner chứng nhận phạm vi cục bộ | `AD-01C = VERIFIED_FOR_LOCAL_INFERENCE_ONLY` cho đúng các SHA đã nêu; STEP1–STEP2 có thể được xem xét (vẫn cần owner GO riêng) |
+| Hash khớp, cấu trúc khớp, owner chứng nhận phạm vi cục bộ | `AD-01C = VERIFIED_FOR_LOCAL_INFERENCE_ONLY` cho đúng các SHA đã nêu; STEP0 (mục 0.7) và STEP2 (giai đoạn 2a) có thể được xem xét (vẫn cần owner GO riêng) |
 | Hash lệch hoặc tệp thiếu | `HOLD_CUSTODY`; không thay checkpoint |
-| Owner không thể chứng nhận phạm vi | `HOLD_RUN`; STEP1–2 chỉ chạy được phần không cần checkpoint (random-init) |
+| Owner không thể chứng nhận phạm vi | `HOLD_RUN`; STEP0 và STEP2 chỉ chạy được phần không cần checkpoint hiện có (random-init) |
 | Cấu trúc nhúng không khớp | `HOLD_SOURCE_MISMATCH` |
 
 Chứng nhận này **không** là bằng chứng khoa học và không mở quyền chạy tự động.
