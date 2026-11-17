@@ -1,0 +1,155 @@
+{
+  "schema": "ttm.abc.track_b.ccr01.exact_c_remap.author_source_readback_receipt.v1",
+  "operation": "TTM_PM_ABC_CCR01_SOURCE_REF_T4_CODEC_INTEGRATED_ALIGNMENT_AND_OWNER_READINESS_READJUDICATION_ONEPACK",
+  "date": "2026-11-17",
+  "mode": "EXACT_SHA_SOURCE_ONLY_DESIGN_ONLY_NO_SCIENCE_NO_IMPLEMENTATION_NO_MERGE",
+  "actor": "Agent B — engineering compatibility mapping",
+  "parent_B_source_packet_commit": "38e24f4fa1ee1eb5a5e1bec5e3746e98a07e13b5",
+  "parent_B_matrix_git_blob": "ca484be5ae66340d113fce05c1d0513d0177e7a3",
+  "PM_handoff": {
+    "commit": "c18319f312fc56d1d79923570abb9c9df6c6d62f",
+    "git_blob_sha1": "c01b028b5c08df42cc481c73516a366555534ad8",
+    "path": "docs/coordination/ttm-abc/handoffs/TTM_PM_ABC_CCR01_AGENT_B_EXACT_C_REMAPPING_HANDOFF_20261117.md"
+  },
+  "exact_inputs": {
+    "shared_contract_commit": "403491b698ba6586193f2ff2ae00c4441c10c595",
+    "shared_contract_git_blob": "d7fbc02a45b1d1a85cfe9b9594ae88fee495a9e1",
+    "A_packet_commit": "7639a53b9d76e16abfa4211cf239c5c3e9d6c940",
+    "A_37_requirements_blob": "3de320f1e734c7610fb750477803b082fefff753",
+    "A_evidence_index_blob": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+    "C_old_packet_commit": "614caff47657ccee43ad10ba06ae8ebb782b4114",
+    "C_old_registry_git_blob": "64508ace4de057958ccbc9e3c7616a18c022250e",
+    "C_old_registry_sha256": "bc4131f172ba2744bd1bfb657846f5e3127175ac15908f46bc9904e3d19add0d",
+    "C_new_packet_commit": "4efe93ce0a3910c449972b3f7e9911a004fe2b3c",
+    "C_new_registry_git_blob": "364a15d305b71e0c236a27409430f1e27e14aa70",
+    "C_new_registry_sha256": "6db387c75e3f2f0ae8b05af65f66cfddf025ad2ba06d562e8645a16f9f0aab1d",
+    "C_integrated_amendment_blob": "e6a77fcb85fbbf24fd1b25e6459c1f40bbfa8e97",
+    "B_PR34_commit": "43896bcd034c82e8433bc6a2b53eefbd936616fb",
+    "BC_PR36_commit": "09de6a46574146d863f416e056fcf01091f3efb8",
+    "BC_v2_tested_code_commit": "a83e1526bce842761f3051dad28b90a55395a6aa",
+    "BC_v2_bridge_blob": "c56d98b520fef387fab43bac87b7a9247287b17c",
+    "T4_BPE_original_blob": "fa5bd892941ba5aa6e6b2f0b2b0ae974efe297b6"
+  },
+  "ACKs": {
+    "C_sci_authority_ack": "C_INTEGRATED_ALIGNMENT_PACKET_READY_SCOPED",
+    "C_issue32_comment": 6938257665,
+    "A_issue32_comment": 6938396264,
+    "A_status": "A_CCR01_MEASUREMENT_ACK_SCOPED",
+    "B_prior_contract_ack_issue32_comment": 6937885002,
+    "B_existing_semantics_CCR_ack_issue32_comment": 6937997482,
+    "PM_old_B_accepted_issue32_comment": 6938107650,
+    "not_owner_cryptographic_signature": true
+  },
+  "new_B_additive_files": [
+    {
+      "path": "artifacts/ttm-abc/track-b/B_ABC_CCR01_EXACT_C_37_26_14_REMAP_20261117.json",
+      "created_commit": "65fbad3faff8a33661c61220ce2f28ad6966f20c",
+      "Git_blob_sha1": "c2d4a050f35218de2c023d3a5c50fb3454404c23",
+      "content": "full 77 source-preserved B mapping rows, C new exact SHA and prospective sidecar constraints"
+    },
+    {
+      "path": "docs/coordination/ttm-abc/track-b/JOINT_COMPATIBILITY_MATRIX_A_C_B_CCR01_EXACT_C_REMAP_20261117.md",
+      "created_commit": "001dd150604945edc37019b05087f71f75affce1",
+      "Git_blob_sha1": "524ab7bbf756eccde66d734d66944ade8669c3e5",
+      "content": "77 field rows, semantic scopes, R0-R8, source pins and hold matrix"
+    }
+  ],
+  "source_readback_tests": {
+    "B_READBACK_01": {
+      "status": "PASS_SCOPED",
+      "raw_sha256_recomputed_independently": true,
+      "raw_sha256_standard_empty_and_abc_selftests": true,
+      "GitHub_git_blob_readback_old_new": true,
+      "one_json_change_exact": "$.sources.a_requirements_git_blob",
+      "old_incorrect_blob": "4f96452215778c3cca1af19bd6d2e3b6506d87d2",
+      "new_correct_blob": "3de320f1e734c7610fb750477803b082fefff753",
+      "all_other_source_root_keys_unchanged": true,
+      "A_37_rows_and_blob_ref_unchanged": true
+    },
+    "B_READBACK_02": {
+      "status": "PASS_SCOPED",
+      "A37_exact_count": 37,
+      "C26_exact_count": 26,
+      "B_facing_exact_count": 14,
+      "total_display_rows": 77,
+      "unique_logical_fields": 63,
+      "all_original_fields_and_order_unchanged": true,
+      "A37_owner_type_unit_byte_domain_validation_negative_hold_previous_B_status_unchanged": true,
+      "C26_owner_type_unit_byte_domain_validation_negative_hold_previous_B_status_unchanged": true,
+      "B14_expected_type_unit_byte_domain_negative_previous_B_status_unchanged": true,
+      "B14_subset_C26": true,
+      "prior_B_status_distribution_A37": {
+        "EXACT_MATCH": 10,
+        "ADAPTER_DESIGN_REQUIRED": 12,
+        "NOT_PROVEN": 14,
+        "INCOMPATIBLE": 1
+      },
+      "prior_B_status_distribution_C26": {
+        "ADAPTER_DESIGN_REQUIRED": 9,
+        "NOT_PROVEN": 17
+      },
+      "prior_B_status_distribution_B14": {
+        "ADAPTER_DESIGN_REQUIRED": 7,
+        "NOT_PROVEN": 7
+      },
+      "no_status_promotion": true
+    },
+    "B_READBACK_03": {
+      "status": "PASS_SOURCE_VERIFIED_INCOMPATIBILITY_ADAPTER_DESIGN_ONLY",
+      "T4_merge_ids": "257..2047",
+      "BC_role_control_ids": "257..262",
+      "direct_mapping": "INCOMPATIBLE_DIRECT_T4_BC",
+      "C_selected_prospective_design": "T4_NATIVE_BPE_EXTERNAL_ROLE_BYTE_SPAN_DESIGN_ONLY",
+      "B_design_assessment": "ADAPTER_DESIGN_REQUIRED",
+      "actual_codec_adapter_implemented": false,
+      "role_sidecar_does_not_change_model_inputs_or_chat_awareness": true,
+      "historical_T4_chat_EOT_not_proven": true,
+      "real_checkpoint_weights_raw_sha256": "UNVERIFIED",
+      "real_T4_tokenizer_file_bytes_SHA256": "UNVERIFIED",
+      "per_token_utf8_offsets_tested": false,
+      "no_boundary_crossing_merge_tested": false,
+      "blockers": [
+        "HOLD_BYTE_DENOM",
+        "HOLD_SFT_INCOMPATIBLE_TOKENIZER",
+        "HOLD_REAL_CHECKPOINT"
+      ]
+    },
+    "B_READBACK_04": {
+      "status": "PASS_A_B_C_SEMANTIC_ACK_SCOPED_NOT_RUNTIME",
+      "BC_training_mask": "shift +1, ignore -100, assistant content+assistant EOT+final EOS supervised, no direct prompt/user/header/PAD CE",
+      "C_byte_only_bpb": "pooled full-vocab gold NLL on genuine source-aligned raw UTF-8 text data tokens divided by ln(2) * exact corresponding valid raw UTF-8 bytes; structural/stop NLL+bytes excluded",
+      "stop_target_CE": "reported separately, not silently omitted from training",
+      "A_original_I1_measurement": "one gold next-token full-vocab NLL nats, not bits/byte",
+      "A_V4_RAW_TAG_POLICY_EPOCH_SLOT": "UNCHANGED",
+      "BC_utf8_lf_7sha_manifest": "UNCHANGED"
+    }
+  },
+  "scientific_and_engineering_gates": {
+    "R0": "PASS_SCOPED_SOURCE_CORRECTION_ACK_MATRIX_37_26_14; PM_DISTINCT_FINAL_PENDING",
+    "R1": "A_I1_PASS_SCOPED; C_REAL_GOLD_HOLD",
+    "R2": "HOLD_RIGHTS_SPLITS_FAMILY_FRESH_HELDOUT",
+    "R3": "INCOMPATIBLE_DIRECT_T4_BC; DESIGN_ONLY_SIDECAR; HOLD_REAL_WEIGHTS_AND_BYTE_OFFSETS_AND_EOT",
+    "R4": "HOLD_NEW_OWNER_HOST_NATIVE_RESOURCE",
+    "R5": "A_V4_DESIGN_ACCEPT_SCOPED; NATIVE_SIGNATURE_TOCTOU_LEDGER_HOLD",
+    "R6": "DESIGN_ONLY_NOT_PREREG_FROZEN",
+    "R7": "REAL_FINAL_QA_NOT_EXECUTED; PM_DISTINCT_DESIGN_REVIEW_PENDING",
+    "R8": "HOLD_OWNER_RELEASE"
+  },
+  "historical_B_M3": "PASS_ENGINEERING_BASELINE_SCOPED_PM_WITH_HISTORIC_V3_NATIVE_HOLD_PEAK_ACCOUNTING_DISSENT",
+  "historical_V3_native_receipt_sha256": "063bb5770c92881ab8fd0ae485f007026594495109c0c0b0359a0ba686c22188",
+  "no_code_changes": true,
+  "no_A_C_source_mutation": true,
+  "no_model_loading": true,
+  "no_new_tokenizer_runtime": true,
+  "no_checkpoint_download": true,
+  "no_real_SFT": true,
+  "no_GPU": true,
+  "no_new_TEST": true,
+  "no_I2": true,
+  "no_main_merge": true,
+  "no_lineage_change": true,
+  "author_conclusion": "B_REMAP_READBACK_SCOPED",
+  "PM_final_decision": "NOT_ADJUDICATED_BY_B",
+  "joint_alignment": "HOLD_PENDING_PM_FINAL_DISTINCT_ADJUDICATION",
+  "next_step": "PM independent onepass exact A_C_B source/readback and decide ABC_CONTRACT_ALIGNED_DESIGN_SCOPED or HOLD_ABC_CONTRACT_ALIGNMENT under SAME operation"
+}
