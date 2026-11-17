@@ -51,7 +51,7 @@ def read_json(path):
 
 def read_q4(path,bridge):
     p=Path(path)
-    if p.is_symlink() or not p.is_file() or git_blob(p.read_bytes())!=Q4_BLOB:
+    if p.is_symlink() or not p.is_file() or git_blob(p.read_bytes().replace(b"\r\n", b"\n"))!=Q4_BLOB:
         raise ValueError("EXACT_RECOVERY_Q4_GIT_BLOB_REQUIRED")
     o=json.loads(p.read_bytes())
     expected={
@@ -88,7 +88,10 @@ def guard_not_original_available(original_parent,drive_root):
         checked+=1
         if checked>2500:
             raise ValueError("DRIVE_SEARCH_CAP_EXCEEDED_HOLD")
-        dirs[:]=[d for d in dirs if not (Path(folder)/d).is_symlink()]
+        # Fresh recovery receipts are distinct events, never old TECH40 backups.
+        # Skip these on both first-run and checkpoint resume.
+        dirs[:]=[d for d in dirs if not (Path(folder)/d).is_symlink()
+                 and not d.startswith(RUN_PREFIX)]
         if "TECHNICAL_SYNTHETIC_40.json" in files:
             raise ValueError("POSSIBLE_ORIGINAL_RECEIPT_BACKUP_USE_BRIDGE:"+str(Path(folder)/TECH40_RECEIPT))
     return checked
@@ -122,7 +125,7 @@ def preflight(args):
     root=base/(RUN_PREFIX+args.run_id)
     if args.mode in ("preflight","onepack") and root.exists():
         raise FileExistsError("RECOVERY_RUN_ALREADY_EXISTS_NO_OVERWRITE")
-    if args.mode=="resume" and not root.is_dir():
+    if args.mode=="resume" and (root.is_symlink() or not root.is_dir()):
         raise ValueError("RECOVERY_RESUME_ORIGINAL_ROOT_REQUIRED")
     gpu=None
     if args.mode in ("onepack","resume"):
