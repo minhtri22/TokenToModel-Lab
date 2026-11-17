@@ -1,5 +1,5 @@
 """TTM matched TinyStories 3,749,376-parameter P02 GPT runner, Python 3.12.
-Pure source QA is default; native Torch QA uses toy synthetic tensors only.
+Pure source QA is default. Synthetic 40 and native CPU checkpoint QA are non-science.
 Real model training and paired checkpoint evaluation require explicit exact Q4.
 Historical TinyStories TEST is never read; source files and packs are SHA pinned.
 """
@@ -233,10 +233,21 @@ def require_capacity(path, arm):
     cap = json.loads(Path(path).read_text("utf-8"))
     is_40 = cap.get("schema") == "ttm.matched_4m.synthetic40.v1"
     if is_40:
+        trial = cap.get("trial") or {}
         if (arm != "replica_1024" or cap.get("steps_executed") != 40
                 or cap.get("status") != "PASS_FULL_P02_SYNTHETIC_40_SCOPED"
                 or cap.get("recipe_1024_sha256") != recipe_hash("replica_1024")
                 or cap.get("runner_git_blob") != source_blob()
+                or cap.get("architecture_parameters") != PARAMETERS
+                or cap.get("synthetic_target_exposures") != 40 * TOKENS_PER_STEP
+                or cap.get("transfer_to_new_science") is not False
+                or cap.get("science_executed") is not False
+                or cap.get("test_accessed") is not False
+                or trial.get("warmup_steps") != 2
+                or trial.get("timed_steps") != 38
+                or len(trial.get("sample_seconds", [])) != 38
+                or trial.get("context") != 256 or trial.get("precision") != "fp16"
+                or trial.get("scored_target_tokens_per_optimizer_step") != TOKENS_PER_STEP
                 or cap.get("reserved_ratio", 1.) > CUDA_RESERVED_CAP_RATIO
                 or cap.get("projected_1024_seconds_with_reserve", 999999) > TOTAL_GPU_SECONDS_CAP):
             raise ValueError("PROSPECTIVE_RESOURCE_40_PROOF_NOT_ACCEPTED")
