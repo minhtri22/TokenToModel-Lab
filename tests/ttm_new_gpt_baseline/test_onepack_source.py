@@ -32,7 +32,11 @@ class ExternalSourceQA(unittest.TestCase):
         self.assertIn('RUN_ID = "UNSET_NO_Q4_GO"', "".join(codes[0]["source"]))
     def test_notebook_exact_runner_git_blob(self):
         code = "\n".join("".join(c["source"]) for c in json.loads(NB.read_text("utf-8"))["cells"] if c["cell_type"] == "code")
-        self.assertIn(r.git_blob(RUNNER.read_bytes()), code)
+        # GitHub Windows checkout can convert LF to CRLF; Git blob is canonical source truth.
+        pinned = subprocess.check_output(
+            ["git", "rev-parse", "HEAD:src/ttm_new_gpt_baseline/runner.py"],
+            cwd=ROOT, text=True).strip()
+        self.assertIn(pinned, code)
         self.assertIn("RUNNER_SOURCE_DRIFT_FAIL_CLOSED", code)
         self.assertIn("Q4_GO_MISSING", code)
     def test_no_weights_import_or_cuda_in_qa(self):
