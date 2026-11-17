@@ -487,8 +487,10 @@ def compare(args):
     print(json.dumps(outcome, ensure_ascii=False, sort_keys=True))
 
 def native_resume_qa(args):
-    """CPU toy parity tests actual T4 checkpoint save/load; no TinyStories, model or GPU."""
-    torch, np, _, legacy, _, _ = runtime_sources(args.sources)
+    """Native CPU parity: toy full wrappers plus exact P02 4M serializer/resume.
+    Synthetic tiny context only; NOT a 4096-target/T4 FP16 science test.
+    """
+    torch, np, p02, legacy, _, _ = runtime_sources(args.sources)
     import random
     torch.set_num_threads(1)
     def make_state(seed):
@@ -535,12 +537,65 @@ def native_resume_qa(args):
             handle.write(b"tamper")
         with unittest.TestCase().assertRaisesRegex(ValueError, "READY_CHECKPOINT_OR_PROGRESS_SHA"):
             checked_ready(folder, 2)
+    # A second, stronger QA uses the exact 3,749,376-parameter P02 GPT,
+    # but only 8 synthetic target positions/step on CPU (NOT real T4 science).
+    def full_state(seed):
+        torch.manual_seed(seed)
+        model = p02.GPT(p02.P02Config(**P02_CONFIG)).cpu()
+        if sum(z.numel() for z in model.parameters()) != PARAMETERS:
+            raise ValueError("NATIVE_FULL_P02_PARAMETER_MISMATCH")
+        opt = torch.optim.AdamW(model.parameters(), lr=.0003,
+                                betas=(.9, .95), eps=1e-8, weight_decay=.1)
+        sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda _: 1.)
+        gen = torch.Generator(device="cpu").manual_seed(seed + 71)
+        return model, opt, sched, gen
+    def full_step(state):
+        import torch.nn.functional as F
+        model, opt, sched, gen = state
+        pair = torch.randint(0, 2048, (1, 9), generator=gen)
+        opt.zero_grad(set_to_none=True)
+        logits, _ = model(pair[:, :-1])
+        loss = F.cross_entropy(logits.float().reshape(-1, 2048),
+                               pair[:, 1:].reshape(-1))
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.)
+        opt.step()
+        sched.step()
+        return float(loss.detach())
+    ref_state = full_state(20261108)
+    reference_losses = [full_step(ref_state) for _ in range(3)]
+    first_state = full_state(20261108)
+    prefix = [full_step(first_state)]
+    with tempfile.TemporaryDirectory(prefix="ttm-matched-real4m-cpu-qa-") as d:
+        lock = sha_bytes(b"only-native-cpu-synthetic-qa")
+        payload = legacy.checkpoint_payload(*first_state[:4], None, 1, lock,
+                                            DATA_SHA, 0., torch.device("cpu"))
+        cp = Path(d) / "checkpoint.pt"
+        torch.save(payload, cp)
+        write_new(Path(d) / "READY.json", canonical({
+            "schema": "ttm.t4.ready.last.v1", "checkpoint": "checkpoint.pt",
+            "step": 1, "sha256": sha_file(cp), "bytes": cp.stat().st_size}))
+        restored_state = full_state(7)
+        observed_step, _ = legacy.checkpoint_load(
+            Path(d), *restored_state, None, torch.device("cpu"), lock, DATA_SHA)
+        if observed_step != 1:
+            raise ValueError("FULL_P02_RESUME_STEP_INVALID")
+        new_losses = prefix + [full_step(restored_state) for _ in range(2)]
+        full_delta = max(float((a - b).abs().max()) for a, b in
+                         zip(ref_state[0].parameters(), restored_state[0].parameters()))
+        if (full_delta > 1e-8 or any(abs(a-b) > 1e-8
+                                     for a,b in zip(reference_losses, new_losses))):
+            raise ValueError("FULL_P02_CPU_SYNTHETIC_RESUME_PARITY_FAIL")
     out = {"schema": "ttm.matched_4m.synthetic_native_resume_qa.v1",
            "status": "PASS_CPU_TOY_STATE_AND_RNG_RESUME_PARITY_SCOPED",
            "steps_compared": 4, "split_at": 2, "max_abs_parameter_diff": delta,
            "checkpoint_tamper_rejected": True, "data": "SYNTHETIC_ONLY",
+           "full_p02_parameters": PARAMETERS, "full_p02_cpu_steps_compared": 3,
+           "full_p02_synthetic_targets_per_step": 8,
+           "full_p02_cpu_resume_max_abs_parameter_diff": full_delta,
            "python": sys.version.split()[0], "torch": str(torch.__version__),
            "real_4m_fp16_resume": "NOT_EXECUTED",
+           "real_4m_cpu_synthetic_state_resume": "PASS_SCOPED",
            "science_executed": False, "owner_q4": "HOLD"}
     if args.out:
         write_new(args.out, canonical(out))
