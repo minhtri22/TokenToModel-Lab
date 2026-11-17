@@ -73,7 +73,7 @@ Nhánh `implementation/ttm-pm-real-gpt-vertical-slice-admission-contract-2026111
 
 1. `src/ttm_real_baseline/typed_admission.py`: typed SHA-domain/source relationship validator, strict schema/config, fail-closed owner HOLD.
 2. `src/ttm_real_baseline/byte_eval_contract.py`: C UTF-8 bpb arithmetic bridge for fake values; EOS exclusion, T4-BPE no alias, rejected invalid bytes/spans/NLL.
-3. `tests/ttm_real_baseline/test_t4_contract_source_only.py`: 24 unittest gồm negative tampering, owner forged GO, alias, schema, byte denominators; dùng synthetic-only fixture generated in memory.
+3. `tests/ttm_real_baseline/test_t4_contract_source_only.py`: 25 unittest gồm negative tampering, owner forged GO, alias, schema, byte denominators; dùng synthetic-only fixture generated in memory.
 4. `.github/workflows/ttm-real-baseline-source-contract-py312.yml`: Python3.12 Windows/Linux stdlib source-only QA, không pip/Torch/dataset.
 5. `artifacts/ttm-real-baseline/TTM_PM_T4_ABC_R0_R8_ADMISSION_LEDGER_20261117.json`: ledger scope and exact source pins, current HOLD, no GO.
 6. Tài liệu OnePack này + receipt QA sau khi có CI.
@@ -88,4 +88,4 @@ Nhánh `implementation/ttm-pm-real-gpt-vertical-slice-admission-contract-2026111
 
 **Bước thực hiện tiếp theo — duy nhất sau khi source QA/PR đã được phân xử:** PM đánh giá ứng viên này để merge **đúng phạm vi source/QA** nếu PASS; chuẩn bị **một** owner R0–R8 witness cho real T4 action (nếu có exact checkpoint/corpus private và quyền), không tạo chuỗi micro-permit. Nếu owner chưa có quyền hoặc byte gốc, tiếp tục HOLD real runtime nhưng hướng phát triển TTM vẫn mở.
 
-**Trạng thái khóa hiện tại:** `T4_TYPED_ADAPTER_DESIGN_SOURCE_ONLY · UTF8_BP_B_ARITHMETIC_SYNTHETIC_ONLY · R0_CANDIDATE_PENDING_QA · R1_R8_HOLD · A_I2_HOLD · REAL_MODEL_NOT_EXECUTED · MAIN_UNCHANGED · NO_NEW_SCIENCE`.
+**Trạng thái khóa hiện tại:** `T4_TYPED_ADAPTER_DESIGN_SOURCE_ONLY · UTF8_BPB_ARITHMETIC_SYNTHETIC_ONLY · R0_CANDIDATE_PENDING_QA · R1_R8_HOLD · A_I2_HOLD · REAL_MODEL_NOT_EXECUTED · MAIN_UNCHANGED · NO_NEW_SCIENCE`.
