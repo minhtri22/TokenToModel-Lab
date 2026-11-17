@@ -368,8 +368,9 @@ def train(args):
                 raise ValueError("LATER_CHECKPOINT_EXISTS_REFUSE_FORK")
     torch.cuda.reset_peak_memory_stats()
     wall_start = time.monotonic()
+    spent_at_resume = spent
     for step in range(start + 1, plan_of(args.arm)["steps"] + 1):
-        if spent + (time.monotonic() - wall_start) > TOTAL_GPU_SECONDS_CAP:
+        if spent_at_resume + (time.monotonic() - wall_start) > TOTAL_GPU_SECONDS_CAP:
             raise TimeoutError("ARM_GPU_WALL_CAP_NO_AUTO_RETRY")
         torch.cuda.synchronize()
         before = time.perf_counter()
@@ -502,34 +503,29 @@ def native_resume_qa(args):
     first_losses = [do_step(first) for _ in range(2)]
     with tempfile.TemporaryDirectory(prefix="ttm-matched-native-qa-") as d:
         go_sha = sha_bytes(b"synthetic-native-test-lock")
-        # Standalone two-step toy checkpoint exercising original checkpoint_payload/load
-        payload = legacy.checkpoint_payload(first[0], first[1], first[2], first[3],
-                                            None, 2, go_sha, DATA_SHA, 0.,
-                                            torch.device("cpu"))
-        cp = Path(d) / "checkpoint.pt"
-        torch.save(payload, cp)
-        ready = {"schema": "ttm.t4.ready.last.v1", "checkpoint": "checkpoint.pt",
-                 "sha256": sha_file(cp), "bytes": cp.stat().st_size, "step": 2}
-        write_new(Path(d) / "READY.json", canonical(ready))
+        root = Path(d) / "replica_1024__toy_native"
+        root.mkdir()
+        progress = [{"step": i, "valid_targets": TOKENS_PER_STEP,
+                     "cumulative_seconds": float(i)} for i in (1, 2)]
+        durable_checkpoint(root, 2, first[0], first[1], first[2], first[3],
+                           None, legacy, torch, go_sha, progress)
+        folder = checkpoint_dir(root, 2)
+        ready = checked_ready(folder, 2)
         restored = make_state(7)
-        step, _ = legacy.checkpoint_load(Path(d), *restored, None, torch.device("cpu"),
-                                         go_sha, DATA_SHA)
-        if step != 2:
-            raise ValueError("RESUME_STEP_NOT_2")
+        step, _, loaded_progress = resume_state(folder, *restored, None, legacy,
+                                                torch, go_sha, "replica_1024")
+        if step != 2 or loaded_progress != progress or ready["step"] != 2:
+            raise ValueError("RESUME_STEP_OR_PROGRESS_NOT_2")
         resumed_losses = first_losses + [do_step(restored) for _ in range(2)]
         delta = max(float((a - b).abs().max()) for a, b in
                     zip(orig[0].parameters(), restored[0].parameters()))
         if delta > 1e-8 or any(abs(a - b) > 1e-8 for a, b in zip(orig_losses, resumed_losses)):
             raise ValueError("SYNTHETIC_CPU_RESUME_PARITY_FAIL")
         # Mutating checkpoint bytes must fail before torch.load.
-        with cp.open("ab") as f:
-            f.write(b"tamper")
-        try:
-            legacy.checkpoint_load(Path(d), *restored, None, torch.device("cpu"), go_sha, DATA_SHA)
-            raise AssertionError("CHECKPOINT_TAMPER_NOT_REJECTED")
-        except RuntimeError as ex:
-            if "SHA_MISMATCH" not in str(ex):
-                raise
+        with (folder / "checkpoint.pt").open("ab") as handle:
+            handle.write(b"tamper")
+        with unittest.TestCase().assertRaisesRegex(ValueError, "READY_CHECKPOINT_OR_PROGRESS_SHA"):
+            checked_ready(folder, 2)
     out = {"schema": "ttm.matched_4m.synthetic_native_resume_qa.v1",
            "status": "PASS_CPU_TOY_STATE_AND_RNG_RESUME_PARITY_SCOPED",
            "steps_compared": 4, "split_at": 2, "max_abs_parameter_diff": delta,
